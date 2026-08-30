@@ -17,23 +17,12 @@ export interface QuestionRepository {
 
 // Known paths in GitHub repository (AbhyaasData)
 const KNOWN_PAPER_PATHS = [
-  'Papers/XII/Political Science/class12_polscience_2026_model_paper_.json',
-  'Papers/XII/Political Science/class12_polscience_2026_set_a.json',
-  'Papers/XII/Political Science/class12_polscience_2025_set_b.json',
-  'Papers/XII/Biology/class12_biology_2026_set_a.json',
+  'Papers/XII/Political Science/class12_polscience_2026_set_b.json',
+  'Papers/XII/Political Science/class12_polscience_2026_set_h.json',
+  'Papers/XII/Political Science/class12_polscience_2025_set_g.json',
+  'Papers/XII/Political Science/class12_polscience_2024_set_a.json',
+  'Papers/XII/Political Science/class12_polscience_2024_set_d.json',
   'Papers/XII/History/class12_history_2023_set_a.json',
-  'Papers/XII/History/class12_history_2026_set_a.json',
-  'Papers/XII/Physics/class12_physics_2026_set_a.json',
-  'Papers/XII/Chemistry/class12_chemistry_2026_set_a.json',
-  'Papers/XII/Mathematics/class12_math_2026_set_a.json',
-  'Papers/XII/Geography/class12_geography_2026_set_a.json',
-  'Papers/XII/Economics/class12_economics_2026_set_a.json',
-  'Papers/XII/Hindi/class12_hindi_2026_set_a.json',
-  'Papers/XII/English/class12_english_2026_set_a.json',
-  'Papers/X/Science/class10_science_2026_set_a.json',
-  'Papers/X/Social Science/class10_social_science_2026_set_a.json',
-  'Papers/X/Mathematics/class10_math_2026_set_a.json',
-  'Papers/XI/Mathematics/class11_math_2026_set_a.json',
 ];
 
 const SUBJECT_ALIASES: Record<string, string> = {
@@ -136,6 +125,9 @@ export class GitHubQuestionRepository implements QuestionRepository {
       if (filename) {
         this.paperPathMap.set(filename, path);
         this.paperPathMap.set(filename.replace(/_/g, '-'), path);
+        this.paperPathMap.set(filename.replace('class12_polscience', 'class-12_pol-science'), path);
+        this.paperPathMap.set(filename.replace('class12_history', 'class-12_history'), path);
+        this.paperPathMap.set(filename.replace('class12_polscience', 'class12_pol_science'), path);
       }
     });
   }

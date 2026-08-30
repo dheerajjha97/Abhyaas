@@ -6,7 +6,7 @@
 import { Paper } from '../types/question';
 
 const DB_NAME = 'abhyaas_db';
-const DB_VERSION = 1;
+const DB_VERSION = 2;
 const STORE_PAPERS = 'cached_papers';
 const STORE_METADATA = 'papers_metadata';
 
@@ -29,12 +29,14 @@ function openDB(): Promise<IDBDatabase> {
 
     request.onupgradeneeded = (event) => {
       const db = (event.target as IDBOpenDBRequest).result;
-      if (!db.objectStoreNames.contains(STORE_PAPERS)) {
-        db.createObjectStore(STORE_PAPERS, { keyPath: 'id' });
+      if (db.objectStoreNames.contains(STORE_PAPERS)) {
+        db.deleteObjectStore(STORE_PAPERS);
       }
-      if (!db.objectStoreNames.contains(STORE_METADATA)) {
-        db.createObjectStore(STORE_METADATA, { keyPath: 'key' });
+      if (db.objectStoreNames.contains(STORE_METADATA)) {
+        db.deleteObjectStore(STORE_METADATA);
       }
+      db.createObjectStore(STORE_PAPERS, { keyPath: 'id' });
+      db.createObjectStore(STORE_METADATA, { keyPath: 'key' });
     };
   });
 }

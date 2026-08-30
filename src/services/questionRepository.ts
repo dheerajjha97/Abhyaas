@@ -15,6 +15,13 @@ export interface QuestionRepository {
   prefetchPaper(paperId: string): Promise<void>;
 }
 
+// CDN Mirrors for high-speed, zero-ISP-block paper downloads
+const CDN_MIRRORS = [
+  'https://cdn.jsdelivr.net/gh/dheerajjha97/AbhyaasData@main',
+  'https://raw.githubusercontent.com/dheerajjha97/AbhyaasData/main',
+  'https://fastly.jsdelivr.net/gh/dheerajjha97/AbhyaasData@main',
+];
+
 // Known paths in GitHub repository (AbhyaasData)
 const KNOWN_PAPER_PATHS = [
   'Papers/XII/Political Science/class12_polscience_2026_model_paper.json',
@@ -339,9 +346,20 @@ export class GitHubQuestionRepository implements QuestionRepository {
               }
 
               try {
-                const paperRes = await fetch(`${this.repoBaseUrl}/${relativePath}`);
-                if (paperRes.ok) {
-                  const rawJson = await paperRes.json();
+                // Try fetching through CDN mirrors with URI encoding
+                let rawJson: any = null;
+                for (const mirror of CDN_MIRRORS) {
+                  try {
+                    const encodedUrl = encodeURI(`${mirror}/${relativePath}`);
+                    const paperRes = await fetch(encodedUrl);
+                    if (paperRes.ok) {
+                      rawJson = await paperRes.json();
+                      break;
+                    }
+                  } catch {}
+                }
+
+                if (rawJson) {
                   const parsed = this.parseRemotePaperJson(rawJson, relativePath);
                   const canonicalId = canonicalPaperId(parsed.id);
                   this.paperPathMap.set(canonicalId, relativePath);
@@ -360,12 +378,22 @@ export class GitHubQuestionRepository implements QuestionRepository {
               } catch {}
             }
           } else {
-            // Fallback: Fetch directly from KNOWN_PAPER_PATHS
+            // Fallback: Fetch directly from KNOWN_PAPER_PATHS via CDN mirrors
             for (const relativePath of KNOWN_PAPER_PATHS) {
               try {
-                const paperRes = await fetch(`${this.repoBaseUrl}/${relativePath}`);
-                if (paperRes.ok) {
-                  const rawJson = await paperRes.json();
+                let rawJson: any = null;
+                for (const mirror of CDN_MIRRORS) {
+                  try {
+                    const encodedUrl = encodeURI(`${mirror}/${relativePath}`);
+                    const paperRes = await fetch(encodedUrl);
+                    if (paperRes.ok) {
+                      rawJson = await paperRes.json();
+                      break;
+                    }
+                  } catch {}
+                }
+
+                if (rawJson) {
                   const parsed = this.parseRemotePaperJson(rawJson, relativePath);
                   const canonicalId = canonicalPaperId(parsed.id);
                   this.paperPathMap.set(canonicalId, relativePath);
@@ -483,10 +511,10 @@ export class GitHubQuestionRepository implements QuestionRepository {
         this.paperPathMap.get(paperId.replace(/_/g, '-')) ||
         this.paperPathMap.get(paperId.replace(/-/g, '_'));
 
-      const urlsToTry: string[] = [];
+      const relativePathsToTry: string[] = [];
 
       if (mappedPath) {
-        urlsToTry.push(`${this.repoBaseUrl}/${mappedPath}`);
+        relativePathsToTry.push(mappedPath);
       }
 
       const idVariations = [
@@ -499,33 +527,37 @@ export class GitHubQuestionRepository implements QuestionRepository {
       ];
 
       for (const idVar of idVariations) {
-        urlsToTry.push(
-          `${this.repoBaseUrl}/Papers/XII/Political Science/${idVar}.json`,
-          `${this.repoBaseUrl}/Papers/XII/History/${idVar}.json`,
-          `${this.repoBaseUrl}/Papers/XII/Biology/${idVar}.json`,
-          `${this.repoBaseUrl}/Papers/XII/Physics/${idVar}.json`,
-          `${this.repoBaseUrl}/Papers/XII/Chemistry/${idVar}.json`,
-          `${this.repoBaseUrl}/Papers/XII/Mathematics/${idVar}.json`,
-          `${this.repoBaseUrl}/Papers/XII/Hindi/${idVar}.json`,
-          `${this.repoBaseUrl}/Papers/XII/English/${idVar}.json`,
-          `${this.repoBaseUrl}/Papers/X/Science/${idVar}.json`,
-          `${this.repoBaseUrl}/Papers/X/Social Science/${idVar}.json`,
-          `${this.repoBaseUrl}/Papers/X/Mathematics/${idVar}.json`,
-          `${this.repoBaseUrl}/papers/${idVar}.json`
+        relativePathsToTry.push(
+          `Papers/XII/Political Science/${idVar}.json`,
+          `Papers/XII/History/${idVar}.json`,
+          `Papers/XII/Biology/${idVar}.json`,
+          `Papers/XII/Physics/${idVar}.json`,
+          `Papers/XII/Chemistry/${idVar}.json`,
+          `Papers/XII/Mathematics/${idVar}.json`,
+          `Papers/XII/Hindi/${idVar}.json`,
+          `Papers/XII/English/${idVar}.json`,
+          `Papers/X/Science/${idVar}.json`,
+          `Papers/X/Social Science/${idVar}.json`,
+          `Papers/X/Mathematics/${idVar}.json`,
+          `papers/${idVar}.json`
         );
       }
 
-      for (const url of urlsToTry) {
-        try {
-          const res = await fetch(url);
-          if (res.ok) {
-            const rawJson = await res.json();
-            return this.parseRemotePaperJson(rawJson, url);
-          }
-        } catch {}
+      // Try across CDN mirrors with URI encoding
+      for (const mirror of CDN_MIRRORS) {
+        for (const relPath of relativePathsToTry) {
+          try {
+            const encodedUrl = encodeURI(`${mirror}/${relPath}`);
+            const res = await fetch(encodedUrl);
+            if (res.ok) {
+              const rawJson = await res.json();
+              return this.parseRemotePaperJson(rawJson, relPath);
+            }
+          } catch {}
+        }
       }
     } catch (err) {
-      console.warn(`Failed fetching paper ${paperId} from GitHub:`, err);
+      console.warn(`Failed fetching paper ${paperId} from remote sources:`, err);
     }
     return null;
   }

@@ -4,14 +4,12 @@ import { GlassCard } from '../components/ui/GlassCard';
 import { ChevronRight, BookOpen, Settings2, Sparkles, User, PlusCircle } from 'lucide-react';
 import { useStudentProfile } from '../context/StudentProfileContext';
 import { ALL_AVAILABLE_SUBJECTS } from '../types/studentProfile';
-import { StudentProfileModal } from '../components/profile/StudentProfileModal';
 import { questionRepository } from '../services/questionRepository';
 import { PaperSummary } from '../types/question';
 
 export const Home: React.FC = () => {
   const navigate = useNavigate();
-  const { profile, setClassId } = useStudentProfile();
-  const [isProfileModalOpen, setIsProfileModalOpen] = useState(false);
+  const { profile, setClassId, openProfileModal } = useStudentProfile();
   const [papers, setPapers] = useState<PaperSummary[]>([]);
 
   useEffect(() => {
@@ -59,7 +57,7 @@ export const Home: React.FC = () => {
       <div className="flex items-center justify-between px-1 pt-2 pb-1">
         <div className="flex items-center gap-2.5">
           <button
-            onClick={() => setIsProfileModalOpen(true)}
+            onClick={openProfileModal}
             className="w-10 h-10 rounded-2xl bg-gradient-to-tr from-indigo-600 to-purple-600 flex items-center justify-center text-xl shadow-md cursor-pointer hover:scale-105 transition-transform"
             title="प्रोफ़ाइल बदलें"
           >
@@ -82,7 +80,7 @@ export const Home: React.FC = () => {
 
         {/* Profile Settings Button */}
         <button
-          onClick={() => setIsProfileModalOpen(true)}
+          onClick={openProfileModal}
           className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/80 dark:bg-slate-800/80 border border-indigo-100 dark:border-slate-700 text-indigo-700 dark:text-indigo-300 font-bold text-[11px] shadow-2xs hover:bg-indigo-50 dark:hover:bg-slate-700 transition-all cursor-pointer"
         >
           <Settings2 className="w-3.5 h-3.5" />
@@ -111,7 +109,7 @@ export const Home: React.FC = () => {
               <ChevronRight className="w-4 h-4" />
             </button>
             <button
-              onClick={() => setIsProfileModalOpen(true)}
+              onClick={openProfileModal}
               className="bg-white/20 hover:bg-white/30 text-white font-bold px-3 py-2.5 rounded-2xl text-xs backdrop-blur-md transition-all cursor-pointer"
             >
               विषय बदलें
@@ -178,7 +176,7 @@ export const Home: React.FC = () => {
           </div>
 
           <button
-            onClick={() => setIsProfileModalOpen(true)}
+            onClick={openProfileModal}
             className="flex items-center gap-1 text-[11px] font-bold text-indigo-600 dark:text-indigo-400 hover:underline cursor-pointer"
           >
             <PlusCircle className="w-3.5 h-3.5" />
@@ -242,12 +240,6 @@ export const Home: React.FC = () => {
           </div>
         </div>
       </GlassCard>
-
-      {/* Profile Modal */}
-      <StudentProfileModal
-        isOpen={isProfileModalOpen}
-        onClose={() => setIsProfileModalOpen(false)}
-      />
     </div>
   );
 };

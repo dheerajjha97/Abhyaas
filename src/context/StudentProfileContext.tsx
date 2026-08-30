@@ -4,6 +4,10 @@ import { getStoredStudentProfile, saveStoredStudentProfile } from '../utils/prof
 
 interface StudentProfileContextType {
   profile: StudentProfile;
+  isProfileModalOpen: boolean;
+  setIsProfileModalOpen: (open: boolean) => void;
+  openProfileModal: () => void;
+  closeProfileModal: () => void;
   updateProfile: (updates: Partial<StudentProfile>) => void;
   setClassId: (classId: string) => void;
   setSubjects: (subjects: string[]) => void;
@@ -15,6 +19,8 @@ const StudentProfileContext = createContext<StudentProfileContextType | undefine
 
 export const StudentProfileProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [profile, setProfile] = useState<StudentProfile>(getStoredStudentProfile());
+  // If the profile has never been configured by the user, automatically prompt them on app launch
+  const [isProfileModalOpen, setIsProfileModalOpen] = useState<boolean>(!profile.isConfigured);
 
   useEffect(() => {
     const handleProfileChange = (e: CustomEvent<StudentProfile>) => {
@@ -29,9 +35,12 @@ export const StudentProfileProvider: React.FC<{ children: React.ReactNode }> = (
     };
   }, []);
 
+  const openProfileModal = () => setIsProfileModalOpen(true);
+  const closeProfileModal = () => setIsProfileModalOpen(false);
+
   const updateProfile = (updates: Partial<StudentProfile>) => {
     setProfile((prev) => {
-      const updated = { ...prev, ...updates };
+      const updated = { ...prev, ...updates, isConfigured: true };
       saveStoredStudentProfile(updated);
       return updated;
     });
@@ -78,6 +87,10 @@ export const StudentProfileProvider: React.FC<{ children: React.ReactNode }> = (
     <StudentProfileContext.Provider
       value={{
         profile,
+        isProfileModalOpen,
+        setIsProfileModalOpen,
+        openProfileModal,
+        closeProfileModal,
         updateProfile,
         setClassId,
         setSubjects,

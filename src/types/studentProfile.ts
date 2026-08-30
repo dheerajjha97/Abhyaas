@@ -17,6 +17,7 @@ export interface StudentProfile {
   avatarEmoji: string;
   targetYear?: number;
   lastUpdated?: number;
+  isConfigured?: boolean; // True once the student has customized/confirmed their profile
 }
 
 export const ALL_AVAILABLE_SUBJECTS: SubjectOption[] = [
@@ -52,4 +53,5 @@ export const DEFAULT_STUDENT_PROFILE: StudentProfile = {
   selectedSubjects: ['Biology', 'Physics', 'Chemistry', 'Mathematics'],
   avatarEmoji: '🎓',
   targetYear: 2026,
+  isConfigured: false,
 };

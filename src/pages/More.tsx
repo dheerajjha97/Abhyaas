@@ -6,7 +6,6 @@ import { GlassCard } from '../components/ui/GlassCard';
 import { Toast, ToastMessage } from '../components/ui/Toast';
 import { Illustration } from '../components/ui/Illustration';
 import { useStudentProfile } from '../context/StudentProfileContext';
-import { StudentProfileModal } from '../components/profile/StudentProfileModal';
 import {
   Download,
   Database,
@@ -21,8 +20,7 @@ import {
 } from 'lucide-react';
 
 export const More: React.FC = () => {
-  const { profile } = useStudentProfile();
-  const [isProfileModalOpen, setIsProfileModalOpen] = useState(false);
+  const { profile, openProfileModal } = useStudentProfile();
   const [settings, setSettings] = useState<AppSettings>(getAppSettings());
   const [deferredPrompt, setDeferredPrompt] = useState<any>(null);
   const [isInstallable, setIsInstallable] = useState(false);
@@ -122,7 +120,7 @@ export const More: React.FC = () => {
           </div>
 
           <button
-            onClick={() => setIsProfileModalOpen(true)}
+            onClick={openProfileModal}
             className="px-3 py-1.5 bg-white text-indigo-700 font-extrabold text-xs rounded-xl shadow-md flex items-center gap-1.5 hover:bg-indigo-50 active:scale-95 transition-all cursor-pointer shrink-0"
           >
             <Edit3 className="w-3.5 h-3.5" />
@@ -291,12 +289,6 @@ export const More: React.FC = () => {
           <span>Made for Board Students</span>
         </div>
       </GlassCard>
-
-      {/* Profile Modal */}
-      <StudentProfileModal
-        isOpen={isProfileModalOpen}
-        onClose={() => setIsProfileModalOpen(false)}
-      />
     </div>
   );
 };

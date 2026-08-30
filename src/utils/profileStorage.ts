@@ -5,11 +5,12 @@ const PROFILE_KEY = 'abhyaas_student_profile_v1';
 export function getStoredStudentProfile(): StudentProfile {
   try {
     const data = localStorage.getItem(PROFILE_KEY);
-    if (!data) return DEFAULT_STUDENT_PROFILE;
+    if (!data) return { ...DEFAULT_STUDENT_PROFILE, isConfigured: false };
     const parsed = JSON.parse(data);
     return {
       ...DEFAULT_STUDENT_PROFILE,
       ...parsed,
+      isConfigured: parsed.isConfigured !== undefined ? parsed.isConfigured : true,
       // Ensure at least one subject exists
       selectedSubjects:
         Array.isArray(parsed.selectedSubjects) && parsed.selectedSubjects.length > 0
@@ -18,7 +19,7 @@ export function getStoredStudentProfile(): StudentProfile {
     };
   } catch (e) {
     console.error('Failed to load student profile', e);
-    return DEFAULT_STUDENT_PROFILE;
+    return { ...DEFAULT_STUDENT_PROFILE, isConfigured: false };
   }
 }
 
@@ -26,6 +27,7 @@ export function saveStoredStudentProfile(profile: StudentProfile): void {
   try {
     const dataToSave = {
       ...profile,
+      isConfigured: true,
       lastUpdated: Date.now(),
     };
     localStorage.setItem(PROFILE_KEY, JSON.stringify(dataToSave));

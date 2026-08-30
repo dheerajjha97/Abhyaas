@@ -19,6 +19,7 @@ const BOARD_OPTIONS = [
 
 export const StudentProfileModal: React.FC<StudentProfileModalProps> = ({ isOpen, onClose }) => {
   const { profile, updateProfile } = useStudentProfile();
+  const isFirstTimeSetup = !profile.isConfigured;
 
   const [formData, setFormData] = useState<StudentProfile>(profile);
   const [savedSuccess, setSavedSuccess] = useState(false);
@@ -91,11 +92,22 @@ export const StudentProfileModal: React.FC<StudentProfileModalProps> = ({ isOpen
   };
 
   const handleSave = () => {
-    updateProfile(formData);
+    updateProfile({
+      ...formData,
+      isConfigured: true,
+    });
     setSavedSuccess(true);
     setTimeout(() => {
       onClose();
     }, 600);
+  };
+
+  const handleSkipOrCancel = () => {
+    if (isFirstTimeSetup) {
+      // Mark as configured with existing defaults so it won't prompt repeatedly if dismissed
+      updateProfile({ isConfigured: true });
+    }
+    onClose();
   };
 
   return (
@@ -107,20 +119,31 @@ export const StudentProfileModal: React.FC<StudentProfileModalProps> = ({ isOpen
         {/* Modal Header */}
         <div className="p-4 sm:p-5 bg-gradient-to-r from-indigo-600 via-indigo-700 to-purple-600 text-white flex items-center justify-between shrink-0">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-2xl bg-white/20 backdrop-blur-md flex items-center justify-center text-xl shadow-inner">
+            <div className="w-11 h-11 rounded-2xl bg-white/20 backdrop-blur-md flex items-center justify-center text-2xl shadow-inner shrink-0">
               {formData.avatarEmoji}
             </div>
             <div>
-              <h3 className="text-base sm:text-lg font-extrabold leading-tight">
-                विद्यार्थी प्रोफ़ाइल (Student Profile)
-              </h3>
-              <p className="text-[11px] text-indigo-100/90 font-medium">
-                अपनी कक्षा और विषय चुनें, जो होम पेज पर दिखेंगे
+              <div className="flex items-center gap-1.5">
+                <h3 className="text-base sm:text-lg font-extrabold leading-tight">
+                  {isFirstTimeSetup
+                    ? '👋 Abhyaas में आपका स्वागत है!'
+                    : 'विद्यार्थी प्रोफ़ाइल (Student Profile)'}
+                </h3>
+                {isFirstTimeSetup && (
+                  <span className="text-[10px] bg-amber-400 text-amber-950 font-black px-2 py-0.5 rounded-full shadow-xs animate-pulse">
+                    Quick Setup
+                  </span>
+                )}
+              </div>
+              <p className="text-[11px] text-indigo-100/90 font-medium mt-0.5">
+                {isFirstTimeSetup
+                  ? 'कृपया अपनी Class, Board और पसंदीदा विषय चुनें'
+                  : 'अपनी कक्षा और विषय चुनें, जो होम पेज पर दिखेंगे'}
               </p>
             </div>
           </div>
           <button
-            onClick={onClose}
+            onClick={handleSkipOrCancel}
             className="w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white cursor-pointer transition-colors"
           >
             <X className="w-4 h-4" />
@@ -314,10 +337,10 @@ export const StudentProfileModal: React.FC<StudentProfileModalProps> = ({ isOpen
           <div className="flex items-center gap-2">
             <button
               type="button"
-              onClick={onClose}
+              onClick={handleSkipOrCancel}
               className="px-3.5 py-2 rounded-xl text-xs font-bold text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors cursor-pointer"
             >
-              रद्द करें
+              {isFirstTimeSetup ? 'बाद में करें (Skip)' : 'रद्द करें'}
             </button>
             <button
               type="button"
@@ -332,6 +355,11 @@ export const StudentProfileModal: React.FC<StudentProfileModalProps> = ({ isOpen
                 <>
                   <CheckCircle2 className="w-4 h-4" />
                   <span>सहेजा गया!</span>
+                </>
+              ) : isFirstTimeSetup ? (
+                <>
+                  <Sparkles className="w-4 h-4" />
+                  <span>शुरू करें (Save & Start) 🚀</span>
                 </>
               ) : (
                 <>

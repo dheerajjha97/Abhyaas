@@ -1,0 +1,6 @@
+{
+  "name": "Abhyaas",
+  "description": "आपकी तैयारी, आपका अभ्यास - Mobile-First Student Exam Preparation Platform",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

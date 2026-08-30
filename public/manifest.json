@@ -1,0 +1,25 @@
+{
+  "short_name": "Abhyaas",
+  "name": "Abhyaas - आपकी तैयारी, आपका अभ्यास",
+  "icons": [
+    {
+      "src": "/icon-192.png",
+      "type": "image/png",
+      "sizes": "192x192",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icon-512.png",
+      "type": "image/png",
+      "sizes": "512x512",
+      "purpose": "any maskable"
+    }
+  ],
+  "start_url": "/",
+  "background_color": "#f8fafc",
+  "theme_color": "#4f46e5",
+  "display": "standalone",
+  "orientation": "portrait",
+  "scope": "/",
+  "description": "Abhyaas - Mobile-First Student Exam Preparation Web App"
+}

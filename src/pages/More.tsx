@@ -14,6 +14,8 @@ import {
   Smartphone,
   BookOpen,
   Edit3,
+  Heart,
+  Code2,
 } from 'lucide-react';
 
 export const More: React.FC = () => {
@@ -228,7 +230,7 @@ export const More: React.FC = () => {
         </GlassCard>
       </div>
 
-      {/* App Info */}
+      {/* App Info & Developer Credit */}
       <GlassCard
         padding="md"
         className="space-y-3 border-indigo-100 bg-gradient-to-r from-slate-50 to-indigo-50/50"
@@ -240,9 +242,21 @@ export const More: React.FC = () => {
         <p className="text-xs text-slate-600 leading-relaxed">
           अभ्यास ऐप बिहार बोर्ड एवं अन्य राज्य बोर्ड के विद्यार्थियों को मॉडल पेपर्स एवं पिछले वर्षों के हल प्रश्न पत्र निशुल्क उपलब्ध कराता है।
         </p>
-        <div className="text-[11px] font-semibold text-slate-400 border-t border-slate-200/60 pt-2 flex items-center justify-between">
-          <span>Abhyaas v1.0</span>
-          <span>बोर्ड परीक्षा की बेहतरीन तैयारी</span>
+
+        {/* Developer Credit */}
+        <div className="pt-2 border-t border-slate-200/70 flex items-center justify-between">
+          <div className="flex items-center gap-2">
+            <div className="w-7 h-7 rounded-lg bg-indigo-100 text-indigo-600 flex items-center justify-center">
+              <Code2 className="w-4 h-4" />
+            </div>
+            <div>
+              <p className="text-[11px] text-slate-500 font-medium">Developed with <Heart className="w-3 h-3 text-rose-500 inline fill-rose-500" /> by</p>
+              <p className="text-xs font-bold text-slate-800 dark:text-slate-100">Dheeraj Jha</p>
+            </div>
+          </div>
+          <span className="text-[11px] font-semibold text-slate-400 bg-white/80 dark:bg-slate-800 px-2.5 py-1 rounded-full border border-slate-200/50">
+            Abhyaas v1.0
+          </span>
         </div>
       </GlassCard>
     </div>

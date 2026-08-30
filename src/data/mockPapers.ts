@@ -1,6 +1,118 @@
 import { Paper, PaperSummary } from '../types/question';
-import rawData from './papersData.json';
 
-export const MOCK_PAPERS: Paper[] = (rawData.papers || []) as unknown as Paper[];
+export const MOCK_SUMMARIES: PaperSummary[] = [
+  {
+    id: 'class12_polscience_2026_set_b',
+    class: '12',
+    subject: 'Political Science',
+    board: 'Bihar Board (BSEB)',
+    year: 2026,
+    paperName: '2026 Set B - Bihar Board Solved',
+    mcqCount: 100,
+    shortCount: 30,
+    longCount: 8,
+  },
+  {
+    id: 'class12_polscience_2026_set_h',
+    class: '12',
+    subject: 'Political Science',
+    board: 'Bihar Board (BSEB)',
+    year: 2026,
+    paperName: '2026 Set H - Bihar Board Solved',
+    mcqCount: 100,
+    shortCount: 30,
+    longCount: 8,
+  },
+  {
+    id: 'class12_polscience_2025_set_g',
+    class: '12',
+    subject: 'Political Science',
+    board: 'Bihar Board (BSEB)',
+    year: 2025,
+    paperName: '2025 Set G - Bihar Board Solved',
+    mcqCount: 100,
+    shortCount: 30,
+    longCount: 8,
+  },
+  {
+    id: 'class12_polscience_2024_set_a',
+    class: '12',
+    subject: 'Political Science',
+    board: 'Bihar Board (BSEB)',
+    year: 2024,
+    paperName: '2024 Set A - Bihar Board Solved',
+    mcqCount: 100,
+    shortCount: 30,
+    longCount: 8,
+  },
+  {
+    id: 'class12_polscience_2024_set_d',
+    class: '12',
+    subject: 'Political Science',
+    board: 'Bihar Board (BSEB)',
+    year: 2024,
+    paperName: '2024 Set D - Bihar Board Solved',
+    mcqCount: 100,
+    shortCount: 30,
+    longCount: 8,
+  },
+  {
+    id: 'class12_history_2023_set_a',
+    class: '12',
+    subject: 'History',
+    board: 'Bihar Board (BSEB)',
+    year: 2023,
+    paperName: '2023 Set A - Bihar Board Solved',
+    mcqCount: 100,
+    shortCount: 30,
+    longCount: 8,
+  },
+];
 
-export const MOCK_SUMMARIES: PaperSummary[] = (rawData.summaries || []) as unknown as PaperSummary[];
+export const MOCK_PAPERS: Paper[] = [
+  {
+    id: 'class12_polscience_2026_set_b',
+    class: '12',
+    subject: 'Political Science',
+    board: 'Bihar Board (BSEB)',
+    year: 2026,
+    paperName: '2026 Set B - Bihar Board Solved',
+    mcqs: [
+      {
+        id: 'q1',
+        question: 'वैश्वीकरण है :',
+        options: ['बहुआयामी परिघटना', 'एकआयामी परिघटना', 'राजनीतिक परिघटना', 'सांस्कृतिक परिघटना'],
+        answer: 'बहुआयामी परिघटना',
+        explanation: 'वैश्वीकरण एक बहुआयामी अवधारणा है जिसमें आर्थिक, राजनीतिक और सांस्कृतिक आयाम शामिल हैं।',
+      },
+      {
+        id: 'q2',
+        question: 'यूरोपीय संघ की स्थापना कब हुई थी ?',
+        options: ['1990', '1991', '1992', '1993'],
+        answer: '1992',
+        explanation: 'मास्ट्रिच संधि पर 7 फरवरी 1992 को हस्ताक्षर किए गए, जिससे यूरोपीय संघ की स्थापना हुई।',
+      },
+      {
+        id: 'q3',
+        question: 'सार्क (SAARC) का मुख्यालय कहाँ अवस्थित है ?',
+        options: ['नई दिल्ली', 'इस्लामाबाद', 'काठमांडू', 'ढाका'],
+        answer: 'काठमांडू',
+        explanation: 'सार्क का सचिवालय नेपाल की राजधानी काठमांडू में स्थित है।',
+      },
+    ],
+    shortQuestions: [
+      {
+        id: 'sq1',
+        question: 'शीत युद्ध से आप क्या समझते हैं ?',
+        answer: 'शीत युद्ध द्वितीय विश्व युद्ध के बाद संयुक्त राज्य अमेरिका और सोवियत संघ के बीच वैचारिक, राजनीतिक और कूटनीतिक तनाव की स्थिति थी जिसमें प्रत्यक्ष सैन्य युद्ध नहीं हुआ।',
+      },
+    ],
+    longQuestions: [
+      {
+        id: 'lq1',
+        question: 'संयुक्त राष्ट्र संघ के प्रमुख अंगों और उनके कार्यों का वर्णन करें ।',
+        answer: 'संयुक्त राष्ट्र संघ के छह प्रमुख अंग हैं: महासभा, सुरक्षा परिषद, आर्थिक एवं सामाजिक परिषद, न्यास परिषद, अंतर्राष्ट्रीय न्यायालय और सचिवालय। सुरक्षा परिषद वैश्विक शांति और सुरक्षा बनाए रखने के लिए उत्तरदायी है।',
+      },
+    ],
+  },
+];

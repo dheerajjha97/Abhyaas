@@ -8,15 +8,12 @@ import { Illustration } from '../components/ui/Illustration';
 import { useStudentProfile } from '../context/StudentProfileContext';
 import {
   Download,
-  Database,
-  Github,
+  Wifi,
   RefreshCw,
   ShieldCheck,
   Smartphone,
-  User,
   BookOpen,
   Edit3,
-  GraduationCap,
 } from 'lucide-react';
 
 export const More: React.FC = () => {
@@ -79,17 +76,7 @@ export const More: React.FC = () => {
     setToast({
       id: Date.now().toString(),
       type: 'success',
-      message: 'स्थानीय डेटा कैश (IndexedDB) साफ़ कर दिया गया',
-    });
-  };
-
-  const handleSaveRepoUrl = (url: string) => {
-    setSettings((prev) => ({ ...prev, githubRepoUrl: url }));
-    saveAppSettings({ githubRepoUrl: url });
-    setToast({
-      id: Date.now().toString(),
-      type: 'success',
-      message: 'GitHub Repo URL सहेज लिया गया',
+      message: 'नवीनतम प्रश्न पत्र सफलतापूर्वक अपडेट हो गए!',
     });
   };
 
@@ -189,14 +176,14 @@ export const More: React.FC = () => {
         >
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 rounded-xl bg-indigo-50 text-indigo-600 flex items-center justify-center shrink-0">
-              <Database className="w-5 h-5" />
+              <Wifi className="w-5 h-5" />
             </div>
             <div>
               <h5 className="text-sm font-bold text-slate-800 dark:text-slate-100">
-                ऑफ़लाइन / लोकल कैश फ़ोर्स करें
+                बिना इंटरनेट (ऑफलाइन) पढ़ें
               </h5>
               <p className="text-xs text-slate-500">
-                नेटवर्क बंद होने पर केवल स्थानीय IndexedDB का उपयोग करें
+                इंटरनेट न होने पर भी सहेजे गए पेपर्स से अभ्यास जारी रखें
               </p>
             </div>
           </div>
@@ -214,79 +201,48 @@ export const More: React.FC = () => {
           </button>
         </GlassCard>
 
-        {/* Clear Cache */}
+        {/* Sync / Refresh Data */}
         <GlassCard
           padding="md"
           className="flex items-center justify-between gap-3 border-slate-200/80"
         >
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center shrink-0">
+            <div className="w-10 h-10 rounded-xl bg-indigo-50 text-indigo-600 flex items-center justify-center shrink-0">
               <RefreshCw className="w-5 h-5" />
             </div>
             <div>
               <h5 className="text-sm font-bold text-slate-800 dark:text-slate-100">
-                कैश साफ़ करें (Clear Cache)
+                नए प्रश्न पत्र अपडेट करें
               </h5>
               <p className="text-xs text-slate-500">
-                IndexedDB में सहेजे गए पेपर्स हटाकर ताजा डेटा रीलोड करें
+                नवीनतम पेपर्स और उत्तर तुरंत रीलोड करें
               </p>
             </div>
           </div>
           <button
             onClick={handleClearCache}
-            className="px-3 py-1.5 bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-200 font-bold text-xs rounded-xl cursor-pointer"
+            className="px-3.5 py-1.5 bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-xs rounded-xl cursor-pointer active:scale-95 transition-all shadow-sm"
           >
-            Clear
+            अपडेट करें
           </button>
-        </GlassCard>
-
-        {/* GitHub Data Repository Configuration */}
-        <GlassCard padding="md" className="space-y-3 border-slate-200/80">
-          <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-purple-50 text-purple-600 flex items-center justify-center shrink-0">
-              <Github className="w-5 h-5" />
-            </div>
-            <div>
-              <h5 className="text-sm font-bold text-slate-800 dark:text-slate-100">
-                GitHub Repository Base URL
-              </h5>
-              <p className="text-xs text-slate-500">प्रश्न पत्र डेटा JSON का मुख्य स्रोत</p>
-            </div>
-          </div>
-
-          <div className="flex items-center gap-2">
-            <input
-              type="text"
-              value={settings.githubRepoUrl}
-              onChange={(e) => setSettings({ ...settings, githubRepoUrl: e.target.value })}
-              className="flex-1 p-2.5 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl text-xs font-mono text-slate-800 dark:text-slate-200 focus:outline-none"
-            />
-            <button
-              onClick={() => handleSaveRepoUrl(settings.githubRepoUrl)}
-              className="px-3 py-2.5 bg-indigo-600 text-white font-bold text-xs rounded-xl cursor-pointer"
-            >
-              Save
-            </button>
-          </div>
         </GlassCard>
       </div>
 
-      {/* App Architecture & Info */}
+      {/* App Info */}
       <GlassCard
         padding="md"
         className="space-y-3 border-indigo-100 bg-gradient-to-r from-slate-50 to-indigo-50/50"
       >
         <div className="flex items-center gap-2 text-xs font-bold text-indigo-700">
           <ShieldCheck className="w-4 h-4 text-emerald-500" />
-          <span>Future Android RoomDB Compatibility</span>
+          <span>सुरक्षित एवं प्रामाणिक बोर्ड परीक्षा तैयारी</span>
         </div>
         <p className="text-xs text-slate-600 leading-relaxed">
-          Abhyaas ऐप का डेटा मॉडल और Repository पैटर्न भविष्य के एंड्रॉइड (Kotlin + RoomDB) ऐप के
-          साथ पूर्ण रूप से संगत है।
+          अभ्यास ऐप बिहार बोर्ड एवं अन्य राज्य बोर्ड के विद्यार्थियों को मॉडल पेपर्स एवं पिछले वर्षों के हल प्रश्न पत्र निशुल्क उपलब्ध कराता है।
         </p>
         <div className="text-[11px] font-semibold text-slate-400 border-t border-slate-200/60 pt-2 flex items-center justify-between">
-          <span>Abhyaas v1.0.0</span>
-          <span>Made for Board Students</span>
+          <span>Abhyaas v1.0</span>
+          <span>बोर्ड परीक्षा की बेहतरीन तैयारी</span>
         </div>
       </GlassCard>
     </div>

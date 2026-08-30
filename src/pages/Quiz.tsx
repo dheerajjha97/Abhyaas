@@ -303,7 +303,7 @@ export const Quiz: React.FC = () => {
       {isCurrentSubmitted && !currentQuestion.answer && (
         <GlassCard padding="md" className="border-amber-300 bg-amber-50/80 dark:bg-amber-950/40 text-amber-900 dark:text-amber-200 text-xs">
           <p className="font-medium leading-relaxed">
-            ⚠️ <strong>नोट:</strong> इस प्रश्न का सही उत्तर रिपॉजिटरी JSON फ़ाइल (GitHub Data) में दर्ज नहीं है (`correctAnswer` missing).
+            ⚠️ <strong>नोट:</strong> इस प्रश्न का आधिकारिक उत्तर अभी उपलब्ध नहीं है।
           </p>
         </GlassCard>
       )}

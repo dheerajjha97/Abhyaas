@@ -186,7 +186,7 @@ export const Home: React.FC = () => {
 
         <div className="space-y-3">
           {displayedSubjects.map((sub) => {
-            const paperCount = paperCountBySubject.get(sub.name) || 3;
+            const paperCount = paperCountBySubject.get(sub.name) || 0;
             return (
               <div
                 key={sub.name}
@@ -211,8 +211,16 @@ export const Home: React.FC = () => {
                       ({sub.hindiName})
                     </span>
                   </div>
-                  <p className="text-[11px] font-medium text-slate-500 dark:text-slate-400 mt-0.5">
-                    {paperCount} Question Papers & Quizzes Available
+                  <p className="text-[11px] font-medium text-slate-500 dark:text-slate-400 mt-0.5 flex items-center gap-1.5">
+                    {paperCount > 0 ? (
+                      <span className="text-emerald-700 dark:text-emerald-400 font-semibold bg-emerald-50 dark:bg-emerald-950/60 px-2 py-0.5 rounded-md">
+                        {paperCount} {paperCount === 1 ? 'Solved Paper' : 'Solved Papers'} उपलब्ध
+                      </span>
+                    ) : (
+                      <span className="text-amber-700 dark:text-amber-400 font-medium bg-amber-50 dark:bg-amber-950/60 px-2 py-0.5 rounded-md">
+                        शीघ्र उपलब्ध (0 Papers अभी)
+                      </span>
+                    )}
                   </p>
                 </div>
                 <div className="bg-slate-100 dark:bg-slate-800 group-hover:bg-indigo-50 dark:group-hover:bg-indigo-950/60 p-2 rounded-full text-slate-400 group-hover:text-indigo-600 transition-colors">

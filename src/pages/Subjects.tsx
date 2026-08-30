@@ -88,10 +88,14 @@ export const Subjects: React.FC = () => {
 
   // Ensure standard subjects exist for class
   const defaultSubjects = classId === '10'
-    ? ['Science', 'Mathematics', 'English', 'Hindi']
-    : ['Biology', 'Physics', 'Chemistry', 'Mathematics'];
+    ? ['Science', 'Mathematics', 'Social Science', 'Hindi', 'English']
+    : ['Political Science', 'History', 'Geography', 'Economics', 'Hindi', 'English', 'Biology', 'Physics', 'Chemistry', 'Mathematics'];
 
-  defaultSubjects.forEach((sub) => subjectMap.set(sub, 0));
+  defaultSubjects.forEach((sub) => {
+    if (!subjectMap.has(sub)) {
+      subjectMap.set(sub, 0);
+    }
+  });
 
   papers.forEach((p) => {
     const current = subjectMap.get(p.subject) || 0;
@@ -106,7 +110,7 @@ export const Subjects: React.FC = () => {
     };
     return {
       name: subjectName,
-      count: count === 0 ? 3 : count, // show default paper count if mock fallback
+      count: count, // Exact real count
       config,
     };
   });

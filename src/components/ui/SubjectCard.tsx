@@ -38,9 +38,17 @@ export const SubjectCard: React.FC<SubjectCardProps> = ({
             <h3 className="text-base sm:text-lg font-bold text-slate-800 dark:text-slate-100 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
               {name}
             </h3>
-            <div className="flex items-center gap-1.5 text-xs font-semibold text-slate-500 dark:text-slate-400 mt-1">
+            <div className="flex items-center gap-1.5 text-xs font-semibold mt-1">
               <BookOpen className="w-3.5 h-3.5 text-indigo-500" />
-              <span>{paperCount} Question Papers</span>
+              {paperCount > 0 ? (
+                <span className="text-emerald-700 dark:text-emerald-400">
+                  {paperCount} {paperCount === 1 ? 'Question Paper' : 'Question Papers'}
+                </span>
+              ) : (
+                <span className="text-slate-400 dark:text-slate-500 font-normal">
+                  शीघ्र उपलब्ध (0 Papers)
+                </span>
+              )}
             </div>
           </div>
         </div>

@@ -1,8 +1,20 @@
 import { Paper, PaperSummary } from '../types/question';
 
 export const MOCK_SUMMARIES: PaperSummary[] = [
+  // Political Science (8 Papers)
   {
-    id: 'class12_polscience_2026_set_b',
+    id: 'class-12_pol-science_2026_model_paper',
+    class: '12',
+    subject: 'Political Science',
+    board: 'Bihar Board (BSEB)',
+    year: 2026,
+    paperName: '2026 Model Paper - Bihar Board Solved',
+    mcqCount: 100,
+    shortCount: 30,
+    longCount: 8,
+  },
+  {
+    id: 'class-12_pol-science_2026_set_b',
     class: '12',
     subject: 'Political Science',
     board: 'Bihar Board (BSEB)',
@@ -13,7 +25,7 @@ export const MOCK_SUMMARIES: PaperSummary[] = [
     longCount: 8,
   },
   {
-    id: 'class12_polscience_2026_set_h',
+    id: 'class-12_pol-science_2026_set_h',
     class: '12',
     subject: 'Political Science',
     board: 'Bihar Board (BSEB)',
@@ -24,7 +36,7 @@ export const MOCK_SUMMARIES: PaperSummary[] = [
     longCount: 8,
   },
   {
-    id: 'class12_polscience_2025_set_g',
+    id: 'class-12_pol-science_2025_set_g',
     class: '12',
     subject: 'Political Science',
     board: 'Bihar Board (BSEB)',
@@ -35,7 +47,7 @@ export const MOCK_SUMMARIES: PaperSummary[] = [
     longCount: 8,
   },
   {
-    id: 'class12_polscience_2024_set_a',
+    id: 'class-12_pol-science_2024_set_a',
     class: '12',
     subject: 'Political Science',
     board: 'Bihar Board (BSEB)',
@@ -46,7 +58,7 @@ export const MOCK_SUMMARIES: PaperSummary[] = [
     longCount: 8,
   },
   {
-    id: 'class12_polscience_2024_set_d',
+    id: 'class-12_pol-science_2024_set_d',
     class: '12',
     subject: 'Political Science',
     board: 'Bihar Board (BSEB)',
@@ -57,7 +69,31 @@ export const MOCK_SUMMARIES: PaperSummary[] = [
     longCount: 8,
   },
   {
-    id: 'class12_history_2023_set_a',
+    id: 'class-12_pol-science_2023_set_a',
+    class: '12',
+    subject: 'Political Science',
+    board: 'Bihar Board (BSEB)',
+    year: 2023,
+    paperName: '2023 Set A - Bihar Board Solved',
+    mcqCount: 100,
+    shortCount: 30,
+    longCount: 8,
+  },
+  {
+    id: 'class-12_pol-science_2022_set_a',
+    class: '12',
+    subject: 'Political Science',
+    board: 'Bihar Board (BSEB)',
+    year: 2022,
+    paperName: '2022 Set A - Bihar Board Solved',
+    mcqCount: 100,
+    shortCount: 30,
+    longCount: 8,
+  },
+
+  // History (1 Paper)
+  {
+    id: 'class-12_history_2023_set_a',
     class: '12',
     subject: 'History',
     board: 'Bihar Board (BSEB)',

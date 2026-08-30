@@ -17,13 +17,26 @@ export interface QuestionRepository {
 
 // Known paths in GitHub repository (AbhyaasData)
 const KNOWN_PAPER_PATHS = [
+  'Papers/XII/Political Science/class12_polscience_2026_model_paper.json',
   'Papers/XII/Political Science/class12_polscience_2026_set_b.json',
   'Papers/XII/Political Science/class12_polscience_2026_set_h.json',
   'Papers/XII/Political Science/class12_polscience_2025_set_g.json',
   'Papers/XII/Political Science/class12_polscience_2024_set_a.json',
   'Papers/XII/Political Science/class12_polscience_2024_set_d.json',
+  'Papers/XII/Political Science/class12_polscience_2023_set_a.json',
+  'Papers/XII/Political Science/class12_polscience_2022_set_a.json',
   'Papers/XII/History/class12_history_2023_set_a.json',
 ];
+
+export function canonicalPaperId(idOrPath: string): string {
+  if (!idOrPath) return '';
+  let clean = idOrPath.trim().toLowerCase();
+  clean = clean.replace(/^(papers|data)\/[^/]+\/[^/]+\//i, '');
+  clean = clean.replace(/\.json$/i, '');
+  clean = clean.replace(/^class_?12_?/i, 'class-12_');
+  clean = clean.replace(/pol_?science|political_?science/i, 'pol-science');
+  return clean;
+}
 
 const SUBJECT_ALIASES: Record<string, string> = {
   'polscience': 'Political Science',
@@ -122,12 +135,12 @@ export class GitHubQuestionRepository implements QuestionRepository {
     // Initialize default path mappings
     KNOWN_PAPER_PATHS.forEach((path) => {
       const filename = path.split('/').pop()?.replace(/\.json$/, '') || '';
+      const canonical = canonicalPaperId(filename);
       if (filename) {
         this.paperPathMap.set(filename, path);
+        this.paperPathMap.set(canonical, path);
         this.paperPathMap.set(filename.replace(/_/g, '-'), path);
-        this.paperPathMap.set(filename.replace('class12_polscience', 'class-12_pol-science'), path);
-        this.paperPathMap.set(filename.replace('class12_history', 'class-12_history'), path);
-        this.paperPathMap.set(filename.replace('class12_polscience', 'class12_pol_science'), path);
+        this.paperPathMap.set(filename.replace(/-/g, '_'), path);
       }
     });
   }
@@ -233,7 +246,13 @@ export class GitHubQuestionRepository implements QuestionRepository {
           answer: (q.modelAnswer || q.answerText || q.answer || '').trim(),
         }));
 
-      const paperId = meta.id || (rawPath ? rawPath.split('/').pop()?.replace('.json', '') : '') || `paper-${Date.now()}`;
+      const filename = rawPath ? rawPath.split('/').pop()?.replace('.json', '') : '';
+      const paperId = canonicalPaperId(meta.id || filename || `paper-${Date.now()}`);
+
+      const setDisplay = meta.set ? (meta.set.toLowerCase().includes('set') || meta.set.toLowerCase().includes('model') ? meta.set : `Set ${meta.set}`) : '';
+      const paperName = setDisplay
+        ? `${meta.year || ''} ${setDisplay} - Bihar Board Solved`.trim()
+        : meta.title || 'Question Paper';
 
       return {
         id: paperId,
@@ -241,7 +260,7 @@ export class GitHubQuestionRepository implements QuestionRepository {
         subject: formattedSubject,
         board: meta.board || 'Bihar Board (BSEB)',
         year: meta.year || 2026,
-        paperName: meta.set ? `${meta.year || ''} ${meta.set}`.trim() : meta.title || 'Question Paper',
+        paperName,
         mcqs,
         shortQuestions,
         longQuestions,
@@ -256,35 +275,39 @@ export class GitHubQuestionRepository implements QuestionRepository {
     const targetSubject = subjectId ? normalizeSubject(subjectId) : undefined;
 
     try {
-      // 1. Check cached papers in IndexedDB
-      const cached = await getAllCachedPapers();
-      const cachedSummaries: PaperSummary[] = cached.map((p) => ({
-        id: p.id,
-        class: normalizeClass(p.class),
-        subject: normalizeSubject(p.subject),
-        board: p.board,
-        year: p.year,
-        paperName: p.paperName,
-        mcqCount: p.mcqs?.length || 0,
-        shortCount: p.shortQuestions?.length || 0,
-        longCount: p.longQuestions?.length || 0,
-      }));
-
-      // Initialize map with all bundled mock summaries
       const mergedMap = new Map<string, PaperSummary>();
+
+      // 1. Initialize map with bundled mock summaries
       MOCK_SUMMARIES.forEach((s) => {
-        mergedMap.set(s.id, {
+        const canonicalKey = canonicalPaperId(s.id);
+        mergedMap.set(canonicalKey, {
           ...s,
+          id: canonicalKey,
           class: normalizeClass(s.class),
           subject: normalizeSubject(s.subject),
         });
       });
-      cachedSummaries.forEach((s) => mergedMap.set(s.id, s));
 
-      // 2. Discover files from GitHub if online and not in offline mode
+      // 2. Check cached papers in IndexedDB
+      const cached = await getAllCachedPapers();
+      cached.forEach((p) => {
+        const canonicalKey = canonicalPaperId(p.id);
+        mergedMap.set(canonicalKey, {
+          id: canonicalKey,
+          class: normalizeClass(p.class),
+          subject: normalizeSubject(p.subject),
+          board: p.board,
+          year: p.year,
+          paperName: p.paperName,
+          mcqCount: p.mcqs?.length || 0,
+          shortCount: p.shortQuestions?.length || 0,
+          longCount: p.longQuestions?.length || 0,
+        });
+      });
+
+      // 3. Discover files from GitHub if online and not in offline mode
       if (navigator.onLine && !getAppSettings().offlineMode) {
         try {
-          // Check GitHub Tree API for dynamic repository structure
           const treeApiUrls = [
             'https://api.github.com/repos/dheerajjha97/AbhyaasData/git/trees/main?recursive=1',
             'https://api.github.com/repos/dheerajjha97/AbhyaasData/git/trees/master?recursive=1',
@@ -309,8 +332,10 @@ export class GitHubQuestionRepository implements QuestionRepository {
             for (const blob of jsonBlobs) {
               const relativePath: string = blob.path;
               const filename = relativePath.split('/').pop()?.replace(/\.json$/, '') || '';
+              const canonical = canonicalPaperId(filename);
               if (filename) {
                 this.paperPathMap.set(filename, relativePath);
+                this.paperPathMap.set(canonical, relativePath);
               }
 
               try {
@@ -318,9 +343,10 @@ export class GitHubQuestionRepository implements QuestionRepository {
                 if (paperRes.ok) {
                   const rawJson = await paperRes.json();
                   const parsed = this.parseRemotePaperJson(rawJson, relativePath);
-                  this.paperPathMap.set(parsed.id, relativePath);
-                  mergedMap.set(parsed.id, {
-                    id: parsed.id,
+                  const canonicalId = canonicalPaperId(parsed.id);
+                  this.paperPathMap.set(canonicalId, relativePath);
+                  mergedMap.set(canonicalId, {
+                    id: canonicalId,
                     class: parsed.class,
                     subject: parsed.subject,
                     board: parsed.board,
@@ -341,9 +367,10 @@ export class GitHubQuestionRepository implements QuestionRepository {
                 if (paperRes.ok) {
                   const rawJson = await paperRes.json();
                   const parsed = this.parseRemotePaperJson(rawJson, relativePath);
-                  this.paperPathMap.set(parsed.id, relativePath);
-                  mergedMap.set(parsed.id, {
-                    id: parsed.id,
+                  const canonicalId = canonicalPaperId(parsed.id);
+                  this.paperPathMap.set(canonicalId, relativePath);
+                  mergedMap.set(canonicalId, {
+                    id: canonicalId,
                     class: parsed.class,
                     subject: parsed.subject,
                     board: parsed.board,
@@ -385,6 +412,14 @@ export class GitHubQuestionRepository implements QuestionRepository {
         });
       }
 
+      // Sort papers reverse chronologically (2026 -> 2025 -> 2024 -> 2023 -> 2022)
+      result.sort((a, b) => {
+        if (b.year !== a.year) {
+          return Number(b.year) - Number(a.year);
+        }
+        return a.paperName.localeCompare(b.paperName);
+      });
+
       return result;
     } catch (err) {
       console.warn('Error in getPapersList, using fallback:', err);
@@ -400,6 +435,7 @@ export class GitHubQuestionRepository implements QuestionRepository {
       if (targetSubject) {
         fallback = fallback.filter((p) => p.subject.toLowerCase() === targetSubject.toLowerCase());
       }
+      fallback.sort((a, b) => Number(b.year) - Number(a.year));
       return fallback;
     }
   }
@@ -440,8 +476,10 @@ export class GitHubQuestionRepository implements QuestionRepository {
 
   private async fetchRemotePaper(paperId: string): Promise<Paper | null> {
     try {
+      const canonical = canonicalPaperId(paperId);
       const mappedPath =
         this.paperPathMap.get(paperId) ||
+        this.paperPathMap.get(canonical) ||
         this.paperPathMap.get(paperId.replace(/_/g, '-')) ||
         this.paperPathMap.get(paperId.replace(/-/g, '_'));
 
@@ -451,21 +489,31 @@ export class GitHubQuestionRepository implements QuestionRepository {
         urlsToTry.push(`${this.repoBaseUrl}/${mappedPath}`);
       }
 
-      urlsToTry.push(
-        `${this.repoBaseUrl}/Papers/XII/Political Science/${paperId}.json`,
-        `${this.repoBaseUrl}/Papers/XII/Political Science/class12_polscience_2026_model_paper_.json`,
-        `${this.repoBaseUrl}/Papers/XII/History/${paperId}.json`,
-        `${this.repoBaseUrl}/Papers/XII/Biology/${paperId}.json`,
-        `${this.repoBaseUrl}/Papers/XII/Physics/${paperId}.json`,
-        `${this.repoBaseUrl}/Papers/XII/Chemistry/${paperId}.json`,
-        `${this.repoBaseUrl}/Papers/XII/Mathematics/${paperId}.json`,
-        `${this.repoBaseUrl}/Papers/XII/Hindi/${paperId}.json`,
-        `${this.repoBaseUrl}/Papers/XII/English/${paperId}.json`,
-        `${this.repoBaseUrl}/Papers/X/Science/${paperId}.json`,
-        `${this.repoBaseUrl}/Papers/X/Social Science/${paperId}.json`,
-        `${this.repoBaseUrl}/Papers/X/Mathematics/${paperId}.json`,
-        `${this.repoBaseUrl}/papers/${paperId}.json`
-      );
+      const idVariations = [
+        paperId,
+        canonical,
+        paperId.replace(/-/g, '_'),
+        paperId.replace(/_/g, '-'),
+        canonical.replace('class-12_pol-science', 'class12_polscience'),
+        canonical.replace('class-12_history', 'class12_history'),
+      ];
+
+      for (const idVar of idVariations) {
+        urlsToTry.push(
+          `${this.repoBaseUrl}/Papers/XII/Political Science/${idVar}.json`,
+          `${this.repoBaseUrl}/Papers/XII/History/${idVar}.json`,
+          `${this.repoBaseUrl}/Papers/XII/Biology/${idVar}.json`,
+          `${this.repoBaseUrl}/Papers/XII/Physics/${idVar}.json`,
+          `${this.repoBaseUrl}/Papers/XII/Chemistry/${idVar}.json`,
+          `${this.repoBaseUrl}/Papers/XII/Mathematics/${idVar}.json`,
+          `${this.repoBaseUrl}/Papers/XII/Hindi/${idVar}.json`,
+          `${this.repoBaseUrl}/Papers/XII/English/${idVar}.json`,
+          `${this.repoBaseUrl}/Papers/X/Science/${idVar}.json`,
+          `${this.repoBaseUrl}/Papers/X/Social Science/${idVar}.json`,
+          `${this.repoBaseUrl}/Papers/X/Mathematics/${idVar}.json`,
+          `${this.repoBaseUrl}/papers/${idVar}.json`
+        );
+      }
 
       for (const url of urlsToTry) {
         try {

@@ -33,7 +33,9 @@ export const Papers: React.FC = () => {
     ? papers
     : papers.filter((p) => p.year.toString() === filterYear);
 
-  const years = Array.from(new Set(papers.map((p) => p.year.toString())));
+  const years = Array.from(new Set(papers.map((p) => p.year.toString()))).sort(
+    (a, b) => Number(b) - Number(a)
+  );
 
   return (
     <div className="space-y-5 pb-24 animate-in fade-in duration-300">

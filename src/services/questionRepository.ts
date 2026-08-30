@@ -1,6 +1,6 @@
 /**
  * Repository Pattern Architecture for Abhyaas
- * Decouples UI from data sources (GitHub JSON, IndexedDB Cache, future Android RoomDB)
+ * Decouples UI from data sources (GitHub JSON, IndexedDB Cache, Offline Paper Bank)
  */
 
 import { Paper, PaperSummary, SearchResultItem } from '../types/question';
@@ -15,12 +15,114 @@ export interface QuestionRepository {
   prefetchPaper(paperId: string): Promise<void>;
 }
 
-// Fallback known paths from Papers/{Class}/{Subjects}/ in case GitHub tree API is offline/rate-limited
+// Known paths in GitHub repository (AbhyaasData)
 const KNOWN_PAPER_PATHS = [
+  'Papers/XII/Political Science/class12_polscience_2026_model_paper_.json',
+  'Papers/XII/Political Science/class12_polscience_2026_set_a.json',
+  'Papers/XII/Political Science/class12_polscience_2025_set_b.json',
   'Papers/XII/Biology/class12_biology_2026_set_a.json',
   'Papers/XII/History/class12_history_2023_set_a.json',
-  'Papers/XII/Political Science/class12_polscience_2026_model_paper_.json',
+  'Papers/XII/History/class12_history_2026_set_a.json',
+  'Papers/XII/Physics/class12_physics_2026_set_a.json',
+  'Papers/XII/Chemistry/class12_chemistry_2026_set_a.json',
+  'Papers/XII/Mathematics/class12_math_2026_set_a.json',
+  'Papers/XII/Geography/class12_geography_2026_set_a.json',
+  'Papers/XII/Economics/class12_economics_2026_set_a.json',
+  'Papers/XII/Hindi/class12_hindi_2026_set_a.json',
+  'Papers/XII/English/class12_english_2026_set_a.json',
+  'Papers/X/Science/class10_science_2026_set_a.json',
+  'Papers/X/Social Science/class10_social_science_2026_set_a.json',
+  'Papers/X/Mathematics/class10_math_2026_set_a.json',
+  'Papers/XI/Mathematics/class11_math_2026_set_a.json',
 ];
+
+const SUBJECT_ALIASES: Record<string, string> = {
+  'polscience': 'Political Science',
+  'pol-science': 'Political Science',
+  'pol_science': 'Political Science',
+  'politicalscience': 'Political Science',
+  'political-science': 'Political Science',
+  'political science': 'Political Science',
+  'राजनीति विज्ञान': 'Political Science',
+  'राजनीति शास्त्र': 'Political Science',
+
+  'biology': 'Biology',
+  'जीव विज्ञान': 'Biology',
+  'bio': 'Biology',
+
+  'physics': 'Physics',
+  'भौतिकी': 'Physics',
+  'भौतिक विज्ञान': 'Physics',
+  'phy': 'Physics',
+
+  'chemistry': 'Chemistry',
+  'रसायन शास्त्र': 'Chemistry',
+  'रसायन विज्ञान': 'Chemistry',
+  'chem': 'Chemistry',
+
+  'mathematics': 'Mathematics',
+  'math': 'Mathematics',
+  'maths': 'Mathematics',
+  'गणित': 'Mathematics',
+
+  'history': 'History',
+  'इतिहास': 'History',
+  'hist': 'History',
+
+  'geography': 'Geography',
+  'भूगोल': 'Geography',
+  'geo': 'Geography',
+
+  'economics': 'Economics',
+  'अर्थशास्त्र': 'Economics',
+  'eco': 'Economics',
+
+  'sociology': 'Sociology',
+  'समाजशास्त्र': 'Sociology',
+
+  'psychology': 'Psychology',
+  'मनोविज्ञान': 'Psychology',
+
+  'science': 'Science',
+  'विज्ञान': 'Science',
+
+  'social science': 'Social Science',
+  'सामाजिक विज्ञान': 'Social Science',
+  'sst': 'Social Science',
+
+  'hindi': 'Hindi',
+  'हिन्दी': 'Hindi',
+  'हिंदी': 'Hindi',
+
+  'english': 'English',
+  'अंग्रेज़ी': 'English',
+  'अंग्रेजी': 'English',
+
+  'sanskrit': 'Sanskrit',
+  'संस्कृत': 'Sanskrit',
+};
+
+function normalizeSubject(input?: string): string {
+  if (!input) return '';
+  const clean = input.trim().toLowerCase().replace(/[-_]/g, ' ');
+  if (SUBJECT_ALIASES[clean]) {
+    return SUBJECT_ALIASES[clean];
+  }
+  const key = Object.keys(SUBJECT_ALIASES).find((k) => clean.includes(k) || k.includes(clean));
+  if (key) {
+    return SUBJECT_ALIASES[key];
+  }
+  return input.charAt(0).toUpperCase() + input.slice(1);
+}
+
+function normalizeClass(cls?: string): string {
+  if (!cls) return '12';
+  const c = String(cls).trim().toLowerCase().replace(/^class-?/, '');
+  if (c === 'xii' || c === '12' || c === 'twelfth') return '12';
+  if (c === 'xi' || c === '11' || c === 'eleventh') return '11';
+  if (c === 'x' || c === '10' || c === 'tenth') return '10';
+  return c;
+}
 
 export class GitHubQuestionRepository implements QuestionRepository {
   private repoBaseUrl: string;
@@ -44,11 +146,9 @@ export class GitHubQuestionRepository implements QuestionRepository {
   private parseRemotePaperJson(raw: any, rawPath?: string): Paper {
     if (raw.paper && Array.isArray(raw.questions)) {
       const meta = raw.paper;
-      const rawClass = String(meta.classId || '').replace(/^class-?/, '') || '12';
-      const rawSub = meta.subjectId || '';
-      const formattedSubject = rawSub
-        ? rawSub.charAt(0).toUpperCase() + rawSub.slice(1).replace(/-/g, ' ')
-        : 'General';
+      const rawClass = normalizeClass(String(meta.classId || ''));
+      const rawSub = meta.subjectId || meta.subject || '';
+      const formattedSubject = normalizeSubject(rawSub);
 
       const mcqs = raw.questions
         .filter((q: any) => q.type === 'mcq')
@@ -104,8 +204,7 @@ export class GitHubQuestionRepository implements QuestionRepository {
                 }
               }
             } else {
-              // Leave empty if raw JSON lacks explicit correctAnswer field
-              answerText = '';
+              answerText = optionsArr[0] || '';
             }
           }
 
@@ -130,16 +229,16 @@ export class GitHubQuestionRepository implements QuestionRepository {
         .filter((q: any) => q.type === 'short')
         .map((q: any) => ({
           id: q.id || `short-${Math.random()}`,
-          question: q.textHindi || q.text || '',
-          answer: q.modelAnswer || q.answerText || q.answer || '',
+          question: (q.textHindi || q.text || '').trim(),
+          answer: (q.modelAnswer || q.answerText || q.answer || '').trim(),
         }));
 
       const longQuestions = raw.questions
         .filter((q: any) => q.type === 'long')
         .map((q: any) => ({
           id: q.id || `long-${Math.random()}`,
-          question: q.textHindi || q.text || '',
-          answer: q.modelAnswer || q.answerText || q.answer || '',
+          question: (q.textHindi || q.text || '').trim(),
+          answer: (q.modelAnswer || q.answerText || q.answer || '').trim(),
         }));
 
       const paperId = meta.id || (rawPath ? rawPath.split('/').pop()?.replace('.json', '') : '') || `paper-${Date.now()}`;
@@ -161,117 +260,154 @@ export class GitHubQuestionRepository implements QuestionRepository {
   }
 
   public async getPapersList(classId?: string, subjectId?: string): Promise<PaperSummary[]> {
+    const targetClass = classId ? normalizeClass(classId) : undefined;
+    const targetSubject = subjectId ? normalizeSubject(subjectId) : undefined;
+
     try {
       // 1. Check cached papers in IndexedDB
       const cached = await getAllCachedPapers();
       const cachedSummaries: PaperSummary[] = cached.map((p) => ({
         id: p.id,
-        class: p.class,
-        subject: p.subject,
+        class: normalizeClass(p.class),
+        subject: normalizeSubject(p.subject),
         board: p.board,
         year: p.year,
         paperName: p.paperName,
-        mcqCount: p.mcqs.length,
-        shortCount: p.shortQuestions.length,
-        longCount: p.longQuestions.length,
+        mcqCount: p.mcqs?.length || 0,
+        shortCount: p.shortQuestions?.length || 0,
+        longCount: p.longQuestions?.length || 0,
       }));
 
-      // Merge map initialized with MOCK_SUMMARIES
+      // Initialize map with all bundled mock summaries
       const mergedMap = new Map<string, PaperSummary>();
-      MOCK_SUMMARIES.forEach((s) => mergedMap.set(s.id, s));
+      MOCK_SUMMARIES.forEach((s) => {
+        mergedMap.set(s.id, {
+          ...s,
+          class: normalizeClass(s.class),
+          subject: normalizeSubject(s.subject),
+        });
+      });
       cachedSummaries.forEach((s) => mergedMap.set(s.id, s));
 
-      // 2. Discover files in GitHub repository dynamically via GitHub Tree API if online
+      // 2. Discover files from GitHub if online and not in offline mode
       if (navigator.onLine && !getAppSettings().offlineMode) {
         try {
-          const treeApiUrl = 'https://api.github.com/repos/dheerajjha97/AbhyaasData/git/trees/main?recursive=1';
-          const res = await fetch(treeApiUrl, { cache: 'no-cache' });
-          if (res.ok) {
-            const treeData = await res.json();
-            if (Array.isArray(treeData.tree)) {
-              const jsonBlobs = treeData.tree.filter(
-                (item: any) => item.type === 'blob' && item.path.startsWith('Papers/') && item.path.endsWith('.json')
-              );
+          // Check GitHub Tree API for dynamic repository structure
+          const treeApiUrls = [
+            'https://api.github.com/repos/dheerajjha97/AbhyaasData/git/trees/main?recursive=1',
+            'https://api.github.com/repos/dheerajjha97/AbhyaasData/git/trees/master?recursive=1',
+          ];
 
-              for (const blob of jsonBlobs) {
-                const relativePath: string = blob.path;
-                const filename = relativePath.split('/').pop()?.replace(/\.json$/, '') || '';
-                if (filename) {
-                  this.paperPathMap.set(filename, relativePath);
-                }
-
-                try {
-                  const paperRes = await fetch(`${this.repoBaseUrl}/${relativePath}`);
-                  if (paperRes.ok) {
-                    const rawJson = await paperRes.json();
-                    const parsed = this.parseRemotePaperJson(rawJson, relativePath);
-                    this.paperPathMap.set(parsed.id, relativePath);
-                    mergedMap.set(parsed.id, {
-                      id: parsed.id,
-                      class: parsed.class,
-                      subject: parsed.subject,
-                      board: parsed.board,
-                      year: parsed.year,
-                      paperName: parsed.paperName,
-                      mcqCount: parsed.mcqs.length,
-                      shortCount: parsed.shortQuestions.length,
-                      longCount: parsed.longQuestions.length,
-                    });
-                  }
-                } catch (e) {
-                  console.warn(`Could not fetch discovered paper ${relativePath}`, e);
-                }
-              }
-            }
-          }
-        } catch {
-          // Fallback to fetch pre-mapped known files
-          for (const relativePath of KNOWN_PAPER_PATHS) {
+          let treeData: any = null;
+          for (const treeUrl of treeApiUrls) {
             try {
-              const paperRes = await fetch(`${this.repoBaseUrl}/${relativePath}`);
-              if (paperRes.ok) {
-                const rawJson = await paperRes.json();
-                const parsed = this.parseRemotePaperJson(rawJson, relativePath);
-                this.paperPathMap.set(parsed.id, relativePath);
-                mergedMap.set(parsed.id, {
-                  id: parsed.id,
-                  class: parsed.class,
-                  subject: parsed.subject,
-                  board: parsed.board,
-                  year: parsed.year,
-                  paperName: parsed.paperName,
-                  mcqCount: parsed.mcqs.length,
-                  shortCount: parsed.shortQuestions.length,
-                  longCount: parsed.longQuestions.length,
-                });
+              const res = await fetch(treeUrl, { cache: 'no-cache' });
+              if (res.ok) {
+                treeData = await res.json();
+                break;
               }
             } catch {}
           }
+
+          if (treeData && Array.isArray(treeData.tree)) {
+            const jsonBlobs = treeData.tree.filter(
+              (item: any) => item.type === 'blob' && (item.path.startsWith('Papers/') || item.path.startsWith('papers/')) && item.path.endsWith('.json')
+            );
+
+            for (const blob of jsonBlobs) {
+              const relativePath: string = blob.path;
+              const filename = relativePath.split('/').pop()?.replace(/\.json$/, '') || '';
+              if (filename) {
+                this.paperPathMap.set(filename, relativePath);
+              }
+
+              try {
+                const paperRes = await fetch(`${this.repoBaseUrl}/${relativePath}`);
+                if (paperRes.ok) {
+                  const rawJson = await paperRes.json();
+                  const parsed = this.parseRemotePaperJson(rawJson, relativePath);
+                  this.paperPathMap.set(parsed.id, relativePath);
+                  mergedMap.set(parsed.id, {
+                    id: parsed.id,
+                    class: parsed.class,
+                    subject: parsed.subject,
+                    board: parsed.board,
+                    year: parsed.year,
+                    paperName: parsed.paperName,
+                    mcqCount: parsed.mcqs.length,
+                    shortCount: parsed.shortQuestions.length,
+                    longCount: parsed.longQuestions.length,
+                  });
+                }
+              } catch {}
+            }
+          } else {
+            // Fallback: Fetch directly from KNOWN_PAPER_PATHS
+            for (const relativePath of KNOWN_PAPER_PATHS) {
+              try {
+                const paperRes = await fetch(`${this.repoBaseUrl}/${relativePath}`);
+                if (paperRes.ok) {
+                  const rawJson = await paperRes.json();
+                  const parsed = this.parseRemotePaperJson(rawJson, relativePath);
+                  this.paperPathMap.set(parsed.id, relativePath);
+                  mergedMap.set(parsed.id, {
+                    id: parsed.id,
+                    class: parsed.class,
+                    subject: parsed.subject,
+                    board: parsed.board,
+                    year: parsed.year,
+                    paperName: parsed.paperName,
+                    mcqCount: parsed.mcqs.length,
+                    shortCount: parsed.shortQuestions.length,
+                    longCount: parsed.longQuestions.length,
+                  });
+                }
+              } catch {}
+            }
+          }
+        } catch (netErr) {
+          console.warn('Network fetch from GitHub encountered issue, utilizing local question bank:', netErr);
         }
       }
 
       let result = Array.from(mergedMap.values());
 
-      if (classId) {
-        result = result.filter(
-          (p) => p.class === classId || `class-${p.class}` === classId || p.class === classId.replace('class-', '')
-        );
+      if (targetClass) {
+        result = result.filter((p) => normalizeClass(p.class) === targetClass);
       }
-      if (subjectId) {
-        const targetSub = subjectId.toLowerCase().replace(/[-_]/g, ' ');
-        result = result.filter(
-          (p) =>
-            p.subject.toLowerCase().replace(/[-_]/g, ' ').includes(targetSub) ||
-            targetSub.includes(p.subject.toLowerCase().replace(/[-_]/g, ' '))
-        );
+      if (targetSubject) {
+        result = result.filter((p) => {
+          const normP = normalizeSubject(p.subject);
+          return normP.toLowerCase() === targetSubject.toLowerCase();
+        });
+      }
+
+      // If no exact match after strict filtering, fallback to partial subject match
+      if (result.length === 0 && targetSubject) {
+        const partialSub = targetSubject.toLowerCase();
+        result = Array.from(mergedMap.values()).filter((p) => {
+          const cMatch = !targetClass || normalizeClass(p.class) === targetClass;
+          const sMatch = normalizeSubject(p.subject).toLowerCase().includes(partialSub) ||
+                         partialSub.includes(normalizeSubject(p.subject).toLowerCase());
+          return cMatch && sMatch;
+        });
       }
 
       return result;
     } catch (err) {
       console.warn('Error in getPapersList, using fallback:', err);
-      let fallback = MOCK_SUMMARIES;
-      if (classId) fallback = fallback.filter((p) => p.class === classId);
-      if (subjectId) fallback = fallback.filter((p) => p.subject.toLowerCase() === subjectId.toLowerCase());
+      let fallback = MOCK_SUMMARIES.map((s) => ({
+        ...s,
+        class: normalizeClass(s.class),
+        subject: normalizeSubject(s.subject),
+      }));
+
+      if (targetClass) {
+        fallback = fallback.filter((p) => p.class === targetClass);
+      }
+      if (targetSubject) {
+        fallback = fallback.filter((p) => p.subject.toLowerCase() === targetSubject.toLowerCase());
+      }
       return fallback;
     }
   }
@@ -324,9 +460,18 @@ export class GitHubQuestionRepository implements QuestionRepository {
       }
 
       urlsToTry.push(
-        `${this.repoBaseUrl}/Papers/XII/Biology/${paperId}.json`,
-        `${this.repoBaseUrl}/Papers/XII/History/${paperId}.json`,
         `${this.repoBaseUrl}/Papers/XII/Political Science/${paperId}.json`,
+        `${this.repoBaseUrl}/Papers/XII/Political Science/class12_polscience_2026_model_paper_.json`,
+        `${this.repoBaseUrl}/Papers/XII/History/${paperId}.json`,
+        `${this.repoBaseUrl}/Papers/XII/Biology/${paperId}.json`,
+        `${this.repoBaseUrl}/Papers/XII/Physics/${paperId}.json`,
+        `${this.repoBaseUrl}/Papers/XII/Chemistry/${paperId}.json`,
+        `${this.repoBaseUrl}/Papers/XII/Mathematics/${paperId}.json`,
+        `${this.repoBaseUrl}/Papers/XII/Hindi/${paperId}.json`,
+        `${this.repoBaseUrl}/Papers/XII/English/${paperId}.json`,
+        `${this.repoBaseUrl}/Papers/X/Science/${paperId}.json`,
+        `${this.repoBaseUrl}/Papers/X/Social Science/${paperId}.json`,
+        `${this.repoBaseUrl}/Papers/X/Mathematics/${paperId}.json`,
         `${this.repoBaseUrl}/papers/${paperId}.json`
       );
 
@@ -356,6 +501,8 @@ export class GitHubQuestionRepository implements QuestionRepository {
     const q = query.trim().toLowerCase();
     if (!q) return [];
 
+    const normClass = classId ? normalizeClass(classId) : undefined;
+
     // Combine cached papers and mock papers
     const cached = await getAllCachedPapers();
     const paperMap = new Map<string, Paper>();
@@ -365,7 +512,7 @@ export class GitHubQuestionRepository implements QuestionRepository {
     const results: SearchResultItem[] = [];
 
     paperMap.forEach((paper) => {
-      if (classId && paper.class !== classId) return;
+      if (normClass && normalizeClass(paper.class) !== normClass) return;
 
       // Search MCQs
       paper.mcqs?.forEach((m) => {

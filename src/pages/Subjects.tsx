@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { questionRepository } from '../services/questionRepository';
+import { questionRepository, normalizeSubject } from '../services/questionRepository';
 import { PaperSummary } from '../types/question';
 import { HeaderBar } from '../components/ui/HeaderBar';
 import { SubjectCard } from '../components/ui/SubjectCard';
@@ -98,8 +98,9 @@ export const Subjects: React.FC = () => {
   });
 
   papers.forEach((p) => {
-    const current = subjectMap.get(p.subject) || 0;
-    subjectMap.set(p.subject, current + 1);
+    const norm = normalizeSubject(p.subject);
+    const current = subjectMap.get(norm) || subjectMap.get(p.subject) || 0;
+    subjectMap.set(norm || p.subject, current + 1);
   });
 
   const subjectsList = Array.from(subjectMap.entries()).map(([subjectName, count]) => {

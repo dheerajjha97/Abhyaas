@@ -1,0 +1,4404 @@
+{
+  "schemaVersion": "2.0",
+  "paper": {
+    "id": "class-12_pol-science_2026_set_b",
+    "title": "Class 12 Political Science (राजनीति विज्ञान) 2026 Set B (Bihar Board (BSEB))",
+    "classId": "class-12",
+    "subjectId": "pol-science",
+    "board": "Bihar Board (BSEB)",
+    "year": 2026,
+    "set": "Set B",
+    "durationMinutes": 195,
+    "totalMarks": 200,
+    "totalQuestions": 138,
+    "status": "ready"
+  },
+  "sections": [
+    {
+      "id": "sec-a",
+      "name": "खण्ड–अ : वस्तुनिष्ठ प्रश्न (MCQ)",
+      "type": "mcq",
+      "questionCount": 100,
+      "marksPerQuestion": 1
+    },
+    {
+      "id": "sec-b",
+      "name": "खण्ड–ब : लघु उत्तरीय प्रश्न (Short)",
+      "type": "short",
+      "questionCount": 30,
+      "marksPerQuestion": 2
+    },
+    {
+      "id": "sec-c",
+      "name": "खण्ड–स : दीर्घ उत्तरीय प्रश्न (Long)",
+      "type": "long",
+      "questionCount": 8,
+      "marksPerQuestion": 5
+    }
+  ],
+  "stats": {
+    "totalQuestions": 138,
+    "mcqCount": 100,
+    "shortCount": 30,
+    "longCount": 8,
+    "answeredCount": 138
+  },
+  "questions": [
+    {
+      "id": "q-mcq-1",
+      "sectionId": "sec-a",
+      "sectionName": "खण्ड–अ : वस्तुनिष्ठ प्रश्न",
+      "questionNumber": 1,
+      "type": "mcq",
+      "text": "भारत में सुदृढ़ केन्द्र के साथ संघीय ढाँचा का विचार कहाँ से लिया गया है ?",
+      "textHindi": "भारत में सुदृढ़ केन्द्र के साथ संघीय ढाँचा का विचार कहाँ से लिया गया है ?",
+      "options": [
+        {
+          "id": "opt-1-a",
+          "key": "A",
+          "text": "अमेरिका",
+          "textHindi": "अमेरिका"
+        },
+        {
+          "id": "opt-1-b",
+          "key": "B",
+          "text": "कनाडा",
+          "textHindi": "कनाडा"
+        },
+        {
+          "id": "opt-1-c",
+          "key": "C",
+          "text": "आस्ट्रेलिया",
+          "textHindi": "आस्ट्रेलिया"
+        },
+        {
+          "id": "opt-1-d",
+          "key": "D",
+          "text": "जर्मनी",
+          "textHindi": "जर्मनी"
+        }
+      ],
+      "correctAnswer": "B",
+      "correctAnswerText": "(B) कनाडा",
+      "explanationHindi": "भारतीय संविधान में सशक्त केंद्र वाली संघीय व्यवस्था तथा अवशिष्ट शक्तियों का केंद्र के अधीन होना कनाडा के संविधान से ग्रहण किया गया है।",
+      "marks": 1
+    },
+    {
+      "id": "q-mcq-2",
+      "sectionId": "sec-a",
+      "sectionName": "खण्ड–अ : वस्तुनिष्ठ प्रश्न",
+      "questionNumber": 2,
+      "type": "mcq",
+      "text": "स्थानीय स्वशासन का विषय किस सूची में आता है ?",
+      "textHindi": "स्थानीय स्वशासन का विषय किस सूची में आता है ?",
+      "options": [
+        {
+          "id": "opt-2-a",
+          "key": "A",
+          "text": "संघ सूची",
+          "textHindi": "संघ सूची"
+        },
+        {
+          "id": "opt-2-b",
+          "key": "B",
+          "text": "राज्य सूची",
+          "textHindi": "राज्य सूची"
+        },
+        {
+          "id": "opt-2-c",
+          "key": "C",
+          "text": "समवर्ती सूची",
+          "textHindi": "समवर्ती सूची"
+        },
+        {
+          "id": "opt-2-d",
+          "key": "D",
+          "text": "इनमें से कोई नहीं",
+          "textHindi": "इनमें से कोई नहीं"
+        }
+      ],
+      "correctAnswer": "B",
+      "correctAnswerText": "(B) राज्य सूची",
+      "explanationHindi": "संविधान की 7वीं अनुसूची के अंतर्गत स्थानीय स्वशासन (ग्राम पंचायत व नगरपालिका) राज्य सूची (State List) की प्रविष्टि 5 का विषय है।",
+      "marks": 1
+    },
+    {
+      "id": "q-mcq-3",
+      "sectionId": "sec-a",
+      "sectionName": "खण्ड–अ : वस्तुनिष्ठ प्रश्न",
+      "questionNumber": 3,
+      "type": "mcq",
+      "text": "भारत में नगरीय प्रशासन की स्थापना किस वायसराय ने की ?",
+      "textHindi": "भारत में नगरीय प्रशासन की स्थापना किस वायसराय ने की ?",
+      "options": [
+        {
+          "id": "opt-3-a",
+          "key": "A",
+          "text": "लार्ड कैनिंग",
+          "textHindi": "लार्ड कैनिंग"
+        },
+        {
+          "id": "opt-3-b",
+          "key": "B",
+          "text": "लार्ड रिपन",
+          "textHindi": "लार्ड रिपन"
+        },
+        {
+          "id": "opt-3-c",
+          "key": "C",
+          "text": "लार्ड कर्जन",
+          "textHindi": "लार्ड कर्जन"
+        },
+        {
+          "id": "opt-3-d",
+          "key": "D",
+          "text": "लार्ड मिण्टो",
+          "textHindi": "लार्ड मिण्टो"
+        }
+      ],
+      "correctAnswer": "B",
+      "correctAnswerText": "(B) लार्ड रिपन",
+      "explanationHindi": "1882 के ऐतिहासिक स्थानीय स्वशासन प्रस्ताव के कारण ब्रिटिश वायसराय लॉर्ड रिपन को 'भारत में स्थानीय स्वशासन का जनक' कहा जाता है।",
+      "marks": 1
+    },
+    {
+      "id": "q-mcq-4",
+      "sectionId": "sec-a",
+      "sectionName": "खण्ड–अ : वस्तुनिष्ठ प्रश्न",
+      "questionNumber": 4,
+      "type": "mcq",
+      "text": "नया पंचायती राज किस कमिटी की सिफारिशों पर आधारित है ?",
+      "textHindi": "नया पंचायती राज किस कमिटी की सिफारिशों पर आधारित है ?",
+      "options": [
+        {
+          "id": "opt-4-a",
+          "key": "A",
+          "text": "बलवंत राय कमिटी",
+          "textHindi": "बलवंत राय कमिटी"
+        },
+        {
+          "id": "opt-4-b",
+          "key": "B",
+          "text": "अशोक मेहता कमिटी",
+          "textHindi": "अशोक मेहता कमिटी"
+        },
+        {
+          "id": "opt-4-c",
+          "key": "C",
+          "text": "राव कमिटी",
+          "textHindi": "राव कमिटी"
+        },
+        {
+          "id": "opt-4-d",
+          "key": "D",
+          "text": "सिंघवी कमिटी",
+          "textHindi": "सिंघवी कमिटी"
+        }
+      ],
+      "correctAnswer": "A",
+      "correctAnswerText": "(A) बलवंत राय कमिटी",
+      "explanationHindi": "1957 में बलवंत राय मेहता समिति ने त्रिस्तरीय पंचायती राज व्यवस्था की सिफारिश की थी, जिसे बाद में 73वें संविधान संशोधन द्वारा संवैधानिक दर्जा दिया गया।",
+      "marks": 1
+    },
+    {
+      "id": "q-mcq-5",
+      "sectionId": "sec-a",
+      "sectionName": "खण्ड–अ : वस्तुनिष्ठ प्रश्न",
+      "questionNumber": 5,
+      "type": "mcq",
+      "text": "73वाँ एवं 74वाँ संवैधानिक संशोधन कब लागू हुआ ?",
+      "textHindi": "73वाँ एवं 74वाँ संवैधानिक संशोधन कब लागू हुआ ?",
+      "options": [
+        {
+          "id": "opt-5-a",
+          "key": "A",
+          "text": "1993",
+          "textHindi": "1993"
+        },
+        {
+          "id": "opt-5-b",
+          "key": "B",
+          "text": "1995",
+          "textHindi": "1995"
+        },
+        {
+          "id": "opt-5-c",
+          "key": "C",
+          "text": "2000",
+          "textHindi": "2000"
+        },
+        {
+          "id": "opt-5-d",
+          "key": "D",
+          "text": "2005",
+          "textHindi": "2005"
+        }
+      ],
+      "correctAnswer": "A",
+      "correctAnswerText": "(A) 1993",
+      "explanationHindi": "73वाँ संशोधन 24 अप्रैल 1993 को तथा 74वाँ संशोधन 1 जून 1993 को पूरे देश में लागू हुआ था।",
+      "marks": 1
+    },
+    {
+      "id": "q-mcq-6",
+      "sectionId": "sec-a",
+      "sectionName": "खण्ड–अ : वस्तुनिष्ठ प्रश्न",
+      "questionNumber": 6,
+      "type": "mcq",
+      "text": "भारत में कितने स्तरीय पंचायती राज की स्थापना की गयी है ?",
+      "textHindi": "भारत में कितने स्तरीय पंचायती राज की स्थापना की गयी है ?",
+      "options": [
+        {
+          "id": "opt-6-a",
+          "key": "A",
+          "text": "द्विस्तरीय",
+          "textHindi": "द्विस्तरीय"
+        },
+        {
+          "id": "opt-6-b",
+          "key": "B",
+          "text": "एकस्तरीय",
+          "textHindi": "एकस्तरीय"
+        },
+        {
+          "id": "opt-6-c",
+          "key": "C",
+          "text": "त्रिस्तरीय",
+          "textHindi": "त्रिस्तरीय"
+        },
+        {
+          "id": "opt-6-d",
+          "key": "D",
+          "text": "इनमें से कोई नहीं",
+          "textHindi": "इनमें से कोई नहीं"
+        }
+      ],
+      "correctAnswer": "C",
+      "correctAnswerText": "(C) त्रिस्तरीय",
+      "explanationHindi": "भारत में त्रिस्तरीय पंचायती राज ढांचा (ग्राम स्तर पर ग्राम पंचायत, प्रखंड स्तर पर पंचायत समिति, जिला स्तर पर जिला परिषद) लागू है।",
+      "marks": 1
+    },
+    {
+      "id": "q-mcq-7",
+      "sectionId": "sec-a",
+      "sectionName": "खण्ड–अ : वस्तुनिष्ठ प्रश्न",
+      "questionNumber": 7,
+      "type": "mcq",
+      "text": "74वें संशोधन द्वारा संविधान में कौन सी अनुसूची जोड़ी गयी ?",
+      "textHindi": "74वें संशोधन द्वारा संविधान में कौन सी अनुसूची जोड़ी गयी ?",
+      "options": [
+        {
+          "id": "opt-7-a",
+          "key": "A",
+          "text": "10वीं",
+          "textHindi": "10वीं"
+        },
+        {
+          "id": "opt-7-b",
+          "key": "B",
+          "text": "11वीं",
+          "textHindi": "11वीं"
+        },
+        {
+          "id": "opt-7-c",
+          "key": "C",
+          "text": "12वीं",
+          "textHindi": "12वीं"
+        },
+        {
+          "id": "opt-7-d",
+          "key": "D",
+          "text": "13वीं",
+          "textHindi": "13वीं"
+        }
+      ],
+      "correctAnswer": "C",
+      "correctAnswerText": "(C) 12वीं",
+      "explanationHindi": "74वें संविधान संशोधन (1992) द्वारा शहरी निकायों के 18 कार्यात्मक विषयों को समाहित करने हेतु संविधान में 12वीं अनुसूची जोड़ी गई।",
+      "marks": 1
+    },
+    {
+      "id": "q-mcq-8",
+      "sectionId": "sec-a",
+      "sectionName": "खण्ड–अ : वस्तुनिष्ठ प्रश्न",
+      "questionNumber": 8,
+      "type": "mcq",
+      "text": "पंचायतों के चुनाव कितने वर्ष में होते हैं ?",
+      "textHindi": "पंचायतों के चुनाव कितने वर्ष में होते हैं ?",
+      "options": [
+        {
+          "id": "opt-8-a",
+          "key": "A",
+          "text": "चार",
+          "textHindi": "चार"
+        },
+        {
+          "id": "opt-8-b",
+          "key": "B",
+          "text": "पाँच",
+          "textHindi": "पाँच"
+        },
+        {
+          "id": "opt-8-c",
+          "key": "C",
+          "text": "तीन",
+          "textHindi": "तीन"
+        },
+        {
+          "id": "opt-8-d",
+          "key": "D",
+          "text": "छः",
+          "textHindi": "छः"
+        }
+      ],
+      "correctAnswer": "B",
+      "correctAnswerText": "(B) पाँच",
+      "explanationHindi": "अनुच्छेद 243E के अनुसार ग्राम पंचायतों का कार्यकाल अपनी पहली बैठक से 5 वर्ष का होता है।",
+      "marks": 1
+    },
+    {
+      "id": "q-mcq-9",
+      "sectionId": "sec-a",
+      "sectionName": "खण्ड–अ : वस्तुनिष्ठ प्रश्न",
+      "questionNumber": 9,
+      "type": "mcq",
+      "text": "निम्न में से किस देश का संविधान सबसे विशाल है ?",
+      "textHindi": "निम्न में से किस देश का संविधान सबसे विशाल है ?",
+      "options": [
+        {
+          "id": "opt-9-a",
+          "key": "A",
+          "text": "अमेरिका",
+          "textHindi": "अमेरिका"
+        },
+        {
+          "id": "opt-9-b",
+          "key": "B",
+          "text": "ब्रिटेन",
+          "textHindi": "ब्रिटेन"
+        },
+        {
+          "id": "opt-9-c",
+          "key": "C",
+          "text": "भारत",
+          "textHindi": "भारत"
+        },
+        {
+          "id": "opt-9-d",
+          "key": "D",
+          "text": "स्विट्जरलैंड",
+          "textHindi": "स्विट्जरलैंड"
+        }
+      ],
+      "correctAnswer": "C",
+      "correctAnswerText": "(C) भारत",
+      "explanationHindi": "भारत का संविधान विश्व का सबसे बड़ा, विस्तृत और लिखित संविधान है, जिसमें मूल रूप से 395 अनुच्छेद, 22 भाग और 8 अनुसूचियां थीं।",
+      "marks": 1
+    },
+    {
+      "id": "q-mcq-10",
+      "sectionId": "sec-a",
+      "sectionName": "खण्ड–अ : वस्तुनिष्ठ प्रश्न",
+      "questionNumber": 10,
+      "type": "mcq",
+      "text": "भारत में अब तक कितने आम चुनाव हो चुके हैं ?",
+      "textHindi": "भारत में अब तक कितने आम चुनाव हो चुके हैं ?",
+      "options": [
+        {
+          "id": "opt-10-a",
+          "key": "A",
+          "text": "14",
+          "textHindi": "14"
+        },
+        {
+          "id": "opt-10-b",
+          "key": "B",
+          "text": "16",
+          "textHindi": "16"
+        },
+        {
+          "id": "opt-10-c",
+          "key": "C",
+          "text": "17",
+          "textHindi": "17"
+        },
+        {
+          "id": "opt-10-d",
+          "key": "D",
+          "text": "18",
+          "textHindi": "18"
+        }
+      ],
+      "correctAnswer": "D",
+      "correctAnswerText": "(D) 18",
+      "explanationHindi": "1951-52 के पहले आम चुनाव से लेकर 2024 में संपन्न लोकसभा चुनाव तक भारत में कुल 18 आम चुनाव हो चुके हैं।",
+      "marks": 1
+    },
+    {
+      "id": "q-mcq-11",
+      "sectionId": "sec-a",
+      "sectionName": "खण्ड–अ : वस्तुनिष्ठ प्रश्न",
+      "questionNumber": 11,
+      "type": "mcq",
+      "text": "किस भारतीय प्रधानमंत्री ने शिमला समझौते पर हस्ताक्षर किया था ?",
+      "textHindi": "किस भारतीय प्रधानमंत्री ने शिमला समझौते पर हस्ताक्षर किया था ?",
+      "options": [
+        {
+          "id": "opt-11-a",
+          "key": "A",
+          "text": "लाल बहादुर शास्त्री",
+          "textHindi": "लाल बहादुर शास्त्री"
+        },
+        {
+          "id": "opt-11-b",
+          "key": "B",
+          "text": "जवाहरलाल नेहरू",
+          "textHindi": "जवाहरलाल नेहरू"
+        },
+        {
+          "id": "opt-11-c",
+          "key": "C",
+          "text": "इंदिरा गाँधी",
+          "textHindi": "इंदिरा गाँधी"
+        },
+        {
+          "id": "opt-11-d",
+          "key": "D",
+          "text": "राजीव गाँधी",
+          "textHindi": "राजीव गाँधी"
+        }
+      ],
+      "correctAnswer": "C",
+      "correctAnswerText": "(C) इंदिरा गाँधी",
+      "explanationHindi": "1971 के युद्ध के बाद 2 जुलाई 1972 को शिमला में प्रधानमंत्री इंदिरा गांधी और पाकिस्तान के राष्ट्रपति जुल्फिकार अली भुट्टो ने शिमला समझौते पर हस्ताक्षर किए थे।",
+      "marks": 1
+    },
+    {
+      "id": "q-mcq-12",
+      "sectionId": "sec-a",
+      "sectionName": "खण्ड–अ : वस्तुनिष्ठ प्रश्न",
+      "questionNumber": 12,
+      "type": "mcq",
+      "text": "ताशकन्द समझौता पर हस्ताक्षर कब हुआ था ?",
+      "textHindi": "ताशकन्द समझौता पर हस्ताक्षर कब हुआ था ?",
+      "options": [
+        {
+          "id": "opt-12-a",
+          "key": "A",
+          "text": "1964",
+          "textHindi": "1964"
+        },
+        {
+          "id": "opt-12-b",
+          "key": "B",
+          "text": "1965",
+          "textHindi": "1965"
+        },
+        {
+          "id": "opt-12-c",
+          "key": "C",
+          "text": "1966",
+          "textHindi": "1966"
+        },
+        {
+          "id": "opt-12-d",
+          "key": "D",
+          "text": "1967",
+          "textHindi": "1967"
+        }
+      ],
+      "correctAnswer": "C",
+      "correctAnswerText": "(C) 1966",
+      "explanationHindi": "1965 के भारत-पाक युद्ध के समापन हेतु 10 जनवरी 1966 को उज्बेकिस्तान के ताशकंद में प्रधानमंत्री लाल बहादुर शास्त्री और राष्ट्रपति अयूब खान के बीच ताशकंद समझौता हुआ।",
+      "marks": 1
+    },
+    {
+      "id": "q-mcq-13",
+      "sectionId": "sec-a",
+      "sectionName": "खण्ड–अ : वस्तुनिष्ठ प्रश्न",
+      "questionNumber": 13,
+      "type": "mcq",
+      "text": "भारत-चीन युद्ध कब हुआ था ?",
+      "textHindi": "भारत-चीन युद्ध कब हुआ था ?",
+      "options": [
+        {
+          "id": "opt-13-a",
+          "key": "A",
+          "text": "1960",
+          "textHindi": "1960"
+        },
+        {
+          "id": "opt-13-b",
+          "key": "B",
+          "text": "1962",
+          "textHindi": "1962"
+        },
+        {
+          "id": "opt-13-c",
+          "key": "C",
+          "text": "1964",
+          "textHindi": "1964"
+        },
+        {
+          "id": "opt-13-d",
+          "key": "D",
+          "text": "1966",
+          "textHindi": "1966"
+        }
+      ],
+      "correctAnswer": "B",
+      "correctAnswerText": "(B) 1962",
+      "explanationHindi": "भारत और चीन के मध्य सीमा विवाद को लेकर युद्ध 20 अक्टूबर 1962 को आरंभ हुआ था।",
+      "marks": 1
+    },
+    {
+      "id": "q-mcq-14",
+      "sectionId": "sec-a",
+      "sectionName": "खण्ड–अ : वस्तुनिष्ठ प्रश्न",
+      "questionNumber": 14,
+      "type": "mcq",
+      "text": "सार्क का मुख्यालय कहाँ है ?",
+      "textHindi": "सार्क का मुख्यालय कहाँ है ?",
+      "options": [
+        {
+          "id": "opt-14-a",
+          "key": "A",
+          "text": "ढाका",
+          "textHindi": "ढाका"
+        },
+        {
+          "id": "opt-14-b",
+          "key": "B",
+          "text": "नई दिल्ली",
+          "textHindi": "नई दिल्ली"
+        },
+        {
+          "id": "opt-14-c",
+          "key": "C",
+          "text": "काठमाण्डू",
+          "textHindi": "काठमाण्डू"
+        },
+        {
+          "id": "opt-14-d",
+          "key": "D",
+          "text": "इस्लामाबाद",
+          "textHindi": "इस्लामाबाद"
+        }
+      ],
+      "correctAnswer": "C",
+      "correctAnswerText": "(C) काठमाण्डू",
+      "explanationHindi": "दक्षिण एशियाई क्षेत्रीय सहयोग संगठन (SAARC) का स्थायी सचिवालय/मुख्यालय नेपाल की राजधानी काठमांडू में है।",
+      "marks": 1
+    },
+    {
+      "id": "q-mcq-15",
+      "sectionId": "sec-a",
+      "sectionName": "खण्ड–अ : वस्तुनिष्ठ प्रश्न",
+      "questionNumber": 15,
+      "type": "mcq",
+      "text": "सार्क के कितने सदस्य देश हैं ?",
+      "textHindi": "सार्क के कितने सदस्य देश हैं ?",
+      "options": [
+        {
+          "id": "opt-15-a",
+          "key": "A",
+          "text": "6",
+          "textHindi": "6"
+        },
+        {
+          "id": "opt-15-b",
+          "key": "B",
+          "text": "7",
+          "textHindi": "7"
+        },
+        {
+          "id": "opt-15-c",
+          "key": "C",
+          "text": "8",
+          "textHindi": "8"
+        },
+        {
+          "id": "opt-15-d",
+          "key": "D",
+          "text": "9",
+          "textHindi": "9"
+        }
+      ],
+      "correctAnswer": "C",
+      "correctAnswerText": "(C) 8",
+      "explanationHindi": "सार्क (SAARC) में कुल 8 सदस्य देश हैं—भारत, पाकिस्तान, बांग्लादेश, नेपाल, भूटान, श्रीलंका, मालदीव और अफगानिस्तान।",
+      "marks": 1
+    },
+    {
+      "id": "q-mcq-16",
+      "sectionId": "sec-a",
+      "sectionName": "खण्ड–अ : वस्तुनिष्ठ प्रश्न",
+      "questionNumber": 16,
+      "type": "mcq",
+      "text": "भारत के प्रथम गृहमंत्री कौन थे ?",
+      "textHindi": "भारत के प्रथम गृहमंत्री कौन थे ?",
+      "options": [
+        {
+          "id": "opt-16-a",
+          "key": "A",
+          "text": "के०एम० मुंशी",
+          "textHindi": "के०एम० मुंशी"
+        },
+        {
+          "id": "opt-16-b",
+          "key": "B",
+          "text": "बी०आर० अम्बेदकर",
+          "textHindi": "बी०आर० अम्बेदकर"
+        },
+        {
+          "id": "opt-16-c",
+          "key": "C",
+          "text": "पंडित नेहरू",
+          "textHindi": "पंडित नेहरू"
+        },
+        {
+          "id": "opt-16-d",
+          "key": "D",
+          "text": "सरदार पटेल",
+          "textHindi": "सरदार पटेल"
+        }
+      ],
+      "correctAnswer": "D",
+      "correctAnswerText": "(D) सरदार पटेल",
+      "explanationHindi": "स्वतंत्र भारत के प्रथम गृहमंत्री और उप-प्रधानमंत्री सरदार वल्लभभाई पटेल थे, जिन्होंने 560 से अधिक रियासतों का भारत में ऐतिहासिक एकीकरण किया।",
+      "marks": 1
+    },
+    {
+      "id": "q-mcq-17",
+      "sectionId": "sec-a",
+      "sectionName": "खण्ड–अ : वस्तुनिष्ठ प्रश्न",
+      "questionNumber": 17,
+      "type": "mcq",
+      "text": "आसियान में कितने सदस्य देश हैं ?",
+      "textHindi": "आसियान में कितने सदस्य देश हैं ?",
+      "options": [
+        {
+          "id": "opt-17-a",
+          "key": "A",
+          "text": "5",
+          "textHindi": "5"
+        },
+        {
+          "id": "opt-17-b",
+          "key": "B",
+          "text": "7",
+          "textHindi": "7"
+        },
+        {
+          "id": "opt-17-c",
+          "key": "C",
+          "text": "8",
+          "textHindi": "8"
+        },
+        {
+          "id": "opt-17-d",
+          "key": "D",
+          "text": "10",
+          "textHindi": "10"
+        }
+      ],
+      "correctAnswer": "D",
+      "correctAnswerText": "(D) 10",
+      "explanationHindi": "दक्षिण-पूर्वी एशियाई राष्ट्र संघ (ASEAN) में 10 सदस्य देश (इंडोनेशिया, मलेशिया, फिलीपींस, सिंगापुर, थाईलैंड, ब्रुनेई, वियतनाम, लाओस, म्यांमार, कंबोडिया) हैं।",
+      "marks": 1
+    },
+    {
+      "id": "q-mcq-18",
+      "sectionId": "sec-a",
+      "sectionName": "खण्ड–अ : वस्तुनिष्ठ प्रश्न",
+      "questionNumber": 18,
+      "type": "mcq",
+      "text": "भारत के कौन प्रथम गैर-कांग्रेसी प्रधानमंत्री थे ?",
+      "textHindi": "भारत के कौन प्रथम गैर-कांग्रेसी प्रधानमंत्री थे ?",
+      "options": [
+        {
+          "id": "opt-18-a",
+          "key": "A",
+          "text": "अटल बिहारी वाजपेयी",
+          "textHindi": "अटल बिहारी वाजपेयी"
+        },
+        {
+          "id": "opt-18-b",
+          "key": "B",
+          "text": "मोरारजी देसाई",
+          "textHindi": "मोरारजी देसाई"
+        },
+        {
+          "id": "opt-18-c",
+          "key": "C",
+          "text": "एच०डी० देवेगौड़ा",
+          "textHindi": "एच०डी० देवेगौड़ा"
+        },
+        {
+          "id": "opt-18-d",
+          "key": "D",
+          "text": "चौधरी चरण सिंह",
+          "textHindi": "चौधरी चरण सिंह"
+        }
+      ],
+      "correctAnswer": "B",
+      "correctAnswerText": "(B) मोरारजी देसाई",
+      "explanationHindi": "1977 के आम चुनाव के बाद मोरारजी देसाई के नेतृत्व में जनता पार्टी की पहली गैर-कांग्रेसी केंद्र सरकार बनी थी।",
+      "marks": 1
+    },
+    {
+      "id": "q-mcq-19",
+      "sectionId": "sec-a",
+      "sectionName": "खण्ड–अ : वस्तुनिष्ठ प्रश्न",
+      "questionNumber": 19,
+      "type": "mcq",
+      "text": "बिहार के प्रथम मुख्यमंत्री कौन थे ?",
+      "textHindi": "बिहार के प्रथम मुख्यमंत्री कौन थे ?",
+      "options": [
+        {
+          "id": "opt-19-a",
+          "key": "A",
+          "text": "अनुग्रह नारायण सिंह",
+          "textHindi": "अनुग्रह नारायण सिंह"
+        },
+        {
+          "id": "opt-19-b",
+          "key": "B",
+          "text": "श्रीकृष्ण सिंह",
+          "textHindi": "श्रीकृष्ण सिंह"
+        },
+        {
+          "id": "opt-19-c",
+          "key": "C",
+          "text": "कर्पूरी ठाकुर",
+          "textHindi": "कर्पूरी ठाकुर"
+        },
+        {
+          "id": "opt-19-d",
+          "key": "D",
+          "text": "जगन्नाथ मिश्रा",
+          "textHindi": "जगन्नाथ मिश्रा"
+        }
+      ],
+      "correctAnswer": "B",
+      "correctAnswerText": "(B) श्रीकृष्ण सिंह",
+      "explanationHindi": "बिहार के प्रथम मुख्यमंत्री 'बिहार केसरी' डॉ. श्रीकृष्ण सिंह थे, जिन्होंने 1946 से 1961 तक राज्य का नेतृत्व किया।",
+      "marks": 1
+    },
+    {
+      "id": "q-mcq-20",
+      "sectionId": "sec-a",
+      "sectionName": "खण्ड–अ : वस्तुनिष्ठ प्रश्न",
+      "questionNumber": 20,
+      "type": "mcq",
+      "text": "डी०एम०के० किस राज्य का क्षेत्रीय दल है ?",
+      "textHindi": "डी०एम०के० किस राज्य का क्षेत्रीय दल है ?",
+      "options": [
+        {
+          "id": "opt-20-a",
+          "key": "A",
+          "text": "आन्ध्र प्रदेश",
+          "textHindi": "आन्ध्र प्रदेश"
+        },
+        {
+          "id": "opt-20-b",
+          "key": "B",
+          "text": "तमिलनाडु",
+          "textHindi": "तमिलनाडु"
+        },
+        {
+          "id": "opt-20-c",
+          "key": "C",
+          "text": "कर्नाटक",
+          "textHindi": "कर्नाटक"
+        },
+        {
+          "id": "opt-20-d",
+          "key": "D",
+          "text": "केरल",
+          "textHindi": "केरल"
+        }
+      ],
+      "correctAnswer": "B",
+      "correctAnswerText": "(B) तमिलनाडु",
+      "explanationHindi": "द्रविड़ मुनेत्र कड़गम (DMK) तमिलनाडु का एक प्रमुख क्षेत्रीय राजनीतिक दल है, जिसकी स्थापना 1949 में सी. एन. अन्नादुरई ने की थी।",
+      "marks": 1
+    },
+    {
+      "id": "q-mcq-21",
+      "sectionId": "sec-a",
+      "sectionName": "खण्ड–अ : वस्तुनिष्ठ प्रश्न",
+      "questionNumber": 21,
+      "type": "mcq",
+      "text": "संविधान सभा की प्रथम बैठक कब हुई ?",
+      "textHindi": "संविधान सभा की प्रथम बैठक कब हुई ?",
+      "options": [
+        {
+          "id": "opt-21-a",
+          "key": "A",
+          "text": "9 दिसम्बर, 1946",
+          "textHindi": "9 दिसम्बर, 1946"
+        },
+        {
+          "id": "opt-21-b",
+          "key": "B",
+          "text": "15 अगस्त, 1947",
+          "textHindi": "15 अगस्त, 1947"
+        },
+        {
+          "id": "opt-21-c",
+          "key": "C",
+          "text": "26 जनवरी, 1948",
+          "textHindi": "26 जनवरी, 1948"
+        },
+        {
+          "id": "opt-21-d",
+          "key": "D",
+          "text": "14 अगस्त, 1946",
+          "textHindi": "14 अगस्त, 1946"
+        }
+      ],
+      "correctAnswer": "A",
+      "correctAnswerText": "(A) 9 दिसम्बर, 1946",
+      "explanationHindi": "संविधान सभा की पहली ऐतिहासिक बैठक 9 दिसंबर 1946 को नई दिल्ली में डॉ. सच्चिदानंद सिन्हा की अस्थायी अध्यक्षता में हुई थी।",
+      "marks": 1
+    },
+    {
+      "id": "q-mcq-22",
+      "sectionId": "sec-a",
+      "sectionName": "खण्ड–अ : वस्तुनिष्ठ प्रश्न",
+      "questionNumber": 22,
+      "type": "mcq",
+      "text": "भारतीय संविधान में कुल कितनी अनुसूचियाँ हैं ?",
+      "textHindi": "भारतीय संविधान में कुल कितनी अनुसूचियाँ हैं ?",
+      "options": [
+        {
+          "id": "opt-22-a",
+          "key": "A",
+          "text": "9",
+          "textHindi": "9"
+        },
+        {
+          "id": "opt-22-b",
+          "key": "B",
+          "text": "11",
+          "textHindi": "11"
+        },
+        {
+          "id": "opt-22-c",
+          "key": "C",
+          "text": "12",
+          "textHindi": "12"
+        },
+        {
+          "id": "opt-22-d",
+          "key": "D",
+          "text": "14",
+          "textHindi": "14"
+        }
+      ],
+      "correctAnswer": "C",
+      "correctAnswerText": "(C) 12",
+      "explanationHindi": "भारतीय संविधान में मूल रूप से 8 अनुसूचियां थीं, जो संशोधनों के बाद वर्तमान में बढ़कर कुल 12 हो चुकी हैं।",
+      "marks": 1
+    },
+    {
+      "id": "q-mcq-23",
+      "sectionId": "sec-a",
+      "sectionName": "खण्ड–अ : वस्तुनिष्ठ प्रश्न",
+      "questionNumber": 23,
+      "type": "mcq",
+      "text": "स्वतन्त्र भारत के प्रथम गवर्नर जनरल कौन थे ?",
+      "textHindi": "स्वतन्त्र भारत के प्रथम गवर्नर जनरल कौन थे ?",
+      "options": [
+        {
+          "id": "opt-23-a",
+          "key": "A",
+          "text": "सी० राजगोपालाचारी",
+          "textHindi": "सी० राजगोपालाचारी"
+        },
+        {
+          "id": "opt-23-b",
+          "key": "B",
+          "text": "लार्ड माउण्टबैटन",
+          "textHindi": "लार्ड माउण्टबैटन"
+        },
+        {
+          "id": "opt-23-c",
+          "key": "C",
+          "text": "कामराज",
+          "textHindi": "कामराज"
+        },
+        {
+          "id": "opt-23-d",
+          "key": "D",
+          "text": "डॉ० राजेन्द्र प्रसाद",
+          "textHindi": "डॉ० राजेन्द्र प्रसाद"
+        }
+      ],
+      "correctAnswer": "B",
+      "correctAnswerText": "(B) लार्ड माउण्टबैटन",
+      "explanationHindi": "15 अगस्त 1947 को स्वतंत्रता के समय लॉर्ड माउंटबेटन स्वतंत्र भारत के पहले गवर्नर जनरल बने (सी. राजगोपालाचारी प्रथम 'भारतीय' गवर्नर जनरल थे)।",
+      "marks": 1
+    },
+    {
+      "id": "q-mcq-24",
+      "sectionId": "sec-a",
+      "sectionName": "खण्ड–अ : वस्तुनिष्ठ प्रश्न",
+      "questionNumber": 24,
+      "type": "mcq",
+      "text": "किसने कहा कि 'भारतीय संविधान वकीलों का स्वर्ग है' ?",
+      "textHindi": "किसने कहा कि 'भारतीय संविधान वकीलों का स्वर्ग है' ?",
+      "options": [
+        {
+          "id": "opt-24-a",
+          "key": "A",
+          "text": "प्रो० आइवर जेनिंग्स",
+          "textHindi": "प्रो० आइवर जेनिंग्स"
+        },
+        {
+          "id": "opt-24-b",
+          "key": "B",
+          "text": "के०वी० राव",
+          "textHindi": "के०वी० राव"
+        },
+        {
+          "id": "opt-24-c",
+          "key": "C",
+          "text": "सरदार पटेल",
+          "textHindi": "सरदार पटेल"
+        },
+        {
+          "id": "opt-24-d",
+          "key": "D",
+          "text": "जवाहरलाल नेहरू",
+          "textHindi": "जवाहरलाल नेहरू"
+        }
+      ],
+      "correctAnswer": "A",
+      "correctAnswerText": "(A) प्रो० आइवर जेनिंग्स",
+      "explanationHindi": "ब्रिटिश संविधानविद प्रो. आइवर जेनिंग्स ने भारतीय संविधान की जटिल कानूनी शब्दावली और विस्तृत आकार के कारण इसे 'वकीलों का स्वर्ग' कहा था।",
+      "marks": 1
+    },
+    {
+      "id": "q-mcq-25",
+      "sectionId": "sec-a",
+      "sectionName": "खण्ड–अ : वस्तुनिष्ठ प्रश्न",
+      "questionNumber": 25,
+      "type": "mcq",
+      "text": "भारतीय संविधान की प्रस्तावना में 'पंथ-निरपेक्ष' शब्द किस संशोधन से जोड़ा गया ?",
+      "textHindi": "भारतीय संविधान की प्रस्तावना में 'पंथ-निरपेक्ष' शब्द किस संशोधन से जोड़ा गया ?",
+      "options": [
+        {
+          "id": "opt-25-a",
+          "key": "A",
+          "text": "40वाँ",
+          "textHindi": "40वाँ"
+        },
+        {
+          "id": "opt-25-b",
+          "key": "B",
+          "text": "42वाँ",
+          "textHindi": "42वाँ"
+        },
+        {
+          "id": "opt-25-c",
+          "key": "C",
+          "text": "45वाँ",
+          "textHindi": "45वाँ"
+        },
+        {
+          "id": "opt-25-d",
+          "key": "D",
+          "text": "52वाँ",
+          "textHindi": "52वाँ"
+        }
+      ],
+      "correctAnswer": "B",
+      "correctAnswerText": "(B) 42वाँ",
+      "explanationHindi": "42वें संविधान संशोधन (1976) द्वारा संविधान की प्रस्तावना में 'समाजवादी', 'पंथनिरपेक्ष' और 'अखंडता' शब्द जोड़े गए।",
+      "marks": 1
+    },
+    {
+      "id": "q-mcq-26",
+      "sectionId": "sec-a",
+      "sectionName": "खण्ड–अ : वस्तुनिष्ठ प्रश्न",
+      "questionNumber": 26,
+      "type": "mcq",
+      "text": "भारत के मूल संविधान में कितने भाग थे ?",
+      "textHindi": "भारत के मूल संविधान में कितने भाग थे ?",
+      "options": [
+        {
+          "id": "opt-26-a",
+          "key": "A",
+          "text": "20",
+          "textHindi": "20"
+        },
+        {
+          "id": "opt-26-b",
+          "key": "B",
+          "text": "21",
+          "textHindi": "21"
+        },
+        {
+          "id": "opt-26-c",
+          "key": "C",
+          "text": "22",
+          "textHindi": "22"
+        },
+        {
+          "id": "opt-26-d",
+          "key": "D",
+          "text": "24",
+          "textHindi": "24"
+        }
+      ],
+      "correctAnswer": "C",
+      "correctAnswerText": "(C) 22",
+      "explanationHindi": "26 नवंबर 1949 को अंगीकृत मूल भारतीय संविधान में कुल 22 भाग, 395 अनुच्छेद और 8 अनुसूचियां थीं।",
+      "marks": 1
+    },
+    {
+      "id": "q-mcq-27",
+      "sectionId": "sec-a",
+      "sectionName": "खण्ड–अ : वस्तुनिष्ठ प्रश्न",
+      "questionNumber": 27,
+      "type": "mcq",
+      "text": "भारतीय संविधान को कब लागू किया गया ?",
+      "textHindi": "भारतीय संविधान को कब लागू किया गया ?",
+      "options": [
+        {
+          "id": "opt-27-a",
+          "key": "A",
+          "text": "26 नवंबर, 1946",
+          "textHindi": "26 नवंबर, 1946"
+        },
+        {
+          "id": "opt-27-b",
+          "key": "B",
+          "text": "26 जनवरी, 1950",
+          "textHindi": "26 जनवरी, 1950"
+        },
+        {
+          "id": "opt-27-c",
+          "key": "C",
+          "text": "14 अगस्त, 1947",
+          "textHindi": "14 अगस्त, 1947"
+        },
+        {
+          "id": "opt-27-d",
+          "key": "D",
+          "text": "9 दिसम्बर, 1946",
+          "textHindi": "9 दिसम्बर, 1946"
+        }
+      ],
+      "correctAnswer": "B",
+      "correctAnswerText": "(B) 26 जनवरी, 1950",
+      "explanationHindi": "26 जनवरी 1950 को भारतीय संविधान पूर्ण रूप से लागू हुआ और भारत एक संप्रभु लोकतांत्रिक गणराज्य बना।",
+      "marks": 1
+    },
+    {
+      "id": "q-mcq-28",
+      "sectionId": "sec-a",
+      "sectionName": "खण्ड–अ : वस्तुनिष्ठ प्रश्न",
+      "questionNumber": 28,
+      "type": "mcq",
+      "text": "भारत में लोकसभा का प्रथम चुनाव किस वर्ष हुआ ?",
+      "textHindi": "भारत में लोकसभा का प्रथम चुनाव किस वर्ष हुआ ?",
+      "options": [
+        {
+          "id": "opt-28-a",
+          "key": "A",
+          "text": "1951-1952",
+          "textHindi": "1951-1952"
+        },
+        {
+          "id": "opt-28-b",
+          "key": "B",
+          "text": "1952-1953",
+          "textHindi": "1952-1953"
+        },
+        {
+          "id": "opt-28-c",
+          "key": "C",
+          "text": "1953-1954",
+          "textHindi": "1953-1954"
+        },
+        {
+          "id": "opt-28-d",
+          "key": "D",
+          "text": "1954-1955",
+          "textHindi": "1954-1955"
+        }
+      ],
+      "correctAnswer": "A",
+      "correctAnswerText": "(A) 1951-1952",
+      "explanationHindi": "भारत में पहली लोकसभा के आम चुनाव अक्टूबर 1951 से फरवरी 1952 के मध्य आयोजित किए गए थे।",
+      "marks": 1
+    },
+    {
+      "id": "q-mcq-29",
+      "sectionId": "sec-a",
+      "sectionName": "खण्ड–अ : वस्तुनिष्ठ प्रश्न",
+      "questionNumber": 29,
+      "type": "mcq",
+      "text": "संविधान सभा में प्रारूप समिति के अध्यक्ष कौन थे ?",
+      "textHindi": "संविधान सभा में प्रारूप समिति के अध्यक्ष कौन थे ?",
+      "options": [
+        {
+          "id": "opt-29-a",
+          "key": "A",
+          "text": "डॉ० राजेन्द्र प्रसाद",
+          "textHindi": "डॉ० राजेन्द्र प्रसाद"
+        },
+        {
+          "id": "opt-29-b",
+          "key": "B",
+          "text": "सरदार पटेल",
+          "textHindi": "सरदार पटेल"
+        },
+        {
+          "id": "opt-29-c",
+          "key": "C",
+          "text": "बी०आर० अम्बेदकर",
+          "textHindi": "बी०आर० अम्बेदकर"
+        },
+        {
+          "id": "opt-29-d",
+          "key": "D",
+          "text": "वी० मावलंकर",
+          "textHindi": "वी० मावलंकर"
+        }
+      ],
+      "correctAnswer": "C",
+      "correctAnswerText": "(C) बी०आर० अम्बेदकर",
+      "explanationHindi": "29 अगस्त 1947 को गठित 7 सदस्यीय प्रारूप समिति (Drafting Committee) के अध्यक्ष डॉ. भीमराव अंबेडकर थे।",
+      "marks": 1
+    },
+    {
+      "id": "q-mcq-30",
+      "sectionId": "sec-a",
+      "sectionName": "खण्ड–अ : वस्तुनिष्ठ प्रश्न",
+      "questionNumber": 30,
+      "type": "mcq",
+      "text": "निम्नलिखित में से कौन-सा शब्द भारतीय संविधान की प्रस्तावना में उल्लेख नहीं किया गया है ?",
+      "textHindi": "निम्नलिखित में से कौन-सा शब्द भारतीय संविधान की प्रस्तावना में उल्लेख नहीं किया गया है ?",
+      "options": [
+        {
+          "id": "opt-30-a",
+          "key": "A",
+          "text": "संप्रभु",
+          "textHindi": "संप्रभु"
+        },
+        {
+          "id": "opt-30-b",
+          "key": "B",
+          "text": "समाजवादी",
+          "textHindi": "समाजवादी"
+        },
+        {
+          "id": "opt-30-c",
+          "key": "C",
+          "text": "लोकतांत्रिक",
+          "textHindi": "लोकतांत्रिक"
+        },
+        {
+          "id": "opt-30-d",
+          "key": "D",
+          "text": "कम्यूनिस्ट",
+          "textHindi": "कम्यूनिस्ट"
+        }
+      ],
+      "correctAnswer": "D",
+      "correctAnswerText": "(D) कम्यूनिस्ट",
+      "explanationHindi": "प्रस्तावना में संप्रभु, समाजवादी, पंथनिरपेक्ष, लोकतांत्रिक और गणराज्य शब्दों का प्रयोग है; इसमें 'कम्यूनिस्ट' (साम्यवादी) शब्द नहीं है।",
+      "marks": 1
+    },
+    {
+      "id": "q-mcq-31",
+      "sectionId": "sec-a",
+      "sectionName": "खण्ड–अ : वस्तुनिष्ठ प्रश्न",
+      "questionNumber": 31,
+      "type": "mcq",
+      "text": "भारत में परमाणु परीक्षण सर्वप्रथम किस वर्ष हुआ ?",
+      "textHindi": "भारत में परमाणु परीक्षण सर्वप्रथम किस वर्ष हुआ ?",
+      "options": [
+        {
+          "id": "opt-31-a",
+          "key": "A",
+          "text": "1963",
+          "textHindi": "1963"
+        },
+        {
+          "id": "opt-31-b",
+          "key": "B",
+          "text": "1974",
+          "textHindi": "1974"
+        },
+        {
+          "id": "opt-31-c",
+          "key": "C",
+          "text": "1980",
+          "textHindi": "1980"
+        },
+        {
+          "id": "opt-31-d",
+          "key": "D",
+          "text": "1998",
+          "textHindi": "1998"
+        }
+      ],
+      "correctAnswer": "B",
+      "correctAnswerText": "(B) 1974",
+      "explanationHindi": "भारत ने अपना पहला भूमिगत परमाणु परीक्षण 18 मई 1974 को पोखरण (राजस्थान) में 'स्माइलिंग बुद्धा' कोडनेम से किया था।",
+      "marks": 1
+    },
+    {
+      "id": "q-mcq-32",
+      "sectionId": "sec-a",
+      "sectionName": "खण्ड–अ : वस्तुनिष्ठ प्रश्न",
+      "questionNumber": 32,
+      "type": "mcq",
+      "text": "निम्नलिखित में से कौन नैम (NAM) का संस्थापक नहीं था ?",
+      "textHindi": "निम्नलिखित में से कौन नैम (NAM) का संस्थापक नहीं था ?",
+      "options": [
+        {
+          "id": "opt-32-a",
+          "key": "A",
+          "text": "सुकार्णो",
+          "textHindi": "सुकार्णो"
+        },
+        {
+          "id": "opt-32-b",
+          "key": "B",
+          "text": "अराफात",
+          "textHindi": "अराफात"
+        },
+        {
+          "id": "opt-32-c",
+          "key": "C",
+          "text": "मार्शल टीटो",
+          "textHindi": "मार्शल टीटो"
+        },
+        {
+          "id": "opt-32-d",
+          "key": "D",
+          "text": "पंडित नेहरू",
+          "textHindi": "पंडित नेहरू"
+        }
+      ],
+      "correctAnswer": "B",
+      "correctAnswerText": "(B) अराफात",
+      "explanationHindi": "गुटनिरपेक्ष आंदोलन (NAM) के संस्थापकों में नेहरू (भारत), टीटो (यूगोस्लाविया), नासिर (मिस्र), सुकार्णो (इंडोनेशिया) और नक्रमा (घाना) थे; यासिर अराफात इसके मूल संस्थापक नहीं थे।",
+      "marks": 1
+    },
+    {
+      "id": "q-mcq-33",
+      "sectionId": "sec-a",
+      "sectionName": "खण्ड–अ : वस्तुनिष्ठ प्रश्न",
+      "questionNumber": 33,
+      "type": "mcq",
+      "text": "नैम (NAM) की स्थापना कब हुई थी ?",
+      "textHindi": "नैम (NAM) की स्थापना कब हुई थी ?",
+      "options": [
+        {
+          "id": "opt-33-a",
+          "key": "A",
+          "text": "1958",
+          "textHindi": "1958"
+        },
+        {
+          "id": "opt-33-b",
+          "key": "B",
+          "text": "1960",
+          "textHindi": "1960"
+        },
+        {
+          "id": "opt-33-c",
+          "key": "C",
+          "text": "1961",
+          "textHindi": "1961"
+        },
+        {
+          "id": "opt-33-d",
+          "key": "D",
+          "text": "1962",
+          "textHindi": "1962"
+        }
+      ],
+      "correctAnswer": "C",
+      "correctAnswerText": "(C) 1961",
+      "explanationHindi": "गुटनिरपेक्ष आंदोलन (NAM) की स्थापना सितंबर 1961 में बेलग्रेड शिखर सम्मेलन के दौरान हुई थी।",
+      "marks": 1
+    },
+    {
+      "id": "q-mcq-34",
+      "sectionId": "sec-a",
+      "sectionName": "खण्ड–अ : वस्तुनिष्ठ प्रश्न",
+      "questionNumber": 34,
+      "type": "mcq",
+      "text": "नाटो (NATO) की स्थापना कब हुई थी ?",
+      "textHindi": "नाटो (NATO) की स्थापना कब हुई थी ?",
+      "options": [
+        {
+          "id": "opt-34-a",
+          "key": "A",
+          "text": "1955",
+          "textHindi": "1955"
+        },
+        {
+          "id": "opt-34-b",
+          "key": "B",
+          "text": "1949",
+          "textHindi": "1949"
+        },
+        {
+          "id": "opt-34-c",
+          "key": "C",
+          "text": "1945",
+          "textHindi": "1945"
+        },
+        {
+          "id": "opt-34-d",
+          "key": "D",
+          "text": "1940",
+          "textHindi": "1940"
+        }
+      ],
+      "correctAnswer": "B",
+      "correctAnswerText": "(B) 1949",
+      "explanationHindi": "पश्चिमी देशों ने सोवियत संघ के प्रभाव को रोकने के लिए 4 अप्रैल 1949 को वाशिंगटन संधि द्वारा नाटो (NATO) सैन्य गठबंधन बनाया था।",
+      "marks": 1
+    },
+    {
+      "id": "q-mcq-35",
+      "sectionId": "sec-a",
+      "sectionName": "खण्ड–अ : वस्तुनिष्ठ प्रश्न",
+      "questionNumber": 35,
+      "type": "mcq",
+      "text": "पहली गुट निरपेक्ष बैठक कहाँ हुई थी ?",
+      "textHindi": "पहली गुट निरपेक्ष बैठक कहाँ हुई थी ?",
+      "options": [
+        {
+          "id": "opt-35-a",
+          "key": "A",
+          "text": "नई दिल्ली",
+          "textHindi": "नई दिल्ली"
+        },
+        {
+          "id": "opt-35-b",
+          "key": "B",
+          "text": "कायरो",
+          "textHindi": "कायरो"
+        },
+        {
+          "id": "opt-35-c",
+          "key": "C",
+          "text": "हवाना",
+          "textHindi": "हवाना"
+        },
+        {
+          "id": "opt-35-d",
+          "key": "D",
+          "text": "बेलग्रेड",
+          "textHindi": "बेलग्रेड"
+        }
+      ],
+      "correctAnswer": "D",
+      "correctAnswerText": "(D) बेलग्रेड",
+      "explanationHindi": "प्रथम गुटनिरपेक्ष शिखर सम्मेलन 1961 में यूगोस्लाविया की राजधानी बेलग्रेड में आयोजित किया गया था।",
+      "marks": 1
+    },
+    {
+      "id": "q-mcq-36",
+      "sectionId": "sec-a",
+      "sectionName": "खण्ड–अ : वस्तुनिष्ठ प्रश्न",
+      "questionNumber": 36,
+      "type": "mcq",
+      "text": "संयुक्त राष्ट्र संघ की स्थापना कब हुई ?",
+      "textHindi": "संयुक्त राष्ट्र संघ की स्थापना कब हुई ?",
+      "options": [
+        {
+          "id": "opt-36-a",
+          "key": "A",
+          "text": "1942",
+          "textHindi": "1942"
+        },
+        {
+          "id": "opt-36-b",
+          "key": "B",
+          "text": "1943",
+          "textHindi": "1943"
+        },
+        {
+          "id": "opt-36-c",
+          "key": "C",
+          "text": "1944",
+          "textHindi": "1944"
+        },
+        {
+          "id": "opt-36-d",
+          "key": "D",
+          "text": "1945",
+          "textHindi": "1945"
+        }
+      ],
+      "correctAnswer": "D",
+      "correctAnswerText": "(D) 1945",
+      "explanationHindi": "विश्व शांति और सुरक्षा स्थापित करने के लिए 24 अक्टूबर 1945 को संयुक्त राष्ट्र संघ (UNO) का गठन हुआ था।",
+      "marks": 1
+    },
+    {
+      "id": "q-mcq-37",
+      "sectionId": "sec-a",
+      "sectionName": "खण्ड–अ : वस्तुनिष्ठ प्रश्न",
+      "questionNumber": 37,
+      "type": "mcq",
+      "text": "सुरक्षा परिषद् के कितने स्थायी सदस्य हैं ?",
+      "textHindi": "सुरक्षा परिषद् के कितने स्थायी सदस्य हैं ?",
+      "options": [
+        {
+          "id": "opt-37-a",
+          "key": "A",
+          "text": "3",
+          "textHindi": "3"
+        },
+        {
+          "id": "opt-37-b",
+          "key": "B",
+          "text": "4",
+          "textHindi": "4"
+        },
+        {
+          "id": "opt-37-c",
+          "key": "C",
+          "text": "5",
+          "textHindi": "5"
+        },
+        {
+          "id": "opt-37-d",
+          "key": "D",
+          "text": "6",
+          "textHindi": "6"
+        }
+      ],
+      "correctAnswer": "C",
+      "correctAnswerText": "(C) 5",
+      "explanationHindi": "संयुक्त राष्ट्र सुरक्षा परिषद में 5 स्थायी सदस्य (अमेरिका, रूस, ब्रिटेन, फ्रांस, चीन) हैं जिन्हें वीटो शक्ति प्राप्त है।",
+      "marks": 1
+    },
+    {
+      "id": "q-mcq-38",
+      "sectionId": "sec-a",
+      "sectionName": "खण्ड–अ : वस्तुनिष्ठ प्रश्न",
+      "questionNumber": 38,
+      "type": "mcq",
+      "text": "निम्न में से कौन सुरक्षा परिषद् का स्थायी सदस्य नहीं है ?",
+      "textHindi": "निम्न में से कौन सुरक्षा परिषद् का स्थायी सदस्य नहीं है ?",
+      "options": [
+        {
+          "id": "opt-38-a",
+          "key": "A",
+          "text": "संयुक्त राज्य अमेरिका",
+          "textHindi": "संयुक्त राज्य अमेरिका"
+        },
+        {
+          "id": "opt-38-b",
+          "key": "B",
+          "text": "चीन",
+          "textHindi": "चीन"
+        },
+        {
+          "id": "opt-38-c",
+          "key": "C",
+          "text": "भारत",
+          "textHindi": "भारत"
+        },
+        {
+          "id": "opt-38-d",
+          "key": "D",
+          "text": "रूस",
+          "textHindi": "रूस"
+        }
+      ],
+      "correctAnswer": "C",
+      "correctAnswerText": "(C) भारत",
+      "explanationHindi": "सुरक्षा परिषद के 5 स्थायी सदस्यों में अमेरिका, रूस, चीन, ब्रिटेन और फ्रांस शामिल हैं; भारत इसका स्थायी सदस्य नहीं है।",
+      "marks": 1
+    },
+    {
+      "id": "q-mcq-39",
+      "sectionId": "sec-a",
+      "sectionName": "खण्ड–अ : वस्तुनिष्ठ प्रश्न",
+      "questionNumber": 39,
+      "type": "mcq",
+      "text": "संयुक्त राष्ट्र महासभा का मुख्यालय कहाँ है ?",
+      "textHindi": "संयुक्त राष्ट्र महासभा का मुख्यालय कहाँ है ?",
+      "options": [
+        {
+          "id": "opt-39-a",
+          "key": "A",
+          "text": "शिकागो",
+          "textHindi": "शिकागो"
+        },
+        {
+          "id": "opt-39-b",
+          "key": "B",
+          "text": "न्यूयार्क",
+          "textHindi": "न्यूयार्क"
+        },
+        {
+          "id": "opt-39-c",
+          "key": "C",
+          "text": "जेनेवा",
+          "textHindi": "जेनेवा"
+        },
+        {
+          "id": "opt-39-d",
+          "key": "D",
+          "text": "लंदन",
+          "textHindi": "लंदन"
+        }
+      ],
+      "correctAnswer": "B",
+      "correctAnswerText": "(B) न्यूयार्क",
+      "explanationHindi": "संयुक्त राष्ट्र महासभा और संयुक्त राष्ट्र का मुख्य मुख्यालय न्यूयॉर्क (USA) में स्थित है।",
+      "marks": 1
+    },
+    {
+      "id": "q-mcq-40",
+      "sectionId": "sec-a",
+      "sectionName": "खण्ड–अ : वस्तुनिष्ठ प्रश्न",
+      "questionNumber": 40,
+      "type": "mcq",
+      "text": "अन्तरराष्ट्रीय न्यायालय का मुख्यालय कहाँ है ?",
+      "textHindi": "अन्तरराष्ट्रीय न्यायालय का मुख्यालय कहाँ है ?",
+      "options": [
+        {
+          "id": "opt-40-a",
+          "key": "A",
+          "text": "जेनेवा",
+          "textHindi": "जेनेवा"
+        },
+        {
+          "id": "opt-40-b",
+          "key": "B",
+          "text": "न्यूयार्क",
+          "textHindi": "न्यूयार्क"
+        },
+        {
+          "id": "opt-40-c",
+          "key": "C",
+          "text": "हेग",
+          "textHindi": "हेग"
+        },
+        {
+          "id": "opt-40-d",
+          "key": "D",
+          "text": "पेरिस",
+          "textHindi": "पेरिस"
+        }
+      ],
+      "correctAnswer": "C",
+      "correctAnswerText": "(C) हेग",
+      "explanationHindi": "अंतर्राष्ट्रीय न्यायालय (ICJ) का मुख्यालय 'द हेग' (नीदरलैंड्स) के पीस पैलेस में स्थित है।",
+      "marks": 1
+    },
+    {
+      "id": "q-mcq-41",
+      "sectionId": "sec-a",
+      "sectionName": "खण्ड–अ : वस्तुनिष्ठ प्रश्न",
+      "questionNumber": 41,
+      "type": "mcq",
+      "text": "भारत में कितने उच्च न्यायालय हैं ?",
+      "textHindi": "भारत में कितने उच्च न्यायालय हैं ?",
+      "options": [
+        {
+          "id": "opt-41-a",
+          "key": "A",
+          "text": "15",
+          "textHindi": "15"
+        },
+        {
+          "id": "opt-41-b",
+          "key": "B",
+          "text": "20",
+          "textHindi": "20"
+        },
+        {
+          "id": "opt-41-c",
+          "key": "C",
+          "text": "25",
+          "textHindi": "25"
+        },
+        {
+          "id": "opt-41-d",
+          "key": "D",
+          "text": "26",
+          "textHindi": "26"
+        }
+      ],
+      "correctAnswer": "C",
+      "correctAnswerText": "(C) 25",
+      "explanationHindi": "वर्तमान समय में भारत में कुल 25 उच्च न्यायालय (High Courts) कार्यरत हैं।",
+      "marks": 1
+    },
+    {
+      "id": "q-mcq-42",
+      "sectionId": "sec-a",
+      "sectionName": "खण्ड–अ : वस्तुनिष्ठ प्रश्न",
+      "questionNumber": 42,
+      "type": "mcq",
+      "text": "किसने कहा कि 'भारतीय संविधान अर्द्ध-संघात्मक है' ?",
+      "textHindi": "किसने कहा कि 'भारतीय संविधान अर्द्ध-संघात्मक है' ?",
+      "options": [
+        {
+          "id": "opt-42-a",
+          "key": "A",
+          "text": "एम०वी० पायली",
+          "textHindi": "एम०वी० पायली"
+        },
+        {
+          "id": "opt-42-b",
+          "key": "B",
+          "text": "आइवर जेनिंग्स",
+          "textHindi": "आइवर जेनिंग्स"
+        },
+        {
+          "id": "opt-42-c",
+          "key": "C",
+          "text": "के०सी० व्हियर",
+          "textHindi": "के०सी० व्हियर"
+        },
+        {
+          "id": "opt-42-d",
+          "key": "D",
+          "text": "इनमें से कोई नहीं",
+          "textHindi": "इनमें से कोई नहीं"
+        }
+      ],
+      "correctAnswer": "C",
+      "correctAnswerText": "(C) के०सी० ह्वियर",
+      "explanationHindi": "प्रसिद्ध विधिवेत्ता के. सी. व्हेयर ने भारतीय संविधान की एकात्मक और संघीय विशेषताओं के संतुलन के कारण इसे 'अर्द्ध-संघात्मक' (Quasi-Federal) कहा था।",
+      "marks": 1
+    },
+    {
+      "id": "q-mcq-43",
+      "sectionId": "sec-a",
+      "sectionName": "खण्ड–अ : वस्तुनिष्ठ प्रश्न",
+      "questionNumber": 43,
+      "type": "mcq",
+      "text": "संविधान के किस अनुसूची में केन्द्र व राज्यों के मध्य शक्तियों के वितरण का प्रावधान है ?",
+      "textHindi": "संविधान के किस अनुसूची में केन्द्र व राज्यों के मध्य शक्तियों के वितरण का प्रावधान है ?",
+      "options": [
+        {
+          "id": "opt-43-a",
+          "key": "A",
+          "text": "पाँचवीं",
+          "textHindi": "पाँचवीं"
+        },
+        {
+          "id": "opt-43-b",
+          "key": "B",
+          "text": "छठी",
+          "textHindi": "छठी"
+        },
+        {
+          "id": "opt-43-c",
+          "key": "C",
+          "text": "सातवीं",
+          "textHindi": "सातवीं"
+        },
+        {
+          "id": "opt-43-d",
+          "key": "D",
+          "text": "आठवीं",
+          "textHindi": "आठवीं"
+        }
+      ],
+      "correctAnswer": "C",
+      "correctAnswerText": "(C) सातवीं",
+      "explanationHindi": "संविधान की 7वीं अनुसूची में तीन सूचियों (संघ, राज्य और समवर्ती सूची) द्वारा केंद्र-राज्य शक्तियों का स्पष्ट बंटवारा है।",
+      "marks": 1
+    },
+    {
+      "id": "q-mcq-44",
+      "sectionId": "sec-a",
+      "sectionName": "खण्ड–अ : वस्तुनिष्ठ प्रश्न",
+      "questionNumber": 44,
+      "type": "mcq",
+      "text": "रेलवे का विषय किस सूची में रखा गया है ?",
+      "textHindi": "रेलवे का विषय किस सूची में रखा गया है ?",
+      "options": [
+        {
+          "id": "opt-44-a",
+          "key": "A",
+          "text": "केन्द्र सूची",
+          "textHindi": "केन्द्र सूची"
+        },
+        {
+          "id": "opt-44-b",
+          "key": "B",
+          "text": "राज्य सूची",
+          "textHindi": "राज्य सूची"
+        },
+        {
+          "id": "opt-44-c",
+          "key": "C",
+          "text": "समवर्ती सूची",
+          "textHindi": "समवर्ती सूची"
+        },
+        {
+          "id": "opt-44-d",
+          "key": "D",
+          "text": "इनमें से कोई नहीं",
+          "textHindi": "इनमें से कोई नहीं"
+        }
+      ],
+      "correctAnswer": "A",
+      "correctAnswerText": "(A) केन्द्र सूची",
+      "explanationHindi": "रेलवे राष्ट्रीय महत्व और परिवहन का विषय होने के कारण 7वीं अनुसूची की 'संघ सूची' में दर्ज है।",
+      "marks": 1
+    },
+    {
+      "id": "q-mcq-45",
+      "sectionId": "sec-a",
+      "sectionName": "खण्ड–अ : वस्तुनिष्ठ प्रश्न",
+      "questionNumber": 45,
+      "type": "mcq",
+      "text": "संघ सूची में कुल कितने विषय हैं ?",
+      "textHindi": "संघ सूची में कुल कितने विषय हैं ?",
+      "options": [
+        {
+          "id": "opt-45-a",
+          "key": "A",
+          "text": "97",
+          "textHindi": "97"
+        },
+        {
+          "id": "opt-45-b",
+          "key": "B",
+          "text": "66",
+          "textHindi": "66"
+        },
+        {
+          "id": "opt-45-c",
+          "key": "C",
+          "text": "47",
+          "textHindi": "47"
+        },
+        {
+          "id": "opt-45-d",
+          "key": "D",
+          "text": "100",
+          "textHindi": "100"
+        }
+      ],
+      "correctAnswer": "D",
+      "correctAnswerText": "(D) 100",
+      "explanationHindi": "मूल संविधान में संघ सूची में 97 विषय थे, जो वर्तमान में संशोधनों के बाद बढ़कर 100 विषय हो चुके हैं।",
+      "marks": 1
+    },
+    {
+      "id": "q-mcq-46",
+      "sectionId": "sec-a",
+      "sectionName": "खण्ड–अ : वस्तुनिष्ठ प्रश्न",
+      "questionNumber": 46,
+      "type": "mcq",
+      "text": "भारत में कितने प्रकार के आपातकाल घोषित किए जा सकते हैं ?",
+      "textHindi": "भारत में कितने प्रकार के आपातकाल घोषित किए जा सकते हैं ?",
+      "options": [
+        {
+          "id": "opt-46-a",
+          "key": "A",
+          "text": "2",
+          "textHindi": "2"
+        },
+        {
+          "id": "opt-46-b",
+          "key": "B",
+          "text": "3",
+          "textHindi": "3"
+        },
+        {
+          "id": "opt-46-c",
+          "key": "C",
+          "text": "4",
+          "textHindi": "4"
+        },
+        {
+          "id": "opt-46-d",
+          "key": "D",
+          "text": "5",
+          "textHindi": "5"
+        }
+      ],
+      "correctAnswer": "B",
+      "correctAnswerText": "(B) 3",
+      "explanationHindi": "भारतीय संविधान में 3 प्रकार के आपातकाल हैं: राष्ट्रीय आपातकाल (अनुच्छेद 352), राष्ट्रपति शासन (अनुच्छेद 356) और वित्तीय आपातकाल (अनुच्छेद 360)।",
+      "marks": 1
+    },
+    {
+      "id": "q-mcq-47",
+      "sectionId": "sec-a",
+      "sectionName": "खण्ड–अ : वस्तुनिष्ठ प्रश्न",
+      "questionNumber": 47,
+      "type": "mcq",
+      "text": "पंचायती राज दिवस कब मनाया जाता है ?",
+      "textHindi": "पंचायती राज दिवस कब मनाया जाता है ?",
+      "options": [
+        {
+          "id": "opt-47-a",
+          "key": "A",
+          "text": "15 अगस्त",
+          "textHindi": "15 अगस्त"
+        },
+        {
+          "id": "opt-47-b",
+          "key": "B",
+          "text": "26 जनवरी",
+          "textHindi": "26 जनवरी"
+        },
+        {
+          "id": "opt-47-c",
+          "key": "C",
+          "text": "24 अप्रैल",
+          "textHindi": "24 अप्रैल"
+        },
+        {
+          "id": "opt-47-d",
+          "key": "D",
+          "text": "14 नवम्बर",
+          "textHindi": "14 नवम्बर"
+        }
+      ],
+      "correctAnswer": "C",
+      "correctAnswerText": "(C) 24 अप्रैल",
+      "explanationHindi": "24 अप्रैल 1993 को 73वां संविधान संशोधन लागू हुआ था, इसलिए प्रतिवर्ष 24 अप्रैल को राष्ट्रीय पंचायती राज दिवस मनाया जाता है।",
+      "marks": 1
+    },
+    {
+      "id": "q-mcq-48",
+      "sectionId": "sec-a",
+      "sectionName": "खण्ड–अ : वस्तुनिष्ठ प्रश्न",
+      "questionNumber": 48,
+      "type": "mcq",
+      "text": "भारत की संघीय व्यवस्था में अवशिष्ट शक्तियाँ किसे प्राप्त हैं ?",
+      "textHindi": "भारत की संघीय व्यवस्था में अवशिष्ट शक्तियाँ किसे प्राप्त हैं ?",
+      "options": [
+        {
+          "id": "opt-48-a",
+          "key": "A",
+          "text": "सर्वोच्च न्यायालय",
+          "textHindi": "सर्वोच्च न्यायालय"
+        },
+        {
+          "id": "opt-48-b",
+          "key": "B",
+          "text": "विधानसभा",
+          "textHindi": "विधानसभा"
+        },
+        {
+          "id": "opt-48-c",
+          "key": "C",
+          "text": "राष्ट्रपति",
+          "textHindi": "राष्ट्रपति"
+        },
+        {
+          "id": "opt-48-d",
+          "key": "D",
+          "text": "संसद",
+          "textHindi": "संसद"
+        }
+      ],
+      "correctAnswer": "D",
+      "correctAnswerText": "(D) संसद",
+      "explanationHindi": "अनुच्छेद 248 के तहत वे विषय जो तीनों सूचियों में शामिल नहीं हैं (अवशिष्ट शक्तियां), उन पर कानून बनाने का अधिकार केवल संसद के पास है।",
+      "marks": 1
+    },
+    {
+      "id": "q-mcq-49",
+      "sectionId": "sec-a",
+      "sectionName": "खण्ड–अ : वस्तुनिष्ठ प्रश्न",
+      "questionNumber": 49,
+      "type": "mcq",
+      "text": "राज्य के लिए आवश्यक कितने तत्व होते हैं ?",
+      "textHindi": "राज्य के लिए आवश्यक कितने तत्व होते हैं ?",
+      "options": [
+        {
+          "id": "opt-49-a",
+          "key": "A",
+          "text": "2",
+          "textHindi": "2"
+        },
+        {
+          "id": "opt-49-b",
+          "key": "B",
+          "text": "3",
+          "textHindi": "3"
+        },
+        {
+          "id": "opt-49-c",
+          "key": "C",
+          "text": "4",
+          "textHindi": "4"
+        },
+        {
+          "id": "opt-49-d",
+          "key": "D",
+          "text": "5",
+          "textHindi": "5"
+        }
+      ],
+      "correctAnswer": "C",
+      "correctAnswerText": "(C) 4",
+      "explanationHindi": "राजनीति विज्ञान के अनुसार राज्य के चार अनिवार्य तत्व होते हैं: जनसंख्या, निश्चित भूभाग, सरकार और संप्रभुता।",
+      "marks": 1
+    },
+    {
+      "id": "q-mcq-50",
+      "sectionId": "sec-a",
+      "sectionName": "खण्ड–अ : वस्तुनिष्ठ प्रश्न",
+      "questionNumber": 50,
+      "type": "mcq",
+      "text": "किस राज्य से पृथक् होकर तेलंगाना राज्य अस्तित्व में आया ?",
+      "textHindi": "किस राज्य से पृथक् होकर तेलंगाना राज्य अस्तित्व में आया ?",
+      "options": [
+        {
+          "id": "opt-50-a",
+          "key": "A",
+          "text": "कर्नाटक",
+          "textHindi": "कर्नाटक"
+        },
+        {
+          "id": "opt-50-b",
+          "key": "B",
+          "text": "आन्ध्र प्रदेश",
+          "textHindi": "आन्ध्र प्रदेश"
+        },
+        {
+          "id": "opt-50-c",
+          "key": "C",
+          "text": "तमिलनाडु",
+          "textHindi": "तमिलनाडु"
+        },
+        {
+          "id": "opt-50-d",
+          "key": "D",
+          "text": "केरल",
+          "textHindi": "केरल"
+        }
+      ],
+      "correctAnswer": "B",
+      "correctAnswerText": "(B) आन्ध्र प्रदेश",
+      "explanationHindi": "2 जून 2014 को आंध्र प्रदेश राज्य से अलग होकर तेलंगाना भारत का नया राज्य बना था।",
+      "marks": 1
+    },
+    {
+      "id": "q-mcq-51",
+      "sectionId": "sec-a",
+      "sectionName": "खण्ड–अ : वस्तुनिष्ठ प्रश्न",
+      "questionNumber": 51,
+      "type": "mcq",
+      "text": "प्रस्तावना को भारतीय संविधान का 'पहचान पत्र' किसने कहा ?",
+      "textHindi": "प्रस्तावना को भारतीय संविधान का 'पहचान पत्र' किसने कहा ?",
+      "options": [
+        {
+          "id": "opt-51-a",
+          "key": "A",
+          "text": "बार्कर",
+          "textHindi": "बार्कर"
+        },
+        {
+          "id": "opt-51-b",
+          "key": "B",
+          "text": "एन०ए० पालखिवाला",
+          "textHindi": "एन०ए० पालखिवाला"
+        },
+        {
+          "id": "opt-51-c",
+          "key": "C",
+          "text": "के०सी० व्हियर",
+          "textHindi": "के०सी० व्हियर"
+        },
+        {
+          "id": "opt-51-d",
+          "key": "D",
+          "text": "जेनिंग्स",
+          "textHindi": "जेनिंग्स"
+        }
+      ],
+      "correctAnswer": "B",
+      "correctAnswerText": "(B) एन०ए० पालखिवाला",
+      "explanationHindi": "प्रख्यात न्यायविद नानी पालखीवाला ने प्रस्तावना को 'संविधान का पहचान पत्र' (Identity Card of the Constitution) कहा था।",
+      "marks": 1
+    },
+    {
+      "id": "q-mcq-52",
+      "sectionId": "sec-a",
+      "sectionName": "खण्ड–अ : वस्तुनिष्ठ प्रश्न",
+      "questionNumber": 52,
+      "type": "mcq",
+      "text": "बेरूबरी केस किस वर्ष आया ?",
+      "textHindi": "बेरूबरी केस किस वर्ष आया ?",
+      "options": [
+        {
+          "id": "opt-52-a",
+          "key": "A",
+          "text": "1972",
+          "textHindi": "1972"
+        },
+        {
+          "id": "opt-52-b",
+          "key": "B",
+          "text": "1976",
+          "textHindi": "1976"
+        },
+        {
+          "id": "opt-52-c",
+          "key": "C",
+          "text": "1970",
+          "textHindi": "1970"
+        },
+        {
+          "id": "opt-52-d",
+          "key": "D",
+          "text": "1960",
+          "textHindi": "1960"
+        }
+      ],
+      "correctAnswer": "D",
+      "correctAnswerText": "(D) 1960",
+      "explanationHindi": "1960 के बेरूबाड़ी यूनियन वाद में सुप्रीम कोर्ट ने कहा था कि प्रस्तावना संविधान का अंग नहीं है (जिसे 1973 के केशवानंद भारती केस में पलट दिया गया)।",
+      "marks": 1
+    },
+    {
+      "id": "q-mcq-53",
+      "sectionId": "sec-a",
+      "sectionName": "खण्ड–अ : वस्तुनिष्ठ प्रश्न",
+      "questionNumber": 53,
+      "type": "mcq",
+      "text": "निम्नलिखित में से कौन सा आदर्श प्रस्तावना में शामिल नहीं है ?",
+      "textHindi": "निम्नलिखित में से कौन सा आदर्श प्रस्तावना में शामिल नहीं है ?",
+      "options": [
+        {
+          "id": "opt-53-a",
+          "key": "A",
+          "text": "न्याय",
+          "textHindi": "न्याय"
+        },
+        {
+          "id": "opt-53-b",
+          "key": "B",
+          "text": "समानता",
+          "textHindi": "समानता"
+        },
+        {
+          "id": "opt-53-c",
+          "key": "C",
+          "text": "समृद्धि",
+          "textHindi": "समृद्धि"
+        },
+        {
+          "id": "opt-53-d",
+          "key": "D",
+          "text": "भाईचारा",
+          "textHindi": "भाईचारा"
+        }
+      ],
+      "correctAnswer": "C",
+      "correctAnswerText": "(C) समृद्धि",
+      "explanationHindi": "संविधान की प्रस्तावना में न्याय, स्वतंत्रता, समानता और बंधुत्व का उल्लेख है; इसमें 'समृद्धि' शब्द शामिल नहीं है।",
+      "marks": 1
+    },
+    {
+      "id": "q-mcq-54",
+      "sectionId": "sec-a",
+      "sectionName": "खण्ड–अ : वस्तुनिष्ठ प्रश्न",
+      "questionNumber": 54,
+      "type": "mcq",
+      "text": "भारतीय संविधान के किस अनुच्छेद द्वारा उपाधियों का उन्मूलन किया गया ?",
+      "textHindi": "भारतीय संविधान के किस अनुच्छेद द्वारा उपाधियों का उन्मूलन किया गया ?",
+      "options": [
+        {
+          "id": "opt-54-a",
+          "key": "A",
+          "text": "17",
+          "textHindi": "17"
+        },
+        {
+          "id": "opt-54-b",
+          "key": "B",
+          "text": "18",
+          "textHindi": "18"
+        },
+        {
+          "id": "opt-54-c",
+          "key": "C",
+          "text": "19",
+          "textHindi": "19"
+        },
+        {
+          "id": "opt-54-d",
+          "key": "D",
+          "text": "20",
+          "textHindi": "20"
+        }
+      ],
+      "correctAnswer": "B",
+      "correctAnswerText": "(B) 18",
+      "explanationHindi": "संविधान का अनुच्छेद 18 सैन्य और शैक्षणिक उपाधियों को छोड़कर राज्य द्वारा अन्य सभी उपाधियों के प्रदान किए जाने का उन्मूलन करता है।",
+      "marks": 1
+    },
+    {
+      "id": "q-mcq-55",
+      "sectionId": "sec-a",
+      "sectionName": "खण्ड–अ : वस्तुनिष्ठ प्रश्न",
+      "questionNumber": 55,
+      "type": "mcq",
+      "text": "निम्न में से कौन अनुच्छेद सांस्कृतिक एवं शैक्षिक अधिकारों से संबंधित हैं ?",
+      "textHindi": "निम्न में से कौन अनुच्छेद सांस्कृतिक एवं शैक्षिक अधिकारों से संबंधित हैं ?",
+      "options": [
+        {
+          "id": "opt-55-a",
+          "key": "A",
+          "text": "26 और 27",
+          "textHindi": "26 और 27"
+        },
+        {
+          "id": "opt-55-b",
+          "key": "B",
+          "text": "27 और 28",
+          "textHindi": "27 और 28"
+        },
+        {
+          "id": "opt-55-c",
+          "key": "C",
+          "text": "29 और 30",
+          "textHindi": "29 और 30"
+        },
+        {
+          "id": "opt-55-d",
+          "key": "D",
+          "text": "30 और 31",
+          "textHindi": "30 और 31"
+        }
+      ],
+      "correctAnswer": "C",
+      "correctAnswerText": "(C) 29 और 30",
+      "explanationHindi": "अनुच्छेद 29 और अनुच्छेद 30 अल्पसंख्यकों के सांस्कृतिक और शैक्षिक अधिकारों के संरक्षण से संबंधित हैं।",
+      "marks": 1
+    },
+    {
+      "id": "q-mcq-56",
+      "sectionId": "sec-a",
+      "sectionName": "खण्ड–अ : वस्तुनिष्ठ प्रश्न",
+      "questionNumber": 56,
+      "type": "mcq",
+      "text": "भारतीय संविधान के किस भाग में मौलिक अधिकारों का उल्लेख किया गया है ?",
+      "textHindi": "भारतीय संविधान के किस भाग में मौलिक अधिकारों का उल्लेख किया गया है ?",
+      "options": [
+        {
+          "id": "opt-56-a",
+          "key": "A",
+          "text": "II",
+          "textHindi": "II"
+        },
+        {
+          "id": "opt-56-b",
+          "key": "B",
+          "text": "III",
+          "textHindi": "III"
+        },
+        {
+          "id": "opt-56-c",
+          "key": "C",
+          "text": "IV",
+          "textHindi": "IV"
+        },
+        {
+          "id": "opt-56-d",
+          "key": "D",
+          "text": "V",
+          "textHindi": "V"
+        }
+      ],
+      "correctAnswer": "B",
+      "correctAnswerText": "(B) III",
+      "explanationHindi": "भारतीय संविधान के भाग III में अनुच्छेद 12 से 35 तक मौलिक अधिकारों का उल्लेख है, जिसे 'मैग्नाकार्टा' कहा जाता है।",
+      "marks": 1
+    },
+    {
+      "id": "q-mcq-57",
+      "sectionId": "sec-a",
+      "sectionName": "खण्ड–अ : वस्तुनिष्ठ प्रश्न",
+      "questionNumber": 57,
+      "type": "mcq",
+      "text": "भाषण व अभिव्यक्ति का अधिकार संविधान के किस अनुच्छेद में वर्णित है ?",
+      "textHindi": "भाषण व अभिव्यक्ति का अधिकार संविधान के किस अनुच्छेद में वर्णित है ?",
+      "options": [
+        {
+          "id": "opt-57-a",
+          "key": "A",
+          "text": "17",
+          "textHindi": "17"
+        },
+        {
+          "id": "opt-57-b",
+          "key": "B",
+          "text": "18",
+          "textHindi": "18"
+        },
+        {
+          "id": "opt-57-c",
+          "key": "C",
+          "text": "19",
+          "textHindi": "19"
+        },
+        {
+          "id": "opt-57-d",
+          "key": "D",
+          "text": "20",
+          "textHindi": "20"
+        }
+      ],
+      "correctAnswer": "C",
+      "correctAnswerText": "(C) 19",
+      "explanationHindi": "अनुच्छेद 19(1)(a) के तहत देश के सभी नागरिकों को भाषण और अभिव्यक्ति की स्वतंत्रता का मौलिक अधिकार प्राप्त है।",
+      "marks": 1
+    },
+    {
+      "id": "q-mcq-58",
+      "sectionId": "sec-a",
+      "sectionName": "खण्ड–अ : वस्तुनिष्ठ प्रश्न",
+      "questionNumber": 58,
+      "type": "mcq",
+      "text": "कौन सा अनुच्छेद कानून के समक्ष समानता प्रदान करता है ?",
+      "textHindi": "कौन सा अनुच्छेद कानून के समक्ष समानता प्रदान करता है ?",
+      "options": [
+        {
+          "id": "opt-58-a",
+          "key": "A",
+          "text": "13",
+          "textHindi": "13"
+        },
+        {
+          "id": "opt-58-b",
+          "key": "B",
+          "text": "14",
+          "textHindi": "14"
+        },
+        {
+          "id": "opt-58-c",
+          "key": "C",
+          "text": "15",
+          "textHindi": "15"
+        },
+        {
+          "id": "opt-58-d",
+          "key": "D",
+          "text": "16",
+          "textHindi": "16"
+        }
+      ],
+      "correctAnswer": "B",
+      "correctAnswerText": "(B) 14",
+      "explanationHindi": "अनुच्छेद 14 यह उपबंध करता है कि राज्य किसी भी व्यक्ति को 'विधि के समक्ष समता' या 'विधियों के समान संरक्षण' से वंचित नहीं करेगा।",
+      "marks": 1
+    },
+    {
+      "id": "q-mcq-59",
+      "sectionId": "sec-a",
+      "sectionName": "खण्ड–अ : वस्तुनिष्ठ प्रश्न",
+      "questionNumber": 59,
+      "type": "mcq",
+      "text": "वर्तमान में हमारे संविधान में कुल कितने मौलिक कर्तव्य हैं ?",
+      "textHindi": "वर्तमान में हमारे संविधान में कुल कितने मौलिक कर्तव्य हैं ?",
+      "options": [
+        {
+          "id": "opt-59-a",
+          "key": "A",
+          "text": "10",
+          "textHindi": "10"
+        },
+        {
+          "id": "opt-59-b",
+          "key": "B",
+          "text": "11",
+          "textHindi": "11"
+        },
+        {
+          "id": "opt-59-c",
+          "key": "C",
+          "text": "13",
+          "textHindi": "13"
+        },
+        {
+          "id": "opt-59-d",
+          "key": "D",
+          "text": "14",
+          "textHindi": "14"
+        }
+      ],
+      "correctAnswer": "B",
+      "correctAnswerText": "(B) 11",
+      "explanationHindi": "42वें संशोधन (1976) द्वारा 10 और 86वें संशोधन (2002) द्वारा 1 मौलिक कर्तव्य जोड़ा गया; अतः वर्तमान में कुल 11 मौलिक कर्तव्य हैं।",
+      "marks": 1
+    },
+    {
+      "id": "q-mcq-60",
+      "sectionId": "sec-a",
+      "sectionName": "खण्ड–अ : वस्तुनिष्ठ प्रश्न",
+      "questionNumber": 60,
+      "type": "mcq",
+      "text": "भारतीय संविधान में मौलिक अधिकारों की अवधारणा किस देश से ली गयी है ?",
+      "textHindi": "भारतीय संविधान में मौलिक अधिकारों की अवधारणा किस देश से ली गयी है ?",
+      "options": [
+        {
+          "id": "opt-60-a",
+          "key": "A",
+          "text": "फ्रांस",
+          "textHindi": "फ्रांस"
+        },
+        {
+          "id": "opt-60-b",
+          "key": "B",
+          "text": "ब्रिटेन",
+          "textHindi": "ब्रिटेन"
+        },
+        {
+          "id": "opt-60-c",
+          "key": "C",
+          "text": "जर्मनी",
+          "textHindi": "जर्मनी"
+        },
+        {
+          "id": "opt-60-d",
+          "key": "D",
+          "text": "यू०एस०ए०",
+          "textHindi": "यू०एस०ए०"
+        }
+      ],
+      "correctAnswer": "D",
+      "correctAnswerText": "(D) यू०एस०ए०",
+      "explanationHindi": "भारतीय संविधान में मौलिक अधिकारों (Fundamental Rights) का प्रावधान अमेरिका के 'बिल ऑफ राइट्स' से लिया गया है।",
+      "marks": 1
+    },
+    {
+      "id": "q-mcq-61",
+      "sectionId": "sec-a",
+      "sectionName": "खण्ड–अ : वस्तुनिष्ठ प्रश्न",
+      "questionNumber": 61,
+      "type": "mcq",
+      "text": "संविधान के किस अनुच्छेद में समान नागरिक संहिता का प्रबंधन है ?",
+      "textHindi": "संविधान के किस अनुच्छेद में समान नागरिक संहिता का प्रबंधन है ?",
+      "options": [
+        {
+          "id": "opt-61-a",
+          "key": "A",
+          "text": "42",
+          "textHindi": "42"
+        },
+        {
+          "id": "opt-61-b",
+          "key": "B",
+          "text": "43",
+          "textHindi": "43"
+        },
+        {
+          "id": "opt-61-c",
+          "key": "C",
+          "text": "44",
+          "textHindi": "44"
+        },
+        {
+          "id": "opt-61-d",
+          "key": "D",
+          "text": "45",
+          "textHindi": "45"
+        }
+      ],
+      "correctAnswer": "C",
+      "correctAnswerText": "(C) 44",
+      "explanationHindi": "संविधान के भाग IV में अनुच्छेद 44 राज्य को पूरे भारत में समान नागरिक संहिता (Uniform Civil Code) लागू करने का निर्देश देता है।",
+      "marks": 1
+    },
+    {
+      "id": "q-mcq-62",
+      "sectionId": "sec-a",
+      "sectionName": "खण्ड–अ : वस्तुनिष्ठ प्रश्न",
+      "questionNumber": 62,
+      "type": "mcq",
+      "text": "राज्य चुनाव आयोग किसका चुनाव कराता है ?",
+      "textHindi": "राज्य चुनाव आयोग किसका चुनाव कराता है ?",
+      "options": [
+        {
+          "id": "opt-62-a",
+          "key": "A",
+          "text": "विधानसभा",
+          "textHindi": "विधानसभा"
+        },
+        {
+          "id": "opt-62-b",
+          "key": "B",
+          "text": "पंचायती राज संस्थाएँ",
+          "textHindi": "पंचायती राज संस्थाएँ"
+        },
+        {
+          "id": "opt-62-c",
+          "key": "C",
+          "text": "विधान परिषद्",
+          "textHindi": "विधान परिषद्"
+        },
+        {
+          "id": "opt-62-d",
+          "key": "D",
+          "text": "राज्यसभा",
+          "textHindi": "राज्यसभा"
+        }
+      ],
+      "correctAnswer": "B",
+      "correctAnswerText": "(B) पंचायती राज संस्थाएँ",
+      "explanationHindi": "राज्य निर्वाचन आयोग (अनुच्छेद 243K) केवल पंचायती राज संस्थाओं और नगर पालिकाओं के चुनावों का संचालन करता है।",
+      "marks": 1
+    },
+    {
+      "id": "q-mcq-63",
+      "sectionId": "sec-a",
+      "sectionName": "खण्ड–अ : वस्तुनिष्ठ प्रश्न",
+      "questionNumber": 63,
+      "type": "mcq",
+      "text": "भारत के राष्ट्रपति बनने के लिए न्यूनतम आयु क्या है ?",
+      "textHindi": "भारत के राष्ट्रपति बनने के लिए न्यूनतम आयु क्या है ?",
+      "options": [
+        {
+          "id": "opt-63-a",
+          "key": "A",
+          "text": "25 वर्ष",
+          "textHindi": "25 वर्ष"
+        },
+        {
+          "id": "opt-63-b",
+          "key": "B",
+          "text": "30 वर्ष",
+          "textHindi": "30 वर्ष"
+        },
+        {
+          "id": "opt-63-c",
+          "key": "C",
+          "text": "35 वर्ष",
+          "textHindi": "35 वर्ष"
+        },
+        {
+          "id": "opt-63-d",
+          "key": "D",
+          "text": "28 वर्ष",
+          "textHindi": "28 वर्ष"
+        }
+      ],
+      "correctAnswer": "C",
+      "correctAnswerText": "(C) 35 वर्ष",
+      "explanationHindi": "संविधान के अनुच्छेद 58 के अनुसार भारत का राष्ट्रपति बनने के लिए न्यूनतम आयु 35 वर्ष होनी चाहिए।",
+      "marks": 1
+    },
+    {
+      "id": "q-mcq-64",
+      "sectionId": "sec-a",
+      "sectionName": "खण्ड–अ : वस्तुनिष्ठ प्रश्न",
+      "questionNumber": 64,
+      "type": "mcq",
+      "text": "भारत के राष्ट्रपति के चुनाव में निम्नलिखित में से कौन हिस्सा नहीं लेता है ?",
+      "textHindi": "भारत के राष्ट्रपति के चुनाव में निम्नलिखित में से कौन हिस्सा नहीं लेता है ?",
+      "options": [
+        {
+          "id": "opt-64-a",
+          "key": "A",
+          "text": "लोकसभा के सदस्य",
+          "textHindi": "लोकसभा के सदस्य"
+        },
+        {
+          "id": "opt-64-b",
+          "key": "B",
+          "text": "राज्यसभा के निर्वाचित सदस्य",
+          "textHindi": "राज्यसभा के निर्वाचित सदस्य"
+        },
+        {
+          "id": "opt-64-c",
+          "key": "C",
+          "text": "विधानसभा के सदस्य",
+          "textHindi": "विधानसभा के सदस्य"
+        },
+        {
+          "id": "opt-64-d",
+          "key": "D",
+          "text": "विधान परिषद् के सदस्य",
+          "textHindi": "विधान परिषद् के सदस्य"
+        }
+      ],
+      "correctAnswer": "D",
+      "correctAnswerText": "(D) विधान परिषद् के सदस्य",
+      "explanationHindi": "अनुच्छेद 54 के अनुसार राष्ट्रपति चुनाव में संसद और विधानसभाओं के निर्वाचित सदस्य भाग लेते हैं; विधान परिषद (MLC) सदस्य भाग नहीं लेते।",
+      "marks": 1
+    },
+    {
+      "id": "q-mcq-65",
+      "sectionId": "sec-a",
+      "sectionName": "खण्ड–अ : वस्तुनिष्ठ प्रश्न",
+      "questionNumber": 65,
+      "type": "mcq",
+      "text": "संविधान के किस अनुच्छेद के अन्तर्गत भारतीय राष्ट्रपति पर महाभियोग लगाया जा सकता है ?",
+      "textHindi": "संविधान के किस अनुच्छेद के अन्तर्गत भारतीय राष्ट्रपति पर महाभियोग लगाया जा सकता है ?",
+      "options": [
+        {
+          "id": "opt-65-a",
+          "key": "A",
+          "text": "60",
+          "textHindi": "60"
+        },
+        {
+          "id": "opt-65-b",
+          "key": "B",
+          "text": "61",
+          "textHindi": "61"
+        },
+        {
+          "id": "opt-65-c",
+          "key": "C",
+          "text": "62",
+          "textHindi": "62"
+        },
+        {
+          "id": "opt-65-d",
+          "key": "D",
+          "text": "63",
+          "textHindi": "63"
+        }
+      ],
+      "correctAnswer": "B",
+      "correctAnswerText": "(B) 61",
+      "explanationHindi": "संविधान के अनुच्छेद 61 में राष्ट्रपति पर 'संविधान के उल्लंघन' के आधार पर महाभियोग (Impeachment) चलाने की प्रक्रिया दर्ज है।",
+      "marks": 1
+    },
+    {
+      "id": "q-mcq-66",
+      "sectionId": "sec-a",
+      "sectionName": "खण्ड–अ : वस्तुनिष्ठ प्रश्न",
+      "questionNumber": 66,
+      "type": "mcq",
+      "text": "राज्यसभा के मनोनीत सदस्यों की संख्या क्या होती है ?",
+      "textHindi": "राज्यसभा के मनोनीत सदस्यों की संख्या क्या होती है ?",
+      "options": [
+        {
+          "id": "opt-66-a",
+          "key": "A",
+          "text": "10",
+          "textHindi": "10"
+        },
+        {
+          "id": "opt-66-b",
+          "key": "B",
+          "text": "12",
+          "textHindi": "12"
+        },
+        {
+          "id": "opt-66-c",
+          "key": "C",
+          "text": "14",
+          "textHindi": "14"
+        },
+        {
+          "id": "opt-66-d",
+          "key": "D",
+          "text": "16",
+          "textHindi": "16"
+        }
+      ],
+      "correctAnswer": "B",
+      "correctAnswerText": "(B) 12",
+      "explanationHindi": "अनुच्छेद 80 के अनुसार राष्ट्रपति कला, साहित्य, विज्ञान और समाज सेवा से जुड़े 12 प्रतिष्ठित व्यक्तियों को राज्यसभा में मनोनीत करते हैं।",
+      "marks": 1
+    },
+    {
+      "id": "q-mcq-67",
+      "sectionId": "sec-a",
+      "sectionName": "खण्ड–अ : वस्तुनिष्ठ प्रश्न",
+      "questionNumber": 67,
+      "type": "mcq",
+      "text": "भारतीय राष्ट्रपति पर महाभियोग कौन लगा सकता है ?",
+      "textHindi": "भारतीय राष्ट्रपति पर महाभियोग कौन लगा सकता है ?",
+      "options": [
+        {
+          "id": "opt-67-a",
+          "key": "A",
+          "text": "सर्वोच्च न्यायालय",
+          "textHindi": "सर्वोच्च न्यायालय"
+        },
+        {
+          "id": "opt-67-b",
+          "key": "B",
+          "text": "लोकसभा",
+          "textHindi": "लोकसभा"
+        },
+        {
+          "id": "opt-67-c",
+          "key": "C",
+          "text": "राज्यसभा",
+          "textHindi": "राज्यसभा"
+        },
+        {
+          "id": "opt-67-d",
+          "key": "D",
+          "text": "भारतीय संसद",
+          "textHindi": "भारतीय संसद"
+        }
+      ],
+      "correctAnswer": "D",
+      "correctAnswerText": "(D) भारतीय संसद",
+      "explanationHindi": "राष्ट्रपति पर महाभियोग का प्रस्ताव संसद के किसी भी सदन में लाया जा सकता है और संसद के दोनों सदनों द्वारा 2/3 विशेष बहुमत से ही पारित होता है।",
+      "marks": 1
+    },
+    {
+      "id": "q-mcq-68",
+      "sectionId": "sec-a",
+      "sectionName": "खण्ड–अ : वस्तुनिष्ठ प्रश्न",
+      "questionNumber": 68,
+      "type": "mcq",
+      "text": "अनुच्छेद 143 के अन्तर्गत राष्ट्रपति किससे सलाह माँग सकता है ?",
+      "textHindi": "अनुच्छेद 143 के अन्तर्गत राष्ट्रपति किससे सलाह माँग सकता है ?",
+      "options": [
+        {
+          "id": "opt-68-a",
+          "key": "A",
+          "text": "प्रधानमंत्री",
+          "textHindi": "प्रधानमंत्री"
+        },
+        {
+          "id": "opt-68-b",
+          "key": "B",
+          "text": "सर्वोच्च न्यायालय",
+          "textHindi": "सर्वोच्च न्यायालय"
+        },
+        {
+          "id": "opt-68-c",
+          "key": "C",
+          "text": "उच्च न्यायालय",
+          "textHindi": "उच्च न्यायालय"
+        },
+        {
+          "id": "opt-68-d",
+          "key": "D",
+          "text": "मुख्य निर्वाचन आयुक्त",
+          "textHindi": "मुख्य निर्वाचन आयुक्त"
+        }
+      ],
+      "correctAnswer": "B",
+      "correctAnswerText": "(B) सर्वोच्च न्यायालय",
+      "explanationHindi": "अनुच्छेद 143 राष्ट्रपति को सार्वजनिक महत्व के कानूनी प्रश्नों पर सर्वोच्च न्यायालय से परामर्श मांगने की शक्ति देता है।",
+      "marks": 1
+    },
+    {
+      "id": "q-mcq-69",
+      "sectionId": "sec-a",
+      "sectionName": "खण्ड–अ : वस्तुनिष्ठ प्रश्न",
+      "questionNumber": 69,
+      "type": "mcq",
+      "text": "संविधान के किस अनुच्छेद के द्वारा राष्ट्रपति अध्यादेश जारी कर सकता है ?",
+      "textHindi": "संविधान के किस अनुच्छेद के द्वारा राष्ट्रपति अध्यादेश जारी कर सकता है ?",
+      "options": [
+        {
+          "id": "opt-69-a",
+          "key": "A",
+          "text": "120",
+          "textHindi": "120"
+        },
+        {
+          "id": "opt-69-b",
+          "key": "B",
+          "text": "123",
+          "textHindi": "123"
+        },
+        {
+          "id": "opt-69-c",
+          "key": "C",
+          "text": "135",
+          "textHindi": "135"
+        },
+        {
+          "id": "opt-69-d",
+          "key": "D",
+          "text": "140",
+          "textHindi": "140"
+        }
+      ],
+      "correctAnswer": "B",
+      "correctAnswerText": "(B) 123",
+      "explanationHindi": "जब संसद सत्र में न हो, तो राष्ट्रपति अनुच्छेद 123 के तहत तात्कालिक कानून बनाने के लिए अध्यादेश (Ordinance) जारी कर सकते हैं।",
+      "marks": 1
+    },
+    {
+      "id": "q-mcq-70",
+      "sectionId": "sec-a",
+      "sectionName": "खण्ड–अ : वस्तुनिष्ठ प्रश्न",
+      "questionNumber": 70,
+      "type": "mcq",
+      "text": "किसके लिखित परामर्श पर अनुच्छेद 352 के अन्तर्गत राष्ट्रपति देशव्यापी आपातकाल की घोषणा कर सकते हैं ?",
+      "textHindi": "किसके लिखित परामर्श पर अनुच्छेद 352 के अन्तर्गत राष्ट्रपति देशव्यापी आपातकाल की घोषणा कर सकते हैं ?",
+      "options": [
+        {
+          "id": "opt-70-a",
+          "key": "A",
+          "text": "प्रधानमंत्री",
+          "textHindi": "प्रधानमंत्री"
+        },
+        {
+          "id": "opt-70-b",
+          "key": "B",
+          "text": "गृहमंत्री",
+          "textHindi": "गृहमंत्री"
+        },
+        {
+          "id": "opt-70-c",
+          "key": "C",
+          "text": "केन्द्रीय कैबिनेट",
+          "textHindi": "केन्द्रीय कैबिनेट"
+        },
+        {
+          "id": "opt-70-d",
+          "key": "D",
+          "text": "रक्षामंत्री",
+          "textHindi": "रक्षामंत्री"
+        }
+      ],
+      "correctAnswer": "C",
+      "correctAnswerText": "(C) केन्द्रीय कैबिनेट",
+      "explanationHindi": "44वें संशोधन (1978) के बाद यह अनिवार्य है कि राष्ट्रपति अनुच्छेद 352 के तहत राष्ट्रीय आपातकाल केवल केंद्रीय मंत्रिमंडल (कैबिनेट) की लिखित सलाह पर ही लगाएंगे।",
+      "marks": 1
+    },
+    {
+      "id": "q-mcq-71",
+      "sectionId": "sec-a",
+      "sectionName": "खण्ड–अ : वस्तुनिष्ठ प्रश्न",
+      "questionNumber": 71,
+      "type": "mcq",
+      "text": "भारतीय संविधान में नीति निदेशक तत्व किस देश के संविधान से लिए गये हैं ?",
+      "textHindi": "भारतीय संविधान में नीति निदेशक तत्व किस देश के संविधान से लिए गये हैं ?",
+      "options": [
+        {
+          "id": "opt-71-a",
+          "key": "A",
+          "text": "ब्रिटेन",
+          "textHindi": "ब्रिटेन"
+        },
+        {
+          "id": "opt-71-b",
+          "key": "B",
+          "text": "कनाडा",
+          "textHindi": "कनाडा"
+        },
+        {
+          "id": "opt-71-c",
+          "key": "C",
+          "text": "आयरलैंड",
+          "textHindi": "आयरलैंड"
+        },
+        {
+          "id": "opt-71-d",
+          "key": "D",
+          "text": "फ्रांस",
+          "textHindi": "फ्रांस"
+        }
+      ],
+      "correctAnswer": "C",
+      "correctAnswerText": "(C) आयरलैंड",
+      "explanationHindi": "भारतीय संविधान के भाग IV में वर्णित राज्य के नीति निदेशक तत्व (DPSP) आयरलैंड के संविधान से लिए गए हैं।",
+      "marks": 1
+    },
+    {
+      "id": "q-mcq-72",
+      "sectionId": "sec-a",
+      "sectionName": "खण्ड–अ : वस्तुनिष्ठ प्रश्न",
+      "questionNumber": 72,
+      "type": "mcq",
+      "text": "भारतीय संविधान में मौलिक अधिकारों की संख्या क्या है ?",
+      "textHindi": "भारतीय संविधान में मौलिक अधिकारों की संख्या क्या है ?",
+      "options": [
+        {
+          "id": "opt-72-a",
+          "key": "A",
+          "text": "4",
+          "textHindi": "4"
+        },
+        {
+          "id": "opt-72-b",
+          "key": "B",
+          "text": "5",
+          "textHindi": "5"
+        },
+        {
+          "id": "opt-72-c",
+          "key": "C",
+          "text": "6",
+          "textHindi": "6"
+        },
+        {
+          "id": "opt-72-d",
+          "key": "D",
+          "text": "7",
+          "textHindi": "7"
+        }
+      ],
+      "correctAnswer": "C",
+      "correctAnswerText": "(C) 6",
+      "explanationHindi": "44वें संशोधन 1978 द्वारा संपत्ति के अधिकार को हटाए जाने के बाद वर्तमान में संविधान में कुल 6 मौलिक अधिकार हैं।",
+      "marks": 1
+    },
+    {
+      "id": "q-mcq-73",
+      "sectionId": "sec-a",
+      "sectionName": "खण्ड–अ : वस्तुनिष्ठ प्रश्न",
+      "questionNumber": 73,
+      "type": "mcq",
+      "text": "मूल संविधान में अनुच्छेद 31 किस अधिकार से संबंधित है ?",
+      "textHindi": "मूल संविधान में अनुच्छेद 31 किस अधिकार से संबंधित है ?",
+      "options": [
+        {
+          "id": "opt-73-a",
+          "key": "A",
+          "text": "धर्म का अधिकार",
+          "textHindi": "धर्म का अधिकार"
+        },
+        {
+          "id": "opt-73-b",
+          "key": "B",
+          "text": "स्वतन्त्रता का अधिकार",
+          "textHindi": "स्वतन्त्रता का अधिकार"
+        },
+        {
+          "id": "opt-73-c",
+          "key": "C",
+          "text": "समानता का अधिकार",
+          "textHindi": "समानता का अधिकार"
+        },
+        {
+          "id": "opt-73-d",
+          "key": "D",
+          "text": "सम्पत्ति का अधिकार",
+          "textHindi": "सम्पत्ति का अधिकार"
+        }
+      ],
+      "correctAnswer": "D",
+      "correctAnswerText": "(D) सम्पत्ति का अधिकार",
+      "explanationHindi": "मूल संविधान के अनुच्छेद 31 में संपत्ति का मौलिक अधिकार शामिल था, जिसे हटाकर अनुच्छेद 300A के तहत कानूनी अधिकार बना दिया गया।",
+      "marks": 1
+    },
+    {
+      "id": "q-mcq-74",
+      "sectionId": "sec-a",
+      "sectionName": "खण्ड–अ : वस्तुनिष्ठ प्रश्न",
+      "questionNumber": 74,
+      "type": "mcq",
+      "text": "वर्तमान में भारतीय संविधान में कुल कितने भाग हैं ?",
+      "textHindi": "वर्तमान में भारतीय संविधान में कुल कितने भाग हैं ?",
+      "options": [
+        {
+          "id": "opt-74-a",
+          "key": "A",
+          "text": "22",
+          "textHindi": "22"
+        },
+        {
+          "id": "opt-74-b",
+          "key": "B",
+          "text": "23",
+          "textHindi": "23"
+        },
+        {
+          "id": "opt-74-c",
+          "key": "C",
+          "text": "24",
+          "textHindi": "24"
+        },
+        {
+          "id": "opt-74-d",
+          "key": "D",
+          "text": "25",
+          "textHindi": "25"
+        }
+      ],
+      "correctAnswer": "D",
+      "correctAnswerText": "(D) 25",
+      "explanationHindi": "संशोधनों के बाद उप-भागों की गणना के आधार पर वर्तमान भारतीय संविधान में कुल 25 भाग हैं (मूल रूप से 22 भाग थे)।",
+      "marks": 1
+    },
+    {
+      "id": "q-mcq-75",
+      "sectionId": "sec-a",
+      "sectionName": "खण्ड–अ : वस्तुनिष्ठ प्रश्न",
+      "questionNumber": 75,
+      "type": "mcq",
+      "text": "भारतीय संविधान ने आपातकालीन प्रावधान किस देश के संविधान से लिया है ?",
+      "textHindi": "भारतीय संविधान ने आपातकालीन प्रावधान किस देश के संविधान से लिया है ?",
+      "options": [
+        {
+          "id": "opt-75-a",
+          "key": "A",
+          "text": "ब्रिटेन",
+          "textHindi": "ब्रिटेन"
+        },
+        {
+          "id": "opt-75-b",
+          "key": "B",
+          "text": "कनाडा",
+          "textHindi": "कनाडा"
+        },
+        {
+          "id": "opt-75-c",
+          "key": "C",
+          "text": "अमेरिका",
+          "textHindi": "अमेरिका"
+        },
+        {
+          "id": "opt-75-d",
+          "key": "D",
+          "text": "वाइमर जर्मन",
+          "textHindi": "वाइमर जर्मन"
+        }
+      ],
+      "correctAnswer": "D",
+      "correctAnswerText": "(D) वाइमर जर्मन",
+      "explanationHindi": "आपातकाल के दौरान मूल अधिकारों के स्थगन/निलंबन का सिद्धांत जर्मनी के वाइमर संविधान से ग्रहण किया गया है।",
+      "marks": 1
+    },
+    {
+      "id": "q-mcq-76",
+      "sectionId": "sec-a",
+      "sectionName": "खण्ड–अ : वस्तुनिष्ठ प्रश्न",
+      "questionNumber": 76,
+      "type": "mcq",
+      "text": "संविधान सभा के लिए चुनाव कब सम्पन्न हुआ ?",
+      "textHindi": "संविधान सभा के लिए चुनाव कब सम्पन्न हुआ ?",
+      "options": [
+        {
+          "id": "opt-76-a",
+          "key": "A",
+          "text": "1945",
+          "textHindi": "1945"
+        },
+        {
+          "id": "opt-76-b",
+          "key": "B",
+          "text": "1946",
+          "textHindi": "1946"
+        },
+        {
+          "id": "opt-76-c",
+          "key": "C",
+          "text": "1947",
+          "textHindi": "1947"
+        },
+        {
+          "id": "opt-76-d",
+          "key": "D",
+          "text": "1948",
+          "textHindi": "1948"
+        }
+      ],
+      "correctAnswer": "B",
+      "correctAnswerText": "(B) 1946",
+      "explanationHindi": "कैबिनेट मिशन योजना के तहत जुलाई-अगस्त 1946 में भारत की संविधान सभा के सदस्यों के चुनाव हुए थे।",
+      "marks": 1
+    },
+    {
+      "id": "q-mcq-77",
+      "sectionId": "sec-a",
+      "sectionName": "खण्ड–अ : वस्तुनिष्ठ प्रश्न",
+      "questionNumber": 77,
+      "type": "mcq",
+      "text": "संविधान के किस भाग में नीति निदेशक तत्व उल्लेखित हैं ?",
+      "textHindi": "संविधान के किस भाग में नीति निदेशक तत्व उल्लेखित हैं ?",
+      "options": [
+        {
+          "id": "opt-77-a",
+          "key": "A",
+          "text": "दूसरे",
+          "textHindi": "दूसरे"
+        },
+        {
+          "id": "opt-77-b",
+          "key": "B",
+          "text": "तीसरे",
+          "textHindi": "तीसरे"
+        },
+        {
+          "id": "opt-77-c",
+          "key": "C",
+          "text": "चौथे",
+          "textHindi": "चौथे"
+        },
+        {
+          "id": "opt-77-d",
+          "key": "D",
+          "text": "पाँचवें",
+          "textHindi": "पाँचवें"
+        }
+      ],
+      "correctAnswer": "C",
+      "correctAnswerText": "(C) चौथे",
+      "explanationHindi": "भारतीय संविधान के भाग IV (अनुच्छेद 36 से 51) में राज्य के नीति निदेशक तत्वों का उल्लेख है।",
+      "marks": 1
+    },
+    {
+      "id": "q-mcq-78",
+      "sectionId": "sec-a",
+      "sectionName": "खण्ड–अ : वस्तुनिष्ठ प्रश्न",
+      "questionNumber": 78,
+      "type": "mcq",
+      "text": "किस अनुच्छेद के द्वारा गौवध पर प्रतिबन्ध लगाया गया है ?",
+      "textHindi": "किस अनुच्छेद के द्वारा गौवध पर प्रतिबन्ध लगाया गया है ?",
+      "options": [
+        {
+          "id": "opt-78-a",
+          "key": "A",
+          "text": "45",
+          "textHindi": "45"
+        },
+        {
+          "id": "opt-78-b",
+          "key": "B",
+          "text": "46",
+          "textHindi": "46"
+        },
+        {
+          "id": "opt-78-c",
+          "key": "C",
+          "text": "47",
+          "textHindi": "47"
+        },
+        {
+          "id": "opt-78-d",
+          "key": "D",
+          "text": "48",
+          "textHindi": "48"
+        }
+      ],
+      "correctAnswer": "D",
+      "correctAnswerText": "(D) 48",
+      "explanationHindi": "अनुच्छेद 48 राज्य को कृषि और पशुपालन का आधुनिकीकरण करने तथा गायों और दुधारू मवेशियों के वध पर प्रतिबंध लगाने का निर्देश देता है।",
+      "marks": 1
+    },
+    {
+      "id": "q-mcq-79",
+      "sectionId": "sec-a",
+      "sectionName": "खण्ड–अ : वस्तुनिष्ठ प्रश्न",
+      "questionNumber": 79,
+      "type": "mcq",
+      "text": "निम्न में से कौन सा अनुच्छेद ग्राम पंचायत की व्यवस्था से संबंधित है ?",
+      "textHindi": "निम्न में से कौन सा अनुच्छेद ग्राम पंचायत की व्यवस्था से संबंधित है ?",
+      "options": [
+        {
+          "id": "opt-79-a",
+          "key": "A",
+          "text": "39",
+          "textHindi": "39"
+        },
+        {
+          "id": "opt-79-b",
+          "key": "B",
+          "text": "40",
+          "textHindi": "40"
+        },
+        {
+          "id": "opt-79-c",
+          "key": "C",
+          "text": "44",
+          "textHindi": "44"
+        },
+        {
+          "id": "opt-79-d",
+          "key": "D",
+          "text": "45",
+          "textHindi": "45"
+        }
+      ],
+      "correctAnswer": "B",
+      "correctAnswerText": "(B) 40",
+      "explanationHindi": "संविधान के भाग IV के अंतर्गत अनुच्छेद 40 राज्य को ग्राम पंचायतों के गठन और उन्हें स्वशासन की स्वायत्तता देने का निर्देश देता है।",
+      "marks": 1
+    },
+    {
+      "id": "q-mcq-80",
+      "sectionId": "sec-a",
+      "sectionName": "खण्ड–अ : वस्तुनिष्ठ प्रश्न",
+      "questionNumber": 80,
+      "type": "mcq",
+      "text": "भारतीय निर्वाचन आयोग में कितने चुनाव आयुक्त होते हैं ?",
+      "textHindi": "भारतीय निर्वाचन आयोग में कितने चुनाव आयुक्त होते हैं ?",
+      "options": [
+        {
+          "id": "opt-80-a",
+          "key": "A",
+          "text": "1",
+          "textHindi": "1"
+        },
+        {
+          "id": "opt-80-b",
+          "key": "B",
+          "text": "2",
+          "textHindi": "2"
+        },
+        {
+          "id": "opt-80-c",
+          "key": "C",
+          "text": "3",
+          "textHindi": "3"
+        },
+        {
+          "id": "opt-80-d",
+          "key": "D",
+          "text": "4",
+          "textHindi": "4"
+        }
+      ],
+      "correctAnswer": "C",
+      "correctAnswerText": "(C) 3",
+      "explanationHindi": "भारत निर्वाचन आयोग एक 3-सदस्यीय आयोग है, जिसमें 1 मुख्य चुनाव आयुक्त (CEC) और 2 चुनाव आयुक्त होते हैं।",
+      "marks": 1
+    },
+    {
+      "id": "q-mcq-81",
+      "sectionId": "sec-a",
+      "sectionName": "खण्ड–अ : वस्तुनिष्ठ प्रश्न",
+      "questionNumber": 81,
+      "type": "mcq",
+      "text": "राज्यसभा के सदस्यों का कार्यकाल क्या है ?",
+      "textHindi": "राज्यसभा के सदस्यों का कार्यकाल क्या है ?",
+      "options": [
+        {
+          "id": "opt-81-a",
+          "key": "A",
+          "text": "3 वर्ष",
+          "textHindi": "3 वर्ष"
+        },
+        {
+          "id": "opt-81-b",
+          "key": "B",
+          "text": "4 वर्ष",
+          "textHindi": "4 वर्ष"
+        },
+        {
+          "id": "opt-81-c",
+          "key": "C",
+          "text": "5 वर्ष",
+          "textHindi": "5 वर्ष"
+        },
+        {
+          "id": "opt-81-d",
+          "key": "D",
+          "text": "6 वर्ष",
+          "textHindi": "6 वर्ष"
+        }
+      ],
+      "correctAnswer": "D",
+      "correctAnswerText": "(D) 6 वर्ष",
+      "explanationHindi": "राज्यसभा एक स्थायी सदन है, इसके सदस्यों का कार्यकाल 6 वर्ष होता है और एक-तिहाई सदस्य प्रत्येक 2 वर्ष में सेवानिवृत्त होते हैं।",
+      "marks": 1
+    },
+    {
+      "id": "q-mcq-82",
+      "sectionId": "sec-a",
+      "sectionName": "खण्ड–अ : वस्तुनिष्ठ प्रश्न",
+      "questionNumber": 82,
+      "type": "mcq",
+      "text": "लोकसभा में बिहार से कितने सदस्यों का प्रतिनिधित्व होता है ?",
+      "textHindi": "लोकसभा में बिहार से कितने सदस्यों का प्रतिनिधित्व होता है ?",
+      "options": [
+        {
+          "id": "opt-82-a",
+          "key": "A",
+          "text": "35",
+          "textHindi": "35"
+        },
+        {
+          "id": "opt-82-b",
+          "key": "B",
+          "text": "40",
+          "textHindi": "40"
+        },
+        {
+          "id": "opt-82-c",
+          "key": "C",
+          "text": "43",
+          "textHindi": "43"
+        },
+        {
+          "id": "opt-82-d",
+          "key": "D",
+          "text": "45",
+          "textHindi": "45"
+        }
+      ],
+      "correctAnswer": "B",
+      "correctAnswerText": "(B) 40",
+      "explanationHindi": "संसद के निचले सदन (लोकसभा) में बिहार राज्य से 40 सांसद निर्वाचित होते हैं।",
+      "marks": 1
+    },
+    {
+      "id": "q-mcq-83",
+      "sectionId": "sec-a",
+      "sectionName": "खण्ड–अ : वस्तुनिष्ठ प्रश्न",
+      "questionNumber": 83,
+      "type": "mcq",
+      "text": "राज्यसभा को विशिष्ट शक्ति निम्न में किस अनुच्छेद में दिया गया है ?",
+      "textHindi": "राज्यसभा को विशिष्ट शक्ति निम्न में किस अनुच्छेद में दिया गया है ?",
+      "options": [
+        {
+          "id": "opt-83-a",
+          "key": "A",
+          "text": "240",
+          "textHindi": "240"
+        },
+        {
+          "id": "opt-83-b",
+          "key": "B",
+          "text": "245",
+          "textHindi": "245"
+        },
+        {
+          "id": "opt-83-c",
+          "key": "C",
+          "text": "247",
+          "textHindi": "247"
+        },
+        {
+          "id": "opt-83-d",
+          "key": "D",
+          "text": "249",
+          "textHindi": "249"
+        }
+      ],
+      "correctAnswer": "D",
+      "correctAnswerText": "(D) 249",
+      "explanationHindi": "अनुच्छेद 249 राज्यसभा को 2/3 विशेष बहुमत से राज्य सूची के किसी विषय को राष्ट्रीय महत्व का घोषित करने की अनन्य शक्ति देता है।",
+      "marks": 1
+    },
+    {
+      "id": "q-mcq-84",
+      "sectionId": "sec-a",
+      "sectionName": "खण्ड–अ : वस्तुनिष्ठ प्रश्न",
+      "questionNumber": 84,
+      "type": "mcq",
+      "text": "निम्न में से किस राज्य में विधान परिषद् नहीं है ?",
+      "textHindi": "निम्न में से किस राज्य में विधान परिषद् नहीं है ?",
+      "options": [
+        {
+          "id": "opt-84-a",
+          "key": "A",
+          "text": "बिहार",
+          "textHindi": "बिहार"
+        },
+        {
+          "id": "opt-84-b",
+          "key": "B",
+          "text": "उत्तर प्रदेश",
+          "textHindi": "उत्तर प्रदेश"
+        },
+        {
+          "id": "opt-84-c",
+          "key": "C",
+          "text": "पश्चिम बंगाल",
+          "textHindi": "पश्चिम बंगाल"
+        },
+        {
+          "id": "opt-84-d",
+          "key": "D",
+          "text": "महाराष्ट्र",
+          "textHindi": "महाराष्ट्र"
+        }
+      ],
+      "correctAnswer": "C",
+      "correctAnswerText": "(C) पश्चिम बंगाल",
+      "explanationHindi": "वर्तमान में केवल 6 राज्यों (UP, बिहार, महाराष्ट्र, कर्नाटक, आंध्र प्रदेश, तेलंगाना) में विधान परिषद है; पश्चिम बंगाल में नहीं है।",
+      "marks": 1
+    },
+    {
+      "id": "q-mcq-85",
+      "sectionId": "sec-a",
+      "sectionName": "खण्ड–अ : वस्तुनिष्ठ प्रश्न",
+      "questionNumber": 85,
+      "type": "mcq",
+      "text": "संविधान के किस अनुच्छेद में राज्यों में विधान परिषदों की स्थापना की जा सकती है ?",
+      "textHindi": "संविधान के किस अनुच्छेद में राज्यों में विधान परिषदों की स्थापना की जा सकती है ?",
+      "options": [
+        {
+          "id": "opt-85-a",
+          "key": "A",
+          "text": "160",
+          "textHindi": "160"
+        },
+        {
+          "id": "opt-85-b",
+          "key": "B",
+          "text": "163",
+          "textHindi": "163"
+        },
+        {
+          "id": "opt-85-c",
+          "key": "C",
+          "text": "165",
+          "textHindi": "165"
+        },
+        {
+          "id": "opt-85-d",
+          "key": "D",
+          "text": "169",
+          "textHindi": "169"
+        }
+      ],
+      "correctAnswer": "D",
+      "correctAnswerText": "(D) 169",
+      "explanationHindi": "संविधान का अनुच्छेद 169 संसद को राज्यों में विधान परिषद के सृजन (बनाने) या उत्सादन (समाप्त करने) की शक्ति देता है।",
+      "marks": 1
+    },
+    {
+      "id": "q-mcq-86",
+      "sectionId": "sec-a",
+      "sectionName": "खण्ड–अ : वस्तुनिष्ठ प्रश्न",
+      "questionNumber": 86,
+      "type": "mcq",
+      "text": "किसी राज्य के विधानसभा का विघटन किस अनुच्छेद के अन्तर्गत होगा ?",
+      "textHindi": "किसी राज्य के विधानसभा का विघटन किस अनुच्छेद के अन्तर्गत होगा ?",
+      "options": [
+        {
+          "id": "opt-86-a",
+          "key": "A",
+          "text": "170",
+          "textHindi": "170"
+        },
+        {
+          "id": "opt-86-b",
+          "key": "B",
+          "text": "174",
+          "textHindi": "174"
+        },
+        {
+          "id": "opt-86-c",
+          "key": "C",
+          "text": "175",
+          "textHindi": "175"
+        },
+        {
+          "id": "opt-86-d",
+          "key": "D",
+          "text": "176",
+          "textHindi": "176"
+        }
+      ],
+      "correctAnswer": "B",
+      "correctAnswerText": "(B) 174",
+      "explanationHindi": "अनुच्छेद 174(2)(b) के तहत राज्य के राज्यपाल मुख्यमंत्री की सलाह पर विधानसभा को समय से पूर्व भंग (विघटित) कर सकते हैं।",
+      "marks": 1
+    },
+    {
+      "id": "q-mcq-87",
+      "sectionId": "sec-a",
+      "sectionName": "खण्ड–अ : वस्तुनिष्ठ प्रश्न",
+      "questionNumber": 87,
+      "type": "mcq",
+      "text": "किसी राज्य के मुख्यमंत्री की नियुक्ति कौन करता है ?",
+      "textHindi": "किसी राज्य के मुख्यमंत्री की नियुक्ति कौन करता है ?",
+      "options": [
+        {
+          "id": "opt-87-a",
+          "key": "A",
+          "text": "राज्यपाल",
+          "textHindi": "राज्यपाल"
+        },
+        {
+          "id": "opt-87-b",
+          "key": "B",
+          "text": "प्रधानमंत्री",
+          "textHindi": "प्रधानमंत्री"
+        },
+        {
+          "id": "opt-87-c",
+          "key": "C",
+          "text": "राष्ट्रपति",
+          "textHindi": "राष्ट्रपति"
+        },
+        {
+          "id": "opt-87-d",
+          "key": "D",
+          "text": "मुख्य चुनाव आयुक्त",
+          "textHindi": "मुख्य चुनाव आयुक्त"
+        }
+      ],
+      "correctAnswer": "A",
+      "correctAnswerText": "(A) राज्यपाल",
+      "explanationHindi": "संविधान के अनुच्छेद 164 के तहत राज्य के मुख्यमंत्री की नियुक्ति राज्यपाल द्वारा की जाती है।",
+      "marks": 1
+    },
+    {
+      "id": "q-mcq-88",
+      "sectionId": "sec-a",
+      "sectionName": "खण्ड–अ : वस्तुनिष्ठ प्रश्न",
+      "questionNumber": 88,
+      "type": "mcq",
+      "text": "कौन सा अनुच्छेद राज्यपाल को अध्यादेश जारी करने की शक्ति देता है ?",
+      "textHindi": "कौन सा अनुच्छेद राज्यपाल को अध्यादेश जारी करने की शक्ति देता है ?",
+      "options": [
+        {
+          "id": "opt-88-a",
+          "key": "A",
+          "text": "213",
+          "textHindi": "213"
+        },
+        {
+          "id": "opt-88-b",
+          "key": "B",
+          "text": "214",
+          "textHindi": "214"
+        },
+        {
+          "id": "opt-88-c",
+          "key": "C",
+          "text": "215",
+          "textHindi": "215"
+        },
+        {
+          "id": "opt-88-d",
+          "key": "D",
+          "text": "216",
+          "textHindi": "216"
+        }
+      ],
+      "correctAnswer": "A",
+      "correctAnswerText": "(A) 213",
+      "explanationHindi": "जब राज्य विधानमंडल सत्र में न हो, तो राज्यपाल अनुच्छेद 213 के तहत राज्य सूची के विषयों पर अध्यादेश जारी कर सकते हैं।",
+      "marks": 1
+    },
+    {
+      "id": "q-mcq-89",
+      "sectionId": "sec-a",
+      "sectionName": "खण्ड–अ : वस्तुनिष्ठ प्रश्न",
+      "questionNumber": 89,
+      "type": "mcq",
+      "text": "उच्च न्यायालय के न्यायाधीशों की सेवा निवृत्ति आयु क्या है ?",
+      "textHindi": "उच्च न्यायालय के न्यायाधीशों की सेवा निवृत्ति आयु क्या है ?",
+      "options": [
+        {
+          "id": "opt-89-a",
+          "key": "A",
+          "text": "60 वर्ष",
+          "textHindi": "60 वर्ष"
+        },
+        {
+          "id": "opt-89-b",
+          "key": "B",
+          "text": "62 वर्ष",
+          "textHindi": "62 वर्ष"
+        },
+        {
+          "id": "opt-89-c",
+          "key": "C",
+          "text": "64 वर्ष",
+          "textHindi": "64 वर्ष"
+        },
+        {
+          "id": "opt-89-d",
+          "key": "D",
+          "text": "65 वर्ष",
+          "textHindi": "65 वर्ष"
+        }
+      ],
+      "correctAnswer": "B",
+      "correctAnswerText": "(B) 62 वर्ष",
+      "explanationHindi": "उच्च न्यायालय (High Court) के न्यायाधीशों की सेवानिवृत्ति आयु 62 वर्ष होती है (सुप्रीम कोर्ट के जजों की 65 वर्ष होती है)।",
+      "marks": 1
+    },
+    {
+      "id": "q-mcq-90",
+      "sectionId": "sec-a",
+      "sectionName": "खण्ड–अ : वस्तुनिष्ठ प्रश्न",
+      "questionNumber": 90,
+      "type": "mcq",
+      "text": "भारत की न्यायिक समीक्षा व्यवस्था किस देश से प्रभावित है ?",
+      "textHindi": "भारत की न्यायिक समीक्षा व्यवस्था किस देश से प्रभावित है ?",
+      "options": [
+        {
+          "id": "opt-90-a",
+          "key": "A",
+          "text": "यू०एस०ए०",
+          "textHindi": "यू०एस०ए०"
+        },
+        {
+          "id": "opt-90-b",
+          "key": "B",
+          "text": "ब्रिटेन",
+          "textHindi": "ब्रिटेन"
+        },
+        {
+          "id": "opt-90-c",
+          "key": "C",
+          "text": "फ्रांस",
+          "textHindi": "फ्रांस"
+        },
+        {
+          "id": "opt-90-d",
+          "key": "D",
+          "text": "जर्मनी",
+          "textHindi": "जर्मनी"
+        }
+      ],
+      "correctAnswer": "A",
+      "correctAnswerText": "(A) यू०एस०ए०",
+      "explanationHindi": "भारत में स्वतंत्र न्यायपालिका और न्यायिक समीक्षा (Judicial Review) का सिद्धांत संयुक्त राज्य अमेरिका से प्रेरित है।",
+      "marks": 1
+    },
+    {
+      "id": "q-mcq-91",
+      "sectionId": "sec-a",
+      "sectionName": "खण्ड–अ : वस्तुनिष्ठ प्रश्न",
+      "questionNumber": 91,
+      "type": "mcq",
+      "text": "संविधान के निम्न में से कौन सा अनुच्छेद राष्ट्रपति शासन से संबंधित है ?",
+      "textHindi": "संविधान के निम्न में से कौन सा अनुच्छेद राष्ट्रपति शासन से संबंधित है ?",
+      "options": [
+        {
+          "id": "opt-91-a",
+          "key": "A",
+          "text": "352",
+          "textHindi": "352"
+        },
+        {
+          "id": "opt-91-b",
+          "key": "B",
+          "text": "356",
+          "textHindi": "356"
+        },
+        {
+          "id": "opt-91-c",
+          "key": "C",
+          "text": "357",
+          "textHindi": "357"
+        },
+        {
+          "id": "opt-91-d",
+          "key": "D",
+          "text": "358",
+          "textHindi": "358"
+        }
+      ],
+      "correctAnswer": "B",
+      "correctAnswerText": "(B) 356",
+      "explanationHindi": "किसी राज्य में संवैधानिक तंत्र विफल होने पर अनुच्छेद 356 के अंतर्गत राष्ट्रपति शासन (President's Rule) लगाया जाता है।",
+      "marks": 1
+    },
+    {
+      "id": "q-mcq-92",
+      "sectionId": "sec-a",
+      "sectionName": "खण्ड–अ : वस्तुनिष्ठ प्रश्न",
+      "questionNumber": 92,
+      "type": "mcq",
+      "text": "प्रधानमंत्री की नियुक्ति से संबंधित अनुच्छेद निम्न में से कौन है ?",
+      "textHindi": "प्रधानमंत्री की नियुक्ति से संबंधित अनुच्छेद निम्न में से कौन है ?",
+      "options": [
+        {
+          "id": "opt-92-a",
+          "key": "A",
+          "text": "74",
+          "textHindi": "74"
+        },
+        {
+          "id": "opt-92-b",
+          "key": "B",
+          "text": "75",
+          "textHindi": "75"
+        },
+        {
+          "id": "opt-92-c",
+          "key": "C",
+          "text": "76",
+          "textHindi": "76"
+        },
+        {
+          "id": "opt-92-d",
+          "key": "D",
+          "text": "77",
+          "textHindi": "77"
+        }
+      ],
+      "correctAnswer": "B",
+      "correctAnswerText": "(B) 75",
+      "explanationHindi": "संविधान का अनुच्छेद 75(1) उपबंध करता है कि प्रधानमंत्री की नियुक्ति राष्ट्रपति करेंगे।",
+      "marks": 1
+    },
+    {
+      "id": "q-mcq-93",
+      "sectionId": "sec-a",
+      "sectionName": "खण्ड–अ : वस्तुनिष्ठ प्रश्न",
+      "questionNumber": 93,
+      "type": "mcq",
+      "text": "किसकी अनुशंसा पर राष्ट्रपति मंत्रिपरिषद् की नियुक्ति करता है ?",
+      "textHindi": "किसकी अनुशंसा पर राष्ट्रपति मंत्रिपरिषद् की नियुक्ति करता है ?",
+      "options": [
+        {
+          "id": "opt-93-a",
+          "key": "A",
+          "text": "उप-राष्ट्रपति",
+          "textHindi": "उप-राष्ट्रपति"
+        },
+        {
+          "id": "opt-93-b",
+          "key": "B",
+          "text": "मुख्य चुनाव आयुक्त",
+          "textHindi": "मुख्य चुनाव आयुक्त"
+        },
+        {
+          "id": "opt-93-c",
+          "key": "C",
+          "text": "प्रधानमंत्री",
+          "textHindi": "प्रधानमंत्री"
+        },
+        {
+          "id": "opt-93-d",
+          "key": "D",
+          "text": "भारत के मुख्य न्यायाधीश",
+          "textHindi": "भारत के मुख्य न्यायाधीश"
+        }
+      ],
+      "correctAnswer": "C",
+      "correctAnswerText": "(C) प्रधानमंत्री",
+      "explanationHindi": "अनुच्छेद 75 के अनुसार राष्ट्रपति अन्य मंत्रियों की नियुक्ति प्रधानमंत्री की लिखित अनुशंसा और परामर्श पर करते हैं।",
+      "marks": 1
+    },
+    {
+      "id": "q-mcq-94",
+      "sectionId": "sec-a",
+      "sectionName": "खण्ड–अ : वस्तुनिष्ठ प्रश्न",
+      "questionNumber": 94,
+      "type": "mcq",
+      "text": "नीति आयोग का अध्यक्ष कौन है ?",
+      "textHindi": "नीति आयोग का अध्यक्ष कौन है ?",
+      "options": [
+        {
+          "id": "opt-94-a",
+          "key": "A",
+          "text": "राष्ट्रपति",
+          "textHindi": "राष्ट्रपति"
+        },
+        {
+          "id": "opt-94-b",
+          "key": "B",
+          "text": "वित्तमंत्री",
+          "textHindi": "वित्तमंत्री"
+        },
+        {
+          "id": "opt-94-c",
+          "key": "C",
+          "text": "गृहमंत्री",
+          "textHindi": "गृहमंत्री"
+        },
+        {
+          "id": "opt-94-d",
+          "key": "D",
+          "text": "प्रधानमंत्री",
+          "textHindi": "प्रधानमंत्री"
+        }
+      ],
+      "correctAnswer": "D",
+      "correctAnswerText": "(D) प्रधानमंत्री",
+      "explanationHindi": "नीति आयोग (NITI Aayog) के पदेन अध्यक्ष भारत के प्रधानमंत्री होते हैं।",
+      "marks": 1
+    },
+    {
+      "id": "q-mcq-95",
+      "sectionId": "sec-a",
+      "sectionName": "खण्ड–अ : वस्तुनिष्ठ प्रश्न",
+      "questionNumber": 95,
+      "type": "mcq",
+      "text": "भारत में मंत्रिपरिषद् सामुहिक रूप से किसके प्रति उत्तरदायी है ?",
+      "textHindi": "भारत में मंत्रिपरिषद् सामुहिक रूप से किसके प्रति उत्तरदायी है ?",
+      "options": [
+        {
+          "id": "opt-95-a",
+          "key": "A",
+          "text": "लोकसभा",
+          "textHindi": "लोकसभा"
+        },
+        {
+          "id": "opt-95-b",
+          "key": "B",
+          "text": "राज्यसभा",
+          "textHindi": "राज्यसभा"
+        },
+        {
+          "id": "opt-95-c",
+          "key": "C",
+          "text": "संसद",
+          "textHindi": "संसद"
+        },
+        {
+          "id": "opt-95-d",
+          "key": "D",
+          "text": "सर्वोच्च न्यायालय",
+          "textHindi": "सर्वोच्च न्यायालय"
+        }
+      ],
+      "correctAnswer": "A",
+      "correctAnswerText": "(A) लोकसभा",
+      "explanationHindi": "संविधान के अनुच्छेद 75(3) के अनुसार केंद्रीय मंत्रिपरिषद सामूहिक रूप से 'लोकसभा' के प्रति उत्तरदायी होती है।",
+      "marks": 1
+    },
+    {
+      "id": "q-mcq-96",
+      "sectionId": "sec-a",
+      "sectionName": "खण्ड–अ : वस्तुनिष्ठ प्रश्न",
+      "questionNumber": 96,
+      "type": "mcq",
+      "text": "संसद की संयुक्त बैठक कौन बुलाता है ?",
+      "textHindi": "संसद की संयुक्त बैठक कौन बुलाता है ?",
+      "options": [
+        {
+          "id": "opt-96-a",
+          "key": "A",
+          "text": "लोकसभा अध्यक्ष",
+          "textHindi": "लोकसभा अध्यक्ष"
+        },
+        {
+          "id": "opt-96-b",
+          "key": "B",
+          "text": "प्रधानमंत्री",
+          "textHindi": "प्रधानमंत्री"
+        },
+        {
+          "id": "opt-96-c",
+          "key": "C",
+          "text": "उप-राष्ट्रपति",
+          "textHindi": "उप-राष्ट्रपति"
+        },
+        {
+          "id": "opt-96-d",
+          "key": "D",
+          "text": "राष्ट्रपति",
+          "textHindi": "राष्ट्रपति"
+        }
+      ],
+      "correctAnswer": "D",
+      "correctAnswerText": "(D) राष्ट्रपति",
+      "explanationHindi": "साधारण विधेयक पर गतिरोध होने पर अनुच्छेद 108 के तहत दोनों सदनों की संयुक्त बैठक राष्ट्रपति बुलाते हैं (अध्यक्षता लोकसभा अध्यक्ष करते हैं)।",
+      "marks": 1
+    },
+    {
+      "id": "q-mcq-97",
+      "sectionId": "sec-a",
+      "sectionName": "खण्ड–अ : वस्तुनिष्ठ प्रश्न",
+      "questionNumber": 97,
+      "type": "mcq",
+      "text": "राज्यसभा धन विधेयक को कितने दिन तक विलंब कर सकता है ?",
+      "textHindi": "राज्यसभा धन विधेयक को कितने दिन तक विलंब कर सकता है ?",
+      "options": [
+        {
+          "id": "opt-97-a",
+          "key": "A",
+          "text": "10 दिन",
+          "textHindi": "10 दिन"
+        },
+        {
+          "id": "opt-97-b",
+          "key": "B",
+          "text": "14 दिन",
+          "textHindi": "14 दिन"
+        },
+        {
+          "id": "opt-97-c",
+          "key": "C",
+          "text": "15 दिन",
+          "textHindi": "15 दिन"
+        },
+        {
+          "id": "opt-97-d",
+          "key": "D",
+          "text": "16 दिन",
+          "textHindi": "16 दिन"
+        }
+      ],
+      "correctAnswer": "B",
+      "correctAnswerText": "(B) 14 दिन",
+      "explanationHindi": "लोकसभा द्वारा पारित धन विधेयक को राज्यसभा अधिकतम 14 दिनों तक रोक सकती है; इसके बाद वह स्वतः पारित माना जाता है।",
+      "marks": 1
+    },
+    {
+      "id": "q-mcq-98",
+      "sectionId": "sec-a",
+      "sectionName": "खण्ड–अ : वस्तुनिष्ठ प्रश्न",
+      "questionNumber": 98,
+      "type": "mcq",
+      "text": "निम्न में से किस सदन में प्रधानमंत्री के विरुद्ध अविश्वास प्रस्ताव लाया जा सकता है ?",
+      "textHindi": "निम्न में से किस सदन में प्रधानमंत्री के विरुद्ध अविश्वास प्रस्ताव लाया जा सकता है ?",
+      "options": [
+        {
+          "id": "opt-98-a",
+          "key": "A",
+          "text": "राज्यसभा",
+          "textHindi": "राज्यसभा"
+        },
+        {
+          "id": "opt-98-b",
+          "key": "B",
+          "text": "संसद",
+          "textHindi": "संसद"
+        },
+        {
+          "id": "opt-98-c",
+          "key": "C",
+          "text": "लोकसभा",
+          "textHindi": "लोकसभा"
+        },
+        {
+          "id": "opt-98-d",
+          "key": "D",
+          "text": "विधानसभा",
+          "textHindi": "विधानसभा"
+        }
+      ],
+      "correctAnswer": "C",
+      "correctAnswerText": "(C) लोकसभा",
+      "explanationHindi": "अविश्वास प्रस्ताव (No-Confidence Motion) केवल लोकसभा में ही लाया जा सकता है क्योंकि मंत्रिपरिषद लोकसभा के प्रति जवाबदेह होती है।",
+      "marks": 1
+    },
+    {
+      "id": "q-mcq-99",
+      "sectionId": "sec-a",
+      "sectionName": "खण्ड–अ : वस्तुनिष्ठ प्रश्न",
+      "questionNumber": 99,
+      "type": "mcq",
+      "text": "18वीं लोकसभा चुनाव में किस दल को स्पष्ट बहुमत मिला ?",
+      "textHindi": "18वीं लोकसभा चुनाव में किस दल को स्पष्ट बहुमत मिला ?",
+      "options": [
+        {
+          "id": "opt-99-a",
+          "key": "A",
+          "text": "भारतीय जनता पार्टी",
+          "textHindi": "भारतीय जनता पार्टी"
+        },
+        {
+          "id": "opt-99-b",
+          "key": "B",
+          "text": "कांग्रेस पार्टी",
+          "textHindi": "कांग्रेस पार्टी"
+        },
+        {
+          "id": "opt-99-c",
+          "key": "C",
+          "text": "राष्ट्रीय जनता दल",
+          "textHindi": "राष्ट्रीय जनता दल"
+        },
+        {
+          "id": "opt-99-d",
+          "key": "D",
+          "text": "इनमें से कोई नहीं",
+          "textHindi": "इनमें से कोई नहीं"
+        }
+      ],
+      "correctAnswer": "D",
+      "correctAnswerText": "(D) इनमें से कोई नहीं",
+      "explanationHindi": "2024 के 18वें लोकसभा चुनाव में किसी भी एकल दल को 272 का स्पष्ट बहुमत नहीं मिला; भाजपा ने 240 सीटें जीतकर NDA गठबंधन के साथ सरकार बनाई।",
+      "marks": 1
+    },
+    {
+      "id": "q-mcq-100",
+      "sectionId": "sec-a",
+      "sectionName": "खण्ड–अ : वस्तुनिष्ठ प्रश्न",
+      "questionNumber": 100,
+      "type": "mcq",
+      "text": "लोकसभा का विघटन कौन कर सकता है ?",
+      "textHindi": "लोकसभा का विघटन कौन कर सकता है ?",
+      "options": [
+        {
+          "id": "opt-100-a",
+          "key": "A",
+          "text": "राष्ट्रपति",
+          "textHindi": "राष्ट्रपति"
+        },
+        {
+          "id": "opt-100-b",
+          "key": "B",
+          "text": "लोकसभा अध्यक्ष",
+          "textHindi": "लोकसभा अध्यक्ष"
+        },
+        {
+          "id": "opt-100-c",
+          "key": "C",
+          "text": "प्रधानमंत्री",
+          "textHindi": "प्रधानमंत्री"
+        },
+        {
+          "id": "opt-100-d",
+          "key": "D",
+          "text": "मुख्य चुनाव आयुक्त",
+          "textHindi": "मुख्य चुनाव आयुक्त"
+        }
+      ],
+      "correctAnswer": "A",
+      "correctAnswerText": "(A) राष्ट्रपति",
+      "explanationHindi": "अनुच्छेद 85 के तहत प्रधानमंत्री और कैबिनेट की सिफारिश पर राष्ट्रपति द्वारा लोकसभा को 5 वर्ष से पूर्व भी भंग किया जा सकता है।\n\n--------------------------------------------------",
+      "marks": 1
+    },
+    {
+      "id": "q-sec-b-1",
+      "sectionId": "sec-b",
+      "sectionName": "खण्ड–ब : लघु उत्तरीय प्रश्न",
+      "questionNumber": 1,
+      "type": "short",
+      "text": "क्षेत्रीयतावाद से आप क्या समझते हैं ?\nWhat do you understand by Regionalism ?",
+      "textHindi": "क्षेत्रीयतावाद से आप क्या समझते हैं ?\nWhat do you understand by Regionalism ?",
+      "modelAnswer": "क्षेत्रीयतावाद से आप क्या समझते हैं ?\nउत्तर: क्षेत्रीयतावाद एक ऐसी राजनीतिक, सामाजिक और मनोवैज्ञानिक भावना है जिसमें व्यक्ति समग्र राष्ट्र के हितों की तुलना में अपने विशिष्ट भौगोलिक क्षेत्र, भाषा, संस्कृति या राज्य के हितों को सर्वोच्च प्राथमिकता देता है। इसके परिणामस्वरूप अक्सर स्थानीय स्वायत्तता, आर्थिक पैकेज या पृथक राज्य निर्माण की मांगें उठती हैं।",
+      "explanationHindi": "क्षेत्रीयतावाद से आप क्या समझते हैं ?\nउत्तर: क्षेत्रीयतावाद एक ऐसी राजनीतिक, सामाजिक और मनोवैज्ञानिक भावना है जिसमें व्यक्ति समग्र राष्ट्र के हितों की तुलना में अपने विशिष्ट भौगोलिक क्षेत्र, भाषा, संस्कृति या राज्य के हितों को सर्वोच्च प्राथमिकता देता है। इसके परिणामस्वरूप अक्सर स्थानीय स्वायत्तता, आर्थिक पैकेज या पृथक राज्य निर्माण की मांगें उठती हैं।",
+      "marks": 2
+    },
+    {
+      "id": "q-sec-b-2",
+      "sectionId": "sec-b",
+      "sectionName": "खण्ड–ब : लघु उत्तरीय प्रश्न",
+      "questionNumber": 2,
+      "type": "short",
+      "text": "भारतीय जाति व्यवस्था की दो विशेषताएँ क्या हैं ?\nWhat are the two characteristics of Indian caste system ?",
+      "textHindi": "भारतीय जाति व्यवस्था की दो विशेषताएँ क्या हैं ?\nWhat are the two characteristics of Indian caste system ?",
+      "modelAnswer": "भारतीय जाति व्यवस्था की दो विशेषताएँ क्या हैं ?\nउत्तर:\n1. जन्म पर आधारित सदस्यता: व्यक्ति की जाति का निर्धारण जन्म से होता है, जिसे आजीवन बदला नहीं जा सकता।\n2. सामाजिक संस्तरण व अंतर्विवाह: जातियों में ऊंच-नीच का एक निश्चित पदानुक्रम होता है तथा पारंपरिक रूप से विवाह अपनी ही जाति के भीतर करने का कठोर नियम होता है।",
+      "explanationHindi": "भारतीय जाति व्यवस्था की दो विशेषताएँ क्या हैं ?\nउत्तर:\n1. जन्म पर आधारित सदस्यता: व्यक्ति की जाति का निर्धारण जन्म से होता है, जिसे आजीवन बदला नहीं जा सकता।\n2. सामाजिक संस्तरण व अंतर्विवाह: जातियों में ऊंच-नीच का एक निश्चित पदानुक्रम होता है तथा पारंपरिक रूप से विवाह अपनी ही जाति के भीतर करने का कठोर नियम होता है।",
+      "marks": 2
+    },
+    {
+      "id": "q-sec-b-3",
+      "sectionId": "sec-b",
+      "sectionName": "खण्ड–ब : लघु उत्तरीय प्रश्न",
+      "questionNumber": 3,
+      "type": "short",
+      "text": "भारत में नक्सलवाद की समस्या क्या है ?\nWhat is the problem of Naxalism in India ?",
+      "textHindi": "भारत में नक्सलवाद की समस्या क्या है ?\nWhat is the problem of Naxalism in India ?",
+      "modelAnswer": "भारत में नक्सलवाद की समस्या क्या है ?\nउत्तर: नक्सलवाद 1967 में पश्चिम बंगाल के नक्सलबाड़ी गांव से शुरू हुआ एक हिंसक वामपंथी चरमपंथी आंदोलन है। यह माओवादी विचारधारा पर आधारित है, जो लोकतांत्रिक व्यवस्था को उखाड़ फेंकने के लिए सशस्त्र क्रांति का सहारा लेता है। यह मुख्य रूप से आदिवासी व पिछड़े क्षेत्रों में भूमिहीनों के शोषण, जल-जंगल-जमीन से विस्थापन और बुनियादी विकास की कमी के कारण फैला है।",
+      "explanationHindi": "भारत में नक्सलवाद की समस्या क्या है ?\nउत्तर: नक्सलवाद 1967 में पश्चिम बंगाल के नक्सलबाड़ी गांव से शुरू हुआ एक हिंसक वामपंथी चरमपंथी आंदोलन है। यह माओवादी विचारधारा पर आधारित है, जो लोकतांत्रिक व्यवस्था को उखाड़ फेंकने के लिए सशस्त्र क्रांति का सहारा लेता है। यह मुख्य रूप से आदिवासी व पिछड़े क्षेत्रों में भूमिहीनों के शोषण, जल-जंगल-जमीन से विस्थापन और बुनियादी विकास की कमी के कारण फैला है।",
+      "marks": 2
+    },
+    {
+      "id": "q-sec-b-4",
+      "sectionId": "sec-b",
+      "sectionName": "खण्ड–ब : लघु उत्तरीय प्रश्न",
+      "questionNumber": 4,
+      "type": "short",
+      "text": "राज्यसभा की वित्तीय शक्ति क्या है ?\nWhat is the financial power of Rajya Sabha ?",
+      "textHindi": "राज्यसभा की वित्तीय शक्ति क्या है ?\nWhat is the financial power of Rajya Sabha ?",
+      "modelAnswer": "राज्यसभा की वित्तीय शक्ति क्या है ?\nउत्तर: वित्तीय मामलों में राज्यसभा की शक्ति अत्यंत सीमित और गौण है। धन विधेयक केवल लोकसभा में ही पेश किया जा सकता है। लोकसभा से पारित होने के बाद राज्यसभा इसे केवल अधिकतम 14 दिनों तक रोक सकती है या संशोधन के सुझाव दे सकती है। 14 दिन बीतने पर विधेयक स्वतः दोनों सदनों से पारित मान लिया जाता है।",
+      "explanationHindi": "राज्यसभा की वित्तीय शक्ति क्या है ?\nउत्तर: वित्तीय मामलों में राज्यसभा की शक्ति अत्यंत सीमित और गौण है। धन विधेयक केवल लोकसभा में ही पेश किया जा सकता है। लोकसभा से पारित होने के बाद राज्यसभा इसे केवल अधिकतम 14 दिनों तक रोक सकती है या संशोधन के सुझाव दे सकती है। 14 दिन बीतने पर विधेयक स्वतः दोनों सदनों से पारित मान लिया जाता है।",
+      "marks": 2
+    },
+    {
+      "id": "q-sec-b-5",
+      "sectionId": "sec-b",
+      "sectionName": "खण्ड–ब : लघु उत्तरीय प्रश्न",
+      "questionNumber": 5,
+      "type": "short",
+      "text": "विधान परिषद् की क्या प्रासंगिकता है ?\nWhat is the relevance of Vidhan Parishad ?",
+      "textHindi": "विधान परिषद् की क्या प्रासंगिकता है ?\nWhat is the relevance of Vidhan Parishad ?",
+      "modelAnswer": "विधान परिषद् की क्या प्रासंगिकता है ?\nउत्तर:\n1. जल्दबाजी में बने कानूनों पर पुनर्विचार: यह विधानसभा द्वारा जल्दबाजी या जनोत्तेजना में पारित कानूनों की समीक्षा कर सुधार का अवसर प्रदान करती है।\n2. विशेषज्ञों और बुद्धिजीवियों को प्रतिनिधित्व: इसके माध्यम से कला, साहित्य, विज्ञान और समाज सेवा के गैर-राजनीतिक विशेषज्ञों को शासन में भागीदारी का अवसर मिलता है।",
+      "explanationHindi": "विधान परिषद् की क्या प्रासंगिकता है ?\nउत्तर:\n1. जल्दबाजी में बने कानूनों पर पुनर्विचार: यह विधानसभा द्वारा जल्दबाजी या जनोत्तेजना में पारित कानूनों की समीक्षा कर सुधार का अवसर प्रदान करती है।\n2. विशेषज्ञों और बुद्धिजीवियों को प्रतिनिधित्व: इसके माध्यम से कला, साहित्य, विज्ञान और समाज सेवा के गैर-राजनीतिक विशेषज्ञों को शासन में भागीदारी का अवसर मिलता है।",
+      "marks": 2
+    },
+    {
+      "id": "q-sec-b-6",
+      "sectionId": "sec-b",
+      "sectionName": "खण्ड–ब : लघु उत्तरीय प्रश्न",
+      "questionNumber": 6,
+      "type": "short",
+      "text": "उच्चतम न्यायालय का गठन कैसे होता है ?\nHow is the High Court constituted ?",
+      "textHindi": "उच्चतम न्यायालय का गठन कैसे होता है ?\nHow is the High Court constituted ?",
+      "modelAnswer": "उच्च न्यायालय का गठन कैसे होता है ?\nउत्तर: संविधान के अनुच्छेद 216 के अनुसार प्रत्येक उच्च न्यायालय में एक मुख्य न्यायाधीश और ऐसे अन्य न्यायाधीश होते हैं जिन्हें राष्ट्रपति समय-समय पर नियुक्त करना आवश्यक समझें। मुख्य न्यायाधीश की नियुक्ति राष्ट्रपति द्वारा भारत के मुख्य न्यायाधीश (CJI) और संबंधित राज्य के राज्यपाल के परामर्श से की जाती है। अन्य जजों की नियुक्ति में हाईकोर्ट के चीफ जस्टिस से भी सलाह ली जाती है।",
+      "explanationHindi": "उच्च न्यायालय का गठन कैसे होता है ?\nउत्तर: संविधान के अनुच्छेद 216 के अनुसार प्रत्येक उच्च न्यायालय में एक मुख्य न्यायाधीश और ऐसे अन्य न्यायाधीश होते हैं जिन्हें राष्ट्रपति समय-समय पर नियुक्त करना आवश्यक समझें। मुख्य न्यायाधीश की नियुक्ति राष्ट्रपति द्वारा भारत के मुख्य न्यायाधीश (CJI) और संबंधित राज्य के राज्यपाल के परामर्श से की जाती है। अन्य जजों की नियुक्ति में हाईकोर्ट के चीफ जस्टिस से भी सलाह ली जाती है।",
+      "marks": 2
+    },
+    {
+      "id": "q-sec-b-7",
+      "sectionId": "sec-b",
+      "sectionName": "खण्ड–ब : लघु उत्तरीय प्रश्न",
+      "questionNumber": 7,
+      "type": "short",
+      "text": "राष्ट्रपति शासन लगाने में राज्यपाल की क्या भूमिका होती है ?\nWhat is the role of Governor in the imposition of President's rule ?",
+      "textHindi": "राष्ट्रपति शासन लगाने में राज्यपाल की क्या भूमिका होती है ?\nWhat is the role of Governor in the imposition of President's rule ?",
+      "modelAnswer": "राष्ट्रपति शासन लगाने में राज्यपाल की क्या भूमिका होती है ?\nउत्तर: अनुच्छेद 356 के अनुसार जब राज्यपाल को यह विश्वास हो जाता है कि राज्य का शासन संविधान के प्रावधानों के अनुसार नहीं चल पा रहा है, तो वे केंद्र सरकार (राष्ट्रपति) को एक विस्तृत रिपोर्ट भेजते हैं। इस रिपोर्ट के आधार पर ही राज्य में राष्ट्रपति शासन लागू होता है। राष्ट्रपति शासन के दौरान राज्यपाल ही राष्ट्रपति के प्रतिनिधि के रूप में राज्य का वास्तविक प्रशासन संभालते हैं।",
+      "explanationHindi": "राष्ट्रपति शासन लगाने में राज्यपाल की क्या भूमिका होती है ?\nउत्तर: अनुच्छेद 356 के अनुसार जब राज्यपाल को यह विश्वास हो जाता है कि राज्य का शासन संविधान के प्रावधानों के अनुसार नहीं चल पा रहा है, तो वे केंद्र सरकार (राष्ट्रपति) को एक विस्तृत रिपोर्ट भेजते हैं। इस रिपोर्ट के आधार पर ही राज्य में राष्ट्रपति शासन लागू होता है। राष्ट्रपति शासन के दौरान राज्यपाल ही राष्ट्रपति के प्रतिनिधि के रूप में राज्य का वास्तविक प्रशासन संभालते हैं।",
+      "marks": 2
+    },
+    {
+      "id": "q-sec-b-8",
+      "sectionId": "sec-b",
+      "sectionName": "खण्ड–ब : लघु उत्तरीय प्रश्न",
+      "questionNumber": 8,
+      "type": "short",
+      "text": "प्रधानमंत्री की कार्यपालिका शक्ति क्या है ?\nWhat is the executive power of the Prime Minister ?",
+      "textHindi": "प्रधानमंत्री की कार्यपालिका शक्ति क्या है ?\nWhat is the executive power of the Prime Minister ?",
+      "modelAnswer": "प्रधानमंत्री की कार्यपालिका शक्ति क्या है ?\nउत्तर: प्रधानमंत्री कार्यपालिका के वास्तविक प्रधान होते हैं। वे मंत्रिपरिषद के गठन, मंत्रियों के विभागों के बंटवारे व फेरबदल और किसी मंत्री को हटाने की सिफारिश राष्ट्रपति से करते हैं। वे कैबिनेट बैठकों की अध्यक्षता करते हैं, सरकार की नीतियों का समन्वय करते हैं और अनुच्छेद 78 के तहत राष्ट्रपति तथा मंत्रिपरिषद के बीच संवाद की मुख्य कड़ी होते हैं।",
+      "explanationHindi": "प्रधानमंत्री की कार्यपालिका शक्ति क्या है ?\nउत्तर: प्रधानमंत्री कार्यपालिका के वास्तविक प्रधान होते हैं। वे मंत्रिपरिषद के गठन, मंत्रियों के विभागों के बंटवारे व फेरबदल और किसी मंत्री को हटाने की सिफारिश राष्ट्रपति से करते हैं। वे कैबिनेट बैठकों की अध्यक्षता करते हैं, सरकार की नीतियों का समन्वय करते हैं और अनुच्छेद 78 के तहत राष्ट्रपति तथा मंत्रिपरिषद के बीच संवाद की मुख्य कड़ी होते हैं।",
+      "marks": 2
+    },
+    {
+      "id": "q-sec-b-9",
+      "sectionId": "sec-b",
+      "sectionName": "खण्ड–ब : लघु उत्तरीय प्रश्न",
+      "questionNumber": 9,
+      "type": "short",
+      "text": "राज्य के मुख्यमंत्री के कोई दो महत्वपूर्ण कार्य बताएँ ।\nState any two important functions of the Chief Minister of a state.",
+      "textHindi": "राज्य के मुख्यमंत्री के कोई दो महत्वपूर्ण कार्य बताएँ ।\nState any two important functions of the Chief Minister of a state.",
+      "modelAnswer": "राज्य के मुख्यमंत्री के कोई दो महत्वपूर्ण कार्य बताएँ ।\nउत्तर:\n1. मंत्रिपरिषद का नेतृत्व: मंत्रियों के विभागों का आवंटन करना, कैबिनेट बैठकों की अध्यक्षता करना और सरकार की नीतियों का समन्वय करना।\n2. विधानसभा के नेता के रूप में कार्य: सदन में सरकारी नीतियों और बजट का बचाव करना तथा राज्यपाल को विधानसभा भंग करने की सलाह देना।",
+      "explanationHindi": "राज्य के मुख्यमंत्री के कोई दो महत्वपूर्ण कार्य बताएँ ।\nउत्तर:\n1. मंत्रिपरिषद का नेतृत्व: मंत्रियों के विभागों का आवंटन करना, कैबिनेट बैठकों की अध्यक्षता करना और सरकार की नीतियों का समन्वय करना।\n2. विधानसभा के नेता के रूप में कार्य: सदन में सरकारी नीतियों और बजट का बचाव करना तथा राज्यपाल को विधानसभा भंग करने की सलाह देना।",
+      "marks": 2
+    },
+    {
+      "id": "q-sec-b-10",
+      "sectionId": "sec-b",
+      "sectionName": "खण्ड–ब : लघु उत्तरीय प्रश्न",
+      "questionNumber": 10,
+      "type": "short",
+      "text": "निर्वाचन आयोग के कोई दो कार्य बताएँ ।\nState any two functions of Election Commission.",
+      "textHindi": "निर्वाचन आयोग के कोई दो कार्य बताएँ ।\nState any two functions of Election Commission.",
+      "modelAnswer": "निर्वाचन आयोग के कोई दो कार्य बताएँ ।\nउत्तर:\n1. मतदाता सूची तैयार और अद्यतन करना: चुनाव से पूर्व पात्र नागरिकों की निष्पक्ष मतदाता सूची (Electoral Roll) तैयार करना।\n2. स्वतंत्र व निष्पक्ष चुनाव कराना: संसद, विधानसभाओं और राष्ट्रपति चुनावों की तिथियां घोषित करना तथा 'आदर्श आचार संहिता' लागू करना।",
+      "explanationHindi": "निर्वाचन आयोग के कोई दो कार्य बताएँ ।\nउत्तर:\n1. मतदाता सूची तैयार और अद्यतन करना: चुनाव से पूर्व पात्र नागरिकों की निष्पक्ष मतदाता सूची (Electoral Roll) तैयार करना।\n2. स्वतंत्र व निष्पक्ष चुनाव कराना: संसद, विधानसभाओं और राष्ट्रपति चुनावों की तिथियां घोषित करना तथा 'आदर्श आचार संहिता' लागू करना।",
+      "marks": 2
+    },
+    {
+      "id": "q-sec-b-11",
+      "sectionId": "sec-b",
+      "sectionName": "खण्ड–ब : लघु उत्तरीय प्रश्न",
+      "questionNumber": 11,
+      "type": "short",
+      "text": "मुख्य चुनाव आयुक्त की नियुक्ति कैसे होती है ?\nHow is the Chief Election Commissioner appointed ?",
+      "textHindi": "मुख्य चुनाव आयुक्त की नियुक्ति कैसे होती है ?\nHow is the Chief Election Commissioner appointed ?",
+      "modelAnswer": "मुख्य चुनाव आयुक्त की नियुक्ति कैसे होती है ?\nउत्तर: संविधान के अनुच्छेद 324(2) के तहत मुख्य चुनाव आयुक्त की नियुक्ति भारत के राष्ट्रपति द्वारा की जाती है। संसद द्वारा बनाए गए अधिनियम के अनुसार, राष्ट्रपति एक 3-सदस्यीय चयन समिति (जिसमें प्रधानमंत्री, लोकसभा में विपक्ष के नेता और एक नामित केंद्रीय कैबिनेट मंत्री शामिल होते हैं) की सिफारिश पर मुख्य चुनाव आयुक्त की नियुक्ति करते हैं।",
+      "explanationHindi": "मुख्य चुनाव आयुक्त की नियुक्ति कैसे होती है ?\nउत्तर: संविधान के अनुच्छेद 324(2) के तहत मुख्य चुनाव आयुक्त की नियुक्ति भारत के राष्ट्रपति द्वारा की जाती है। संसद द्वारा बनाए गए अधिनियम के अनुसार, राष्ट्रपति एक 3-सदस्यीय चयन समिति (जिसमें प्रधानमंत्री, लोकसभा में विपक्ष के नेता और एक नामित केंद्रीय कैबिनेट मंत्री शामिल होते हैं) की सिफारिश पर मुख्य चुनाव आयुक्त की नियुक्ति करते हैं।",
+      "marks": 2
+    },
+    {
+      "id": "q-sec-b-12",
+      "sectionId": "sec-b",
+      "sectionName": "खण्ड–ब : लघु उत्तरीय प्रश्न",
+      "questionNumber": 12,
+      "type": "short",
+      "text": "सामूहिक उत्तरदायित्व क्या है ?\nWhat is collective responsibility ?",
+      "textHindi": "सामूहिक उत्तरदायित्व क्या है ?\nWhat is collective responsibility ?",
+      "modelAnswer": "सामूहिक उत्तरदायित्व क्या है ?\nउत्तर: संसदीय प्रणाली में अनुच्छेद 75(3) के अनुसार केंद्रीय मंत्रिपरिषद सामूहिक रूप से 'लोकसभा' के प्रति उत्तरदायी होती है। इसका अर्थ है कि कैबिनेट का प्रत्येक निर्णय सभी मंत्रियों का साझा निर्णय माना जाता है। यदि लोकसभा में सरकार के विरुद्ध 'अविश्वास प्रस्ताव' पारित हो जाता है, तो पूरे मंत्रिमंडल (प्रधानमंत्री सहित) को एक साथ इस्तीफा देना पड़ता है।",
+      "explanationHindi": "सामूहिक उत्तरदायित्व क्या है ?\nउत्तर: संसदीय प्रणाली में अनुच्छेद 75(3) के अनुसार केंद्रीय मंत्रिपरिषद सामूहिक रूप से 'लोकसभा' के प्रति उत्तरदायी होती है। इसका अर्थ है कि कैबिनेट का प्रत्येक निर्णय सभी मंत्रियों का साझा निर्णय माना जाता है। यदि लोकसभा में सरकार के विरुद्ध 'अविश्वास प्रस्ताव' पारित हो जाता है, तो पूरे मंत्रिमंडल (प्रधानमंत्री सहित) को एक साथ इस्तीफा देना पड़ता है।",
+      "marks": 2
+    },
+    {
+      "id": "q-sec-b-13",
+      "sectionId": "sec-b",
+      "sectionName": "खण्ड–ब : लघु उत्तरीय प्रश्न",
+      "questionNumber": 13,
+      "type": "short",
+      "text": "संविधान की प्रस्तावना से क्या अभिप्राय है ?\nWhat is meant by Preamble of the Constitution ?",
+      "textHindi": "संविधान की प्रस्तावना से क्या अभिप्राय है ?\nWhat is meant by Preamble of the Constitution ?",
+      "modelAnswer": "संविधान की प्रस्तावना से क्या अभिप्राय है ?\nउत्तर: संविधान की प्रस्तावना (Preamble) संविधान का परिचयात्मक और प्रारंभिक कथन है, जो संविधान के मूल आदर्शों, दर्शन, लक्ष्यों और शासन की प्रकृति को स्पष्ट करती है। यह बताती है कि संविधान की संप्रभु शक्ति का अंतिम स्रोत भारत की जनता है और यह न्याय, स्वतंत्रता, समानता तथा बंधुत्व की स्थापना का संकल्प लेती है।",
+      "explanationHindi": "संविधान की प्रस्तावना से क्या अभिप्राय है ?\nउत्तर: संविधान की प्रस्तावना (Preamble) संविधान का परिचयात्मक और प्रारंभिक कथन है, जो संविधान के मूल आदर्शों, दर्शन, लक्ष्यों और शासन की प्रकृति को स्पष्ट करती है। यह बताती है कि संविधान की संप्रभु शक्ति का अंतिम स्रोत भारत की जनता है और यह न्याय, स्वतंत्रता, समानता तथा बंधुत्व की स्थापना का संकल्प लेती है।",
+      "marks": 2
+    },
+    {
+      "id": "q-sec-b-14",
+      "sectionId": "sec-b",
+      "sectionName": "खण्ड–ब : लघु उत्तरीय प्रश्न",
+      "questionNumber": 14,
+      "type": "short",
+      "text": "भारतीय संविधान में मौलिक अधिकार व नीति निदेशक तत्व कहाँ से लिए गये हैं ?\nFrom which countries have the fundamental rights and directive principles in the Constitution of India been borrowed ?",
+      "textHindi": "भारतीय संविधान में मौलिक अधिकार व नीति निदेशक तत्व कहाँ से लिए गये हैं ?\nFrom which countries have the fundamental rights and directive principles in the Constitution of India been borrowed ?",
+      "modelAnswer": "भारतीय संविधान में मौलिक अधिकार व नीति निदेशक तत्व कहाँ से लिए गये हैं ?\nउत्तर:\n- मौलिक अधिकार (Fundamental Rights): संयुक्त राज्य अमेरिका (USA) के संविधान (बिल ऑफ राइट्स) से लिए गए हैं।\n- राज्य के नीति निदेशक तत्व (DPSP): आयरलैंड के संविधान से ग्रहण किए गए हैं।",
+      "explanationHindi": "भारतीय संविधान में मौलिक अधिकार व नीति निदेशक तत्व कहाँ से लिए गये हैं ?\nउत्तर:\n- मौलिक अधिकार (Fundamental Rights): संयुक्त राज्य अमेरिका (USA) के संविधान (बिल ऑफ राइट्स) से लिए गए हैं।\n- राज्य के नीति निदेशक तत्व (DPSP): आयरलैंड के संविधान से ग्रहण किए गए हैं।",
+      "marks": 2
+    },
+    {
+      "id": "q-sec-b-15",
+      "sectionId": "sec-b",
+      "sectionName": "खण्ड–ब : लघु उत्तरीय प्रश्न",
+      "questionNumber": 15,
+      "type": "short",
+      "text": "भारत में कार्यरत संसदीय शासन व्यवस्था से आप क्या समझते हैं ?\nWhat do you mean by parliamentary form of government functioning in India?",
+      "textHindi": "भारत में कार्यरत संसदीय शासन व्यवस्था से आप क्या समझते हैं ?\nWhat do you mean by parliamentary form of government functioning in India?",
+      "modelAnswer": "भारत में कार्यरत संसदीय शासन व्यवस्था से आप क्या समझते हैं ?\nउत्तर: संसदीय शासन व्यवस्था वह लोकतांत्रिक प्रणाली है जिसमें कार्यपालिका और विधायिका में गहरा संबंध होता है। इसमें राज्य का प्रमुख (राष्ट्रपति) केवल नाममात्र का संवैधानिक प्रमुख होता है, जबकि शासन की वास्तविक शक्तियां जनता द्वारा चुने गए प्रधानमंत्री और उनकी मंत्रिपरिषद में निहित होती हैं। कार्यपालिका अपने सभी कार्यों के लिए संसद (लोकसभा) के प्रति जवाबदेह होती है।",
+      "explanationHindi": "भारत में कार्यरत संसदीय शासन व्यवस्था से आप क्या समझते हैं ?\nउत्तर: संसदीय शासन व्यवस्था वह लोकतांत्रिक प्रणाली है जिसमें कार्यपालिका और विधायिका में गहरा संबंध होता है। इसमें राज्य का प्रमुख (राष्ट्रपति) केवल नाममात्र का संवैधानिक प्रमुख होता है, जबकि शासन की वास्तविक शक्तियां जनता द्वारा चुने गए प्रधानमंत्री और उनकी मंत्रिपरिषद में निहित होती हैं। कार्यपालिका अपने सभी कार्यों के लिए संसद (लोकसभा) के प्रति जवाबदेह होती है।",
+      "marks": 2
+    },
+    {
+      "id": "q-sec-b-16",
+      "sectionId": "sec-b",
+      "sectionName": "खण्ड–ब : लघु उत्तरीय प्रश्न",
+      "questionNumber": 16,
+      "type": "short",
+      "text": "भारत में पंचायती राज व्यवस्था क्या है ?\nWhat is Panchayati Raj system in India?",
+      "textHindi": "भारत में पंचायती राज व्यवस्था क्या है ?\nWhat is Panchayati Raj system in India?",
+      "modelAnswer": "भारत में पंचायती राज व्यवस्था क्या है ?\nउत्तर: पंचायती राज भारत में स्थानीय स्वशासन की लोकतांत्रिक विकेंद्रीकरण प्रणाली है जिसे 73वें संविधान संशोधन (1992) द्वारा संवैधानिक दर्जा दिया गया। यह त्रिस्तरीय ढांचे (ग्राम पंचायत, पंचायत समिति और जिला परिषद) पर आधारित है। इसका उद्देश्य ग्रामीण विकास, प्राथमिक सुविधाओं और समस्याओं के समाधान में स्थानीय जनता की सीधी भागीदारी सुनिश्चित करना है।",
+      "explanationHindi": "भारत में पंचायती राज व्यवस्था क्या है ?\nउत्तर: पंचायती राज भारत में स्थानीय स्वशासन की लोकतांत्रिक विकेंद्रीकरण प्रणाली है जिसे 73वें संविधान संशोधन (1992) द्वारा संवैधानिक दर्जा दिया गया। यह त्रिस्तरीय ढांचे (ग्राम पंचायत, पंचायत समिति और जिला परिषद) पर आधारित है। इसका उद्देश्य ग्रामीण विकास, प्राथमिक सुविधाओं और समस्याओं के समाधान में स्थानीय जनता की सीधी भागीदारी सुनिश्चित करना है।",
+      "marks": 2
+    },
+    {
+      "id": "q-sec-b-17",
+      "sectionId": "sec-b",
+      "sectionName": "खण्ड–ब : लघु उत्तरीय प्रश्न",
+      "questionNumber": 17,
+      "type": "short",
+      "text": "सार्क के पक्ष में दो तर्क दें ।\nGive two arguments in favour of SAARC.",
+      "textHindi": "सार्क के पक्ष में दो तर्क दें ।\nGive two arguments in favour of SAARC.",
+      "modelAnswer": "सार्क के पक्ष में दो तर्क दें ।\nउत्तर:\n1. क्षेत्रीय आर्थिक और व्यापारिक विकास: सार्क (SAARC) के माध्यम से 'साफ्टा' (SAFTA) के तहत दक्षिण एशियाई देशों के बीच व्यापार शुल्क कम करके आपसी आर्थिक विकास को बढ़ावा दिया जा सकता है।\n2. साझा चुनौतियों का समाधान: यह मंच दक्षिण एशिया में गरीबी, अशिक्षा, भुखमरी, आतंकवाद और जलवायु परिवर्तन जैसी साझी समस्याओं से मिलकर निपटने का अवसर देता है।",
+      "explanationHindi": "सार्क के पक्ष में दो तर्क दें ।\nउत्तर:\n1. क्षेत्रीय आर्थिक और व्यापारिक विकास: सार्क (SAARC) के माध्यम से 'साफ्टा' (SAFTA) के तहत दक्षिण एशियाई देशों के बीच व्यापार शुल्क कम करके आपसी आर्थिक विकास को बढ़ावा दिया जा सकता है।\n2. साझा चुनौतियों का समाधान: यह मंच दक्षिण एशिया में गरीबी, अशिक्षा, भुखमरी, आतंकवाद और जलवायु परिवर्तन जैसी साझी समस्याओं से मिलकर निपटने का अवसर देता है।",
+      "marks": 2
+    },
+    {
+      "id": "q-sec-b-18",
+      "sectionId": "sec-b",
+      "sectionName": "खण्ड–ब : लघु उत्तरीय प्रश्न",
+      "questionNumber": 18,
+      "type": "short",
+      "text": "शिमला समझौते पर संक्षिप्त टिप्पणी लिखें ।\nWrite a short note on Shimla Agreement.",
+      "textHindi": "शिमला समझौते पर संक्षिप्त टिप्पणी लिखें ।\nWrite a short note on Shimla Agreement.",
+      "modelAnswer": "शिमला समझौते पर संक्षिप्त टिप्पणी लिखें ।\nउत्तर: 1971 के भारत-पाक युद्ध के बाद 2 जुलाई 1972 को शिमला में भारत की प्रधानमंत्री इंदिरा गांधी और पाकिस्तान के राष्ट्रपति जुल्फिकार अली भुट्टो के बीच यह समझौता हुआ। इसके तहत दोनों देशों ने तय किया कि वे अपने सभी द्विपक्षीय विवादों (विशेषकर कश्मीर मुद्दा) को किसी तीसरे पक्ष के हस्तक्षेप के बिना केवल शांतिपूर्ण आपसी बातचीत से सुलझाएंगे तथा नियंत्रण रेखा (LoC) का सम्मान करेंगे।",
+      "explanationHindi": "शिमला समझौते पर संक्षिप्त टिप्पणी लिखें ।\nउत्तर: 1971 के भारत-पाक युद्ध के बाद 2 जुलाई 1972 को शिमला में भारत की प्रधानमंत्री इंदिरा गांधी और पाकिस्तान के राष्ट्रपति जुल्फिकार अली भुट्टो के बीच यह समझौता हुआ। इसके तहत दोनों देशों ने तय किया कि वे अपने सभी द्विपक्षीय विवादों (विशेषकर कश्मीर मुद्दा) को किसी तीसरे पक्ष के हस्तक्षेप के बिना केवल शांतिपूर्ण आपसी बातचीत से सुलझाएंगे तथा नियंत्रण रेखा (LoC) का सम्मान करेंगे।",
+      "marks": 2
+    },
+    {
+      "id": "q-sec-b-19",
+      "sectionId": "sec-b",
+      "sectionName": "खण्ड–ब : लघु उत्तरीय प्रश्न",
+      "questionNumber": 19,
+      "type": "short",
+      "text": "सर्वोच्च न्यायालय का मौलिक क्षेत्राधिकार क्या है ?\nWhat is the original jurisdiction of the Supreme Court ?",
+      "textHindi": "सर्वोच्च न्यायालय का मौलिक क्षेत्राधिकार क्या है ?\nWhat is the original jurisdiction of the Supreme Court ?",
+      "modelAnswer": "सर्वोच्च न्यायालय का मौलिक क्षेत्राधिकार क्या है ?\nउत्तर: सर्वोच्च न्यायालय के मौलिक/आरंभिक क्षेत्राधिकार (अनुच्छेद 131) से तात्पर्य उन मुकदमों से है जो सीधे और केवल सुप्रीम कोर्ट में ही दायर किए जा सकते हैं। इसके अंतर्गत केंद्र और राज्यों के बीच कानूनी विवाद, दो या अधिक राज्यों के आपसी विवाद तथा अनुच्छेद 32 के तहत नागरिकों के मौलिक अधिकारों के उल्लंघन से संबंधित मामले आते हैं।",
+      "explanationHindi": "सर्वोच्च न्यायालय का मौलिक क्षेत्राधिकार क्या है ?\nउत्तर: सर्वोच्च न्यायालय के मौलिक/आरंभिक क्षेत्राधिकार (अनुच्छेद 131) से तात्पर्य उन मुकदमों से है जो सीधे और केवल सुप्रीम कोर्ट में ही दायर किए जा सकते हैं। इसके अंतर्गत केंद्र और राज्यों के बीच कानूनी विवाद, दो या अधिक राज्यों के आपसी विवाद तथा अनुच्छेद 32 के तहत नागरिकों के मौलिक अधिकारों के उल्लंघन से संबंधित मामले आते हैं।",
+      "marks": 2
+    },
+    {
+      "id": "q-sec-b-20",
+      "sectionId": "sec-b",
+      "sectionName": "खण्ड–ब : लघु उत्तरीय प्रश्न",
+      "questionNumber": 20,
+      "type": "short",
+      "text": "भारतीय संघीय व्यवस्था की कोई दो एकात्मक विशेषताएँ बताएँ ।\nState any two unitary features of Indian federal system.",
+      "textHindi": "भारतीय संघीय व्यवस्था की कोई दो एकात्मक विशेषताएँ बताएँ ।\nState any two unitary features of Indian federal system.",
+      "modelAnswer": "भारतीय संघीय व्यवस्था की कोई दो एकात्मक विशेषताएँ बताएँ ।\nउत्तर:\n1. एकल नागरिकता: भारतीय संघ में दोहरी नागरिकता न होकर पूरे देश के लिए केवल एक ही भारतीय नागरिकता है।\n2. राज्यपाल की केंद्र द्वारा नियुक्ति: राज्यों के संवैधानिक प्रमुख (राज्यपाल) की नियुक्ति केंद्र सरकार (राष्ट्रपति) द्वारा की जाती है, जो केंद्र के प्रतिनिधि के रूप में कार्य करते हैं।",
+      "explanationHindi": "भारतीय संघीय व्यवस्था की कोई दो एकात्मक विशेषताएँ बताएँ ।\nउत्तर:\n1. एकल नागरिकता: भारतीय संघ में दोहरी नागरिकता न होकर पूरे देश के लिए केवल एक ही भारतीय नागरिकता है।\n2. राज्यपाल की केंद्र द्वारा नियुक्ति: राज्यों के संवैधानिक प्रमुख (राज्यपाल) की नियुक्ति केंद्र सरकार (राष्ट्रपति) द्वारा की जाती है, जो केंद्र के प्रतिनिधि के रूप में कार्य करते हैं।",
+      "marks": 2
+    },
+    {
+      "id": "q-sec-b-21",
+      "sectionId": "sec-b",
+      "sectionName": "खण्ड–ब : लघु उत्तरीय प्रश्न",
+      "questionNumber": 21,
+      "type": "short",
+      "text": "भारत में साम्प्रदायिकतावाद के दो कारण बताएँ ।\nState two reasons for communalism in India.",
+      "textHindi": "भारत में साम्प्रदायिकतावाद के दो कारण बताएँ ।\nState two reasons for communalism in India.",
+      "modelAnswer": "भारत में साम्प्रदायिकतावाद के दो कारण बताएँ ।\nउत्तर:\n1. राजनीतिक स्वार्थ और वोट बैंक की राजनीति: चुनावों में राजनीतिक दलों द्वारा धार्मिक भावनाओं का दुरुपयोग कर मतों का ध्रुवीकरण करना।\n2. ऐतिहासिक कटुता और अविश्वास: 1947 के विभाजन की कड़वी यादें और सामाजिक स्तर पर आपसी संवाद व वैज्ञानिक चेतना का अभाव।",
+      "explanationHindi": "भारत में साम्प्रदायिकतावाद के दो कारण बताएँ ।\nउत्तर:\n1. राजनीतिक स्वार्थ और वोट बैंक की राजनीति: चुनावों में राजनीतिक दलों द्वारा धार्मिक भावनाओं का दुरुपयोग कर मतों का ध्रुवीकरण करना।\n2. ऐतिहासिक कटुता और अविश्वास: 1947 के विभाजन की कड़वी यादें और सामाजिक स्तर पर आपसी संवाद व वैज्ञानिक चेतना का अभाव।",
+      "marks": 2
+    },
+    {
+      "id": "q-sec-b-22",
+      "sectionId": "sec-b",
+      "sectionName": "खण्ड–ब : लघु उत्तरीय प्रश्न",
+      "questionNumber": 22,
+      "type": "short",
+      "text": "शून्य काल क्या है ?\nWhat is Zero Hour ?",
+      "textHindi": "शून्य काल क्या है ?\nWhat is Zero Hour ?",
+      "modelAnswer": "शून्य काल क्या है ?\nउत्तर: भारतीय संसद में प्रश्नकाल (11 से 12 बजे) के तुरंत बाद दोपहर 12:00 से 1:00 बजे तक का समय 'शून्य काल' (Zero Hour) कहलाता है। यह 1962 में विकसित भारतीय संसदीय व्यवस्था की अपनी मौलिक खोज है, जिसमें सांसद बिना किसी पूर्व सूचना के राष्ट्रीय व तात्कालिक महत्व के गंभीर लोक-मुद्दे सदन में उठा सकते हैं।",
+      "explanationHindi": "शून्य काल क्या है ?\nउत्तर: भारतीय संसद में प्रश्नकाल (11 से 12 बजे) के तुरंत बाद दोपहर 12:00 से 1:00 बजे तक का समय 'शून्य काल' (Zero Hour) कहलाता है। यह 1962 में विकसित भारतीय संसदीय व्यवस्था की अपनी मौलिक खोज है, जिसमें सांसद बिना किसी पूर्व सूचना के राष्ट्रीय व तात्कालिक महत्व के गंभीर लोक-मुद्दे सदन में उठा सकते हैं।",
+      "marks": 2
+    },
+    {
+      "id": "q-sec-b-23",
+      "sectionId": "sec-b",
+      "sectionName": "खण्ड–ब : लघु उत्तरीय प्रश्न",
+      "questionNumber": 23,
+      "type": "short",
+      "text": "धन विधेयक क्या है ?\nWhat is Money Bill ?",
+      "textHindi": "धन विधेयक क्या है ?\nWhat is Money Bill ?",
+      "modelAnswer": "धन विधेयक क्या है ?\nउत्तर: संविधान के अनुच्छेद 110 के अनुसार, ऐसा विधेयक जिसमें केवल नए कर लगाने, हटाने, बदलने, सरकार द्वारा धन उधार लेने, या भारत की संचित निधि से धन निकालने/जमा करने के प्रावधान हों, 'धन विधेयक' कहलाता है। कोई विधेयक धन विधेयक है या नहीं, इसका अंतिम और बाध्यकारी निर्णय लोकसभा अध्यक्ष करते हैं।",
+      "explanationHindi": "धन विधेयक क्या है ?\nउत्तर: संविधान के अनुच्छेद 110 के अनुसार, ऐसा विधेयक जिसमें केवल नए कर लगाने, हटाने, बदलने, सरकार द्वारा धन उधार लेने, या भारत की संचित निधि से धन निकालने/जमा करने के प्रावधान हों, 'धन विधेयक' कहलाता है। कोई विधेयक धन विधेयक है या नहीं, इसका अंतिम और बाध्यकारी निर्णय लोकसभा अध्यक्ष करते हैं।",
+      "marks": 2
+    },
+    {
+      "id": "q-sec-b-24",
+      "sectionId": "sec-b",
+      "sectionName": "खण्ड–ब : लघु उत्तरीय प्रश्न",
+      "questionNumber": 24,
+      "type": "short",
+      "text": "संसद की संयुक्त बैठक का क्या तात्पर्य है ?\nWhat is the meaning of joint sitting of the Parliament ?",
+      "textHindi": "संसद की संयुक्त बैठक का क्या तात्पर्य है ?\nWhat is the meaning of joint sitting of the Parliament ?",
+      "modelAnswer": "संसद की संयुक्त बैठक का क्या तात्पर्य है ?\nउत्तर: जब किसी साधारण विधेयक पर संसद के दोनों सदनों (लोकसभा और राज्यसभा) के बीच गतिरोध उत्पन्न हो जाए, तो राष्ट्रपति संविधान के अनुच्छेद 108 के तहत दोनों सदनों की 'संयुक्त बैठक' बुलाते हैं। इसकी अध्यक्षता लोकसभा अध्यक्ष करते हैं और निर्णय उपस्थित व मतदान करने वाले सदस्यों के साधारण बहुमत से होता है।",
+      "explanationHindi": "संसद की संयुक्त बैठक का क्या तात्पर्य है ?\nउत्तर: जब किसी साधारण विधेयक पर संसद के दोनों सदनों (लोकसभा और राज्यसभा) के बीच गतिरोध उत्पन्न हो जाए, तो राष्ट्रपति संविधान के अनुच्छेद 108 के तहत दोनों सदनों की 'संयुक्त बैठक' बुलाते हैं। इसकी अध्यक्षता लोकसभा अध्यक्ष करते हैं और निर्णय उपस्थित व मतदान करने वाले सदस्यों के साधारण बहुमत से होता है।",
+      "marks": 2
+    },
+    {
+      "id": "q-sec-b-25",
+      "sectionId": "sec-b",
+      "sectionName": "खण्ड–ब : लघु उत्तरीय प्रश्न",
+      "questionNumber": 25,
+      "type": "short",
+      "text": "राष्ट्रपति पर महाभियोग की प्रक्रिया क्या है ?\nWhat is the process of impeachment of the President.",
+      "textHindi": "राष्ट्रपति पर महाभियोग की प्रक्रिया क्या है ?\nWhat is the process of impeachment of the President.",
+      "modelAnswer": "राष्ट्रपति पर महाभियोग की प्रक्रिया क्या है ?\nउत्तर: संविधान के अनुच्छेद 61 के तहत केवल 'संविधान के उल्लंघन' पर राष्ट्रपति पर महाभियोग चलाया जा सकता है। यह प्रस्ताव संसद के किसी भी सदन में 1/4 सदस्यों के हस्ताक्षर और 14 दिन की पूर्व लिखित सूचना के बाद लाया जा सकता है। दोनों सदनों द्वारा अलग-अलग कुल सदस्य संख्या के 2/3 विशेष बहुमत से प्रस्ताव पारित होने पर राष्ट्रपति को पद छोड़ना पड़ता है।",
+      "explanationHindi": "राष्ट्रपति पर महाभियोग की प्रक्रिया क्या है ?\nउत्तर: संविधान के अनुच्छेद 61 के तहत केवल 'संविधान के उल्लंघन' पर राष्ट्रपति पर महाभियोग चलाया जा सकता है। यह प्रस्ताव संसद के किसी भी सदन में 1/4 सदस्यों के हस्ताक्षर और 14 दिन की पूर्व लिखित सूचना के बाद लाया जा सकता है। दोनों सदनों द्वारा अलग-अलग कुल सदस्य संख्या के 2/3 विशेष बहुमत से प्रस्ताव पारित होने पर राष्ट्रपति को पद छोड़ना पड़ता है।",
+      "marks": 2
+    },
+    {
+      "id": "q-sec-b-26",
+      "sectionId": "sec-b",
+      "sectionName": "खण्ड–ब : लघु उत्तरीय प्रश्न",
+      "questionNumber": 26,
+      "type": "short",
+      "text": "राष्ट्रपति की वीटो शक्ति का वर्णन करें ।\nDescribe the Veto Power of President.",
+      "textHindi": "राष्ट्रपति की वीटो शक्ति का वर्णन करें ।\nDescribe the Veto Power of President.",
+      "modelAnswer": "राष्ट्रपति की वीटो शक्ति का वर्णन करें ।\nउत्तर: संविधान के अनुच्छेद 111 के तहत राष्ट्रपति को संसद द्वारा पारित गैर-वित्तीय विधेयकों पर तीन वीटो शक्तियां प्राप्त हैं:\n1. आत्यंतिक वीटो (Absolute Veto): विधेयक पर स्वीकृति को पूरी तरह रोक लेना।\n2. निलंबनकारी वीटो (Suspensive Veto): विधेयक को पुनर्विचार हेतु संसद को वापस भेजना।\n3. पॉकेट वीटो (Pocket Veto): विधेयक पर न तो सहमति देना और न ही अस्वीकार करना, बल्कि उसे अनिश्चितकाल के लिए लंबित रखना।",
+      "explanationHindi": "राष्ट्रपति की वीटो शक्ति का वर्णन करें ।\nउत्तर: संविधान के अनुच्छेद 111 के तहत राष्ट्रपति को संसद द्वारा पारित गैर-वित्तीय विधेयकों पर तीन वीटो शक्तियां प्राप्त हैं:\n1. आत्यंतिक वीटो (Absolute Veto): विधेयक पर स्वीकृति को पूरी तरह रोक लेना।\n2. निलंबनकारी वीटो (Suspensive Veto): विधेयक को पुनर्विचार हेतु संसद को वापस भेजना।\n3. पॉकेट वीटो (Pocket Veto): विधेयक पर न तो सहमति देना और न ही अस्वीकार करना, बल्कि उसे अनिश्चितकाल के लिए लंबित रखना।",
+      "marks": 2
+    },
+    {
+      "id": "q-sec-b-27",
+      "sectionId": "sec-b",
+      "sectionName": "खण्ड–ब : लघु उत्तरीय प्रश्न",
+      "questionNumber": 27,
+      "type": "short",
+      "text": "प्रधानमंत्री की नियुक्ति कैसे होती है ?\nHow is the Prime Minister appointed ?",
+      "textHindi": "प्रधानमंत्री की नियुक्ति कैसे होती है ?\nHow is the Prime Minister appointed ?",
+      "modelAnswer": "प्रधानमंत्री की नियुक्ति कैसे होती है ?\nउत्तर: संविधान के अनुच्छेद 75 के तहत प्रधानमंत्री की नियुक्ति राष्ट्रपति द्वारा की जाती है। लोकतांत्रिक परंपरा के अनुसार, राष्ट्रपति लोकसभा चुनाव में स्पष्ट बहुमत प्राप्त दल या गठबंधन के नेता को प्रधानमंत्री नियुक्त करते हैं। स्पष्ट बहुमत न होने पर राष्ट्रपति स्वविवेक से सबसे बड़े दल के नेता को नियुक्त कर निश्चित समय में सदन में विश्वास मत हासिल करने को कहते हैं।",
+      "explanationHindi": "प्रधानमंत्री की नियुक्ति कैसे होती है ?\nउत्तर: संविधान के अनुच्छेद 75 के तहत प्रधानमंत्री की नियुक्ति राष्ट्रपति द्वारा की जाती है। लोकतांत्रिक परंपरा के अनुसार, राष्ट्रपति लोकसभा चुनाव में स्पष्ट बहुमत प्राप्त दल या गठबंधन के नेता को प्रधानमंत्री नियुक्त करते हैं। स्पष्ट बहुमत न होने पर राष्ट्रपति स्वविवेक से सबसे बड़े दल के नेता को नियुक्त कर निश्चित समय में सदन में विश्वास मत हासिल करने को कहते हैं।",
+      "marks": 2
+    },
+    {
+      "id": "q-sec-b-28",
+      "sectionId": "sec-b",
+      "sectionName": "खण्ड–ब : लघु उत्तरीय प्रश्न",
+      "questionNumber": 28,
+      "type": "short",
+      "text": "संविधान के भाग III में वर्णित स्वतन्त्रता का अधिकार क्या है ?\nWhat is the Right to Liberty mentioned in Part III of the constitution ?",
+      "textHindi": "संविधान के भाग III में वर्णित स्वतन्त्रता का अधिकार क्या है ?\nWhat is the Right to Liberty mentioned in Part III of the constitution ?",
+      "modelAnswer": "संविधान के भाग III में वर्णित स्वतन्त्रता का अधिकार क्या है ?\nउत्तर: भारतीय संविधान के भाग III में अनुच्छेद 19 से 22 तक स्वतंत्रता का अधिकार दिया गया है। इसके तहत अनुच्छेद 19 नागरिकों को 6 लोकतांत्रिक स्वतंत्रताएं (भाषण एवं अभिव्यक्ति, शांतिपूर्ण सम्मेलन, संघ निर्माण, निर्बाध संचरण, निवास और व्यापार की स्वतंत्रता) प्रदान करता है। साथ ही इसमें प्राण एवं दैहिक स्वतंत्रता (अनुच्छेद 21) भी शामिल है।",
+      "explanationHindi": "संविधान के भाग III में वर्णित स्वतन्त्रता का अधिकार क्या है ?\nउत्तर: भारतीय संविधान के भाग III में अनुच्छेद 19 से 22 तक स्वतंत्रता का अधिकार दिया गया है। इसके तहत अनुच्छेद 19 नागरिकों को 6 लोकतांत्रिक स्वतंत्रताएं (भाषण एवं अभिव्यक्ति, शांतिपूर्ण सम्मेलन, संघ निर्माण, निर्बाध संचरण, निवास और व्यापार की स्वतंत्रता) प्रदान करता है। साथ ही इसमें प्राण एवं दैहिक स्वतंत्रता (अनुच्छेद 21) भी शामिल है।",
+      "marks": 2
+    },
+    {
+      "id": "q-sec-b-29",
+      "sectionId": "sec-b",
+      "sectionName": "खण्ड–ब : लघु उत्तरीय प्रश्न",
+      "questionNumber": 29,
+      "type": "short",
+      "text": "सम्पत्ति के अधिकार की वर्तमान स्थिति क्या है ?\nWhat is the present status of Right to Property ?",
+      "textHindi": "सम्पत्ति के अधिकार की वर्तमान स्थिति क्या है ?\nWhat is the present status of Right to Property ?",
+      "modelAnswer": "सम्पत्ति के अधिकार की वर्तमान स्थिति क्या है ?\nउत्तर: संपत्ति का अधिकार अब मौलिक अधिकार नहीं है। 44वें संविधान संशोधन (1978) द्वारा इसे मौलिक अधिकारों की सूची से हटाकर संविधान के भाग XII के तहत अनुच्छेद 300A में एक सामान्य कानूनी/संवैधानिक अधिकार (Legal Right) बना दिया गया है।",
+      "explanationHindi": "सम्पत्ति के अधिकार की वर्तमान स्थिति क्या है ?\nउत्तर: संपत्ति का अधिकार अब मौलिक अधिकार नहीं है। 44वें संविधान संशोधन (1978) द्वारा इसे मौलिक अधिकारों की सूची से हटाकर संविधान के भाग XII के तहत अनुच्छेद 300A में एक सामान्य कानूनी/संवैधानिक अधिकार (Legal Right) बना दिया गया है।",
+      "marks": 2
+    },
+    {
+      "id": "q-sec-b-30",
+      "sectionId": "sec-b",
+      "sectionName": "खण्ड–ब : लघु उत्तरीय प्रश्न",
+      "questionNumber": 30,
+      "type": "short",
+      "text": "भारतीय संविधान में दिए गए मौलिक अधिकारों की दो विशेषताएँ बताएँ ।\nState two features of Fundamental Rights as prescribed in the Constitution of India.\n\n--------------------------------------------------",
+      "textHindi": "भारतीय संविधान में दिए गए मौलिक अधिकारों की दो विशेषताएँ बताएँ ।\nState two features of Fundamental Rights as prescribed in the Constitution of India.\n\n--------------------------------------------------",
+      "modelAnswer": "भारतीय संविधान में दिए गए मौलिक अधिकारों की दो विशेषताएँ बताएँ ।\nउत्तर:\n1. न्यायोचित स्वरूप (Justiciable): मौलिक अधिकारों का उल्लंघन होने पर नागरिक सीधे उच्च न्यायालय (अनुच्छेद 226) या सर्वोच्च न्यायालय (अनुच्छेद 32) जा सकते हैं।\n2. सीमित और मर्यादित: ये अधिकार असीमित नहीं हैं; देश की एकता, सुरक्षा और लोक व्यवस्था के हित में राज्य इन पर युक्तिसंगत प्रतिबंध लगा सकता है।\n\n--------------------------------------------------",
+      "explanationHindi": "भारतीय संविधान में दिए गए मौलिक अधिकारों की दो विशेषताएँ बताएँ ।\nउत्तर:\n1. न्यायोचित स्वरूप (Justiciable): मौलिक अधिकारों का उल्लंघन होने पर नागरिक सीधे उच्च न्यायालय (अनुच्छेद 226) या सर्वोच्च न्यायालय (अनुच्छेद 32) जा सकते हैं।\n2. सीमित और मर्यादित: ये अधिकार असीमित नहीं हैं; देश की एकता, सुरक्षा और लोक व्यवस्था के हित में राज्य इन पर युक्तिसंगत प्रतिबंध लगा सकता है।\n\n--------------------------------------------------",
+      "marks": 2
+    },
+    {
+      "id": "q-sec-c-31",
+      "sectionId": "sec-c",
+      "sectionName": "खण्ड–स : दीर्घ उत्तरीय प्रश्न",
+      "questionNumber": 31,
+      "type": "long",
+      "text": "भारत की विदेश नीति की मुख्य विशेषताएँ क्या हैं ?\nWhat are the salient features of India's Foreign Policy ?",
+      "textHindi": "भारत की विदेश नीति की मुख्य विशेषताएँ क्या हैं ?\nWhat are the salient features of India's Foreign Policy ?",
+      "modelAnswer": "भारत की विदेश नीति की मुख्य विशेषताएँ क्या हैं ?\nउत्तर:\nस्वतंत्रता के बाद विकसित भारत की विदेश नीति राष्ट्रीय संप्रभुता की रक्षा, आर्थिक विकास और विश्व शांति पर आधारित रही है। इसकी मुख्य विशेषताएं निम्नलिखित हैं:\n\n1. गुटनिरपेक्षता (Non-Alignment): शीतयुद्ध के दौरान किसी भी महाशक्ति सैन्य गुट (नाटो या वारसा) में शामिल न होकर स्वतंत्र, संप्रभु और नैतिक आधार पर अंतरराष्ट्रीय मुद्दों पर गुण-दोष के आधार पर निर्णय लेने की नीति।\n2. पंचशील के सिद्धांत (1954): क्षेत्रीय अखंडता व संप्रभुता का सम्मान, परस्पर अनाक्रमण, आंतरिक मामलों में अहस्तक्षेप, समानता और शांतिपूर्ण सह-अस्तित्व के पांच बुनियादी नियम।\n3. साम्राज्यवाद, उपनिवेशवाद और रंगभेद का विरोध: भारत ने एशिया और अफ्रीका के देशों के स्वतंत्रता संग्राम का समर्थन किया और नस्लीय भेदभाव की अंतरराष्ट्रीय मंचों पर निंदा की।\n4. संयुक्त राष्ट्र संघ और अंतरराष्ट्रीय कानून में निष्ठा: विवादों को युद्ध के बजाय कूटनीतिक संवाद से सुलझाने की नीति तथा यूएन शांति मिशनों में अग्रणी भूमिका।\n5. उत्तरदायी परमाणु नीति: 'पहले प्रयोग नहीं' (No First Use) और न्यूनतम विश्वसनीय निवारक क्षमता का सिद्धांत।\n6. 'पड़ोसी प्रथम' नीति एवं बहुध्रुवीयता: पड़ोसी देशों से बेहतर संबंध बनाना और ब्रिक्स (BRICS), G-20 व SCO जैसे मंचों के जरिए विकासशील देशों (Global South) का नेतृत्व करना।\n\n---",
+      "explanationHindi": "भारत की विदेश नीति की मुख्य विशेषताएँ क्या हैं ?\nउत्तर:\nस्वतंत्रता के बाद विकसित भारत की विदेश नीति राष्ट्रीय संप्रभुता की रक्षा, आर्थिक विकास और विश्व शांति पर आधारित रही है। इसकी मुख्य विशेषताएं निम्नलिखित हैं:\n\n1. गुटनिरपेक्षता (Non-Alignment): शीतयुद्ध के दौरान किसी भी महाशक्ति सैन्य गुट (नाटो या वारसा) में शामिल न होकर स्वतंत्र, संप्रभु और नैतिक आधार पर अंतरराष्ट्रीय मुद्दों पर गुण-दोष के आधार पर निर्णय लेने की नीति।\n2. पंचशील के सिद्धांत (1954): क्षेत्रीय अखंडता व संप्रभुता का सम्मान, परस्पर अनाक्रमण, आंतरिक मामलों में अहस्तक्षेप, समानता और शांतिपूर्ण सह-अस्तित्व के पांच बुनियादी नियम।\n3. साम्राज्यवाद, उपनिवेशवाद और रंगभेद का विरोध: भारत ने एशिया और अफ्रीका के देशों के स्वतंत्रता संग्राम का समर्थन किया और नस्लीय भेदभाव की अंतरराष्ट्रीय मंचों पर निंदा की।\n4. संयुक्त राष्ट्र संघ और अंतरराष्ट्रीय कानून में निष्ठा: विवादों को युद्ध के बजाय कूटनीतिक संवाद से सुलझाने की नीति तथा यूएन शांति मिशनों में अग्रणी भूमिका।\n5. उत्तरदायी परमाणु नीति: 'पहले प्रयोग नहीं' (No First Use) और न्यूनतम विश्वसनीय निवारक क्षमता का सिद्धांत।\n6. 'पड़ोसी प्रथम' नीति एवं बहुध्रुवीयता: पड़ोसी देशों से बेहतर संबंध बनाना और ब्रिक्स (BRICS), G-20 व SCO जैसे मंचों के जरिए विकासशील देशों (Global South) का नेतृत्व करना।\n\n---",
+      "marks": 5
+    },
+    {
+      "id": "q-sec-c-32",
+      "sectionId": "sec-c",
+      "sectionName": "खण्ड–स : दीर्घ उत्तरीय प्रश्न",
+      "questionNumber": 32,
+      "type": "long",
+      "text": "मौलिक अधिकार क्या है ? मौलिक अधिकार और नीति निदेशक तत्वों में क्या अन्तर है ?\nWhat is Fundamental Right ? What are the differences between Fundamental Rights and Directive Principles ?",
+      "textHindi": "मौलिक अधिकार क्या है ? मौलिक अधिकार और नीति निदेशक तत्वों में क्या अन्तर है ?\nWhat is Fundamental Right ? What are the differences between Fundamental Rights and Directive Principles ?",
+      "modelAnswer": "मौलिक अधिकार क्या है ? मौलिक अधिकार और नीति निदेशक तत्वों में क्या अन्तर है ?\nउत्तर:\nमौलिक अधिकार वे मूलभूत और नैसर्गिक अधिकार हैं जो किसी व्यक्ति के सर्वांगीण विकास, स्वतंत्रता और गरिमापूर्ण जीवन के लिए अनिवार्य होते हैं। भारतीय संविधान के भाग III (अनुच्छेद 12-35) में नागरिकों को 6 मौलिक अधिकार प्रदान किए गए हैं।\n\nमौलिक अधिकार और नीति निदेशक तत्वों (DPSP) में प्रमुख अंतर:\n1. कानूनी प्रवर्तनीयता: मौलिक अधिकार 'न्यायोचित' (Justiciable) हैं, इनके हनन पर नागरिक सीधे अनुच्छेद 32 के तहत सुप्रीम कोर्ट जा सकते हैं। नीति निदेशक तत्व (भाग IV) 'गैर-न्यायोचित' हैं, इन्हें लागू कराने के लिए न्यायालय में दावा नहीं किया जा सकता।\n2. प्रकृति: मौलिक अधिकार राज्य की सत्ता को सीमित करते हैं, अतः इनकी प्रकृति मुख्यतः निषेधात्मक/नकारात्मक है। निदेशक तत्व राज्य को लोककल्याणकारी कार्य करने का निर्देश देते हैं, अतः इनकी प्रकृति सकारात्मक है।\n3. उद्देश्य: मौलिक अधिकारों का उद्देश्य देश में 'राजनीतिक लोकतंत्र' स्थापित करना है। नीति निदेशक तत्वों का उद्देश्य 'सामाजिक और आर्थिक लोकतंत्र' तथा एक लोक कल्याणकारी राज्य (Welfare State) की स्थापना करना है।\n4. निलंबन: राष्ट्रीय आपातकाल (अनुच्छेद 352) के समय अनुच्छेद 20 और 21 को छोड़कर मौलिक अधिकार निलंबित किए जा सकते हैं, जबकि निदेशक तत्व स्वतः कानूनी रूप से अप्रवर्तनीय रहते हैं।\n\n---",
+      "explanationHindi": "मौलिक अधिकार क्या है ? मौलिक अधिकार और नीति निदेशक तत्वों में क्या अन्तर है ?\nउत्तर:\nमौलिक अधिकार वे मूलभूत और नैसर्गिक अधिकार हैं जो किसी व्यक्ति के सर्वांगीण विकास, स्वतंत्रता और गरिमापूर्ण जीवन के लिए अनिवार्य होते हैं। भारतीय संविधान के भाग III (अनुच्छेद 12-35) में नागरिकों को 6 मौलिक अधिकार प्रदान किए गए हैं।\n\nमौलिक अधिकार और नीति निदेशक तत्वों (DPSP) में प्रमुख अंतर:\n1. कानूनी प्रवर्तनीयता: मौलिक अधिकार 'न्यायोचित' (Justiciable) हैं, इनके हनन पर नागरिक सीधे अनुच्छेद 32 के तहत सुप्रीम कोर्ट जा सकते हैं। नीति निदेशक तत्व (भाग IV) 'गैर-न्यायोचित' हैं, इन्हें लागू कराने के लिए न्यायालय में दावा नहीं किया जा सकता।\n2. प्रकृति: मौलिक अधिकार राज्य की सत्ता को सीमित करते हैं, अतः इनकी प्रकृति मुख्यतः निषेधात्मक/नकारात्मक है। निदेशक तत्व राज्य को लोककल्याणकारी कार्य करने का निर्देश देते हैं, अतः इनकी प्रकृति सकारात्मक है।\n3. उद्देश्य: मौलिक अधिकारों का उद्देश्य देश में 'राजनीतिक लोकतंत्र' स्थापित करना है। नीति निदेशक तत्वों का उद्देश्य 'सामाजिक और आर्थिक लोकतंत्र' तथा एक लोक कल्याणकारी राज्य (Welfare State) की स्थापना करना है।\n4. निलंबन: राष्ट्रीय आपातकाल (अनुच्छेद 352) के समय अनुच्छेद 20 और 21 को छोड़कर मौलिक अधिकार निलंबित किए जा सकते हैं, जबकि निदेशक तत्व स्वतः कानूनी रूप से अप्रवर्तनीय रहते हैं।\n\n---",
+      "marks": 5
+    },
+    {
+      "id": "q-sec-c-33",
+      "sectionId": "sec-c",
+      "sectionName": "खण्ड–स : दीर्घ उत्तरीय प्रश्न",
+      "questionNumber": 33,
+      "type": "long",
+      "text": "प्रधानमंत्री के कार्य एवं शक्तियों की आलोचनात्मक व्याख्या करें ।\nCritically explain the powers and functions of the Prime Minister.",
+      "textHindi": "प्रधानमंत्री के कार्य एवं शक्तियों की आलोचनात्मक व्याख्या करें ।\nCritically explain the powers and functions of the Prime Minister.",
+      "modelAnswer": "प्रधानमंत्री के कार्य एवं शक्तियों की आलोचनात्मक व्याख्या करें ।\nउत्तर:\nसंसदीय शासन प्रणाली में प्रधानमंत्री सरकार और कार्यपालिका के वास्तविक प्रधान (De Facto Head) होते हैं।\n\nप्रधानमंत्री की प्रमुख शक्तियां एवं कार्य:\n1. मंत्रिपरिषद का गठन एवं संचालन: मंत्रियों की नियुक्ति, विभागों का आवंटन व फेरबदल तथा आवश्यकता पड़ने पर किसी भी मंत्री से त्यागपत्र मांगने का अंतिम अधिकार प्रधानमंत्री के पास होता है।\n2. कैबिनेट की बैठकों का नेतृत्व: वे मंत्रिमंडल की बैठकों का एजेंडा तय करते हैं और सभी मंत्रालयों के नीतिगत निर्णयों में समन्वय स्थापित करते हैं।\n3. राष्ट्रपति और संसद के बीच मुख्य सेतु: अनुच्छेद 78 के तहत वे प्रशासन और कानून निर्माण संबंधी सभी निर्णयों की सूचना राष्ट्रपति को देते हैं।\n4. लोकसभा और राष्ट्र का नेता: वे सदन में सरकार की नीतियों का बचाव करते हैं, विदेश नीति का मार्गदर्शन करते हैं और नीति आयोग की अध्यक्षता करते हैं।\n\nआलोचनात्मक मूल्यांकन / सीमाएं:\nसिद्धांततः प्रधानमंत्री अत्यंत शक्तिशाली होते हैं, परंतु उनकी शक्तियां निरंकुश नहीं हैं। गठबंधन सरकारों के दौर में सहयोगी दलों की मांगों के कारण प्रधानमंत्री की स्वतंत्रता सीमित हो जाती है। इसके अतिरिक्त संसद में विपक्ष के प्रश्न, स्वतंत्र न्यायपालिका की न्यायिक समीक्षा, स्वतंत्र मीडिया और जनमत प्रधानमंत्री की शक्तियों पर प्रभावी संतुलन बनाए रखते हैं।\n\n---",
+      "explanationHindi": "प्रधानमंत्री के कार्य एवं शक्तियों की आलोचनात्मक व्याख्या करें ।\nउत्तर:\nसंसदीय शासन प्रणाली में प्रधानमंत्री सरकार और कार्यपालिका के वास्तविक प्रधान (De Facto Head) होते हैं।\n\nप्रधानमंत्री की प्रमुख शक्तियां एवं कार्य:\n1. मंत्रिपरिषद का गठन एवं संचालन: मंत्रियों की नियुक्ति, विभागों का आवंटन व फेरबदल तथा आवश्यकता पड़ने पर किसी भी मंत्री से त्यागपत्र मांगने का अंतिम अधिकार प्रधानमंत्री के पास होता है।\n2. कैबिनेट की बैठकों का नेतृत्व: वे मंत्रिमंडल की बैठकों का एजेंडा तय करते हैं और सभी मंत्रालयों के नीतिगत निर्णयों में समन्वय स्थापित करते हैं।\n3. राष्ट्रपति और संसद के बीच मुख्य सेतु: अनुच्छेद 78 के तहत वे प्रशासन और कानून निर्माण संबंधी सभी निर्णयों की सूचना राष्ट्रपति को देते हैं।\n4. लोकसभा और राष्ट्र का नेता: वे सदन में सरकार की नीतियों का बचाव करते हैं, विदेश नीति का मार्गदर्शन करते हैं और नीति आयोग की अध्यक्षता करते हैं।\n\nआलोचनात्मक मूल्यांकन / सीमाएं:\nसिद्धांततः प्रधानमंत्री अत्यंत शक्तिशाली होते हैं, परंतु उनकी शक्तियां निरंकुश नहीं हैं। गठबंधन सरकारों के दौर में सहयोगी दलों की मांगों के कारण प्रधानमंत्री की स्वतंत्रता सीमित हो जाती है। इसके अतिरिक्त संसद में विपक्ष के प्रश्न, स्वतंत्र न्यायपालिका की न्यायिक समीक्षा, स्वतंत्र मीडिया और जनमत प्रधानमंत्री की शक्तियों पर प्रभावी संतुलन बनाए रखते हैं।\n\n---",
+      "marks": 5
+    },
+    {
+      "id": "q-sec-c-34",
+      "sectionId": "sec-c",
+      "sectionName": "खण्ड–स : दीर्घ उत्तरीय प्रश्न",
+      "questionNumber": 34,
+      "type": "long",
+      "text": "राज्यपाल की शक्तियों का मूल्यांकन करें ।\nEvaluate the powers of the Governor.",
+      "textHindi": "राज्यपाल की शक्तियों का मूल्यांकन करें ।\nEvaluate the powers of the Governor.",
+      "modelAnswer": "राज्यपाल की शक्तियों का मूल्यांकन करें ।\nउत्तर:\nसंविधान के अनुच्छेद 153 के तहत प्रत्येक राज्य में एक राज्यपाल होता है, जो दोहरी भूमिका निभाता है—राज्य का संवैधानिक प्रमुख और केंद्र सरकार का प्रतिनिधि।\n\nराज्यपाल की प्रमुख शक्तियां:\n1. कार्यपालिका शक्तियां: राज्य के मुख्यमंत्री और उनकी सलाह पर अन्य मंत्रियों, महाधिवक्ता तथा राज्य लोक सेवा आयोग के अध्यक्ष की नियुक्ति राज्यपाल करते हैं। राज्य के सभी प्रशासनिक कार्य उन्हीं के नाम से होते हैं।\n2. विधायी शक्तियां: विधानमंडल का सत्र बुलाना, सत्रावसान करना और विधानसभा को भंग करना। विधेयकों को स्वीकृति देना या राष्ट्रपति के विचारार्थ आरक्षित रखना (अनुच्छेद 200)। सत्र न चलने पर अध्यादेश जारी करना (अनुच्छेद 213)।\n3. वित्तीय शक्तियां: विधानसभा में धन विधेयक राज्यपाल की पूर्व अनुमति से ही पेश किया जाता है और राज्य का वार्षिक बजट उनके नाम से रखा जाता है।\n4. विवेकाधीन शक्तियां (Discretionary Powers): त्रिशंकु विधानसभा में मुख्यमंत्री का चयन करना तथा अनुच्छेद 356 के तहत राज्य में राष्ट्रपति शासन लगाने की सिफारिश करना।\n\nमूल्यांकन:\nसामान्यतः राज्यपाल मंत्रिपरिषद की सलाह पर कार्य करते हैं, किंतु उनकी विवेकाधीन शक्तियां और केंद्र के प्रतिनिधि के रूप में की गई भूमिकाएं (जैसे सरकारें बर्खास्त करना या विधेयकों को रोकना) अक्सर केंद्र-राज्य संबंधों में विवाद का विषय बनती रही हैं।\n\n---",
+      "explanationHindi": "राज्यपाल की शक्तियों का मूल्यांकन करें ।\nउत्तर:\nसंविधान के अनुच्छेद 153 के तहत प्रत्येक राज्य में एक राज्यपाल होता है, जो दोहरी भूमिका निभाता है—राज्य का संवैधानिक प्रमुख और केंद्र सरकार का प्रतिनिधि।\n\nराज्यपाल की प्रमुख शक्तियां:\n1. कार्यपालिका शक्तियां: राज्य के मुख्यमंत्री और उनकी सलाह पर अन्य मंत्रियों, महाधिवक्ता तथा राज्य लोक सेवा आयोग के अध्यक्ष की नियुक्ति राज्यपाल करते हैं। राज्य के सभी प्रशासनिक कार्य उन्हीं के नाम से होते हैं।\n2. विधायी शक्तियां: विधानमंडल का सत्र बुलाना, सत्रावसान करना और विधानसभा को भंग करना। विधेयकों को स्वीकृति देना या राष्ट्रपति के विचारार्थ आरक्षित रखना (अनुच्छेद 200)। सत्र न चलने पर अध्यादेश जारी करना (अनुच्छेद 213)।\n3. वित्तीय शक्तियां: विधानसभा में धन विधेयक राज्यपाल की पूर्व अनुमति से ही पेश किया जाता है और राज्य का वार्षिक बजट उनके नाम से रखा जाता है।\n4. विवेकाधीन शक्तियां (Discretionary Powers): त्रिशंकु विधानसभा में मुख्यमंत्री का चयन करना तथा अनुच्छेद 356 के तहत राज्य में राष्ट्रपति शासन लगाने की सिफारिश करना।\n\nमूल्यांकन:\nसामान्यतः राज्यपाल मंत्रिपरिषद की सलाह पर कार्य करते हैं, किंतु उनकी विवेकाधीन शक्तियां और केंद्र के प्रतिनिधि के रूप में की गई भूमिकाएं (जैसे सरकारें बर्खास्त करना या विधेयकों को रोकना) अक्सर केंद्र-राज्य संबंधों में विवाद का विषय बनती रही हैं।\n\n---",
+      "marks": 5
+    },
+    {
+      "id": "q-sec-c-35",
+      "sectionId": "sec-c",
+      "sectionName": "खण्ड–स : दीर्घ उत्तरीय प्रश्न",
+      "questionNumber": 35,
+      "type": "long",
+      "text": "भारत की संघीय व्यवस्था की प्रमुख विशेषताएँ क्या हैं ?\nWhat are the important features of Indian federal system ?",
+      "textHindi": "भारत की संघीय व्यवस्था की प्रमुख विशेषताएँ क्या हैं ?\nWhat are the important features of Indian federal system ?",
+      "modelAnswer": "भारत की संघीय व्यवस्था की प्रमुख विशेषताएँ क्या हैं ?\nउत्तर:\nभारतीय संविधान एक ऐसी संघीय व्यवस्था की स्थापना करता है जो संरचना में संघीय किंतु आत्मा में एकात्मक है। इसकी प्रमुख विशेषताएं निम्नलिखित हैं:\n\n1. दोहरी शासन प्रणाली: राष्ट्रीय स्तर पर केंद्र सरकार और प्रांतीय स्तर पर राज्य सरकारें कार्य करती हैं, जो अपने-अपने क्षेत्रों में संविधान से शक्तियां प्राप्त करती हैं।\n2. शक्तियों का स्पष्ट विभाजन: संविधान की 7वीं अनुसूची में तीन सूचियों (संघ सूची, राज्य सूची और समवर्ती सूची) के माध्यम से केंद्र और राज्यों के विधायी व प्रशासनिक अधिकार क्षेत्रों का स्पष्ट विभाजन है।\n3. संविधान की सर्वोच्चता: संविधान देश का सर्वोच्च कानून है। केंद्र या राज्य सरकार कोई ऐसा कानून नहीं बना सकती जो संविधान के मूल प्रावधानों के विरुद्ध हो।\n4. स्वतंत्र एवं निष्पक्ष न्यायपालिका: केंद्र और राज्यों के बीच किसी भी कानूनी विवाद के निपटारे और संविधान की अंतिम व्याख्या के लिए एक स्वतंत्र सर्वोच्च न्यायालय की व्यवस्था है।\n5. एकात्मक झुकाव (विशिष्ट लक्षण): संकटकाल में भारतीय ढांचा पूरी तरह एकात्मक हो जाता है। एकल नागरिकता, एकीकृत न्यायपालिका, अखिल भारतीय सेवाएं (IAS/IPS) और राज्यपाल की केंद्र द्वारा नियुक्ति इसे 'मजबूत केंद्र वाला संघ' बनाती हैं।\n\n---",
+      "explanationHindi": "भारत की संघीय व्यवस्था की प्रमुख विशेषताएँ क्या हैं ?\nउत्तर:\nभारतीय संविधान एक ऐसी संघीय व्यवस्था की स्थापना करता है जो संरचना में संघीय किंतु आत्मा में एकात्मक है। इसकी प्रमुख विशेषताएं निम्नलिखित हैं:\n\n1. दोहरी शासन प्रणाली: राष्ट्रीय स्तर पर केंद्र सरकार और प्रांतीय स्तर पर राज्य सरकारें कार्य करती हैं, जो अपने-अपने क्षेत्रों में संविधान से शक्तियां प्राप्त करती हैं।\n2. शक्तियों का स्पष्ट विभाजन: संविधान की 7वीं अनुसूची में तीन सूचियों (संघ सूची, राज्य सूची और समवर्ती सूची) के माध्यम से केंद्र और राज्यों के विधायी व प्रशासनिक अधिकार क्षेत्रों का स्पष्ट विभाजन है।\n3. संविधान की सर्वोच्चता: संविधान देश का सर्वोच्च कानून है। केंद्र या राज्य सरकार कोई ऐसा कानून नहीं बना सकती जो संविधान के मूल प्रावधानों के विरुद्ध हो।\n4. स्वतंत्र एवं निष्पक्ष न्यायपालिका: केंद्र और राज्यों के बीच किसी भी कानूनी विवाद के निपटारे और संविधान की अंतिम व्याख्या के लिए एक स्वतंत्र सर्वोच्च न्यायालय की व्यवस्था है।\n5. एकात्मक झुकाव (विशिष्ट लक्षण): संकटकाल में भारतीय ढांचा पूरी तरह एकात्मक हो जाता है। एकल नागरिकता, एकीकृत न्यायपालिका, अखिल भारतीय सेवाएं (IAS/IPS) और राज्यपाल की केंद्र द्वारा नियुक्ति इसे 'मजबूत केंद्र वाला संघ' बनाती हैं।\n\n---",
+      "marks": 5
+    },
+    {
+      "id": "q-sec-c-36",
+      "sectionId": "sec-c",
+      "sectionName": "खण्ड–स : दीर्घ उत्तरीय प्रश्न",
+      "questionNumber": 36,
+      "type": "long",
+      "text": "ग्राम पंचायत के गठन एवं उसके कार्यों की चर्चा करें ।\nDiscuss the formation and functions of Gram Panchayat.",
+      "textHindi": "ग्राम पंचायत के गठन एवं उसके कार्यों की चर्चा करें ।\nDiscuss the formation and functions of Gram Panchayat.",
+      "modelAnswer": "ग्राम पंचायत के गठन एवं उसके कार्यों की चर्चा करें ।\nउत्तर:\n73वें संविधान संशोधन (1992) के तहत ग्रामीण स्थानीय स्वशासन के लिए प्राथमिक स्तर पर 'ग्राम पंचायत' का गठन किया जाता है।\n\nग्राम पंचायत का गठन:\n1. संरचना: सामान्यतः 7,000 की आबादी पर एक ग्राम पंचायत बनती है, जो कई वार्डों में बंटी होती है। प्रत्येक वार्ड से एक वार्ड सदस्य और संपूर्ण पंचायत क्षेत्र से सीधे मतदाताओं द्वारा एक 'मुखिया' (ग्राम प्रधान) चुना जाता है।\n2. आरक्षण: महिलाओं के लिए कम से कम 33% (बिहार में 50%) सीटें तथा SC/ST और OBC वर्गों के लिए नियमानुसार आरक्षण का प्रावधान है।\n3. कार्यकाल: पहली बैठक से 5 वर्ष का निश्चित कार्यकाल होता है।\n\nग्राम पंचायत के प्रमुख कार्य:\n1. बुनियादी नागरिक सुविधाएं: गांव में पीने के स्वच्छ पानी की व्यवस्था, पक्की गलियों व नालियों का निर्माण, रखरखाव और स्ट्रीट लाइट की व्यवस्था।\n2. कृषि एवं सिंचाई विकास: कृषि तकनीकों का प्रसार, पशुपालन को बढ़ावा और लघु सिंचाई व जल स्रोतों का प्रबंधन।\n3. स्वास्थ्य एवं प्राथमिक शिक्षा: प्राथमिक विद्यालयों, आंगनबाड़ी और उप-स्वास्थ्य केंद्रों के संचालन में सहयोग करना।\n4. जनकल्याणकारी योजनाएं: मनरेगा (MGNREGA) के तहत रोजगार सृजन, प्रधानमंत्री आवास योजना के लाभार्थियों की पहचान, सामाजिक सुरक्षा पेंशन वितरण और जन्म-मृत्यु पंजीकरण।\n\n---",
+      "explanationHindi": "ग्राम पंचायत के गठन एवं उसके कार्यों की चर्चा करें ।\nउत्तर:\n73वें संविधान संशोधन (1992) के तहत ग्रामीण स्थानीय स्वशासन के लिए प्राथमिक स्तर पर 'ग्राम पंचायत' का गठन किया जाता है।\n\nग्राम पंचायत का गठन:\n1. संरचना: सामान्यतः 7,000 की आबादी पर एक ग्राम पंचायत बनती है, जो कई वार्डों में बंटी होती है। प्रत्येक वार्ड से एक वार्ड सदस्य और संपूर्ण पंचायत क्षेत्र से सीधे मतदाताओं द्वारा एक 'मुखिया' (ग्राम प्रधान) चुना जाता है।\n2. आरक्षण: महिलाओं के लिए कम से कम 33% (बिहार में 50%) सीटें तथा SC/ST और OBC वर्गों के लिए नियमानुसार आरक्षण का प्रावधान है।\n3. कार्यकाल: पहली बैठक से 5 वर्ष का निश्चित कार्यकाल होता है।\n\nग्राम पंचायत के प्रमुख कार्य:\n1. बुनियादी नागरिक सुविधाएं: गांव में पीने के स्वच्छ पानी की व्यवस्था, पक्की गलियों व नालियों का निर्माण, रखरखाव और स्ट्रीट लाइट की व्यवस्था।\n2. कृषि एवं सिंचाई विकास: कृषि तकनीकों का प्रसार, पशुपालन को बढ़ावा और लघु सिंचाई व जल स्रोतों का प्रबंधन।\n3. स्वास्थ्य एवं प्राथमिक शिक्षा: प्राथमिक विद्यालयों, आंगनबाड़ी और उप-स्वास्थ्य केंद्रों के संचालन में सहयोग करना।\n4. जनकल्याणकारी योजनाएं: मनरेगा (MGNREGA) के तहत रोजगार सृजन, प्रधानमंत्री आवास योजना के लाभार्थियों की पहचान, सामाजिक सुरक्षा पेंशन वितरण और जन्म-मृत्यु पंजीकरण।\n\n---",
+      "marks": 5
+    },
+    {
+      "id": "q-sec-c-37",
+      "sectionId": "sec-c",
+      "sectionName": "खण्ड–स : दीर्घ उत्तरीय प्रश्न",
+      "questionNumber": 37,
+      "type": "long",
+      "text": "उच्च न्यायालय के गठन एवं कार्यों पर एक निबन्ध लिखें ।\nWrite an essay on the composition and functions of High Court.",
+      "textHindi": "उच्च न्यायालय के गठन एवं कार्यों पर एक निबन्ध लिखें ।\nWrite an essay on the composition and functions of High Court.",
+      "modelAnswer": "उच्च न्यायालय के गठन एवं कार्यों पर एक निबन्ध लिखें ।\nउत्तर:\nभारतीय न्यायपालिका के एकीकृत ढांचे में राज्य स्तर पर शीर्ष न्यायिक संस्था 'उच्च न्यायालय' (High Court) है। संविधान के अनुच्छेद 214 के अनुसार प्रत्येक राज्य के लिए एक उच्च न्यायालय का प्रावधान है।\n\nगठन एवं संरचना:\nप्रत्येक उच्च न्यायालय में एक मुख्य न्यायाधीश और अन्य न्यायाधीश होते हैं जिनकी संख्या राष्ट्रपति द्वारा तय की जाती है। मुख्य न्यायाधीश की नियुक्ति राष्ट्रपति द्वारा भारत के मुख्य न्यायाधीश और राज्य के राज्यपाल के परामर्श से की जाती है। न्यायाधीशों की सेवानिवृत्ति आयु 62 वर्ष होती है।\n\nउच्च न्यायालय के प्रमुख कार्य एवं क्षेत्राधिकार:\n1. प्रारंभिक क्षेत्राधिकार: वसीयत, विवाह, तलाक, कंपनी कानून और संसद/विधानमंडल के चुनाव संबंधी विवादों की सीधी सुनवाई।\n2. रिट क्षेत्राधिकार (अनुच्छेद 226): नागरिकों के मौलिक अधिकारों तथा अन्य कानूनी अधिकारों के संरक्षण हेतु 5 प्रकार की रिटें (बंदी प्रत्यक्षीकरण, परमादेश, प्रतिषेध, उत्प्रेषण, अधिकार पृच्छा) जारी करने की व्यापक शक्ति।\n3. अपीलीय क्षेत्राधिकार: अधीनस्थ जिला एवं सत्र न्यायालयों के दीवानी और आपराधिक फैसलों के विरुद्ध अपील सुनना।\n4. पर्यवेक्षण एवं अभिलेख न्यायालय: अपने अधीन सभी अधीनस्थ अदालतों के कामकाज का निरीक्षण और नियम बनाना। इसके निर्णय भविष्य के मुकदमों के लिए नजीर (Precedent) माने जाते हैं।\n\n---",
+      "explanationHindi": "उच्च न्यायालय के गठन एवं कार्यों पर एक निबन्ध लिखें ।\nउत्तर:\nभारतीय न्यायपालिका के एकीकृत ढांचे में राज्य स्तर पर शीर्ष न्यायिक संस्था 'उच्च न्यायालय' (High Court) है। संविधान के अनुच्छेद 214 के अनुसार प्रत्येक राज्य के लिए एक उच्च न्यायालय का प्रावधान है।\n\nगठन एवं संरचना:\nप्रत्येक उच्च न्यायालय में एक मुख्य न्यायाधीश और अन्य न्यायाधीश होते हैं जिनकी संख्या राष्ट्रपति द्वारा तय की जाती है। मुख्य न्यायाधीश की नियुक्ति राष्ट्रपति द्वारा भारत के मुख्य न्यायाधीश और राज्य के राज्यपाल के परामर्श से की जाती है। न्यायाधीशों की सेवानिवृत्ति आयु 62 वर्ष होती है।\n\nउच्च न्यायालय के प्रमुख कार्य एवं क्षेत्राधिकार:\n1. प्रारंभिक क्षेत्राधिकार: वसीयत, विवाह, तलाक, कंपनी कानून और संसद/विधानमंडल के चुनाव संबंधी विवादों की सीधी सुनवाई।\n2. रिट क्षेत्राधिकार (अनुच्छेद 226): नागरिकों के मौलिक अधिकारों तथा अन्य कानूनी अधिकारों के संरक्षण हेतु 5 प्रकार की रिटें (बंदी प्रत्यक्षीकरण, परमादेश, प्रतिषेध, उत्प्रेषण, अधिकार पृच्छा) जारी करने की व्यापक शक्ति।\n3. अपीलीय क्षेत्राधिकार: अधीनस्थ जिला एवं सत्र न्यायालयों के दीवानी और आपराधिक फैसलों के विरुद्ध अपील सुनना।\n4. पर्यवेक्षण एवं अभिलेख न्यायालय: अपने अधीन सभी अधीनस्थ अदालतों के कामकाज का निरीक्षण और नियम बनाना। इसके निर्णय भविष्य के मुकदमों के लिए नजीर (Precedent) माने जाते हैं।\n\n---",
+      "marks": 5
+    },
+    {
+      "id": "q-sec-c-38",
+      "sectionId": "sec-c",
+      "sectionName": "खण्ड–स : दीर्घ उत्तरीय प्रश्न",
+      "questionNumber": 38,
+      "type": "long",
+      "text": "लोकसभा के कार्यों एवं शक्तियों की आलोचनात्मक व्याख्या करें ।\nCritically explain the functions and powers of Lok Sabha.",
+      "textHindi": "लोकसभा के कार्यों एवं शक्तियों की आलोचनात्मक व्याख्या करें ।\nCritically explain the functions and powers of Lok Sabha.",
+      "modelAnswer": "लोकसभा के कार्यों एवं शक्तियों की आलोचनात्मक व्याख्या करें ।\nउत्तर:\nलोकसभा भारतीय संसद का निचला किंतु सबसे शक्तिशाली लोकप्रिय सदन है क्योंकि इसके सदस्य सीधे देश की जनता द्वारा वयस्क मताधिकार से चुने जाते हैं।\n\nलोकसभा के प्रमुख कार्य एवं शक्तियां:\n1. विधायी शक्तियां: किसी भी सामान्य विधेयक को कानून बनाने में लोकसभा की भूमिका सर्वोपरि होती है। दोनों सदनों की संयुक्त बैठक में संख्या बल अधिक होने के कारण लोकसभा की ही विजय होती है।\n2. वित्तीय शक्तियां (एकाधिकार): धन विधेयक केवल लोकसभा में ही प्रस्तुत किया जा सकता है। वार्षिक बजट पारित करने और कार्यपालिका के खर्चों को मंजूरी देने का अंतिम अधिकार लोकसभा के पास है।\n3. कार्यपालिका पर नियंत्रण: केंद्रीय मंत्रिपरिषद सामूहिक रूप से लोकसभा के प्रति उत्तरदायी होती है। लोकसभा अविश्वास प्रस्ताव, ध्यानाकर्षण प्रस्ताव या बजट में कटौती प्रस्ताव पारित कर सरकार को पद से हटा सकती है।\n4. संवैधानिक एवं निर्वाचन संबंधी कार्य: संविधान संशोधन विधेयकों को पारित करना तथा राष्ट्रपति और उपराष्ट्रपति के चुनाव व महाभियोग में भाग लेना।\n\nआलोचनात्मक मूल्यांकन:\nयद्यपि लोकसभा कार्यपालिका पर नियंत्रण रखती है, परंतु व्यवहार में जब किसी दल को पूर्ण बहुमत प्राप्त होता है, तो कैबिनेट ही लोकसभा के कामकाज को नियंत्रित करने लगती है। कई बार सदन में लगातार हंगामे, व्यवधान और बिना पर्याप्त चर्चा के जल्दबाजी में विधेयकों का पारित होना इसकी प्रभावशीलता पर प्रश्नचिह्न लगाता है। इसके बावजूद लोकसभा भारतीय लोकतंत्र में जन-आकांक्षाओं की अभिव्यक्ति का सर्वोच्च मंच है।",
+      "explanationHindi": "लोकसभा के कार्यों एवं शक्तियों की आलोचनात्मक व्याख्या करें ।\nउत्तर:\nलोकसभा भारतीय संसद का निचला किंतु सबसे शक्तिशाली लोकप्रिय सदन है क्योंकि इसके सदस्य सीधे देश की जनता द्वारा वयस्क मताधिकार से चुने जाते हैं।\n\nलोकसभा के प्रमुख कार्य एवं शक्तियां:\n1. विधायी शक्तियां: किसी भी सामान्य विधेयक को कानून बनाने में लोकसभा की भूमिका सर्वोपरि होती है। दोनों सदनों की संयुक्त बैठक में संख्या बल अधिक होने के कारण लोकसभा की ही विजय होती है।\n2. वित्तीय शक्तियां (एकाधिकार): धन विधेयक केवल लोकसभा में ही प्रस्तुत किया जा सकता है। वार्षिक बजट पारित करने और कार्यपालिका के खर्चों को मंजूरी देने का अंतिम अधिकार लोकसभा के पास है।\n3. कार्यपालिका पर नियंत्रण: केंद्रीय मंत्रिपरिषद सामूहिक रूप से लोकसभा के प्रति उत्तरदायी होती है। लोकसभा अविश्वास प्रस्ताव, ध्यानाकर्षण प्रस्ताव या बजट में कटौती प्रस्ताव पारित कर सरकार को पद से हटा सकती है।\n4. संवैधानिक एवं निर्वाचन संबंधी कार्य: संविधान संशोधन विधेयकों को पारित करना तथा राष्ट्रपति और उपराष्ट्रपति के चुनाव व महाभियोग में भाग लेना।\n\nआलोचनात्मक मूल्यांकन:\nयद्यपि लोकसभा कार्यपालिका पर नियंत्रण रखती है, परंतु व्यवहार में जब किसी दल को पूर्ण बहुमत प्राप्त होता है, तो कैबिनेट ही लोकसभा के कामकाज को नियंत्रित करने लगती है। कई बार सदन में लगातार हंगामे, व्यवधान और बिना पर्याप्त चर्चा के जल्दबाजी में विधेयकों का पारित होना इसकी प्रभावशीलता पर प्रश्नचिह्न लगाता है। इसके बावजूद लोकसभा भारतीय लोकतंत्र में जन-आकांक्षाओं की अभिव्यक्ति का सर्वोच्च मंच है।",
+      "marks": 5
+    }
+  ]
+}

@@ -4,7 +4,7 @@ import { GlassCard } from '../components/ui/GlassCard';
 import { ChevronRight, BookOpen, Settings2, Sparkles, User, PlusCircle } from 'lucide-react';
 import { useStudentProfile } from '../context/StudentProfileContext';
 import { ALL_AVAILABLE_SUBJECTS } from '../types/studentProfile';
-import { questionRepository } from '../services/questionRepository';
+import { questionRepository, normalizeSubject } from '../services/questionRepository';
 import { PaperSummary } from '../types/question';
 
 export const Home: React.FC = () => {
@@ -30,12 +30,19 @@ export const Home: React.FC = () => {
     { id: '12', title: 'Class 12', emoji: '🎓' },
   ];
 
-  // Map of subject papers count from loaded papers
-  const paperCountBySubject = new Map<string, number>();
-  papers.forEach((p) => {
-    const count = paperCountBySubject.get(p.subject) || 0;
-    paperCountBySubject.set(p.subject, count + 1);
-  });
+  // Helper to count papers for a subject accurately
+  const getSubjectPaperCount = (subjectName: string): number => {
+    const normTarget = normalizeSubject(subjectName).toLowerCase();
+    return papers.filter((p) => {
+      const normP = normalizeSubject(p.subject).toLowerCase();
+      return (
+        normP === normTarget ||
+        normP.includes(normTarget) ||
+        normTarget.includes(normP) ||
+        p.subject.toLowerCase() === subjectName.toLowerCase()
+      );
+    }).length;
+  };
 
   // Filter available subjects for the currently selected class
   const classAvailableSubjects = ALL_AVAILABLE_SUBJECTS.filter((sub) =>
@@ -186,7 +193,7 @@ export const Home: React.FC = () => {
 
         <div className="space-y-3">
           {displayedSubjects.map((sub) => {
-            const paperCount = paperCountBySubject.get(sub.name) || 0;
+            const paperCount = getSubjectPaperCount(sub.name);
             return (
               <div
                 key={sub.name}

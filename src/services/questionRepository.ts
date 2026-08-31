@@ -111,7 +111,7 @@ const SUBJECT_ALIASES: Record<string, string> = {
   'संस्कृत': 'Sanskrit',
 };
 
-function normalizeSubject(input?: string): string {
+export function normalizeSubject(input?: string): string {
   if (!input) return '';
   const clean = input.trim().toLowerCase().replace(/[-_]/g, ' ');
   if (SUBJECT_ALIASES[clean]) {
@@ -124,7 +124,7 @@ function normalizeSubject(input?: string): string {
   return input.charAt(0).toUpperCase() + input.slice(1);
 }
 
-function normalizeClass(cls?: string): string {
+export function normalizeClass(cls?: string): string {
   if (!cls) return '12';
   const c = String(cls).trim().toLowerCase().replace(/^class-?/, '');
   if (c === 'xii' || c === '12' || c === 'twelfth') return '12';
@@ -263,7 +263,7 @@ export class GitHubQuestionRepository implements QuestionRepository {
 
       return {
         id: paperId,
-        class: rawClass,
+        class: normalizeClass(rawClass),
         subject: formattedSubject,
         board: meta.board || 'Bihar Board (BSEB)',
         year: meta.year || 2026,
@@ -543,7 +543,27 @@ export class GitHubQuestionRepository implements QuestionRepository {
         );
       }
 
-      // Try across CDN mirrors with URI encoding
+      // 1. Try local bundled data first (instant, 100% offline & zero-latency)
+      const localFilenames = [
+        canonical.replace('class-12_pol-science', 'class12_polscience'),
+        canonical.replace('class-12_history', 'class12_history'),
+        canonical,
+        paperId,
+        paperId.replace(/-/g, '_'),
+      ];
+
+      for (const fn of localFilenames) {
+        try {
+          const localUrl = `/data/papers/${fn}.json`;
+          const res = await fetch(localUrl);
+          if (res.ok) {
+            const rawJson = await res.json();
+            return this.parseRemotePaperJson(rawJson, localUrl);
+          }
+        } catch {}
+      }
+
+      // 2. Try across CDN mirrors with URI encoding
       for (const mirror of CDN_MIRRORS) {
         for (const relPath of relativePathsToTry) {
           try {

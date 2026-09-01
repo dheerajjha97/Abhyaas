@@ -1,0 +1,1126 @@
+{
+  "schemaVersion": "2.0",
+  "contentType": "syllabus",
+  "generatedAt": "2026-08-30T09:30:11.344Z",
+  "syllabus": {
+    "id": "syllabus-12-history-20252026",
+    "title": "Class 12 History (इतिहास) Syllabus (2025-2026)",
+    "classId": "12",
+    "className": "Class 12",
+    "subjectId": "history",
+    "subjectName": "History (इतिहास)",
+    "board": "Bihar Board (BSEB)",
+    "academicYear": "2025-2026",
+    "stream": "Science (PCB / PCM)",
+    "totalMarks": 70,
+    "totalUnits": 4,
+    "totalChapters": 16,
+    "totalTopics": 55
+  },
+  "units": [
+    {
+      "id": "unit-1",
+      "unitNumber": 1,
+      "title": "ANCIENT INDIA",
+      "hindiTitle": "प्राचीन भारत",
+      "chapters": [
+        {
+          "id": "chap-history-1",
+          "chapterNumber": 1,
+          "unitNumber": 1,
+          "unitTitle": "ANCIENT INDIA",
+          "title": "Prehistoric Cultures",
+          "topics": [
+            {
+              "id": "topic-1-1",
+              "topicNumber": "1.1",
+              "title": "Prehistoric Sites[span_0](start_span)[span_0](end_span)",
+              "completed": false,
+              "order": 1
+            },
+            {
+              "id": "topic-1-2",
+              "topicNumber": "1.2",
+              "title": "Tools and Equipments[span_1](start_span)[span_1](end_span)",
+              "completed": false,
+              "order": 2
+            },
+            {
+              "id": "topic-1-3",
+              "topicNumber": "1.3",
+              "title": "Material and Cultural Development Stages[span_2](start_span)[span_2](end_span)",
+              "completed": false,
+              "order": 3
+            }
+          ]
+        },
+        {
+          "id": "chap-history-2",
+          "chapterNumber": 2,
+          "unitNumber": 1,
+          "unitTitle": "ANCIENT INDIA",
+          "title": "Harappan Civilization",
+          "topics": [
+            {
+              "id": "topic-2-1",
+              "topicNumber": "2.1",
+              "title": "Urban Traits and Planning[span_3](start_span)[span_3](end_span)",
+              "completed": false,
+              "order": 1
+            },
+            {
+              "id": "topic-2-2",
+              "topicNumber": "2.2",
+              "title": "Material Life and Economy[span_4](start_span)[span_4](end_span)",
+              "completed": false,
+              "order": 2
+            },
+            {
+              "id": "topic-2-3",
+              "topicNumber": "2.3",
+              "title": "Socio-Religious Life[span_5](start_span)[span_5](end_span)",
+              "completed": false,
+              "order": 3
+            }
+          ]
+        },
+        {
+          "id": "chap-history-3",
+          "chapterNumber": 3,
+          "unitNumber": 1,
+          "unitTitle": "ANCIENT INDIA",
+          "title": "Early Indian Religions",
+          "topics": [
+            {
+              "id": "topic-3-1",
+              "topicNumber": "3.1",
+              "title": "Vedic Traditions[span_6](start_span)[span_6](end_span)",
+              "completed": false,
+              "order": 1
+            },
+            {
+              "id": "topic-3-2",
+              "topicNumber": "3.2",
+              "title": "Buddhism and Important Buddhist Sites of Bihar[span_7](start_span)[span_7](end_span)",
+              "completed": false,
+              "order": 2
+            },
+            {
+              "id": "topic-3-3",
+              "topicNumber": "3.3",
+              "title": "Jainism[span_8](start_span)[span_8](end_span)",
+              "completed": false,
+              "order": 3
+            },
+            {
+              "id": "topic-3-4",
+              "topicNumber": "3.4",
+              "title": "Vaishnavism and Shaivism[span_9](start_span)[span_9](end_span)",
+              "completed": false,
+              "order": 4
+            }
+          ]
+        },
+        {
+          "id": "chap-history-4",
+          "chapterNumber": 4,
+          "unitNumber": 1,
+          "unitTitle": "ANCIENT INDIA",
+          "title": "Political and Economic History of the Mauryas",
+          "topics": [
+            {
+              "id": "topic-4-1",
+              "topicNumber": "4.1",
+              "title": "Rise of Magadh[span_10](start_span)[span_10](end_span)",
+              "completed": false,
+              "order": 1
+            },
+            {
+              "id": "topic-4-2",
+              "topicNumber": "4.2",
+              "title": "Growth of Patliputra[span_11](start_span)[span_11](end_span)",
+              "completed": false,
+              "order": 2
+            },
+            {
+              "id": "topic-4-3",
+              "topicNumber": "4.3",
+              "title": "Mauryan Stone Pillars and Inscriptions[span_12](start_span)[span_12](end_span)",
+              "completed": false,
+              "order": 3
+            }
+          ]
+        },
+        {
+          "id": "chap-history-5",
+          "chapterNumber": 5,
+          "unitNumber": 1,
+          "unitTitle": "ANCIENT INDIA",
+          "title": "Culture and Economy from Post-Mauryan to Gupta Period",
+          "topics": [
+            {
+              "id": "topic-5-1",
+              "topicNumber": "5.1",
+              "title": "Foreign Influx[span_13](start_span)[span_13](end_span)",
+              "completed": false,
+              "order": 1
+            },
+            {
+              "id": "topic-5-2",
+              "topicNumber": "5.2",
+              "title": "Language and Literature[span_14](start_span)[span_14](end_span)",
+              "completed": false,
+              "order": 2
+            },
+            {
+              "id": "topic-5-3",
+              "topicNumber": "5.3",
+              "title": "Trade and Industries[span_15](start_span)[span_15](end_span)",
+              "completed": false,
+              "order": 3
+            },
+            {
+              "id": "topic-5-4",
+              "topicNumber": "5.4",
+              "title": "Science and Technology (Special Focus: Aryabhatta)[span_16](start_span)[span_16](end_span)",
+              "completed": false,
+              "order": 4,
+              "subtopics": [
+                "Aryabhatta)[span_16](start_span)[span_16](end_span)"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "unit-2",
+      "unitNumber": 2,
+      "title": "MEDIEVAL INDIA",
+      "hindiTitle": "मध्यकालीन भारत",
+      "chapters": [
+        {
+          "id": "chap-history-6",
+          "chapterNumber": 6,
+          "unitNumber": 2,
+          "unitTitle": "MEDIEVAL INDIA",
+          "title": "Economy, Society, and Culture during Early Medieval Period",
+          "topics": [
+            {
+              "id": "topic-6-1",
+              "topicNumber": "6.1",
+              "title": "Varna and Caste System[span_17](start_span)[span_17](end_span)",
+              "completed": false,
+              "order": 1
+            },
+            {
+              "id": "topic-6-2",
+              "topicNumber": "6.2",
+              "title": "Evolution of Regional Cultural Identities[span_18](start_span)[span_18](end_span)",
+              "completed": false,
+              "order": 2
+            },
+            {
+              "id": "topic-6-3",
+              "topicNumber": "6.3",
+              "title": "Agrarian Relations[span_19](start_span)[span_19](end_span)",
+              "completed": false,
+              "order": 3
+            }
+          ]
+        },
+        {
+          "id": "chap-history-7",
+          "chapterNumber": 7,
+          "unitNumber": 2,
+          "unitTitle": "MEDIEVAL INDIA",
+          "title": "Political Changes under the Delhi Sultanate",
+          "topics": [
+            {
+              "id": "topic-7-1",
+              "topicNumber": "7.1",
+              "title": "Survey of Ruling Dynasties[span_20](start_span)[span_20](end_span)",
+              "completed": false,
+              "order": 1
+            },
+            {
+              "id": "topic-7-2",
+              "topicNumber": "7.2",
+              "title": "Key Rulers and Nature of Administration[span_21](start_span)[span_21](end_span)",
+              "completed": false,
+              "order": 2
+            }
+          ]
+        },
+        {
+          "id": "chap-history-8",
+          "chapterNumber": 8,
+          "unitNumber": 2,
+          "unitTitle": "MEDIEVAL INDIA",
+          "title": "Indo-Islamic Culture (1500–1700)",
+          "topics": [
+            {
+              "id": "topic-8-1",
+              "topicNumber": "8.1",
+              "title": "Language and Literature[span_22](start_span)[span_22](end_span)",
+              "completed": false,
+              "order": 1
+            },
+            {
+              "id": "topic-8-2",
+              "topicNumber": "8.2",
+              "title": "Art and Architecture (Monuments of Medieval Bihar)[span_23](start_span)[span_23](end_span)",
+              "completed": false,
+              "order": 2
+            },
+            {
+              "id": "topic-8-3",
+              "topicNumber": "8.3",
+              "title": "Dress and Lifestyle (Composite Culture)[span_24](start_span)[span_24](end_span)",
+              "completed": false,
+              "order": 3
+            }
+          ]
+        },
+        {
+          "id": "chap-history-9",
+          "chapterNumber": 9,
+          "unitNumber": 2,
+          "unitTitle": "MEDIEVAL INDIA",
+          "title": "Urban Economy in Medieval Age",
+          "topics": [
+            {
+              "id": "topic-9-1",
+              "topicNumber": "9.1",
+              "title": "Crafts and Production[span_25](start_span)[span_25](end_span)",
+              "completed": false,
+              "order": 1
+            },
+            {
+              "id": "topic-9-2",
+              "topicNumber": "9.2",
+              "title": "Trade Networks and Routes[span_26](start_span)[span_26](end_span)",
+              "completed": false,
+              "order": 2
+            },
+            {
+              "id": "topic-9-3",
+              "topicNumber": "9.3",
+              "title": "Medieval Urban Centres (Emphasis on Towns of Bihar)[span_27](start_span)[span_27](end_span)",
+              "completed": false,
+              "order": 3
+            }
+          ]
+        },
+        {
+          "id": "chap-history-10",
+          "chapterNumber": 10,
+          "unitNumber": 2,
+          "unitTitle": "MEDIEVAL INDIA",
+          "title": "Bhakti and Sufi Movements",
+          "topics": [
+            {
+              "id": "topic-10-1",
+              "topicNumber": "10.1",
+              "title": "Leading Saints and Their Sayings[span_28](start_span)[span_28](end_span)",
+              "completed": false,
+              "order": 1
+            },
+            {
+              "id": "topic-10-2",
+              "topicNumber": "10.2",
+              "title": "Characteristic Features of the Movements[span_29](start_span)[span_29](end_span)",
+              "completed": false,
+              "order": 2
+            },
+            {
+              "id": "topic-10-3",
+              "topicNumber": "10.3",
+              "title": "Contributions to Indian Culture and Society[span_30](start_span)[span_30](end_span)",
+              "completed": false,
+              "order": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "unit-3",
+      "unitNumber": 3,
+      "title": "MODERN INDIA & THE COLONIAL PERIOD",
+      "hindiTitle": "आधुनिक भारत",
+      "chapters": [
+        {
+          "id": "chap-history-11",
+          "chapterNumber": 11,
+          "unitNumber": 3,
+          "unitTitle": "MODERN INDIA & THE COLONIAL PERIOD",
+          "title": "The Rule of the East India Company",
+          "topics": [
+            {
+              "id": "topic-11-1",
+              "topicNumber": "11.1",
+              "title": "Land Revenue Settlements[span_31](start_span)[span_31](end_span)",
+              "completed": false,
+              "order": 1
+            },
+            {
+              "id": "topic-11-2",
+              "topicNumber": "11.2",
+              "title": "Economic Impact and Consequences[span_32](start_span)[span_32](end_span)",
+              "completed": false,
+              "order": 2
+            },
+            {
+              "id": "topic-11-3",
+              "topicNumber": "11.3",
+              "title": "Policies of Imperial Expansion[span_33](start_span)[span_33](end_span)",
+              "completed": false,
+              "order": 3
+            }
+          ]
+        },
+        {
+          "id": "chap-history-12",
+          "chapterNumber": 12,
+          "unitNumber": 3,
+          "unitTitle": "MODERN INDIA & THE COLONIAL PERIOD",
+          "title": "The Revolt of 1857",
+          "topics": [
+            {
+              "id": "topic-12-1",
+              "topicNumber": "12.1",
+              "title": "Causes and Immediate Spark[span_34](start_span)[span_34](end_span)",
+              "completed": false,
+              "order": 1
+            },
+            {
+              "id": "topic-12-2",
+              "topicNumber": "12.2",
+              "title": "Nature and Spread[span_35](start_span)[span_35](end_span)",
+              "completed": false,
+              "order": 2
+            },
+            {
+              "id": "topic-12-3",
+              "topicNumber": "12.3",
+              "title": "Effects and Outcomes[span_36](start_span)[span_36](end_span)",
+              "completed": false,
+              "order": 3
+            },
+            {
+              "id": "topic-12-4",
+              "topicNumber": "12.4",
+              "title": "Role of Veer Kunwar Singh and the Revolt in Bihar[span_37](start_span)[span_37](end_span)",
+              "completed": false,
+              "order": 4
+            }
+          ]
+        },
+        {
+          "id": "chap-history-13",
+          "chapterNumber": 13,
+          "unitNumber": 3,
+          "unitTitle": "MODERN INDIA & THE COLONIAL PERIOD",
+          "title": "The Indian Awakening in the 19th Century",
+          "topics": [
+            {
+              "id": "topic-13-1",
+              "topicNumber": "13.1",
+              "title": "Important Personalities and Reform Organisations[span_38](start_span)[span_38](end_span)",
+              "completed": false,
+              "order": 1
+            },
+            {
+              "id": "topic-13-2",
+              "topicNumber": "13.2",
+              "title": "Themes of Self-Introspection and Social Reform[span_39](start_span)[span_39](end_span)",
+              "completed": false,
+              "order": 2
+            },
+            {
+              "id": "topic-13-3",
+              "topicNumber": "13.3",
+              "title": "Development of International Consciousness[span_40](start_span)[span_40](end_span)",
+              "completed": false,
+              "order": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "unit-4",
+      "unitNumber": 4,
+      "title": "NATIONAL MOVEMENT, PARTITION & POST-INDEPENDENCE",
+      "hindiTitle": "राष्ट्रीय आंदोलन एवं स्वतंत्र भारत",
+      "chapters": [
+        {
+          "id": "chap-history-14",
+          "chapterNumber": 14,
+          "unitNumber": 4,
+          "unitTitle": "NATIONAL MOVEMENT, PARTITION & POST-INDEPENDENCE",
+          "title": "The Nationalist Movements (1918–1947)",
+          "topics": [
+            {
+              "id": "topic-14-1",
+              "topicNumber": "14.1",
+              "title": "Non-Cooperation Movement[span_41](start_span)[span_41](end_span)",
+              "completed": false,
+              "order": 1
+            },
+            {
+              "id": "topic-14-2",
+              "topicNumber": "14.2",
+              "title": "Civil Disobedience Movement[span_42](start_span)[span_42](end_span)",
+              "completed": false,
+              "order": 2
+            },
+            {
+              "id": "topic-14-3",
+              "topicNumber": "14.3",
+              "title": "Quit India Movement[span_43](start_span)[span_43](end_span)",
+              "completed": false,
+              "order": 3
+            },
+            {
+              "id": "topic-14-4",
+              "topicNumber": "14.4",
+              "title": "The Royal Indian Navy Mutiny[span_44](start_span)[span_44](end_span)",
+              "completed": false,
+              "order": 4
+            },
+            {
+              "id": "topic-14-5",
+              "topicNumber": "14.5",
+              "title": "Nationalist Mass Activities in Bihar[span_45](start_span)[span_45](end_span)",
+              "completed": false,
+              "order": 5
+            }
+          ]
+        },
+        {
+          "id": "chap-history-15",
+          "chapterNumber": 15,
+          "unitNumber": 4,
+          "unitTitle": "NATIONAL MOVEMENT, PARTITION & POST-INDEPENDENCE",
+          "title": "Partition and Independence",
+          "topics": [
+            {
+              "id": "topic-15-1",
+              "topicNumber": "15.1",
+              "title": "Muslim League and the Two-Nation Theory[span_46](start_span)[span_46](end_span)",
+              "completed": false,
+              "order": 1
+            },
+            {
+              "id": "topic-15-2",
+              "topicNumber": "15.2",
+              "title": "Wavell Plan[span_47](start_span)[span_47](end_span)",
+              "completed": false,
+              "order": 2
+            },
+            {
+              "id": "topic-15-3",
+              "topicNumber": "15.3",
+              "title": "Mountbatten Plan[span_48](start_span)[span_48](end_span)",
+              "completed": false,
+              "order": 3
+            },
+            {
+              "id": "topic-15-4",
+              "topicNumber": "15.4",
+              "title": "Indian Independence Act[span_49](start_span)[span_49](end_span)",
+              "completed": false,
+              "order": 4
+            },
+            {
+              "id": "topic-15-5",
+              "topicNumber": "15.5",
+              "title": "Pangs and Tragedies of Partition[span_50](start_span)[span_50](end_span)",
+              "completed": false,
+              "order": 5
+            }
+          ]
+        },
+        {
+          "id": "chap-history-16",
+          "chapterNumber": 16,
+          "unitNumber": 4,
+          "unitTitle": "NATIONAL MOVEMENT, PARTITION & POST-INDEPENDENCE",
+          "title": "Visions of the New State",
+          "topics": [
+            {
+              "id": "topic-16-1",
+              "topicNumber": "16.1",
+              "title": "Making of the Indian Constitution[span_51](start_span)[span_51](end_span)",
+              "completed": false,
+              "order": 1
+            },
+            {
+              "id": "topic-16-2",
+              "topicNumber": "16.2",
+              "title": "Reorganisation of States[span_52](start_span)[span_52](end_span)",
+              "completed": false,
+              "order": 2
+            },
+            {
+              "id": "topic-16-3",
+              "topicNumber": "16.3",
+              "title": "Five-Year Plans and Mixed Economy[span_53](start_span)[span_53](end_span)",
+              "completed": false,
+              "order": 3
+            },
+            {
+              "id": "topic-16-4",
+              "topicNumber": "16.4",
+              "title": "Foreign Policy: The Non-Aligned Movement (NAM)[span_54](start_span)[span_54](end_span)",
+              "completed": false,
+              "order": 4,
+              "subtopics": [
+                "The Non-Aligned Movement (NAM)[span_54](start_span)[span_54](end_span)"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "chapters": [
+    {
+      "id": "chap-history-1",
+      "chapterNumber": 1,
+      "unitNumber": 1,
+      "unitTitle": "ANCIENT INDIA",
+      "title": "Prehistoric Cultures",
+      "topics": [
+        {
+          "id": "topic-1-1",
+          "topicNumber": "1.1",
+          "title": "Prehistoric Sites[span_0](start_span)[span_0](end_span)",
+          "completed": false,
+          "order": 1
+        },
+        {
+          "id": "topic-1-2",
+          "topicNumber": "1.2",
+          "title": "Tools and Equipments[span_1](start_span)[span_1](end_span)",
+          "completed": false,
+          "order": 2
+        },
+        {
+          "id": "topic-1-3",
+          "topicNumber": "1.3",
+          "title": "Material and Cultural Development Stages[span_2](start_span)[span_2](end_span)",
+          "completed": false,
+          "order": 3
+        }
+      ]
+    },
+    {
+      "id": "chap-history-2",
+      "chapterNumber": 2,
+      "unitNumber": 1,
+      "unitTitle": "ANCIENT INDIA",
+      "title": "Harappan Civilization",
+      "topics": [
+        {
+          "id": "topic-2-1",
+          "topicNumber": "2.1",
+          "title": "Urban Traits and Planning[span_3](start_span)[span_3](end_span)",
+          "completed": false,
+          "order": 1
+        },
+        {
+          "id": "topic-2-2",
+          "topicNumber": "2.2",
+          "title": "Material Life and Economy[span_4](start_span)[span_4](end_span)",
+          "completed": false,
+          "order": 2
+        },
+        {
+          "id": "topic-2-3",
+          "topicNumber": "2.3",
+          "title": "Socio-Religious Life[span_5](start_span)[span_5](end_span)",
+          "completed": false,
+          "order": 3
+        }
+      ]
+    },
+    {
+      "id": "chap-history-3",
+      "chapterNumber": 3,
+      "unitNumber": 1,
+      "unitTitle": "ANCIENT INDIA",
+      "title": "Early Indian Religions",
+      "topics": [
+        {
+          "id": "topic-3-1",
+          "topicNumber": "3.1",
+          "title": "Vedic Traditions[span_6](start_span)[span_6](end_span)",
+          "completed": false,
+          "order": 1
+        },
+        {
+          "id": "topic-3-2",
+          "topicNumber": "3.2",
+          "title": "Buddhism and Important Buddhist Sites of Bihar[span_7](start_span)[span_7](end_span)",
+          "completed": false,
+          "order": 2
+        },
+        {
+          "id": "topic-3-3",
+          "topicNumber": "3.3",
+          "title": "Jainism[span_8](start_span)[span_8](end_span)",
+          "completed": false,
+          "order": 3
+        },
+        {
+          "id": "topic-3-4",
+          "topicNumber": "3.4",
+          "title": "Vaishnavism and Shaivism[span_9](start_span)[span_9](end_span)",
+          "completed": false,
+          "order": 4
+        }
+      ]
+    },
+    {
+      "id": "chap-history-4",
+      "chapterNumber": 4,
+      "unitNumber": 1,
+      "unitTitle": "ANCIENT INDIA",
+      "title": "Political and Economic History of the Mauryas",
+      "topics": [
+        {
+          "id": "topic-4-1",
+          "topicNumber": "4.1",
+          "title": "Rise of Magadh[span_10](start_span)[span_10](end_span)",
+          "completed": false,
+          "order": 1
+        },
+        {
+          "id": "topic-4-2",
+          "topicNumber": "4.2",
+          "title": "Growth of Patliputra[span_11](start_span)[span_11](end_span)",
+          "completed": false,
+          "order": 2
+        },
+        {
+          "id": "topic-4-3",
+          "topicNumber": "4.3",
+          "title": "Mauryan Stone Pillars and Inscriptions[span_12](start_span)[span_12](end_span)",
+          "completed": false,
+          "order": 3
+        }
+      ]
+    },
+    {
+      "id": "chap-history-5",
+      "chapterNumber": 5,
+      "unitNumber": 1,
+      "unitTitle": "ANCIENT INDIA",
+      "title": "Culture and Economy from Post-Mauryan to Gupta Period",
+      "topics": [
+        {
+          "id": "topic-5-1",
+          "topicNumber": "5.1",
+          "title": "Foreign Influx[span_13](start_span)[span_13](end_span)",
+          "completed": false,
+          "order": 1
+        },
+        {
+          "id": "topic-5-2",
+          "topicNumber": "5.2",
+          "title": "Language and Literature[span_14](start_span)[span_14](end_span)",
+          "completed": false,
+          "order": 2
+        },
+        {
+          "id": "topic-5-3",
+          "topicNumber": "5.3",
+          "title": "Trade and Industries[span_15](start_span)[span_15](end_span)",
+          "completed": false,
+          "order": 3
+        },
+        {
+          "id": "topic-5-4",
+          "topicNumber": "5.4",
+          "title": "Science and Technology (Special Focus: Aryabhatta)[span_16](start_span)[span_16](end_span)",
+          "completed": false,
+          "order": 4,
+          "subtopics": [
+            "Aryabhatta)[span_16](start_span)[span_16](end_span)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "chap-history-6",
+      "chapterNumber": 6,
+      "unitNumber": 2,
+      "unitTitle": "MEDIEVAL INDIA",
+      "title": "Economy, Society, and Culture during Early Medieval Period",
+      "topics": [
+        {
+          "id": "topic-6-1",
+          "topicNumber": "6.1",
+          "title": "Varna and Caste System[span_17](start_span)[span_17](end_span)",
+          "completed": false,
+          "order": 1
+        },
+        {
+          "id": "topic-6-2",
+          "topicNumber": "6.2",
+          "title": "Evolution of Regional Cultural Identities[span_18](start_span)[span_18](end_span)",
+          "completed": false,
+          "order": 2
+        },
+        {
+          "id": "topic-6-3",
+          "topicNumber": "6.3",
+          "title": "Agrarian Relations[span_19](start_span)[span_19](end_span)",
+          "completed": false,
+          "order": 3
+        }
+      ]
+    },
+    {
+      "id": "chap-history-7",
+      "chapterNumber": 7,
+      "unitNumber": 2,
+      "unitTitle": "MEDIEVAL INDIA",
+      "title": "Political Changes under the Delhi Sultanate",
+      "topics": [
+        {
+          "id": "topic-7-1",
+          "topicNumber": "7.1",
+          "title": "Survey of Ruling Dynasties[span_20](start_span)[span_20](end_span)",
+          "completed": false,
+          "order": 1
+        },
+        {
+          "id": "topic-7-2",
+          "topicNumber": "7.2",
+          "title": "Key Rulers and Nature of Administration[span_21](start_span)[span_21](end_span)",
+          "completed": false,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "id": "chap-history-8",
+      "chapterNumber": 8,
+      "unitNumber": 2,
+      "unitTitle": "MEDIEVAL INDIA",
+      "title": "Indo-Islamic Culture (1500–1700)",
+      "topics": [
+        {
+          "id": "topic-8-1",
+          "topicNumber": "8.1",
+          "title": "Language and Literature[span_22](start_span)[span_22](end_span)",
+          "completed": false,
+          "order": 1
+        },
+        {
+          "id": "topic-8-2",
+          "topicNumber": "8.2",
+          "title": "Art and Architecture (Monuments of Medieval Bihar)[span_23](start_span)[span_23](end_span)",
+          "completed": false,
+          "order": 2
+        },
+        {
+          "id": "topic-8-3",
+          "topicNumber": "8.3",
+          "title": "Dress and Lifestyle (Composite Culture)[span_24](start_span)[span_24](end_span)",
+          "completed": false,
+          "order": 3
+        }
+      ]
+    },
+    {
+      "id": "chap-history-9",
+      "chapterNumber": 9,
+      "unitNumber": 2,
+      "unitTitle": "MEDIEVAL INDIA",
+      "title": "Urban Economy in Medieval Age",
+      "topics": [
+        {
+          "id": "topic-9-1",
+          "topicNumber": "9.1",
+          "title": "Crafts and Production[span_25](start_span)[span_25](end_span)",
+          "completed": false,
+          "order": 1
+        },
+        {
+          "id": "topic-9-2",
+          "topicNumber": "9.2",
+          "title": "Trade Networks and Routes[span_26](start_span)[span_26](end_span)",
+          "completed": false,
+          "order": 2
+        },
+        {
+          "id": "topic-9-3",
+          "topicNumber": "9.3",
+          "title": "Medieval Urban Centres (Emphasis on Towns of Bihar)[span_27](start_span)[span_27](end_span)",
+          "completed": false,
+          "order": 3
+        }
+      ]
+    },
+    {
+      "id": "chap-history-10",
+      "chapterNumber": 10,
+      "unitNumber": 2,
+      "unitTitle": "MEDIEVAL INDIA",
+      "title": "Bhakti and Sufi Movements",
+      "topics": [
+        {
+          "id": "topic-10-1",
+          "topicNumber": "10.1",
+          "title": "Leading Saints and Their Sayings[span_28](start_span)[span_28](end_span)",
+          "completed": false,
+          "order": 1
+        },
+        {
+          "id": "topic-10-2",
+          "topicNumber": "10.2",
+          "title": "Characteristic Features of the Movements[span_29](start_span)[span_29](end_span)",
+          "completed": false,
+          "order": 2
+        },
+        {
+          "id": "topic-10-3",
+          "topicNumber": "10.3",
+          "title": "Contributions to Indian Culture and Society[span_30](start_span)[span_30](end_span)",
+          "completed": false,
+          "order": 3
+        }
+      ]
+    },
+    {
+      "id": "chap-history-11",
+      "chapterNumber": 11,
+      "unitNumber": 3,
+      "unitTitle": "MODERN INDIA & THE COLONIAL PERIOD",
+      "title": "The Rule of the East India Company",
+      "topics": [
+        {
+          "id": "topic-11-1",
+          "topicNumber": "11.1",
+          "title": "Land Revenue Settlements[span_31](start_span)[span_31](end_span)",
+          "completed": false,
+          "order": 1
+        },
+        {
+          "id": "topic-11-2",
+          "topicNumber": "11.2",
+          "title": "Economic Impact and Consequences[span_32](start_span)[span_32](end_span)",
+          "completed": false,
+          "order": 2
+        },
+        {
+          "id": "topic-11-3",
+          "topicNumber": "11.3",
+          "title": "Policies of Imperial Expansion[span_33](start_span)[span_33](end_span)",
+          "completed": false,
+          "order": 3
+        }
+      ]
+    },
+    {
+      "id": "chap-history-12",
+      "chapterNumber": 12,
+      "unitNumber": 3,
+      "unitTitle": "MODERN INDIA & THE COLONIAL PERIOD",
+      "title": "The Revolt of 1857",
+      "topics": [
+        {
+          "id": "topic-12-1",
+          "topicNumber": "12.1",
+          "title": "Causes and Immediate Spark[span_34](start_span)[span_34](end_span)",
+          "completed": false,
+          "order": 1
+        },
+        {
+          "id": "topic-12-2",
+          "topicNumber": "12.2",
+          "title": "Nature and Spread[span_35](start_span)[span_35](end_span)",
+          "completed": false,
+          "order": 2
+        },
+        {
+          "id": "topic-12-3",
+          "topicNumber": "12.3",
+          "title": "Effects and Outcomes[span_36](start_span)[span_36](end_span)",
+          "completed": false,
+          "order": 3
+        },
+        {
+          "id": "topic-12-4",
+          "topicNumber": "12.4",
+          "title": "Role of Veer Kunwar Singh and the Revolt in Bihar[span_37](start_span)[span_37](end_span)",
+          "completed": false,
+          "order": 4
+        }
+      ]
+    },
+    {
+      "id": "chap-history-13",
+      "chapterNumber": 13,
+      "unitNumber": 3,
+      "unitTitle": "MODERN INDIA & THE COLONIAL PERIOD",
+      "title": "The Indian Awakening in the 19th Century",
+      "topics": [
+        {
+          "id": "topic-13-1",
+          "topicNumber": "13.1",
+          "title": "Important Personalities and Reform Organisations[span_38](start_span)[span_38](end_span)",
+          "completed": false,
+          "order": 1
+        },
+        {
+          "id": "topic-13-2",
+          "topicNumber": "13.2",
+          "title": "Themes of Self-Introspection and Social Reform[span_39](start_span)[span_39](end_span)",
+          "completed": false,
+          "order": 2
+        },
+        {
+          "id": "topic-13-3",
+          "topicNumber": "13.3",
+          "title": "Development of International Consciousness[span_40](start_span)[span_40](end_span)",
+          "completed": false,
+          "order": 3
+        }
+      ]
+    },
+    {
+      "id": "chap-history-14",
+      "chapterNumber": 14,
+      "unitNumber": 4,
+      "unitTitle": "NATIONAL MOVEMENT, PARTITION & POST-INDEPENDENCE",
+      "title": "The Nationalist Movements (1918–1947)",
+      "topics": [
+        {
+          "id": "topic-14-1",
+          "topicNumber": "14.1",
+          "title": "Non-Cooperation Movement[span_41](start_span)[span_41](end_span)",
+          "completed": false,
+          "order": 1
+        },
+        {
+          "id": "topic-14-2",
+          "topicNumber": "14.2",
+          "title": "Civil Disobedience Movement[span_42](start_span)[span_42](end_span)",
+          "completed": false,
+          "order": 2
+        },
+        {
+          "id": "topic-14-3",
+          "topicNumber": "14.3",
+          "title": "Quit India Movement[span_43](start_span)[span_43](end_span)",
+          "completed": false,
+          "order": 3
+        },
+        {
+          "id": "topic-14-4",
+          "topicNumber": "14.4",
+          "title": "The Royal Indian Navy Mutiny[span_44](start_span)[span_44](end_span)",
+          "completed": false,
+          "order": 4
+        },
+        {
+          "id": "topic-14-5",
+          "topicNumber": "14.5",
+          "title": "Nationalist Mass Activities in Bihar[span_45](start_span)[span_45](end_span)",
+          "completed": false,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "id": "chap-history-15",
+      "chapterNumber": 15,
+      "unitNumber": 4,
+      "unitTitle": "NATIONAL MOVEMENT, PARTITION & POST-INDEPENDENCE",
+      "title": "Partition and Independence",
+      "topics": [
+        {
+          "id": "topic-15-1",
+          "topicNumber": "15.1",
+          "title": "Muslim League and the Two-Nation Theory[span_46](start_span)[span_46](end_span)",
+          "completed": false,
+          "order": 1
+        },
+        {
+          "id": "topic-15-2",
+          "topicNumber": "15.2",
+          "title": "Wavell Plan[span_47](start_span)[span_47](end_span)",
+          "completed": false,
+          "order": 2
+        },
+        {
+          "id": "topic-15-3",
+          "topicNumber": "15.3",
+          "title": "Mountbatten Plan[span_48](start_span)[span_48](end_span)",
+          "completed": false,
+          "order": 3
+        },
+        {
+          "id": "topic-15-4",
+          "topicNumber": "15.4",
+          "title": "Indian Independence Act[span_49](start_span)[span_49](end_span)",
+          "completed": false,
+          "order": 4
+        },
+        {
+          "id": "topic-15-5",
+          "topicNumber": "15.5",
+          "title": "Pangs and Tragedies of Partition[span_50](start_span)[span_50](end_span)",
+          "completed": false,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "id": "chap-history-16",
+      "chapterNumber": 16,
+      "unitNumber": 4,
+      "unitTitle": "NATIONAL MOVEMENT, PARTITION & POST-INDEPENDENCE",
+      "title": "Visions of the New State",
+      "topics": [
+        {
+          "id": "topic-16-1",
+          "topicNumber": "16.1",
+          "title": "Making of the Indian Constitution[span_51](start_span)[span_51](end_span)",
+          "completed": false,
+          "order": 1
+        },
+        {
+          "id": "topic-16-2",
+          "topicNumber": "16.2",
+          "title": "Reorganisation of States[span_52](start_span)[span_52](end_span)",
+          "completed": false,
+          "order": 2
+        },
+        {
+          "id": "topic-16-3",
+          "topicNumber": "16.3",
+          "title": "Five-Year Plans and Mixed Economy[span_53](start_span)[span_53](end_span)",
+          "completed": false,
+          "order": 3
+        },
+        {
+          "id": "topic-16-4",
+          "topicNumber": "16.4",
+          "title": "Foreign Policy: The Non-Aligned Movement (NAM)[span_54](start_span)[span_54](end_span)",
+          "completed": false,
+          "order": 4,
+          "subtopics": [
+            "The Non-Aligned Movement (NAM)[span_54](start_span)[span_54](end_span)"
+          ]
+        }
+      ]
+    }
+  ]
+}

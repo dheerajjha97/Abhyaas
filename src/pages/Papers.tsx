@@ -6,7 +6,7 @@ import { HeaderBar } from '../components/ui/HeaderBar';
 import { PaperCard } from '../components/ui/PaperCard';
 import { GlassCard } from '../components/ui/GlassCard';
 import { Illustration } from '../components/ui/Illustration';
-import { FileText, Filter, RotateCw } from 'lucide-react';
+import { FileText, Filter, RotateCw, BookOpen, Layers } from 'lucide-react';
 
 export const Papers: React.FC = () => {
   const { classId = '12', subjectId = 'Biology' } = useParams<{ classId: string; subjectId: string }>();
@@ -41,9 +41,33 @@ export const Papers: React.FC = () => {
     <div className="space-y-5 pb-24 animate-in fade-in duration-300">
       <HeaderBar
         showBack
-        title={`${decodedSubject} Papers`}
-        subtitle={`Class ${classId} • Board Solved Question Papers`}
+        title={`${decodedSubject}`}
+        subtitle={`Class ${classId} • Study Resources`}
       />
+
+      {/* Resource Tab Navigation (Papers | Syllabus | Notes) */}
+      <div className="grid grid-cols-3 gap-2 bg-indigo-50/80 dark:bg-slate-900/80 p-1.5 rounded-2xl border border-indigo-100 dark:border-slate-800">
+        <button
+          className="py-2.5 px-3 rounded-xl bg-indigo-600 text-white font-black text-xs shadow-sm flex items-center justify-center gap-1.5 transition-all"
+        >
+          <FileText className="w-3.5 h-3.5" />
+          <span>Papers ({papers.length})</span>
+        </button>
+        <button
+          onClick={() => navigate(`/class/${classId}/subject/${encodeURIComponent(decodedSubject)}/syllabus`)}
+          className="py-2.5 px-3 rounded-xl bg-white/70 dark:bg-slate-800/70 text-slate-700 dark:text-slate-300 font-bold text-xs hover:bg-white dark:hover:bg-slate-800 transition-all flex items-center justify-center gap-1.5 cursor-pointer"
+        >
+          <Layers className="w-3.5 h-3.5 text-indigo-600" />
+          <span>Syllabus</span>
+        </button>
+        <button
+          onClick={() => navigate(`/class/${classId}/subject/${encodeURIComponent(decodedSubject)}/notes`)}
+          className="py-2.5 px-3 rounded-xl bg-white/70 dark:bg-slate-800/70 text-slate-700 dark:text-slate-300 font-bold text-xs hover:bg-white dark:hover:bg-slate-800 transition-all flex items-center justify-center gap-1.5 cursor-pointer"
+        >
+          <BookOpen className="w-3.5 h-3.5 text-purple-600" />
+          <span>Notes</span>
+        </button>
+      </div>
 
       {/* Header Banner */}
       <GlassCard variant="accent" padding="md" className="flex items-center justify-between gap-4 border-indigo-200">

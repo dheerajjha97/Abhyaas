@@ -13,6 +13,8 @@ import { LongQuestions } from './pages/LongQuestions';
 import { Bookmarks } from './pages/Bookmarks';
 import { Search } from './pages/Search';
 import { More } from './pages/More';
+import { SyllabusView } from './pages/SyllabusView';
+import { NotesView } from './pages/NotesView';
 import { BottomNavigation } from './components/ui/BottomNavigation';
 
 // Scroll to top on route change
@@ -57,6 +59,10 @@ const AppContent: React.FC = () => {
               <Route path="/" element={<Home />} />
               <Route path="/class/:classId/subjects" element={<Subjects />} />
               <Route path="/class/:classId/subject/:subjectId/papers" element={<Papers />} />
+              <Route path="/class/:classId/subject/:subjectId/syllabus" element={<SyllabusView />} />
+              <Route path="/class/:classId/subject/:subjectId/notes" element={<NotesView />} />
+              <Route path="/syllabus/:subjectId" element={<SyllabusView />} />
+              <Route path="/notes/:subjectId" element={<NotesView />} />
               <Route path="/paper/:paperId" element={<Preparation />} />
               <Route path="/paper/:paperId/quiz" element={<Quiz />} />
               <Route path="/paper/:paperId/quiz/result" element={<QuizResult />} />

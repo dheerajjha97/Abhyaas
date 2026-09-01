@@ -1,0 +1,4380 @@
+{
+  "schemaVersion": "2.0",
+  "paper": {
+    "id": "class-12_history_2024_set_a_sent_up",
+    "title": "Class 12 History (इतिहास) 2024 Set A SENT-UP (Bihar Board (BSEB))",
+    "classId": "class-12",
+    "subjectId": "history",
+    "board": "Bihar Board (BSEB)",
+    "year": 2024,
+    "set": "Set A SENT-UP",
+    "durationMinutes": 195,
+    "totalMarks": 200,
+    "totalQuestions": 138,
+    "status": "ready"
+  },
+  "sections": [
+    {
+      "id": "sec-a",
+      "name": "खण्ड–अ : वस्तुनिष्ठ प्रश्न (MCQ)",
+      "type": "mcq",
+      "questionCount": 100,
+      "marksPerQuestion": 1
+    },
+    {
+      "id": "sec-b",
+      "name": "खण्ड–ब : लघु उत्तरीय प्रश्न (Short)",
+      "type": "short",
+      "questionCount": 30,
+      "marksPerQuestion": 2
+    },
+    {
+      "id": "sec-c",
+      "name": "खण्ड–स : दीर्घ उत्तरीय प्रश्न (Long)",
+      "type": "long",
+      "questionCount": 8,
+      "marksPerQuestion": 5
+    }
+  ],
+  "stats": {
+    "totalQuestions": 138,
+    "mcqCount": 100,
+    "shortCount": 30,
+    "longCount": 8,
+    "answeredCount": 138
+  },
+  "questions": [
+    {
+      "id": "q-mcq-1",
+      "sectionId": "sec-a",
+      "sectionName": "खण्ड–अ : वस्तुनिष्ठ प्रश्न",
+      "questionNumber": 1,
+      "type": "mcq",
+      "text": "सिंधु घाटी सभ्यता में लोग अपने घर प्रायः बनाते थे / The people of the Indus Valley Civilization usually built their houses of",
+      "textHindi": "सिंधु घाटी सभ्यता में लोग अपने घर प्रायः बनाते थे / The people of the Indus Valley Civilization usually built their houses of",
+      "options": [
+        {
+          "id": "opt-1-a",
+          "key": "A",
+          "text": "पक्की ईंट से / Pucca bricks",
+          "textHindi": "पक्की ईंट से / Pucca bricks"
+        },
+        {
+          "id": "opt-1-b",
+          "key": "B",
+          "text": "पत्थर से / Stone",
+          "textHindi": "पत्थर से / Stone"
+        },
+        {
+          "id": "opt-1-c",
+          "key": "C",
+          "text": "लकड़ी से / Wood",
+          "textHindi": "लकड़ी से / Wood"
+        },
+        {
+          "id": "opt-1-d",
+          "key": "D",
+          "text": "इनमें से सभी से / All of these",
+          "textHindi": "इनमें से सभी से / All of these"
+        }
+      ],
+      "correctAnswer": "A",
+      "correctAnswerText": "(A) पक्की ईंट से",
+      "explanationHindi": "* व्याख्या: सिंधु घाटी सभ्यता के लोग अपने नगरों और मकानों का निर्माण मुख्य रूप से एक निश्चित अनुपात (1:2:4) में बनी पक्की ईंटों (Baked bricks) से करते थे।",
+      "marks": 1
+    },
+    {
+      "id": "q-mcq-2",
+      "sectionId": "sec-a",
+      "sectionName": "खण्ड–अ : वस्तुनिष्ठ प्रश्न",
+      "questionNumber": 2,
+      "type": "mcq",
+      "text": "'मोहनजोदड़ो' का मतलब है / The meaning of 'Mohenjodaro' is",
+      "textHindi": "'मोहनजोदड़ो' का मतलब है / The meaning of 'Mohenjodaro' is",
+      "options": [
+        {
+          "id": "opt-2-a",
+          "key": "A",
+          "text": "मृतकों का टीला / mound of the dead",
+          "textHindi": "मृतकों का टीला / mound of the dead"
+        },
+        {
+          "id": "opt-2-b",
+          "key": "B",
+          "text": "महान टीला / mound of the great",
+          "textHindi": "महान टीला / mound of the great"
+        },
+        {
+          "id": "opt-2-c",
+          "key": "C",
+          "text": "जीवितों का टीला / mound of the living",
+          "textHindi": "जीवितों का टीला / mound of the living"
+        }
+      ],
+      "correctAnswer": "A",
+      "correctAnswerText": "(A) मृतकों का टीला",
+      "explanationHindi": "* व्याख्या: सिंधी भाषा में 'मोहनजोदड़ो' शब्द का शाब्दिक अर्थ 'मृतकों का टीला' (Mound of the Dead) होता है।",
+      "marks": 1
+    },
+    {
+      "id": "q-mcq-3",
+      "sectionId": "sec-a",
+      "sectionName": "खण्ड–अ : वस्तुनिष्ठ प्रश्न",
+      "questionNumber": 3,
+      "type": "mcq",
+      "text": "लोथल किस नदी के किनारे स्थित है ? / Lothal is situated on the bank of which river ?",
+      "textHindi": "लोथल किस नदी के किनारे स्थित है ? / Lothal is situated on the bank of which river ?",
+      "options": [
+        {
+          "id": "opt-3-a",
+          "key": "A",
+          "text": "सिन्धु / Sindhu",
+          "textHindi": "सिन्धु / Sindhu"
+        },
+        {
+          "id": "opt-3-b",
+          "key": "B",
+          "text": "भोगवो / Bhogavo",
+          "textHindi": "भोगवो / Bhogavo"
+        },
+        {
+          "id": "opt-3-c",
+          "key": "C",
+          "text": "व्यास / Beas",
+          "textHindi": "व्यास / Beas"
+        },
+        {
+          "id": "opt-3-d",
+          "key": "D",
+          "text": "रावी / Ravi",
+          "textHindi": "रावी / Ravi"
+        }
+      ],
+      "correctAnswer": "B",
+      "correctAnswerText": "(B) भोगवो",
+      "explanationHindi": "* व्याख्या: गुजरात के अहमदाबाद जिले में स्थित हड़प्पा सभ्यता का प्रसिद्ध बंदरगाह नगर लोथल 'भोगवा' (भोगवो) नदी के तट पर स्थित है।",
+      "marks": 1
+    },
+    {
+      "id": "q-mcq-4",
+      "sectionId": "sec-a",
+      "sectionName": "खण्ड–अ : वस्तुनिष्ठ प्रश्न",
+      "questionNumber": 4,
+      "type": "mcq",
+      "text": "हड़प्पा सभ्यता के विशाल स्नानागार के अवशेष कहाँ से प्राप्त हुए हैं ? / From where are the remains of the Great Bath of Harappan civilization found ?",
+      "textHindi": "हड़प्पा सभ्यता के विशाल स्नानागार के अवशेष कहाँ से प्राप्त हुए हैं ? / From where are the remains of the Great Bath of Harappan civilization found ?",
+      "options": [
+        {
+          "id": "opt-4-a",
+          "key": "A",
+          "text": "रोपड़ / Ropar",
+          "textHindi": "रोपड़ / Ropar"
+        },
+        {
+          "id": "opt-4-b",
+          "key": "B",
+          "text": "मोहनजोदड़ो / Mohenjodaro",
+          "textHindi": "मोहनजोदड़ो / Mohenjodaro"
+        },
+        {
+          "id": "opt-4-c",
+          "key": "C",
+          "text": "कालीबंगा / Kalibangan",
+          "textHindi": "कालीबंगा / Kalibangan"
+        },
+        {
+          "id": "opt-4-d",
+          "key": "D",
+          "text": "लोथल / Lothal",
+          "textHindi": "लोथल / Lothal"
+        }
+      ],
+      "correctAnswer": "B",
+      "correctAnswerText": "(B) मोहनजोदड़ो",
+      "explanationHindi": "* व्याख्या: सिंधु घाटी सभ्यता के दुर्ग क्षेत्र से एक अद्वितीय व विशाल सार्वजनिक स्नानागार (Great Bath) के अवशेष मोहनजोदड़ो से प्राप्त हुए हैं।",
+      "marks": 1
+    },
+    {
+      "id": "q-mcq-5",
+      "sectionId": "sec-a",
+      "sectionName": "खण्ड–अ : वस्तुनिष्ठ प्रश्न",
+      "questionNumber": 5,
+      "type": "mcq",
+      "text": "हड़प्पा सभ्यता किस युग की सभ्यता है ? / Harappan civilization is of which age ?",
+      "textHindi": "हड़प्पा सभ्यता किस युग की सभ्यता है ? / Harappan civilization is of which age ?",
+      "options": [
+        {
+          "id": "opt-5-a",
+          "key": "A",
+          "text": "लौह युग / Iron age",
+          "textHindi": "लौह युग / Iron age"
+        },
+        {
+          "id": "opt-5-b",
+          "key": "B",
+          "text": "कांस्य युग / Bronze age",
+          "textHindi": "कांस्य युग / Bronze age"
+        },
+        {
+          "id": "opt-5-d",
+          "key": "D",
+          "text": "इनमें से कोई नहीं / None of these",
+          "textHindi": "इनमें से कोई नहीं / None of these"
+        }
+      ],
+      "correctAnswer": "B",
+      "correctAnswerText": "(B) कांस्य युग",
+      "explanationHindi": "* व्याख्या: हड़प्पा सभ्यता को 'कांस्य युगीन सभ्यता' माना जाता है क्योंकि यहाँ के लोग तांबे और टिन को मिलाकर कांसा (Bronze) बनाने की तकनीक से भली-भाँति परिचित थे।",
+      "marks": 1
+    },
+    {
+      "id": "q-mcq-6",
+      "sectionId": "sec-a",
+      "sectionName": "खण्ड–अ : वस्तुनिष्ठ प्रश्न",
+      "questionNumber": 6,
+      "type": "mcq",
+      "text": "हड़प्पा सभ्यता का सबसे बड़ा नगर कौन था ? / Which was the largest city of Harappan civilization ?",
+      "textHindi": "हड़प्पा सभ्यता का सबसे बड़ा नगर कौन था ? / Which was the largest city of Harappan civilization ?",
+      "options": [
+        {
+          "id": "opt-6-a",
+          "key": "A",
+          "text": "मोहनजोदड़ो / Mohenjodaro",
+          "textHindi": "मोहनजोदड़ो / Mohenjodaro"
+        },
+        {
+          "id": "opt-6-b",
+          "key": "B",
+          "text": "कालीबंगा / Kalibangan",
+          "textHindi": "कालीबंगा / Kalibangan"
+        },
+        {
+          "id": "opt-6-c",
+          "key": "C",
+          "text": "लोथल / Lothal",
+          "textHindi": "लोथल / Lothal"
+        },
+        {
+          "id": "opt-6-d",
+          "key": "D",
+          "text": "रंगपुर / Rangpur",
+          "textHindi": "रंगपुर / Rangpur"
+        }
+      ],
+      "correctAnswer": "A",
+      "correctAnswerText": "(A) मोहनजोदड़ो",
+      "explanationHindi": "* व्याख्या: सिंधु घाटी सभ्यता का सबसे विशाल और प्रमुख विकसित नगर मोहनजोदड़ो था, जो लगभग 250 हेक्टेयर क्षेत्र में फैला हुआ था।",
+      "marks": 1
+    },
+    {
+      "id": "q-mcq-7",
+      "sectionId": "sec-a",
+      "sectionName": "खण्ड–अ : वस्तुनिष्ठ प्रश्न",
+      "questionNumber": 7,
+      "type": "mcq",
+      "text": "मोहनजोदड़ो का उत्खनन किसने किया ? / Who excavated Mohenjodaro ?",
+      "textHindi": "मोहनजोदड़ो का उत्खनन किसने किया ? / Who excavated Mohenjodaro ?",
+      "options": [
+        {
+          "id": "opt-7-a",
+          "key": "A",
+          "text": "दयाराम साहनी / Dayaram Sahni",
+          "textHindi": "दयाराम साहनी / Dayaram Sahni"
+        },
+        {
+          "id": "opt-7-b",
+          "key": "B",
+          "text": "जॉन मार्शल / John Marshall",
+          "textHindi": "जॉन मार्शल / John Marshall"
+        },
+        {
+          "id": "opt-7-c",
+          "key": "C",
+          "text": "राखालदास बनर्जी / Rakhaldas Banerji",
+          "textHindi": "राखालदास बनर्जी / Rakhaldas Banerji"
+        },
+        {
+          "id": "opt-7-d",
+          "key": "D",
+          "text": "आर०एस० बिष्ट / R.S. Bisht",
+          "textHindi": "आर०एस० बिष्ट / R.S. Bisht"
+        }
+      ],
+      "correctAnswer": "C",
+      "correctAnswerText": "(C) राखालदास बनर्जी",
+      "explanationHindi": "* व्याख्या: 1922 ई० में प्रसिद्ध भारतीय पुरातत्वविद राखालदास बनर्जी (आर० डी० बनर्जी) ने सिंध प्रांत के लरकाना जिले में मोहनजोदड़ो स्थल की खोज और उत्खनन किया था।",
+      "marks": 1
+    },
+    {
+      "id": "q-mcq-8",
+      "sectionId": "sec-a",
+      "sectionName": "खण्ड–अ : वस्तुनिष्ठ प्रश्न",
+      "questionNumber": 8,
+      "type": "mcq",
+      "text": "कनिष्क का राज्यारोहण कब हुआ ? / When was Kanishka coronated ?",
+      "textHindi": "कनिष्क का राज्यारोहण कब हुआ ? / When was Kanishka coronated ?",
+      "options": [
+        {
+          "id": "opt-8-a",
+          "key": "A",
+          "text": "48 ई० / 48",
+          "textHindi": "48 ई० / 48"
+        },
+        {
+          "id": "opt-8-b",
+          "key": "B",
+          "text": "78 ई० / 78",
+          "textHindi": "78 ई० / 78"
+        },
+        {
+          "id": "opt-8-c",
+          "key": "C",
+          "text": "88 ई० / 88",
+          "textHindi": "88 ई० / 88"
+        },
+        {
+          "id": "opt-8-d",
+          "key": "D",
+          "text": "98 ई० / 98",
+          "textHindi": "98 ई० / 98"
+        }
+      ],
+      "correctAnswer": "B",
+      "correctAnswerText": "(B) 78 ई०",
+      "explanationHindi": "* व्याख्या: कुषाण वंश के महान प्रतापी सम्राट कनिष्क का राज्यारोहण 78 ईस्वी में हुआ था, जिस वर्ष से भारत का प्रसिद्ध 'शक संवत' प्रारंभ माना जाता है।",
+      "marks": 1
+    },
+    {
+      "id": "q-mcq-9",
+      "sectionId": "sec-a",
+      "sectionName": "खण्ड–अ : वस्तुनिष्ठ प्रश्न",
+      "questionNumber": 9,
+      "type": "mcq",
+      "text": "पाटलिपुत्र की स्थापना किसने की ? / Who established Pataliputra ?",
+      "textHindi": "पाटलिपुत्र की स्थापना किसने की ? / Who established Pataliputra ?",
+      "options": [
+        {
+          "id": "opt-9-a",
+          "key": "A",
+          "text": "बिम्बिसार / Bimbisara",
+          "textHindi": "बिम्बिसार / Bimbisara"
+        },
+        {
+          "id": "opt-9-b",
+          "key": "B",
+          "text": "उदयिन / Udayin",
+          "textHindi": "उदयिन / Udayin"
+        },
+        {
+          "id": "opt-9-c",
+          "key": "C",
+          "text": "अजातशत्रु / Ajatashatru",
+          "textHindi": "अजातशत्रु / Ajatashatru"
+        },
+        {
+          "id": "opt-9-d",
+          "key": "D",
+          "text": "चन्द्रगुप्त / Chandragupta",
+          "textHindi": "चन्द्रगुप्त / Chandragupta"
+        }
+      ],
+      "correctAnswer": "B",
+      "correctAnswerText": "(B) उदयिन",
+      "explanationHindi": "* व्याख्या: हर्यक वंश के शासक अजातशत्रु के पुत्र 'उदयिन' (उदयभद्र) ने गंगा और सोन नदी के संगम पर पाटलिपुत्र नगर की स्थापना कर उसे मगध की राजधानी बनाया था।",
+      "marks": 1
+    },
+    {
+      "id": "q-mcq-10",
+      "sectionId": "sec-a",
+      "sectionName": "खण्ड–अ : वस्तुनिष्ठ प्रश्न",
+      "questionNumber": 10,
+      "type": "mcq",
+      "text": "पुराणों की संख्या कितनी है ? / What is the number of Puranas ?",
+      "textHindi": "पुराणों की संख्या कितनी है ? / What is the number of Puranas ?",
+      "options": [
+        {
+          "id": "opt-10-a",
+          "key": "A",
+          "text": "16",
+          "textHindi": "16"
+        },
+        {
+          "id": "opt-10-b",
+          "key": "B",
+          "text": "18",
+          "textHindi": "18"
+        },
+        {
+          "id": "opt-10-c",
+          "key": "C",
+          "text": "19",
+          "textHindi": "19"
+        },
+        {
+          "id": "opt-10-d",
+          "key": "D",
+          "text": "20",
+          "textHindi": "20"
+        }
+      ],
+      "correctAnswer": "B",
+      "correctAnswerText": "(B) 18",
+      "explanationHindi": "* व्याख्या: प्राचीन हिंदू धार्मिक साहित्य और सनातन परंपरा के अनुसार महापुराणों की कुल संख्या 18 है।",
+      "marks": 1
+    },
+    {
+      "id": "q-mcq-11",
+      "sectionId": "sec-a",
+      "sectionName": "खण्ड–अ : वस्तुनिष्ठ प्रश्न",
+      "questionNumber": 11,
+      "type": "mcq",
+      "text": "'अर्थशास्त्र' किस राजवंश के बारे में बताता है ? / 'Arthashastra' speaks about which dynasty ?",
+      "textHindi": "'अर्थशास्त्र' किस राजवंश के बारे में बताता है ? / 'Arthashastra' speaks about which dynasty ?",
+      "options": [
+        {
+          "id": "opt-11-a",
+          "key": "A",
+          "text": "मौर्य / Maurya",
+          "textHindi": "मौर्य / Maurya"
+        },
+        {
+          "id": "opt-11-b",
+          "key": "B",
+          "text": "गुप्त / Gupta",
+          "textHindi": "गुप्त / Gupta"
+        },
+        {
+          "id": "opt-11-c",
+          "key": "C",
+          "text": "कुषाण / Kushana",
+          "textHindi": "कुषाण / Kushana"
+        },
+        {
+          "id": "opt-11-d",
+          "key": "D",
+          "text": "सातवाहन / Satavahana",
+          "textHindi": "सातवाहन / Satavahana"
+        }
+      ],
+      "correctAnswer": "A",
+      "correctAnswerText": "(A) मौर्य",
+      "explanationHindi": "* व्याख्या: कौटिल्य (चाणक्य) द्वारा रचित प्रसिद्ध राजनीतिक ग्रंथ 'अर्थशास्त्र' मौर्य साम्राज्य के शासन प्रबंध, अर्थव्यवस्था और राजनीति पर प्रकाश डालता है।",
+      "marks": 1
+    },
+    {
+      "id": "q-mcq-12",
+      "sectionId": "sec-a",
+      "sectionName": "खण्ड–अ : वस्तुनिष्ठ प्रश्न",
+      "questionNumber": 12,
+      "type": "mcq",
+      "text": "किस शासक को प्रियदर्शी कहा गया ? / Which ruler was called Priyadarshi ?",
+      "textHindi": "किस शासक को प्रियदर्शी कहा गया ? / Which ruler was called Priyadarshi ?",
+      "options": [
+        {
+          "id": "opt-12-a",
+          "key": "A",
+          "text": "अशोक / Ashoka",
+          "textHindi": "अशोक / Ashoka"
+        },
+        {
+          "id": "opt-12-b",
+          "key": "B",
+          "text": "समुद्रगुप्त / Samudragupta",
+          "textHindi": "समुद्रगुप्त / Samudragupta"
+        },
+        {
+          "id": "opt-12-c",
+          "key": "C",
+          "text": "चन्द्रगुप्त / Chandragupta",
+          "textHindi": "चन्द्रगुप्त / Chandragupta"
+        },
+        {
+          "id": "opt-12-d",
+          "key": "D",
+          "text": "बिन्दुसार / Bindusara",
+          "textHindi": "बिन्दुसार / Bindusara"
+        }
+      ],
+      "correctAnswer": "A",
+      "correctAnswerText": "(A) अशोक",
+      "explanationHindi": "* व्याख्या: मौर्य सम्राट अशोक के अभिलेखों में उन्हें 'देवानांपिय' (देवताओं का प्रिय) और 'पियदस्सी' (प्रियदर्शी यानी सुंदर मुखमुद्रा वाला) कहा गया है।",
+      "marks": 1
+    },
+    {
+      "id": "q-mcq-13",
+      "sectionId": "sec-a",
+      "sectionName": "खण्ड–अ : वस्तुनिष्ठ प्रश्न",
+      "questionNumber": 13,
+      "type": "mcq",
+      "text": "कौटिल्य की रचना है / Kautilya's creation is",
+      "textHindi": "कौटिल्य की रचना है / Kautilya's creation is",
+      "options": [
+        {
+          "id": "opt-13-a",
+          "key": "A",
+          "text": "मेघदूत / Meghadoot",
+          "textHindi": "मेघदूत / Meghadoot"
+        },
+        {
+          "id": "opt-13-b",
+          "key": "B",
+          "text": "अर्थशास्त्र / Arthashastra",
+          "textHindi": "अर्थशास्त्र / Arthashastra"
+        },
+        {
+          "id": "opt-13-c",
+          "key": "C",
+          "text": "मालविकाग्निमित्रम् / Malavikagnimitram",
+          "textHindi": "मालविकाग्निमित्रम् / Malavikagnimitram"
+        },
+        {
+          "id": "opt-13-d",
+          "key": "D",
+          "text": "मुद्राराक्षस / Mudrarakshasa",
+          "textHindi": "मुद्राराक्षस / Mudrarakshasa"
+        }
+      ],
+      "correctAnswer": "B",
+      "correctAnswerText": "(B) अर्थशास्त्र",
+      "explanationHindi": "* व्याख्या: मौर्य सम्राट चंद्रगुप्त मौर्य के प्रधानमंत्री और गुरु कौटिल्य (विष्णुगुप्त/चाणक्य) ने 'अर्थशास्त्र' की रचना की थी।",
+      "marks": 1
+    },
+    {
+      "id": "q-mcq-14",
+      "sectionId": "sec-a",
+      "sectionName": "खण्ड–अ : वस्तुनिष्ठ प्रश्न",
+      "questionNumber": 14,
+      "type": "mcq",
+      "text": "प्रयाग प्रशस्ति की रचना किसने की ? / Who composed Prayag Prashasti ?",
+      "textHindi": "प्रयाग प्रशस्ति की रचना किसने की ? / Who composed Prayag Prashasti ?",
+      "options": [
+        {
+          "id": "opt-14-a",
+          "key": "A",
+          "text": "कालिदास / Kalidasa",
+          "textHindi": "कालिदास / Kalidasa"
+        },
+        {
+          "id": "opt-14-b",
+          "key": "B",
+          "text": "बाणभट्ट / Banabhatta",
+          "textHindi": "बाणभट्ट / Banabhatta"
+        },
+        {
+          "id": "opt-14-c",
+          "key": "C",
+          "text": "हरिषेण / Harisena",
+          "textHindi": "हरिषेण / Harisena"
+        },
+        {
+          "id": "opt-14-d",
+          "key": "D",
+          "text": "पतंजलि / Patanjali",
+          "textHindi": "पतंजलि / Patanjali"
+        }
+      ],
+      "correctAnswer": "C",
+      "correctAnswerText": "(C) हरिषेण",
+      "explanationHindi": "* व्याख्या: गुप्त सम्राट समुद्रगुप्त के दरबारी कवि व महादंडनायक हरिषेण ने संस्कृत में 'प्रयाग प्रशस्ति' (इलाहाबाद स्तंभ लेख) की रचना की थी।",
+      "marks": 1
+    },
+    {
+      "id": "q-mcq-15",
+      "sectionId": "sec-a",
+      "sectionName": "खण्ड–अ : वस्तुनिष्ठ प्रश्न",
+      "questionNumber": 15,
+      "type": "mcq",
+      "text": "प्राचीन भारत में नवरत्न किस शासक के दरबार में रहते थे ? / In the court of which ruler did the Navaratnas reside in ancient India ?",
+      "textHindi": "प्राचीन भारत में नवरत्न किस शासक के दरबार में रहते थे ? / In the court of which ruler did the Navaratnas reside in ancient India ?",
+      "options": [
+        {
+          "id": "opt-15-a",
+          "key": "A",
+          "text": "अशोक / Ashoka",
+          "textHindi": "अशोक / Ashoka"
+        },
+        {
+          "id": "opt-15-b",
+          "key": "B",
+          "text": "समुद्रगुप्त / Samudragupta",
+          "textHindi": "समुद्रगुप्त / Samudragupta"
+        },
+        {
+          "id": "opt-15-c",
+          "key": "C",
+          "text": "कनिष्क / Kanishka",
+          "textHindi": "कनिष्क / Kanishka"
+        },
+        {
+          "id": "opt-15-d",
+          "key": "D",
+          "text": "चन्द्रगुप्त विक्रमादित्य / Chandragupta Vikramaditya",
+          "textHindi": "चन्द्रगुप्त विक्रमादित्य / Chandragupta Vikramaditya"
+        }
+      ],
+      "correctAnswer": "D",
+      "correctAnswerText": "(D) चन्द्रगुप्त विक्रमादित्य",
+      "explanationHindi": "* व्याख्या: गुप्त सम्राट चंद्रगुप्त द्वितीय (विक्रमादित्य) के दरबार में विभिन्न विधाओं के नौ प्रकांड विद्वान रहते थे, जिन्हें 'नवरत्न' (जैसे कालिदास, वराहमिहिर, अमरसिंह आदि) कहा जाता था।",
+      "marks": 1
+    },
+    {
+      "id": "q-mcq-16",
+      "sectionId": "sec-a",
+      "sectionName": "खण्ड–अ : वस्तुनिष्ठ प्रश्न",
+      "questionNumber": 16,
+      "type": "mcq",
+      "text": "महाभारत की रचना किस भाषा में हुई ? / In which language was Mahabharata composed ?",
+      "textHindi": "महाभारत की रचना किस भाषा में हुई ? / In which language was Mahabharata composed ?",
+      "options": [
+        {
+          "id": "opt-16-a",
+          "key": "A",
+          "text": "संस्कृत / S",
+          "textHindi": "संस्कृत / S"
+        },
+        {
+          "id": "opt-16-b",
+          "key": "B",
+          "text": "पालि / Pali",
+          "textHindi": "पालि / Pali"
+        },
+        {
+          "id": "opt-16-c",
+          "key": "C",
+          "text": "प्राकृत / Prakrit",
+          "textHindi": "प्राकृत / Prakrit"
+        },
+        {
+          "id": "opt-16-d",
+          "key": "D",
+          "text": "हिन्दी / Hindi",
+          "textHindi": "हिन्दी / Hindi"
+        }
+      ],
+      "correctAnswer": "A",
+      "correctAnswerText": "(A) संस्कृत",
+      "explanationHindi": "* व्याख्या: महर्षि वेदव्यास द्वारा रचित विश्व के सबसे बड़े महाकाव्य 'महाभारत' की मूल रचना शास्त्रीय संस्कृत भाषा में हुई है।",
+      "marks": 1
+    },
+    {
+      "id": "q-mcq-17",
+      "sectionId": "sec-a",
+      "sectionName": "खण्ड–अ : वस्तुनिष्ठ प्रश्न",
+      "questionNumber": 17,
+      "type": "mcq",
+      "text": "महाभारत का युद्ध कितने दिनों चला ? / How many days did battle of Mahabharata last ?",
+      "textHindi": "महाभारत का युद्ध कितने दिनों चला ? / How many days did battle of Mahabharata last ?",
+      "options": [
+        {
+          "id": "opt-17-a",
+          "key": "A",
+          "text": "10",
+          "textHindi": "10"
+        },
+        {
+          "id": "opt-17-b",
+          "key": "B",
+          "text": "12",
+          "textHindi": "12"
+        },
+        {
+          "id": "opt-17-c",
+          "key": "C",
+          "text": "18",
+          "textHindi": "18"
+        },
+        {
+          "id": "opt-17-d",
+          "key": "D",
+          "text": "20",
+          "textHindi": "20"
+        }
+      ],
+      "correctAnswer": "C",
+      "correctAnswerText": "(C) 18",
+      "explanationHindi": "* व्याख्या: महाभारत में कौरवों और पांडवों के बीच कुरुक्षेत्र के मैदान में लड़ा गया महायुद्ध 18 दिनों तक चला था।",
+      "marks": 1
+    },
+    {
+      "id": "q-mcq-18",
+      "sectionId": "sec-a",
+      "sectionName": "खण्ड–अ : वस्तुनिष्ठ प्रश्न",
+      "questionNumber": 18,
+      "type": "mcq",
+      "text": "नालन्दा किस राज्य में अवस्थित है ? / In which state is Nalanda situated ?",
+      "textHindi": "नालन्दा किस राज्य में अवस्थित है ? / In which state is Nalanda situated ?",
+      "options": [
+        {
+          "id": "opt-18-a",
+          "key": "A",
+          "text": "पश्चिम बंगाल / West Bengal",
+          "textHindi": "पश्चिम बंगाल / West Bengal"
+        },
+        {
+          "id": "opt-18-b",
+          "key": "B",
+          "text": "बिहार / Bihar",
+          "textHindi": "बिहार / Bihar"
+        },
+        {
+          "id": "opt-18-c",
+          "key": "C",
+          "text": "ओडिशा / Odisha",
+          "textHindi": "ओडिशा / Odisha"
+        }
+      ],
+      "correctAnswer": "B",
+      "correctAnswerText": "(B) बिहार",
+      "explanationHindi": "* व्याख्या: प्राचीन विश्वविख्यात नालंदा बौद्ध महाविहार वर्तमान भारत के बिहार राज्य के नालंदा जिले (राजगीर के निकट) में स्थित है।",
+      "marks": 1
+    },
+    {
+      "id": "q-mcq-19",
+      "sectionId": "sec-a",
+      "sectionName": "खण्ड–अ : वस्तुनिष्ठ प्रश्न",
+      "questionNumber": 19,
+      "type": "mcq",
+      "text": "महावीर का जन्म कहाँ हुआ था ? / Where was Mahavira born ?",
+      "textHindi": "महावीर का जन्म कहाँ हुआ था ? / Where was Mahavira born ?",
+      "options": [
+        {
+          "id": "opt-19-a",
+          "key": "A",
+          "text": "वैशाली / Vaishali",
+          "textHindi": "वैशाली / Vaishali"
+        },
+        {
+          "id": "opt-19-b",
+          "key": "B",
+          "text": "मगध / Magadha",
+          "textHindi": "मगध / Magadha"
+        },
+        {
+          "id": "opt-19-c",
+          "key": "C",
+          "text": "सारनाथ / Sarnath",
+          "textHindi": "सारनाथ / Sarnath"
+        },
+        {
+          "id": "opt-19-d",
+          "key": "D",
+          "text": "कुशीनगर / Kushinagar",
+          "textHindi": "कुशीनगर / Kushinagar"
+        }
+      ],
+      "correctAnswer": "A",
+      "correctAnswerText": "(A) वैशाली",
+      "explanationHindi": "* व्याख्या: जैन धर्म के 24वें तीर्थंकर भगवान महावीर स्वामी का जन्म वैशाली गणराज्य के 'कुंडग्राम' (बिहार) में हुआ था।",
+      "marks": 1
+    },
+    {
+      "id": "q-mcq-20",
+      "sectionId": "sec-a",
+      "sectionName": "खण्ड–अ : वस्तुनिष्ठ प्रश्न",
+      "questionNumber": 20,
+      "type": "mcq",
+      "text": "भगवान बुद्ध को महापरिनिर्वाण कहाँ प्राप्त हुआ ? / Where did Buddha attain Mahaparinirvana ?",
+      "textHindi": "भगवान बुद्ध को महापरिनिर्वाण कहाँ प्राप्त हुआ ? / Where did Buddha attain Mahaparinirvana ?",
+      "options": [
+        {
+          "id": "opt-20-a",
+          "key": "A",
+          "text": "राजगीर / Rajgir",
+          "textHindi": "राजगीर / Rajgir"
+        },
+        {
+          "id": "opt-20-b",
+          "key": "B",
+          "text": "बोधगया / Bodh Gaya",
+          "textHindi": "बोधगया / Bodh Gaya"
+        },
+        {
+          "id": "opt-20-c",
+          "key": "C",
+          "text": "सारनाथ / Sarnath",
+          "textHindi": "सारनाथ / Sarnath"
+        },
+        {
+          "id": "opt-20-d",
+          "key": "D",
+          "text": "कुशीनगर / Kushinagar",
+          "textHindi": "कुशीनगर / Kushinagar"
+        }
+      ],
+      "correctAnswer": "D",
+      "correctAnswerText": "(D) कुशीनगर",
+      "explanationHindi": "* व्याख्या: 483 ई०पू० में 80 वर्ष की आयु में तथागत भगवान बुद्ध को उत्तर प्रदेश के कुशीनगर (कुशीनारा) में महापरिनिर्वाण (मोक्ष) प्राप्त हुआ था।",
+      "marks": 1
+    },
+    {
+      "id": "q-mcq-21",
+      "sectionId": "sec-a",
+      "sectionName": "खण्ड–अ : वस्तुनिष्ठ प्रश्न",
+      "questionNumber": 21,
+      "type": "mcq",
+      "text": "गौतम बुद्ध ने अपना प्रथम धर्मोपदेश कहाँ दिया था ? / Where did Gautama Buddha deliver his first sermon ?",
+      "textHindi": "गौतम बुद्ध ने अपना प्रथम धर्मोपदेश कहाँ दिया था ? / Where did Gautama Buddha deliver his first sermon ?",
+      "options": [
+        {
+          "id": "opt-21-a",
+          "key": "A",
+          "text": "साँची / Sanchi",
+          "textHindi": "साँची / Sanchi"
+        },
+        {
+          "id": "opt-21-b",
+          "key": "B",
+          "text": "सारनाथ / Sarnath",
+          "textHindi": "सारनाथ / Sarnath"
+        },
+        {
+          "id": "opt-21-c",
+          "key": "C",
+          "text": "बोधगया / Bodh Gaya",
+          "textHindi": "बोधगया / Bodh Gaya"
+        },
+        {
+          "id": "opt-21-d",
+          "key": "D",
+          "text": "राजगीर / Rajgir",
+          "textHindi": "राजगीर / Rajgir"
+        }
+      ],
+      "correctAnswer": "B",
+      "correctAnswerText": "(B) सारनाथ",
+      "explanationHindi": "* व्याख्या: ज्ञान प्राप्ति के उपरांत भगवान बुद्ध ने अपना पहला धर्मोपदेश वाराणसी के समीप सारनाथ के मृगदाव में अपने पांच शिष्यों को दिया, जिसे 'धर्मचक्रप्रवर्तन' कहा जाता है।",
+      "marks": 1
+    },
+    {
+      "id": "q-mcq-22",
+      "sectionId": "sec-a",
+      "sectionName": "खण्ड–अ : वस्तुनिष्ठ प्रश्न",
+      "questionNumber": 22,
+      "type": "mcq",
+      "text": "साँची के स्तूप का निर्माण किसने कराया था ? / Who built the Sanchi Stupa ?",
+      "textHindi": "साँची के स्तूप का निर्माण किसने कराया था ? / Who built the Sanchi Stupa ?",
+      "options": [
+        {
+          "id": "opt-22-a",
+          "key": "A",
+          "text": "अशोक / Ashoka",
+          "textHindi": "अशोक / Ashoka"
+        },
+        {
+          "id": "opt-22-b",
+          "key": "B",
+          "text": "कनिष्क / Kanishka",
+          "textHindi": "कनिष्क / Kanishka"
+        },
+        {
+          "id": "opt-22-c",
+          "key": "C",
+          "text": "समुद्रगुप्त / Samudragupta",
+          "textHindi": "समुद्रगुप्त / Samudragupta"
+        },
+        {
+          "id": "opt-22-d",
+          "key": "D",
+          "text": "चन्द्रगुप्त विक्रमादित्य / Chandragupta Vikramaditya",
+          "textHindi": "चन्द्रगुप्त विक्रमादित्य / Chandragupta Vikramaditya"
+        }
+      ],
+      "correctAnswer": "A",
+      "correctAnswerText": "(A) अशोक",
+      "explanationHindi": "* व्याख्या: मध्य प्रदेश के रायसेन जिले में स्थित प्रसिद्ध 'साँची के महास्तूप' का मूल निर्माण मौर्य सम्राट अशोक द्वारा तीसरी शताब्दी ईसा पूर्व में कराया गया था।",
+      "marks": 1
+    },
+    {
+      "id": "q-mcq-23",
+      "sectionId": "sec-a",
+      "sectionName": "खण्ड–अ : वस्तुनिष्ठ प्रश्न",
+      "questionNumber": 23,
+      "type": "mcq",
+      "text": "सल्लेखन की प्रथा किस धर्म में है ? / Sallekhana practice is in which religion ?",
+      "textHindi": "सल्लेखन की प्रथा किस धर्म में है ? / Sallekhana practice is in which religion ?",
+      "options": [
+        {
+          "id": "opt-23-a",
+          "key": "A",
+          "text": "जैन धर्म / Jainism",
+          "textHindi": "जैन धर्म / Jainism"
+        },
+        {
+          "id": "opt-23-b",
+          "key": "B",
+          "text": "बौद्ध धर्म / Buddhism",
+          "textHindi": "बौद्ध धर्म / Buddhism"
+        },
+        {
+          "id": "opt-23-c",
+          "key": "C",
+          "text": "हिन्दू धर्म / Hinduism",
+          "textHindi": "हिन्दू धर्म / Hinduism"
+        },
+        {
+          "id": "opt-23-d",
+          "key": "D",
+          "text": "इनमें से कोई नहीं / None of these",
+          "textHindi": "इनमें से कोई नहीं / None of these"
+        }
+      ],
+      "correctAnswer": "A",
+      "correctAnswerText": "(A) जैन धर्म",
+      "explanationHindi": "* व्याख्या: 'सल्लेखन' (संथारा) जैन धर्म की एक पवित्र आध्यात्मिक साधना है, जिसमें व्यक्ति स्वेच्छा से अन्न-जल त्यागकर शरीर का विसर्जन करता है।",
+      "marks": 1
+    },
+    {
+      "id": "q-mcq-24",
+      "sectionId": "sec-a",
+      "sectionName": "खण्ड–अ : वस्तुनिष्ठ प्रश्न",
+      "questionNumber": 24,
+      "type": "mcq",
+      "text": "प्रथम बौद्ध संगीति किस शासक के काल में हुई थी ? / During the period of which ruler was the first Buddhist Council held ?",
+      "textHindi": "प्रथम बौद्ध संगीति किस शासक के काल में हुई थी ? / During the period of which ruler was the first Buddhist Council held ?",
+      "options": [
+        {
+          "id": "opt-24-a",
+          "key": "A",
+          "text": "अजातशत्रु / Ajatashatru",
+          "textHindi": "अजातशत्रु / Ajatashatru"
+        },
+        {
+          "id": "opt-24-b",
+          "key": "B",
+          "text": "कालाशोक / Kalashoka",
+          "textHindi": "कालाशोक / Kalashoka"
+        },
+        {
+          "id": "opt-24-c",
+          "key": "C",
+          "text": "अशोक / Ashoka",
+          "textHindi": "अशोक / Ashoka"
+        },
+        {
+          "id": "opt-24-d",
+          "key": "D",
+          "text": "कनिष्क / Kanishka",
+          "textHindi": "कनिष्क / Kanishka"
+        }
+      ],
+      "correctAnswer": "A",
+      "correctAnswerText": "(A) अजातशत्रु",
+      "explanationHindi": "* व्याख्या: प्रथम बौद्ध संगीति 483 ई०पू० में मगध के हर्यक वंशीय सम्राट अजातशत्रु के शासनकाल में राजगृह की सप्तपर्णी गुफा में आयोजित की गई थी।",
+      "marks": 1
+    },
+    {
+      "id": "q-mcq-25",
+      "sectionId": "sec-a",
+      "sectionName": "खण्ड–अ : वस्तुनिष्ठ प्रश्न",
+      "questionNumber": 25,
+      "type": "mcq",
+      "text": "किस देश में बौद्ध धर्म प्रचलित नहीं हुआ ? / In which country did Buddhism not become prevalent ?",
+      "textHindi": "किस देश में बौद्ध धर्म प्रचलित नहीं हुआ ? / In which country did Buddhism not become prevalent ?",
+      "options": [
+        {
+          "id": "opt-25-a",
+          "key": "A",
+          "text": "श्रीलंका / Sri Lanka",
+          "textHindi": "श्रीलंका / Sri Lanka"
+        },
+        {
+          "id": "opt-25-b",
+          "key": "B",
+          "text": "भारत / India",
+          "textHindi": "भारत / India"
+        },
+        {
+          "id": "opt-25-c",
+          "key": "C",
+          "text": "जापान / Japan",
+          "textHindi": "जापान / Japan"
+        },
+        {
+          "id": "opt-25-d",
+          "key": "D",
+          "text": "ब्रिटेन / Britain",
+          "textHindi": "ब्रिटेन / Britain"
+        }
+      ],
+      "correctAnswer": "D",
+      "correctAnswerText": "(D) ब्रिटेन",
+      "explanationHindi": "* व्याख्या: बौद्ध धर्म प्राचीन काल में श्रीलंका, जापान, चीन, म्यांमार और तिब्बत जैसे एशियाई देशों में प्रसारित हुआ, परंतु यूरोपीय देश ब्रिटेन में यह प्राचीन काल में प्रचलित नहीं हुआ था।",
+      "marks": 1
+    },
+    {
+      "id": "q-mcq-26",
+      "sectionId": "sec-a",
+      "sectionName": "खण्ड–अ : वस्तुनिष्ठ प्रश्न",
+      "questionNumber": 26,
+      "type": "mcq",
+      "text": "'बुद्धचरित' की रचना किसने की ? / Who wrote 'Buddhacharita' ?",
+      "textHindi": "'बुद्धचरित' की रचना किसने की ? / Who wrote 'Buddhacharita' ?",
+      "options": [
+        {
+          "id": "opt-26-a",
+          "key": "A",
+          "text": "कालिदास / Kalidasa",
+          "textHindi": "कालिदास / Kalidasa"
+        },
+        {
+          "id": "opt-26-b",
+          "key": "B",
+          "text": "अश्वघोष / Ashvaghosha",
+          "textHindi": "अश्वघोष / Ashvaghosha"
+        },
+        {
+          "id": "opt-26-c",
+          "key": "C",
+          "text": "बाणभट्ट / Banabhatta",
+          "textHindi": "बाणभट्ट / Banabhatta"
+        },
+        {
+          "id": "opt-26-d",
+          "key": "D",
+          "text": "चाणक्य / Chanakya",
+          "textHindi": "चाणक्य / Chanakya"
+        }
+      ],
+      "correctAnswer": "B",
+      "correctAnswerText": "(B) अश्वघोष",
+      "explanationHindi": "* व्याख्या: कुषाण सम्राट कनिष्क के राजकवि अश्वघोष ने भगवान बुद्ध के जीवन चरित्र पर आधारित संस्कृत महाकाव्य 'बुद्धचरित' की रचना की थी।",
+      "marks": 1
+    },
+    {
+      "id": "q-mcq-27",
+      "sectionId": "sec-a",
+      "sectionName": "खण्ड–अ : वस्तुनिष्ठ प्रश्न",
+      "questionNumber": 27,
+      "type": "mcq",
+      "text": "हीनयान-महायान का संबंध किस धर्म से है ? / Hinayana and Mahayana are related with which religion ?",
+      "textHindi": "हीनयान-महायान का संबंध किस धर्म से है ? / Hinayana and Mahayana are related with which religion ?",
+      "options": [
+        {
+          "id": "opt-27-a",
+          "key": "A",
+          "text": "शैव धर्म / Shaivism",
+          "textHindi": "शैव धर्म / Shaivism"
+        },
+        {
+          "id": "opt-27-b",
+          "key": "B",
+          "text": "जैन धर्म / Jainism",
+          "textHindi": "जैन धर्म / Jainism"
+        },
+        {
+          "id": "opt-27-c",
+          "key": "C",
+          "text": "बौद्ध धर्म / Buddhism",
+          "textHindi": "बौद्ध धर्म / Buddhism"
+        },
+        {
+          "id": "opt-27-d",
+          "key": "D",
+          "text": "ईसाई धर्म / Christianity",
+          "textHindi": "ईसाई धर्म / Christianity"
+        }
+      ],
+      "correctAnswer": "C",
+      "correctAnswerText": "(C) बौद्ध धर्म",
+      "explanationHindi": "* व्याख्या: चतुर्थ बौद्ध संगीति (कनिष्क के काल) में बौद्ध धर्म दो प्रमुख संप्रदायों—हीनयान (पुरातनवादी) और महायान (उदारवादी/मूर्तिपूजक) में विभाजित हो गया था।",
+      "marks": 1
+    },
+    {
+      "id": "q-mcq-28",
+      "sectionId": "sec-a",
+      "sectionName": "खण्ड–अ : वस्तुनिष्ठ प्रश्न",
+      "questionNumber": 28,
+      "type": "mcq",
+      "text": "सुत्त पिटक किस धर्म से संबंधित है ? / Sutta Pitaka is related with which religion ?",
+      "textHindi": "सुत्त पिटक किस धर्म से संबंधित है ? / Sutta Pitaka is related with which religion ?",
+      "options": [
+        {
+          "id": "opt-28-a",
+          "key": "A",
+          "text": "हिन्दू धर्म / Hinduism",
+          "textHindi": "हिन्दू धर्म / Hinduism"
+        },
+        {
+          "id": "opt-28-b",
+          "key": "B",
+          "text": "बौद्ध धर्म / Buddhism",
+          "textHindi": "बौद्ध धर्म / Buddhism"
+        },
+        {
+          "id": "opt-28-c",
+          "key": "C",
+          "text": "जैन धर्म / Jainism",
+          "textHindi": "जैन धर्म / Jainism"
+        },
+        {
+          "id": "opt-28-d",
+          "key": "D",
+          "text": "इनमें से कोई नहीं / None of these",
+          "textHindi": "इनमें से कोई नहीं / None of these"
+        }
+      ],
+      "correctAnswer": "B",
+      "correctAnswerText": "(B) बौद्ध धर्म",
+      "explanationHindi": "* व्याख्या: 'सुत्त पिटक' बौद्ध धर्म के त्रिपिटक साहित्य का सबसे महत्वपूर्ण भाग है, जिसमें भगवान बुद्ध के धार्मिक और नैतिक उपदेशों का संग्रह है।",
+      "marks": 1
+    },
+    {
+      "id": "q-mcq-29",
+      "sectionId": "sec-a",
+      "sectionName": "खण्ड–अ : वस्तुनिष्ठ प्रश्न",
+      "questionNumber": 29,
+      "type": "mcq",
+      "text": "भारत का नेपोलियन किसे कहा जाता है ? / Who is called the Napoleon of India ?",
+      "textHindi": "भारत का नेपोलियन किसे कहा जाता है ? / Who is called the Napoleon of India ?",
+      "options": [
+        {
+          "id": "opt-29-a",
+          "key": "A",
+          "text": "अशोक / Ashoka",
+          "textHindi": "अशोक / Ashoka"
+        },
+        {
+          "id": "opt-29-b",
+          "key": "B",
+          "text": "चन्द्रगुप्त / Chandragupta",
+          "textHindi": "चन्द्रगुप्त / Chandragupta"
+        },
+        {
+          "id": "opt-29-c",
+          "key": "C",
+          "text": "समुद्रगुप्त / Samudragupta",
+          "textHindi": "समुद्रगुप्त / Samudragupta"
+        },
+        {
+          "id": "opt-29-d",
+          "key": "D",
+          "text": "चन्द्रगुप्त मौर्य / Chandragupta Maurya",
+          "textHindi": "चन्द्रगुप्त मौर्य / Chandragupta Maurya"
+        }
+      ],
+      "correctAnswer": "C",
+      "correctAnswerText": "(C) समुद्रगुप्त",
+      "explanationHindi": "* व्याख्या: इतिहासकार विंसेंट स्मिथ ने गुप्त सम्राट समुद्रगुप्त की महान सैन्य विजयों और कभी पराजित न होने के कारण उन्हें 'भारत का नेपोलियन' कहा था।",
+      "marks": 1
+    },
+    {
+      "id": "q-mcq-30",
+      "sectionId": "sec-a",
+      "sectionName": "खण्ड–अ : वस्तुनिष्ठ प्रश्न",
+      "questionNumber": 30,
+      "type": "mcq",
+      "text": "धम्म महामात्रों को किसने नियुक्त किया ? / Who appointed Dhamma Mahamatras ?",
+      "textHindi": "धम्म महामात्रों को किसने नियुक्त किया ? / Who appointed Dhamma Mahamatras ?",
+      "options": [
+        {
+          "id": "opt-30-a",
+          "key": "A",
+          "text": "चन्द्रगुप्त मौर्य / Chandragupta Maurya",
+          "textHindi": "चन्द्रगुप्त मौर्य / Chandragupta Maurya"
+        },
+        {
+          "id": "opt-30-b",
+          "key": "B",
+          "text": "अशोक / Ashoka",
+          "textHindi": "अशोक / Ashoka"
+        },
+        {
+          "id": "opt-30-c",
+          "key": "C",
+          "text": "कनिष्क / Kanishka",
+          "textHindi": "कनिष्क / Kanishka"
+        },
+        {
+          "id": "opt-30-d",
+          "key": "D",
+          "text": "बिन्दुसार / Bindusara",
+          "textHindi": "बिन्दुसार / Bindusara"
+        }
+      ],
+      "correctAnswer": "B",
+      "correctAnswerText": "(B) अशोक",
+      "explanationHindi": "* व्याख्या: मौर्य सम्राट अशोक ने अपने राज्याभिषेक के 14वें वर्ष में समाज में धर्म के प्रसार और नैतिक आचरण की निगरानी हेतु 'धम्म महामात्र' नामक विशेष अधिकारियों की नियुक्ति की थी।",
+      "marks": 1
+    },
+    {
+      "id": "q-mcq-31",
+      "sectionId": "sec-a",
+      "sectionName": "खण्ड–अ : वस्तुनिष्ठ प्रश्न",
+      "questionNumber": 31,
+      "type": "mcq",
+      "text": "जीवक वैद्य किस वंश के काल में था ? / Jivaka the physician was during the period of which dynasty ?",
+      "textHindi": "जीवक वैद्य किस वंश के काल में था ? / Jivaka the physician was during the period of which dynasty ?",
+      "options": [
+        {
+          "id": "opt-31-a",
+          "key": "A",
+          "text": "मौर्य / Maurya",
+          "textHindi": "मौर्य / Maurya"
+        },
+        {
+          "id": "opt-31-b",
+          "key": "B",
+          "text": "गुप्त / Gupta",
+          "textHindi": "गुप्त / Gupta"
+        },
+        {
+          "id": "opt-31-c",
+          "key": "C",
+          "text": "हर्यक / Haryanka",
+          "textHindi": "हर्यक / Haryanka"
+        },
+        {
+          "id": "opt-31-d",
+          "key": "D",
+          "text": "कुषाण / Kushana",
+          "textHindi": "कुषाण / Kushana"
+        }
+      ],
+      "correctAnswer": "C",
+      "correctAnswerText": "(C) हर्यक",
+      "explanationHindi": "* व्याख्या: प्राचीन भारत के प्रसिद्ध राजवैद्य जीवक मगध के हर्यक वंश के संस्थापक बिम्बिसार के राजदरबार में राजवैद्य थे।",
+      "marks": 1
+    },
+    {
+      "id": "q-mcq-32",
+      "sectionId": "sec-a",
+      "sectionName": "खण्ड–अ : वस्तुनिष्ठ प्रश्न",
+      "questionNumber": 32,
+      "type": "mcq",
+      "text": "किस शासक के काल में इब्न बतूता भारत आया था ? / During the period of which ruler did Ibn Battuta come in India ?",
+      "textHindi": "किस शासक के काल में इब्न बतूता भारत आया था ? / During the period of which ruler did Ibn Battuta come in India ?",
+      "options": [
+        {
+          "id": "opt-32-a",
+          "key": "A",
+          "text": "इल्तुतमिश / Iltutmish",
+          "textHindi": "इल्तुतमिश / Iltutmish"
+        },
+        {
+          "id": "opt-32-b",
+          "key": "B",
+          "text": "बलबन / Balban",
+          "textHindi": "बलबन / Balban"
+        },
+        {
+          "id": "opt-32-c",
+          "key": "C",
+          "text": "अलाउद्दीन ख़िलजी / Alauddin Khilji",
+          "textHindi": "अलाउद्दीन ख़िलजी / Alauddin Khilji"
+        },
+        {
+          "id": "opt-32-d",
+          "key": "D",
+          "text": "मुहम्मद बिन तुग़लक / Muhammad bin Tughluq",
+          "textHindi": "मुहम्मद बिन तुग़लक / Muhammad bin Tughluq"
+        }
+      ],
+      "correctAnswer": "D",
+      "correctAnswerText": "(D) मुहम्मद बिन तुग़लक",
+      "explanationHindi": "* व्याख्या: मोरक्को का यात्री इब्न बतूता 1333 ईस्वी में दिल्ली सल्तनत के तुगलक वंशीय शासक सुल्तान मुहम्मद बिन तुगलक के काल में भारत आया था।",
+      "marks": 1
+    },
+    {
+      "id": "q-mcq-33",
+      "sectionId": "sec-a",
+      "sectionName": "खण्ड–अ : वस्तुनिष्ठ प्रश्न",
+      "questionNumber": 33,
+      "type": "mcq",
+      "text": "कुतुब मीनार का निर्माण किस शासक के समय पूरा हुआ ? / During the period of which ruler was the construction of Qutb Minar completed ?",
+      "textHindi": "कुतुब मीनार का निर्माण किस शासक के समय पूरा हुआ ? / During the period of which ruler was the construction of Qutb Minar completed ?",
+      "options": [
+        {
+          "id": "opt-33-a",
+          "key": "A",
+          "text": "कुतुबुद्दीन ऐबक / Qutbuddin Aibak",
+          "textHindi": "कुतुबुद्दीन ऐबक / Qutbuddin Aibak"
+        },
+        {
+          "id": "opt-33-b",
+          "key": "B",
+          "text": "इल्तुतमिश / Iltutmish",
+          "textHindi": "इल्तुतमिश / Iltutmish"
+        },
+        {
+          "id": "opt-33-c",
+          "key": "C",
+          "text": "फिरोज़शाह तुग़लक / Firoz Shah Tughluq",
+          "textHindi": "फिरोज़शाह तुग़लक / Firoz Shah Tughluq"
+        },
+        {
+          "id": "opt-33-d",
+          "key": "D",
+          "text": "अलाउद्दीन ख़िलजी / Alauddin Khilji",
+          "textHindi": "अलाउद्दीन ख़िलजी / Alauddin Khilji"
+        }
+      ],
+      "correctAnswer": "B",
+      "correctAnswerText": "(B) इल्तुतमिश",
+      "explanationHindi": "* व्याख्या: दिल्ली में कुतुब मीनार की नींव कुतुबुद्दीन ऐबक ने रखी थी, परंतु इसका निर्माण कार्य उसके उत्तराधिकारी सुल्तान शम्सुद्दीन इल्तुतमिश ने पूरा करवाया था।",
+      "marks": 1
+    },
+    {
+      "id": "q-mcq-34",
+      "sectionId": "sec-a",
+      "sectionName": "खण्ड–अ : वस्तुनिष्ठ प्रश्न",
+      "questionNumber": 34,
+      "type": "mcq",
+      "text": "'आइन-ए-अकबरी' की रचना किसने की ? / Who authored 'Ain-i-Akbari' ?",
+      "textHindi": "'आइन-ए-अकबरी' की रचना किसने की ? / Who authored 'Ain-i-Akbari' ?",
+      "options": [
+        {
+          "id": "opt-34-a",
+          "key": "A",
+          "text": "बाबर / Babur",
+          "textHindi": "बाबर / Babur"
+        },
+        {
+          "id": "opt-34-b",
+          "key": "B",
+          "text": "फैज़ी / Faizi",
+          "textHindi": "फैज़ी / Faizi"
+        },
+        {
+          "id": "opt-34-c",
+          "key": "C",
+          "text": "अबुल फजल / Abul Fazl",
+          "textHindi": "अबुल फजल / Abul Fazl"
+        },
+        {
+          "id": "opt-34-d",
+          "key": "D",
+          "text": "बदायूंनी / Badauni",
+          "textHindi": "बदायूंनी / Badauni"
+        }
+      ],
+      "correctAnswer": "C",
+      "correctAnswerText": "(C) अबुल फजल",
+      "explanationHindi": "* व्याख्या: मुगल बादशाह अकबर के दरबारी नवरत्न और इतिहासकार अबुल फज़्ल अल्लामी ने फारसी में 'आइन-ए-अकबरी' की रचना की थी।",
+      "marks": 1
+    },
+    {
+      "id": "q-mcq-35",
+      "sectionId": "sec-a",
+      "sectionName": "खण्ड–अ : वस्तुनिष्ठ प्रश्न",
+      "questionNumber": 35,
+      "type": "mcq",
+      "text": "आइन-ए-अकबरी कितने भागों में विभक्त है ? / Ain-i-Akbari is divided in how many parts ?",
+      "textHindi": "आइन-ए-अकबरी कितने भागों में विभक्त है ? / Ain-i-Akbari is divided in how many parts ?",
+      "options": [
+        {
+          "id": "opt-35-a",
+          "key": "A",
+          "text": "दो / Two",
+          "textHindi": "दो / Two"
+        },
+        {
+          "id": "opt-35-b",
+          "key": "B",
+          "text": "तीन / Three",
+          "textHindi": "तीन / Three"
+        },
+        {
+          "id": "opt-35-c",
+          "key": "C",
+          "text": "चार / Four",
+          "textHindi": "चार / Four"
+        },
+        {
+          "id": "opt-35-d",
+          "key": "D",
+          "text": "पाँच / Five",
+          "textHindi": "पाँच / Five"
+        }
+      ],
+      "correctAnswer": "D",
+      "correctAnswerText": "(D) पाँच",
+      "explanationHindi": "* व्याख्या: 'आइन-ए-अकबरी' कुल 5 भागों (दफ्तरों) में विभाजित है: मंजिल-आबादी, सिपह-आबादी, मुल्क-आबादी और शेष दो भाग।",
+      "marks": 1
+    },
+    {
+      "id": "q-mcq-36",
+      "sectionId": "sec-a",
+      "sectionName": "खण्ड–अ : वस्तुनिष्ठ प्रश्न",
+      "questionNumber": 36,
+      "type": "mcq",
+      "text": "अकबर का कार्यकाल था / Akbar's period was",
+      "textHindi": "अकबर का कार्यकाल था / Akbar's period was",
+      "options": [
+        {
+          "id": "opt-36-a",
+          "key": "A",
+          "text": "1556-1605 ई० / 1556-1605",
+          "textHindi": "1556-1605 ई० / 1556-1605"
+        },
+        {
+          "id": "opt-36-b",
+          "key": "B",
+          "text": "1605-1627 ई० / 1605-1627",
+          "textHindi": "1605-1627 ई० / 1605-1627"
+        },
+        {
+          "id": "opt-36-c",
+          "key": "C",
+          "text": "1627-1658 ई० / 1627-1658",
+          "textHindi": "1627-1658 ई० / 1627-1658"
+        },
+        {
+          "id": "opt-36-d",
+          "key": "D",
+          "text": "1658-1707 ई० / 1658-1707",
+          "textHindi": "1658-1707 ई० / 1658-1707"
+        }
+      ],
+      "correctAnswer": "A",
+      "correctAnswerText": "(A) 1556-1605 ई०",
+      "explanationHindi": "* व्याख्या: मुग़ल सम्राट जलालुद्दीन मुहम्मद अकबर का शासनकाल 1556 ई० (पानीपत के द्वितीय युद्ध) से लेकर 1605 ई० (उनकी मृत्यु) तक रहा था।",
+      "marks": 1
+    },
+    {
+      "id": "q-mcq-37",
+      "sectionId": "sec-a",
+      "sectionName": "खण्ड–अ : वस्तुनिष्ठ प्रश्न",
+      "questionNumber": 37,
+      "type": "mcq",
+      "text": "इलाही सिक्का किस धातु से बना था ? / The coin Illahi was made of which metal ?",
+      "textHindi": "इलाही सिक्का किस धातु से बना था ? / The coin Illahi was made of which metal ?",
+      "options": [
+        {
+          "id": "opt-37-a",
+          "key": "A",
+          "text": "सोना / Gold",
+          "textHindi": "सोना / Gold"
+        },
+        {
+          "id": "opt-37-b",
+          "key": "B",
+          "text": "चाँदी / Silver",
+          "textHindi": "चाँदी / Silver"
+        },
+        {
+          "id": "opt-37-c",
+          "key": "C",
+          "text": "पीतल / Brass",
+          "textHindi": "पीतल / Brass"
+        },
+        {
+          "id": "opt-37-d",
+          "key": "D",
+          "text": "लोहा / Iron",
+          "textHindi": "लोहा / Iron"
+        }
+      ],
+      "correctAnswer": "A",
+      "correctAnswerText": "(A) सोना",
+      "explanationHindi": "* व्याख्या: मुग़ल बादशाह अकबर द्वारा चलाया गया 'इलाही' सिक्का सोने (Gold) की धातु से बना एक गोल सिक्का था, जिसका मूल्य 10 रुपये के बराबर था।",
+      "marks": 1
+    },
+    {
+      "id": "q-mcq-38",
+      "sectionId": "sec-a",
+      "sectionName": "खण्ड–अ : वस्तुनिष्ठ प्रश्न",
+      "questionNumber": 38,
+      "type": "mcq",
+      "text": "भारत में तम्बाकू किसके द्वारा लाया गया था ? / Who brought tobacco in India ?",
+      "textHindi": "भारत में तम्बाकू किसके द्वारा लाया गया था ? / Who brought tobacco in India ?",
+      "options": [
+        {
+          "id": "opt-38-a",
+          "key": "A",
+          "text": "अंग्रेज / British",
+          "textHindi": "अंग्रेज / British"
+        },
+        {
+          "id": "opt-38-b",
+          "key": "B",
+          "text": "पुर्तगाली / Portuguese",
+          "textHindi": "पुर्तगाली / Portuguese"
+        },
+        {
+          "id": "opt-38-c",
+          "key": "C",
+          "text": "फ्रांसीसी / French",
+          "textHindi": "फ्रांसीसी / French"
+        },
+        {
+          "id": "opt-38-d",
+          "key": "D",
+          "text": "मुग़ल / Mughal",
+          "textHindi": "मुग़ल / Mughal"
+        }
+      ],
+      "correctAnswer": "B",
+      "correctAnswerText": "(B) पुर्तगाली",
+      "explanationHindi": "* व्याख्या: भारत में तंबाकू का पौधा 16वीं-17वीं शताब्दी के प्रारंभ में पुर्तगाली व्यापारियों द्वारा दक्षिण अमेरिका से लाया गया था।",
+      "marks": 1
+    },
+    {
+      "id": "q-mcq-39",
+      "sectionId": "sec-a",
+      "sectionName": "खण्ड–अ : वस्तुनिष्ठ प्रश्न",
+      "questionNumber": 39,
+      "type": "mcq",
+      "text": "शेरशाह सूरी ने भारत में अपना शासन कब स्थापित किया ? / When did Sher Shah Suri establish his rule in India ?",
+      "textHindi": "शेरशाह सूरी ने भारत में अपना शासन कब स्थापित किया ? / When did Sher Shah Suri establish his rule in India ?",
+      "options": [
+        {
+          "id": "opt-39-a",
+          "key": "A",
+          "text": "1540 ई० / 1540",
+          "textHindi": "1540 ई० / 1540"
+        },
+        {
+          "id": "opt-39-b",
+          "key": "B",
+          "text": "1555 ई० / 1555",
+          "textHindi": "1555 ई० / 1555"
+        },
+        {
+          "id": "opt-39-c",
+          "key": "C",
+          "text": "1556 ई० / 1556",
+          "textHindi": "1556 ई० / 1556"
+        },
+        {
+          "id": "opt-39-d",
+          "key": "D",
+          "text": "1605 ई० / 1605",
+          "textHindi": "1605 ई० / 1605"
+        }
+      ],
+      "correctAnswer": "A",
+      "correctAnswerText": "(A) 1540 ई०",
+      "explanationHindi": "* व्याख्या: शेरशाह सूरी ने 1540 ई० में बिलग्राम/कन्नौज के युद्ध में हुमायूँ को पराजित कर दिल्ली की गद्दी पर बैठकर द्वितीय अफगान साम्राज्य की स्थापना की थी।",
+      "marks": 1
+    },
+    {
+      "id": "q-mcq-40",
+      "sectionId": "sec-a",
+      "sectionName": "खण्ड–अ : वस्तुनिष्ठ प्रश्न",
+      "questionNumber": 40,
+      "type": "mcq",
+      "text": "पानीपत की पहली लड़ाई किनके बीच लड़ी गई ? / The first battle of Panipat was fought between whom ?",
+      "textHindi": "पानीपत की पहली लड़ाई किनके बीच लड़ी गई ? / The first battle of Panipat was fought between whom ?",
+      "options": [
+        {
+          "id": "opt-40-a",
+          "key": "A",
+          "text": "बाबर-इब्राहिम लोदी / Babur-Ibrahim Lodi",
+          "textHindi": "बाबर-इब्राहिम लोदी / Babur-Ibrahim Lodi"
+        },
+        {
+          "id": "opt-40-b",
+          "key": "B",
+          "text": "हुमायूँ-इब्राहिम लोदी / Humayun-Ibrahim Lodi",
+          "textHindi": "हुमायूँ-इब्राहिम लोदी / Humayun-Ibrahim Lodi"
+        },
+        {
+          "id": "opt-40-c",
+          "key": "C",
+          "text": "हुमायूँ-शेर खाँ / Humayun-Sher Khan",
+          "textHindi": "हुमायूँ-शेर खाँ / Humayun-Sher Khan"
+        },
+        {
+          "id": "opt-40-d",
+          "key": "D",
+          "text": "बाबर-राणा सांगा / Babur-Rana Sanga",
+          "textHindi": "बाबर-राणा सांगा / Babur-Rana Sanga"
+        }
+      ],
+      "correctAnswer": "A",
+      "correctAnswerText": "(A) बाबर-इब्राहिम लोदी",
+      "explanationHindi": "* व्याख्या: पानीपत की पहली ऐतिहासिक लड़ाई 21 अप्रैल, 1526 को बाबर और दिल्ली के सुल्तान इब्राहिम लोदी के बीच लड़ी गई थी।",
+      "marks": 1
+    },
+    {
+      "id": "q-mcq-41",
+      "sectionId": "sec-a",
+      "sectionName": "खण्ड–अ : वस्तुनिष्ठ प्रश्न",
+      "questionNumber": 41,
+      "type": "mcq",
+      "text": "चौसा का युद्ध कब लड़ा गया ? / When was battle of Chausa fought ?",
+      "textHindi": "चौसा का युद्ध कब लड़ा गया ? / When was battle of Chausa fought ?",
+      "options": [
+        {
+          "id": "opt-41-a",
+          "key": "A",
+          "text": "1526 ई० / 1526",
+          "textHindi": "1526 ई० / 1526"
+        },
+        {
+          "id": "opt-41-b",
+          "key": "B",
+          "text": "1527 ई० / 1527",
+          "textHindi": "1527 ई० / 1527"
+        },
+        {
+          "id": "opt-41-c",
+          "key": "C",
+          "text": "1529 ई० / 1529",
+          "textHindi": "1529 ई० / 1529"
+        },
+        {
+          "id": "opt-41-d",
+          "key": "D",
+          "text": "1539 ई० / 1539",
+          "textHindi": "1539 ई० / 1539"
+        }
+      ],
+      "correctAnswer": "D",
+      "correctAnswerText": "(D) 1539 ई०",
+      "explanationHindi": "* व्याख्या: 26 जून, 1539 को बक्सर के पास गंगा नदी के तट पर चौसा के मैदान में शेरशाह सूरी और मुग़ल सम्राट हुमायूँ के मध्य युद्ध लड़ा गया था।",
+      "marks": 1
+    },
+    {
+      "id": "q-mcq-42",
+      "sectionId": "sec-a",
+      "sectionName": "खण्ड–अ : वस्तुनिष्ठ प्रश्न",
+      "questionNumber": 42,
+      "type": "mcq",
+      "text": "कामरान किसका छोटा भाई था ? / Whose younger brother was Kamran ?",
+      "textHindi": "कामरान किसका छोटा भाई था ? / Whose younger brother was Kamran ?",
+      "options": [
+        {
+          "id": "opt-42-a",
+          "key": "A",
+          "text": "बाबर / Babur",
+          "textHindi": "बाबर / Babur"
+        },
+        {
+          "id": "opt-42-b",
+          "key": "B",
+          "text": "हुमायूँ / Humayun",
+          "textHindi": "हुमायूँ / Humayun"
+        },
+        {
+          "id": "opt-42-c",
+          "key": "C",
+          "text": "अकबर / Akbar",
+          "textHindi": "अकबर / Akbar"
+        },
+        {
+          "id": "opt-42-d",
+          "key": "D",
+          "text": "शाहजहाँ / Shah Jahan",
+          "textHindi": "शाहजहाँ / Shah Jahan"
+        }
+      ],
+      "correctAnswer": "B",
+      "correctAnswerText": "(B) हुमायूँ",
+      "explanationHindi": "* व्याख्या: कामरान, अस्करी और हिंदाल मुग़ल बादशाह बाबर के पुत्र और हुमायूँ के छोटे सौतेले भाई थे।",
+      "marks": 1
+    },
+    {
+      "id": "q-mcq-43",
+      "sectionId": "sec-a",
+      "sectionName": "खण्ड–अ : वस्तुनिष्ठ प्रश्न",
+      "questionNumber": 43,
+      "type": "mcq",
+      "text": "हल्दीघाटी के युद्ध में किसे परास्त होना पड़ा ? / Who was defeated in the battle of Haldighati ?",
+      "textHindi": "हल्दीघाटी के युद्ध में किसे परास्त होना पड़ा ? / Who was defeated in the battle of Haldighati ?",
+      "options": [
+        {
+          "id": "opt-43-a",
+          "key": "A",
+          "text": "इब्राहिम लोदी / Ibrahim Lodi",
+          "textHindi": "इब्राहिम लोदी / Ibrahim Lodi"
+        },
+        {
+          "id": "opt-43-b",
+          "key": "B",
+          "text": "महमूद खाँ लोदी / Mahmud Khan Lodi",
+          "textHindi": "महमूद खाँ लोदी / Mahmud Khan Lodi"
+        },
+        {
+          "id": "opt-43-c",
+          "key": "C",
+          "text": "राणा प्रताप / Rana Pratap",
+          "textHindi": "राणा प्रताप / Rana Pratap"
+        },
+        {
+          "id": "opt-43-d",
+          "key": "D",
+          "text": "हेमू / Hemu",
+          "textHindi": "हेमू / Hemu"
+        }
+      ],
+      "correctAnswer": "C",
+      "correctAnswerText": "(C) राणा प्रताप",
+      "explanationHindi": "* व्याख्या: 18 जून, 1576 को हुए प्रसिद्ध हल्दीघाटी के युद्ध में अकबर की मुग़ल सेना (राजा मानसिंह के नेतृत्व में) के विरुद्ध मेवाड़ के महाराणा प्रताप को पीछे हटना पड़ा था।",
+      "marks": 1
+    },
+    {
+      "id": "q-mcq-44",
+      "sectionId": "sec-a",
+      "sectionName": "खण्ड–अ : वस्तुनिष्ठ प्रश्न",
+      "questionNumber": 44,
+      "type": "mcq",
+      "text": "मेहरुन्निसा किसका नाम था ? / Whose name was Mehrunnisa ?",
+      "textHindi": "मेहरुन्निसा किसका नाम था ? / Whose name was Mehrunnisa ?",
+      "options": [
+        {
+          "id": "opt-44-a",
+          "key": "A",
+          "text": "मुमताज़ बेगम / Mumtaz Begum",
+          "textHindi": "मुमताज़ बेगम / Mumtaz Begum"
+        },
+        {
+          "id": "opt-44-b",
+          "key": "B",
+          "text": "रज़िया सुल्तान / Razia Sultan",
+          "textHindi": "रज़िया सुल्तान / Razia Sultan"
+        },
+        {
+          "id": "opt-44-c",
+          "key": "C",
+          "text": "नूरजहाँ / Nur Jahan",
+          "textHindi": "नूरजहाँ / Nur Jahan"
+        },
+        {
+          "id": "opt-44-d",
+          "key": "D",
+          "text": "रोशन आरा / Roshanara",
+          "textHindi": "रोशन आरा / Roshanara"
+        }
+      ],
+      "correctAnswer": "C",
+      "correctAnswerText": "(C) नूरजहाँ",
+      "explanationHindi": "* व्याख्या: मुग़ल बादशाह जहाँगीर की सबसे प्रिय व शक्तिशाली बेगम नूरजहाँ का वास्तविक मूल नाम 'मेहरुन्निसा' था।",
+      "marks": 1
+    },
+    {
+      "id": "q-mcq-45",
+      "sectionId": "sec-a",
+      "sectionName": "खण्ड–अ : वस्तुनिष्ठ प्रश्न",
+      "questionNumber": 45,
+      "type": "mcq",
+      "text": "विजयनगर साम्राज्य में कितने वंशों ने शासन किया ? / How many dynasties ruled in Vijayanagara empire ?",
+      "textHindi": "विजयनगर साम्राज्य में कितने वंशों ने शासन किया ? / How many dynasties ruled in Vijayanagara empire ?",
+      "options": [
+        {
+          "id": "opt-45-a",
+          "key": "A",
+          "text": "2",
+          "textHindi": "2"
+        },
+        {
+          "id": "opt-45-b",
+          "key": "B",
+          "text": "4",
+          "textHindi": "4"
+        },
+        {
+          "id": "opt-45-c",
+          "key": "C",
+          "text": "6",
+          "textHindi": "6"
+        },
+        {
+          "id": "opt-45-d",
+          "key": "D",
+          "text": "8",
+          "textHindi": "8"
+        }
+      ],
+      "correctAnswer": "B",
+      "correctAnswerText": "(B) 4",
+      "explanationHindi": "* व्याख्या: विजयनगर साम्राज्य पर क्रमशः चार राजवंशों ने शासन किया था: संगम वंश, सालुव वंश, तुलुव वंश और अराविदु वंश।",
+      "marks": 1
+    },
+    {
+      "id": "q-mcq-46",
+      "sectionId": "sec-a",
+      "sectionName": "खण्ड–अ : वस्तुनिष्ठ प्रश्न",
+      "questionNumber": 46,
+      "type": "mcq",
+      "text": "कृष्णदेवराय किस वंश का शासक था ? / Krishnadevaraya was the ruler of which dynasty ?",
+      "textHindi": "कृष्णदेवराय किस वंश का शासक था ? / Krishnadevaraya was the ruler of which dynasty ?",
+      "options": [
+        {
+          "id": "opt-46-a",
+          "key": "A",
+          "text": "संगम वंश / Sangama dynasty",
+          "textHindi": "संगम वंश / Sangama dynasty"
+        },
+        {
+          "id": "opt-46-b",
+          "key": "B",
+          "text": "सालुव वंश / Saluva dynasty",
+          "textHindi": "सालुव वंश / Saluva dynasty"
+        },
+        {
+          "id": "opt-46-c",
+          "key": "C",
+          "text": "तुलुव वंश / Tuluva dynasty",
+          "textHindi": "तुलुव वंश / Tuluva dynasty"
+        },
+        {
+          "id": "opt-46-d",
+          "key": "D",
+          "text": "आरवीडू वंश / Aravidu dynasty",
+          "textHindi": "आरवीडू वंश / Aravidu dynasty"
+        }
+      ],
+      "correctAnswer": "C",
+      "correctAnswerText": "(C) तुलुव वंश",
+      "explanationHindi": "* व्याख्या: विजयनगर साम्राज्य के सबसे महान और प्रतापी सम्राट कृष्णदेवराय (1509–1529 ई०) 'तुलुव वंश' से संबंधित थे।",
+      "marks": 1
+    },
+    {
+      "id": "q-mcq-47",
+      "sectionId": "sec-a",
+      "sectionName": "खण्ड–अ : वस्तुनिष्ठ प्रश्न",
+      "questionNumber": 47,
+      "type": "mcq",
+      "text": "विजयनगर साम्राज्य में किस शासक ने स्वयं को 'आन्ध्र भोज' कहा ? / Which ruler in Vijayanagara empire called himself 'Andhra Bhoj' ?",
+      "textHindi": "विजयनगर साम्राज्य में किस शासक ने स्वयं को 'आन्ध्र भोज' कहा ? / Which ruler in Vijayanagara empire called himself 'Andhra Bhoj' ?",
+      "options": [
+        {
+          "id": "opt-47-a",
+          "key": "A",
+          "text": "हरिहर / Harihara",
+          "textHindi": "हरिहर / Harihara"
+        },
+        {
+          "id": "opt-47-b",
+          "key": "B",
+          "text": "बुक्का / Bukka",
+          "textHindi": "बुक्का / Bukka"
+        },
+        {
+          "id": "opt-47-c",
+          "key": "C",
+          "text": "वीर नरसिंह / Vira Narasimha",
+          "textHindi": "वीर नरसिंह / Vira Narasimha"
+        },
+        {
+          "id": "opt-47-d",
+          "key": "D",
+          "text": "कृष्णदेवराय / Krishnadevaraya",
+          "textHindi": "कृष्णदेवराय / Krishnadevaraya"
+        }
+      ],
+      "correctAnswer": "D",
+      "correctAnswerText": "(D) कृष्णदेवराय",
+      "explanationHindi": "* व्याख्या: सम्राट कृष्णदेवराय ने तेलुगु साहित्य और कला के महान संरक्षक होने के कारण स्वयं को 'आन्ध्र भोज', 'आन्ध्र पितामह' और 'अभिनव भोज' की उपाधियों से विभूषित किया था।",
+      "marks": 1
+    },
+    {
+      "id": "q-mcq-48",
+      "sectionId": "sec-a",
+      "sectionName": "खण्ड–अ : वस्तुनिष्ठ प्रश्न",
+      "questionNumber": 48,
+      "type": "mcq",
+      "text": "अफनासी निकितिन किस देश का यात्री था ? / Afanasy Nikitin was the traveller of which country ?",
+      "textHindi": "अफनासी निकितिन किस देश का यात्री था ? / Afanasy Nikitin was the traveller of which country ?",
+      "options": [
+        {
+          "id": "opt-48-a",
+          "key": "A",
+          "text": "इटली / Italy",
+          "textHindi": "इटली / Italy"
+        },
+        {
+          "id": "opt-48-b",
+          "key": "B",
+          "text": "ईरान / Iran",
+          "textHindi": "ईरान / Iran"
+        },
+        {
+          "id": "opt-48-c",
+          "key": "C",
+          "text": "रूस / Russia",
+          "textHindi": "रूस / Russia"
+        },
+        {
+          "id": "opt-48-d",
+          "key": "D",
+          "text": "पुर्तगाल / Portugal",
+          "textHindi": "पुर्तगाल / Portugal"
+        }
+      ],
+      "correctAnswer": "C",
+      "correctAnswerText": "(C) रूस",
+      "explanationHindi": "* व्याख्या: अफ़ानासी निकितिन 15वीं शताब्दी (लगभग 1466-1472 ई०) का एक रूसी व्यापारी व यात्री था जिसने बहमनी व विजयनगर क्षेत्रों की यात्रा की थी।",
+      "marks": 1
+    },
+    {
+      "id": "q-mcq-49",
+      "sectionId": "sec-a",
+      "sectionName": "खण्ड–अ : वस्तुनिष्ठ प्रश्न",
+      "questionNumber": 49,
+      "type": "mcq",
+      "text": "'आमुक्तमाल्याद' किसने लिखा ? / Who wrote 'Amuktamalyada' ?",
+      "textHindi": "'आमुक्तमाल्याद' किसने लिखा ? / Who wrote 'Amuktamalyada' ?",
+      "options": [
+        {
+          "id": "opt-49-a",
+          "key": "A",
+          "text": "हरिहर / Harihara",
+          "textHindi": "हरिहर / Harihara"
+        },
+        {
+          "id": "opt-49-b",
+          "key": "B",
+          "text": "बुक्का / Bukka",
+          "textHindi": "बुक्का / Bukka"
+        },
+        {
+          "id": "opt-49-c",
+          "key": "C",
+          "text": "कृष्णदेवराय / Krishnadevaraya",
+          "textHindi": "कृष्णदेवराय / Krishnadevaraya"
+        },
+        {
+          "id": "opt-49-d",
+          "key": "D",
+          "text": "सदाशिवराय / Sadashivraya",
+          "textHindi": "सदाशिवराय / Sadashivraya"
+        }
+      ],
+      "correctAnswer": "C",
+      "correctAnswerText": "(C) कृष्णदेवराय",
+      "explanationHindi": "* व्याख्या: विजयनगर सम्राट कृष्णदेवराय ने राजनीति और राजधर्म के सिद्धांतों पर आधारित अपने प्रसिद्ध काव्य ग्रंथ 'अमुक्तमाल्यद' की रचना तेलुगु भाषा में की थी।",
+      "marks": 1
+    },
+    {
+      "id": "q-mcq-50",
+      "sectionId": "sec-a",
+      "sectionName": "खण्ड–अ : वस्तुनिष्ठ प्रश्न",
+      "questionNumber": 50,
+      "type": "mcq",
+      "text": "उत्तर भारत में भक्ति आंदोलन किसने प्रारंभ किया ? / Who started Bhakti movement in north India ?",
+      "textHindi": "उत्तर भारत में भक्ति आंदोलन किसने प्रारंभ किया ? / Who started Bhakti movement in north India ?",
+      "options": [
+        {
+          "id": "opt-50-a",
+          "key": "A",
+          "text": "आचार्य रामानुज / Acharya Ramanuja",
+          "textHindi": "आचार्य रामानुज / Acharya Ramanuja"
+        },
+        {
+          "id": "opt-50-b",
+          "key": "B",
+          "text": "रामानन्द / Ramananda",
+          "textHindi": "रामानन्द / Ramananda"
+        },
+        {
+          "id": "opt-50-c",
+          "key": "C",
+          "text": "राघवानन्द / Raghavananda",
+          "textHindi": "राघवानन्द / Raghavananda"
+        },
+        {
+          "id": "opt-50-d",
+          "key": "D",
+          "text": "चैतन्य / Chaitanya",
+          "textHindi": "चैतन्य / Chaitanya"
+        }
+      ],
+      "correctAnswer": "B",
+      "correctAnswerText": "(B) रामानन्द",
+      "explanationHindi": "* व्याख्या: 14वीं-15वीं शताब्दी में दक्षिण भारत से भक्ति परंपरा को उत्तर भारत में लाकर जनसामान्य तक प्रसारित करने का श्रेय स्वामी रामानन्द को जाता है।",
+      "marks": 1
+    },
+    {
+      "id": "q-mcq-51",
+      "sectionId": "sec-a",
+      "sectionName": "खण्ड–अ : वस्तुनिष्ठ प्रश्न",
+      "questionNumber": 51,
+      "type": "mcq",
+      "text": "स्त्री संत अंडाल किसकी उपासिका थी ? / Woman saint Andal was the worshipper of which God ?",
+      "textHindi": "स्त्री संत अंडाल किसकी उपासिका थी ? / Woman saint Andal was the worshipper of which God ?",
+      "options": [
+        {
+          "id": "opt-51-a",
+          "key": "A",
+          "text": "शिव / Shiva",
+          "textHindi": "शिव / Shiva"
+        },
+        {
+          "id": "opt-51-b",
+          "key": "B",
+          "text": "कृष्ण / Krishna",
+          "textHindi": "कृष्ण / Krishna"
+        },
+        {
+          "id": "opt-51-c",
+          "key": "C",
+          "text": "राम / Rama",
+          "textHindi": "राम / Rama"
+        },
+        {
+          "id": "opt-51-d",
+          "key": "D",
+          "text": "विष्णु / Vishnu",
+          "textHindi": "विष्णु / Vishnu"
+        }
+      ],
+      "correctAnswer": "D",
+      "correctAnswerText": "(D) विष्णु",
+      "explanationHindi": "* व्याख्या: दक्षिण भारत के 12 अलवार संतों में एकमात्र महिला संत आंडाल (कोदई) भगवान विष्णु (रंगनाथ) की अनन्य भक्त और उपासिका थीं।",
+      "marks": 1
+    },
+    {
+      "id": "q-mcq-52",
+      "sectionId": "sec-a",
+      "sectionName": "खण्ड–अ : वस्तुनिष्ठ प्रश्न",
+      "questionNumber": 52,
+      "type": "mcq",
+      "text": "कबीर का जन्म कब हुआ ? / When was Kabir born ?",
+      "textHindi": "कबीर का जन्म कब हुआ ? / When was Kabir born ?",
+      "options": [
+        {
+          "id": "opt-52-a",
+          "key": "A",
+          "text": "1122 ई० / 1122",
+          "textHindi": "1122 ई० / 1122"
+        },
+        {
+          "id": "opt-52-b",
+          "key": "B",
+          "text": "1398 ई० / 1398",
+          "textHindi": "1398 ई० / 1398"
+        },
+        {
+          "id": "opt-52-c",
+          "key": "C",
+          "text": "1425 ई० / 1425",
+          "textHindi": "1425 ई० / 1425"
+        },
+        {
+          "id": "opt-52-d",
+          "key": "D",
+          "text": "1486 ई० / 1486",
+          "textHindi": "1486 ई० / 1486"
+        }
+      ],
+      "correctAnswer": "B",
+      "correctAnswerText": "(B) 1398 ई०",
+      "explanationHindi": "* व्याख्या: निर्गुण भक्ति धारा के महान संत और कवि कबीरदास जी का जन्म 1398 ईस्वी में काशी (वाराणसी) में माना जाता है।",
+      "marks": 1
+    },
+    {
+      "id": "q-mcq-53",
+      "sectionId": "sec-a",
+      "sectionName": "खण्ड–अ : वस्तुनिष्ठ प्रश्न",
+      "questionNumber": 53,
+      "type": "mcq",
+      "text": "'खालसा पंथ' की स्थापना किसने की ? / Who founded 'Khalsa Panth' ?",
+      "textHindi": "'खालसा पंथ' की स्थापना किसने की ? / Who founded 'Khalsa Panth' ?",
+      "options": [
+        {
+          "id": "opt-53-a",
+          "key": "A",
+          "text": "गुरु गोविन्द सिंह / Guru Gobind Singh",
+          "textHindi": "गुरु गोविन्द सिंह / Guru Gobind Singh"
+        },
+        {
+          "id": "opt-53-b",
+          "key": "B",
+          "text": "गुरु नानक देव / Guru Nanak Dev",
+          "textHindi": "गुरु नानक देव / Guru Nanak Dev"
+        },
+        {
+          "id": "opt-53-c",
+          "key": "C",
+          "text": "गुरु अर्जन देव / Guru Arjan Dev",
+          "textHindi": "गुरु अर्जन देव / Guru Arjan Dev"
+        },
+        {
+          "id": "opt-53-d",
+          "key": "D",
+          "text": "गुरु रामदास / Guru Ram Das",
+          "textHindi": "गुरु रामदास / Guru Ram Das"
+        }
+      ],
+      "correctAnswer": "A",
+      "correctAnswerText": "(A) गुरु गोविन्द सिंह",
+      "explanationHindi": "* व्याख्या: सिखों के 10वें गुरु, गुरु गोबिन्द सिंह जी ने 13 अप्रैल, 1699 को बैसाखी के दिन आनंदपुर साहिब में 'खालसा पंथ' की स्थापना की थी।",
+      "marks": 1
+    },
+    {
+      "id": "q-mcq-54",
+      "sectionId": "sec-a",
+      "sectionName": "खण्ड–अ : वस्तुनिष्ठ प्रश्न",
+      "questionNumber": 54,
+      "type": "mcq",
+      "text": "भक्ति आंदोलन के प्रमुख संत नामदेव किस राज्य के हैं ? / Prominent Bhakti Saint Namdev belonged to which state ?",
+      "textHindi": "भक्ति आंदोलन के प्रमुख संत नामदेव किस राज्य के हैं ? / Prominent Bhakti Saint Namdev belonged to which state ?",
+      "options": [
+        {
+          "id": "opt-54-a",
+          "key": "A",
+          "text": "राजस्थान / Rajasthan",
+          "textHindi": "राजस्थान / Rajasthan"
+        },
+        {
+          "id": "opt-54-b",
+          "key": "B",
+          "text": "गुजरात / Gujarat",
+          "textHindi": "गुजरात / Gujarat"
+        },
+        {
+          "id": "opt-54-c",
+          "key": "C",
+          "text": "पंजाब / Punjab",
+          "textHindi": "पंजाब / Punjab"
+        },
+        {
+          "id": "opt-54-d",
+          "key": "D",
+          "text": "महाराष्ट्र / Maharashtra",
+          "textHindi": "महाराष्ट्र / Maharashtra"
+        }
+      ],
+      "correctAnswer": "D",
+      "correctAnswerText": "(D) महाराष्ट्र",
+      "explanationHindi": "* व्याख्या: वारकरी संप्रदाय के प्रमुख संत नामदेव महाराष्ट्र के प्रसिद्ध भक्ति संत थे, जिनके पद गुरु ग्रंथ साहिब में भी संकलित हैं।",
+      "marks": 1
+    },
+    {
+      "id": "q-mcq-55",
+      "sectionId": "sec-a",
+      "sectionName": "खण्ड–अ : वस्तुनिष्ठ प्रश्न",
+      "questionNumber": 55,
+      "type": "mcq",
+      "text": "भारत में दिल्ली सल्तनत की स्थापना किस वर्ष हुई ? / When was Delhi Sultanate founded in India ?",
+      "textHindi": "भारत में दिल्ली सल्तनत की स्थापना किस वर्ष हुई ? / When was Delhi Sultanate founded in India ?",
+      "options": [
+        {
+          "id": "opt-55-a",
+          "key": "A",
+          "text": "1206",
+          "textHindi": "1206"
+        },
+        {
+          "id": "opt-55-b",
+          "key": "B",
+          "text": "1216",
+          "textHindi": "1216"
+        },
+        {
+          "id": "opt-55-c",
+          "key": "C",
+          "text": "1240",
+          "textHindi": "1240"
+        },
+        {
+          "id": "opt-55-d",
+          "key": "D",
+          "text": "1256",
+          "textHindi": "1256"
+        }
+      ],
+      "correctAnswer": "A",
+      "correctAnswerText": "(A) 1206",
+      "explanationHindi": "* व्याख्या: 1206 ई० में कुतुबुद्दीन ऐबक ने गुलाम वंश की नींव रखकर भारत में औपचारिक रूप से 'दिल्ली सल्तनत' की स्थापना की थी।",
+      "marks": 1
+    },
+    {
+      "id": "q-mcq-56",
+      "sectionId": "sec-a",
+      "sectionName": "खण्ड–अ : वस्तुनिष्ठ प्रश्न",
+      "questionNumber": 56,
+      "type": "mcq",
+      "text": "अमीर खुसरो किसके शिष्य थे ? / Whose disciple was Amir Khusro ?",
+      "textHindi": "अमीर खुसरो किसके शिष्य थे ? / Whose disciple was Amir Khusro ?",
+      "options": [
+        {
+          "id": "opt-56-a",
+          "key": "A",
+          "text": "शेख कुतुबुद्दीन बख्तियार काकी / Sheikh Qutbuddin Bakhtiar Kaki",
+          "textHindi": "शेख कुतुबुद्दीन बख्तियार काकी / Sheikh Qutbuddin Bakhtiar Kaki"
+        },
+        {
+          "id": "opt-56-b",
+          "key": "B",
+          "text": "शेख बुरहानुद्दीन / Sheikh Burhanuddin",
+          "textHindi": "शेख बुरहानुद्दीन / Sheikh Burhanuddin"
+        },
+        {
+          "id": "opt-56-c",
+          "key": "C",
+          "text": "शेख निज़ामुद्दीन औलिया / Sheikh Nizamuddin Auliya",
+          "textHindi": "शेख निज़ामुद्दीन औलिया / Sheikh Nizamuddin Auliya"
+        },
+        {
+          "id": "opt-56-d",
+          "key": "D",
+          "text": "शेख सलीम चिश्ती / Sheikh Salim Chishti",
+          "textHindi": "शेख सलीम चिश्ती / Sheikh Salim Chishti"
+        }
+      ],
+      "correctAnswer": "C",
+      "correctAnswerText": "(C) शेख निज़ामुद्दीन औलिया",
+      "explanationHindi": "* व्याख्या: महान संगीतकार, कवि और विद्वान अमीर खुसरो दिल्ली के प्रसिद्ध चिश्ती संत हजरत शेख निज़ामुद्दीन औलिया के परम प्रिय शिष्य थे।",
+      "marks": 1
+    },
+    {
+      "id": "q-mcq-57",
+      "sectionId": "sec-a",
+      "sectionName": "खण्ड–अ : वस्तुनिष्ठ प्रश्न",
+      "questionNumber": 57,
+      "type": "mcq",
+      "text": "बीजक में किसके उपदेश संग्रहित हैं ? / Whose sermons are compiled in Bijak ?",
+      "textHindi": "बीजक में किसके उपदेश संग्रहित हैं ? / Whose sermons are compiled in Bijak ?",
+      "options": [
+        {
+          "id": "opt-57-a",
+          "key": "A",
+          "text": "कबीर / Kabir",
+          "textHindi": "कबीर / Kabir"
+        },
+        {
+          "id": "opt-57-b",
+          "key": "B",
+          "text": "गुरु नानक / Guru Nanak",
+          "textHindi": "गुरु नानक / Guru Nanak"
+        },
+        {
+          "id": "opt-57-c",
+          "key": "C",
+          "text": "चैतन्य / Chaitanya",
+          "textHindi": "चैतन्य / Chaitanya"
+        },
+        {
+          "id": "opt-57-d",
+          "key": "D",
+          "text": "रामानन्द / Ramananda",
+          "textHindi": "रामानन्द / Ramananda"
+        }
+      ],
+      "correctAnswer": "A",
+      "correctAnswerText": "(A) कबीर",
+      "explanationHindi": "* व्याख्या: संत कबीरदास जी के उपदेशों, सबद, साखी और रमैनी का प्रामाणिक संकलन कबीरपंथियों के पवित्र ग्रंथ 'बीजक' में संग्रहित है।",
+      "marks": 1
+    },
+    {
+      "id": "q-mcq-58",
+      "sectionId": "sec-a",
+      "sectionName": "खण्ड–अ : वस्तुनिष्ठ प्रश्न",
+      "questionNumber": 58,
+      "type": "mcq",
+      "text": "अल-बेरुनी के यात्रा वृत्तान्त का नाम है / The name of the Al-Biruni travelogue is",
+      "textHindi": "अल-बेरुनी के यात्रा वृत्तान्त का नाम है / The name of the Al-Biruni travelogue is",
+      "options": [
+        {
+          "id": "opt-58-a",
+          "key": "A",
+          "text": "तहक़ी",
+          "textHindi": "तहक़ी"
+        },
+        {
+          "id": "opt-58-b",
+          "key": "B",
+          "text": "किताब-उर-रेहला / Kita",
+          "textHindi": "किताब-उर-रेहला / Kita"
+        },
+        {
+          "id": "opt-58-c",
+          "key": "C",
+          "text": "ट्रैवल्स इन द मुग़ल एम्पायर / Travels in the Mogul Empire",
+          "textHindi": "ट्रैवल्स इन द मुग़ल एम्पायर / Travels in the Mogul Empire"
+        },
+        {
+          "id": "opt-58-d",
+          "key": "D",
+          "text": "इंडिका / Indica",
+          "textHindi": "इंडिका / Indica"
+        }
+      ],
+      "correctAnswer": "A",
+      "correctAnswerText": "(A) तहक़ीक-ए-हिन्द",
+      "explanationHindi": "* व्याख्या: 11वीं सदी के विद्वान अल-बिरूनी द्वारा अरबी में लिखे गए भारत के वृत्तांत का नाम 'तहक़ीक-ए-हिन्द' (या किताब-उल-हिन्द) है।",
+      "marks": 1
+    },
+    {
+      "id": "q-mcq-59",
+      "sectionId": "sec-a",
+      "sectionName": "खण्ड–अ : वस्तुनिष्ठ प्रश्न",
+      "questionNumber": 59,
+      "type": "mcq",
+      "text": "मार्को पोलो किस देश का रहने वाला था ? / Marco Polo belonged to which country ?",
+      "textHindi": "मार्को पोलो किस देश का रहने वाला था ? / Marco Polo belonged to which country ?",
+      "options": [
+        {
+          "id": "opt-59-a",
+          "key": "A",
+          "text": "चीन / China",
+          "textHindi": "चीन / China"
+        },
+        {
+          "id": "opt-59-b",
+          "key": "B",
+          "text": "इटली / Italy",
+          "textHindi": "इटली / Italy"
+        },
+        {
+          "id": "opt-59-c",
+          "key": "C",
+          "text": "इरान / Iran",
+          "textHindi": "इरान / Iran"
+        },
+        {
+          "id": "opt-59-d",
+          "key": "D",
+          "text": "रूस / Russia",
+          "textHindi": "रूस / Russia"
+        }
+      ],
+      "correctAnswer": "B",
+      "correctAnswerText": "(B) इटली",
+      "explanationHindi": "* व्याख्या: प्रसिद्ध मध्यकालीन यूरोपीय यात्री मार्को पोलो इटली के वेनिस नगर का निवासी था, जिसने 13वीं सदी के अंत में दक्षिण भारत की यात्रा की थी।",
+      "marks": 1
+    },
+    {
+      "id": "q-mcq-60",
+      "sectionId": "sec-a",
+      "sectionName": "खण्ड–अ : वस्तुनिष्ठ प्रश्न",
+      "questionNumber": 60,
+      "type": "mcq",
+      "text": "मेगास्थनीज किस राजा के दरबार में आया था ? / Megasthenes came in the court of which ruler ?",
+      "textHindi": "मेगास्थनीज किस राजा के दरबार में आया था ? / Megasthenes came in the court of which ruler ?",
+      "options": [
+        {
+          "id": "opt-60-a",
+          "key": "A",
+          "text": "चन्द्रगुप्त मौर्य / Chandragupta Maurya",
+          "textHindi": "चन्द्रगुप्त मौर्य / Chandragupta Maurya"
+        },
+        {
+          "id": "opt-60-b",
+          "key": "B",
+          "text": "हर्षवर्द्धन / Harshavardhana",
+          "textHindi": "हर्षवर्द्धन / Harshavardhana"
+        },
+        {
+          "id": "opt-60-c",
+          "key": "C",
+          "text": "चन्द्रगुप्त विक्रमादित्य / Chandragupta Vikramaditya",
+          "textHindi": "चन्द्रगुप्त विक्रमादित्य / Chandragupta Vikramaditya"
+        },
+        {
+          "id": "opt-60-d",
+          "key": "D",
+          "text": "देवराय प्रथम / Devaray",
+          "textHindi": "देवराय प्रथम / Devaray"
+        }
+      ],
+      "correctAnswer": "A",
+      "correctAnswerText": "(A) चन्द्रगुप्त मौर्य",
+      "explanationHindi": "* व्याख्या: यूनानी शासक सेल्यूकस निकेटर का राजदूत मेगस्थनीज मौर्य साम्राज्य के संस्थापक चंद्रगुप्त मौर्य के पाटलिपुत्र स्थित राजदरबार में आया था।",
+      "marks": 1
+    },
+    {
+      "id": "q-mcq-61",
+      "sectionId": "sec-a",
+      "sectionName": "खण्ड–अ : वस्तुनिष्ठ प्रश्न",
+      "questionNumber": 61,
+      "type": "mcq",
+      "text": "फ्रांस्वा बर्नियर पेशे से क्या था ? / What was the Francois Bernier's profession ?",
+      "textHindi": "फ्रांस्वा बर्नियर पेशे से क्या था ? / What was the Francois Bernier's profession ?",
+      "options": [
+        {
+          "id": "opt-61-a",
+          "key": "A",
+          "text": "यात्री / Traveller",
+          "textHindi": "यात्री / Traveller"
+        },
+        {
+          "id": "opt-61-b",
+          "key": "B",
+          "text": "व्यापारी / Merchant",
+          "textHindi": "व्यापारी / Merchant"
+        },
+        {
+          "id": "opt-61-c",
+          "key": "C",
+          "text": "राजदूत / Ambassador",
+          "textHindi": "राजदूत / Ambassador"
+        },
+        {
+          "id": "opt-61-d",
+          "key": "D",
+          "text": "चिकित्सक / Physician",
+          "textHindi": "चिकित्सक / Physician"
+        }
+      ],
+      "correctAnswer": "D",
+      "correctAnswerText": "(D) चिकित्सक",
+      "explanationHindi": "* व्याख्या: फ्रांस से आया फ्रांस्वा बर्नियर पेशे से एक प्रशिक्षित चिकित्सक (डॉक्टर), दार्शनिक और इतिहासकार था।",
+      "marks": 1
+    },
+    {
+      "id": "q-mcq-62",
+      "sectionId": "sec-a",
+      "sectionName": "खण्ड–अ : वस्तुनिष्ठ प्रश्न",
+      "questionNumber": 62,
+      "type": "mcq",
+      "text": "कैप्टन हॉकिन्स किस मुग़ल शासक के दरबार में आया था ? / In which Mughal ruler's court did Captain Hawkins come ?",
+      "textHindi": "कैप्टन हॉकिन्स किस मुग़ल शासक के दरबार में आया था ? / In which Mughal ruler's court did Captain Hawkins come ?",
+      "options": [
+        {
+          "id": "opt-62-a",
+          "key": "A",
+          "text": "अकबर / Akbar",
+          "textHindi": "अकबर / Akbar"
+        },
+        {
+          "id": "opt-62-b",
+          "key": "B",
+          "text": "जहाँगीर / Jahangir",
+          "textHindi": "जहाँगीर / Jahangir"
+        },
+        {
+          "id": "opt-62-c",
+          "key": "C",
+          "text": "औरंगजेब / Aurangzeb",
+          "textHindi": "औरंगजेब / Aurangzeb"
+        },
+        {
+          "id": "opt-62-d",
+          "key": "D",
+          "text": "शाहजहाँ / Shah Jahan",
+          "textHindi": "शाहजहाँ / Shah Jahan"
+        }
+      ],
+      "correctAnswer": "B",
+      "correctAnswerText": "(B) जहाँगीर",
+      "explanationHindi": "* व्याख्या: ब्रिटिश ईस्ट इंडिया कंपनी का प्रतिनिधि कैप्टन विलियम हॉकिन्स 1608 ई० में मुग़ल सम्राट जहाँगीर के आगरा स्थित राजदरबार में व्यापारिक छूट पाने आया था।",
+      "marks": 1
+    },
+    {
+      "id": "q-mcq-63",
+      "sectionId": "sec-a",
+      "sectionName": "खण्ड–अ : वस्तुनिष्ठ प्रश्न",
+      "questionNumber": 63,
+      "type": "mcq",
+      "text": "'यात्रियों का राजकुमार' किस यात्री को कहा गया ? / Which traveller was called the 'Prince of travellers' ?",
+      "textHindi": "'यात्रियों का राजकुमार' किस यात्री को कहा गया ? / Which traveller was called the 'Prince of travellers' ?",
+      "options": [
+        {
+          "id": "opt-63-a",
+          "key": "A",
+          "text": "फाह्यान / F",
+          "textHindi": "फाह्यान / F"
+        },
+        {
+          "id": "opt-63-b",
+          "key": "B",
+          "text": "ह्वेनसांग / Hiuen Tsang",
+          "textHindi": "ह्वेनसांग / Hiuen Tsang"
+        },
+        {
+          "id": "opt-63-c",
+          "key": "C",
+          "text": "अल-बेरुनी / Al-Biruni",
+          "textHindi": "अल-बेरुनी / Al-Biruni"
+        },
+        {
+          "id": "opt-63-d",
+          "key": "D",
+          "text": "इब्न बतूता / Ibn Battuta",
+          "textHindi": "इब्न बतूता / Ibn Battuta"
+        }
+      ],
+      "correctAnswer": "B",
+      "correctAnswerText": "(B) ह्वेनसांग",
+      "explanationHindi": "* व्याख्या: चीनी बौद्ध तीर्थयात्री ह्वेनसांग (Xuanzang) को उसकी अद्भुत यात्राओं और ज्ञान पिपासा के कारण मध्यकालीन 'यात्रियों का राजकुमार' (Prince of Pilgrims) कहा जाता है।",
+      "marks": 1
+    },
+    {
+      "id": "q-mcq-64",
+      "sectionId": "sec-a",
+      "sectionName": "खण्ड–अ : वस्तुनिष्ठ प्रश्न",
+      "questionNumber": 64,
+      "type": "mcq",
+      "text": "भारत आनेवाले प्रथम यूरोपियन कौन थे ? / Who were the first European to come to India ?",
+      "textHindi": "भारत आनेवाले प्रथम यूरोपियन कौन थे ? / Who were the first European to come to India ?",
+      "options": [
+        {
+          "id": "opt-64-a",
+          "key": "A",
+          "text": "पुर्तगाली / Portuguese",
+          "textHindi": "पुर्तगाली / Portuguese"
+        },
+        {
+          "id": "opt-64-b",
+          "key": "B",
+          "text": "ब्रिटिश / British",
+          "textHindi": "ब्रिटिश / British"
+        },
+        {
+          "id": "opt-64-c",
+          "key": "C",
+          "text": "डच / Dutch",
+          "textHindi": "डच / Dutch"
+        },
+        {
+          "id": "opt-64-d",
+          "key": "D",
+          "text": "फ्रांसीसी / French",
+          "textHindi": "फ्रांसीसी / French"
+        }
+      ],
+      "correctAnswer": "A",
+      "correctAnswerText": "(A) पुर्तगाली",
+      "explanationHindi": "* व्याख्या: 1498 ई० में वास्को डी गामा के भारत (कालीकट) आगमन के साथ भारत आने वाले प्रथम यूरोपीय 'पुर्तगाली' थे।",
+      "marks": 1
+    },
+    {
+      "id": "q-mcq-65",
+      "sectionId": "sec-a",
+      "sectionName": "खण्ड–अ : वस्तुनिष्ठ प्रश्न",
+      "questionNumber": 65,
+      "type": "mcq",
+      "text": "ब्रिटिश ईस्ट इंडिया कम्पनी की स्थापना कब हुई ? / When was British East India Company established ?",
+      "textHindi": "ब्रिटिश ईस्ट इंडिया कम्पनी की स्थापना कब हुई ? / When was British East India Company established ?",
+      "options": [
+        {
+          "id": "opt-65-a",
+          "key": "A",
+          "text": "1600",
+          "textHindi": "1600"
+        },
+        {
+          "id": "opt-65-b",
+          "key": "B",
+          "text": "1605",
+          "textHindi": "1605"
+        },
+        {
+          "id": "opt-65-c",
+          "key": "C",
+          "text": "1610",
+          "textHindi": "1610"
+        },
+        {
+          "id": "opt-65-d",
+          "key": "D",
+          "text": "1615",
+          "textHindi": "1615"
+        }
+      ],
+      "correctAnswer": "A",
+      "correctAnswerText": "(A) 1600",
+      "explanationHindi": "* व्याख्या: 31 दिसंबर, 1600 को इंग्लैंड की महारानी एलिजाबेथ प्रथम द्वारा एक शाही चार्टर जारी कर 'ब्रिटिश ईस्ट इंडिया कंपनी' की स्थापना की गई थी।",
+      "marks": 1
+    },
+    {
+      "id": "q-mcq-66",
+      "sectionId": "sec-a",
+      "sectionName": "खण्ड–अ : वस्तुनिष्ठ प्रश्न",
+      "questionNumber": 66,
+      "type": "mcq",
+      "text": "स्थायी बंदोबस्त किसने लागू किया ? / Who implemented the permanent settlement ?",
+      "textHindi": "स्थायी बंदोबस्त किसने लागू किया ? / Who implemented the permanent settlement ?",
+      "options": [
+        {
+          "id": "opt-66-a",
+          "key": "A",
+          "text": "वारेन हेस्टिंग्स / Warren Hastings",
+          "textHindi": "वारेन हेस्टिंग्स / Warren Hastings"
+        },
+        {
+          "id": "opt-66-b",
+          "key": "B",
+          "text": "वेलेस्ली / Wellesley",
+          "textHindi": "वेलेस्ली / Wellesley"
+        },
+        {
+          "id": "opt-66-c",
+          "key": "C",
+          "text": "कार्नवालिस / Cornwallis",
+          "textHindi": "कार्नवालिस / Cornwallis"
+        },
+        {
+          "id": "opt-66-d",
+          "key": "D",
+          "text": "रिपन / Ripon",
+          "textHindi": "रिपन / Ripon"
+        }
+      ],
+      "correctAnswer": "C",
+      "correctAnswerText": "(C) कार्नवालिस",
+      "explanationHindi": "* व्याख्या: गवर्नर-जनरल लॉर्ड कार्नवालिस ने 1793 ई० में बंगाल, बिहार और ओडिशा में स्थायी बंदोबस्त (इस्तमरारी व्यवस्था) लागू किया था।",
+      "marks": 1
+    },
+    {
+      "id": "q-mcq-67",
+      "sectionId": "sec-a",
+      "sectionName": "खण्ड–अ : वस्तुनिष्ठ प्रश्न",
+      "questionNumber": 67,
+      "type": "mcq",
+      "text": "फ्रांसिस बुकानन कौन था ? / Who was Francis Buchanan ?",
+      "textHindi": "फ्रांसिस बुकानन कौन था ? / Who was Francis Buchanan ?",
+      "options": [
+        {
+          "id": "opt-67-a",
+          "key": "A",
+          "text": "सैनिक / Soldier",
+          "textHindi": "सैनिक / Soldier"
+        },
+        {
+          "id": "opt-67-b",
+          "key": "B",
+          "text": "गायक / Singer",
+          "textHindi": "गायक / Singer"
+        },
+        {
+          "id": "opt-67-c",
+          "key": "C",
+          "text": "अभियन्ता / Engineer",
+          "textHindi": "अभियन्ता / Engineer"
+        },
+        {
+          "id": "opt-67-d",
+          "key": "D",
+          "text": "सर्वेक्षक / Surveyor",
+          "textHindi": "सर्वेक्षक / Surveyor"
+        }
+      ],
+      "correctAnswer": "D",
+      "correctAnswerText": "(D) सर्वेक्षक",
+      "explanationHindi": "* व्याख्या: फ्रांसिस बुकानन ईस्ट इंडिया कंपनी की सेवा में एक चिकित्सक और प्रसिद्ध पेशेवर सर्वेक्षक थे, जिन्होंने बंगाल व बिहार के क्षेत्रों का व्यापक भौगोलिक सर्वेक्षण किया था।",
+      "marks": 1
+    },
+    {
+      "id": "q-mcq-68",
+      "sectionId": "sec-a",
+      "sectionName": "खण्ड–अ : वस्तुनिष्ठ प्रश्न",
+      "questionNumber": 68,
+      "type": "mcq",
+      "text": "दक्कन दंगा आयोग कब गठित हुआ ? / When was Deccan Riots Commission formed ?",
+      "textHindi": "दक्कन दंगा आयोग कब गठित हुआ ? / When was Deccan Riots Commission formed ?",
+      "options": [
+        {
+          "id": "opt-68-a",
+          "key": "A",
+          "text": "1875",
+          "textHindi": "1875"
+        },
+        {
+          "id": "opt-68-b",
+          "key": "B",
+          "text": "1877",
+          "textHindi": "1877"
+        },
+        {
+          "id": "opt-68-c",
+          "key": "C",
+          "text": "1885",
+          "textHindi": "1885"
+        },
+        {
+          "id": "opt-68-d",
+          "key": "D",
+          "text": "1890",
+          "textHindi": "1890"
+        }
+      ],
+      "correctAnswer": "A",
+      "correctAnswerText": "(A) 1875",
+      "explanationHindi": "* व्याख्या: 1875 में महाराष्ट्र के पूना और अहमदनगर में किसानों द्वारा साहूकारों के विरुद्ध किए गए दंगों की जांच के लिए ब्रिटिश सरकार ने 1875 में 'दक्कन दंगा आयोग' का गठन किया था।",
+      "marks": 1
+    },
+    {
+      "id": "q-mcq-69",
+      "sectionId": "sec-a",
+      "sectionName": "खण्ड–अ : वस्तुनिष्ठ प्रश्न",
+      "questionNumber": 69,
+      "type": "mcq",
+      "text": "संथाल विद्रोह के नेता कौन थे ? / Who was the leader of Santhal revolt ?",
+      "textHindi": "संथाल विद्रोह के नेता कौन थे ? / Who was the leader of Santhal revolt ?",
+      "options": [
+        {
+          "id": "opt-69-a",
+          "key": "A",
+          "text": "बुधू भगत / Budhu Bhagat",
+          "textHindi": "बुधू भगत / Budhu Bhagat"
+        },
+        {
+          "id": "opt-69-b",
+          "key": "B",
+          "text": "सिद्धू-कान्हू / Sidhu-Kanhu",
+          "textHindi": "सिद्धू-कान्हू / Sidhu-Kanhu"
+        },
+        {
+          "id": "opt-69-c",
+          "key": "C",
+          "text": "बिरसा मुण्डा / Birsa Munda",
+          "textHindi": "बिरसा मुण्डा / Birsa Munda"
+        },
+        {
+          "id": "opt-69-d",
+          "key": "D",
+          "text": "जात्रा भगत / Jatra Bhagat",
+          "textHindi": "जात्रा भगत / Jatra Bhagat"
+        }
+      ],
+      "correctAnswer": "B",
+      "correctAnswerText": "(B) सिद्धू-कान्हू",
+      "explanationHindi": "* व्याख्या: 1855-1856 में राजमहल की पहाड़ियों में ब्रिटिश शासन और महाजनों के शोषण के विरुद्ध हुए 'संथाल विद्रोह' का नेतृत्व सिद्धू और कान्हू ने किया था।",
+      "marks": 1
+    },
+    {
+      "id": "q-mcq-70",
+      "sectionId": "sec-a",
+      "sectionName": "खण्ड–अ : वस्तुनिष्ठ प्रश्न",
+      "questionNumber": 70,
+      "type": "mcq",
+      "text": "प्लासी का युद्ध कब हुआ ? / When did the battle of Plassey take place ?",
+      "textHindi": "प्लासी का युद्ध कब हुआ ? / When did the battle of Plassey take place ?",
+      "options": [
+        {
+          "id": "opt-70-a",
+          "key": "A",
+          "text": "1757",
+          "textHindi": "1757"
+        },
+        {
+          "id": "opt-70-b",
+          "key": "B",
+          "text": "1764",
+          "textHindi": "1764"
+        },
+        {
+          "id": "opt-70-c",
+          "key": "C",
+          "text": "1798",
+          "textHindi": "1798"
+        },
+        {
+          "id": "opt-70-d",
+          "key": "D",
+          "text": "1805",
+          "textHindi": "1805"
+        }
+      ],
+      "correctAnswer": "A",
+      "correctAnswerText": "(A) 1757",
+      "explanationHindi": "* व्याख्या: 23 जून, 1757 को नदिया जिले के प्लासी के मैदान में रॉबर्ट क्लाइव के नेतृत्व वाली ब्रिटिश सेना और बंगाल के नवाब सिराजुद्दौला के बीच प्लासी का ऐतिहासिक युद्ध हुआ था।",
+      "marks": 1
+    },
+    {
+      "id": "q-mcq-71",
+      "sectionId": "sec-a",
+      "sectionName": "खण्ड–अ : वस्तुनिष्ठ प्रश्न",
+      "questionNumber": 71,
+      "type": "mcq",
+      "text": "किस युद्ध में विजय प्राप्त कर औरंगजेब भारत का शासक बना ? / After the victory of which battle did Aurangzeb become the ruler of India ?",
+      "textHindi": "किस युद्ध में विजय प्राप्त कर औरंगजेब भारत का शासक बना ? / After the victory of which battle did Aurangzeb become the ruler of India ?",
+      "options": [
+        {
+          "id": "opt-71-a",
+          "key": "A",
+          "text": "पानीपत की पहली लड़ाई / First battle of Panipat",
+          "textHindi": "पानीपत की पहली लड़ाई / First battle of Panipat"
+        },
+        {
+          "id": "opt-71-b",
+          "key": "B",
+          "text": "ख़ानवा की लड़ाई / Battle of Khanwa",
+          "textHindi": "ख़ानवा की लड़ाई / Battle of Khanwa"
+        },
+        {
+          "id": "opt-71-c",
+          "key": "C",
+          "text": "पानीपत की तीसरी लड़ाई / Third battle of Panipat",
+          "textHindi": "पानीपत की तीसरी लड़ाई / Third battle of Panipat"
+        }
+      ],
+      "correctAnswer": "D",
+      "correctAnswerText": "(D) उत्तराधिकार का युद्ध",
+      "explanationHindi": "* व्याख्या: शाहजहाँ के बीमार पड़ने पर 1657-1658 में भाइयों (दारा शिकोह, शाह शुजा, मुराद) के साथ हुए 'उत्तराधिकार के युद्ध' (सामूगढ़, धरमत की लड़ाइयों) में विजयी होकर औरंगजेब शासक बना था।",
+      "marks": 1
+    },
+    {
+      "id": "q-mcq-72",
+      "sectionId": "sec-a",
+      "sectionName": "खण्ड–अ : वस्तुनिष्ठ प्रश्न",
+      "questionNumber": 72,
+      "type": "mcq",
+      "text": "सहायक संधि किसने लागू की ? / Who enforced Subsidiary Alliance ?",
+      "textHindi": "सहायक संधि किसने लागू की ? / Who enforced Subsidiary Alliance ?",
+      "options": [
+        {
+          "id": "opt-72-a",
+          "key": "A",
+          "text": "वेलेस्ली / Wellesley",
+          "textHindi": "वेलेस्ली / Wellesley"
+        },
+        {
+          "id": "opt-72-b",
+          "key": "B",
+          "text": "डलहौजी / Dalhousie",
+          "textHindi": "डलहौजी / Dalhousie"
+        },
+        {
+          "id": "opt-72-c",
+          "key": "C",
+          "text": "बेंटिंक / Bentinck",
+          "textHindi": "बेंटिंक / Bentinck"
+        },
+        {
+          "id": "opt-72-d",
+          "key": "D",
+          "text": "कार्नवालिस / Cornwallis",
+          "textHindi": "कार्नवालिस / Cornwallis"
+        }
+      ],
+      "correctAnswer": "A",
+      "correctAnswerText": "(A) वेलेस्ली",
+      "explanationHindi": "* व्याख्या: भारतीय देशी रियासतों को ब्रिटिश साम्राज्य के अधीन लाने के लिए 1798 में गवर्नर-जनरल लॉर्ड वेलेजली ने 'सहायक संधि प्रणाली' लागू की थी।",
+      "marks": 1
+    },
+    {
+      "id": "q-mcq-73",
+      "sectionId": "sec-a",
+      "sectionName": "खण्ड–अ : वस्तुनिष्ठ प्रश्न",
+      "questionNumber": 73,
+      "type": "mcq",
+      "text": "डाक अधिनियम कब पारित हुआ ? / When was the Postal Act passed ?",
+      "textHindi": "डाक अधिनियम कब पारित हुआ ? / When was the Postal Act passed ?",
+      "options": [
+        {
+          "id": "opt-73-a",
+          "key": "A",
+          "text": "1833 ई० / 1833",
+          "textHindi": "1833 ई० / 1833"
+        },
+        {
+          "id": "opt-73-b",
+          "key": "B",
+          "text": "1835 ई० / 1835",
+          "textHindi": "1835 ई० / 1835"
+        },
+        {
+          "id": "opt-73-c",
+          "key": "C",
+          "text": "1854 ई० / 1854",
+          "textHindi": "1854 ई० / 1854"
+        },
+        {
+          "id": "opt-73-d",
+          "key": "D",
+          "text": "1856 ई० / 1856",
+          "textHindi": "1856 ई० / 1856"
+        }
+      ],
+      "correctAnswer": "C",
+      "correctAnswerText": "(C) 1854 ई०",
+      "explanationHindi": "* व्याख्या: गवर्नर-जनरल लॉर्ड डलहौजी के कार्यकाल में 1854 ई० में आधुनिक 'डाक अधिनियम' (Post Office Act) पारित किया गया और अखिल भारतीय डाक टिकट जारी किए गए।",
+      "marks": 1
+    },
+    {
+      "id": "q-mcq-74",
+      "sectionId": "sec-a",
+      "sectionName": "खण्ड–अ : वस्तुनिष्ठ प्रश्न",
+      "questionNumber": 74,
+      "type": "mcq",
+      "text": "मंगल पांडे को फाँसी की सजा कब दी गई ? / When was Mangal Pandey sentenced to death (capital punishment) ?",
+      "textHindi": "मंगल पांडे को फाँसी की सजा कब दी गई ? / When was Mangal Pandey sentenced to death (capital punishment) ?",
+      "options": [
+        {
+          "id": "opt-74-a",
+          "key": "A",
+          "text": "मार्च 1857 / March 1857",
+          "textHindi": "मार्च 1857 / March 1857"
+        },
+        {
+          "id": "opt-74-b",
+          "key": "B",
+          "text": "अप्रैल 1857 / April 1857",
+          "textHindi": "अप्रैल 1857 / April 1857"
+        },
+        {
+          "id": "opt-74-c",
+          "key": "C",
+          "text": "मई 1857 / May 1857",
+          "textHindi": "मई 1857 / May 1857"
+        },
+        {
+          "id": "opt-74-d",
+          "key": "D",
+          "text": "मार्च 1858 / March 1858",
+          "textHindi": "मार्च 1858 / March 1858"
+        }
+      ],
+      "correctAnswer": "A",
+      "correctAnswerText": "(A) अप्रैल 1857",
+      "explanationHindi": "* व्याख्या: बैरकपुर छावनी में चर्बी वाले कारतूसों के विरोध में बगावत करने वाले अमर शहीद मंगल पांडे को 8 अप्रैल, 1857 को फाँसी की सजा दी गई थी।",
+      "marks": 1
+    },
+    {
+      "id": "q-mcq-75",
+      "sectionId": "sec-a",
+      "sectionName": "खण्ड–अ : वस्तुनिष्ठ प्रश्न",
+      "questionNumber": 75,
+      "type": "mcq",
+      "text": "नाना साहब का वास्तविक नाम क्या था ? / What was the original name of Nana Saheb ?",
+      "textHindi": "नाना साहब का वास्तविक नाम क्या था ? / What was the original name of Nana Saheb ?",
+      "options": [
+        {
+          "id": "opt-75-a",
+          "key": "A",
+          "text": "मंगल पांडे / Mangal Pandey",
+          "textHindi": "मंगल पांडे / Mangal Pandey"
+        },
+        {
+          "id": "opt-75-b",
+          "key": "B",
+          "text": "बाला साहेब / Bala Saheb",
+          "textHindi": "बाला साहेब / Bala Saheb"
+        },
+        {
+          "id": "opt-75-c",
+          "key": "C",
+          "text": "रामचन्द्र पांडुरंग / Ramchandra Pandurang",
+          "textHindi": "रामचन्द्र पांडुरंग / Ramchandra Pandurang"
+        },
+        {
+          "id": "opt-75-d",
+          "key": "D",
+          "text": "धुण्डिराज / Ghundiraj",
+          "textHindi": "धुण्डिराज / Ghundiraj"
+        }
+      ],
+      "correctAnswer": "D",
+      "correctAnswerText": "(D) धुण्डिराज",
+      "explanationHindi": "* व्याख्या: 1857 के महान विद्रोही नेता और अंतिम पेशवा बाजीराव द्वितीय के दत्तक पुत्र नाना साहब का मूल वास्तविक नाम 'धोंडू पंत' (धुण्डिराज) था।",
+      "marks": 1
+    },
+    {
+      "id": "q-mcq-76",
+      "sectionId": "sec-a",
+      "sectionName": "खण्ड–अ : वस्तुनिष्ठ प्रश्न",
+      "questionNumber": 76,
+      "type": "mcq",
+      "text": "'खूब लड़ी मर्दानी' किसने लिखा है ? / Who has written 'Khoob Ladi Mardaani' ?",
+      "textHindi": "'खूब लड़ी मर्दानी' किसने लिखा है ? / Who has written 'Khoob Ladi Mardaani' ?",
+      "options": [
+        {
+          "id": "opt-76-a",
+          "key": "A",
+          "text": "सुभद्रा कुमारी चौहान / Subhadra Kumari Chauhan",
+          "textHindi": "सुभद्रा कुमारी चौहान / Subhadra Kumari Chauhan"
+        },
+        {
+          "id": "opt-76-b",
+          "key": "B",
+          "text": "महादेवी वर्मा / Mahadevi Verma",
+          "textHindi": "महादेवी वर्मा / Mahadevi Verma"
+        },
+        {
+          "id": "opt-76-c",
+          "key": "C",
+          "text": "रानी लक्ष्मीबाई / Rani Laxmi Bai",
+          "textHindi": "रानी लक्ष्मीबाई / Rani Laxmi Bai"
+        },
+        {
+          "id": "opt-76-d",
+          "key": "D",
+          "text": "बंकिमचन्द्र / Bankimchandra",
+          "textHindi": "बंकिमचन्द्र / Bankimchandra"
+        }
+      ],
+      "correctAnswer": "A",
+      "correctAnswerText": "(A) सुभद्रा कुमारी चौहान",
+      "explanationHindi": "* व्याख्या: झांसी की रानी लक्ष्मीबाई की वीरता पर अमर कविता \"खूब लड़ी मर्दानी वो तो झाँसी वाली रानी थी\" की रचना सुभद्रा कुमारी चौहान ने की थी।",
+      "marks": 1
+    },
+    {
+      "id": "q-mcq-77",
+      "sectionId": "sec-a",
+      "sectionName": "खण्ड–अ : वस्तुनिष्ठ प्रश्न",
+      "questionNumber": 77,
+      "type": "mcq",
+      "text": "पटना में 1857 की क्रांति का नेतृत्व किसने किया ? / Who led the revolution of 1857 in Patna ?",
+      "textHindi": "पटना में 1857 की क्रांति का नेतृत्व किसने किया ? / Who led the revolution of 1857 in Patna ?",
+      "options": [
+        {
+          "id": "opt-77-a",
+          "key": "A",
+          "text": "वीर कुंवर सिंह / Veer Kunwar Singh",
+          "textHindi": "वीर कुंवर सिंह / Veer Kunwar Singh"
+        },
+        {
+          "id": "opt-77-b",
+          "key": "B",
+          "text": "पीर अली / Pir Ali",
+          "textHindi": "पीर अली / Pir Ali"
+        },
+        {
+          "id": "opt-77-c",
+          "key": "C",
+          "text": "मंगल पांडे / Mangal Pandey",
+          "textHindi": "मंगल पांडे / Mangal Pandey"
+        },
+        {
+          "id": "opt-77-d",
+          "key": "D",
+          "text": "सैय्यद अहमद खान / Syed Ahmad Khan",
+          "textHindi": "सैय्यद अहमद खान / Syed Ahmad Khan"
+        }
+      ],
+      "correctAnswer": "B",
+      "correctAnswerText": "(B) पीर अली",
+      "explanationHindi": "* व्याख्या: 3 जुलाई, 1857 को पटना में अंग्रेजों के विरुद्ध विद्रोह का नेतृत्व एक पुस्तक विक्रेता 'पीर अली' ने किया था।",
+      "marks": 1
+    },
+    {
+      "id": "q-mcq-78",
+      "sectionId": "sec-a",
+      "sectionName": "खण्ड–अ : वस्तुनिष्ठ प्रश्न",
+      "questionNumber": 78,
+      "type": "mcq",
+      "text": "विक्टोरिया टर्मिनस कहाँ स्थित है ? / Where is Victoria Terminus located ?",
+      "textHindi": "विक्टोरिया टर्मिनस कहाँ स्थित है ? / Where is Victoria Terminus located ?",
+      "options": [
+        {
+          "id": "opt-78-a",
+          "key": "A",
+          "text": "नई दिल्ली / New Delhi",
+          "textHindi": "नई दिल्ली / New Delhi"
+        },
+        {
+          "id": "opt-78-b",
+          "key": "B",
+          "text": "मुम्बई / Mumbai",
+          "textHindi": "मुम्बई / Mumbai"
+        },
+        {
+          "id": "opt-78-c",
+          "key": "C",
+          "text": "कोलकाता / Kolkata",
+          "textHindi": "कोलकाता / Kolkata"
+        },
+        {
+          "id": "opt-78-d",
+          "key": "D",
+          "text": "इनमें से कोई नहीं / None of these",
+          "textHindi": "इनमें से कोई नहीं / None of these"
+        }
+      ],
+      "correctAnswer": "B",
+      "correctAnswerText": "(B) मुम्बई",
+      "explanationHindi": "* व्याख्या: नव-गॉथिक स्थापत्य शैली में निर्मित ऐतिहासिक विक्टोरिया टर्मिनस (वर्तमान छत्रपति शिवाजी महाराज टर्मिनस) मुम्बई में स्थित है।",
+      "marks": 1
+    },
+    {
+      "id": "q-mcq-79",
+      "sectionId": "sec-a",
+      "sectionName": "खण्ड–अ : वस्तुनिष्ठ प्रश्न",
+      "questionNumber": 79,
+      "type": "mcq",
+      "text": "'सात द्वीपों का नगर' किसे कहा जाता है ? / Which is called 'the city of seven islands' ?",
+      "textHindi": "'सात द्वीपों का नगर' किसे कहा जाता है ? / Which is called 'the city of seven islands' ?",
+      "options": [
+        {
+          "id": "opt-79-a",
+          "key": "A",
+          "text": "मुम्बई / Mumbai",
+          "textHindi": "मुम्बई / Mumbai"
+        },
+        {
+          "id": "opt-79-b",
+          "key": "B",
+          "text": "शिमला / Shimla",
+          "textHindi": "शिमला / Shimla"
+        },
+        {
+          "id": "opt-79-c",
+          "key": "C",
+          "text": "कोलकाता / Kolkata",
+          "textHindi": "कोलकाता / Kolkata"
+        },
+        {
+          "id": "opt-79-d",
+          "key": "D",
+          "text": "बेंगलुरु / Bengaluru",
+          "textHindi": "बेंगलुरु / Bengaluru"
+        }
+      ],
+      "correctAnswer": "A",
+      "correctAnswerText": "(A) मुम्बई",
+      "explanationHindi": "* व्याख्या: मूल रूप से सात छोटे द्वीपों (कोलाबा, माहिम, परेल आदि) को जोड़कर बसाए जाने के कारण 'मुम्बई' (बॉम्बे) को 'सात द्वीपों का नगर' कहा जाता है।",
+      "marks": 1
+    },
+    {
+      "id": "q-mcq-80",
+      "sectionId": "sec-a",
+      "sectionName": "खण्ड–अ : वस्तुनिष्ठ प्रश्न",
+      "questionNumber": 80,
+      "type": "mcq",
+      "text": "भारत में रेलवे की शुरुआत कब हुई ? / When did railway start in India ?",
+      "textHindi": "भारत में रेलवे की शुरुआत कब हुई ? / When did railway start in India ?",
+      "options": [
+        {
+          "id": "opt-80-a",
+          "key": "A",
+          "text": "1753 ई० / 1753",
+          "textHindi": "1753 ई० / 1753"
+        },
+        {
+          "id": "opt-80-b",
+          "key": "B",
+          "text": "1793 ई० / 1793",
+          "textHindi": "1793 ई० / 1793"
+        },
+        {
+          "id": "opt-80-c",
+          "key": "C",
+          "text": "1853 ई० / 1853",
+          "textHindi": "1853 ई० / 1853"
+        },
+        {
+          "id": "opt-80-d",
+          "key": "D",
+          "text": "1893 ई० / 1893",
+          "textHindi": "1893 ई० / 1893"
+        }
+      ],
+      "correctAnswer": "C",
+      "correctAnswerText": "(C) 1853 ई०",
+      "explanationHindi": "* व्याख्या: भारत में पहली यात्री रेलगाड़ी 16 अप्रैल, 1853 को लॉर्ड डलहौजी के काल में बम्बई से ठाणे के बीच चलाई गई थी।",
+      "marks": 1
+    },
+    {
+      "id": "q-mcq-81",
+      "sectionId": "sec-a",
+      "sectionName": "खण्ड–अ : वस्तुनिष्ठ प्रश्न",
+      "questionNumber": 81,
+      "type": "mcq",
+      "text": "इंडिया गेट का निर्माण कब हुआ ? / When was India Gate built ?",
+      "textHindi": "इंडिया गेट का निर्माण कब हुआ ? / When was India Gate built ?",
+      "options": [
+        {
+          "id": "opt-81-a",
+          "key": "A",
+          "text": "1911 ई० / 1911",
+          "textHindi": "1911 ई० / 1911"
+        },
+        {
+          "id": "opt-81-b",
+          "key": "B",
+          "text": "1921 ई० / 1921",
+          "textHindi": "1921 ई० / 1921"
+        },
+        {
+          "id": "opt-81-c",
+          "key": "C",
+          "text": "1931 ई० / 1931",
+          "textHindi": "1931 ई० / 1931"
+        },
+        {
+          "id": "opt-81-d",
+          "key": "D",
+          "text": "1941 ई० / 1941",
+          "textHindi": "1941 ई० / 1941"
+        }
+      ],
+      "correctAnswer": "B",
+      "correctAnswerText": "(B) 1921 ई०",
+      "explanationHindi": "* व्याख्या: प्रथम विश्व युद्ध में शहीद हुए भारतीय सैनिकों के स्मारक के रूप में नई दिल्ली स्थित इंडिया गेट की आधारशिला 1921 में ड्यूक ऑफ कनॉट द्वारा रखी गई थी (निर्माण 1931 में पूर्ण हुआ)।",
+      "marks": 1
+    },
+    {
+      "id": "q-mcq-82",
+      "sectionId": "sec-a",
+      "sectionName": "खण्ड–अ : वस्तुनिष्ठ प्रश्न",
+      "questionNumber": 82,
+      "type": "mcq",
+      "text": "गेटवे ऑफ इंडिया कहाँ स्थित है ? / Where is Gateway of India located ?",
+      "textHindi": "गेटवे ऑफ इंडिया कहाँ स्थित है ? / Where is Gateway of India located ?",
+      "options": [
+        {
+          "id": "opt-82-a",
+          "key": "A",
+          "text": "दिल्ली / Delhi",
+          "textHindi": "दिल्ली / Delhi"
+        },
+        {
+          "id": "opt-82-b",
+          "key": "B",
+          "text": "कोलकाता / Kolkata",
+          "textHindi": "कोलकाता / Kolkata"
+        },
+        {
+          "id": "opt-82-c",
+          "key": "C",
+          "text": "मुम्बई / Mumbai",
+          "textHindi": "मुम्बई / Mumbai"
+        },
+        {
+          "id": "opt-82-d",
+          "key": "D",
+          "text": "चेन्नई / Chennai",
+          "textHindi": "चेन्नई / Chennai"
+        }
+      ],
+      "correctAnswer": "C",
+      "correctAnswerText": "(C) मुम्बई",
+      "explanationHindi": "* व्याख्या: किंग जॉर्ज पंचम और महारानी मेरी के भारत आगमन की स्मृति में 1911 में बनाया गया ऐतिहासिक स्मारक 'गेटवे ऑफ इंडिया' मुम्बई के अपोलो बंडर पर स्थित है।",
+      "marks": 1
+    },
+    {
+      "id": "q-mcq-83",
+      "sectionId": "sec-a",
+      "sectionName": "खण्ड–अ : वस्तुनिष्ठ प्रश्न",
+      "questionNumber": 83,
+      "type": "mcq",
+      "text": "महात्मा गाँधी दक्षिण अफ्रीका से भारत कब आये ? / When did Mahatma Gandhi come to India from South Africa ?",
+      "textHindi": "महात्मा गाँधी दक्षिण अफ्रीका से भारत कब आये ? / When did Mahatma Gandhi come to India from South Africa ?",
+      "options": [
+        {
+          "id": "opt-83-a",
+          "key": "A",
+          "text": "1913",
+          "textHindi": "1913"
+        },
+        {
+          "id": "opt-83-b",
+          "key": "B",
+          "text": "1915",
+          "textHindi": "1915"
+        },
+        {
+          "id": "opt-83-c",
+          "key": "C",
+          "text": "1917",
+          "textHindi": "1917"
+        },
+        {
+          "id": "opt-83-d",
+          "key": "D",
+          "text": "1919",
+          "textHindi": "1919"
+        }
+      ],
+      "correctAnswer": "B",
+      "correctAnswerText": "(B) 1915",
+      "explanationHindi": "* व्याख्या: महात्मा गांधी दक्षिण अफ्रीका में 21 वर्ष बिताने के बाद 9 जनवरी, 1915 को स्थायी रूप से भारत वापस लौटे थे।",
+      "marks": 1
+    },
+    {
+      "id": "q-mcq-84",
+      "sectionId": "sec-a",
+      "sectionName": "खण्ड–अ : वस्तुनिष्ठ प्रश्न",
+      "questionNumber": 84,
+      "type": "mcq",
+      "text": "ख़िलाफत आंदोलन कब हुआ ? / When did Khilafat movement take place ?",
+      "textHindi": "ख़िलाफत आंदोलन कब हुआ ? / When did Khilafat movement take place ?",
+      "options": [
+        {
+          "id": "opt-84-a",
+          "key": "A",
+          "text": "1917 ई० / 1917",
+          "textHindi": "1917 ई० / 1917"
+        },
+        {
+          "id": "opt-84-b",
+          "key": "B",
+          "text": "1919 ई० / 1919",
+          "textHindi": "1919 ई० / 1919"
+        },
+        {
+          "id": "opt-84-c",
+          "key": "C",
+          "text": "1920 ई० / 1920",
+          "textHindi": "1920 ई० / 1920"
+        },
+        {
+          "id": "opt-84-d",
+          "key": "D",
+          "text": "1922 ई० / 1922",
+          "textHindi": "1922 ई० / 1922"
+        }
+      ],
+      "correctAnswer": "B",
+      "correctAnswerText": "(B) 1919 ई०",
+      "explanationHindi": "* व्याख्या: प्रथम विश्व युद्ध के बाद तुर्की के खलीफा के अधिकारों की रक्षा हेतु अली बंधुओं और गांधीजी के नेतृत्व में 1919 में 'खिलाफत आंदोलन' शुरू हुआ था।",
+      "marks": 1
+    },
+    {
+      "id": "q-mcq-85",
+      "sectionId": "sec-a",
+      "sectionName": "खण्ड–अ : वस्तुनिष्ठ प्रश्न",
+      "questionNumber": 85,
+      "type": "mcq",
+      "text": "दाण्डी किस राज्य में है ? / Dandi is in which state ?",
+      "textHindi": "दाण्डी किस राज्य में है ? / Dandi is in which state ?",
+      "options": [
+        {
+          "id": "opt-85-a",
+          "key": "A",
+          "text": "महाराष्ट्र / Maharashtra",
+          "textHindi": "महाराष्ट्र / Maharashtra"
+        },
+        {
+          "id": "opt-85-b",
+          "key": "B",
+          "text": "आंध्र प्रदेश / Andhra Pradesh",
+          "textHindi": "आंध्र प्रदेश / Andhra Pradesh"
+        },
+        {
+          "id": "opt-85-c",
+          "key": "C",
+          "text": "गुजरात / Gujarat",
+          "textHindi": "गुजरात / Gujarat"
+        },
+        {
+          "id": "opt-85-d",
+          "key": "D",
+          "text": "राजस्थान / Rajasthan",
+          "textHindi": "राजस्थान / Rajasthan"
+        }
+      ],
+      "correctAnswer": "C",
+      "correctAnswerText": "(C) गुजरात",
+      "explanationHindi": "* व्याख्या: ऐतिहासिक दाण्डी गांव, जहाँ गांधीजी ने नमक कानून तोड़ा था, गुजरात के नवसारी जिले में स्थित है।",
+      "marks": 1
+    },
+    {
+      "id": "q-mcq-86",
+      "sectionId": "sec-a",
+      "sectionName": "खण्ड–अ : वस्तुनिष्ठ प्रश्न",
+      "questionNumber": 86,
+      "type": "mcq",
+      "text": "गाँधी के राजनीतिक गुरु कौन थे ? / Who was the political guru of Gandhi ?",
+      "textHindi": "गाँधी के राजनीतिक गुरु कौन थे ? / Who was the political guru of Gandhi ?",
+      "options": [
+        {
+          "id": "opt-86-a",
+          "key": "A",
+          "text": "मदन मोहन मालवीय / Madan Mohan Malaviya",
+          "textHindi": "मदन मोहन मालवीय / Madan Mohan Malaviya"
+        },
+        {
+          "id": "opt-86-b",
+          "key": "B",
+          "text": "गोपाल कृष्ण गोखले / Gopal Krishna Gokhale",
+          "textHindi": "गोपाल कृष्ण गोखले / Gopal Krishna Gokhale"
+        },
+        {
+          "id": "opt-86-c",
+          "key": "C",
+          "text": "लाला लाजपत राय / Lala Lajpat Rai",
+          "textHindi": "लाला लाजपत राय / Lala Lajpat Rai"
+        },
+        {
+          "id": "opt-86-d",
+          "key": "D",
+          "text": "रास बिहारी बोस / Rash Behari Bose",
+          "textHindi": "रास बिहारी बोस / Rash Behari Bose"
+        }
+      ],
+      "correctAnswer": "B",
+      "correctAnswerText": "(B) गोपाल कृष्ण गोखले",
+      "explanationHindi": "* व्याख्या: महात्मा गांधी वरिष्ठ उदारवादी राष्ट्रीय नेता गोपाल कृष्ण गोखले को अपना राजनीतिक गुरु मानते थे।",
+      "marks": 1
+    },
+    {
+      "id": "q-mcq-87",
+      "sectionId": "sec-a",
+      "sectionName": "खण्ड–अ : वस्तुनिष्ठ प्रश्न",
+      "questionNumber": 87,
+      "type": "mcq",
+      "text": "1942 में कौन सा आंदोलन हुआ ? / Which movement took place in 1942 ?",
+      "textHindi": "1942 में कौन सा आंदोलन हुआ ? / Which movement took place in 1942 ?",
+      "options": [
+        {
+          "id": "opt-87-a",
+          "key": "A",
+          "text": "ख़िलाफत आंदोलन / Khilafat Movement",
+          "textHindi": "ख़िलाफत आंदोलन / Khilafat Movement"
+        },
+        {
+          "id": "opt-87-b",
+          "key": "B",
+          "text": "असहयोग आंदोलन / Non-Cooperation Movement",
+          "textHindi": "असहयोग आंदोलन / Non-Cooperation Movement"
+        },
+        {
+          "id": "opt-87-c",
+          "key": "C",
+          "text": "सविनय अवज्ञा आंदोलन / Civil Disobedience Movement",
+          "textHindi": "सविनय अवज्ञा आंदोलन / Civil Disobedience Movement"
+        },
+        {
+          "id": "opt-87-d",
+          "key": "D",
+          "text": "भारत छोड़ो आन्दोलन / Quit India Movement",
+          "textHindi": "भारत छोड़ो आन्दोलन / Quit India Movement"
+        }
+      ],
+      "correctAnswer": "D",
+      "correctAnswerText": "(D) भारत छोड़ो आन्दोलन",
+      "explanationHindi": "* व्याख्या: अगस्त 1942 में महात्मा गांधी के नेतृत्व में ब्रिटिश हुकूमत के खिलाफ 'भारत छोड़ो आंदोलन' (Quit India Movement) शुरू हुआ था।",
+      "marks": 1
+    },
+    {
+      "id": "q-mcq-88",
+      "sectionId": "sec-a",
+      "sectionName": "खण्ड–अ : वस्तुनिष्ठ प्रश्न",
+      "questionNumber": 88,
+      "type": "mcq",
+      "text": "'दिल्ली चलो' का नारा किसने दिया ? / Who gave the slogan 'Dilli Chalo' ?",
+      "textHindi": "'दिल्ली चलो' का नारा किसने दिया ? / Who gave the slogan 'Dilli Chalo' ?",
+      "options": [
+        {
+          "id": "opt-88-a",
+          "key": "A",
+          "text": "गाँधीजी / Gandhiji",
+          "textHindi": "गाँधीजी / Gandhiji"
+        },
+        {
+          "id": "opt-88-b",
+          "key": "B",
+          "text": "तिलक / Tilak",
+          "textHindi": "तिलक / Tilak"
+        },
+        {
+          "id": "opt-88-c",
+          "key": "C",
+          "text": "गोखले / Gokhale",
+          "textHindi": "गोखले / Gokhale"
+        },
+        {
+          "id": "opt-88-d",
+          "key": "D",
+          "text": "सुभाष चन्द्र बोस / Subhash Chandra Bose",
+          "textHindi": "सुभाष चन्द्र बोस / Subhash Chandra Bose"
+        }
+      ],
+      "correctAnswer": "D",
+      "correctAnswerText": "(D) सुभाष चन्द्र बोस",
+      "explanationHindi": "* व्याख्या: आजाद हिन्द फौज के सैनिकों में जोश भरने और भारत को आजाद कराने के लिए सिंगापुर से नेताजी सुभाष चन्द्र बोस ने \"दिल्ली चलो\" का नारा दिया था।",
+      "marks": 1
+    },
+    {
+      "id": "q-mcq-89",
+      "sectionId": "sec-a",
+      "sectionName": "खण्ड–अ : वस्तुनिष्ठ प्रश्न",
+      "questionNumber": 89,
+      "type": "mcq",
+      "text": "गाँधीजी 1917 में चम्पारण किसके अनुरोध पर गये ? / On whose request did Gandhiji go to Champaran in 1917 ?",
+      "textHindi": "गाँधीजी 1917 में चम्पारण किसके अनुरोध पर गये ? / On whose request did Gandhiji go to Champaran in 1917 ?",
+      "options": [
+        {
+          "id": "opt-89-a",
+          "key": "A",
+          "text": "राजेन्द्र प्रसाद / Rajendra Prasad",
+          "textHindi": "राजेन्द्र प्रसाद / Rajendra Prasad"
+        },
+        {
+          "id": "opt-89-b",
+          "key": "B",
+          "text": "राजकुमार शुक्ल / Rajkumar Shukla",
+          "textHindi": "राजकुमार शुक्ल / Rajkumar Shukla"
+        },
+        {
+          "id": "opt-89-c",
+          "key": "C",
+          "text": "जयप्रकाश नारायण / Jayaprakash Narayan",
+          "textHindi": "जयप्रकाश नारायण / Jayaprakash Narayan"
+        },
+        {
+          "id": "opt-89-d",
+          "key": "D",
+          "text": "ब्रजकिशोर प्रसाद / Brajkishore Prasad",
+          "textHindi": "ब्रजकिशोर प्रसाद / Brajkishore Prasad"
+        }
+      ],
+      "correctAnswer": "B",
+      "correctAnswerText": "(B) राजकुमार शुक्ल",
+      "explanationHindi": "* व्याख्या: 1916 के लखनऊ कांग्रेस अधिवेशन में चंपारण के किसान राजकुमार शुक्ल के विशेष आग्रह पर गांधीजी 1917 में चंपारण आए थे।",
+      "marks": 1
+    },
+    {
+      "id": "q-mcq-90",
+      "sectionId": "sec-a",
+      "sectionName": "खण्ड–अ : वस्तुनिष्ठ प्रश्न",
+      "questionNumber": 90,
+      "type": "mcq",
+      "text": "पूना समझौता किस वर्ष हुआ ? / When was Poona Pact signed ?",
+      "textHindi": "पूना समझौता किस वर्ष हुआ ? / When was Poona Pact signed ?",
+      "options": [
+        {
+          "id": "opt-90-a",
+          "key": "A",
+          "text": "1932 ई० / 1932",
+          "textHindi": "1932 ई० / 1932"
+        },
+        {
+          "id": "opt-90-b",
+          "key": "B",
+          "text": "1934 ई० / 1934",
+          "textHindi": "1934 ई० / 1934"
+        },
+        {
+          "id": "opt-90-c",
+          "key": "C",
+          "text": "1939 ई० / 1939",
+          "textHindi": "1939 ई० / 1939"
+        },
+        {
+          "id": "opt-90-d",
+          "key": "D",
+          "text": "1942 ई० / 1942",
+          "textHindi": "1942 ई० / 1942"
+        }
+      ],
+      "correctAnswer": "A",
+      "correctAnswerText": "(A) 1932 ई०",
+      "explanationHindi": "* व्याख्या: 24 सितंबर, 1932 को पुणे की यरवदा सेंट्रल जेल में महात्मा गांधी और डॉ० भीमराव अंबेडकर के बीच ऐतिहासिक 'पूना पैक्ट' संपन्न हुआ था।",
+      "marks": 1
+    },
+    {
+      "id": "q-mcq-91",
+      "sectionId": "sec-a",
+      "sectionName": "खण्ड–अ : वस्तुनिष्ठ प्रश्न",
+      "questionNumber": 91,
+      "type": "mcq",
+      "text": "1930 में द्विराष्ट्र सिद्धान्त किसने प्रतिपादित किया ? / Who proposed Two Nation theory in 1930 ?",
+      "textHindi": "1930 में द्विराष्ट्र सिद्धान्त किसने प्रतिपादित किया ? / Who proposed Two Nation theory in 1930 ?",
+      "options": [
+        {
+          "id": "opt-91-a",
+          "key": "A",
+          "text": "सर मुहम्मद इकबाल / Sir Muhammad Iqbal",
+          "textHindi": "सर मुहम्मद इकबाल / Sir Muhammad Iqbal"
+        },
+        {
+          "id": "opt-91-b",
+          "key": "B",
+          "text": "मुहम्मद अली जिन्ना / Muhammad Ali Jinnah",
+          "textHindi": "मुहम्मद अली जिन्ना / Muhammad Ali Jinnah"
+        },
+        {
+          "id": "opt-91-c",
+          "key": "C",
+          "text": "सर सैय्यद अहमद खान / Sir Syed Ahmad Khan",
+          "textHindi": "सर सैय्यद अहमद खान / Sir Syed Ahmad Khan"
+        },
+        {
+          "id": "opt-91-d",
+          "key": "D",
+          "text": "लॉर्ड लिनलिथगो / Lord Linlithgow",
+          "textHindi": "लॉर्ड लिनलिथगो / Lord Linlithgow"
+        }
+      ],
+      "correctAnswer": "A",
+      "correctAnswerText": "(A) सर मुहम्मद इकबाल",
+      "explanationHindi": "* व्याख्या: प्रसिद्ध कवि और विचारक सर मुहम्मद इकबाल ने 1930 के मुस्लिम लीग के इलाहाबाद अधिवेशन में सबसे पहले पश्चिमोत्तर भारत में एक पृथक मुस्लिम राज्य की रूपरेखा प्रस्तुत की थी।",
+      "marks": 1
+    },
+    {
+      "id": "q-mcq-92",
+      "sectionId": "sec-a",
+      "sectionName": "खण्ड–अ : वस्तुनिष्ठ प्रश्न",
+      "questionNumber": 92,
+      "type": "mcq",
+      "text": "क्रिप्स मिशन भारत कब आया ? / When did Cripps Mission come to India ?",
+      "textHindi": "क्रिप्स मिशन भारत कब आया ? / When did Cripps Mission come to India ?",
+      "options": [
+        {
+          "id": "opt-92-a",
+          "key": "A",
+          "text": "1942 ई० / 1942",
+          "textHindi": "1942 ई० / 1942"
+        },
+        {
+          "id": "opt-92-b",
+          "key": "B",
+          "text": "1943 ई० / 1943",
+          "textHindi": "1943 ई० / 1943"
+        },
+        {
+          "id": "opt-92-c",
+          "key": "C",
+          "text": "1945 ई० / 1945",
+          "textHindi": "1945 ई० / 1945"
+        },
+        {
+          "id": "opt-92-d",
+          "key": "D",
+          "text": "1946 ई० / 1946",
+          "textHindi": "1946 ई० / 1946"
+        }
+      ],
+      "correctAnswer": "A",
+      "correctAnswerText": "(A) 1942 ई०",
+      "explanationHindi": "* व्याख्या: द्वितीय विश्व युद्ध के दौरान भारतीय नेताओं से वार्ता करने हेतु मार्च 1942 में सर स्टैफोर्ड क्रिप्स के नेतृत्व में क्रिप्स मिशन भारत आया था।",
+      "marks": 1
+    },
+    {
+      "id": "q-mcq-93",
+      "sectionId": "sec-a",
+      "sectionName": "खण्ड–अ : वस्तुनिष्ठ प्रश्न",
+      "questionNumber": 93,
+      "type": "mcq",
+      "text": "लॉर्ड एटली इंग्लैण्ड के प्रधानमंत्री कब बने ? / When did Lord Attlee become the Prime Minister of England ?",
+      "textHindi": "लॉर्ड एटली इंग्लैण्ड के प्रधानमंत्री कब बने ? / When did Lord Attlee become the Prime Minister of England ?",
+      "options": [
+        {
+          "id": "opt-93-a",
+          "key": "A",
+          "text": "1935 ई० / 1935",
+          "textHindi": "1935 ई० / 1935"
+        },
+        {
+          "id": "opt-93-b",
+          "key": "B",
+          "text": "1942 ई० / 1942",
+          "textHindi": "1942 ई० / 1942"
+        },
+        {
+          "id": "opt-93-c",
+          "key": "C",
+          "text": "1945 ई० / 1945",
+          "textHindi": "1945 ई० / 1945"
+        },
+        {
+          "id": "opt-93-d",
+          "key": "D",
+          "text": "1946 ई० / 1946",
+          "textHindi": "1946 ई० / 1946"
+        }
+      ],
+      "correctAnswer": "C",
+      "correctAnswerText": "(C) 1945 ई०",
+      "explanationHindi": "* व्याख्या: द्वितीय विश्व युद्ध के बाद जुलाई 1945 में ब्रिटेन में हुए आम चुनावों में लेबर पार्टी की जीत के साथ क्लेमेंट एटली ब्रिटेन के प्रधानमंत्री बने थे।",
+      "marks": 1
+    },
+    {
+      "id": "q-mcq-94",
+      "sectionId": "sec-a",
+      "sectionName": "खण्ड–अ : वस्तुनिष्ठ प्रश्न",
+      "questionNumber": 94,
+      "type": "mcq",
+      "text": "पाकिस्तान के प्रथम प्रधानमंत्री कौन थे ? / Who was the first Prime Minister of Pakistan ?",
+      "textHindi": "पाकिस्तान के प्रथम प्रधानमंत्री कौन थे ? / Who was the first Prime Minister of Pakistan ?",
+      "options": [
+        {
+          "id": "opt-94-a",
+          "key": "A",
+          "text": "मुहम्मद अली जिन्ना / Muhammad Ali Jinnah",
+          "textHindi": "मुहम्मद अली जिन्ना / Muhammad Ali Jinnah"
+        },
+        {
+          "id": "opt-94-b",
+          "key": "B",
+          "text": "लियाक़त अली / Liaquat Ali",
+          "textHindi": "लियाक़त अली / Liaquat Ali"
+        },
+        {
+          "id": "opt-94-c",
+          "key": "C",
+          "text": "चौधरी रहमत अली / Chaudhary Rahmat Ali",
+          "textHindi": "चौधरी रहमत अली / Chaudhary Rahmat Ali"
+        },
+        {
+          "id": "opt-94-d",
+          "key": "D",
+          "text": "मुहम्मद इकबाल / Muhammad Iqbal",
+          "textHindi": "मुहम्मद इकबाल / Muhammad Iqbal"
+        }
+      ],
+      "correctAnswer": "B",
+      "correctAnswerText": "(B) लियाक़त अली",
+      "explanationHindi": "* व्याख्या: 14 अगस्त, 1947 को पाकिस्तान के निर्माण के बाद लियाकत अली खान पाकिस्तान के पहले प्रधानमंत्री बने थे।",
+      "marks": 1
+    },
+    {
+      "id": "q-mcq-95",
+      "sectionId": "sec-a",
+      "sectionName": "खण्ड–अ : वस्तुनिष्ठ प्रश्न",
+      "questionNumber": 95,
+      "type": "mcq",
+      "text": "भारतीय राष्ट्रीय कांग्रेस की स्थापना कब हुई ? / When was Indian National Congress established ?",
+      "textHindi": "भारतीय राष्ट्रीय कांग्रेस की स्थापना कब हुई ? / When was Indian National Congress established ?",
+      "options": [
+        {
+          "id": "opt-95-a",
+          "key": "A",
+          "text": "1857 ई० / 1857",
+          "textHindi": "1857 ई० / 1857"
+        },
+        {
+          "id": "opt-95-b",
+          "key": "B",
+          "text": "1872 ई० / 1872",
+          "textHindi": "1872 ई० / 1872"
+        },
+        {
+          "id": "opt-95-c",
+          "key": "C",
+          "text": "1885 ई० / 1885",
+          "textHindi": "1885 ई० / 1885"
+        },
+        {
+          "id": "opt-95-d",
+          "key": "D",
+          "text": "1942 ई० / 1942",
+          "textHindi": "1942 ई० / 1942"
+        }
+      ],
+      "correctAnswer": "C",
+      "correctAnswerText": "(C) 1885 ई०",
+      "explanationHindi": "* व्याख्या: भारतीय राष्ट्रीय कांग्रेस की स्थापना 28 दिसंबर, 1885 को बंबई के गोकुलदास तेजपाल संस्कृत कॉलेज में ए०ओ० ह्यूम द्वारा की गई थी।",
+      "marks": 1
+    },
+    {
+      "id": "q-mcq-96",
+      "sectionId": "sec-a",
+      "sectionName": "खण्ड–अ : वस्तुनिष्ठ प्रश्न",
+      "questionNumber": 96,
+      "type": "mcq",
+      "text": "स्वतंत्र भारत के प्रथम गवर्नर जनरल कौन थे ? / Who was the first Governor General of Independent India ?",
+      "textHindi": "स्वतंत्र भारत के प्रथम गवर्नर जनरल कौन थे ? / Who was the first Governor General of Independent India ?",
+      "options": [
+        {
+          "id": "opt-96-a",
+          "key": "A",
+          "text": "लॉर्ड माउंटबेटन / Lord Mountbatten",
+          "textHindi": "लॉर्ड माउंटबेटन / Lord Mountbatten"
+        },
+        {
+          "id": "opt-96-b",
+          "key": "B",
+          "text": "राजगोपालाचारी / Rajagopalachari",
+          "textHindi": "राजगोपालाचारी / Rajagopalachari"
+        },
+        {
+          "id": "opt-96-c",
+          "key": "C",
+          "text": "लाल बहादुर शास्त्री / Lal Bahadur Shastri",
+          "textHindi": "लाल बहादुर शास्त्री / Lal Bahadur Shastri"
+        },
+        {
+          "id": "opt-96-d",
+          "key": "D",
+          "text": "रेडक्लिफ / Radcliffe",
+          "textHindi": "रेडक्लिफ / Radcliffe"
+        }
+      ],
+      "correctAnswer": "A",
+      "correctAnswerText": "(A) लॉर्ड माउंटबेटन",
+      "explanationHindi": "* व्याख्या: 15 अगस्त, 1947 को स्वतंत्रता के बाद लॉर्ड माउंटबेटन स्वतंत्र भारत के पहले गवर्नर जनरल बने थे।",
+      "marks": 1
+    },
+    {
+      "id": "q-mcq-97",
+      "sectionId": "sec-a",
+      "sectionName": "खण्ड–अ : वस्तुनिष्ठ प्रश्न",
+      "questionNumber": 97,
+      "type": "mcq",
+      "text": "स्वतंत्र भारत के प्रथम गृहमंत्री कौन थे ? / Who was the first Home Minister of Independent India ?",
+      "textHindi": "स्वतंत्र भारत के प्रथम गृहमंत्री कौन थे ? / Who was the first Home Minister of Independent India ?",
+      "options": [
+        {
+          "id": "opt-97-a",
+          "key": "A",
+          "text": "मौलाना अबुल कलाम आजाद / Maulana Abul Kalam Azad",
+          "textHindi": "मौलाना अबुल कलाम आजाद / Maulana Abul Kalam Azad"
+        },
+        {
+          "id": "opt-97-b",
+          "key": "B",
+          "text": "सरदार बल्लभभाई पटेल / Sardar Vallabhbhai Patel",
+          "textHindi": "सरदार बल्लभभाई पटेल / Sardar Vallabhbhai Patel"
+        },
+        {
+          "id": "opt-97-c",
+          "key": "C",
+          "text": "राजगोपालाचारी / Rajagopalachari",
+          "textHindi": "राजगोपालाचारी / Rajagopalachari"
+        },
+        {
+          "id": "opt-97-d",
+          "key": "D",
+          "text": "जगजीवन राम / Jagjivan Ram",
+          "textHindi": "जगजीवन राम / Jagjivan Ram"
+        }
+      ],
+      "correctAnswer": "B",
+      "correctAnswerText": "(B) सरदार बल्लभभाई पटेल",
+      "explanationHindi": "* व्याख्या: स्वतंत्र भारत के पहले उप-प्रधानमंत्री और प्रथम गृहमंत्री 'लौह पुरुष' सरदार वल्लभभाई पटेल थे, जिन्होंने 562 से अधिक देशी रियासतों का भारत में एकीकरण किया।",
+      "marks": 1
+    },
+    {
+      "id": "q-mcq-98",
+      "sectionId": "sec-a",
+      "sectionName": "खण्ड–अ : वस्तुनिष्ठ प्रश्न",
+      "questionNumber": 98,
+      "type": "mcq",
+      "text": "भारत का संविधान का पिता किसे कहा जाता है ? / Who is called the father of the Constitution of India ?",
+      "textHindi": "भारत का संविधान का पिता किसे कहा जाता है ? / Who is called the father of the Constitution of India ?",
+      "options": [
+        {
+          "id": "opt-98-a",
+          "key": "A",
+          "text": "डॉ० राजेन्द्र प्रसाद / Dr. Rajendra Prasad",
+          "textHindi": "डॉ० राजेन्द्र प्रसाद / Dr. Rajendra Prasad"
+        },
+        {
+          "id": "opt-98-b",
+          "key": "B",
+          "text": "जवाहरलाल नेहरू / Jawaharlal Nehru",
+          "textHindi": "जवाहरलाल नेहरू / Jawaharlal Nehru"
+        },
+        {
+          "id": "opt-98-c",
+          "key": "C",
+          "text": "डॉ० सच्चिदानन्द सिन्हा / Dr. Sachchidananda Sinha",
+          "textHindi": "डॉ० सच्चिदानन्द सिन्हा / Dr. Sachchidananda Sinha"
+        },
+        {
+          "id": "opt-98-d",
+          "key": "D",
+          "text": "डॉ० बी०आर० अम्बेडकर / Dr.",
+          "textHindi": "डॉ० बी०आर० अम्बेडकर / Dr."
+        }
+      ],
+      "correctAnswer": "D",
+      "correctAnswerText": "(D) डॉ० बी०आर० अम्बेडकर",
+      "explanationHindi": "* व्याख्या: संविधान सभा की प्रारूप समिति के अध्यक्ष के रूप में अद्वितीय योगदान देने के कारण डॉ० भीमराव रामजी अम्बेडकर को 'भारतीय संविधान का जनक/पिता' कहा जाता है।",
+      "marks": 1
+    },
+    {
+      "id": "q-mcq-99",
+      "sectionId": "sec-a",
+      "sectionName": "खण्ड–अ : वस्तुनिष्ठ प्रश्न",
+      "questionNumber": 99,
+      "type": "mcq",
+      "text": "भारत किस वर्ष गणतंत्र हुआ ? / When did India become Republic ?",
+      "textHindi": "भारत किस वर्ष गणतंत्र हुआ ? / When did India become Republic ?",
+      "options": [
+        {
+          "id": "opt-99-a",
+          "key": "A",
+          "text": "26 जनवरी, 1930 / 26th January, 1930",
+          "textHindi": "26 जनवरी, 1930 / 26th January, 1930"
+        },
+        {
+          "id": "opt-99-b",
+          "key": "B",
+          "text": "14 अगस्त, 1930 / 14th August, 1930",
+          "textHindi": "14 अगस्त, 1930 / 14th August, 1930"
+        },
+        {
+          "id": "opt-99-c",
+          "key": "C",
+          "text": "26 जनवरी, 1950 / 26th January, 1950",
+          "textHindi": "26 जनवरी, 1950 / 26th January, 1950"
+        },
+        {
+          "id": "opt-99-d",
+          "key": "D",
+          "text": "14 अगस्त, 1950 / 14th August, 1950",
+          "textHindi": "14 अगस्त, 1950 / 14th August, 1950"
+        }
+      ],
+      "correctAnswer": "C",
+      "correctAnswerText": "(C) 26 जनवरी, 1950",
+      "explanationHindi": "* व्याख्या: 26 जनवरी, 1950 को भारत का नया संविधान पूर्ण रूप से लागू हुआ और भारत एक संपूर्ण प्रभुत्व संपन्न लोकतांत्रिक गणराज्य बना।",
+      "marks": 1
+    },
+    {
+      "id": "q-mcq-100",
+      "sectionId": "sec-a",
+      "sectionName": "खण्ड–अ : वस्तुनिष्ठ प्रश्न",
+      "questionNumber": 100,
+      "type": "mcq",
+      "text": "'जय हिन्द' का नारा किसने दिया ? / Who gave the slogan 'Jai Hind' ?",
+      "textHindi": "'जय हिन्द' का नारा किसने दिया ? / Who gave the slogan 'Jai Hind' ?",
+      "options": [
+        {
+          "id": "opt-100-a",
+          "key": "A",
+          "text": "भगत सिंह / Bhagat Singh",
+          "textHindi": "भगत सिंह / Bhagat Singh"
+        },
+        {
+          "id": "opt-100-b",
+          "key": "B",
+          "text": "चन्द्रशेखर / Chandrashekhar",
+          "textHindi": "चन्द्रशेखर / Chandrashekhar"
+        },
+        {
+          "id": "opt-100-c",
+          "key": "C",
+          "text": "सुभाष चन्द्र बोस / Subhash Chandra Bose",
+          "textHindi": "सुभाष चन्द्र बोस / Subhash Chandra Bose"
+        },
+        {
+          "id": "opt-100-d",
+          "key": "D",
+          "text": "रवीन्द्रनाथ टैगोर / Rabindranath Tagore",
+          "textHindi": "रवीन्द्रनाथ टैगोर / Rabindranath Tagore"
+        }
+      ],
+      "correctAnswer": "C",
+      "correctAnswerText": "(C) सुभाष चन्द्र बोस",
+      "explanationHindi": "* व्याख्या: आजाद हिन्द फौज के सर्वोच्च सेनापति नेताजी सुभाष चन्द्र बोस ने सैनिकों और राष्ट्र को संगठित करने के लिए \"जय हिन्द\" का राष्ट्रीय नारा दिया था।",
+      "marks": 1
+    },
+    {
+      "id": "q-sec-b-1",
+      "sectionId": "sec-b",
+      "sectionName": "खण्ड–ब : लघु उत्तरीय प्रश्न",
+      "questionNumber": 1,
+      "type": "short",
+      "text": "पुरातत्व से आप क्या समझते हैं ? / What do you understand by Archaeology ?",
+      "textHindi": "पुरातत्व से आप क्या समझते हैं ? / What do you understand by Archaeology ?",
+      "modelAnswer": "पुरातत्व से आप क्या समझते हैं ?\n* पुरातत्व (Archaeology) वह ऐतिहासिक विज्ञान है जिसके माध्यम से पृथ्वी के गर्भ में दबी प्राचीन वस्तुओं, इमारतों, औजारों, मिट्टी के बर्तनों, सिक्कों और अभिलेखों की वैज्ञानिक खुदाई कर अतीत के मानव जीवन और संस्कृतियों का प्रामाणिक अध्ययन किया जाता है।",
+      "explanationHindi": "पुरातत्व से आप क्या समझते हैं ?\n* पुरातत्व (Archaeology) वह ऐतिहासिक विज्ञान है जिसके माध्यम से पृथ्वी के गर्भ में दबी प्राचीन वस्तुओं, इमारतों, औजारों, मिट्टी के बर्तनों, सिक्कों और अभिलेखों की वैज्ञानिक खुदाई कर अतीत के मानव जीवन और संस्कृतियों का प्रामाणिक अध्ययन किया जाता है।",
+      "marks": 2
+    },
+    {
+      "id": "q-sec-b-2",
+      "sectionId": "sec-b",
+      "sectionName": "खण्ड–ब : लघु उत्तरीय प्रश्न",
+      "questionNumber": 2,
+      "type": "short",
+      "text": "हड़प्पा सभ्यता की जल निकास प्रणाली की दो विशेषतायें बतायें । / Mention two features of the drainage system of Harappan civilization.",
+      "textHindi": "हड़प्पा सभ्यता की जल निकास प्रणाली की दो विशेषतायें बतायें । / Mention two features of the drainage system of Harappan civilization.",
+      "modelAnswer": "हड़प्पा सभ्यता की जल निकास प्रणाली की दो विशेषतायें बतायें ।\n* ढकी हुई नालियाँ: घरों का गंदा पानी गलियों की छोटी नालियों से होकर मुख्य सड़क की चौड़ी, पक्की और ढकी हुई ईंटों की नालियों में गिरता था।\n* सोख्ता गड्ढे व सफाई की व्यवस्था: नालियों में कचरा रोकने के लिए जगह-जगह पर सोख्ता गड्ढे (मैनहोल) बनाए गए थे तथा सफाई के लिए हटाने योग्य चूना पत्थर की पट्टियाँ लगाई गई थीं।",
+      "explanationHindi": "हड़प्पा सभ्यता की जल निकास प्रणाली की दो विशेषतायें बतायें ।\n* ढकी हुई नालियाँ: घरों का गंदा पानी गलियों की छोटी नालियों से होकर मुख्य सड़क की चौड़ी, पक्की और ढकी हुई ईंटों की नालियों में गिरता था।\n* सोख्ता गड्ढे व सफाई की व्यवस्था: नालियों में कचरा रोकने के लिए जगह-जगह पर सोख्ता गड्ढे (मैनहोल) बनाए गए थे तथा सफाई के लिए हटाने योग्य चूना पत्थर की पट्टियाँ लगाई गई थीं।",
+      "marks": 2
+    },
+    {
+      "id": "q-sec-b-3",
+      "sectionId": "sec-b",
+      "sectionName": "खण्ड–ब : लघु उत्तरीय प्रश्न",
+      "questionNumber": 3,
+      "type": "short",
+      "text": "मोहनजोदड़ो के विशाल स्नानागार के बारे में लिखें । / Write about the Great Bath of Mohenjodaro.",
+      "textHindi": "मोहनजोदड़ो के विशाल स्नानागार के बारे में लिखें । / Write about the Great Bath of Mohenjodaro.",
+      "modelAnswer": "मोहनजोदड़ो के विशाल स्नानागार के बारे में लिखें ।\n* मोहनजोदड़ो के दुर्ग में स्थित विशाल स्नानागार पक्की ईंटों से बना एक आयताकार जलाशय है, जिसके चारों ओर गलियारे और कमरे बने थे।\n* पानी का रिसाव रोकने के लिए ईंटों पर जिप्सम और तारकोल (बिटुमेन) का लेप किया गया था। इसका उपयोग सार्वजनिक या धार्मिक अनुष्ठानिक स्नान के लिए होता था।",
+      "explanationHindi": "मोहनजोदड़ो के विशाल स्नानागार के बारे में लिखें ।\n* मोहनजोदड़ो के दुर्ग में स्थित विशाल स्नानागार पक्की ईंटों से बना एक आयताकार जलाशय है, जिसके चारों ओर गलियारे और कमरे बने थे।\n* पानी का रिसाव रोकने के लिए ईंटों पर जिप्सम और तारकोल (बिटुमेन) का लेप किया गया था। इसका उपयोग सार्वजनिक या धार्मिक अनुष्ठानिक स्नान के लिए होता था।",
+      "marks": 2
+    },
+    {
+      "id": "q-sec-b-4",
+      "sectionId": "sec-b",
+      "sectionName": "खण्ड–ब : लघु उत्तरीय प्रश्न",
+      "questionNumber": 4,
+      "type": "short",
+      "text": "किन्हीं दो गुप्तकालीन मंदिरों के नाम लिखें । / Write the names of any two temples of Gupta period.",
+      "textHindi": "किन्हीं दो गुप्तकालीन मंदिरों के नाम लिखें । / Write the names of any two temples of Gupta period.",
+      "modelAnswer": "किन्हीं दो गुप्तकालीन मंदिरों के नाम लिखें ।\n* दशावतार मंदिर: देवगढ़ (ललितपुर, उत्तर प्रदेश)।\n* भूभरा का शिव मंदिर: नागोद (मध्य प्रदेश)।",
+      "explanationHindi": "किन्हीं दो गुप्तकालीन मंदिरों के नाम लिखें ।\n* दशावतार मंदिर: देवगढ़ (ललितपुर, उत्तर प्रदेश)।\n* भूभरा का शिव मंदिर: नागोद (मध्य प्रदेश)।",
+      "marks": 2
+    },
+    {
+      "id": "q-sec-b-5",
+      "sectionId": "sec-b",
+      "sectionName": "खण्ड–ब : लघु उत्तरीय प्रश्न",
+      "questionNumber": 5,
+      "type": "short",
+      "text": "'महाजनपद' से आप क्या समझते हैं ? / What do you mean by 'Mahajanapada' ?",
+      "textHindi": "'महाजनपद' से आप क्या समझते हैं ? / What do you mean by 'Mahajanapada' ?",
+      "modelAnswer": "'महाजनपद' से आप क्या समझते हैं ?\n* ईसा पूर्व छठी शताब्दी में उत्तर भारत में कबीलाई संरचना (जन) के विकसित होकर बड़े क्षेत्रीय राज्यों में बदलने की प्रक्रिया से बने शक्तिशाली राज्यों को 'महाजनपद' कहा जाता है।\n* बौद्ध ग्रंथ अंगुत्तर निकाय और जैन ग्रंथ भगवती सूत्र में ऐसे 16 महाजनपदों का उल्लेख मिलता है (जैसे मगध, कोशल, वत्स, अवन्ति)।",
+      "explanationHindi": "'महाजनपद' से आप क्या समझते हैं ?\n* ईसा पूर्व छठी शताब्दी में उत्तर भारत में कबीलाई संरचना (जन) के विकसित होकर बड़े क्षेत्रीय राज्यों में बदलने की प्रक्रिया से बने शक्तिशाली राज्यों को 'महाजनपद' कहा जाता है।\n* बौद्ध ग्रंथ अंगुत्तर निकाय और जैन ग्रंथ भगवती सूत्र में ऐसे 16 महाजनपदों का उल्लेख मिलता है (जैसे मगध, कोशल, वत्स, अवन्ति)।",
+      "marks": 2
+    },
+    {
+      "id": "q-sec-b-6",
+      "sectionId": "sec-b",
+      "sectionName": "खण्ड–ब : लघु उत्तरीय प्रश्न",
+      "questionNumber": 6,
+      "type": "short",
+      "text": "हिन्दू धर्म के दो महाकाव्यों के नाम लिखें । / Write the names of two epics of Hindu religion.",
+      "textHindi": "हिन्दू धर्म के दो महाकाव्यों के नाम लिखें । / Write the names of two epics of Hindu religion.",
+      "modelAnswer": "हिन्दू धर्म के दो महाकाव्यों के नाम लिखें ।\n* रामायण (रचयिता: महर्षि वाल्मीकि)\n* महाभारत (रचयिता: महर्षि वेदव्यास)",
+      "explanationHindi": "हिन्दू धर्म के दो महाकाव्यों के नाम लिखें ।\n* रामायण (रचयिता: महर्षि वाल्मीकि)\n* महाभारत (रचयिता: महर्षि वेदव्यास)",
+      "marks": 2
+    },
+    {
+      "id": "q-sec-b-7",
+      "sectionId": "sec-b",
+      "sectionName": "खण्ड–ब : लघु उत्तरीय प्रश्न",
+      "questionNumber": 7,
+      "type": "short",
+      "text": "साँची स्तूप की किन्हीं दो संरचनात्मक विशेषताओं का उल्लेख करें । / Mention any two structural features of Sanchi Stupa.",
+      "textHindi": "साँची स्तूप की किन्हीं दो संरचनात्मक विशेषताओं का उल्लेख करें । / Mention any two structural features of Sanchi Stupa.",
+      "modelAnswer": "साँची स्तूप की किन्हीं दो संरचनात्मक विशेषताओं का उल्लेख करें ।\n* अण्ड और हर्मिका: स्तूप के केंद्र में मिट्टी और ईंटों का एक अर्धवृत्ताकार टीला होता है जिसे 'अण्ड' कहते हैं, जिसके शीर्ष पर धातु मंजूषा रखने हेतु बालकनी जैसी संरचना 'हर्मिका' होती है।\n* तोरण द्वार और प्रदक्षिणा पथ: स्तूप के चारों ओर प्रदक्षिणा पथ बना होता है जो पत्थर की सुंदर नक्काशीदार वेदिका और चार भव्य 'तोरण द्वारों' (प्रवेश द्वारों) से घिरा रहता है।",
+      "explanationHindi": "साँची स्तूप की किन्हीं दो संरचनात्मक विशेषताओं का उल्लेख करें ।\n* अण्ड और हर्मिका: स्तूप के केंद्र में मिट्टी और ईंटों का एक अर्धवृत्ताकार टीला होता है जिसे 'अण्ड' कहते हैं, जिसके शीर्ष पर धातु मंजूषा रखने हेतु बालकनी जैसी संरचना 'हर्मिका' होती है।\n* तोरण द्वार और प्रदक्षिणा पथ: स्तूप के चारों ओर प्रदक्षिणा पथ बना होता है जो पत्थर की सुंदर नक्काशीदार वेदिका और चार भव्य 'तोरण द्वारों' (प्रवेश द्वारों) से घिरा रहता है।",
+      "marks": 2
+    },
+    {
+      "id": "q-sec-b-8",
+      "sectionId": "sec-b",
+      "sectionName": "खण्ड–ब : लघु उत्तरीय प्रश्न",
+      "questionNumber": 8,
+      "type": "short",
+      "text": "'उपनिषद्' क्या है ? / What is 'Upanishad' ?",
+      "textHindi": "'उपनिषद्' क्या है ? / What is 'Upanishad' ?",
+      "modelAnswer": "'उपनिषद्' क्या है ?\n* 'उपनिषद्' का शाब्दिक अर्थ है—गुरु के समीप निष्ठापूर्वक बैठना। यह प्राचीन भारतीय वैदिक साहित्य का अंतिम दार्शनिक भाग है, इसलिए इसे 'वेदांत' भी कहा जाता है।\n* इसमें आत्मा, परमात्मा, मोक्ष, ब्रह्म और सृष्टि के रहस्यों पर गुरु-शिष्य के मध्य संवाद शैली में गंभीर दार्शनिक विवेचन मिलता है। इनकी कुल संख्या 108 मानी गई है।",
+      "explanationHindi": "'उपनिषद्' क्या है ?\n* 'उपनिषद्' का शाब्दिक अर्थ है—गुरु के समीप निष्ठापूर्वक बैठना। यह प्राचीन भारतीय वैदिक साहित्य का अंतिम दार्शनिक भाग है, इसलिए इसे 'वेदांत' भी कहा जाता है।\n* इसमें आत्मा, परमात्मा, मोक्ष, ब्रह्म और सृष्टि के रहस्यों पर गुरु-शिष्य के मध्य संवाद शैली में गंभीर दार्शनिक विवेचन मिलता है। इनकी कुल संख्या 108 मानी गई है।",
+      "marks": 2
+    },
+    {
+      "id": "q-sec-b-9",
+      "sectionId": "sec-b",
+      "sectionName": "खण्ड–ब : लघु उत्तरीय प्रश्न",
+      "questionNumber": 9,
+      "type": "short",
+      "text": "बुद्ध के अष्टांगिक मार्ग को लिखें । / Write the Eight-fold path of Buddha.",
+      "textHindi": "बुद्ध के अष्टांगिक मार्ग को लिखें । / Write the Eight-fold path of Buddha.",
+      "modelAnswer": "बुद्ध के अष्टांगिक मार्ग को लिखें ।\n* भगवान बुद्ध ने तृष्णा से मुक्ति और निर्वाण प्राप्ति के लिए आठ अंगों वाला मध्यम मार्ग बताया:\n* सम्यक दृष्टि\n* सम्यक संकल्प\n* सम्यक वाक्\n* सम्यक कर्म\n* सम्यक आजीव\n* सम्यक व्यायाम\n* सम्यक स्मृति\n* सम्यक समाधि",
+      "explanationHindi": "बुद्ध के अष्टांगिक मार्ग को लिखें ।\n* भगवान बुद्ध ने तृष्णा से मुक्ति और निर्वाण प्राप्ति के लिए आठ अंगों वाला मध्यम मार्ग बताया:\n* सम्यक दृष्टि\n* सम्यक संकल्प\n* सम्यक वाक्\n* सम्यक कर्म\n* सम्यक आजीव\n* सम्यक व्यायाम\n* सम्यक स्मृति\n* सम्यक समाधि",
+      "marks": 2
+    },
+    {
+      "id": "q-sec-b-10",
+      "sectionId": "sec-b",
+      "sectionName": "खण्ड–ब : लघु उत्तरीय प्रश्न",
+      "questionNumber": 10,
+      "type": "short",
+      "text": "जैन धर्म के प्रसार के दो कारण लिखें । / Write two causes of the spread of Jainism.",
+      "textHindi": "जैन धर्म के प्रसार के दो कारण लिखें । / Write two causes of the spread of Jainism.",
+      "modelAnswer": "जैन धर्म के प्रसार के दो कारण लिखें ।\n* सरल व जनसाधारण की भाषा: भगवान महावीर और जैन भिक्षुओं ने अपने उपदेश क्लिष्ट संस्कृत के स्थान पर आम जनता की बोलचाल की भाषा 'प्राकृत' (अर्धमागधी) में दिए।\n* समानता का संदेश: जैन धर्म ने जन्म आधारित जाति-व्यवस्था का विरोध किया और समाज के सभी वर्गों (किसानों, व्यापारियों व महिलाओं) के लिए मोक्ष के द्वार समान रूप से खोले।",
+      "explanationHindi": "जैन धर्म के प्रसार के दो कारण लिखें ।\n* सरल व जनसाधारण की भाषा: भगवान महावीर और जैन भिक्षुओं ने अपने उपदेश क्लिष्ट संस्कृत के स्थान पर आम जनता की बोलचाल की भाषा 'प्राकृत' (अर्धमागधी) में दिए।\n* समानता का संदेश: जैन धर्म ने जन्म आधारित जाति-व्यवस्था का विरोध किया और समाज के सभी वर्गों (किसानों, व्यापारियों व महिलाओं) के लिए मोक्ष के द्वार समान रूप से खोले।",
+      "marks": 2
+    },
+    {
+      "id": "q-sec-b-11",
+      "sectionId": "sec-b",
+      "sectionName": "खण्ड–ब : लघु उत्तरीय प्रश्न",
+      "questionNumber": 11,
+      "type": "short",
+      "text": "दीन-ए-इलाही से आप क्या समझते हैं ? / What do you understand by Din-i-Ilahi ?",
+      "textHindi": "दीन-ए-इलाही से आप क्या समझते हैं ? / What do you understand by Din-i-Ilahi ?",
+      "modelAnswer": "दीन-ए-इलाही से आप क्या समझते हैं ?\n* 'दीन-ए-इलाही' (तौहीद-ए-इलाही) मुग़ल सम्राट अकबर द्वारा 1582 ई० में शुरू किया गया एक सर्वसमावेशी धार्मिक-नैतिक आचार-विचार था।\n* इसमें सभी धर्मों (हिंदू, इस्लाम, जैन, ईसाई) की श्रेष्ठ और सार्वभौमिक नैतिक शिक्षाओं को समाहित किया गया था, जिसका उद्देश्य धार्मिक सहिष्णुता और 'सुलह-ए-कुल' (सभी के साथ शांति) को बढ़ावा देना था।",
+      "explanationHindi": "दीन-ए-इलाही से आप क्या समझते हैं ?\n* 'दीन-ए-इलाही' (तौहीद-ए-इलाही) मुग़ल सम्राट अकबर द्वारा 1582 ई० में शुरू किया गया एक सर्वसमावेशी धार्मिक-नैतिक आचार-विचार था।\n* इसमें सभी धर्मों (हिंदू, इस्लाम, जैन, ईसाई) की श्रेष्ठ और सार्वभौमिक नैतिक शिक्षाओं को समाहित किया गया था, जिसका उद्देश्य धार्मिक सहिष्णुता और 'सुलह-ए-कुल' (सभी के साथ शांति) को बढ़ावा देना था।",
+      "marks": 2
+    },
+    {
+      "id": "q-sec-b-12",
+      "sectionId": "sec-b",
+      "sectionName": "खण्ड–ब : लघु उत्तरीय प्रश्न",
+      "questionNumber": 12,
+      "type": "short",
+      "text": "अकबर के काल में भूमि के वर्गीकरण को स्पष्ट करें । / Explain the classification of land during the period of Akbar.",
+      "textHindi": "अकबर के काल में भूमि के वर्गीकरण को स्पष्ट करें । / Explain the classification of land during the period of Akbar.",
+      "modelAnswer": "अकबर के काल में भूमि के वर्गीकरण को स्पष्ट करें ।\n* मुग़ल काल में 'आइन-ए-अकबरी' के अनुसार कृषि भूमि को खेती की निरंतरता के आधार पर चार श्रेणियों में विभाजित किया गया था:\n* पोलज: जिस पर हर वर्ष लगातार फसलें उगाई जाती थीं।\n* परौती: जिसे उपजाऊ शक्ति पाने के लिए 1-2 वर्ष खाली छोड़ा जाता था।\n* चाचर: जो 3 से 4 वर्षों तक बिना बोई पड़ी रहती थी।\n* बंजर: जो 5 या उससे अधिक वर्षों से अनुपजाऊ पड़ी रहती थी।",
+      "explanationHindi": "अकबर के काल में भूमि के वर्गीकरण को स्पष्ट करें ।\n* मुग़ल काल में 'आइन-ए-अकबरी' के अनुसार कृषि भूमि को खेती की निरंतरता के आधार पर चार श्रेणियों में विभाजित किया गया था:\n* पोलज: जिस पर हर वर्ष लगातार फसलें उगाई जाती थीं।\n* परौती: जिसे उपजाऊ शक्ति पाने के लिए 1-2 वर्ष खाली छोड़ा जाता था।\n* चाचर: जो 3 से 4 वर्षों तक बिना बोई पड़ी रहती थी।\n* बंजर: जो 5 या उससे अधिक वर्षों से अनुपजाऊ पड़ी रहती थी।",
+      "marks": 2
+    },
+    {
+      "id": "q-sec-b-13",
+      "sectionId": "sec-b",
+      "sectionName": "खण्ड–ब : लघु उत्तरीय प्रश्न",
+      "questionNumber": 13,
+      "type": "short",
+      "text": "ताजमहल किसने और कहाँ बनवाया ? / Who built Taj Mahal and where ?",
+      "textHindi": "ताजमहल किसने और कहाँ बनवाया ? / Who built Taj Mahal and where ?",
+      "modelAnswer": "ताजमहल किसने और कहाँ बनवाया ?\n* ताजमहल का निर्माण पाँचवें मुग़ल सम्राट शाहजहाँ ने अपनी प्रिय बेगम मुमताज महल (अर्जुमंद बानो बेगम) की याद में करवाया था।\n* यह विश्वप्रसिद्ध स्मारक उत्तर प्रदेश के आगरा शहर में यमुना नदी के दक्षिणी तट पर सफेद संगमरमर से निर्मित है।",
+      "explanationHindi": "ताजमहल किसने और कहाँ बनवाया ?\n* ताजमहल का निर्माण पाँचवें मुग़ल सम्राट शाहजहाँ ने अपनी प्रिय बेगम मुमताज महल (अर्जुमंद बानो बेगम) की याद में करवाया था।\n* यह विश्वप्रसिद्ध स्मारक उत्तर प्रदेश के आगरा शहर में यमुना नदी के दक्षिणी तट पर सफेद संगमरमर से निर्मित है।",
+      "marks": 2
+    },
+    {
+      "id": "q-sec-b-14",
+      "sectionId": "sec-b",
+      "sectionName": "खण्ड–ब : लघु उत्तरीय प्रश्न",
+      "questionNumber": 14,
+      "type": "short",
+      "text": "मुग़ल दरबार में 'झरोखा दर्शन' क्या था ? / What was 'Jharokha Darshan' in Mughal Court ?",
+      "textHindi": "मुग़ल दरबार में 'झरोखा दर्शन' क्या था ? / What was 'Jharokha Darshan' in Mughal Court ?",
+      "modelAnswer": "मुग़ल दरबार में 'झरोखा दर्शन' क्या था ?\n* 'झरोखा दर्शन' मुग़ल सम्राट अकबर द्वारा शुरू की गई एक राजसी दैनिक परंपरा थी, जिसके तहत बादशाह सुबह महल के पूर्व दिशा वाले एक छोटे झरोखे (खिड़की/बालकनी) पर आकर नीचे मैदान में खड़ी जनता को दर्शन देते थे।\n* इसका उद्देश्य सीधे प्रजा के साथ संवाद स्थापित करना और शाही सत्ता के प्रति जनसामान्य का विश्वास और निष्ठा बनाए रखना था।",
+      "explanationHindi": "मुग़ल दरबार में 'झरोखा दर्शन' क्या था ?\n* 'झरोखा दर्शन' मुग़ल सम्राट अकबर द्वारा शुरू की गई एक राजसी दैनिक परंपरा थी, जिसके तहत बादशाह सुबह महल के पूर्व दिशा वाले एक छोटे झरोखे (खिड़की/बालकनी) पर आकर नीचे मैदान में खड़ी जनता को दर्शन देते थे।\n* इसका उद्देश्य सीधे प्रजा के साथ संवाद स्थापित करना और शाही सत्ता के प्रति जनसामान्य का विश्वास और निष्ठा बनाए रखना था।",
+      "marks": 2
+    },
+    {
+      "id": "q-sec-b-15",
+      "sectionId": "sec-b",
+      "sectionName": "खण्ड–ब : लघु उत्तरीय प्रश्न",
+      "questionNumber": 15,
+      "type": "short",
+      "text": "'महानवमी का डिब्बा' के बारे में आप क्या जानते हैं ? / What do you know about 'Mahanavami ka Dibba' ?",
+      "textHindi": "'महानवमी का डिब्बा' के बारे में आप क्या जानते हैं ? / What do you know about 'Mahanavami ka Dibba' ?",
+      "modelAnswer": "'महानवमी का डिब्बा' के बारे में आप क्या जानते हैं ?\n* 'महानवमी डिब्बा' विजयनगर साम्राज्य के शाही केंद्र में स्थित लगभग 11,000 वर्ग फीट के आधार वाला 40 फीट ऊंचा पत्थर का एक विशालकाय मंच है।\n* इस मंच पर राजा सितंबर-अक्टूबर के महीने में होने वाले 10 दिवसीय 'महानवमी' (दशहरा/दुर्गा पूजा) के अवसर पर बैठकर धार्मिक अनुष्ठान, मूर्तियों की पूजा, घोड़ों की परेड, कुश्ती और शक्ति प्रदर्शन का निरीक्षण करते थे।",
+      "explanationHindi": "'महानवमी का डिब्बा' के बारे में आप क्या जानते हैं ?\n* 'महानवमी डिब्बा' विजयनगर साम्राज्य के शाही केंद्र में स्थित लगभग 11,000 वर्ग फीट के आधार वाला 40 फीट ऊंचा पत्थर का एक विशालकाय मंच है।\n* इस मंच पर राजा सितंबर-अक्टूबर के महीने में होने वाले 10 दिवसीय 'महानवमी' (दशहरा/दुर्गा पूजा) के अवसर पर बैठकर धार्मिक अनुष्ठान, मूर्तियों की पूजा, घोड़ों की परेड, कुश्ती और शक्ति प्रदर्शन का निरीक्षण करते थे।",
+      "marks": 2
+    },
+    {
+      "id": "q-sec-b-16",
+      "sectionId": "sec-b",
+      "sectionName": "खण्ड–ब : लघु उत्तरीय प्रश्न",
+      "questionNumber": 16,
+      "type": "short",
+      "text": "'गोपुरम' से आप क्या समझते हैं ? / What do you understand by 'Gopuram' ?",
+      "textHindi": "'गोपुरम' से आप क्या समझते हैं ? / What do you understand by 'Gopuram' ?",
+      "modelAnswer": "'गोपुरम' से आप क्या समझते हैं ?\n* दक्षिण भारत के द्रविड़ मंदिर स्थापत्य में मंदिर के विशाल, गगनचुंबी, बहुमंजिला और बारीक नक्काशी से अलंकृत मुख्य प्रवेश द्वार को 'गोपुरम' कहा जाता है।\n* विजयनगर के शासकों ने अपने वैभव और शक्ति को दर्शाने के लिए अत्यंत ऊंचे 'राया गोपुरम' बनवाए, जो दूर से ही मंदिर की उपस्थिति का संकेत देते थे।",
+      "explanationHindi": "'गोपुरम' से आप क्या समझते हैं ?\n* दक्षिण भारत के द्रविड़ मंदिर स्थापत्य में मंदिर के विशाल, गगनचुंबी, बहुमंजिला और बारीक नक्काशी से अलंकृत मुख्य प्रवेश द्वार को 'गोपुरम' कहा जाता है।\n* विजयनगर के शासकों ने अपने वैभव और शक्ति को दर्शाने के लिए अत्यंत ऊंचे 'राया गोपुरम' बनवाए, जो दूर से ही मंदिर की उपस्थिति का संकेत देते थे।",
+      "marks": 2
+    },
+    {
+      "id": "q-sec-b-17",
+      "sectionId": "sec-b",
+      "sectionName": "खण्ड–ब : लघु उत्तरीय प्रश्न",
+      "questionNumber": 17,
+      "type": "short",
+      "text": "मेगास्थनीज का संक्षिप्त परिचय दें । / Write a brief introduction of Megasthenes.",
+      "textHindi": "मेगास्थनीज का संक्षिप्त परिचय दें । / Write a brief introduction of Megasthenes.",
+      "modelAnswer": "मेगास्थनीज का संक्षिप्त परिचय दें ।\n* मेगस्थनीज यूनानी शासक सेल्यूकस निकेटर का एक यूनानी राजदूत था, जो लगभग 302 ई०पू० में मौर्य साम्राज्य के संस्थापक चंद्रगुप्त मौर्य के पाटलिपुत्र दरबार में आया था।\n* उसने भारत में अपने अनुभवों, पाटलिपुत्र के नगर प्रशासन, सेना और भारतीय समाज के सात वर्गों का विस्तृत विवरण अपनी प्रसिद्ध पुस्तक 'इण्डिका' में लिखा था।",
+      "explanationHindi": "मेगास्थनीज का संक्षिप्त परिचय दें ।\n* मेगस्थनीज यूनानी शासक सेल्यूकस निकेटर का एक यूनानी राजदूत था, जो लगभग 302 ई०पू० में मौर्य साम्राज्य के संस्थापक चंद्रगुप्त मौर्य के पाटलिपुत्र दरबार में आया था।\n* उसने भारत में अपने अनुभवों, पाटलिपुत्र के नगर प्रशासन, सेना और भारतीय समाज के सात वर्गों का विस्तृत विवरण अपनी प्रसिद्ध पुस्तक 'इण्डिका' में लिखा था।",
+      "marks": 2
+    },
+    {
+      "id": "q-sec-b-18",
+      "sectionId": "sec-b",
+      "sectionName": "खण्ड–ब : लघु उत्तरीय प्रश्न",
+      "questionNumber": 18,
+      "type": "short",
+      "text": "उपनिवेशवाद का अर्थ को समझाइये । / Explain the meaning of colonialism.",
+      "textHindi": "उपनिवेशवाद का अर्थ को समझाइये । / Explain the meaning of colonialism.",
+      "modelAnswer": "उपनिवेशवाद का अर्थ को समझाइये ।\n* उपनिवेशवाद (Colonialism) एक ऐसी व्यवस्था है जिसमें कोई शक्तिशाली और उन्नत देश किसी अन्य कमजोर देश के भू-भाग पर प्रत्यक्ष राजनीतिक नियंत्रण स्थापित कर लेता है।\n* इसका मुख्य उद्देश्य उस देश के प्राकृतिक, आर्थिक और मानवीय संसाधनों का उपयोग अपने गृह देश की आर्थिक समृद्धि, औद्योगिक विकास और व्यापारिक लाभ के लिए करना होता है।",
+      "explanationHindi": "उपनिवेशवाद का अर्थ को समझाइये ।\n* उपनिवेशवाद (Colonialism) एक ऐसी व्यवस्था है जिसमें कोई शक्तिशाली और उन्नत देश किसी अन्य कमजोर देश के भू-भाग पर प्रत्यक्ष राजनीतिक नियंत्रण स्थापित कर लेता है।\n* इसका मुख्य उद्देश्य उस देश के प्राकृतिक, आर्थिक और मानवीय संसाधनों का उपयोग अपने गृह देश की आर्थिक समृद्धि, औद्योगिक विकास और व्यापारिक लाभ के लिए करना होता है।",
+      "marks": 2
+    },
+    {
+      "id": "q-sec-b-19",
+      "sectionId": "sec-b",
+      "sectionName": "खण्ड–ब : लघु उत्तरीय प्रश्न",
+      "questionNumber": 19,
+      "type": "short",
+      "text": "स्थायी बन्दोबस्त की दो विशेषताओं का उल्लेख करें । / Mention two features of Permanent Settlement.",
+      "textHindi": "स्थायी बन्दोबस्त की दो विशेषताओं का उल्लेख करें । / Mention two features of Permanent Settlement.",
+      "modelAnswer": "स्थायी बन्दोबस्त की दो विशेषताओं का उल्लेख करें ।\n* भू-राजस्व का स्थायी निर्धारण: 1793 में लागू इस व्यवस्था में कंपनी का वार्षिक लगान हमेशा के लिए निश्चित कर दिया गया, जिससे भविष्य में लगान बढ़ाने पर रोक लग गई।\n* जमींदारों को भूमि का स्वामी बनाना: जमींदारों को भूमि का वंशानुगत मालिक मान लिया गया, जिन्हें किसानों से वसूले गए कुल लगान का 10/11 भाग कंपनी को देना होता था और 1/11 भाग अपने पास रखना होता था।",
+      "explanationHindi": "स्थायी बन्दोबस्त की दो विशेषताओं का उल्लेख करें ।\n* भू-राजस्व का स्थायी निर्धारण: 1793 में लागू इस व्यवस्था में कंपनी का वार्षिक लगान हमेशा के लिए निश्चित कर दिया गया, जिससे भविष्य में लगान बढ़ाने पर रोक लग गई।\n* जमींदारों को भूमि का स्वामी बनाना: जमींदारों को भूमि का वंशानुगत मालिक मान लिया गया, जिन्हें किसानों से वसूले गए कुल लगान का 10/11 भाग कंपनी को देना होता था और 1/11 भाग अपने पास रखना होता था।",
+      "marks": 2
+    },
+    {
+      "id": "q-sec-b-20",
+      "sectionId": "sec-b",
+      "sectionName": "खण्ड–ब : लघु उत्तरीय प्रश्न",
+      "questionNumber": 20,
+      "type": "short",
+      "text": "झूम खेती को समझाइये । / Explain about Jhum cultivation.",
+      "textHindi": "झूम खेती को समझाइये । / Explain about Jhum cultivation.",
+      "modelAnswer": "झूम खेती को समझाइये ।\n* झूम खेती (स्थानांतरित कृषि/Slash and Burn Agriculture) कृषि की एक प्राचीन पारंपरिक पद्धति है, जो मुख्य रूप से जनजातीय और पहाड़ी क्षेत्रों में की जाती है।\n* इसमें जंगलों के एक हिस्से के पेड़-पौधों को काटकर व जलाकर भूमि साफ की जाती है और राख को खाद के रूप में मिलाकर कुदाल से कुछ वर्षों तक फसलें उगाई जाती हैं, फिर भूमि के बंजर होने पर दूसरे स्थान पर जाकर यही प्रक्रिया दोहराई जाती है।",
+      "explanationHindi": "झूम खेती को समझाइये ।\n* झूम खेती (स्थानांतरित कृषि/Slash and Burn Agriculture) कृषि की एक प्राचीन पारंपरिक पद्धति है, जो मुख्य रूप से जनजातीय और पहाड़ी क्षेत्रों में की जाती है।\n* इसमें जंगलों के एक हिस्से के पेड़-पौधों को काटकर व जलाकर भूमि साफ की जाती है और राख को खाद के रूप में मिलाकर कुदाल से कुछ वर्षों तक फसलें उगाई जाती हैं, फिर भूमि के बंजर होने पर दूसरे स्थान पर जाकर यही प्रक्रिया दोहराई जाती है।",
+      "marks": 2
+    },
+    {
+      "id": "q-sec-b-21",
+      "sectionId": "sec-b",
+      "sectionName": "खण्ड–ब : लघु उत्तरीय प्रश्न",
+      "questionNumber": 21,
+      "type": "short",
+      "text": "संथाल विद्रोह कब और किसके नेतृत्व में हुआ ? / When and under whose leadership did the Santhal rebellion take place ?",
+      "textHindi": "संथाल विद्रोह कब और किसके नेतृत्व में हुआ ? / When and under whose leadership did the Santhal rebellion take place ?",
+      "modelAnswer": "संथाल विद्रोह कब और किसके नेतृत्व में हुआ ?\n* वर्ष: संथाल विद्रोह (संथाल हूल) 1855–1856 ईस्वी में हुआ था।\n* नेतृत्व: इस सशस्त्र जन-विद्रोह का नेतृत्व दो सगे संथाल भाइयों—सिद्धू मुर्मू और कान्हू मुर्मू (तथा उनके भाइयों चाँद और भैरव) ने राजमहल की पहाड़ियों (दामिन-इ-कोह) में शोषक महाजनों और अंग्रेजों के विरुद्ध किया था।",
+      "explanationHindi": "संथाल विद्रोह कब और किसके नेतृत्व में हुआ ?\n* वर्ष: संथाल विद्रोह (संथाल हूल) 1855–1856 ईस्वी में हुआ था।\n* नेतृत्व: इस सशस्त्र जन-विद्रोह का नेतृत्व दो सगे संथाल भाइयों—सिद्धू मुर्मू और कान्हू मुर्मू (तथा उनके भाइयों चाँद और भैरव) ने राजमहल की पहाड़ियों (दामिन-इ-कोह) में शोषक महाजनों और अंग्रेजों के विरुद्ध किया था।",
+      "marks": 2
+    },
+    {
+      "id": "q-sec-b-22",
+      "sectionId": "sec-b",
+      "sectionName": "खण्ड–ब : लघु उत्तरीय प्रश्न",
+      "questionNumber": 22,
+      "type": "short",
+      "text": "1857 की क्रांति का तात्कालिक कारण को स्पष्ट करें । / Explain the immediate cause of the revolution of 1857.",
+      "textHindi": "1857 की क्रांति का तात्कालिक कारण को स्पष्ट करें । / Explain the immediate cause of the revolution of 1857.",
+      "modelAnswer": "1857 की क्रांति का तात्कालिक कारण को स्पष्ट करें ।\n* 1857 के विद्रोह का तात्कालिक कारण ब्रिटिश सेना में पुरानी बंदूकों के स्थान पर नई 'एनफील्ड राइफल' का प्रयोग था।\n* इस राइफल के कारतूसों पर चिकनाई के लिए गाय और सूअर की चर्बी का लेप लगा होता था, जिसे बंदूक में भरने से पहले दांतों से काटना पड़ता था। इससे हिंदू और मुस्लिम दोनों धर्मों के सैनिकों की धार्मिक भावनाएं भड़क उठीं और उन्होंने बगावत कर दी।",
+      "explanationHindi": "1857 की क्रांति का तात्कालिक कारण को स्पष्ट करें ।\n* 1857 के विद्रोह का तात्कालिक कारण ब्रिटिश सेना में पुरानी बंदूकों के स्थान पर नई 'एनफील्ड राइफल' का प्रयोग था।\n* इस राइफल के कारतूसों पर चिकनाई के लिए गाय और सूअर की चर्बी का लेप लगा होता था, जिसे बंदूक में भरने से पहले दांतों से काटना पड़ता था। इससे हिंदू और मुस्लिम दोनों धर्मों के सैनिकों की धार्मिक भावनाएं भड़क उठीं और उन्होंने बगावत कर दी।",
+      "marks": 2
+    },
+    {
+      "id": "q-sec-b-23",
+      "sectionId": "sec-b",
+      "sectionName": "खण्ड–ब : लघु उत्तरीय प्रश्न",
+      "questionNumber": 23,
+      "type": "short",
+      "text": "बहादुरशाह ज़फर कौन थे ? / Who was Bahadur Shah Zafar ?",
+      "textHindi": "बहादुरशाह ज़फर कौन थे ? / Who was Bahadur Shah Zafar ?",
+      "modelAnswer": "बहादुरशाह ज़फर कौन थे ?\n* बहादुर शाह ज़फर (बहादुर शाह द्वितीय) भारत के अंतिम मुग़ल बादशाह तथा उर्दू के प्रसिद्ध शायर थे।\n* 1857 की क्रांति के समय मेरठ के विद्रोही सिपाहियों और भारतीय जनता ने उन्हें अपना सर्वोच्च राष्ट्रीय नेता घोषित किया था। क्रांति के दमन के बाद अंग्रेजों ने उन्हें बंदी बनाकर रंगून (म्यांमार) निर्वासित कर दिया, जहाँ 1862 में उनकी मृत्यु हुई।",
+      "explanationHindi": "बहादुरशाह ज़फर कौन थे ?\n* बहादुर शाह ज़फर (बहादुर शाह द्वितीय) भारत के अंतिम मुग़ल बादशाह तथा उर्दू के प्रसिद्ध शायर थे।\n* 1857 की क्रांति के समय मेरठ के विद्रोही सिपाहियों और भारतीय जनता ने उन्हें अपना सर्वोच्च राष्ट्रीय नेता घोषित किया था। क्रांति के दमन के बाद अंग्रेजों ने उन्हें बंदी बनाकर रंगून (म्यांमार) निर्वासित कर दिया, जहाँ 1862 में उनकी मृत्यु हुई।",
+      "marks": 2
+    },
+    {
+      "id": "q-sec-b-24",
+      "sectionId": "sec-b",
+      "sectionName": "खण्ड–ब : लघु उत्तरीय प्रश्न",
+      "questionNumber": 24,
+      "type": "short",
+      "text": "चम्पारण सत्याग्रह से संबंधित चार नेताओं के नाम लिखें । / Write the names of four leaders associated with Champaran Satyagraha.",
+      "textHindi": "चम्पारण सत्याग्रह से संबंधित चार नेताओं के नाम लिखें । / Write the names of four leaders associated with Champaran Satyagraha.",
+      "modelAnswer": "चम्पारण सत्याग्रह से संबंधित चार नेताओं के नाम लिखें ।\n* महात्मा गांधी\n* राजकुमार शुक्ल\n* डॉ० राजेन्द्र प्रसाद\n* आचार्य जे०बी० कृपलानी (अथवा ब्रजकिशोर प्रसाद / अनुग्रह नारायण सिन्हा)",
+      "explanationHindi": "चम्पारण सत्याग्रह से संबंधित चार नेताओं के नाम लिखें ।\n* महात्मा गांधी\n* राजकुमार शुक्ल\n* डॉ० राजेन्द्र प्रसाद\n* आचार्य जे०बी० कृपलानी (अथवा ब्रजकिशोर प्रसाद / अनुग्रह नारायण सिन्हा)",
+      "marks": 2
+    },
+    {
+      "id": "q-sec-b-25",
+      "sectionId": "sec-b",
+      "sectionName": "खण्ड–ब : लघु उत्तरीय प्रश्न",
+      "questionNumber": 25,
+      "type": "short",
+      "text": "भारत छोड़ो आन्दोलन कब और किसने शुरू किया ? / Who started Quit India Movement and when ?",
+      "textHindi": "भारत छोड़ो आन्दोलन कब और किसने शुरू किया ? / Who started Quit India Movement and when ?",
+      "modelAnswer": "भारत छोड़ो आन्दोलन कब और किसने शुरू किया ?\n* प्रारंभ: भारत छोड़ो आंदोलन का शंखनाद 8-9 अगस्त, 1942 को बम्बई के ऐतिहासिक ग्वालिया टैंक मैदान से हुआ था।\n* नेतृत्व: इस आंदोलन की औपचारिक शुरुआत महात्मा गांधी ने अखिल भारतीय कांग्रेस कमेटी के सहयोग से देशवासियों को \"करो या मरो\" (Do or Die) का अमर मंत्र देकर की थी।",
+      "explanationHindi": "भारत छोड़ो आन्दोलन कब और किसने शुरू किया ?\n* प्रारंभ: भारत छोड़ो आंदोलन का शंखनाद 8-9 अगस्त, 1942 को बम्बई के ऐतिहासिक ग्वालिया टैंक मैदान से हुआ था।\n* नेतृत्व: इस आंदोलन की औपचारिक शुरुआत महात्मा गांधी ने अखिल भारतीय कांग्रेस कमेटी के सहयोग से देशवासियों को \"करो या मरो\" (Do or Die) का अमर मंत्र देकर की थी।",
+      "marks": 2
+    },
+    {
+      "id": "q-sec-b-26",
+      "sectionId": "sec-b",
+      "sectionName": "खण्ड–ब : लघु उत्तरीय प्रश्न",
+      "questionNumber": 26,
+      "type": "short",
+      "text": "सविनय अवज्ञा आन्दोलन के दो कारण बतायें । / State two causes for the Civil Disobedience Movement.",
+      "textHindi": "सविनय अवज्ञा आन्दोलन के दो कारण बतायें । / State two causes for the Civil Disobedience Movement.",
+      "modelAnswer": "सविनय अवज्ञा आन्दोलन के दो कारण बतायें ।\n* साइमन कमीशन का विरोध और पूर्ण स्वराज की मांग: 1928 में बिना किसी भारतीय सदस्य वाले साइमन कमीशन का आगमन और 1929 के लाहौर अधिवेशन में कांग्रेस द्वारा 'पूर्ण स्वराज' का लक्ष्य घोषित करना।\n* गांधीजी की 11 सूत्रीय मांगों की उपेक्षा: गांधीजी ने वायसराय लॉर्ड इरविन के समक्ष नमक कर समाप्त करने और राजनीतिक बंदियों की रिहाई सहित 11 मांगें रखी थीं, जिन्हें अंग्रेजों द्वारा ठुकरा दिया गया।",
+      "explanationHindi": "सविनय अवज्ञा आन्दोलन के दो कारण बतायें ।\n* साइमन कमीशन का विरोध और पूर्ण स्वराज की मांग: 1928 में बिना किसी भारतीय सदस्य वाले साइमन कमीशन का आगमन और 1929 के लाहौर अधिवेशन में कांग्रेस द्वारा 'पूर्ण स्वराज' का लक्ष्य घोषित करना।\n* गांधीजी की 11 सूत्रीय मांगों की उपेक्षा: गांधीजी ने वायसराय लॉर्ड इरविन के समक्ष नमक कर समाप्त करने और राजनीतिक बंदियों की रिहाई सहित 11 मांगें रखी थीं, जिन्हें अंग्रेजों द्वारा ठुकरा दिया गया।",
+      "marks": 2
+    },
+    {
+      "id": "q-sec-b-27",
+      "sectionId": "sec-b",
+      "sectionName": "खण्ड–ब : लघु उत्तरीय प्रश्न",
+      "questionNumber": 27,
+      "type": "short",
+      "text": "मुस्लिम लीग द्वारा पाकिस्तान की मांग क्यों की गई ? / Why did Muslim League demand for Pakistan ?",
+      "textHindi": "मुस्लिम लीग द्वारा पाकिस्तान की मांग क्यों की गई ? / Why did Muslim League demand for Pakistan ?",
+      "modelAnswer": "मुस्लिम लीग द्वारा पाकिस्तान की मांग क्यों की गई ?\n* असुरक्षा की भावना: 1937 के प्रांतीय चुनावों के बाद मुस्लिम लीग को लगा कि स्वतंत्र भारत में हिंदू बहुसंख्यक शासन में मुस्लिम अल्पसंख्यकों के राजनीतिक और सांस्कृतिक अधिकार सुरक्षित नहीं रहेंगे।\n* द्वि-राष्ट्र सिद्धांत: मोहम्मद अली जिन्ना और मुस्लिम लीग ने दावा किया कि हिंदू और मुसलमान दो अलग-अलग राष्ट्र हैं, इसलिए मुसलमानों के लिए एक संप्रभु और स्वतंत्र राज्य 'पाकिस्तान' होना आवश्यक है।",
+      "explanationHindi": "मुस्लिम लीग द्वारा पाकिस्तान की मांग क्यों की गई ?\n* असुरक्षा की भावना: 1937 के प्रांतीय चुनावों के बाद मुस्लिम लीग को लगा कि स्वतंत्र भारत में हिंदू बहुसंख्यक शासन में मुस्लिम अल्पसंख्यकों के राजनीतिक और सांस्कृतिक अधिकार सुरक्षित नहीं रहेंगे।\n* द्वि-राष्ट्र सिद्धांत: मोहम्मद अली जिन्ना और मुस्लिम लीग ने दावा किया कि हिंदू और मुसलमान दो अलग-अलग राष्ट्र हैं, इसलिए मुसलमानों के लिए एक संप्रभु और स्वतंत्र राज्य 'पाकिस्तान' होना आवश्यक है।",
+      "marks": 2
+    },
+    {
+      "id": "q-sec-b-28",
+      "sectionId": "sec-b",
+      "sectionName": "खण्ड–ब : लघु उत्तरीय प्रश्न",
+      "questionNumber": 28,
+      "type": "short",
+      "text": "भारत का संविधान 26 जनवरी, 1950 को क्यों लागू किया गया ? / Why was the Constitution of India enforced on 26th January 1950 ?",
+      "textHindi": "भारत का संविधान 26 जनवरी, 1950 को क्यों लागू किया गया ? / Why was the Constitution of India enforced on 26th January 1950 ?",
+      "modelAnswer": "भारत का संविधान 26 जनवरी, 1950 को क्यों लागू किया गया ?\n* 26 जनवरी का दिन भारतीय स्वतंत्रता संग्राम के इतिहास में अत्यंत पवित्र और ऐतिहासिक था।\n* दिसंबर 1929 के लाहौर कांग्रेस अधिवेशन में लिए गए संकल्प के अनुसार 26 जनवरी, 1930 को पूरे देश में पहली बार 'प्रथम स्वतंत्रता दिवस' (पूर्ण स्वराज दिवस) मनाया गया था। इसी ऐतिहासिक तिथि के महत्व और स्मृति को अमर बनाए रखने के लिए संविधान को 26 जनवरी, 1950 को लागू किया गया।",
+      "explanationHindi": "भारत का संविधान 26 जनवरी, 1950 को क्यों लागू किया गया ?\n* 26 जनवरी का दिन भारतीय स्वतंत्रता संग्राम के इतिहास में अत्यंत पवित्र और ऐतिहासिक था।\n* दिसंबर 1929 के लाहौर कांग्रेस अधिवेशन में लिए गए संकल्प के अनुसार 26 जनवरी, 1930 को पूरे देश में पहली बार 'प्रथम स्वतंत्रता दिवस' (पूर्ण स्वराज दिवस) मनाया गया था। इसी ऐतिहासिक तिथि के महत्व और स्मृति को अमर बनाए रखने के लिए संविधान को 26 जनवरी, 1950 को लागू किया गया।",
+      "marks": 2
+    },
+    {
+      "id": "q-sec-b-29",
+      "sectionId": "sec-b",
+      "sectionName": "खण्ड–ब : लघु उत्तरीय प्रश्न",
+      "questionNumber": 29,
+      "type": "short",
+      "text": "भारत का संविधान की दो विशेषताएँ लिखें । / Write two features of the Constitution of India.",
+      "textHindi": "भारत का संविधान की दो विशेषताएँ लिखें । / Write two features of the Constitution of India.",
+      "modelAnswer": "भारत का संविधान की दो विशेषताएँ लिखें ।\n* विश्व का सबसे लंबा लिखित संविधान: इसमें शासन के सभी अंगों, मौलिक अधिकारों, नीति निदेशक तत्वों और केंद्र-राज्य संबंधों का विस्तृत लिखित प्रावधान है।\n* सार्वभौमिक वयस्क मताधिकार: संविधान ने बिना किसी जाति, धर्म, लिंग या संपत्ति के भेदभाव के प्रत्येक वयस्क भारतीय नागरिक को एक समान वोट देने का अधिकार प्रदान किया।",
+      "explanationHindi": "भारत का संविधान की दो विशेषताएँ लिखें ।\n* विश्व का सबसे लंबा लिखित संविधान: इसमें शासन के सभी अंगों, मौलिक अधिकारों, नीति निदेशक तत्वों और केंद्र-राज्य संबंधों का विस्तृत लिखित प्रावधान है।\n* सार्वभौमिक वयस्क मताधिकार: संविधान ने बिना किसी जाति, धर्म, लिंग या संपत्ति के भेदभाव के प्रत्येक वयस्क भारतीय नागरिक को एक समान वोट देने का अधिकार प्रदान किया।",
+      "marks": 2
+    },
+    {
+      "id": "q-sec-b-30",
+      "sectionId": "sec-b",
+      "sectionName": "खण्ड–ब : लघु उत्तरीय प्रश्न",
+      "questionNumber": 30,
+      "type": "short",
+      "text": "कैबिनेट मिशन भारत क्यों आया ? / Why did Cabinet Mission come to India ?",
+      "textHindi": "कैबिनेट मिशन भारत क्यों आया ? / Why did Cabinet Mission come to India ?",
+      "modelAnswer": "कैबिनेट मिशन भारत क्यों आया ?\n* मार्च 1946 में ब्रिटिश सरकार ने तीन सदस्यीय कैबिनेट मिशन (लॉर्ड पैथिक लॉरेंस, सर स्टैफोर्ड क्रिप्स और ए०वी० अलेक्जेंडर) को भारत भेजा था।\n* इसका उद्देश्य भारतीय नेताओं से शांतिपूर्ण सत्ता हस्तांतरण के तौर-तरीकों पर सहमति बनाना, अंतरिम सरकार का गठन करना तथा स्वतंत्र भारत के लिए संविधान सभा का ढांचा तैयार करना था।",
+      "explanationHindi": "कैबिनेट मिशन भारत क्यों आया ?\n* मार्च 1946 में ब्रिटिश सरकार ने तीन सदस्यीय कैबिनेट मिशन (लॉर्ड पैथिक लॉरेंस, सर स्टैफोर्ड क्रिप्स और ए०वी० अलेक्जेंडर) को भारत भेजा था।\n* इसका उद्देश्य भारतीय नेताओं से शांतिपूर्ण सत्ता हस्तांतरण के तौर-तरीकों पर सहमति बनाना, अंतरिम सरकार का गठन करना तथा स्वतंत्र भारत के लिए संविधान सभा का ढांचा तैयार करना था।",
+      "marks": 2
+    },
+    {
+      "id": "q-sec-c-31",
+      "sectionId": "sec-c",
+      "sectionName": "खण्ड–स : दीर्घ उत्तरीय प्रश्न",
+      "questionNumber": 31,
+      "type": "long",
+      "text": "हड़प्पा सभ्यता की नगर योजना प्रणाली की विवेचना करें । / Discuss the town planning system of Harappan civilization.",
+      "textHindi": "हड़प्पा सभ्यता की नगर योजना प्रणाली की विवेचना करें । / Discuss the town planning system of Harappan civilization.",
+      "modelAnswer": "हड़प्पा सभ्यता की नगर योजना प्रणाली की विवेचना करें ।\nहड़प्पा सभ्यता की सबसे विशिष्ट पहचान उसका वैज्ञानिक और सुनियोजित नगर नियोजन था:\n* दोहरा नगर विभाजन: लगभग सभी प्रमुख नगर दो भागों में बंटे थे—पश्चिम में ऊंचाई पर स्थित छोटा व प्राचीरों से घिरा 'दुर्ग' (Citadel), जहाँ प्रशासनिक इमारतें, अन्नागार और विशाल स्नानागार स्थित थे; तथा पूर्व में एक विस्तृत 'निचला शहर', जहाँ सामान्य नागरिक, व्यापारी और कारीगर रहते थे।\n* ग्रिड प्रणाली और सड़कें: मुख्य सड़कें चौड़ी और सीधी थीं, जो एक-दूसरे को समकोण पर काटती थीं, जिससे पूरा नगर आयताकार खंडों (Grid Pattern) में बंट जाता था। मकान पक्की ईंटों के बने थे, जिनके दरवाजे मुख्य सड़क के बजाय गलियों में खुलते थे।\n* उत्कृष्ट जल निकासी: प्रत्येक घर का गंदा पानी सड़क किनारे बनी पक्की ढकी नालियों में गिरता था। नालियों की सफाई के लिए जगह-जगह सोख्ता गड्ढे और हटाने योग्य पत्थर की पट्टियाँ लगाई गई थीं।",
+      "explanationHindi": "हड़प्पा सभ्यता की नगर योजना प्रणाली की विवेचना करें ।\nहड़प्पा सभ्यता की सबसे विशिष्ट पहचान उसका वैज्ञानिक और सुनियोजित नगर नियोजन था:\n* दोहरा नगर विभाजन: लगभग सभी प्रमुख नगर दो भागों में बंटे थे—पश्चिम में ऊंचाई पर स्थित छोटा व प्राचीरों से घिरा 'दुर्ग' (Citadel), जहाँ प्रशासनिक इमारतें, अन्नागार और विशाल स्नानागार स्थित थे; तथा पूर्व में एक विस्तृत 'निचला शहर', जहाँ सामान्य नागरिक, व्यापारी और कारीगर रहते थे।\n* ग्रिड प्रणाली और सड़कें: मुख्य सड़कें चौड़ी और सीधी थीं, जो एक-दूसरे को समकोण पर काटती थीं, जिससे पूरा नगर आयताकार खंडों (Grid Pattern) में बंट जाता था। मकान पक्की ईंटों के बने थे, जिनके दरवाजे मुख्य सड़क के बजाय गलियों में खुलते थे।\n* उत्कृष्ट जल निकासी: प्रत्येक घर का गंदा पानी सड़क किनारे बनी पक्की ढकी नालियों में गिरता था। नालियों की सफाई के लिए जगह-जगह सोख्ता गड्ढे और हटाने योग्य पत्थर की पट्टियाँ लगाई गई थीं।",
+      "marks": 5
+    },
+    {
+      "id": "q-sec-c-32",
+      "sectionId": "sec-c",
+      "sectionName": "खण्ड–स : दीर्घ उत्तरीय प्रश्न",
+      "questionNumber": 32,
+      "type": "long",
+      "text": "महावीर की जीवनी एवं उपदेशों का वर्णन करें । / Describe the life and teachings of Mahavira.",
+      "textHindi": "महावीर की जीवनी एवं उपदेशों का वर्णन करें । / Describe the life and teachings of Mahavira.",
+      "modelAnswer": "महावीर की जीवनी एवं उपदेशों का वर्णन करें ।\n* जीवनी: जैन धर्म के 24वें तीर्थंकर भगवान महावीर का जन्म 599 ई०पू० (या 540 ई०पू०) में वैशाली के निकट कुंडग्राम में ज्ञातृक कुल के राजा सिद्धार्थ और त्रिशला के यहाँ हुआ था। 30 वर्ष की आयु में गृह त्यागकर 12 वर्षों की कठोर तपस्या के बाद उन्हें 'कैवल्य' (सर्वोच्च ज्ञान) प्राप्त हुआ और वे 'जिन' (विजेता) कहलाए। 72 वर्ष की आयु में पावापुरी में उनका निर्वाण हुआ।\n* उपदेश एवं शिक्षाएं:\n* अहिंसा परमो धर्मः किसी भी जीव (मनुष्य, पशु, कीट या पौधे) को मन, वचन या कर्म से कष्ट न पहुँचाना।\n* त्रिरत्न: मोक्ष प्राप्ति हेतु सम्यक दर्शन, सम्यक ज्ञान और सम्यक चरित्र का पालन करना अनिवार्य है।\n* पंच महाव्रत: सत्य, अहिंसा, अस्तेय (चोरी न करना), अपरिग्रह (संग्रह न करना) और ब्रह्मचर्य (इंद्रिय संयम) का पालन करना।\n* कर्मवाद: मनुष्य अपने कर्मों के अनुसार ही फल और पुनर्जन्म पाता है; तपस्या द्वारा पूर्व संचित कर्मों का क्षय संभव है।",
+      "explanationHindi": "महावीर की जीवनी एवं उपदेशों का वर्णन करें ।\n* जीवनी: जैन धर्म के 24वें तीर्थंकर भगवान महावीर का जन्म 599 ई०पू० (या 540 ई०पू०) में वैशाली के निकट कुंडग्राम में ज्ञातृक कुल के राजा सिद्धार्थ और त्रिशला के यहाँ हुआ था। 30 वर्ष की आयु में गृह त्यागकर 12 वर्षों की कठोर तपस्या के बाद उन्हें 'कैवल्य' (सर्वोच्च ज्ञान) प्राप्त हुआ और वे 'जिन' (विजेता) कहलाए। 72 वर्ष की आयु में पावापुरी में उनका निर्वाण हुआ।\n* उपदेश एवं शिक्षाएं:\n* अहिंसा परमो धर्मः किसी भी जीव (मनुष्य, पशु, कीट या पौधे) को मन, वचन या कर्म से कष्ट न पहुँचाना।\n* त्रिरत्न: मोक्ष प्राप्ति हेतु सम्यक दर्शन, सम्यक ज्ञान और सम्यक चरित्र का पालन करना अनिवार्य है।\n* पंच महाव्रत: सत्य, अहिंसा, अस्तेय (चोरी न करना), अपरिग्रह (संग्रह न करना) और ब्रह्मचर्य (इंद्रिय संयम) का पालन करना।\n* कर्मवाद: मनुष्य अपने कर्मों के अनुसार ही फल और पुनर्जन्म पाता है; तपस्या द्वारा पूर्व संचित कर्मों का क्षय संभव है।",
+      "marks": 5
+    },
+    {
+      "id": "q-sec-c-33",
+      "sectionId": "sec-c",
+      "sectionName": "खण्ड–स : दीर्घ उत्तरीय प्रश्न",
+      "questionNumber": 33,
+      "type": "long",
+      "text": "विजयनगर साम्राज्य की उपलब्धियों की जानकारी दें । / Give information about the achievements of Vijayanagara Empire.",
+      "textHindi": "विजयनगर साम्राज्य की उपलब्धियों की जानकारी दें । / Give information about the achievements of Vijayanagara Empire.",
+      "modelAnswer": "विजयनगर साम्राज्य की उपलब्धियों की जानकारी दें ।\n1336 ई० में हरिहर और बुक्का द्वारा स्थापित विजयनगर साम्राज्य मध्यकालीन दक्षिण भारत का एक महान राजनीतिक और सांस्कृतिक केंद्र था:\n* सैन्य और राजनीतिक सुदृढ़ता: कृष्णदेवराय जैसे महान शासकों ने बहमनी सुल्तानों और ओडिशा के गजपतियों को हराकर रायचूर दोआब पर अधिकार किया और एक शक्तिशाली केंद्रीय प्रशासन की स्थापना की।\n* स्थापत्य और कला का विकास: मंदिर निर्माण में नई शैलियों का विकास हुआ, जैसे गगनचुंबी 'राया गोपुरम', बारीक नक्काशीदार 'कल्याण मंडप' और हजार स्तंभों वाले मंडप (उदा० हम्पी का विरूपाक्ष और विट्ठल मंदिर)। धर्मनिरपेक्ष इमारतों में लोटस महल और हाथी अस्तबल अद्वितीय हैं।\n* साहित्य का स्वर्ण युग: दरबार में तेलुगु साहित्य के आठ श्रेष्ठ विद्वान 'अष्टदिग्गज' मौजूद थे। कृष्णदेवराय ने स्वयं तेलुगु में 'अमुक्तमाल्यद' और संस्कृत में 'जाम्बवती कल्याणम्' की रचना की।\n* जल प्रबंधन और व्यापार: तुंगभद्रा नदी पर बांध बनाकर 'कमलपुरम जलाशय' और 'हीरिया नहर' का निर्माण कराया गया तथा अरब देशों और पुर्तगालियों के साथ घोड़ों व मसालों का समृद्ध व्यापार किया गया।",
+      "explanationHindi": "विजयनगर साम्राज्य की उपलब्धियों की जानकारी दें ।\n1336 ई० में हरिहर और बुक्का द्वारा स्थापित विजयनगर साम्राज्य मध्यकालीन दक्षिण भारत का एक महान राजनीतिक और सांस्कृतिक केंद्र था:\n* सैन्य और राजनीतिक सुदृढ़ता: कृष्णदेवराय जैसे महान शासकों ने बहमनी सुल्तानों और ओडिशा के गजपतियों को हराकर रायचूर दोआब पर अधिकार किया और एक शक्तिशाली केंद्रीय प्रशासन की स्थापना की।\n* स्थापत्य और कला का विकास: मंदिर निर्माण में नई शैलियों का विकास हुआ, जैसे गगनचुंबी 'राया गोपुरम', बारीक नक्काशीदार 'कल्याण मंडप' और हजार स्तंभों वाले मंडप (उदा० हम्पी का विरूपाक्ष और विट्ठल मंदिर)। धर्मनिरपेक्ष इमारतों में लोटस महल और हाथी अस्तबल अद्वितीय हैं।\n* साहित्य का स्वर्ण युग: दरबार में तेलुगु साहित्य के आठ श्रेष्ठ विद्वान 'अष्टदिग्गज' मौजूद थे। कृष्णदेवराय ने स्वयं तेलुगु में 'अमुक्तमाल्यद' और संस्कृत में 'जाम्बवती कल्याणम्' की रचना की।\n* जल प्रबंधन और व्यापार: तुंगभद्रा नदी पर बांध बनाकर 'कमलपुरम जलाशय' और 'हीरिया नहर' का निर्माण कराया गया तथा अरब देशों और पुर्तगालियों के साथ घोड़ों व मसालों का समृद्ध व्यापार किया गया।",
+      "marks": 5
+    },
+    {
+      "id": "q-sec-c-34",
+      "sectionId": "sec-c",
+      "sectionName": "खण्ड–स : दीर्घ उत्तरीय प्रश्न",
+      "questionNumber": 34,
+      "type": "long",
+      "text": "भक्ति आंदोलन के प्रभावों का वर्णन करें । / Describe the effects of Bhakti Movement.",
+      "textHindi": "भक्ति आंदोलन के प्रभावों का वर्णन करें । / Describe the effects of Bhakti Movement.",
+      "modelAnswer": "भक्ति आंदोलन के प्रभावों का वर्णन करें ।\nमध्यकाल में संतों (रामानंद, कबीर, गुरु नानक, मीराबाई, चैतन्य महाप्रभु) द्वारा चलाए गए भक्ति आंदोलन ने भारतीय समाज पर गहरा और युगांतकारी प्रभाव डाला:\n* धार्मिक आडंबरों और कर्मकांडों पर प्रहार: संतों ने जटिल वैदिक यज्ञों, अंधविश्वासों, पशुबलि और पुरोहितवाद की निरर्थकता को उजागर कर ईश्वर की सहज प्रेमपूर्ण भक्ति का मार्ग दिखाया।\n* जाति-व्यवस्था और छुआछूत का विरोध: भक्ति आंदोलन ने समाज में मानवीय समानता का संदेश दिया और सभी जातियों, वंचितों व महिलाओं के लिए ईश्वर भक्ति के द्वार खोले।\n* हिंदू-मुस्लिम एकता और समन्वय: कबीर और गुरु नानक ने हिंदू और मुस्लिम दोनों धर्मों की कुरीतियों की आलोचना करते हुए साझा एकेश्वरवाद और भाईचारे पर बल दिया।\n* क्षेत्रीय भाषाओं और साहित्य का विकास: संतों ने संस्कृत के बजाय जनसाधारण की लोकभाषाओं (हिंदी, अवधी, ब्रज, मराठी, बंगाली, पंजाबी) में अपने पदों की रचना की, जिससे प्रांतीय भाषाओं का अभूतपूर्व विकास हुआ।",
+      "explanationHindi": "भक्ति आंदोलन के प्रभावों का वर्णन करें ।\nमध्यकाल में संतों (रामानंद, कबीर, गुरु नानक, मीराबाई, चैतन्य महाप्रभु) द्वारा चलाए गए भक्ति आंदोलन ने भारतीय समाज पर गहरा और युगांतकारी प्रभाव डाला:\n* धार्मिक आडंबरों और कर्मकांडों पर प्रहार: संतों ने जटिल वैदिक यज्ञों, अंधविश्वासों, पशुबलि और पुरोहितवाद की निरर्थकता को उजागर कर ईश्वर की सहज प्रेमपूर्ण भक्ति का मार्ग दिखाया।\n* जाति-व्यवस्था और छुआछूत का विरोध: भक्ति आंदोलन ने समाज में मानवीय समानता का संदेश दिया और सभी जातियों, वंचितों व महिलाओं के लिए ईश्वर भक्ति के द्वार खोले।\n* हिंदू-मुस्लिम एकता और समन्वय: कबीर और गुरु नानक ने हिंदू और मुस्लिम दोनों धर्मों की कुरीतियों की आलोचना करते हुए साझा एकेश्वरवाद और भाईचारे पर बल दिया।\n* क्षेत्रीय भाषाओं और साहित्य का विकास: संतों ने संस्कृत के बजाय जनसाधारण की लोकभाषाओं (हिंदी, अवधी, ब्रज, मराठी, बंगाली, पंजाबी) में अपने पदों की रचना की, जिससे प्रांतीय भाषाओं का अभूतपूर्व विकास हुआ।",
+      "marks": 5
+    },
+    {
+      "id": "q-sec-c-35",
+      "sectionId": "sec-c",
+      "sectionName": "खण्ड–स : दीर्घ उत्तरीय प्रश्न",
+      "questionNumber": 35,
+      "type": "long",
+      "text": "भारत में कृषि के व्यवसायीकरण पर प्रकाश डालें । / Throw light on the commercialization of agriculture in India.",
+      "textHindi": "भारत में कृषि के व्यवसायीकरण पर प्रकाश डालें । / Throw light on the commercialization of agriculture in India.",
+      "modelAnswer": "भारत में कृषि के व्यवसायीकरण पर प्रकाश डालें ।\nब्रिटिश औपनिवेशिक शासन के दौरान 19वीं शताब्दी के उत्तरार्ध में भारतीय कृषि का 'व्यवसायीकरण' (Commercialization of Agriculture) शुरू हुआ:\n* व्यापारिक फसलों को प्रोत्साहन: किसानों को पारंपरिक खाद्यान्न फसलों (चावल, गेहूं) के स्थान पर बाजार में बिकने वाली नकदी फसलों—जैसे कपास, जूट, नील, चाय, अफीम और गन्ने की खेती करने के लिए विवश किया गया।\n* ब्रिटिश उद्योगों की आवश्यकता: इंग्लैंड की औद्योगिक क्रांति के कारखानों को सस्ते कच्चे माल की नियमित आपूर्ति सुनिश्चित करने के लिए यह नीति अपनाई गई।\n* किसानों पर प्रतिकूल प्रभाव:\n* खाद्यान्नों के उत्पादन में भारी कमी आई, जिसके परिणामस्वरूप देश में बार-बार भीषण अकाल (जैसे 1866 का उड़ीसा अकाल और 1876-78 का मद्रास अकाल) पड़े।\n* किसान अंतरराष्ट्रीय बाजार की कीमतों के उतार-चढ़ाव और बिचौलियों/साहूकारों के कर्ज-जाल में बुरी तरह फंसकर भूमिहीन हो गए।",
+      "explanationHindi": "भारत में कृषि के व्यवसायीकरण पर प्रकाश डालें ।\nब्रिटिश औपनिवेशिक शासन के दौरान 19वीं शताब्दी के उत्तरार्ध में भारतीय कृषि का 'व्यवसायीकरण' (Commercialization of Agriculture) शुरू हुआ:\n* व्यापारिक फसलों को प्रोत्साहन: किसानों को पारंपरिक खाद्यान्न फसलों (चावल, गेहूं) के स्थान पर बाजार में बिकने वाली नकदी फसलों—जैसे कपास, जूट, नील, चाय, अफीम और गन्ने की खेती करने के लिए विवश किया गया।\n* ब्रिटिश उद्योगों की आवश्यकता: इंग्लैंड की औद्योगिक क्रांति के कारखानों को सस्ते कच्चे माल की नियमित आपूर्ति सुनिश्चित करने के लिए यह नीति अपनाई गई।\n* किसानों पर प्रतिकूल प्रभाव:\n* खाद्यान्नों के उत्पादन में भारी कमी आई, जिसके परिणामस्वरूप देश में बार-बार भीषण अकाल (जैसे 1866 का उड़ीसा अकाल और 1876-78 का मद्रास अकाल) पड़े।\n* किसान अंतरराष्ट्रीय बाजार की कीमतों के उतार-चढ़ाव और बिचौलियों/साहूकारों के कर्ज-जाल में बुरी तरह फंसकर भूमिहीन हो गए।",
+      "marks": 5
+    },
+    {
+      "id": "q-sec-c-36",
+      "sectionId": "sec-c",
+      "sectionName": "खण्ड–स : दीर्घ उत्तरीय प्रश्न",
+      "questionNumber": 36,
+      "type": "long",
+      "text": "1857 की क्रांति के कारणों की विवेचना करें । / Discuss the causes of the Revolution of 1857.",
+      "textHindi": "1857 की क्रांति के कारणों की विवेचना करें । / Discuss the causes of the Revolution of 1857.",
+      "modelAnswer": "1857 की क्रांति के कारणों की विवेचना करें ।\n1857 का प्रथम स्वतंत्रता संग्राम ब्रिटिश हुकूमत के विरुद्ध लंबे समय से संचित असंतोष का परिणाम था:\n* राजनीतिक कारण: लॉर्ड डलहौजी की 'हड़प नीति' (Doctrine of Lapse) द्वारा सतारा, झाँसी, नागपुर का जबरन विलय और 1856 में अवध पर कुशासन का आरोप लगाकर उसका विलय करने से भारतीय राजाओं और नवाबों में भारी रोष था।\n* आर्थिक शोषण: अंग्रेजों की कठोर भू-राजस्व नीतियों (स्थायी, रैयतवाड़ी बंदोबस्त) ने किसानों को कंगाल कर दिया तथा ब्रिटिश मशीनी माल ने भारत के पारंपरिक हस्तशिल्प और बुनकरों को बर्बाद कर दिया।\n* सामाजिक-धार्मिक हस्तक्षेप: सती प्रथा उन्मूलन, विधवा पुनर्विवाह कानून और ईसाई मिशनरियों के धर्म-परिवर्तन के प्रयासों से जनता को लगा कि उनका धर्म खतरे में है।\n* सैनिक कारण व तात्कालिक trigger: भारतीय सैनिकों के साथ नस्लीय भेदभाव, कम वेतन और पदोन्नति न मिलना असंतोष की वजह थी। 1853 में सेना में लाई गई एनफील्ड राइफल के कारतूसों में गाय और सूअर की चर्बी होने की खबर ने 10 मई, 1857 को मेरठ में विद्रोह की ज्वाला भड़का दी।",
+      "explanationHindi": "1857 की क्रांति के कारणों की विवेचना करें ।\n1857 का प्रथम स्वतंत्रता संग्राम ब्रिटिश हुकूमत के विरुद्ध लंबे समय से संचित असंतोष का परिणाम था:\n* राजनीतिक कारण: लॉर्ड डलहौजी की 'हड़प नीति' (Doctrine of Lapse) द्वारा सतारा, झाँसी, नागपुर का जबरन विलय और 1856 में अवध पर कुशासन का आरोप लगाकर उसका विलय करने से भारतीय राजाओं और नवाबों में भारी रोष था।\n* आर्थिक शोषण: अंग्रेजों की कठोर भू-राजस्व नीतियों (स्थायी, रैयतवाड़ी बंदोबस्त) ने किसानों को कंगाल कर दिया तथा ब्रिटिश मशीनी माल ने भारत के पारंपरिक हस्तशिल्प और बुनकरों को बर्बाद कर दिया।\n* सामाजिक-धार्मिक हस्तक्षेप: सती प्रथा उन्मूलन, विधवा पुनर्विवाह कानून और ईसाई मिशनरियों के धर्म-परिवर्तन के प्रयासों से जनता को लगा कि उनका धर्म खतरे में है।\n* सैनिक कारण व तात्कालिक trigger: भारतीय सैनिकों के साथ नस्लीय भेदभाव, कम वेतन और पदोन्नति न मिलना असंतोष की वजह थी। 1853 में सेना में लाई गई एनफील्ड राइफल के कारतूसों में गाय और सूअर की चर्बी होने की खबर ने 10 मई, 1857 को मेरठ में विद्रोह की ज्वाला भड़का दी।",
+      "marks": 5
+    },
+    {
+      "id": "q-sec-c-37",
+      "sectionId": "sec-c",
+      "sectionName": "खण्ड–स : दीर्घ उत्तरीय प्रश्न",
+      "questionNumber": 37,
+      "type": "long",
+      "text": "गाँधीजी की दांडी यात्रा के क्या उद्देश्य थे ? / What was the aim of Gandhiji's Dandi March ?",
+      "textHindi": "गाँधीजी की दांडी यात्रा के क्या उद्देश्य थे ? / What was the aim of Gandhiji's Dandi March ?",
+      "modelAnswer": "गाँधीजी की दांडी यात्रा के क्या उद्देश्य थे ?\n12 मार्च, 1930 को साबरमती आश्रम से शुरू होकर 6 अप्रैल, 1930 को दाण्डी समुद्र तट पर समाप्त हुई गांधीजी की 240 मील लंबी ऐतिहासिक 'दाण्डी यात्रा' के प्रमुख उद्देश्य निम्नलिखित थे:\n* नमक कानून को तोड़ना: नमक जैसी बुनियादी और जीवनोपयोगी वस्तु पर ब्रिटिश सरकार द्वारा लगाए गए अन्यायपूर्ण टैक्स और सरकारी एकाधिकार को समुद्र के पानी से स्वयं नमक बनाकर प्रत्यक्ष रूप से तोड़ना।\n* सविनय अवज्ञा आंदोलन की शुरुआत: नमक को एक शक्तिशाली राष्ट्रीय प्रतीक बनाकर पूरे देश में ब्रिटिश औपनिवेशिक कानूनों के शांतिपूर्ण व सविनय उल्लंघन का आह्वान करना।\n* जन-जागृति और महिलाओं की भागीदारी: देशवासियों में ब्रिटिश सत्ता और जेल जाने का भय समाप्त करना तथा बड़ी संख्या में महिलाओं, छात्रों और किसानों को राष्ट्रीय आंदोलन की मुख्यधारा में जोड़ना।\n* अंतरराष्ट्रीय ध्यान आकर्षित करना: अहिंसक सत्याग्रह के माध्यम से ब्रिटिश साम्राज्यवादी दमन और आर्थिक शोषण को विश्व पटल पर उजागर करना।",
+      "explanationHindi": "गाँधीजी की दांडी यात्रा के क्या उद्देश्य थे ?\n12 मार्च, 1930 को साबरमती आश्रम से शुरू होकर 6 अप्रैल, 1930 को दाण्डी समुद्र तट पर समाप्त हुई गांधीजी की 240 मील लंबी ऐतिहासिक 'दाण्डी यात्रा' के प्रमुख उद्देश्य निम्नलिखित थे:\n* नमक कानून को तोड़ना: नमक जैसी बुनियादी और जीवनोपयोगी वस्तु पर ब्रिटिश सरकार द्वारा लगाए गए अन्यायपूर्ण टैक्स और सरकारी एकाधिकार को समुद्र के पानी से स्वयं नमक बनाकर प्रत्यक्ष रूप से तोड़ना।\n* सविनय अवज्ञा आंदोलन की शुरुआत: नमक को एक शक्तिशाली राष्ट्रीय प्रतीक बनाकर पूरे देश में ब्रिटिश औपनिवेशिक कानूनों के शांतिपूर्ण व सविनय उल्लंघन का आह्वान करना।\n* जन-जागृति और महिलाओं की भागीदारी: देशवासियों में ब्रिटिश सत्ता और जेल जाने का भय समाप्त करना तथा बड़ी संख्या में महिलाओं, छात्रों और किसानों को राष्ट्रीय आंदोलन की मुख्यधारा में जोड़ना।\n* अंतरराष्ट्रीय ध्यान आकर्षित करना: अहिंसक सत्याग्रह के माध्यम से ब्रिटिश साम्राज्यवादी दमन और आर्थिक शोषण को विश्व पटल पर उजागर करना।",
+      "marks": 5
+    },
+    {
+      "id": "q-sec-c-38",
+      "sectionId": "sec-c",
+      "sectionName": "खण्ड–स : दीर्घ उत्तरीय प्रश्न",
+      "questionNumber": 38,
+      "type": "long",
+      "text": "आधुनिक भारत के निर्माण में डॉ० बी०आर० अम्बेडकर की देनों का मूल्यांकन कीजिये । / Evaluate the contributions of Dr. B.R. Ambedkar in the making of Modern India.",
+      "textHindi": "आधुनिक भारत के निर्माण में डॉ० बी०आर० अम्बेडकर की देनों का मूल्यांकन कीजिये । / Evaluate the contributions of Dr. B.R. Ambedkar in the making of Modern India.",
+      "modelAnswer": "आधुनिक भारत के निर्माण में डॉ० बी०आर० अम्बेडकर की देनों का मूल्यांकन कीजिये ।\n'भारत रत्न' डॉ० भीमराव रामजी अम्बेडकर आधुनिक भारत के प्रमुख निर्माता, महान समाज सुधारक और विधि विशेषज्ञ थे:\n* संविधान निर्माण में मुख्य भूमिका: संविधान सभा की प्रारूप समिति के अध्यक्ष के रूप में उन्होंने विश्व के विभिन्न लोकतांत्रिक संविधानों का अध्ययन कर भारत के लिए 395 अनुच्छेदों व 8 अनुसूचियों का सुदृढ़ लिखित प्रारूप तैयार किया, जिससे उन्हें 'संविधान का जनक' कहा जाता है।\n* सामाजिक न्याय और अस्पृश्यता का अंत: उन्होंने सदियों से शोषित दलितों, वंचितों और पिछड़ों के मानवीय अधिकारों की रक्षा हेतु संविधान में समता का अधिकार (अनुच्छेद 14-18), अस्पृश्यता का कानूनी अंत (अनुच्छेद 17) तथा विधायिका, शिक्षा व नौकरियों में आरक्षण के कड़े प्रावधान सुरक्षित किए।\n* मौलिक अधिकार और स्वतंत्र न्यायपालिका: उन्होंने नागरिकों के अधिकारों की रक्षा के लिए अनुच्छेद 32 (संवैधानिक उपचारों का अधिकार) को \"संविधान का हृदय और आत्मा\" बनाया और स्वतंत्र न्यायपालिका की नींव रखी।\n* महिला सशक्तिकरण और आधुनिक दृष्टिकोण: स्वतंत्र भारत के प्रथम कानून मंत्री के रूप में उन्होंने 'हिंदू कोड बिल' पेश कर महिलाओं को संपत्ति में समान अधिकार, विवाह और तलाक के अधिकार दिलाने की ऐतिहासिक पहल की तथा भारत के औद्योगिक व जल संसाधन विकास में महत्वपूर्ण नीतियां बनाईं।",
+      "explanationHindi": "आधुनिक भारत के निर्माण में डॉ० बी०आर० अम्बेडकर की देनों का मूल्यांकन कीजिये ।\n'भारत रत्न' डॉ० भीमराव रामजी अम्बेडकर आधुनिक भारत के प्रमुख निर्माता, महान समाज सुधारक और विधि विशेषज्ञ थे:\n* संविधान निर्माण में मुख्य भूमिका: संविधान सभा की प्रारूप समिति के अध्यक्ष के रूप में उन्होंने विश्व के विभिन्न लोकतांत्रिक संविधानों का अध्ययन कर भारत के लिए 395 अनुच्छेदों व 8 अनुसूचियों का सुदृढ़ लिखित प्रारूप तैयार किया, जिससे उन्हें 'संविधान का जनक' कहा जाता है।\n* सामाजिक न्याय और अस्पृश्यता का अंत: उन्होंने सदियों से शोषित दलितों, वंचितों और पिछड़ों के मानवीय अधिकारों की रक्षा हेतु संविधान में समता का अधिकार (अनुच्छेद 14-18), अस्पृश्यता का कानूनी अंत (अनुच्छेद 17) तथा विधायिका, शिक्षा व नौकरियों में आरक्षण के कड़े प्रावधान सुरक्षित किए।\n* मौलिक अधिकार और स्वतंत्र न्यायपालिका: उन्होंने नागरिकों के अधिकारों की रक्षा के लिए अनुच्छेद 32 (संवैधानिक उपचारों का अधिकार) को \"संविधान का हृदय और आत्मा\" बनाया और स्वतंत्र न्यायपालिका की नींव रखी।\n* महिला सशक्तिकरण और आधुनिक दृष्टिकोण: स्वतंत्र भारत के प्रथम कानून मंत्री के रूप में उन्होंने 'हिंदू कोड बिल' पेश कर महिलाओं को संपत्ति में समान अधिकार, विवाह और तलाक के अधिकार दिलाने की ऐतिहासिक पहल की तथा भारत के औद्योगिक व जल संसाधन विकास में महत्वपूर्ण नीतियां बनाईं।",
+      "marks": 5
+    }
+  ]
+}

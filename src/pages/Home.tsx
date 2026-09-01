@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { GlassCard } from '../components/ui/GlassCard';
-import { ChevronRight, BookOpen, Settings2, Sparkles, User, PlusCircle } from 'lucide-react';
+import { ChevronRight, BookOpen, Settings2, Sparkles, User, PlusCircle, FileText, Layers, BookMarked } from 'lucide-react';
 import { useStudentProfile } from '../context/StudentProfileContext';
 import { ALL_AVAILABLE_SUBJECTS } from '../types/studentProfile';
 import { questionRepository, normalizeSubject } from '../services/questionRepository';
@@ -130,6 +130,42 @@ export const Home: React.FC = () => {
             <path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
           </svg>
         </div>
+      </div>
+
+      {/* Quick Study Resources Grid (Syllabus, Revision Notes, Solved Papers) */}
+      <div className="grid grid-cols-3 gap-2.5">
+        <button
+          onClick={() => navigate(`/class/${profile.classId}/subject/History/syllabus`)}
+          className="p-3 bg-white/80 dark:bg-slate-800/80 rounded-2xl border border-indigo-100 dark:border-slate-700 shadow-2xs hover:shadow-md transition-all flex flex-col items-center text-center cursor-pointer group"
+        >
+          <div className="w-10 h-10 rounded-xl bg-indigo-100 dark:bg-indigo-950/80 text-indigo-600 dark:text-indigo-300 flex items-center justify-center mb-1.5 group-hover:scale-110 transition-transform">
+            <Layers className="w-5 h-5" />
+          </div>
+          <span className="text-xs font-black text-slate-800 dark:text-slate-100 leading-tight">Syllabus</span>
+          <span className="text-[9px] font-bold text-indigo-600 dark:text-indigo-400 mt-0.5">पाठ्यक्रम</span>
+        </button>
+
+        <button
+          onClick={() => navigate(`/class/${profile.classId}/subject/Political%20Science/notes`)}
+          className="p-3 bg-white/80 dark:bg-slate-800/80 rounded-2xl border border-purple-100 dark:border-slate-700 shadow-2xs hover:shadow-md transition-all flex flex-col items-center text-center cursor-pointer group"
+        >
+          <div className="w-10 h-10 rounded-xl bg-purple-100 dark:bg-purple-950/80 text-purple-600 dark:text-purple-300 flex items-center justify-center mb-1.5 group-hover:scale-110 transition-transform">
+            <BookMarked className="w-5 h-5" />
+          </div>
+          <span className="text-xs font-black text-slate-800 dark:text-slate-100 leading-tight">Revision Notes</span>
+          <span className="text-[9px] font-bold text-purple-600 dark:text-purple-400 mt-0.5">अध्याय नोट्स</span>
+        </button>
+
+        <button
+          onClick={() => navigate(`/class/${profile.classId}/subjects`)}
+          className="p-3 bg-white/80 dark:bg-slate-800/80 rounded-2xl border border-emerald-100 dark:border-slate-700 shadow-2xs hover:shadow-md transition-all flex flex-col items-center text-center cursor-pointer group"
+        >
+          <div className="w-10 h-10 rounded-xl bg-emerald-100 dark:bg-emerald-950/80 text-emerald-600 dark:text-emerald-300 flex items-center justify-center mb-1.5 group-hover:scale-110 transition-transform">
+            <FileText className="w-5 h-5" />
+          </div>
+          <span className="text-xs font-black text-slate-800 dark:text-slate-100 leading-tight">Solved Papers</span>
+          <span className="text-[9px] font-bold text-emerald-600 dark:text-emerald-400 mt-0.5">{papers.length} उपलब्ध</span>
+        </button>
       </div>
 
       {/* Class Selection Section */}

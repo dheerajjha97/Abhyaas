@@ -3,6 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { questionRepository } from '../services/questionRepository';
 import { Paper } from '../types/question';
 import { HeaderBar } from '../components/ui/HeaderBar';
+import { PreparationSkeleton } from '../components/ui/Skeleton';
 import { GlassCard } from '../components/ui/GlassCard';
 import { Illustration } from '../components/ui/Illustration';
 import { Play, BookOpen, FileText, ArrowRight, Award, RefreshCw, CheckCircle2 } from 'lucide-react';
@@ -41,15 +42,9 @@ export const Preparation: React.FC = () => {
 
   if (loading) {
     return (
-      <div className="py-20 text-center space-y-4 animate-in fade-in">
-        <div className="w-44 mx-auto">
-          <Illustration name="welcome" />
-        </div>
-        <div className="space-y-1">
-          <h3 className="text-lg font-extrabold text-indigo-700">आपकी तैयारी लोड हो रही है...</h3>
-          <p className="text-xs text-slate-500">कृपया प्रतीक्षा करें</p>
-        </div>
-        <div className="w-8 h-8 border-4 border-indigo-600 border-t-transparent rounded-full animate-spin mx-auto" />
+      <div className="space-y-6 pb-20 animate-in fade-in">
+        <HeaderBar showBack title="तैयारी" />
+        <PreparationSkeleton />
       </div>
     );
   }

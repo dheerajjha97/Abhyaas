@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { HeaderBar } from '../components/ui/HeaderBar';
 import { FormattedNoteContent } from '../components/ui/FormattedNoteContent';
+import { NotesSkeleton } from '../components/ui/Skeleton';
 import { notesRepository } from '../services/notesRepository';
 import { NoteData } from '../types/notes';
 import { BookOpen, Clock, Zap, CheckCircle2, AlertCircle } from 'lucide-react';
@@ -79,10 +80,7 @@ export const NotesView: React.FC = () => {
       </div>
 
       {loading ? (
-        <div className="flex flex-col items-center justify-center min-h-[40vh] space-y-3">
-          <div className="w-10 h-10 border-3 border-blue-600 border-t-transparent rounded-full animate-spin" />
-          <p className="text-sm font-semibold text-slate-600 dark:text-slate-400">अध्याय नोट्स लोड हो रहे हैं...</p>
-        </div>
+        <NotesSkeleton />
       ) : !notes || notes.length === 0 ? (
         <div className="bg-white dark:bg-slate-900 border border-slate-200/90 dark:border-slate-800 rounded-3xl p-6 text-center space-y-3 shadow-2xs">
           <BookOpen className="w-10 h-10 text-blue-600 mx-auto" />

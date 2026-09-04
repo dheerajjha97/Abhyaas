@@ -5,6 +5,7 @@ import { Paper, MCQ } from '../types/question';
 import { saveBookmark, isBookmarked, removeBookmark, saveQuizResult } from '../utils/bookmarkStorage';
 import { useStudentProgress } from '../context/StudentProgressContext';
 import { HeaderBar } from '../components/ui/HeaderBar';
+import { QuestionSkeleton } from '../components/ui/Skeleton';
 import { GlassCard } from '../components/ui/GlassCard';
 import { ProgressBar } from '../components/ui/ProgressBar';
 import { Toast, ToastMessage } from '../components/ui/Toast';
@@ -35,11 +36,9 @@ export const Quiz: React.FC = () => {
 
   if (loading || !paper) {
     return (
-      <div className="py-20 text-center space-y-4">
-        <div className="w-40 mx-auto">
-          <Illustration name="quiz" />
-        </div>
-        <p className="text-sm font-bold text-indigo-600">क्विज़ लोड हो रहा है...</p>
+      <div className="space-y-4 max-w-2xl mx-auto pb-16 animate-in fade-in">
+        <HeaderBar showBack title="क्विज़ अभ्यास" />
+        <QuestionSkeleton />
       </div>
     );
   }

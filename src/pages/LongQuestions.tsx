@@ -4,6 +4,7 @@ import { questionRepository } from '../services/questionRepository';
 import { Paper, LongQuestion } from '../types/question';
 import { saveBookmark, isBookmarked, removeBookmark } from '../utils/bookmarkStorage';
 import { HeaderBar } from '../components/ui/HeaderBar';
+import { QuestionSkeleton } from '../components/ui/Skeleton';
 import { GlassCard } from '../components/ui/GlassCard';
 import { Toast, ToastMessage } from '../components/ui/Toast';
 import { Illustration } from '../components/ui/Illustration';
@@ -42,11 +43,9 @@ export const LongQuestions: React.FC = () => {
 
   if (loading || !paper) {
     return (
-      <div className="py-20 text-center space-y-4">
-        <div className="w-40 mx-auto">
-          <Illustration name="books" />
-        </div>
-        <p className="text-sm font-bold text-pink-600">Long Answers लोड हो रहे हैं...</p>
+      <div className="space-y-4 max-w-2xl mx-auto pb-16 animate-in fade-in">
+        <HeaderBar showBack title="दीर्घ उत्तरीय प्रश्न" />
+        <QuestionSkeleton />
       </div>
     );
   }

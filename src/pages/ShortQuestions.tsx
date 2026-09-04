@@ -4,6 +4,7 @@ import { questionRepository } from '../services/questionRepository';
 import { Paper, ShortQuestion } from '../types/question';
 import { saveBookmark, isBookmarked, removeBookmark } from '../utils/bookmarkStorage';
 import { HeaderBar } from '../components/ui/HeaderBar';
+import { QuestionSkeleton } from '../components/ui/Skeleton';
 import { GlassCard } from '../components/ui/GlassCard';
 import { Toast, ToastMessage } from '../components/ui/Toast';
 import { Illustration } from '../components/ui/Illustration';
@@ -44,11 +45,9 @@ export const ShortQuestions: React.FC = () => {
 
   if (loading || !paper) {
     return (
-      <div className="py-20 text-center space-y-4">
-        <div className="w-40 mx-auto">
-          <Illustration name="study" />
-        </div>
-        <p className="text-sm font-bold text-purple-600">Short Answers लोड हो रहे हैं...</p>
+      <div className="space-y-4 max-w-2xl mx-auto pb-16 animate-in fade-in">
+        <HeaderBar showBack title="लघु उत्तरीय प्रश्न" />
+        <QuestionSkeleton />
       </div>
     );
   }

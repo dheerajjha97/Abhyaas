@@ -4,6 +4,7 @@ import { questionRepository, normalizeSubject } from '../services/questionReposi
 import { PaperSummary } from '../types/question';
 import { HeaderBar } from '../components/ui/HeaderBar';
 import { SubjectCard } from '../components/ui/SubjectCard';
+import { SubjectsSkeleton } from '../components/ui/Skeleton';
 import { GlassCard } from '../components/ui/GlassCard';
 import { Illustration, IllustrationType } from '../components/ui/Illustration';
 import { BookOpen, Sparkles, Filter, Layers } from 'lucide-react';
@@ -276,10 +277,7 @@ export const Subjects: React.FC = () => {
         </div>
 
         {loading ? (
-          <div className="py-12 text-center space-y-3">
-            <div className="w-12 h-12 border-4 border-indigo-500 border-t-transparent rounded-full animate-spin mx-auto" />
-            <p className="text-sm font-bold text-indigo-600">विषय लोड हो रहे हैं...</p>
-          </div>
+          <SubjectsSkeleton count={5} />
         ) : (
           <div className="grid grid-cols-1 gap-3">
             {subjectsList.map((sub) => (

@@ -4,6 +4,7 @@ import { questionRepository } from '../services/questionRepository';
 import { PaperSummary } from '../types/question';
 import { HeaderBar } from '../components/ui/HeaderBar';
 import { PaperCard } from '../components/ui/PaperCard';
+import { PapersSkeleton } from '../components/ui/Skeleton';
 import { Illustration } from '../components/ui/Illustration';
 import { FileText, Filter, RotateCw, BookOpen, Layers, Zap } from 'lucide-react';
 import { useStudentProfile } from '../context/StudentProfileContext';
@@ -178,10 +179,7 @@ export const Papers: React.FC = () => {
 
       {/* Papers List */}
       {loading ? (
-        <div className="py-16 text-center space-y-3">
-          <div className="w-10 h-10 border-3 border-blue-600 border-t-transparent rounded-full animate-spin mx-auto" />
-          <p className="text-xs font-bold text-blue-600 dark:text-blue-400">प्रश्न पत्र लोड हो रहे हैं...</p>
-        </div>
+        <PapersSkeleton count={3} />
       ) : filteredPapers.length === 0 ? (
         <div className="bg-white dark:bg-slate-900 rounded-2xl p-6 border border-slate-200/90 dark:border-slate-800 text-center py-10 space-y-3">
           <div className="w-24 mx-auto">

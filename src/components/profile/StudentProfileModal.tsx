@@ -275,7 +275,7 @@ export const StudentProfileModal: React.FC<StudentProfileModalProps> = ({ isOpen
             </div>
 
             {/* Avatar Selector */}
-            <div className="flex items-center gap-2 pt-1 overflow-x-auto pb-1">
+            <div className="flex items-center gap-2 pt-1 overflow-x-auto pb-1 no-scrollbar">
               <span className="text-[10px] font-bold text-slate-400 shrink-0">अवतार:</span>
               {AVATAR_EMOJIS.map((emoji) => (
                 <button

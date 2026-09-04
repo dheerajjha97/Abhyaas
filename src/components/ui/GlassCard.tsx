@@ -20,7 +20,7 @@ export const GlassCard: React.FC<GlassCardProps> = ({
   const variantClasses = {
     default: 'bg-white border-slate-200/90 shadow-2xs text-slate-800 dark:bg-slate-900 dark:border-slate-800 dark:text-slate-100',
     solid: 'bg-white border-slate-200/90 shadow-xs text-slate-900 dark:bg-slate-900 dark:border-slate-800 dark:text-slate-100',
-    accent: 'bg-gradient-to-r from-blue-700 to-indigo-800 text-white rounded-3xl border-blue-600/50 shadow-sm',
+    accent: 'bg-white border-blue-200/90 shadow-2xs text-slate-900 rounded-3xl dark:bg-slate-900 dark:border-blue-900/60 dark:text-white',
     interactive: 'bg-white hover:bg-slate-50/80 border-slate-200/90 shadow-2xs hover:shadow-xs active:scale-[0.99] cursor-pointer text-slate-800 dark:bg-slate-900 dark:hover:bg-slate-850 dark:border-slate-800',
   };
 

@@ -741,29 +741,28 @@ export const MockTestGenerator: React.FC = () => {
 
   // Render 3: Generator Configuration Screen
   return (
-    <div className="space-y-4 pb-28 animate-in fade-in duration-300">
+    <div className="space-y-4 pb-36 animate-in fade-in duration-300">
       <Toast toast={toast} onClose={() => setToast(null)} />
 
       {/* Flutter App Bar */}
       <HeaderBar
-        showBack
+        showBack={Boolean(preSelectedSubject)}
         title="मॉक टेस्ट जनरेटर"
-        subtitle={`कक्षा ${profile.classId || '12'} • GitHub लाइव डेटाबेस`}
+        subtitle={`कक्षा ${profile.classId || '12'} • लाइव बोर्ड प्रश्न बैंक`}
       />
 
-      {/* Generator Hero Card */}
-      <div className="p-5 rounded-3xl bg-gradient-to-br from-indigo-600 via-indigo-700 to-purple-800 text-white shadow-xl relative overflow-hidden">
-        <div className="absolute -right-6 -bottom-6 w-36 h-36 bg-white/10 rounded-full blur-2xl pointer-events-none" />
+      {/* Generator Hero Card - Clean M3 Deep Surface */}
+      <div className="p-5 rounded-2xl sm:rounded-3xl bg-slate-900 text-white shadow-md relative overflow-hidden border border-slate-800">
         <div className="relative z-10 space-y-2">
-          <div className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-white/20 backdrop-blur-md text-[11px] font-black uppercase tracking-wider text-amber-200">
+          <div className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-white/10 text-[11px] font-black uppercase tracking-wider text-amber-400 border border-white/10">
             <Sparkles className="w-3.5 h-3.5" />
             स्मार्ट क्वेश्चन कंपाइलर
           </div>
-          <h2 className="text-xl font-black tracking-tight leading-tight">
-            विषय चुनें और तुरंत नया बोर्ड मॉडल टेस्ट बनाएँ!
+          <h2 className="text-lg sm:text-xl font-black tracking-tight leading-tight">
+            विषय चुनें और तुरंत नया बोर्ड मॉडल टेस्ट शुरू करें!
           </h2>
-          <p className="text-xs text-indigo-100 leading-relaxed max-w-sm">
-            यह सिस्टम सीधे AbhyaasData GitHub रिपॉजिटरी से वास्तविक बोर्ड पेपर्स के प्रश्नों को एकत्रित और शफल करके नया मॉक टेस्ट तैयार करता है।
+          <p className="text-xs text-slate-300 leading-relaxed max-w-sm">
+            यह सिस्टम वास्तविक बोर्ड मॉडल पेपर्स के प्रश्नों को एकत्रित व शफल करके नया मॉक टेस्ट तैयार करता है।
           </p>
         </div>
       </div>
@@ -772,7 +771,7 @@ export const MockTestGenerator: React.FC = () => {
       <div className="space-y-2.5">
         <div className="flex items-center justify-between px-1">
           <label className="text-xs font-black uppercase tracking-wider text-slate-700 dark:text-slate-300 flex items-center gap-1.5">
-            <span className="w-5 h-5 rounded-full bg-indigo-600 text-white flex items-center justify-center text-[10px] font-black">
+            <span className="w-5 h-5 rounded-full bg-blue-600 text-white flex items-center justify-center text-[10px] font-black">
               1
             </span>
             विषय का चयन करें (Select Subject)
@@ -791,8 +790,8 @@ export const MockTestGenerator: React.FC = () => {
                 onClick={() => setSelectedSubject(sub.name)}
                 className={`p-3 rounded-2xl border text-left transition-all cursor-pointer relative ${
                   isSelected
-                    ? 'bg-indigo-600 text-white border-indigo-600 shadow-md scale-[1.02]'
-                    : 'bg-white dark:bg-slate-900 border-slate-200/80 dark:border-slate-800 text-slate-800 dark:text-slate-200 hover:bg-slate-50'
+                    ? 'bg-blue-600 text-white border-blue-600 shadow-md scale-[1.01]'
+                    : 'bg-white dark:bg-slate-900 border-slate-200/90 dark:border-slate-800 text-slate-800 dark:text-slate-200 hover:border-blue-400'
                 }`}
               >
                 <div className="flex items-center justify-between mb-1">
@@ -802,7 +801,7 @@ export const MockTestGenerator: React.FC = () => {
                       className={`text-[9px] font-black px-1.5 py-0.5 rounded-full ${
                         isSelected
                           ? 'bg-white/20 text-white'
-                          : 'bg-indigo-50 dark:bg-indigo-950/70 text-indigo-600 dark:text-indigo-400'
+                          : 'bg-blue-50 dark:bg-blue-950/70 text-blue-600 dark:text-blue-400 border border-blue-200/60 dark:border-blue-900'
                       }`}
                     >
                       चुना हुआ
@@ -812,7 +811,7 @@ export const MockTestGenerator: React.FC = () => {
                 <div className="text-xs font-black leading-tight truncate">{sub.name}</div>
                 <div
                   className={`text-[10px] truncate ${
-                    isSelected ? 'text-indigo-100' : 'text-slate-500 dark:text-slate-400'
+                    isSelected ? 'text-blue-100' : 'text-slate-500 dark:text-slate-400'
                   }`}
                 >
                   {sub.hindiName}
@@ -838,8 +837,8 @@ export const MockTestGenerator: React.FC = () => {
             onClick={() => setTestType('quick')}
             className={`p-3.5 rounded-2xl border transition-all cursor-pointer flex items-center gap-3 ${
               testType === 'quick'
-                ? 'bg-indigo-50/90 dark:bg-indigo-950/70 border-indigo-600 text-indigo-900 dark:text-indigo-100 shadow-xs ring-1 ring-indigo-600'
-                : 'bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-800 text-slate-800 dark:text-slate-200'
+                ? 'bg-blue-50/90 dark:bg-blue-950/70 border-blue-600 text-blue-950 dark:text-blue-100 shadow-xs ring-1 ring-blue-600'
+                : 'bg-white dark:bg-slate-900 border-slate-200/90 dark:border-slate-800 text-slate-800 dark:text-slate-200 hover:border-blue-400'
             }`}
           >
             <div className="w-10 h-10 rounded-xl bg-amber-100 dark:bg-amber-950/80 text-amber-600 flex items-center justify-center text-lg shrink-0">
@@ -858,11 +857,11 @@ export const MockTestGenerator: React.FC = () => {
             onClick={() => setTestType('standard')}
             className={`p-3.5 rounded-2xl border transition-all cursor-pointer flex items-center gap-3 ${
               testType === 'standard'
-                ? 'bg-indigo-50/90 dark:bg-indigo-950/70 border-indigo-600 text-indigo-900 dark:text-indigo-100 shadow-xs ring-1 ring-indigo-600'
-                : 'bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-800 text-slate-800 dark:text-slate-200'
+                ? 'bg-blue-50/90 dark:bg-blue-950/70 border-blue-600 text-blue-950 dark:text-blue-100 shadow-xs ring-1 ring-blue-600'
+                : 'bg-white dark:bg-slate-900 border-slate-200/90 dark:border-slate-800 text-slate-800 dark:text-slate-200 hover:border-blue-400'
             }`}
           >
-            <div className="w-10 h-10 rounded-xl bg-indigo-100 dark:bg-indigo-950/80 text-indigo-600 flex items-center justify-center text-lg shrink-0">
+            <div className="w-10 h-10 rounded-xl bg-blue-100 dark:bg-blue-950/80 text-blue-600 flex items-center justify-center text-lg shrink-0">
               📝
             </div>
             <div className="flex-1">
@@ -878,11 +877,11 @@ export const MockTestGenerator: React.FC = () => {
             onClick={() => setTestType('full')}
             className={`p-3.5 rounded-2xl border transition-all cursor-pointer flex items-center gap-3 ${
               testType === 'full'
-                ? 'bg-indigo-50/90 dark:bg-indigo-950/70 border-indigo-600 text-indigo-900 dark:text-indigo-100 shadow-xs ring-1 ring-indigo-600'
-                : 'bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-800 text-slate-800 dark:text-slate-200'
+                ? 'bg-blue-50/90 dark:bg-blue-950/70 border-blue-600 text-blue-950 dark:text-blue-100 shadow-xs ring-1 ring-blue-600'
+                : 'bg-white dark:bg-slate-900 border-slate-200/90 dark:border-slate-800 text-slate-800 dark:text-slate-200 hover:border-blue-400'
             }`}
           >
-            <div className="w-10 h-10 rounded-xl bg-purple-100 dark:bg-purple-950/80 text-purple-600 flex items-center justify-center text-lg shrink-0">
+            <div className="w-10 h-10 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 flex items-center justify-center text-lg shrink-0">
               🏆
             </div>
             <div className="flex-1">
@@ -898,11 +897,11 @@ export const MockTestGenerator: React.FC = () => {
             onClick={() => setTestType('custom')}
             className={`p-3.5 rounded-2xl border transition-all cursor-pointer flex items-center gap-3 ${
               testType === 'custom'
-                ? 'bg-indigo-50/90 dark:bg-indigo-950/70 border-indigo-600 text-indigo-900 dark:text-indigo-100 shadow-xs ring-1 ring-indigo-600'
-                : 'bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-800 text-slate-800 dark:text-slate-200'
+                ? 'bg-blue-50/90 dark:bg-blue-950/70 border-blue-600 text-blue-950 dark:text-blue-100 shadow-xs ring-1 ring-blue-600'
+                : 'bg-white dark:bg-slate-900 border-slate-200/90 dark:border-slate-800 text-slate-800 dark:text-slate-200 hover:border-blue-400'
             }`}
           >
-            <div className="w-10 h-10 rounded-xl bg-teal-100 dark:bg-teal-950/80 text-teal-600 flex items-center justify-center text-lg shrink-0">
+            <div className="w-10 h-10 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 flex items-center justify-center text-lg shrink-0">
               ⚙️
             </div>
             <div className="flex-1">
@@ -916,11 +915,11 @@ export const MockTestGenerator: React.FC = () => {
 
         {/* Custom Sliders (if custom chosen) */}
         {testType === 'custom' && (
-          <div className="p-4 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 space-y-4">
+          <div className="p-4 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200/90 dark:border-slate-800 space-y-4 shadow-2xs">
             <div>
               <div className="flex justify-between text-xs font-bold mb-1">
                 <span>प्रश्नों की संख्या:</span>
-                <span className="text-indigo-600 font-black">{customQuestionsCount} प्रश्न</span>
+                <span className="text-blue-600 dark:text-blue-400 font-black">{customQuestionsCount} प्रश्न</span>
               </div>
               <input
                 type="range"
@@ -929,14 +928,14 @@ export const MockTestGenerator: React.FC = () => {
                 step="5"
                 value={customQuestionsCount}
                 onChange={(e) => setCustomQuestionsCount(Number(e.target.value))}
-                className="w-full accent-indigo-600"
+                className="w-full accent-blue-600 cursor-pointer"
               />
             </div>
 
             <div>
               <div className="flex justify-between text-xs font-bold mb-1">
                 <span>समय सीमा:</span>
-                <span className="text-indigo-600 font-black">{customTimeMinutes} मिनट</span>
+                <span className="text-blue-600 dark:text-blue-400 font-black">{customTimeMinutes} मिनट</span>
               </div>
               <input
                 type="range"
@@ -945,23 +944,23 @@ export const MockTestGenerator: React.FC = () => {
                 step="5"
                 value={customTimeMinutes}
                 onChange={(e) => setCustomTimeMinutes(Number(e.target.value))}
-                className="w-full accent-indigo-600"
+                className="w-full accent-blue-600 cursor-pointer"
               />
             </div>
           </div>
         )}
       </div>
 
-      {/* Start Button (Flutter Style Primary Button) */}
+      {/* Start Button (Flutter Style Solid Blue Primary Button) */}
       <button
         disabled={isGenerating}
         onClick={handleGenerateTest}
-        className="w-full py-4 rounded-2xl bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white font-black text-sm shadow-lg flex items-center justify-center gap-2 cursor-pointer transition-all active:scale-[0.99] disabled:opacity-50"
+        className="w-full py-4 rounded-2xl bg-blue-600 hover:bg-blue-700 active:scale-[0.99] text-white font-black text-sm shadow-xs flex items-center justify-center gap-2 cursor-pointer transition-all disabled:opacity-50"
       >
         {isGenerating ? (
           <>
             <div className="w-5 h-5 border-2 border-white/40 border-t-white rounded-full animate-spin" />
-            <span>GitHub से प्रश्न लोड हो रहे हैं...</span>
+            <span>प्रश्न लोड हो रहे हैं...</span>
           </>
         ) : (
           <>

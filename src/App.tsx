@@ -52,6 +52,9 @@ const AppContent: React.FC = () => {
           <main className="flex-1">
             <Routes>
               <Route path="/" element={<Home />} />
+              <Route path="/papers" element={<Papers />} />
+              <Route path="/notes" element={<NotesView />} />
+              <Route path="/syllabus" element={<SyllabusView />} />
               <Route path="/class/:classId/subjects" element={<Subjects />} />
               <Route path="/class/:classId/subject/:subjectId/papers" element={<Papers />} />
               <Route path="/class/:classId/subject/:subjectId/syllabus" element={<SyllabusView />} />

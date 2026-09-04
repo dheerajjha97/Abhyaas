@@ -146,9 +146,9 @@ export const Home: React.FC = () => {
           </button>
 
           <button
-            onClick={openProfileModal}
+            onClick={() => navigate('/more')}
             className="w-9 h-9 rounded-xl bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 transition-all cursor-pointer border border-slate-200/60 dark:border-slate-700"
-            title="सेटिंग्स व प्रोफ़ाइल"
+            title="सेटिंग्स व अधिक विकल्प"
           >
             <Settings2 className="w-4 h-4" />
           </button>
@@ -202,53 +202,6 @@ export const Home: React.FC = () => {
             className="bg-blue-600 h-full rounded-full transition-all duration-700"
             style={{ width: `${goalProgressPercent}%` }}
           />
-        </div>
-      </div>
-
-      {/* Class Segmented Selector (Flutter Material 3 SegmentedButton) */}
-      <div className="bg-white dark:bg-slate-900 p-2.5 rounded-2xl sm:rounded-3xl border border-slate-200/90 dark:border-slate-800 shadow-2xs">
-        <div className="flex items-center justify-between mb-2 px-1">
-          <span className="text-xs font-black text-slate-900 dark:text-slate-100">
-            कक्षा चुनें (Select Class)
-          </span>
-          <div className="flex items-center gap-1">
-            <span className="text-[10px] font-bold text-blue-700 dark:text-blue-300 bg-blue-50 dark:bg-blue-950/70 px-2 py-0.5 rounded-full border border-blue-200/70 dark:border-blue-900">
-              सक्रिय: Class {profile.classId} {profile.classId !== '10' && `(${profile.stream})`}
-            </span>
-            <button
-              onClick={openProfileModal}
-              className="text-[10px] font-bold text-slate-500 hover:text-blue-600 underline cursor-pointer ml-1"
-            >
-              बदलें
-            </button>
-          </div>
-        </div>
-
-        <div className="grid grid-cols-3 gap-1.5">
-          {classPills.map((cls) => {
-            const isSelected = profile.classId === cls.id;
-            return (
-              <button
-                key={cls.id}
-                onClick={() => setClassId(cls.id)}
-                className={`py-2 px-2 rounded-xl flex flex-col items-center justify-center transition-all cursor-pointer border ${
-                  isSelected
-                    ? 'bg-blue-600 border-blue-600 text-white font-black shadow-xs'
-                    : 'bg-slate-50 dark:bg-slate-800/60 border-slate-200/70 dark:border-slate-700 text-slate-700 dark:text-slate-300 hover:bg-slate-100'
-                }`}
-              >
-                <span className="text-base">{cls.emoji}</span>
-                <span className="text-xs font-bold mt-0.5">{cls.title}</span>
-                <span
-                  className={`text-[9px] ${
-                    isSelected ? 'text-blue-100' : 'text-slate-400'
-                  }`}
-                >
-                  {cls.label}
-                </span>
-              </button>
-            );
-          })}
         </div>
       </div>
 

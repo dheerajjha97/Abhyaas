@@ -16,10 +16,11 @@ import {
   Edit3,
   Heart,
   Code2,
+  GraduationCap,
 } from 'lucide-react';
 
 export const More: React.FC = () => {
-  const { profile, openProfileModal } = useStudentProfile();
+  const { profile, setClassId, openProfileModal } = useStudentProfile();
   const [settings, setSettings] = useState<AppSettings>(getAppSettings());
   const [deferredPrompt, setDeferredPrompt] = useState<any>(null);
   const [isInstallable, setIsInstallable] = useState(false);
@@ -83,26 +84,28 @@ export const More: React.FC = () => {
   };
 
   return (
-    <div className="space-y-5 pb-24 animate-in fade-in duration-300">
+    <div className="space-y-4 pb-36 animate-in fade-in duration-300">
       <Toast toast={toast} onClose={() => setToast(null)} />
 
       <HeaderBar title="More & Settings" subtitle="विद्यार्थी प्रोफ़ाइल एवं सेटिंग्स" />
 
-      {/* Student Profile Card */}
-      <div className="rounded-3xl p-4 sm:p-5 bg-gradient-to-r from-indigo-600 to-purple-600 text-white shadow-lg relative overflow-hidden">
-        <div className="flex items-center justify-between gap-3 relative z-10">
-          <div className="flex items-center gap-3">
-            <div className="w-12 h-12 rounded-2xl bg-white/20 backdrop-blur-md flex items-center justify-center text-2xl shadow-inner shrink-0">
+      {/* Student Profile Card - Clean Material 3 Surface */}
+      <div className="bg-white dark:bg-slate-900 rounded-2xl sm:rounded-3xl p-4 sm:p-5 border border-slate-200/90 dark:border-slate-800 shadow-2xs space-y-3.5">
+        <div className="flex items-center justify-between gap-3">
+          <div className="flex items-center gap-3 min-w-0">
+            <div className="w-12 h-12 rounded-2xl bg-blue-50 dark:bg-blue-950 text-blue-600 dark:text-blue-400 flex items-center justify-center text-2xl border border-blue-100 dark:border-blue-900 shrink-0">
               {profile.avatarEmoji || '🎓'}
             </div>
-            <div>
+            <div className="min-w-0">
               <div className="flex items-center gap-2">
-                <h3 className="text-base sm:text-lg font-black">{profile.name || 'विद्यार्थी'}</h3>
-                <span className="text-[10px] bg-white/25 px-2 py-0.5 rounded-full font-bold">
+                <h3 className="text-base sm:text-lg font-black text-slate-900 dark:text-white truncate">
+                  {profile.name || 'विद्यार्थी'}
+                </h3>
+                <span className="text-[10px] font-bold text-blue-700 dark:text-blue-300 bg-blue-50 dark:bg-blue-950/70 border border-blue-200/70 dark:border-blue-900 px-2 py-0.5 rounded-full shrink-0">
                   Class {profile.classId}
                 </span>
               </div>
-              <p className="text-xs text-indigo-100 font-medium mt-0.5">
+              <p className="text-xs text-slate-500 dark:text-slate-400 font-medium mt-0.5">
                 {profile.board} • {profile.stream}
               </p>
             </div>
@@ -110,7 +113,7 @@ export const More: React.FC = () => {
 
           <button
             onClick={openProfileModal}
-            className="px-3 py-1.5 bg-white text-indigo-700 font-extrabold text-xs rounded-xl shadow-md flex items-center gap-1.5 hover:bg-indigo-50 active:scale-95 transition-all cursor-pointer shrink-0"
+            className="px-3 py-1.5 bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs rounded-xl shadow-2xs flex items-center gap-1.5 active:scale-95 transition-all cursor-pointer shrink-0"
           >
             <Edit3 className="w-3.5 h-3.5" />
             <span>एडिट करें</span>
@@ -118,15 +121,15 @@ export const More: React.FC = () => {
         </div>
 
         {/* Selected Subjects Chips */}
-        <div className="mt-3.5 pt-3 border-t border-white/20">
-          <div className="text-[11px] font-bold text-indigo-100 mb-1.5 flex items-center gap-1">
-            <BookOpen className="w-3 h-3" /> चुने गए विषय ({profile.selectedSubjects.length}):
+        <div className="pt-3 border-t border-slate-100 dark:border-slate-800">
+          <div className="text-[11px] font-bold text-slate-500 dark:text-slate-400 mb-2 flex items-center gap-1">
+            <BookOpen className="w-3 h-3 text-blue-600 dark:text-blue-400" /> चुने गए विषय ({profile.selectedSubjects.length}):
           </div>
           <div className="flex flex-wrap gap-1.5">
             {profile.selectedSubjects.map((sub) => (
               <span
                 key={sub}
-                className="text-[11px] font-bold bg-white/15 backdrop-blur-sm px-2.5 py-0.5 rounded-lg text-white"
+                className="text-[11px] font-bold bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 px-2.5 py-1 rounded-lg text-slate-700 dark:text-slate-200"
               >
                 {sub}
               </span>
@@ -135,23 +138,81 @@ export const More: React.FC = () => {
         </div>
       </div>
 
-      {/* PWA Banner */}
-      <GlassCard variant="accent" padding="md" className="border-indigo-200 shadow-md">
+      {/* Class Switcher in Settings (Material 3 Surface Card) */}
+      <div className="bg-white dark:bg-slate-900 rounded-2xl sm:rounded-3xl p-4 sm:p-5 border border-slate-200/90 dark:border-slate-800 shadow-2xs space-y-3">
+        <div className="flex items-center justify-between">
+          <div className="flex items-center gap-2">
+            <GraduationCap className="w-5 h-5 text-blue-600 dark:text-blue-400" />
+            <div>
+              <h3 className="text-sm sm:text-base font-black text-slate-900 dark:text-white">
+                कक्षा बदलें (Select Class)
+              </h3>
+              <p className="text-[11px] text-slate-500 dark:text-slate-400">
+                अपनी वर्तमान बोर्ड कक्षा चुनें
+              </p>
+            </div>
+          </div>
+          <span className="text-[10px] font-bold text-blue-700 dark:text-blue-300 bg-blue-50 dark:bg-blue-950/70 border border-blue-200/70 dark:border-blue-900 px-2.5 py-1 rounded-full">
+            सक्रिय: Class {profile.classId}
+          </span>
+        </div>
+
+        <div className="grid grid-cols-3 gap-2 pt-1">
+          {[
+            { id: '10', label: 'Class 10', sub: '10वीं बोर्ड', emoji: '🎒' },
+            { id: '11', label: 'Class 11', sub: '11वीं', emoji: '📚' },
+            { id: '12', label: 'Class 12', sub: '12वीं बोर्ड', emoji: '🎓' },
+          ].map((cls) => {
+            const isSelected = profile.classId === cls.id;
+            return (
+              <button
+                key={cls.id}
+                onClick={() => {
+                  setClassId(cls.id);
+                  setToast({
+                    id: Date.now().toString(),
+                    type: 'success',
+                    message: `कक्षा ${cls.id} चुनी गई!`,
+                  });
+                }}
+                className={`py-3 px-2 rounded-2xl flex flex-col items-center justify-center transition-all cursor-pointer border ${
+                  isSelected
+                    ? 'bg-blue-600 border-blue-600 text-white font-black shadow-xs ring-2 ring-blue-500/20'
+                    : 'bg-slate-50 dark:bg-slate-800/60 border-slate-200/80 dark:border-slate-700 text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800'
+                }`}
+              >
+                <span className="text-2xl mb-1">{cls.emoji}</span>
+                <span className="text-xs font-bold">{cls.label}</span>
+                <span
+                  className={`text-[10px] mt-0.5 ${
+                    isSelected ? 'text-blue-100' : 'text-slate-400'
+                  }`}
+                >
+                  {cls.sub}
+                </span>
+              </button>
+            );
+          })}
+        </div>
+      </div>
+
+      {/* PWA Banner - Clean high-contrast card */}
+      <div className="bg-white dark:bg-slate-900 rounded-2xl sm:rounded-3xl p-4 sm:p-5 border border-slate-200/90 dark:border-slate-800 shadow-2xs">
         <div className="flex items-center justify-between gap-4">
-          <div className="space-y-1">
-            <span className="inline-flex items-center gap-1 text-[11px] font-bold text-indigo-700 bg-white/80 px-2.5 py-0.5 rounded-full border border-indigo-100">
-              <Smartphone className="w-3.5 h-3.5 text-indigo-600" /> Web & Mobile PWA
+          <div className="space-y-1.5 min-w-0">
+            <span className="inline-flex items-center gap-1 text-[11px] font-bold text-blue-700 dark:text-blue-300 bg-blue-50 dark:bg-blue-950/60 px-2.5 py-0.5 rounded-full border border-blue-200/60 dark:border-blue-900">
+              <Smartphone className="w-3.5 h-3.5 text-blue-600 dark:text-blue-400" /> Web & Mobile PWA
             </span>
-            <h3 className="text-base sm:text-lg font-extrabold text-slate-800 dark:text-slate-100">
+            <h3 className="text-base sm:text-lg font-black text-slate-900 dark:text-white">
               Abhyaas App इंस्टॉल करें
             </h3>
-            <p className="text-xs text-slate-600 dark:text-slate-300">
+            <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed max-w-xs">
               मोबाइल में एंड्रॉयड ऐप जैसा अनुभव पाने के लिए होम स्क्रीन पर जोड़ें।
             </p>
             <div className="pt-2">
               <button
                 onClick={handleInstallPWA}
-                className="px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-xs rounded-xl shadow-md flex items-center gap-2 cursor-pointer active:scale-95 transition-all"
+                className="px-4 py-2 bg-blue-600 hover:bg-blue-700 active:scale-95 text-white font-bold text-xs rounded-xl shadow-2xs flex items-center gap-2 cursor-pointer transition-all"
               >
                 <Download className="w-4 h-4" />
                 <span>{isInstallable ? 'होम स्क्रीन पर जोड़ें (Install)' : 'PWA Ready'}</span>
@@ -163,102 +224,93 @@ export const More: React.FC = () => {
             <Illustration name="welcome" size={75} />
           </div>
         </div>
-      </GlassCard>
+      </div>
 
       {/* Settings Options */}
-      <div className="space-y-3">
-        <h4 className="text-xs font-bold text-slate-500 uppercase tracking-wider px-1">
+      <div className="space-y-2.5">
+        <h4 className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider px-1">
           ऐप सेटिंग्स & कैश
         </h4>
 
         {/* Offline Mode Switch */}
-        <GlassCard
-          padding="md"
-          className="flex items-center justify-between gap-3 border-slate-200/80"
-        >
+        <div className="bg-white dark:bg-slate-900 rounded-2xl p-4 border border-slate-200/90 dark:border-slate-800 shadow-2xs flex items-center justify-between gap-3">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-indigo-50 text-indigo-600 flex items-center justify-center shrink-0">
+            <div className="w-10 h-10 rounded-xl bg-blue-50 dark:bg-blue-950/70 text-blue-600 dark:text-blue-400 flex items-center justify-center shrink-0 border border-blue-100 dark:border-blue-900/60">
               <Wifi className="w-5 h-5" />
             </div>
             <div>
-              <h5 className="text-sm font-bold text-slate-800 dark:text-slate-100">
+              <h5 className="text-sm font-black text-slate-900 dark:text-slate-100">
                 बिना इंटरनेट (ऑफलाइन) पढ़ें
               </h5>
-              <p className="text-xs text-slate-500">
+              <p className="text-xs text-slate-500 dark:text-slate-400">
                 इंटरनेट न होने पर भी सहेजे गए पेपर्स से अभ्यास जारी रखें
               </p>
             </div>
           </div>
           <button
             onClick={handleToggleOffline}
-            className={`w-12 h-6 rounded-full transition-colors relative cursor-pointer ${
-              settings.offlineMode ? 'bg-indigo-600' : 'bg-slate-300 dark:bg-slate-700'
+            className={`w-12 h-6 rounded-full transition-colors relative cursor-pointer shrink-0 ${
+              settings.offlineMode ? 'bg-blue-600' : 'bg-slate-200 dark:bg-slate-700'
             }`}
           >
             <span
-              className={`block w-5 h-5 rounded-full bg-white shadow-md transition-transform transform ${
+              className={`block w-5 h-5 rounded-full bg-white shadow-xs transition-transform transform ${
                 settings.offlineMode ? 'translate-x-6' : 'translate-x-0.5'
               }`}
             />
           </button>
-        </GlassCard>
+        </div>
 
         {/* Sync / Refresh Data */}
-        <GlassCard
-          padding="md"
-          className="flex items-center justify-between gap-3 border-slate-200/80"
-        >
+        <div className="bg-white dark:bg-slate-900 rounded-2xl p-4 border border-slate-200/90 dark:border-slate-800 shadow-2xs flex items-center justify-between gap-3">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-indigo-50 text-indigo-600 flex items-center justify-center shrink-0">
+            <div className="w-10 h-10 rounded-xl bg-blue-50 dark:bg-blue-950/70 text-blue-600 dark:text-blue-400 flex items-center justify-center shrink-0 border border-blue-100 dark:border-blue-900/60">
               <RefreshCw className="w-5 h-5" />
             </div>
             <div>
-              <h5 className="text-sm font-bold text-slate-800 dark:text-slate-100">
+              <h5 className="text-sm font-black text-slate-900 dark:text-slate-100">
                 नए प्रश्न पत्र अपडेट करें
               </h5>
-              <p className="text-xs text-slate-500">
+              <p className="text-xs text-slate-500 dark:text-slate-400">
                 नवीनतम पेपर्स और उत्तर तुरंत रीलोड करें
               </p>
             </div>
           </div>
           <button
             onClick={handleClearCache}
-            className="px-3.5 py-1.5 bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-xs rounded-xl cursor-pointer active:scale-95 transition-all shadow-sm"
+            className="px-3.5 py-2 bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs rounded-xl cursor-pointer active:scale-95 transition-all shadow-2xs shrink-0"
           >
             अपडेट करें
           </button>
-        </GlassCard>
+        </div>
       </div>
 
       {/* App Info & Developer Credit */}
-      <GlassCard
-        padding="md"
-        className="space-y-3 border-indigo-100 bg-gradient-to-r from-slate-50 to-indigo-50/50"
-      >
-        <div className="flex items-center gap-2 text-xs font-bold text-indigo-700">
-          <ShieldCheck className="w-4 h-4 text-emerald-500" />
+      <div className="bg-white dark:bg-slate-900 rounded-2xl p-4 border border-slate-200/90 dark:border-slate-800 shadow-2xs space-y-3">
+        <div className="flex items-center gap-2 text-xs font-bold text-blue-700 dark:text-blue-400">
+          <ShieldCheck className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
           <span>सुरक्षित एवं प्रामाणिक बोर्ड परीक्षा तैयारी</span>
         </div>
-        <p className="text-xs text-slate-600 leading-relaxed">
+        <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
           अभ्यास ऐप बिहार बोर्ड एवं अन्य राज्य बोर्ड के विद्यार्थियों को मॉडल पेपर्स एवं पिछले वर्षों के हल प्रश्न पत्र निशुल्क उपलब्ध कराता है।
         </p>
 
         {/* Developer Credit */}
-        <div className="pt-2 border-t border-slate-200/70 flex items-center justify-between">
+        <div className="pt-2.5 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <div className="w-7 h-7 rounded-lg bg-indigo-100 text-indigo-600 flex items-center justify-center">
+            <div className="w-7 h-7 rounded-lg bg-blue-50 dark:bg-blue-950 text-blue-600 dark:text-blue-400 flex items-center justify-center border border-blue-100 dark:border-blue-900">
               <Code2 className="w-4 h-4" />
             </div>
             <div>
-              <p className="text-[11px] text-slate-500 font-medium">Developed with <Heart className="w-3 h-3 text-rose-500 inline fill-rose-500" /> by</p>
-              <p className="text-xs font-bold text-slate-800 dark:text-slate-100">Dheeraj Jha</p>
+              <p className="text-[11px] text-slate-500 dark:text-slate-400 font-medium">Developed with <Heart className="w-3 h-3 text-rose-500 inline fill-rose-500" /> by</p>
+              <p className="text-xs font-bold text-slate-900 dark:text-slate-100">Dheeraj Jha</p>
             </div>
           </div>
-          <span className="text-[11px] font-semibold text-slate-400 bg-white/80 dark:bg-slate-800 px-2.5 py-1 rounded-full border border-slate-200/50">
+          <span className="text-[11px] font-semibold text-slate-500 dark:text-slate-400 bg-slate-50 dark:bg-slate-800 px-2.5 py-1 rounded-full border border-slate-200 dark:border-slate-700">
             Abhyaas v1.0
           </span>
         </div>
-      </GlassCard>
+      </div>
     </div>
   );
 };

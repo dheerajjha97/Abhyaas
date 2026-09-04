@@ -193,7 +193,7 @@ export const Quiz: React.FC = () => {
   const optionLabels = ['A', 'B', 'C', 'D', 'E'];
 
   return (
-    <div className="space-y-4 pb-24 animate-in fade-in duration-300">
+    <div className="space-y-4 pb-36 animate-in fade-in duration-300">
       <Toast toast={toast} onClose={() => setToast(null)} />
 
       <HeaderBar
@@ -205,8 +205,8 @@ export const Quiz: React.FC = () => {
             onClick={handleToggleBookmark}
             className={`p-2 rounded-2xl border transition-all active:scale-95 ${
               isCurrentBookmarked
-                ? 'bg-amber-50 border-amber-300 text-amber-600 shadow-xs'
-                : 'bg-white/80 border-slate-200 text-slate-500'
+                ? 'bg-amber-50 dark:bg-amber-950/60 border-amber-300 text-amber-600 shadow-xs'
+                : 'bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-700 text-slate-500'
             }`}
           >
             <Bookmark className={`w-5 h-5 ${isCurrentBookmarked ? 'fill-amber-500 text-amber-500' : ''}`} />
@@ -215,23 +215,23 @@ export const Quiz: React.FC = () => {
       />
 
       {/* Progress Section */}
-      <GlassCard padding="sm" className="border-indigo-100/80 shadow-xs">
+      <div className="bg-white dark:bg-slate-900 rounded-2xl p-3 sm:p-4 border border-slate-200/90 dark:border-slate-800 shadow-2xs">
         <div className="flex items-center justify-between text-xs font-bold text-slate-700 dark:text-slate-300 mb-2">
           <span>सवाल {currentIndex + 1} / {totalQuestions}</span>
-          <span className="text-indigo-600 bg-indigo-50 px-2 py-0.5 rounded-md">
+          <span className="text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-950/60 px-2 py-0.5 rounded-md border border-blue-200/60 dark:border-blue-900 text-[11px]">
             MCQ Practice
           </span>
         </div>
-        <ProgressBar value={currentIndex + 1} max={totalQuestions} color="gradient" />
-      </GlassCard>
+        <ProgressBar value={currentIndex + 1} max={totalQuestions} color="indigo" />
+      </div>
 
       {/* Question Card */}
-      <GlassCard variant="default" padding="lg" className="space-y-5 border-white shadow-xl">
+      <div className="bg-white dark:bg-slate-900 rounded-2xl sm:rounded-3xl p-5 sm:p-6 space-y-5 border border-slate-200/90 dark:border-slate-800 shadow-2xs">
         <div className="flex items-start justify-between gap-3">
-          <span className="w-8 h-8 rounded-xl bg-indigo-100 dark:bg-indigo-950 text-indigo-700 dark:text-indigo-300 text-xs font-extrabold flex items-center justify-center shrink-0">
+          <span className="w-8 h-8 rounded-xl bg-blue-50 dark:bg-blue-950 text-blue-700 dark:text-blue-300 text-xs font-black flex items-center justify-center shrink-0 border border-blue-200/60 dark:border-blue-900">
             Q{currentIndex + 1}
           </span>
-          <h2 className="text-base sm:text-lg font-bold text-slate-800 dark:text-slate-100 leading-relaxed flex-1">
+          <h2 className="text-base sm:text-lg font-bold text-slate-900 dark:text-slate-100 leading-relaxed flex-1">
             {currentQuestion.question}
           </h2>
         </div>
@@ -247,7 +247,7 @@ export const Quiz: React.FC = () => {
             );
 
             let optionStyle =
-              'bg-white/90 dark:bg-slate-800/90 border-slate-200 dark:border-slate-700 text-slate-800 dark:text-slate-100 hover:border-indigo-300';
+              'bg-white dark:bg-slate-800/80 border-slate-200 dark:border-slate-700 text-slate-800 dark:text-slate-100 hover:border-blue-300';
             let badgeStyle = 'bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300';
 
             if (isCurrentSubmitted) {
@@ -258,11 +258,11 @@ export const Quiz: React.FC = () => {
                 optionStyle = 'bg-rose-50 dark:bg-rose-950/50 border-rose-500 text-rose-900 dark:text-rose-100 font-bold';
                 badgeStyle = 'bg-rose-500 text-white';
               } else {
-                optionStyle = 'opacity-60 bg-slate-50 border-slate-200';
+                optionStyle = 'opacity-60 bg-slate-50 dark:bg-slate-800/40 border-slate-200 dark:border-slate-700';
               }
             } else if (isSelected) {
-              optionStyle = 'bg-indigo-50/90 dark:bg-indigo-950/80 border-indigo-600 text-indigo-900 dark:text-indigo-100 font-bold shadow-sm ring-2 ring-indigo-500/30';
-              badgeStyle = 'bg-indigo-600 text-white';
+              optionStyle = 'bg-blue-50/90 dark:bg-blue-950/80 border-blue-600 text-blue-900 dark:text-blue-100 font-bold shadow-2xs ring-2 ring-blue-500/30';
+              badgeStyle = 'bg-blue-600 text-white';
             }
 
             return (
@@ -298,10 +298,10 @@ export const Quiz: React.FC = () => {
             <button
               onClick={handleSubmitAnswer}
               disabled={!currentSelected}
-              className={`w-full py-3.5 px-4 font-bold text-sm rounded-2xl shadow-md transition-all flex items-center justify-center gap-2 cursor-pointer ${
+              className={`w-full py-3.5 px-4 font-bold text-sm rounded-2xl transition-all flex items-center justify-center gap-2 cursor-pointer ${
                 currentSelected
-                  ? 'bg-indigo-600 hover:bg-indigo-700 text-white active:scale-95 shadow-indigo-500/25'
-                  : 'bg-slate-200 dark:bg-slate-800 text-slate-400 cursor-not-allowed'
+                  ? 'bg-blue-600 hover:bg-blue-700 text-white active:scale-95 shadow-2xs'
+                  : 'bg-slate-100 dark:bg-slate-800 text-slate-400 cursor-not-allowed border border-slate-200 dark:border-slate-700'
               }`}
             >
               <span>उत्तर की जाँच करें</span>
@@ -309,14 +309,14 @@ export const Quiz: React.FC = () => {
           ) : (
             <button
               onClick={handleNext}
-              className="w-full py-3.5 px-4 bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white font-bold text-sm rounded-2xl shadow-lg shadow-indigo-500/25 active:scale-95 transition-all flex items-center justify-center gap-2 cursor-pointer"
+              className="w-full py-3.5 px-4 bg-blue-600 hover:bg-blue-700 text-white font-bold text-sm rounded-2xl shadow-2xs active:scale-95 transition-all flex items-center justify-center gap-2 cursor-pointer"
             >
               <span>{currentIndex < totalQuestions - 1 ? 'अगला सवाल' : 'स्कोर देखें (Result)'}</span>
               <ArrowRight className="w-5 h-5" />
             </button>
           )}
         </div>
-      </GlassCard>
+      </div>
 
       {/* Expandable Explanation Section */}
       {isCurrentSubmitted && !currentQuestion.answer && (

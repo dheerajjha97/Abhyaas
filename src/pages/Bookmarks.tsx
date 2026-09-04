@@ -40,7 +40,7 @@ export const Bookmarks: React.FC = () => {
   };
 
   return (
-    <div className="space-y-4 pb-24 animate-in fade-in duration-300">
+    <div className="space-y-4 pb-36 animate-in fade-in duration-300">
       <Toast toast={toast} onClose={() => setToast(null)} />
 
       <HeaderBar title="सहेजे गए सवाल" subtitle="Saved Important Questions" />
@@ -48,7 +48,7 @@ export const Bookmarks: React.FC = () => {
       {/* Filter Tabs */}
       {bookmarks.length > 0 && (
         <div className="flex items-center gap-2 overflow-x-auto pb-1 no-scrollbar">
-          <span className="text-xs font-bold text-slate-500 flex items-center gap-1">
+          <span className="text-xs font-bold text-slate-500 dark:text-slate-400 flex items-center gap-1">
             <Filter className="w-3.5 h-3.5" /> Filter:
           </span>
           {(['all', 'mcq', 'short', 'long'] as const).map((t) => (
@@ -57,8 +57,8 @@ export const Bookmarks: React.FC = () => {
               onClick={() => setSelectedTab(t)}
               className={`px-3 py-1.5 rounded-full text-xs font-bold uppercase transition-all cursor-pointer ${
                 selectedTab === t
-                  ? 'bg-indigo-600 text-white shadow-xs'
-                  : 'bg-white/80 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300'
+                  ? 'bg-blue-600 text-white shadow-xs'
+                  : 'bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:bg-slate-50'
               }`}
             >
               {t}
@@ -69,42 +69,41 @@ export const Bookmarks: React.FC = () => {
 
       {/* Empty State */}
       {bookmarks.length === 0 ? (
-        <GlassCard padding="lg" className="text-center py-12 space-y-4 border-amber-200/60">
+        <div className="bg-white dark:bg-slate-900 rounded-2xl sm:rounded-3xl p-6 sm:p-8 text-center py-12 space-y-4 border border-slate-200/90 dark:border-slate-800 shadow-2xs">
           <div className="w-36 mx-auto">
             <Illustration name="bookmark" />
           </div>
 
           <div className="space-y-1">
-            <h3 className="text-lg font-black text-slate-800 dark:text-slate-100">
+            <h3 className="text-lg font-black text-slate-900 dark:text-slate-100">
               अभी कोई सवाल सेव नहीं है
             </h3>
-            <p className="text-xs text-slate-500 max-w-xs mx-auto leading-relaxed">
+            <p className="text-xs text-slate-500 dark:text-slate-400 max-w-xs mx-auto leading-relaxed">
               Important questions को bookmark करके बाद में जल्दी पढ़ें और रिवीजन करें।
             </p>
           </div>
 
           <button
             onClick={() => navigate('/class/12/subjects')}
-            className="px-6 py-3 bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-bold text-xs rounded-2xl shadow-md shadow-indigo-500/20 active:scale-95 transition-all cursor-pointer"
+            className="px-6 py-2.5 bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs rounded-xl shadow-2xs active:scale-95 transition-all cursor-pointer"
           >
             तैयारी शुरू करें
           </button>
-        </GlassCard>
+        </div>
       ) : filtered.length === 0 ? (
-        <GlassCard padding="md" className="text-center py-8">
-          <p className="text-xs font-bold text-slate-500">इस कैटेगरी में कोई सहेजा सवाल नहीं है।</p>
-        </GlassCard>
+        <div className="bg-white dark:bg-slate-900 rounded-2xl p-6 text-center py-8 border border-slate-200/90 dark:border-slate-800">
+          <p className="text-xs font-bold text-slate-500 dark:text-slate-400">इस कैटेगरी में कोई सहेजा सवाल नहीं है।</p>
+        </div>
       ) : (
         <div className="space-y-3">
           {filtered.map((item) => (
-            <GlassCard
+            <div
               key={item.id}
-              variant="interactive"
               onClick={() => navigate(`/paper/${item.paperId}/${item.type}`)}
-              className="p-4 space-y-3 border-slate-200/80"
+              className="bg-white dark:bg-slate-900 rounded-2xl p-4 space-y-3 border border-slate-200/90 dark:border-slate-800 shadow-2xs hover:shadow-xs transition-all cursor-pointer"
             >
               <div className="flex items-center justify-between gap-2">
-                <div className="flex items-center gap-1.5 text-[11px] font-bold text-indigo-700 bg-indigo-50 dark:bg-indigo-950/60 px-2.5 py-0.5 rounded-full border border-indigo-200">
+                <div className="flex items-center gap-1.5 text-[11px] font-bold text-blue-700 dark:text-blue-300 bg-blue-50 dark:bg-blue-950/60 px-2.5 py-0.5 rounded-full border border-blue-200/60 dark:border-blue-900">
                   {typeIcons[item.type]}
                   <span className="uppercase">{item.type}</span>
                 </div>
@@ -115,7 +114,7 @@ export const Bookmarks: React.FC = () => {
                   </span>
                   <button
                     onClick={(e) => handleDelete(item.id, e)}
-                    className="p-1.5 rounded-lg text-rose-500 hover:bg-rose-50 transition-colors"
+                    className="p-1.5 rounded-lg text-rose-500 hover:bg-rose-50 dark:hover:bg-rose-950/40 transition-colors"
                     title="बुकमार्क हटाएं"
                   >
                     <Trash2 className="w-4 h-4" />
@@ -128,19 +127,19 @@ export const Bookmarks: React.FC = () => {
               </h4>
 
               {item.answer && (
-                <p className="text-xs text-slate-600 dark:text-slate-300 line-clamp-2 bg-slate-50 dark:bg-slate-800 p-2.5 rounded-xl border border-slate-100 dark:border-slate-700">
-                  <span className="font-bold text-indigo-600 mr-1">Ans:</span>
+                <p className="text-xs text-slate-600 dark:text-slate-300 line-clamp-2 bg-slate-50 dark:bg-slate-800/60 p-2.5 rounded-xl border border-slate-100 dark:border-slate-700">
+                  <span className="font-bold text-blue-600 dark:text-blue-400 mr-1">Ans:</span>
                   {item.answer}
                 </p>
               )}
 
               <div className="flex items-center justify-between text-xs text-slate-400 pt-1 border-t border-slate-100 dark:border-slate-800">
                 <span className="truncate">{item.paperName}</span>
-                <span className="flex items-center gap-1 font-bold text-indigo-600">
+                <span className="flex items-center gap-1 font-bold text-blue-600 dark:text-blue-400">
                   पढ़ें <ArrowRight className="w-3.5 h-3.5" />
                 </span>
               </div>
-            </GlassCard>
+            </div>
           ))}
         </div>
       )}

@@ -58,12 +58,12 @@ const SUBJECT_CONFIGS: Record<string, SubjectConfig> = {
   },
   History: {
     name: 'History',
-    illustration: 'preparation',
+    illustration: 'history',
     gradient: 'from-amber-600 to-red-600',
   },
   'Political Science': {
     name: 'Political Science',
-    illustration: 'study',
+    illustration: 'polscience',
     gradient: 'from-blue-600 to-indigo-700',
   },
   'Home Science': {
@@ -73,7 +73,7 @@ const SUBJECT_CONFIGS: Record<string, SubjectConfig> = {
   },
   Geography: {
     name: 'Geography',
-    illustration: 'preparation',
+    illustration: 'geography',
     gradient: 'from-teal-500 to-emerald-600',
   },
   Economics: {

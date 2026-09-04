@@ -11,8 +11,10 @@
     "subjectName": "History (इतिहास)",
     "board": "Bihar Board (BSEB)",
     "academicYear": "2025-2026",
-    "stream": "Science (PCB / PCM)",
-    "totalMarks": 70,
+    "stream": "Arts (कला / मानविकी)",
+    "totalMarks": 100,
+    "theoryMarks": 100,
+    "practicalMarks": 0,
     "totalUnits": 4,
     "totalChapters": 16,
     "totalTopics": 55

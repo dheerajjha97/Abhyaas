@@ -30,6 +30,8 @@ import { useStudentProgress } from '../context/StudentProgressContext';
 import { ALL_AVAILABLE_SUBJECTS } from '../types/studentProfile';
 import { questionRepository, normalizeSubject } from '../services/questionRepository';
 import { PaperSummary } from '../types/question';
+import { Badges } from '../components/dashboard/Badges';
+import { Illustration } from '../components/ui/Illustration';
 
 export const Home: React.FC = () => {
   const navigate = useNavigate();
@@ -37,7 +39,7 @@ export const Home: React.FC = () => {
   const { progress } = useStudentProgress();
 
   const [papers, setPapers] = useState<PaperSummary[]>([]);
-  const [activeTab, setActiveTab] = useState<'overview' | 'subjectMastery' | 'recentTests'>('overview');
+  const [activeTab, setActiveTab] = useState<'overview' | 'badges' | 'subjectMastery' | 'recentTests'>('overview');
 
   useEffect(() => {
     let isMounted = true;
@@ -89,16 +91,16 @@ export const Home: React.FC = () => {
 
   return (
     <div className="space-y-4 pb-28 animate-in fade-in duration-300">
-      {/* Flutter Material 3 Top AppBar */}
-      <div className="bg-white dark:bg-slate-900 rounded-2xl sm:rounded-3xl p-3.5 sm:p-4 border border-slate-200/90 dark:border-slate-800 shadow-2xs flex items-center justify-between gap-3">
+      {/* Top AppBar */}
+      <div className="bg-white dark:bg-slate-900 rounded-2xl sm:rounded-3xl p-3.5 sm:p-4 border border-slate-200/80 dark:border-slate-800 shadow-xs flex items-center justify-between gap-3">
         <div className="flex items-center gap-3 min-w-0">
           <button
             onClick={openProfileModal}
-            className="relative w-12 h-12 rounded-2xl bg-blue-600 hover:bg-blue-700 flex items-center justify-center text-2xl shadow-xs cursor-pointer hover:scale-105 active:scale-95 transition-all shrink-0 text-white"
+            className="relative w-11 h-11 sm:w-12 sm:h-12 rounded-2xl bg-blue-600 hover:bg-blue-700 flex items-center justify-center text-2xl shadow-xs cursor-pointer hover:scale-105 active:scale-95 transition-all shrink-0 text-white border border-blue-500/20"
             title="प्रोफ़ाइल व सेटिंग्स"
           >
             {profile.avatarEmoji || '🎓'}
-            <div className="absolute -bottom-1 -right-1 w-3.5 h-3.5 rounded-full bg-emerald-500 border-2 border-white dark:border-slate-900" />
+            <div className="absolute -bottom-0.5 -right-0.5 w-3.5 h-3.5 rounded-full bg-emerald-500 border-2 border-white dark:border-slate-900" />
           </button>
 
           <div className="min-w-0">
@@ -128,7 +130,7 @@ export const Home: React.FC = () => {
         <div className="flex items-center gap-1.5 shrink-0">
           <button
             onClick={openProfileModal}
-            className={`flex items-center gap-1 px-2.5 py-1.5 rounded-full border text-[11px] font-bold shadow-2xs transition-all cursor-pointer ${
+            className={`flex items-center gap-1 px-2.5 py-1.5 rounded-full border text-[11px] font-bold transition-all cursor-pointer ${
               currentUser
                 ? 'bg-emerald-50 dark:bg-emerald-950/60 border-emerald-200 dark:border-emerald-800 text-emerald-700 dark:text-emerald-300'
                 : 'bg-slate-50 dark:bg-slate-800/80 border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:bg-slate-100'
@@ -147,7 +149,7 @@ export const Home: React.FC = () => {
 
           <button
             onClick={() => navigate('/more')}
-            className="w-9 h-9 rounded-xl bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 transition-all cursor-pointer border border-slate-200/60 dark:border-slate-700"
+            className="w-9 h-9 rounded-xl bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 transition-all cursor-pointer border border-slate-200/80 dark:border-slate-700"
             title="सेटिंग्स व अधिक विकल्प"
           >
             <Settings2 className="w-4 h-4" />
@@ -155,23 +157,23 @@ export const Home: React.FC = () => {
         </div>
       </div>
 
-      {/* Daily Goal / दैनिक अभ्यास लक्ष्य Card (Clean M3 Solid Surface) */}
-      <div className="bg-white dark:bg-slate-900 rounded-2xl sm:rounded-3xl p-4 border border-slate-200/90 dark:border-slate-800 shadow-2xs space-y-2.5">
+      {/* Daily Goal / दैनिक अभ्यास लक्ष्य Card */}
+      <div className="bg-white dark:bg-slate-900 rounded-2xl sm:rounded-3xl p-4 sm:p-5 border border-slate-200/80 dark:border-slate-800 shadow-xs space-y-3">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2.5">
-            <div className="w-8 h-8 rounded-xl bg-blue-50 dark:bg-blue-950 text-blue-600 dark:text-blue-400 flex items-center justify-center border border-blue-100 dark:border-blue-900 shrink-0">
-              <Target className="w-4 h-4" />
+            <div className="w-10 h-10 rounded-xl bg-gradient-to-b from-amber-50 to-orange-50 dark:from-amber-950/80 dark:to-orange-950/40 flex items-center justify-center border border-amber-200/70 dark:border-amber-900/60 shrink-0 p-1">
+              <Illustration name="flame" size={30} />
             </div>
             <div>
               <div className="flex items-center gap-1.5">
-                <span className="text-xs font-black text-slate-900 dark:text-slate-100">
+                <span className="text-xs sm:text-sm font-black text-slate-900 dark:text-slate-100">
                   दैनिक अभ्यास लक्ष्य
                 </span>
-                <span className="text-[10px] font-bold text-blue-700 dark:text-blue-300 bg-blue-50 dark:bg-blue-950/80 px-2 py-0.2 rounded-full border border-blue-200/70 dark:border-blue-800">
+                <span className="text-[10px] font-bold text-blue-700 dark:text-blue-300 bg-blue-50 dark:bg-blue-950/80 px-2 py-0.5 rounded-full border border-blue-200/70 dark:border-blue-800">
                   {questionsToday} / {dailyGoalTarget} प्रश्न
                 </span>
               </div>
-              <p className="text-[10px] text-slate-500 dark:text-slate-400 mt-0.5">
+              <p className="text-[10px] sm:text-xs text-slate-500 dark:text-slate-400 mt-0.5">
                 {questionsToday >= dailyGoalTarget
                   ? '🎉 आज का लक्ष्य पूर्ण! उत्कृष्ट निरंतरता!'
                   : questionsToday > 0
@@ -189,7 +191,7 @@ export const Home: React.FC = () => {
                 )}&type=quick`
               )
             }
-            className="px-3 py-1.5 rounded-xl bg-blue-600 hover:bg-blue-700 active:scale-95 text-white font-bold text-xs flex items-center gap-1 shadow-2xs cursor-pointer shrink-0 transition-transform"
+            className="px-3 py-1.5 rounded-xl bg-blue-600 hover:bg-blue-700 active:scale-95 text-white font-bold text-xs flex items-center gap-1 shadow-xs cursor-pointer shrink-0 transition-all"
           >
             <Zap className="w-3.5 h-3.5 fill-current" />
             <span>स्पीड टेस्ट</span>
@@ -197,7 +199,7 @@ export const Home: React.FC = () => {
         </div>
 
         {/* Progress bar */}
-        <div className="w-full bg-slate-100 dark:bg-slate-800 h-2.5 rounded-full overflow-hidden p-0.5">
+        <div className="w-full bg-slate-100 dark:bg-slate-800 h-2 rounded-full overflow-hidden p-0.5 border border-slate-200/60 dark:border-slate-700/60">
           <div
             className="bg-blue-600 h-full rounded-full transition-all duration-700"
             style={{ width: `${goalProgressPercent}%` }}
@@ -205,10 +207,10 @@ export const Home: React.FC = () => {
         </div>
       </div>
 
-      {/* Prominent Subject Mock Test Generator Hero Card (Clean Deep Slate / Navy) */}
-      <div className="p-5 rounded-2xl sm:rounded-3xl bg-slate-900 text-white shadow-md relative overflow-hidden border border-slate-800">
+      {/* Prominent Subject Mock Test Generator Hero Card */}
+      <div className="p-5 sm:p-6 rounded-2xl sm:rounded-3xl bg-slate-900 text-white shadow-sm relative overflow-hidden border border-slate-800">
         <div className="relative z-10 space-y-3">
-          <div className="inline-flex items-center gap-1.5 text-[10px] font-black uppercase tracking-wider text-amber-400 bg-white/10 px-3 py-1 rounded-full border border-white/10">
+          <div className="inline-flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-wider text-amber-400 bg-white/10 px-3 py-1 rounded-full border border-white/10">
             <Zap className="w-3.5 h-3.5 fill-amber-400" />
             ओरिजिनल पेपर्स आधारित लाइव टेस्ट
           </div>
@@ -230,7 +232,7 @@ export const Home: React.FC = () => {
                 onClick={() =>
                   navigate(`/mock-test?subject=${encodeURIComponent(sub.name)}`)
                 }
-                className="px-3 py-1.5 rounded-full bg-white/10 hover:bg-white/20 active:scale-95 text-white text-[11px] font-bold whitespace-nowrap transition-all flex items-center gap-1 cursor-pointer border border-white/15"
+                className="px-3 py-1.5 rounded-full bg-white/10 hover:bg-white/20 active:scale-95 text-white text-[11px] font-medium whitespace-nowrap transition-all flex items-center gap-1 cursor-pointer border border-white/15"
               >
                 <span>{sub.emoji}</span>
                 <span>{sub.name}</span>
@@ -242,14 +244,14 @@ export const Home: React.FC = () => {
           <div className="pt-1 flex gap-2">
             <button
               onClick={() => navigate('/mock-test')}
-              className="flex-1 py-3 px-4 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-black text-xs sm:text-sm shadow-xs active:scale-98 transition-all flex items-center justify-center gap-2 cursor-pointer"
+              className="flex-1 py-3 px-4 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-bold text-xs sm:text-sm shadow-xs active:scale-[0.98] transition-all flex items-center justify-center gap-2 cursor-pointer"
             >
               <Play className="w-4 h-4 fill-current" />
               <span>कस्टम टेस्ट जनरेट करें</span>
             </button>
             <button
               onClick={() => navigate(`/class/${profile.classId}/subjects`)}
-              className="py-3 px-3 rounded-xl bg-white/10 hover:bg-white/20 text-white font-bold text-xs transition-all cursor-pointer flex items-center justify-center border border-white/15"
+              className="py-3 px-3 rounded-xl bg-white/10 hover:bg-white/20 text-white font-bold text-xs transition-all cursor-pointer flex items-center justify-center border border-white/15 active:scale-95"
               title="सभी विषय देखें"
             >
               <ChevronRight className="w-4 h-4" />
@@ -258,34 +260,34 @@ export const Home: React.FC = () => {
         </div>
       </div>
 
-      {/* 4-Card Flutter Bento Study Hub (Clean, Calm Educational Palette) */}
+      {/* 4-Card Bento Study Hub (Modern Clean Cards) */}
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
         <button
           onClick={() => navigate('/mock-test')}
-          className="p-3.5 bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/90 dark:border-slate-800 shadow-2xs hover:shadow-xs transition-all flex flex-col items-center text-center cursor-pointer group active:scale-95"
+          className="p-3.5 bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/80 dark:border-slate-800 shadow-xs hover:shadow-md hover:border-slate-300 dark:hover:border-slate-700 transition-all flex flex-col items-center text-center cursor-pointer group hover:-translate-y-0.5 active:scale-[0.98]"
         >
-          <div className="w-10 h-10 rounded-xl bg-amber-50 dark:bg-amber-950/80 text-amber-600 dark:text-amber-400 flex items-center justify-center mb-1.5 group-hover:scale-105 transition-transform border border-amber-200/60 dark:border-amber-900">
-            <Zap className="w-5 h-5 fill-amber-500 text-amber-500" />
+          <div className="w-12 h-12 flex items-center justify-center mb-1 group-hover:scale-105 transition-transform">
+            <Illustration name="mocktest" size={44} />
           </div>
           <span className="text-xs font-black text-slate-900 dark:text-slate-100 leading-tight">
             Mock Tests
           </span>
-          <span className="text-[10px] font-bold text-amber-600 dark:text-amber-400 mt-0.5">
+          <span className="text-[10px] font-semibold text-amber-600 dark:text-amber-400 mt-0.5">
             लाइव टेस्ट
           </span>
         </button>
 
         <button
           onClick={() => navigate(`/class/${profile.classId}/subjects`)}
-          className="p-3.5 bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/90 dark:border-slate-800 shadow-2xs hover:shadow-xs transition-all flex flex-col items-center text-center cursor-pointer group active:scale-95"
+          className="p-3.5 bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/80 dark:border-slate-800 shadow-xs hover:shadow-md hover:border-slate-300 dark:hover:border-slate-700 transition-all flex flex-col items-center text-center cursor-pointer group hover:-translate-y-0.5 active:scale-[0.98]"
         >
-          <div className="w-10 h-10 rounded-xl bg-blue-50 dark:bg-blue-950/80 text-blue-600 dark:text-blue-400 flex items-center justify-center mb-1.5 group-hover:scale-105 transition-transform border border-blue-200/60 dark:border-blue-900">
-            <FileText className="w-5 h-5" />
+          <div className="w-12 h-12 flex items-center justify-center mb-1 group-hover:scale-105 transition-transform">
+            <Illustration name="papers" size={44} />
           </div>
           <span className="text-xs font-black text-slate-900 dark:text-slate-100 leading-tight">
             Solved Papers
           </span>
-          <span className="text-[10px] font-bold text-blue-600 dark:text-blue-400 mt-0.5">
+          <span className="text-[10px] font-semibold text-blue-600 dark:text-blue-400 mt-0.5">
             {papers.length} उपलब्ध
           </span>
         </button>
@@ -298,15 +300,15 @@ export const Home: React.FC = () => {
               )}/syllabus`
             )
           }
-          className="p-3.5 bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/90 dark:border-slate-800 shadow-2xs hover:shadow-xs transition-all flex flex-col items-center text-center cursor-pointer group active:scale-95"
+          className="p-3.5 bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/80 dark:border-slate-800 shadow-xs hover:shadow-md hover:border-slate-300 dark:hover:border-slate-700 transition-all flex flex-col items-center text-center cursor-pointer group hover:-translate-y-0.5 active:scale-[0.98]"
         >
-          <div className="w-10 h-10 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 flex items-center justify-center mb-1.5 group-hover:scale-105 transition-transform border border-slate-200 dark:border-slate-700">
-            <Layers className="w-5 h-5" />
+          <div className="w-12 h-12 flex items-center justify-center mb-1 group-hover:scale-105 transition-transform">
+            <Illustration name="syllabus" size={44} />
           </div>
           <span className="text-xs font-black text-slate-900 dark:text-slate-100 leading-tight">
             Syllabus
           </span>
-          <span className="text-[10px] font-bold text-slate-500 dark:text-slate-400 mt-0.5">
+          <span className="text-[10px] font-semibold text-teal-600 dark:text-teal-400 mt-0.5">
             पाठ्यक्रम
           </span>
         </button>
@@ -319,25 +321,25 @@ export const Home: React.FC = () => {
               )}/notes`
             )
           }
-          className="p-3.5 bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/90 dark:border-slate-800 shadow-2xs hover:shadow-xs transition-all flex flex-col items-center text-center cursor-pointer group active:scale-95"
+          className="p-3.5 bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/80 dark:border-slate-800 shadow-xs hover:shadow-md hover:border-slate-300 dark:hover:border-slate-700 transition-all flex flex-col items-center text-center cursor-pointer group hover:-translate-y-0.5 active:scale-[0.98]"
         >
-          <div className="w-10 h-10 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 flex items-center justify-center mb-1.5 group-hover:scale-105 transition-transform border border-slate-200 dark:border-slate-700">
-            <BookMarked className="w-5 h-5" />
+          <div className="w-12 h-12 flex items-center justify-center mb-1 group-hover:scale-105 transition-transform">
+            <Illustration name="notes" size={44} />
           </div>
           <span className="text-xs font-black text-slate-900 dark:text-slate-100 leading-tight">
             Chapter Notes
           </span>
-          <span className="text-[10px] font-bold text-slate-500 dark:text-slate-400 mt-0.5">
+          <span className="text-[10px] font-semibold text-violet-600 dark:text-violet-400 mt-0.5">
             अध्याय नोट्स
           </span>
         </button>
       </div>
 
       {/* Student Progress & Performance Analytics Card (Firestore Synced) */}
-      <div className="bg-white dark:bg-slate-900 rounded-[28px] p-4 sm:p-5 border border-slate-200/90 dark:border-slate-800 shadow-sm space-y-3.5">
+      <div className="bg-white dark:bg-slate-900 rounded-2xl sm:rounded-3xl p-4 sm:p-5 border border-slate-200/80 dark:border-slate-800 shadow-xs space-y-3.5">
         <div className="flex items-center justify-between flex-wrap gap-2">
           <div className="flex items-center gap-2">
-            <div className="w-8 h-8 rounded-xl bg-blue-50 dark:bg-blue-950 text-blue-600 dark:text-blue-400 flex items-center justify-center border border-blue-100 dark:border-blue-900 shrink-0">
+            <div className="w-8 h-8 rounded-xl bg-blue-50 dark:bg-blue-950 text-blue-600 dark:text-blue-400 flex items-center justify-center border border-blue-100 dark:border-blue-900/60 shrink-0">
               <TrendingUp className="w-4 h-4" />
             </div>
             <div>
@@ -350,22 +352,33 @@ export const Home: React.FC = () => {
             </div>
           </div>
 
-          <div className="flex items-center gap-1 bg-slate-100 dark:bg-slate-800 p-0.5 rounded-xl text-[10px] font-bold">
+          <div className="flex items-center gap-1 bg-slate-100 dark:bg-slate-800 p-0.5 rounded-xl text-[10px] font-bold border border-slate-200/70 dark:border-slate-700/60">
             <button
               onClick={() => setActiveTab('overview')}
               className={`px-2.5 py-1 rounded-lg transition-all cursor-pointer ${
                 activeTab === 'overview'
-                  ? 'bg-white dark:bg-slate-700 text-blue-600 dark:text-blue-400 shadow-2xs font-black'
+                  ? 'bg-white dark:bg-slate-700 text-blue-600 dark:text-blue-400 shadow-xs font-black'
                   : 'text-slate-600 dark:text-slate-400'
               }`}
             >
               ओवरव्यू
             </button>
             <button
+              onClick={() => setActiveTab('badges')}
+              className={`px-2.5 py-1 rounded-lg transition-all cursor-pointer flex items-center gap-1 ${
+                activeTab === 'badges'
+                  ? 'bg-white dark:bg-slate-700 text-amber-600 dark:text-amber-400 shadow-xs font-black'
+                  : 'text-slate-600 dark:text-slate-400'
+              }`}
+            >
+              <Award className="w-3 h-3 text-amber-500" />
+              <span>बैज</span>
+            </button>
+            <button
               onClick={() => setActiveTab('subjectMastery')}
               className={`px-2.5 py-1 rounded-lg transition-all cursor-pointer ${
                 activeTab === 'subjectMastery'
-                  ? 'bg-white dark:bg-slate-700 text-blue-600 dark:text-blue-400 shadow-2xs font-black'
+                  ? 'bg-white dark:bg-slate-700 text-blue-600 dark:text-blue-400 shadow-xs font-black'
                   : 'text-slate-600 dark:text-slate-400'
               }`}
             >
@@ -375,7 +388,7 @@ export const Home: React.FC = () => {
               onClick={() => setActiveTab('recentTests')}
               className={`px-2.5 py-1 rounded-lg transition-all cursor-pointer ${
                 activeTab === 'recentTests'
-                  ? 'bg-white dark:bg-slate-700 text-blue-600 dark:text-blue-400 shadow-2xs font-black'
+                  ? 'bg-white dark:bg-slate-700 text-blue-600 dark:text-blue-400 shadow-xs font-black'
                   : 'text-slate-600 dark:text-slate-400'
               }`}
             >
@@ -386,48 +399,58 @@ export const Home: React.FC = () => {
 
         {/* Tab 1: Overview Progress Metrics */}
         {activeTab === 'overview' && (
-          <div className="grid grid-cols-4 gap-2 pt-1">
-            {/* Accuracy Rate */}
-            <div className="p-2.5 sm:p-3 rounded-2xl bg-blue-50/70 dark:bg-blue-950/40 border border-blue-100 dark:border-blue-900/60 text-center">
-              <div className="text-base sm:text-xl font-black text-blue-700 dark:text-blue-300">
-                {progress.accuracy}%
+          <div className="space-y-3">
+            <div className="grid grid-cols-4 gap-2 pt-1">
+              {/* Accuracy Rate */}
+              <div className="p-2.5 sm:p-3 rounded-2xl bg-blue-50/70 dark:bg-blue-950/40 border border-blue-100 dark:border-blue-900/40 text-center shadow-xs">
+                <div className="text-base sm:text-xl font-black text-blue-700 dark:text-blue-300">
+                  {progress.accuracy}%
+                </div>
+                <div className="text-[10px] font-bold text-slate-600 dark:text-slate-400">
+                  सटीकता
+                </div>
               </div>
-              <div className="text-[10px] font-bold text-slate-600 dark:text-slate-400">
-                सटीकता
+
+              {/* Questions Solved */}
+              <div className="p-2.5 sm:p-3 rounded-2xl bg-emerald-50/70 dark:bg-emerald-950/40 border border-emerald-100 dark:border-emerald-900/40 text-center shadow-xs">
+                <div className="text-base sm:text-xl font-black text-emerald-700 dark:text-emerald-300">
+                  {progress.totalQuestionsSolved}
+                </div>
+                <div className="text-[10px] font-bold text-slate-600 dark:text-slate-400">
+                  हल प्रश्न
+                </div>
+              </div>
+
+              {/* Tests Completed */}
+              <div className="p-2.5 sm:p-3 rounded-2xl bg-slate-100/70 dark:bg-slate-800/60 border border-slate-200/80 dark:border-slate-700/60 text-center shadow-xs">
+                <div className="text-base sm:text-xl font-black text-slate-800 dark:text-slate-200">
+                  {progress.testsCompleted}
+                </div>
+                <div className="text-[10px] font-bold text-slate-600 dark:text-slate-400">
+                  मॉक टेस्ट
+                </div>
+              </div>
+
+              {/* Study Streak */}
+              <div className="p-2.5 sm:p-3 rounded-2xl bg-amber-50/70 dark:bg-amber-950/40 border border-amber-100 dark:border-amber-900/40 text-center shadow-xs">
+                <div className="text-base sm:text-xl font-black text-amber-700 dark:text-amber-300 flex items-center justify-center gap-0.5">
+                  <span>{progress.studyStreakDays}</span>
+                  <span className="text-xs">🔥</span>
+                </div>
+                <div className="text-[10px] font-bold text-slate-600 dark:text-slate-400">
+                  दिन स्ट्रीक
+                </div>
               </div>
             </div>
 
-            {/* Questions Solved */}
-            <div className="p-2.5 sm:p-3 rounded-2xl bg-emerald-50/70 dark:bg-emerald-950/40 border border-emerald-100 dark:border-emerald-900/60 text-center">
-              <div className="text-base sm:text-xl font-black text-emerald-700 dark:text-emerald-300">
-                {progress.totalQuestionsSolved}
-              </div>
-              <div className="text-[10px] font-bold text-slate-600 dark:text-slate-400">
-                हल प्रश्न
-              </div>
-            </div>
-
-            {/* Tests Completed */}
-            <div className="p-2.5 sm:p-3 rounded-2xl bg-slate-100/70 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 text-center">
-              <div className="text-base sm:text-xl font-black text-slate-800 dark:text-slate-200">
-                {progress.testsCompleted}
-              </div>
-              <div className="text-[10px] font-bold text-slate-600 dark:text-slate-400">
-                मॉक टेस्ट
-              </div>
-            </div>
-
-            {/* Study Streak */}
-            <div className="p-2.5 sm:p-3 rounded-2xl bg-amber-50/70 dark:bg-amber-950/40 border border-amber-100 dark:border-amber-900/60 text-center">
-              <div className="text-base sm:text-xl font-black text-amber-700 dark:text-amber-300 flex items-center justify-center gap-0.5">
-                <span>{progress.studyStreakDays}</span>
-                <span className="text-xs">🔥</span>
-              </div>
-              <div className="text-[10px] font-bold text-slate-600 dark:text-slate-400">
-                दिन स्ट्रीक
-              </div>
-            </div>
+            {/* Badges Preview in Student Overview */}
+            <Badges compact onViewAll={() => setActiveTab('badges')} />
           </div>
+        )}
+
+        {/* Tab 2: Virtual Badges Component */}
+        {activeTab === 'badges' && (
+          <Badges />
         )}
 
         {/* Tab 2: Subject-wise Mastery Progress */}
@@ -566,7 +589,7 @@ export const Home: React.FC = () => {
             return (
               <div
                 key={sub.name}
-                className="bg-white dark:bg-slate-900 border border-slate-200/90 dark:border-slate-800/90 p-3.5 rounded-2xl sm:rounded-3xl flex items-center justify-between gap-3 shadow-2xs hover:shadow-xs transition-all"
+                className="bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 p-3.5 rounded-2xl flex items-center justify-between gap-3 shadow-xs hover:shadow-md hover:border-slate-300 dark:hover:border-slate-700 hover:-translate-y-0.5 transition-all group"
               >
                 <div
                   onClick={() =>
@@ -576,14 +599,39 @@ export const Home: React.FC = () => {
                   }
                   className="flex items-center gap-3 flex-1 min-w-0 cursor-pointer"
                 >
-                  <div
-                    className={`w-12 h-12 ${sub.bg} rounded-2xl flex items-center justify-center text-2xl shrink-0 shadow-xs`}
-                  >
-                    {sub.emoji}
-                  </div>
+                  {(() => {
+                    const norm = sub.name.toLowerCase();
+                    const illName = norm.includes('hist')
+                      ? 'history'
+                      : norm.includes('geo')
+                      ? 'geography'
+                      : norm.includes('pol')
+                      ? 'polscience'
+                      : norm.includes('bio')
+                      ? 'biology'
+                      : norm.includes('phys')
+                      ? 'physics'
+                      : norm.includes('math')
+                      ? 'math'
+                      : norm.includes('chem')
+                      ? 'chemistry'
+                      : null;
+
+                    return illName ? (
+                      <div className="w-12 h-12 rounded-2xl flex items-center justify-center shrink-0 shadow-xs border border-slate-200/70 dark:border-slate-700/60 overflow-hidden group-hover:scale-105 transition-transform bg-slate-50 dark:bg-slate-800 p-0.5">
+                        <Illustration name={illName as any} size={42} />
+                      </div>
+                    ) : (
+                      <div
+                        className={`w-12 h-12 ${sub.bg} rounded-2xl flex items-center justify-center text-2xl shrink-0 shadow-xs border border-slate-200/60 dark:border-slate-700`}
+                      >
+                        {sub.emoji}
+                      </div>
+                    );
+                  })()}
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center gap-1.5">
-                      <h4 className="text-xs sm:text-sm font-black text-slate-800 dark:text-slate-100 truncate">
+                      <h4 className="text-xs sm:text-sm font-black text-slate-800 dark:text-slate-100 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors truncate">
                         {sub.name}
                       </h4>
                       <span className="text-[10px] text-slate-400 shrink-0">
@@ -592,11 +640,11 @@ export const Home: React.FC = () => {
                     </div>
 
                     <div className="flex items-center gap-2 mt-1 text-[10px] flex-wrap">
-                      <span className="text-slate-600 dark:text-slate-300 font-bold bg-slate-100 dark:bg-slate-800 px-2 py-0.5 rounded-full border border-slate-200 dark:border-slate-700">
+                      <span className="text-slate-600 dark:text-slate-300 font-medium bg-slate-100 dark:bg-slate-800 px-2 py-0.5 rounded-full border border-slate-200 dark:border-slate-700">
                         {paperCount} Solved Papers
                       </span>
                       {subStat && subStat.attempted > 0 && (
-                        <span className="text-blue-700 dark:text-blue-300 font-bold bg-blue-50 dark:bg-blue-950/60 px-2 py-0.5 rounded-full border border-blue-200/60 dark:border-blue-900/60">
+                        <span className="text-blue-700 dark:text-blue-300 font-medium bg-blue-50 dark:bg-blue-950/60 px-2 py-0.5 rounded-full border border-blue-200/60 dark:border-blue-900/60">
                           {subStat.accuracy}% स्कोर
                         </span>
                       )}
@@ -612,7 +660,7 @@ export const Home: React.FC = () => {
                         `/class/${profile.classId}/subject/${encodeURIComponent(sub.name)}/papers`
                       )
                     }
-                    className="p-2 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 font-bold text-xs transition-all cursor-pointer"
+                    className="p-2 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 font-bold text-xs transition-all cursor-pointer border border-slate-200/70 dark:border-slate-700 shadow-xs active:scale-95"
                     title="पेपर्स देखें"
                   >
                     <FileText className="w-4 h-4" />

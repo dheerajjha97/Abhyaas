@@ -33,6 +33,7 @@ export interface StudentProgressData {
   totalMinutesStudied: number;
   subjectStats: Record<string, SubjectProgress>;
   recentHistory: TestHistoryItem[];
+  earnedBadges?: string[];
   lastUpdated: number;
 }
 
@@ -47,5 +48,6 @@ export const DEFAULT_STUDENT_PROGRESS: StudentProgressData = {
   totalMinutesStudied: 0,
   subjectStats: {},
   recentHistory: [],
+  earnedBadges: [],
   lastUpdated: Date.now(),
 };

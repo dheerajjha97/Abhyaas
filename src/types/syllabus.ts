@@ -33,6 +33,8 @@ export interface SyllabusMeta {
   academicYear?: string;
   stream?: string;
   totalMarks?: number;
+  theoryMarks?: number;
+  practicalMarks?: number;
   totalUnits?: number;
   totalChapters?: number;
   totalTopics?: number;

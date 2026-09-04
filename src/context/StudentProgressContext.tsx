@@ -48,6 +48,7 @@ export const StudentProgressProvider: React.FC<{ children: React.ReactNode }> = 
               accuracy: progressData.accuracy,
               testsCompleted: progressData.testsCompleted,
               studyStreakDays: progressData.studyStreakDays,
+              earnedBadges: progressData.earnedBadges || [],
               lastUpdated: Date.now(),
             },
           },
@@ -97,6 +98,9 @@ export const StudentProgressProvider: React.FC<{ children: React.ReactNode }> = 
               recentHistory: cloudData.recentHistory && cloudData.recentHistory.length > 0
                 ? cloudData.recentHistory
                 : local.recentHistory,
+              earnedBadges: Array.from(
+                new Set([...(local.earnedBadges || []), ...(cloudData.earnedBadges || [])])
+              ),
               lastUpdated: Date.now(),
             };
             setProgress(merged);

@@ -123,7 +123,18 @@ export const SyllabusView: React.FC = () => {
             <div className="grid grid-cols-3 gap-2 pt-1">
               <div className="bg-slate-50 dark:bg-slate-800/60 rounded-xl p-2.5 text-center border border-slate-200/60 dark:border-slate-700">
                 <span className="text-[10px] text-slate-500 dark:text-slate-400 uppercase font-bold block">कुल अंक</span>
-                <span className="text-sm sm:text-base font-black text-blue-600 dark:text-blue-400">{syllabusData.syllabus.totalMarks || 100} Marks</span>
+                <span className="text-sm sm:text-base font-black text-blue-600 dark:text-blue-400">
+                  {syllabusData.syllabus.totalMarks || 100} Marks
+                </span>
+                {syllabusData.syllabus.practicalMarks ? (
+                  <span className="text-[9px] font-bold text-slate-500 dark:text-slate-400 block -mt-0.5">
+                    ({syllabusData.syllabus.theoryMarks || 70} Th + {syllabusData.syllabus.practicalMarks} Pr)
+                  </span>
+                ) : (
+                  <span className="text-[9px] font-bold text-slate-500 dark:text-slate-400 block -mt-0.5">
+                    (100 थ्योरी)
+                  </span>
+                )}
               </div>
               <div className="bg-slate-50 dark:bg-slate-800/60 rounded-xl p-2.5 text-center border border-slate-200/60 dark:border-slate-700">
                 <span className="text-[10px] text-slate-500 dark:text-slate-400 uppercase font-bold block">कुल इकाइयाँ</span>

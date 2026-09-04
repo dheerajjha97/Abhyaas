@@ -1,4 +1,5 @@
 import { StudentProgressData, DEFAULT_STUDENT_PROGRESS, TestHistoryItem } from '../types/progress';
+import { evaluateStudentBadges } from '../types/badge';
 
 const PROGRESS_STORAGE_KEY = 'abhyaas_student_progress_v2';
 
@@ -12,6 +13,7 @@ export function getLocalProgress(): StudentProgressData {
       ...parsed,
       subjectStats: parsed.subjectStats || {},
       recentHistory: Array.isArray(parsed.recentHistory) ? parsed.recentHistory : [],
+      earnedBadges: Array.isArray(parsed.earnedBadges) ? parsed.earnedBadges : [],
     };
   } catch (err) {
     console.error('Failed to parse local progress:', err);
@@ -87,7 +89,7 @@ export function calculateUpdatedProgress(
   // Prepend recent history, keep last 25 tests
   const updatedHistory = [testItem, ...current.recentHistory.filter((h) => h.id !== testItem.id)].slice(0, 25);
 
-  return {
+  const updatedCandidate: StudentProgressData = {
     ...current,
     totalQuestionsSolved: newQuestionsSolved,
     totalCorrect: newCorrect,
@@ -100,5 +102,14 @@ export function calculateUpdatedProgress(
     subjectStats: updatedSubjectStats,
     recentHistory: updatedHistory,
     lastUpdated: Date.now(),
+  };
+
+  // Evaluate newly earned badges
+  const evaluatedBadges = evaluateStudentBadges(updatedCandidate);
+  const earnedBadges = evaluatedBadges.filter((b) => b.isUnlocked).map((b) => b.id);
+
+  return {
+    ...updatedCandidate,
+    earnedBadges,
   };
 }

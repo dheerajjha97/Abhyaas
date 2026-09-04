@@ -73,8 +73,8 @@ export const Papers: React.FC = () => {
               }}
               className={`px-3.5 py-2 rounded-full text-xs font-bold shrink-0 transition-all flex items-center gap-1.5 cursor-pointer select-none active:scale-95 ${
                 isSelected
-                  ? 'bg-blue-600 text-white shadow-xs'
-                  : 'bg-white dark:bg-slate-900 border border-slate-200/90 dark:border-slate-800 text-slate-700 dark:text-slate-300 hover:border-blue-400'
+                  ? 'bg-blue-600 text-white shadow-xs border border-blue-600'
+                  : 'bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 text-slate-700 dark:text-slate-300 hover:border-slate-300'
               }`}
             >
               <span>{sub.emoji}</span>
@@ -85,7 +85,7 @@ export const Papers: React.FC = () => {
       </div>
 
       {/* Resource Tab Navigation (Papers | Mock Test | Syllabus | Notes) */}
-      <div className="grid grid-cols-4 gap-1 bg-slate-100 dark:bg-slate-800/80 p-1 rounded-2xl border border-slate-200/80 dark:border-slate-800">
+      <div className="grid grid-cols-4 gap-1 bg-slate-100 dark:bg-slate-800/80 p-1 rounded-2xl border border-slate-200/80 dark:border-slate-700/60 shadow-xs">
         <button
           className="py-2 px-1.5 rounded-xl bg-blue-600 text-white font-black text-xs shadow-xs flex items-center justify-center gap-1 transition-all"
         >
@@ -94,21 +94,21 @@ export const Papers: React.FC = () => {
         </button>
         <button
           onClick={() => navigate(`/mock-test?subject=${encodeURIComponent(selectedSubject)}`)}
-          className="py-2 px-1.5 rounded-xl bg-white dark:bg-slate-700 text-slate-700 dark:text-slate-200 font-bold text-xs hover:bg-slate-50 dark:hover:bg-slate-650 transition-all flex items-center justify-center gap-1 cursor-pointer border border-slate-200/60 dark:border-slate-600"
+          className="py-2 px-1.5 rounded-xl bg-white dark:bg-slate-700 text-slate-700 dark:text-slate-200 font-bold text-xs hover:bg-slate-50 dark:hover:bg-slate-650 transition-all flex items-center justify-center gap-1 cursor-pointer border border-slate-200/60 dark:border-slate-600 shadow-xs active:scale-95"
         >
           <Zap className="w-3.5 h-3.5 text-amber-500 fill-amber-500" />
           <span className="truncate">Mock Test</span>
         </button>
         <button
           onClick={() => navigate(`/class/${classId}/subject/${encodeURIComponent(selectedSubject)}/syllabus`)}
-          className="py-2 px-1.5 rounded-xl bg-white dark:bg-slate-700 text-slate-700 dark:text-slate-200 font-bold text-xs hover:bg-slate-50 dark:hover:bg-slate-650 transition-all flex items-center justify-center gap-1 cursor-pointer border border-slate-200/60 dark:border-slate-600"
+          className="py-2 px-1.5 rounded-xl bg-white dark:bg-slate-700 text-slate-700 dark:text-slate-200 font-bold text-xs hover:bg-slate-50 dark:hover:bg-slate-650 transition-all flex items-center justify-center gap-1 cursor-pointer border border-slate-200/60 dark:border-slate-600 shadow-xs active:scale-95"
         >
           <Layers className="w-3.5 h-3.5 text-blue-600" />
           <span className="truncate">Syllabus</span>
         </button>
         <button
           onClick={() => navigate(`/class/${classId}/subject/${encodeURIComponent(selectedSubject)}/notes`)}
-          className="py-2 px-1.5 rounded-xl bg-white dark:bg-slate-700 text-slate-700 dark:text-slate-200 font-bold text-xs hover:bg-slate-50 dark:hover:bg-slate-650 transition-all flex items-center justify-center gap-1 cursor-pointer border border-slate-200/60 dark:border-slate-600"
+          className="py-2 px-1.5 rounded-xl bg-white dark:bg-slate-700 text-slate-700 dark:text-slate-200 font-bold text-xs hover:bg-slate-50 dark:hover:bg-slate-650 transition-all flex items-center justify-center gap-1 cursor-pointer border border-slate-200/60 dark:border-slate-600 shadow-xs active:scale-95"
         >
           <BookOpen className="w-3.5 h-3.5 text-emerald-600" />
           <span className="truncate">Notes</span>
@@ -116,7 +116,7 @@ export const Papers: React.FC = () => {
       </div>
 
       {/* Header Banner */}
-      <div className="bg-white dark:bg-slate-900 rounded-2xl sm:rounded-3xl p-4 sm:p-5 border border-slate-200/90 dark:border-slate-800 shadow-2xs flex items-center justify-between gap-4">
+      <div className="bg-white dark:bg-slate-900 rounded-2xl sm:rounded-3xl p-4 sm:p-5 border border-slate-200/80 dark:border-slate-800 shadow-xs flex items-center justify-between gap-4">
         <div className="space-y-1.5">
           <div className="flex items-center gap-2">
             <span className="inline-flex items-center gap-1 text-[11px] font-bold text-blue-700 dark:text-blue-300 bg-blue-50 dark:bg-blue-950/60 px-2.5 py-0.5 rounded-full border border-blue-200/60 dark:border-blue-900">
@@ -126,7 +126,7 @@ export const Papers: React.FC = () => {
               onClick={fetchPapers}
               disabled={loading}
               title="रिफ्रेश करें"
-              className="p-1 rounded-full text-blue-600 hover:bg-blue-50 dark:hover:bg-slate-800 transition-all cursor-pointer"
+              className="p-1 rounded-full text-blue-600 hover:bg-blue-50 dark:hover:bg-slate-800 transition-all cursor-pointer border border-transparent hover:border-slate-200 dark:hover:border-slate-700"
             >
               <RotateCw className={`w-3.5 h-3.5 ${loading ? 'animate-spin' : ''}`} />
             </button>

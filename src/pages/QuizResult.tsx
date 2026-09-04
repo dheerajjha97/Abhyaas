@@ -98,6 +98,14 @@ export const QuizResult: React.FC = () => {
         </button>
 
         <button
+          onClick={() => navigate('/')}
+          className="w-full py-3.5 px-4 bg-amber-500 hover:bg-amber-600 text-white font-bold text-sm rounded-xl shadow-xs active:scale-[0.98] transition-all flex items-center justify-center gap-2 cursor-pointer"
+        >
+          <Award className="w-4 h-4" />
+          <span>अपनी प्रगति और अर्जित बैज देखें (View Badges)</span>
+        </button>
+
+        <button
           onClick={() => navigate(`/paper/${paperId}`)}
           className="w-full py-3 px-4 bg-transparent text-slate-500 hover:text-slate-800 dark:hover:text-slate-200 font-bold text-xs flex items-center justify-center gap-1.5 cursor-pointer"
         >

@@ -26,6 +26,7 @@
         "lastStudyDate": { "type": "string" },
         "subjectStats": { "type": "map" },
         "recentHistory": { "type": "array" },
+        "earnedBadges": { "type": "array" },
         "lastUpdated": { "type": "number" }
       }
     }

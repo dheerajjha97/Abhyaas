@@ -7,6 +7,7 @@ import { GlassCard } from '../components/ui/GlassCard';
 import { Toast, ToastMessage } from '../components/ui/Toast';
 import { Illustration } from '../components/ui/Illustration';
 import { useStudentProfile } from '../context/StudentProfileContext';
+import { Badges } from '../components/dashboard/Badges';
 import {
   Download,
   Wifi,
@@ -140,6 +141,11 @@ export const More: React.FC = () => {
             ))}
           </div>
         </div>
+      </div>
+
+      {/* Student Virtual Badges & Achievements (Firestore Synced) */}
+      <div className="bg-white dark:bg-slate-900 rounded-2xl sm:rounded-3xl p-4 sm:p-5 border border-slate-200/80 dark:border-slate-800 shadow-xs space-y-3">
+        <Badges />
       </div>
 
       {/* Class Switcher in Settings (Material 3 Surface Card) */}

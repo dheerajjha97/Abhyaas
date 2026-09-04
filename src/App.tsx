@@ -53,7 +53,7 @@ const AppContent: React.FC = () => {
       <div className="min-h-screen w-full bg-slate-100/90 dark:bg-slate-950 flex flex-col items-center justify-start relative font-sans antialiased text-slate-900 dark:text-slate-100">
         {/* Main Centered App Container */}
         <div className="w-full max-w-md sm:max-w-xl min-h-screen flex flex-col relative z-10 px-3 sm:px-5 pt-2 pb-8 bg-slate-50 dark:bg-slate-900 sm:border-x sm:border-slate-200/80 dark:sm:border-slate-800/80 shadow-sm">
-          <main className="flex-1">
+          <main className="flex-1 pb-24 sm:pb-28">
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/papers" element={<Papers />} />

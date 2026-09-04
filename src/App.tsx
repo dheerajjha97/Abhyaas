@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import { StudentProfileProvider, useStudentProfile } from './context/StudentProfileContext';
+import { StudentProgressProvider } from './context/StudentProgressContext';
 import { StudentProfileModal } from './components/profile/StudentProfileModal';
 import { Home } from './pages/Home';
 import { Subjects } from './pages/Subjects';
@@ -15,6 +16,7 @@ import { Search } from './pages/Search';
 import { More } from './pages/More';
 import { SyllabusView } from './pages/SyllabusView';
 import { NotesView } from './pages/NotesView';
+import { MockTestGenerator } from './pages/MockTestGenerator';
 import { BottomNavigation } from './components/ui/BottomNavigation';
 
 // Scroll to top on route change
@@ -43,17 +45,10 @@ const AppContent: React.FC = () => {
   return (
     <Router>
       <ScrollToTop />
-      {/* Outer wrapper: Centered mobile container on desktop with rich frosted glass ambient blurred background blobs */}
-      <div className="min-h-screen w-full bg-[#ecf2f9] dark:bg-slate-950 flex flex-col items-center justify-start relative overflow-x-hidden font-sans">
-        {/* Frosted Glass Theme Ambient Blurred Background Light Blobs */}
-        <div className="fixed inset-0 pointer-events-none overflow-hidden z-0">
-          <div className="absolute top-[-100px] left-[-100px] w-[400px] h-[400px] bg-indigo-300 dark:bg-indigo-900/40 rounded-full blur-[100px] opacity-40" />
-          <div className="absolute bottom-[-100px] right-[-100px] w-[500px] h-[500px] bg-amber-200 dark:bg-amber-900/30 rounded-full blur-[120px] opacity-40" />
-          <div className="absolute top-[20%] right-[10%] w-[300px] h-[300px] bg-teal-200 dark:bg-teal-900/30 rounded-full blur-[100px] opacity-30" />
-        </div>
-
-        {/* Main Centered Mobile Frame */}
-        <div className="w-full max-w-md sm:max-w-lg min-h-screen flex flex-col relative z-10 px-3 sm:px-4 pt-2 pb-8 bg-white/20 dark:bg-slate-900/30 backdrop-blur-2xl sm:rounded-[40px] sm:my-3 sm:border-8 sm:border-slate-800/80 shadow-[0_32px_64px_-16px_rgba(0,0,0,0.15)]">
+      {/* Outer wrapper: Clean, professional neutral background */}
+      <div className="min-h-screen w-full bg-slate-100/90 dark:bg-slate-950 flex flex-col items-center justify-start relative font-sans antialiased text-slate-900 dark:text-slate-100">
+        {/* Main Centered App Container */}
+        <div className="w-full max-w-md sm:max-w-xl min-h-screen flex flex-col relative z-10 px-3 sm:px-5 pt-2 pb-8 bg-slate-50 dark:bg-slate-900 sm:border-x sm:border-slate-200/80 dark:sm:border-slate-800/80 shadow-sm">
           <main className="flex-1">
             <Routes>
               <Route path="/" element={<Home />} />
@@ -71,6 +66,7 @@ const AppContent: React.FC = () => {
               <Route path="/bookmarks" element={<Bookmarks />} />
               <Route path="/search" element={<Search />} />
               <Route path="/more" element={<More />} />
+              <Route path="/mock-test" element={<MockTestGenerator />} />
             </Routes>
           </main>
 
@@ -94,7 +90,9 @@ export default function App() {
 
   return (
     <StudentProfileProvider>
-      <AppContent />
+      <StudentProgressProvider>
+        <AppContent />
+      </StudentProgressProvider>
     </StudentProfileProvider>
   );
 }

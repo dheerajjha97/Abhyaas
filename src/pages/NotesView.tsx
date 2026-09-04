@@ -2,9 +2,10 @@ import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { HeaderBar } from '../components/ui/HeaderBar';
 import { GlassCard } from '../components/ui/GlassCard';
+import { FormattedNoteContent } from '../components/ui/FormattedNoteContent';
 import { notesRepository } from '../services/notesRepository';
 import { NoteData } from '../types/notes';
-import { BookOpen, Clock, Tag, Award, Sparkles, CheckCircle2, ChevronLeft, Bookmark } from 'lucide-react';
+import { BookOpen, Clock, Tag, Award, Sparkles, CheckCircle2, ChevronLeft, Bookmark, Zap } from 'lucide-react';
 
 export const NotesView: React.FC = () => {
   const { classId = '12', subjectId = 'pol-science' } = useParams<{ classId: string; subjectId: string }>();
@@ -125,22 +126,45 @@ export const NotesView: React.FC = () => {
         </div>
       </div>
 
+      {/* Key Takeaways / Overview Summary if available */}
+      {activeNote.keyTakeaways && activeNote.keyTakeaways.length > 0 && (
+        <GlassCard className="p-4 border-amber-200/80 dark:border-amber-900 bg-amber-50/50 dark:bg-amber-950/20 space-y-2">
+          <div className="flex items-center gap-2 text-amber-800 dark:text-amber-300 font-extrabold text-xs">
+            <Zap className="w-4 h-4 text-amber-600 dark:text-amber-400" />
+            <span>अध्याय के महत्वपूर्ण निष्कर्ष (Key Takeaways)</span>
+          </div>
+          <div className="space-y-1.5 pl-1">
+            {activeNote.keyTakeaways.map((kt, ktIdx) => (
+              <div key={ktIdx} className="flex items-start gap-2 text-xs text-slate-800 dark:text-slate-200">
+                <CheckCircle2 className="w-3.5 h-3.5 text-amber-600 dark:text-amber-400 shrink-0 mt-0.5" />
+                <span>{kt}</span>
+              </div>
+            ))}
+          </div>
+        </GlassCard>
+      )}
+
       {/* Note Sections */}
       <div className="space-y-4">
         {activeNote.sections.map((section, idx) => (
-          <GlassCard key={section.id || idx} className="p-4 sm:p-5 space-y-3 border border-indigo-100/70 dark:border-slate-800">
-            <div className="flex items-center gap-2 border-b border-indigo-100 dark:border-slate-800 pb-2">
-              <span className="w-6 h-6 rounded-lg bg-indigo-100 dark:bg-indigo-950 text-indigo-700 dark:text-indigo-300 font-extrabold text-xs flex items-center justify-center shrink-0">
+          <GlassCard key={section.id || idx} className="p-4 sm:p-5 space-y-3 border border-indigo-100/70 dark:border-slate-800 shadow-sm">
+            <div className="flex items-center gap-2 border-b border-indigo-100 dark:border-slate-800 pb-2.5">
+              <span className="w-7 h-7 rounded-xl bg-indigo-600 text-white font-black text-xs flex items-center justify-center shrink-0 shadow-xs">
                 {section.sectionNumber || idx + 1}
               </span>
-              <h2 className="text-sm sm:text-base font-black text-slate-900 dark:text-slate-100">
-                {section.heading}
-              </h2>
+              <div>
+                <h2 className="text-sm sm:text-base font-black text-slate-900 dark:text-slate-100 leading-snug">
+                  {section.heading}
+                </h2>
+                {section.headingHindi && (
+                  <p className="text-[11px] font-bold text-indigo-600 dark:text-indigo-400">
+                    {section.headingHindi}
+                  </p>
+                )}
+              </div>
             </div>
 
-            <div className="text-xs sm:text-sm text-slate-700 dark:text-slate-300 leading-relaxed whitespace-pre-line font-normal">
-              {section.content}
-            </div>
+            <FormattedNoteContent content={section.content} />
 
             {section.keyPoints && section.keyPoints.length > 0 && (
               <div className="mt-3 bg-indigo-50/70 dark:bg-slate-900/80 rounded-2xl p-3 border border-indigo-100 dark:border-slate-700 space-y-1.5">

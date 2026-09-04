@@ -3,6 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { questionRepository } from '../services/questionRepository';
 import { Paper, MCQ } from '../types/question';
 import { saveBookmark, isBookmarked, removeBookmark, saveQuizResult } from '../utils/bookmarkStorage';
+import { useStudentProgress } from '../context/StudentProgressContext';
 import { HeaderBar } from '../components/ui/HeaderBar';
 import { GlassCard } from '../components/ui/GlassCard';
 import { ProgressBar } from '../components/ui/ProgressBar';
@@ -21,6 +22,7 @@ export const Quiz: React.FC = () => {
   const [submitted, setSubmitted] = useState<Record<number, boolean>>({});
   const [showExplanation, setShowExplanation] = useState<Record<number, boolean>>({});
   const [toast, setToast] = useState<ToastMessage | null>(null);
+  const { recordTestResult } = useStudentProgress();
 
   useEffect(() => {
     if (!paperId) return;
@@ -105,26 +107,28 @@ export const Quiz: React.FC = () => {
     optionIdx: number,
     answerText: string
   ): boolean => {
-    if (!answerText) return false;
+    if (!answerText || !optionText) return false;
     const normOption = optionText.trim().toLowerCase();
     const normAnswer = answerText.trim().toLowerCase();
 
     // 1. Direct match
     if (normOption === normAnswer) return true;
 
-    // 2. Option key match (A, B, C, D)
+    // 2. Option key match (A, B, C, D, E)
     const keys = ['a', 'b', 'c', 'd', 'e'];
     const optKey = keys[optionIdx];
-    if (normAnswer === optKey || normAnswer === `(${optKey})` || normAnswer === `${optKey})`) return true;
+    if (
+      normAnswer === optKey ||
+      normAnswer === `(${optKey})` ||
+      normAnswer === `${optKey})` ||
+      normAnswer === `${optKey}.`
+    ) {
+      return true;
+    }
 
     // 3. Strip prefix e.g. "(D) Text" or "D. Text"
     const cleanAnswer = normAnswer.replace(/^\(?([a-e0-9])\)?[\.\:\s\-]*/i, '').trim();
     if (cleanAnswer && normOption === cleanAnswer) return true;
-
-    // 4. Substring check
-    if (normOption.length > 2 && normAnswer.length > 2) {
-      if (normOption.includes(cleanAnswer) || cleanAnswer.includes(normOption)) return true;
-    }
 
     return false;
   };
@@ -164,6 +168,21 @@ export const Quiz: React.FC = () => {
       };
 
       saveQuizResult(resultData);
+
+      recordTestResult({
+        id: paper.id,
+        testName: paper.paperName,
+        subject: paper.subject,
+        classId: paper.class,
+        totalQuestions,
+        score: correct,
+        correct,
+        wrong,
+        percentage,
+        timestamp: Date.now(),
+        timeSpentSeconds: 0,
+        isMockTest: false,
+      });
 
       navigate(`/paper/${paper.id}/quiz/result`, {
         state: { result: resultData },

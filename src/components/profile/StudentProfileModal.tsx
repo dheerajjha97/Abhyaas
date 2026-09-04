@@ -1,7 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import { useStudentProfile } from '../../context/StudentProfileContext';
 import { ALL_AVAILABLE_SUBJECTS, StudentProfile } from '../../types/studentProfile';
-import { X, Check, Sparkles, BookOpen, GraduationCap, CheckCircle2, UserCheck } from 'lucide-react';
+import {
+  X,
+  Check,
+  Sparkles,
+  BookOpen,
+  GraduationCap,
+  CheckCircle2,
+  UserCheck,
+  Cloud,
+  LogIn,
+  LogOut,
+  RefreshCw,
+} from 'lucide-react';
 
 interface StudentProfileModalProps {
   isOpen: boolean;
@@ -18,16 +30,25 @@ const BOARD_OPTIONS = [
 ];
 
 export const StudentProfileModal: React.FC<StudentProfileModalProps> = ({ isOpen, onClose }) => {
-  const { profile, updateProfile } = useStudentProfile();
+  const {
+    profile,
+    updateProfile,
+    currentUser,
+    isSyncing,
+    signInWithGoogle,
+    signOutUser,
+  } = useStudentProfile();
   const isFirstTimeSetup = !profile.isConfigured;
 
   const [formData, setFormData] = useState<StudentProfile>(profile);
   const [savedSuccess, setSavedSuccess] = useState(false);
+  const [showAllSubjects, setShowAllSubjects] = useState(false);
 
   useEffect(() => {
     if (isOpen) {
       setFormData(profile);
       setSavedSuccess(false);
+      setShowAllSubjects(false);
     }
   }, [isOpen, profile]);
 
@@ -38,57 +59,86 @@ export const StudentProfileModal: React.FC<StudentProfileModalProps> = ({ isOpen
     sub.classes.includes(formData.classId)
   );
 
+  const displayedSubjects = availableForClass.filter((sub) => {
+    if (formData.classId === '10' || showAllSubjects) return true;
+    return sub.stream === formData.stream || sub.stream === 'General';
+  });
+
   const handleClassChange = (newClass: string) => {
-    let defaultSubs: string[] = [];
-    if (newClass === '10') {
-      defaultSubs = ['Science', 'Mathematics', 'Social Science', 'Hindi'];
-    } else {
-      if (formData.stream === 'Arts') {
-        defaultSubs = ['History', 'Political Science', 'Geography', 'Hindi'];
+    // Save current selectedSubjects to the active classId
+    const updatedClassSubs = {
+      ...(formData.classSubjects || {}),
+      [formData.classId]: formData.selectedSubjects,
+    };
+
+    // Load saved subjects for newClass, or assign defaults
+    let newSubjects = updatedClassSubs[newClass];
+    if (!newSubjects || newSubjects.length === 0) {
+      if (newClass === '10') {
+        newSubjects = ['Science', 'Mathematics', 'Social Science', 'Hindi', 'English'];
+      } else if (formData.stream === 'Arts') {
+        newSubjects = ['History', 'Political Science', 'Geography', 'Home Science', 'Hindi'];
+      } else if (formData.stream === 'Commerce') {
+        newSubjects = ['Accountancy', 'Business Studies', 'Economics', 'Entrepreneurship', 'Hindi'];
       } else {
-        defaultSubs = ['Biology', 'Physics', 'Chemistry', 'Mathematics'];
+        newSubjects = ['Physics', 'Chemistry', 'Biology', 'Mathematics', 'Hindi'];
       }
+      updatedClassSubs[newClass] = newSubjects;
     }
+
     setFormData((prev) => ({
       ...prev,
       classId: newClass,
-      selectedSubjects: defaultSubs,
+      classSubjects: updatedClassSubs,
+      selectedSubjects: newSubjects,
     }));
   };
 
   const handleStreamPreset = (stream: 'Science' | 'Arts' | 'Commerce' | 'General') => {
     let subs: string[] = [];
     if (formData.classId === '10') {
-      subs = ['Science', 'Mathematics', 'Social Science', 'Hindi'];
+      subs = ['Science', 'Mathematics', 'Social Science', 'Hindi', 'English'];
     } else if (stream === 'Science') {
-      subs = ['Biology', 'Physics', 'Chemistry', 'Mathematics'];
+      subs = ['Physics', 'Chemistry', 'Biology', 'Mathematics', 'Hindi'];
     } else if (stream === 'Arts') {
-      subs = ['History', 'Political Science', 'Geography', 'Hindi'];
+      subs = ['History', 'Political Science', 'Geography', 'Home Science', 'Hindi'];
+    } else if (stream === 'Commerce') {
+      subs = ['Accountancy', 'Business Studies', 'Economics', 'Entrepreneurship', 'Hindi'];
     } else {
-      subs = ['Hindi', 'English', 'Mathematics', 'Economics'];
+      subs = ['Hindi', 'English', 'History', 'Political Science'];
     }
+
+    const updatedClassSubs = {
+      ...(formData.classSubjects || {}),
+      [formData.classId]: subs,
+    };
 
     setFormData((prev) => ({
       ...prev,
       stream,
+      classSubjects: updatedClassSubs,
       selectedSubjects: subs,
     }));
   };
 
   const toggleSubjectItem = (subjectName: string) => {
     const current = formData.selectedSubjects;
+    let nextSubs: string[];
     if (current.includes(subjectName)) {
       if (current.length <= 1) return; // Keep at least 1 subject
-      setFormData((prev) => ({
-        ...prev,
-        selectedSubjects: current.filter((s) => s !== subjectName),
-      }));
+      nextSubs = current.filter((s) => s !== subjectName);
     } else {
-      setFormData((prev) => ({
-        ...prev,
-        selectedSubjects: [...current, subjectName],
-      }));
+      nextSubs = [...current, subjectName];
     }
+    const updatedClassSubs = {
+      ...(formData.classSubjects || {}),
+      [formData.classId]: nextSubs,
+    };
+    setFormData((prev) => ({
+      ...prev,
+      selectedSubjects: nextSubs,
+      classSubjects: updatedClassSubs,
+    }));
   };
 
   const handleSave = () => {
@@ -152,6 +202,63 @@ export const StudentProfileModal: React.FC<StudentProfileModalProps> = ({ isOpen
 
         {/* Modal Body */}
         <div className="p-4 sm:p-5 space-y-5 overflow-y-auto flex-1 scrollbar-hide">
+          {/* Firebase Cloud Sync Card */}
+          <div className="p-3 sm:p-3.5 bg-gradient-to-r from-indigo-50/80 to-purple-50/80 dark:from-indigo-950/40 dark:to-purple-950/40 border border-indigo-100 dark:border-indigo-900/50 rounded-2xl">
+            <div className="flex items-center justify-between gap-2.5">
+              <div className="flex items-center gap-2.5 min-w-0">
+                <div className="w-8 h-8 rounded-xl bg-indigo-600 text-white flex items-center justify-center shrink-0 shadow-xs">
+                  <Cloud className="w-4 h-4" />
+                </div>
+                <div className="min-w-0">
+                  <div className="flex items-center gap-1.5 flex-wrap">
+                    <span className="text-xs font-bold text-slate-800 dark:text-slate-100">
+                      Firebase क्लाउड सिंक
+                    </span>
+                    {currentUser ? (
+                      <span className="inline-flex items-center gap-1 px-1.5 py-0.5 rounded-full text-[9px] font-extrabold bg-emerald-100 text-emerald-700 dark:bg-emerald-900/40 dark:text-emerald-300">
+                        <CheckCircle2 className="w-2.5 h-2.5" />
+                        Connected
+                      </span>
+                    ) : (
+                      <span className="px-1.5 py-0.5 rounded-full text-[9px] font-bold bg-amber-100 text-amber-800 dark:bg-amber-900/40 dark:text-amber-300">
+                        Local Storage
+                      </span>
+                    )}
+                  </div>
+                  <p className="text-[11px] text-slate-500 dark:text-slate-400 truncate">
+                    {currentUser
+                      ? currentUser.email || currentUser.displayName || 'Google Account Connected'
+                      : 'Google से सिंक करें ताकि डेटा कभी खो न जाए'}
+                  </p>
+                </div>
+              </div>
+              {currentUser ? (
+                <button
+                  type="button"
+                  onClick={signOutUser}
+                  className="px-2.5 py-1.5 rounded-xl text-[11px] font-bold text-red-600 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-950/40 border border-red-200 dark:border-red-900/50 transition-colors shrink-0 cursor-pointer flex items-center gap-1"
+                >
+                  <LogOut className="w-3 h-3" />
+                  <span>लॉगआउट</span>
+                </button>
+              ) : (
+                <button
+                  type="button"
+                  onClick={signInWithGoogle}
+                  disabled={isSyncing}
+                  className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white text-[11px] font-extrabold shadow-xs hover:shadow transition-all shrink-0 cursor-pointer disabled:opacity-50"
+                >
+                  {isSyncing ? (
+                    <RefreshCw className="w-3.5 h-3.5 animate-spin" />
+                  ) : (
+                    <LogIn className="w-3.5 h-3.5" />
+                  )}
+                  <span>Google लॉगिन</span>
+                </button>
+              )}
+            </div>
+          </div>
+
           {/* Name & Avatar */}
           <div className="space-y-2">
             <label className="text-xs font-bold text-slate-700 dark:text-slate-200">
@@ -224,11 +331,11 @@ export const StudentProfileModal: React.FC<StudentProfileModalProps> = ({ isOpen
             </div>
           </div>
 
-          {/* Stream presets (if Class 11 or 12) */}
+          {/* Stream Selection (if Class 11 or 12) */}
           {formData.classId !== '10' && (
             <div className="space-y-2">
               <label className="text-xs font-bold text-slate-700 dark:text-slate-200">
-                स्ट्रीम चुने (Quick Preset)
+                आपकी स्ट्रीम (Select Stream)
               </label>
               <div className="flex gap-2">
                 {[
@@ -239,11 +346,14 @@ export const StudentProfileModal: React.FC<StudentProfileModalProps> = ({ isOpen
                   <button
                     key={st.id}
                     type="button"
-                    onClick={() => handleStreamPreset(st.id as any)}
+                    onClick={() => {
+                      handleStreamPreset(st.id as any);
+                      setShowAllSubjects(false);
+                    }}
                     className={`flex-1 py-2 px-2 text-center rounded-xl text-xs font-bold flex items-center justify-center gap-1.5 transition-all cursor-pointer border ${
                       formData.stream === st.id
-                        ? 'bg-indigo-100 dark:bg-indigo-950/80 border-indigo-300 dark:border-indigo-700 text-indigo-700 dark:text-indigo-300'
-                        : 'bg-slate-50 dark:bg-slate-800 border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-400'
+                        ? 'bg-indigo-100 dark:bg-indigo-950/80 border-indigo-300 dark:border-indigo-700 text-indigo-700 dark:text-indigo-300 shadow-2xs font-extrabold'
+                        : 'bg-slate-50 dark:bg-slate-800 border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-400 hover:bg-slate-100'
                     }`}
                   >
                     <span>{st.emoji}</span>
@@ -279,13 +389,19 @@ export const StudentProfileModal: React.FC<StudentProfileModalProps> = ({ isOpen
                 <BookOpen className="w-3.5 h-3.5 text-indigo-600" />
                 <span>मेरे चुने हुए विषय ({formData.selectedSubjects.length})</span>
               </label>
-              <span className="text-[10px] text-slate-500 font-medium">
-                क्लिक करके विषय जोड़ें/हटाएं
-              </span>
+              {formData.classId !== '10' && (
+                <button
+                  type="button"
+                  onClick={() => setShowAllSubjects(!showAllSubjects)}
+                  className="text-[11px] font-bold text-indigo-600 dark:text-indigo-400 hover:underline flex items-center gap-1 cursor-pointer bg-indigo-50/80 dark:bg-indigo-950/60 px-2.5 py-1 rounded-full border border-indigo-200/80 dark:border-indigo-800"
+                >
+                  {showAllSubjects ? `केवल ${formData.stream} के विषय दिखाएं` : '+ अन्य स्ट्रीम के विषय देखें'}
+                </button>
+              )}
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-              {availableForClass.map((sub) => {
+              {displayedSubjects.map((sub) => {
                 const isSelected = formData.selectedSubjects.includes(sub.name);
                 return (
                   <div
@@ -304,9 +420,16 @@ export const StudentProfileModal: React.FC<StudentProfileModalProps> = ({ isOpen
                         {sub.emoji}
                       </div>
                       <div>
-                        <h4 className="text-xs font-bold text-slate-800 dark:text-slate-100">
-                          {sub.name}
-                        </h4>
+                        <div className="flex items-center gap-1.5">
+                          <h4 className="text-xs font-bold text-slate-800 dark:text-slate-100">
+                            {sub.name}
+                          </h4>
+                          {formData.classId !== '10' && (
+                            <span className="text-[9px] font-bold px-1.5 py-0.2 rounded bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-400">
+                              {sub.stream === 'General' ? 'Lang' : sub.stream}
+                            </span>
+                          )}
+                        </div>
                         <p className="text-[10px] text-slate-500 dark:text-slate-400">
                           {sub.hindiName}
                         </p>

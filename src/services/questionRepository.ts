@@ -24,15 +24,88 @@ const CDN_MIRRORS = [
 
 // Known paths in GitHub repository (AbhyaasData)
 const KNOWN_PAPER_PATHS = [
+  // Political Science
   'Papers/XII/Political Science/class12_polscience_2026_model_paper.json',
+  'Papers/XII/Political Science/class12_polscience_2026_set_a.json',
   'Papers/XII/Political Science/class12_polscience_2026_set_b.json',
   'Papers/XII/Political Science/class12_polscience_2026_set_h.json',
   'Papers/XII/Political Science/class12_polscience_2025_set_g.json',
   'Papers/XII/Political Science/class12_polscience_2024_set_a.json',
+  'Papers/XII/Political Science/class12_polscience_2024_set_a_sent_up.json',
   'Papers/XII/Political Science/class12_polscience_2024_set_d.json',
   'Papers/XII/Political Science/class12_polscience_2023_set_a.json',
   'Papers/XII/Political Science/class12_polscience_2022_set_a.json',
+
+  // Home Science (गृह विज्ञान)
+  'Papers/XII/Home Science/class12_homescience_2026_set_a.json',
+  'Papers/XII/Home Science/class12_homescience_2025_set_b.json',
+  'Papers/XII/Home Science/class12_homescience_2024_set_h.json',
+  'Papers/XII/Home Science/class12_homescience_2023_set_a.json',
+  'data/papers/class12_homescience_2025_set_e.json',
+
+  // History
+  'Papers/XII/History/class12_history_2026_set_b.json',
+  'Papers/XII/History/class12_history_2026_set_d.json',
+  'Papers/XII/History/class12_history_2026_set_e.json',
+  'Papers/XII/History/class12_history_2026_set_i.json',
+  'Papers/XII/History/class12_history_2026_set_j.json',
+  'Papers/XII/History/class12_history_2025_set_a.json',
+  'Papers/XII/History/class12_history_2025_set_c.json',
+  'Papers/XII/History/class12_history_2025_set_f.json',
+  'Papers/XII/History/class12_history_2025_set_j.json',
+  'Papers/XII/History/class12_history_2024_set_a_sent_up.json',
+  'Papers/XII/History/class12_history_2024_set_b.json',
   'Papers/XII/History/class12_history_2023_set_a.json',
+
+  // Geography
+  'Papers/XII/Geography/class12_geography_2026_set_a.json',
+  'Papers/XII/Geography/class12_geography_2026_set_e.json',
+  'Papers/XII/Geography/class12_geography_2026_set_i.json',
+  'Papers/XII/Geography/class12_geography_2025_set_g.json',
+  'Papers/XII/Geography/class12_geography_2025_set_h.json',
+  'Papers/XII/Geography/class12_geography_2024_set_a.json',
+  'Papers/XII/Geography/class12_geography_2024_set_c.json',
+  'Papers/XII/Geography/class12_geography_2024_set_c_sent_up.json',
+  'Papers/XII/Geography/class12_geography_2023_set_a.json',
+
+  // Hindi
+  'Papers/XII/Hindi/class12_hindi_2026_set_a.json',
+  'Papers/XII/Hindi/class12_hindi_2026_set_d.json',
+  'Papers/XII/Hindi/class12_hindi_2026_set_e.json',
+  'Papers/XII/Hindi/class12_hindi_2026_set_f.json',
+  'Papers/XII/Hindi/class12_hindi_2026_set_g.json',
+  'Papers/XII/Hindi/class12_hindi_2026_set_h.json',
+  'Papers/XII/Hindi/class12_hindi_2026_set_i.json',
+  'Papers/XII/Hindi/class12_hindi_2026_set_j.json',
+  'Papers/XII/Hindi/class12_hindi_2025_set_b.json',
+  'Papers/XII/Hindi/class12_hindi_2025_set_c.json',
+  'Papers/XII/Hindi/class12_hindi_2025_set_d.json',
+  'Papers/XII/Hindi/class12_hindi_2025_set_j.json',
+  'Papers/XII/Hindi/class12_hindi_2024_set_a_sent_up.json',
+  'Papers/XII/Hindi/class12_hindi_2024_set_b.json',
+  'Papers/XII/Hindi/class12_hindi_2024_set_d.json',
+  'Papers/XII/Hindi/class12_hindi_2023_set_a.json',
+  'Papers/XII/Hindi/class12_hindi_2023_set_b.json',
+
+  // English
+  'Papers/XII/English/class12_english_2026_set_a.json',
+  'Papers/XII/English/class12_english_2026_set_b.json',
+  'Papers/XII/English/class12_english_2026_set_c.json',
+  'Papers/XII/English/class12_english_2026_set_d.json',
+  'Papers/XII/English/class12_english_2026_set_e.json',
+  'Papers/XII/English/class12_english_2026_set_g.json',
+  'Papers/XII/English/class12_english_2026_set_i.json',
+  'Papers/XII/English/class12_english_2025_set_a.json',
+  'Papers/XII/English/class12_english_2025_set_d.json',
+  'Papers/XII/English/class12_english_2025_set_f.json',
+  'Papers/XII/English/class12_english_2025_set_g.json',
+  'Papers/XII/English/class12_english_2025_set_h.json',
+  'Papers/XII/English/class12_english_2025_set_i.json',
+  'Papers/XII/English/class12_english_2024_set_a_sent_up.json',
+  'Papers/XII/English/class12_english_2024_set_b.json',
+  'Papers/XII/English/class12_english_2024_set_e.json',
+  'Papers/XII/English/class12_english_2023_set_a.json',
+  'data/papers/class12_english_2026_set_i.json',
 ];
 
 export function canonicalPaperId(idOrPath: string): string {
@@ -42,6 +115,7 @@ export function canonicalPaperId(idOrPath: string): string {
   clean = clean.replace(/\.json$/i, '');
   clean = clean.replace(/^class_?12_?/i, 'class-12_');
   clean = clean.replace(/pol_?science|political_?science/i, 'pol-science');
+  clean = clean.replace(/home_?science/i, 'home-science');
   return clean;
 }
 
@@ -54,6 +128,13 @@ const SUBJECT_ALIASES: Record<string, string> = {
   'political science': 'Political Science',
   'राजनीति विज्ञान': 'Political Science',
   'राजनीति शास्त्र': 'Political Science',
+
+  'homescience': 'Home Science',
+  'home-science': 'Home Science',
+  'home_science': 'Home Science',
+  'home science': 'Home Science',
+  'गृह विज्ञान': 'Home Science',
+  'गृहविज्ञान': 'Home Science',
 
   'biology': 'Biology',
   'जीव विज्ञान': 'Biology',
@@ -92,6 +173,33 @@ const SUBJECT_ALIASES: Record<string, string> = {
   'psychology': 'Psychology',
   'मनोविज्ञान': 'Psychology',
 
+  'philosophy': 'Philosophy',
+  'दर्शनशास्त्र': 'Philosophy',
+
+  'music': 'Music',
+  'संगीत': 'Music',
+
+  'agriculture': 'Agriculture',
+  'कृषि विज्ञान': 'Agriculture',
+
+  'computer science': 'Computer Science',
+  'computer-science': 'Computer Science',
+  'cs': 'Computer Science',
+  'कंप्यूटर साइंस': 'Computer Science',
+
+  'accountancy': 'Accountancy',
+  'लेखाशास्त्र': 'Accountancy',
+  'accounts': 'Accountancy',
+
+  'business studies': 'Business Studies',
+  'business-studies': 'Business Studies',
+  'bst': 'Business Studies',
+  'व्यवसाय अध्ययन': 'Business Studies',
+
+  'entrepreneurship': 'Entrepreneurship',
+  'उद्यमिता': 'Entrepreneurship',
+  'eps': 'Entrepreneurship',
+
   'science': 'Science',
   'विज्ञान': 'Science',
 
@@ -109,6 +217,12 @@ const SUBJECT_ALIASES: Record<string, string> = {
 
   'sanskrit': 'Sanskrit',
   'संस्कृत': 'Sanskrit',
+
+  'urdu': 'Urdu',
+  'उर्दू': 'Urdu',
+
+  'maithili': 'Maithili',
+  'मैथिली': 'Maithili',
 };
 
 export function normalizeSubject(input?: string): string {
@@ -131,6 +245,82 @@ export function normalizeClass(cls?: string): string {
   if (c === 'xi' || c === '11' || c === 'eleventh') return '11';
   if (c === 'x' || c === '10' || c === 'tenth') return '10';
   return c;
+}
+
+/**
+ * Automatically splits and isolates Question text from Answer text
+ * if the data source contains both in `text` or `textHindi` tags.
+ * Also cleanly handles multi-part questions like (i), (ii), (iii).
+ */
+export function extractCleanQuestionAndAnswer(
+  rawQuestion: string,
+  rawAnswer?: string
+): { question: string; answer: string } {
+  const fullText = (rawQuestion || '').trim();
+  const answerText = (rawAnswer || '').trim();
+
+  const answerMarkerRegex = /(?:^|\n|\s|[.?!।])(उत्तर(?:\s*\([^)]*\))?\s*[:\-]|Ans(?:wer)?\s*[:\-])/i;
+
+  if (!answerMarkerRegex.test(fullText)) {
+    return {
+      question: fullText,
+      answer: answerText || fullText,
+    };
+  }
+
+  // Check if there are multiple sub-items like (i), (ii), (iii) or (क), (ख)
+  const subItemRegex = /\(\s*(?:[iIvVxX\d]+|[क-हa-zA-Z]+)\s*\)/g;
+  const subItemMatches = [...fullText.matchAll(subItemRegex)];
+
+  if (subItemMatches.length > 1) {
+    const itemIndices = subItemMatches.map((m) => m.index ?? 0);
+    const prefix = fullText.slice(0, itemIndices[0]).trim();
+
+    const extractedQuestions: string[] = [];
+    const extractedAnswers: string[] = [];
+
+    for (let i = 0; i < itemIndices.length; i++) {
+      const start = itemIndices[i];
+      const end = i < itemIndices.length - 1 ? itemIndices[i + 1] : fullText.length;
+      const subBlock = fullText.slice(start, end).trim();
+
+      const matchIdx = subBlock.search(/(?:^|\n|\s|[.?!।])(उत्तर(?:\s*\([^)]*\))?\s*[:\-]|Ans(?:wer)?\s*[:\-])/i);
+
+      if (matchIdx !== -1) {
+        const qPart = subBlock.slice(0, matchIdx).trim();
+        let ansPart = subBlock.slice(matchIdx).trim().replace(/^[.?!।\s]+/, '');
+
+        const subSymbol = subBlock.match(/^\(\s*(?:[iIvVxX\d]+|[क-हa-zA-Z]+)\s*\)/)?.[0] || '';
+        if (subSymbol && !ansPart.startsWith(subSymbol)) {
+          ansPart = `${subSymbol} ${ansPart}`;
+        }
+
+        extractedQuestions.push(qPart);
+        extractedAnswers.push(ansPart);
+      } else {
+        extractedQuestions.push(subBlock);
+      }
+    }
+
+    if (extractedAnswers.length > 0) {
+      const cleanQuestion = prefix ? `${prefix}\n\n${extractedQuestions.join('\n\n')}` : extractedQuestions.join('\n\n');
+      const cleanAnswer = extractedAnswers.join('\n\n');
+      return { question: cleanQuestion, answer: cleanAnswer };
+    }
+  }
+
+  // Single block separation
+  const singleMatchIdx = fullText.search(/(?:^|\n|\s|[.?!।])(उत्तर(?:\s*\([^)]*\))?\s*[:\-]|Ans(?:wer)?\s*[:\-])/i);
+  if (singleMatchIdx !== -1) {
+    const qPart = fullText.slice(0, singleMatchIdx).trim();
+    const ansPart = fullText.slice(singleMatchIdx).trim().replace(/^[.?!।\s]+/, '');
+    return { question: qPart, answer: ansPart };
+  }
+
+  return {
+    question: fullText,
+    answer: answerText || fullText,
+  };
 }
 
 export class GitHubQuestionRepository implements QuestionRepository {
@@ -175,6 +365,16 @@ export class GitHubQuestionRepository implements QuestionRepository {
                 : (opt.textHindi || opt.text || opt.key || '').trim()
             );
 
+            const expText = (
+              q.explanationHindi ||
+              q.explanation ||
+              q.explanationText ||
+              q.solution ||
+              q.solutionHindi ||
+              q.exp ||
+              ''
+            ).trim();
+
             const rawCorrect =
               q.correctAnswer ??
               q.correctAnswerText ??
@@ -182,11 +382,35 @@ export class GitHubQuestionRepository implements QuestionRepository {
               q.correct_answer ??
               q.correct;
 
-            if (rawCorrect !== undefined && rawCorrect !== null && rawCorrect !== '') {
+            // 1. Try to extract authoritative option key from explanation text first if present
+            // e.g. "उत्तर: (C) प्रतिष्ठित", "उत्तर: (B)", "Ans: (C)", "Answer: (B)"
+            const expMatch = expText.match(
+              /(?:सही\s*)?(?:उत्तर|Ans|Answer|Correct\s*(?:Option|Answer)?)[\s\:\-\.]*\(?([A-E])\)?/i
+            );
+
+            let targetKey: string | null = null;
+            if (expMatch) {
+              targetKey = expMatch[1].toUpperCase();
+            } else if (rawCorrect !== undefined && rawCorrect !== null && rawCorrect !== '') {
+              const rawStr = String(rawCorrect).trim();
+              const matchedKey = rawStr.match(/^\(?([a-e])\)?[\.\:\s\-]*/i);
+              if (matchedKey) {
+                targetKey = matchedKey[1].toUpperCase();
+              }
+            }
+
+            if (targetKey) {
+              const keyIdx = ['A', 'B', 'C', 'D', 'E'].indexOf(targetKey);
+              if (keyIdx >= 0 && optionsArr[keyIdx]) {
+                answerText = optionsArr[keyIdx];
+              }
+            }
+
+            // 2. Fallback to rawCorrect if targetKey didn't resolve
+            if (!answerText && rawCorrect !== undefined && rawCorrect !== null && rawCorrect !== '') {
               const rawStr = String(rawCorrect).trim();
               const keyUpper = rawStr.toUpperCase();
 
-              // 1. Check if rawCorrect matches an option key (e.g. 'A', 'B', 'C', 'D') in options array objects
               const matchedOpt = q.options.find((opt: any) => {
                 if (typeof opt === 'object' && opt) {
                   return (
@@ -200,12 +424,10 @@ export class GitHubQuestionRepository implements QuestionRepository {
               if (matchedOpt) {
                 answerText = (matchedOpt.textHindi || matchedOpt.text || matchedOpt.key || '').trim();
               } else {
-                // 2. Check if key is A, B, C, D
                 const keyIdx = ['A', 'B', 'C', 'D', 'E'].indexOf(keyUpper);
                 if (keyIdx >= 0 && optionsArr[keyIdx]) {
                   answerText = optionsArr[keyIdx];
                 } else {
-                  // 3. Strip prefixes like "(D) " or "D. "
                   const cleanText = rawStr.replace(/^\(?([a-e0-9])\)?[\.\:\s\-]*/i, '').trim();
                   const optionMatch = optionsArr.find(
                     (opt) =>
@@ -215,14 +437,19 @@ export class GitHubQuestionRepository implements QuestionRepository {
                   answerText = optionMatch || cleanText || rawStr;
                 }
               }
-            } else {
+            }
+
+            if (!answerText) {
               answerText = optionsArr[0] || '';
             }
           }
 
+          const rawMcqQ = (q.textHindi || q.text || '').trim();
+          const { question: cleanMcqQ } = extractCleanQuestionAndAnswer(rawMcqQ, '');
+
           return {
             id: q.id || `mcq-${Math.random()}`,
-            question: (q.textHindi || q.text || '').trim(),
+            question: cleanMcqQ,
             options: optionsArr,
             answer: answerText,
             explanation: (
@@ -239,19 +466,45 @@ export class GitHubQuestionRepository implements QuestionRepository {
 
       const shortQuestions = raw.questions
         .filter((q: any) => q.type === 'short')
-        .map((q: any) => ({
-          id: q.id || `short-${Math.random()}`,
-          question: (q.textHindi || q.text || '').trim(),
-          answer: (q.modelAnswer || q.answerText || q.answer || '').trim(),
-        }));
+        .map((q: any) => {
+          const rawQ = (q.textHindi || q.text || '').trim();
+          const rawAns = (
+            q.modelAnswer ||
+            q.answerText ||
+            q.answer ||
+            q.answerHindi ||
+            q.solution ||
+            q.solutionHindi ||
+            ''
+          ).trim();
+          const { question, answer } = extractCleanQuestionAndAnswer(rawQ, rawAns);
+          return {
+            id: q.id || `short-${Math.random()}`,
+            question,
+            answer,
+          };
+        });
 
       const longQuestions = raw.questions
         .filter((q: any) => q.type === 'long')
-        .map((q: any) => ({
-          id: q.id || `long-${Math.random()}`,
-          question: (q.textHindi || q.text || '').trim(),
-          answer: (q.modelAnswer || q.answerText || q.answer || '').trim(),
-        }));
+        .map((q: any) => {
+          const rawQ = (q.textHindi || q.text || '').trim();
+          const rawAns = (
+            q.modelAnswer ||
+            q.answerText ||
+            q.answer ||
+            q.answerHindi ||
+            q.solution ||
+            q.solutionHindi ||
+            ''
+          ).trim();
+          const { question, answer } = extractCleanQuestionAndAnswer(rawQ, rawAns);
+          return {
+            id: q.id || `long-${Math.random()}`,
+            question,
+            answer,
+          };
+        });
 
       const filename = rawPath ? rawPath.split('/').pop()?.replace('.json', '') : '';
       const paperId = canonicalPaperId(meta.id || filename || `paper-${Date.now()}`);
@@ -333,7 +586,10 @@ export class GitHubQuestionRepository implements QuestionRepository {
 
           if (treeData && Array.isArray(treeData.tree)) {
             const jsonBlobs = treeData.tree.filter(
-              (item: any) => item.type === 'blob' && (item.path.startsWith('Papers/') || item.path.startsWith('papers/')) && item.path.endsWith('.json')
+              (item: any) =>
+                item.type === 'blob' &&
+                item.path.endsWith('.json') &&
+                (item.path.toLowerCase().startsWith('papers/') || item.path.toLowerCase().startsWith('data/papers/'))
             );
 
             for (const blob of jsonBlobs) {
@@ -363,6 +619,8 @@ export class GitHubQuestionRepository implements QuestionRepository {
                   const parsed = this.parseRemotePaperJson(rawJson, relativePath);
                   const canonicalId = canonicalPaperId(parsed.id);
                   this.paperPathMap.set(canonicalId, relativePath);
+                  // Automatically cache paper into local storage (IndexedDB) for offline availability
+                  savePaperToCache(parsed).catch(() => {});
                   mergedMap.set(canonicalId, {
                     id: canonicalId,
                     class: parsed.class,
@@ -397,6 +655,8 @@ export class GitHubQuestionRepository implements QuestionRepository {
                   const parsed = this.parseRemotePaperJson(rawJson, relativePath);
                   const canonicalId = canonicalPaperId(parsed.id);
                   this.paperPathMap.set(canonicalId, relativePath);
+                  // Automatically cache paper into local storage (IndexedDB) for offline availability
+                  savePaperToCache(parsed).catch(() => {});
                   mergedMap.set(canonicalId, {
                     id: canonicalId,
                     class: parsed.class,
@@ -423,15 +683,16 @@ export class GitHubQuestionRepository implements QuestionRepository {
         result = result.filter((p) => normalizeClass(p.class) === targetClass);
       }
       if (targetSubject) {
+        const normTarget = normalizeSubject(targetSubject).toLowerCase();
         result = result.filter((p) => {
-          const normP = normalizeSubject(p.subject);
-          return normP.toLowerCase() === targetSubject.toLowerCase();
+          const normP = normalizeSubject(p.subject).toLowerCase();
+          return normP === normTarget;
         });
       }
 
       // If no exact match after strict filtering, fallback to partial subject match
       if (result.length === 0 && targetSubject) {
-        const partialSub = targetSubject.toLowerCase();
+        const partialSub = normalizeSubject(targetSubject).toLowerCase();
         result = Array.from(mergedMap.values()).filter((p) => {
           const cMatch = !targetClass || normalizeClass(p.class) === targetClass;
           const sMatch = normalizeSubject(p.subject).toLowerCase().includes(partialSub) ||
@@ -524,12 +785,18 @@ export class GitHubQuestionRepository implements QuestionRepository {
         paperId.replace(/_/g, '-'),
         canonical.replace('class-12_pol-science', 'class12_polscience'),
         canonical.replace('class-12_history', 'class12_history'),
+        canonical.replace('class-12_home-science', 'class12_homescience'),
+        canonical.replace('class-12_geography', 'class12_geography'),
+        canonical.replace('class-12_hindi', 'class12_hindi'),
+        canonical.replace('class-12_english', 'class12_english'),
       ];
 
       for (const idVar of idVariations) {
         relativePathsToTry.push(
           `Papers/XII/Political Science/${idVar}.json`,
+          `Papers/XII/Home Science/${idVar}.json`,
           `Papers/XII/History/${idVar}.json`,
+          `Papers/XII/Geography/${idVar}.json`,
           `Papers/XII/Biology/${idVar}.json`,
           `Papers/XII/Physics/${idVar}.json`,
           `Papers/XII/Chemistry/${idVar}.json`,
@@ -539,7 +806,8 @@ export class GitHubQuestionRepository implements QuestionRepository {
           `Papers/X/Science/${idVar}.json`,
           `Papers/X/Social Science/${idVar}.json`,
           `Papers/X/Mathematics/${idVar}.json`,
-          `papers/${idVar}.json`
+          `papers/${idVar}.json`,
+          `data/papers/${idVar}.json`
         );
       }
 
@@ -547,6 +815,8 @@ export class GitHubQuestionRepository implements QuestionRepository {
       const localFilenames = [
         canonical.replace('class-12_pol-science', 'class12_polscience'),
         canonical.replace('class-12_history', 'class12_history'),
+        canonical.replace('class-12_home-science', 'class12_homescience'),
+        canonical.replace('class-12_geography', 'class12_geography'),
         canonical,
         paperId,
         paperId.replace(/-/g, '_'),

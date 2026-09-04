@@ -1,0 +1,41 @@
+{
+  "entities": {
+    "User": {
+      "path": "users/{userId}",
+      "fields": {
+        "name": { "type": "string" },
+        "email": { "type": "string" },
+        "classId": { "type": "string" },
+        "board": { "type": "string" },
+        "stream": { "type": "string" },
+        "selectedSubjects": { "type": "array" },
+        "classSubjects": { "type": "map" },
+        "avatarEmoji": { "type": "string" },
+        "targetYear": { "type": "number" },
+        "lastUpdated": { "type": "number" }
+      }
+    },
+    "Progress": {
+      "path": "users/{userId}/progress/summary",
+      "fields": {
+        "totalQuestionsSolved": { "type": "number" },
+        "totalCorrect": { "type": "number" },
+        "testsCompleted": { "type": "number" },
+        "accuracy": { "type": "number" },
+        "studyStreakDays": { "type": "number" },
+        "lastStudyDate": { "type": "string" },
+        "subjectStats": { "type": "map" },
+        "recentHistory": { "type": "array" },
+        "lastUpdated": { "type": "number" }
+      }
+    }
+  },
+  "rules": {
+    "users": {
+      "$userId": {
+        "read": "auth != null && auth.uid == $userId",
+        "write": "auth != null && auth.uid == $userId"
+      }
+    }
+  }
+}

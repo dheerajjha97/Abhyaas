@@ -17,7 +17,10 @@ import { More } from './pages/More';
 import { SyllabusView } from './pages/SyllabusView';
 import { NotesView } from './pages/NotesView';
 import { MockTestGenerator } from './pages/MockTestGenerator';
+import { PrivacyPolicy } from './pages/PrivacyPolicy';
+import { ContactUs } from './pages/ContactUs';
 import { BottomNavigation } from './components/ui/BottomNavigation';
+import { AdSenseTracker } from './components/ads/AdSenseTracker';
 
 // Scroll to top on route change
 const ScrollToTop = () => {
@@ -45,6 +48,7 @@ const AppContent: React.FC = () => {
   return (
     <Router>
       <ScrollToTop />
+      <AdSenseTracker />
       {/* Outer wrapper: Clean, professional neutral background */}
       <div className="min-h-screen w-full bg-slate-100/90 dark:bg-slate-950 flex flex-col items-center justify-start relative font-sans antialiased text-slate-900 dark:text-slate-100">
         {/* Main Centered App Container */}
@@ -70,6 +74,8 @@ const AppContent: React.FC = () => {
               <Route path="/search" element={<Search />} />
               <Route path="/more" element={<More />} />
               <Route path="/mock-test" element={<MockTestGenerator />} />
+              <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+              <Route path="/contact" element={<ContactUs />} />
             </Routes>
           </main>
 

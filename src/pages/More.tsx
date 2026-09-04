@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { getAppSettings, saveAppSettings, AppSettings } from '../utils/bookmarkStorage';
 import { clearPapersCache } from '../utils/db';
 import { HeaderBar } from '../components/ui/HeaderBar';
@@ -17,6 +18,9 @@ import {
   Heart,
   Code2,
   GraduationCap,
+  FileText,
+  Mail,
+  ChevronRight,
 } from 'lucide-react';
 
 export const More: React.FC = () => {
@@ -282,6 +286,55 @@ export const More: React.FC = () => {
           >
             अपडेट करें
           </button>
+        </div>
+      </div>
+
+      {/* Policies & Support (Crucial for AdSense approval) */}
+      <div className="space-y-2.5">
+        <h4 className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider px-1">
+          विधिक एवं सहायता (Legal & Support)
+        </h4>
+
+        <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/90 dark:border-slate-800 shadow-2xs overflow-hidden divide-y divide-slate-100 dark:divide-slate-800">
+          <Link
+            to="/privacy-policy"
+            className="p-4 flex items-center justify-between gap-3 hover:bg-slate-50 dark:hover:bg-slate-800/60 transition-colors"
+          >
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 rounded-xl bg-indigo-50 dark:bg-indigo-950/70 text-indigo-600 dark:text-indigo-400 flex items-center justify-center shrink-0 border border-indigo-100 dark:border-indigo-900/60">
+                <FileText className="w-5 h-5" />
+              </div>
+              <div>
+                <h5 className="text-sm font-black text-slate-900 dark:text-slate-100">
+                  Privacy Policy (गोपनीयता नीति)
+                </h5>
+                <p className="text-xs text-slate-500 dark:text-slate-400">
+                  AdSense कुकीज़, डेटा सुरक्षा और उपयोगकर्ता नियम
+                </p>
+              </div>
+            </div>
+            <ChevronRight className="w-5 h-5 text-slate-400 shrink-0" />
+          </Link>
+
+          <Link
+            to="/contact"
+            className="p-4 flex items-center justify-between gap-3 hover:bg-slate-50 dark:hover:bg-slate-800/60 transition-colors"
+          >
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 rounded-xl bg-blue-50 dark:bg-blue-950/70 text-blue-600 dark:text-blue-400 flex items-center justify-center shrink-0 border border-blue-100 dark:border-blue-900/60">
+                <Mail className="w-5 h-5" />
+              </div>
+              <div>
+                <h5 className="text-sm font-black text-slate-900 dark:text-slate-100">
+                  Contact Us (हमसे संपर्क करें)
+                </h5>
+                <p className="text-xs text-slate-500 dark:text-slate-400">
+                  सुझाव, प्रश्न सुधार या सहायता: jhadheeraj97@gmail.com
+                </p>
+              </div>
+            </div>
+            <ChevronRight className="w-5 h-5 text-slate-400 shrink-0" />
+          </Link>
         </div>
       </div>
 

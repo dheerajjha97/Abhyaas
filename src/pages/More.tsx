@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { getAppSettings, saveAppSettings, AppSettings } from '../utils/bookmarkStorage';
 import { clearAllAppCache, getCacheStats, CacheStats } from '../utils/db';
+import { syncAllFreshData, SyncProgress, SyncResult } from '../services/syncService';
 import { HeaderBar } from '../components/ui/HeaderBar';
 import { GlassCard } from '../components/ui/GlassCard';
 import { Toast, ToastMessage } from '../components/ui/Toast';
@@ -29,6 +30,8 @@ import {
   AlertTriangle,
   Loader2,
   RotateCcw,
+  Sparkles,
+  CloudDownload,
 } from 'lucide-react';
 
 export const More: React.FC = () => {
@@ -40,6 +43,12 @@ export const More: React.FC = () => {
   const [cacheStats, setCacheStats] = useState<CacheStats>({ paperCount: 0, estimatedSizeMB: 0 });
   const [isClearingCache, setIsClearingCache] = useState(false);
   const [showClearConfirmModal, setShowClearConfirmModal] = useState(false);
+
+  // Sync state
+  const [isSyncing, setIsSyncing] = useState(false);
+  const [showSyncModal, setShowSyncModal] = useState(false);
+  const [syncProgress, setSyncProgress] = useState<SyncProgress | null>(null);
+  const [syncResult, setSyncResult] = useState<SyncResult | null>(null);
 
   const loadCacheStats = async () => {
     try {
@@ -106,12 +115,13 @@ export const More: React.FC = () => {
     setIsClearingCache(true);
     try {
       await clearAllAppCache();
+      setCacheStats({ paperCount: 0, estimatedSizeMB: 0 });
       await loadCacheStats();
       setShowClearConfirmModal(false);
       setToast({
         id: Date.now().toString(),
         type: 'success',
-        message: 'कैश सफलतापूर्वक साफ़ कर दिया गया! अब नवीनतम डेटा लोड होगा।',
+        message: 'कैश और ऑफलाइन डेटा सफलतापूर्वक साफ़ कर दिया गया!',
       });
     } catch (err) {
       setToast({
@@ -125,20 +135,42 @@ export const More: React.FC = () => {
   };
 
   const handleSyncFresh = async () => {
-    setIsClearingCache(true);
+    setIsSyncing(true);
+    setShowSyncModal(true);
+    setSyncResult(null);
+    setSyncProgress({
+      stage: 'checking',
+      message: 'GitHub से कनेक्शन स्थापित हो रहा है...',
+      percent: 5,
+    });
+
     try {
+      // 1. Wipe stale cache first
       await clearAllAppCache();
+
+      // 2. Perform fresh live sync from GitHub & CDN
+      const res = await syncAllFreshData((progress) => {
+        setSyncProgress(progress);
+      });
+
+      setSyncResult(res);
       await loadCacheStats();
+
+      if (res.success) {
+        setToast({
+          id: Date.now().toString(),
+          type: 'success',
+          message: `डेटा सिंक सफल! ${res.papersSynced} पेपर्स और ${res.notesSynced} नोट्स उपलब्ध हैं।`,
+        });
+      }
+    } catch (err) {
       setToast({
         id: Date.now().toString(),
-        type: 'success',
-        message: 'कैश रीसेट किया गया! नवीनतम प्रश्न पत्र लोड हो रहे हैं...',
+        type: 'error',
+        message: 'डेटा सिंक में समस्या आई, कृपया इंटरनेट कनेक्शन जांचें।',
       });
-      setTimeout(() => {
-        window.location.reload();
-      }, 700);
-    } catch (err) {
-      setIsClearingCache(false);
+    } finally {
+      setIsSyncing(false);
     }
   };
 
@@ -454,6 +486,110 @@ export const More: React.FC = () => {
           </span>
         </div>
       </div>
+
+      {/* Sync Progress Modal */}
+      {showSyncModal && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-xs animate-in fade-in duration-200">
+          <div className="bg-white dark:bg-slate-900 rounded-3xl max-w-md w-full p-5 sm:p-6 border border-slate-200 dark:border-slate-800 shadow-2xl space-y-4">
+            <div className="flex items-center gap-3">
+              <div
+                className={`w-12 h-12 rounded-2xl flex items-center justify-center shrink-0 border ${
+                  syncResult?.success
+                    ? 'bg-emerald-50 dark:bg-emerald-950 text-emerald-600 dark:text-emerald-400 border-emerald-200 dark:border-emerald-900'
+                    : 'bg-blue-50 dark:bg-blue-950 text-blue-600 dark:text-blue-400 border-blue-200 dark:border-blue-900'
+                }`}
+              >
+                {syncResult?.success ? (
+                  <CheckCircle2 className="w-6 h-6 text-emerald-600 dark:text-emerald-400" />
+                ) : isSyncing ? (
+                  <RefreshCw className="w-6 h-6 animate-spin" />
+                ) : (
+                  <CloudDownload className="w-6 h-6" />
+                )}
+              </div>
+              <div className="min-w-0 flex-1">
+                <h3 className="text-base sm:text-lg font-black text-slate-900 dark:text-white">
+                  {syncResult?.success ? 'सिंक्रोनाइज़ेशन सफल!' : 'नया डेटा सिंक हो रहा है'}
+                </h3>
+                <p className="text-xs text-slate-500 dark:text-slate-400 truncate">
+                  {syncProgress?.message || 'डेटा की जांच की जा रही है...'}
+                </p>
+              </div>
+            </div>
+
+            {/* Progress Bar */}
+            <div className="space-y-1.5">
+              <div className="flex items-center justify-between text-xs font-semibold text-slate-600 dark:text-slate-400">
+                <span>प्रगति (Progress)</span>
+                <span>{syncProgress?.percent || 0}%</span>
+              </div>
+              <div className="w-full h-3 bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden p-0.5 border border-slate-200/80 dark:border-slate-700/80">
+                <div
+                  className={`h-full rounded-full transition-all duration-300 ${
+                    syncResult?.success
+                      ? 'bg-gradient-to-r from-emerald-500 to-teal-500'
+                      : 'bg-gradient-to-r from-blue-600 to-indigo-600'
+                  }`}
+                  style={{ width: `${syncProgress?.percent || 0}%` }}
+                />
+              </div>
+            </div>
+
+            {/* Sync Summary Counters */}
+            <div className="grid grid-cols-3 gap-2 pt-1 text-center">
+              <div className="bg-slate-50 dark:bg-slate-800/60 rounded-xl p-2.5 border border-slate-200/60 dark:border-slate-700/60">
+                <div className="text-[10px] text-slate-500 dark:text-slate-400 font-semibold">पेपर्स</div>
+                <div className="text-sm font-black text-slate-900 dark:text-white mt-0.5">
+                  {syncProgress?.papersCount ?? cacheStats.paperCount}
+                </div>
+              </div>
+              <div className="bg-slate-50 dark:bg-slate-800/60 rounded-xl p-2.5 border border-slate-200/60 dark:border-slate-700/60">
+                <div className="text-[10px] text-slate-500 dark:text-slate-400 font-semibold">नोट्स</div>
+                <div className="text-sm font-black text-slate-900 dark:text-white mt-0.5">
+                  {syncProgress?.notesCount ?? (syncResult?.notesSynced || 0)}
+                </div>
+              </div>
+              <div className="bg-slate-50 dark:bg-slate-800/60 rounded-xl p-2.5 border border-slate-200/60 dark:border-slate-700/60">
+                <div className="text-[10px] text-slate-500 dark:text-slate-400 font-semibold">सिलेबस</div>
+                <div className="text-sm font-black text-slate-900 dark:text-white mt-0.5">
+                  {syncProgress?.syllabusCount ?? (syncResult?.syllabusSynced || 0)}
+                </div>
+              </div>
+            </div>
+
+            {/* Actions */}
+            <div className="flex items-center justify-end gap-2.5 pt-2">
+              <button
+                type="button"
+                onClick={() => {
+                  setShowSyncModal(false);
+                  if (syncResult?.success) {
+                    window.location.reload();
+                  }
+                }}
+                disabled={isSyncing}
+                className={`w-full py-2.5 rounded-xl font-bold text-xs flex items-center justify-center gap-2 cursor-pointer transition-all ${
+                  isSyncing
+                    ? 'bg-slate-100 dark:bg-slate-800 text-slate-400 cursor-not-allowed'
+                    : 'bg-blue-600 hover:bg-blue-700 text-white shadow-2xs active:scale-95'
+                }`}
+              >
+                {isSyncing ? (
+                  <>
+                    <Loader2 className="w-3.5 h-3.5 animate-spin" />
+                    <span>कृपया प्रतीक्षा करें...</span>
+                  </>
+                ) : (
+                  <>
+                    <CheckCircle2 className="w-4 h-4" />
+                    <span>पूर्ण (Done)</span>
+                  </>
+                )}
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* Clear Cache Confirmation Dialog Modal */}
       {showClearConfirmModal && (

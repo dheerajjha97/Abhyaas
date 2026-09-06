@@ -9,16 +9,17 @@ import { getPaperFromCache, savePaperToCache, getAllCachedPapers } from '../util
 import { getAppSettings } from '../utils/bookmarkStorage';
 
 export interface QuestionRepository {
-  getPapersList(classId?: string, subjectId?: string): Promise<PaperSummary[]>;
-  getPaperById(paperId: string): Promise<Paper | null>;
+  getPapersList(classId?: string, subjectId?: string, forceRefresh?: boolean): Promise<PaperSummary[]>;
+  getPaperById(paperId: string, forceRefresh?: boolean): Promise<Paper | null>;
   searchQuestions(query: string, classId?: string): Promise<SearchResultItem[]>;
   prefetchPaper(paperId: string): Promise<void>;
+  clearCache(): void;
 }
 
 // CDN Mirrors for high-speed, zero-ISP-block paper downloads
 const CDN_MIRRORS = [
-  'https://cdn.jsdelivr.net/gh/dheerajjha97/AbhyaasData@main',
   'https://raw.githubusercontent.com/dheerajjha97/AbhyaasData/main',
+  'https://cdn.jsdelivr.net/gh/dheerajjha97/AbhyaasData@main',
   'https://fastly.jsdelivr.net/gh/dheerajjha97/AbhyaasData@main',
 ];
 
@@ -438,7 +439,10 @@ export class GitHubQuestionRepository implements QuestionRepository {
 
   constructor() {
     this.repoBaseUrl = getAppSettings().githubRepoUrl;
-    // Initialize default path mappings
+    this.initKnownPaths();
+  }
+
+  public initKnownPaths(): void {
     KNOWN_PAPER_PATHS.forEach((path) => {
       const filename = path.split('/').pop()?.replace(/\.json$/, '') || '';
       const canonical = canonicalPaperId(filename);
@@ -451,10 +455,15 @@ export class GitHubQuestionRepository implements QuestionRepository {
     });
   }
 
+  public clearCache(): void {
+    this.paperPathMap.clear();
+    this.initKnownPaths();
+  }
+
   /**
    * Parse remote schema 2.0 or 1.0 JSON format into standard internal Paper model
    */
-  private parseRemotePaperJson(raw: any, rawPath?: string): Paper {
+  public parseRemotePaperJson(raw: any, rawPath?: string): Paper {
     if (raw.paper && Array.isArray(raw.questions)) {
       const meta = raw.paper;
       const rawClass = normalizeClass(String(meta.classId || ''));
@@ -644,7 +653,7 @@ export class GitHubQuestionRepository implements QuestionRepository {
     return raw as Paper;
   }
 
-  public async getPapersList(classId?: string, subjectId?: string): Promise<PaperSummary[]> {
+  public async getPapersList(classId?: string, subjectId?: string, forceRefresh: boolean = false): Promise<PaperSummary[]> {
     const targetClass = classId ? normalizeClass(classId) : undefined;
     const targetSubject = subjectId ? normalizeSubject(subjectId) : undefined;
 
@@ -663,40 +672,42 @@ export class GitHubQuestionRepository implements QuestionRepository {
         });
       });
 
-      // 2. Check cached papers in IndexedDB
-      const cached = await getAllCachedPapers();
-      cached.forEach((p) => {
-        const canonicalKey = canonicalPaperId(p.id);
-        const resolvedSub = resolvePaperSubject(p);
-        if (p.subject !== resolvedSub) {
-          p.subject = resolvedSub;
-          savePaperToCache(p).catch(() => {});
-        }
-        mergedMap.set(canonicalKey, {
-          id: canonicalKey,
-          class: normalizeClass(p.class),
-          subject: resolvedSub,
-          board: p.board,
-          year: p.year,
-          paperName: p.paperName,
-          mcqCount: p.mcqs?.length || 0,
-          shortCount: p.shortQuestions?.length || 0,
-          longCount: p.longQuestions?.length || 0,
+      // 2. Check cached papers in IndexedDB (unless forceRefresh is requested)
+      if (!forceRefresh) {
+        const cached = await getAllCachedPapers();
+        cached.forEach((p) => {
+          const canonicalKey = canonicalPaperId(p.id);
+          const resolvedSub = resolvePaperSubject(p);
+          if (p.subject !== resolvedSub) {
+            p.subject = resolvedSub;
+            savePaperToCache(p).catch(() => {});
+          }
+          mergedMap.set(canonicalKey, {
+            id: canonicalKey,
+            class: normalizeClass(p.class),
+            subject: resolvedSub,
+            board: p.board,
+            year: p.year,
+            paperName: p.paperName,
+            mcqCount: p.mcqs?.length || 0,
+            shortCount: p.shortQuestions?.length || 0,
+            longCount: p.longQuestions?.length || 0,
+          });
         });
-      });
+      }
 
       // 3. Discover files from GitHub if online and not in offline mode
       if (navigator.onLine && !getAppSettings().offlineMode) {
         try {
           const treeApiUrls = [
-            'https://api.github.com/repos/dheerajjha97/AbhyaasData/git/trees/main?recursive=1',
-            'https://api.github.com/repos/dheerajjha97/AbhyaasData/git/trees/master?recursive=1',
+            `https://api.github.com/repos/dheerajjha97/AbhyaasData/git/trees/main?recursive=1${forceRefresh ? `&t=${Date.now()}` : ''}`,
+            `https://api.github.com/repos/dheerajjha97/AbhyaasData/git/trees/master?recursive=1${forceRefresh ? `&t=${Date.now()}` : ''}`,
           ];
 
           let treeData: any = null;
           for (const treeUrl of treeApiUrls) {
             try {
-              const res = await fetch(treeUrl, { cache: 'no-cache' });
+              const res = await fetch(treeUrl, { cache: forceRefresh ? 'no-cache' : 'default' });
               if (res.ok) {
                 treeData = await res.json();
                 break;
@@ -712,6 +723,7 @@ export class GitHubQuestionRepository implements QuestionRepository {
                 (item.path.toLowerCase().startsWith('papers/') || item.path.toLowerCase().startsWith('data/papers/'))
             );
 
+            // Register path map
             for (const blob of jsonBlobs) {
               const relativePath: string = blob.path;
               const filename = relativePath.split('/').pop()?.replace(/\.json$/, '') || '';
@@ -720,76 +732,78 @@ export class GitHubQuestionRepository implements QuestionRepository {
                 this.paperPathMap.set(filename, relativePath);
                 this.paperPathMap.set(canonical, relativePath);
               }
+            }
 
-              try {
-                // Try fetching through CDN mirrors with URI encoding
-                let rawJson: any = null;
-                for (const mirror of CDN_MIRRORS) {
-                  try {
-                    const encodedUrl = encodeURI(`${mirror}/${relativePath}`);
-                    const paperRes = await fetch(encodedUrl);
-                    if (paperRes.ok) {
-                      rawJson = await paperRes.json();
-                      break;
-                    }
-                  } catch {}
-                }
-
-                if (rawJson) {
-                  const parsed = this.parseRemotePaperJson(rawJson, relativePath);
-                  const canonicalId = canonicalPaperId(parsed.id);
-                  this.paperPathMap.set(canonicalId, relativePath);
-                  // Automatically cache paper into local storage (IndexedDB) for offline availability
-                  savePaperToCache(parsed).catch(() => {});
-                  mergedMap.set(canonicalId, {
-                    id: canonicalId,
-                    class: parsed.class,
-                    subject: parsed.subject,
-                    board: parsed.board,
-                    year: parsed.year,
-                    paperName: parsed.paperName,
-                    mcqCount: parsed.mcqs.length,
-                    shortCount: parsed.shortQuestions.length,
-                    longCount: parsed.longQuestions.length,
-                  });
-                }
-              } catch {}
+            // Fetch remote papers in parallel batches of 8 for high performance
+            const batchSize = 8;
+            for (let i = 0; i < jsonBlobs.length; i += batchSize) {
+              const chunk = jsonBlobs.slice(i, i + batchSize);
+              await Promise.allSettled(
+                chunk.map(async (blob: any) => {
+                  const relativePath: string = blob.path;
+                  for (const mirror of CDN_MIRRORS) {
+                    try {
+                      const encodedUrl = encodeURI(`${mirror}/${relativePath}${forceRefresh ? `?t=${Date.now()}` : ''}`);
+                      const paperRes = await fetch(encodedUrl, { cache: forceRefresh ? 'no-cache' : 'default' });
+                      if (paperRes.ok) {
+                        const rawJson = await paperRes.json();
+                        const parsed = this.parseRemotePaperJson(rawJson, relativePath);
+                        const canonicalId = canonicalPaperId(parsed.id);
+                        this.paperPathMap.set(canonicalId, relativePath);
+                        // Save paper into local storage (IndexedDB)
+                        await savePaperToCache(parsed);
+                        mergedMap.set(canonicalId, {
+                          id: canonicalId,
+                          class: parsed.class,
+                          subject: parsed.subject,
+                          board: parsed.board,
+                          year: parsed.year,
+                          paperName: parsed.paperName,
+                          mcqCount: parsed.mcqs.length,
+                          shortCount: parsed.shortQuestions.length,
+                          longCount: parsed.longQuestions.length,
+                        });
+                        break;
+                      }
+                    } catch {}
+                  }
+                })
+              );
             }
           } else {
-            // Fallback: Fetch directly from KNOWN_PAPER_PATHS via CDN mirrors
-            for (const relativePath of KNOWN_PAPER_PATHS) {
-              try {
-                let rawJson: any = null;
-                for (const mirror of CDN_MIRRORS) {
-                  try {
-                    const encodedUrl = encodeURI(`${mirror}/${relativePath}`);
-                    const paperRes = await fetch(encodedUrl);
-                    if (paperRes.ok) {
-                      rawJson = await paperRes.json();
-                      break;
-                    }
-                  } catch {}
-                }
-
-                if (rawJson) {
-                  const parsed = this.parseRemotePaperJson(rawJson, relativePath);
-                  const canonicalId = canonicalPaperId(parsed.id);
-                  this.paperPathMap.set(canonicalId, relativePath);
-                  // Automatically cache paper into local storage (IndexedDB) for offline availability
-                  savePaperToCache(parsed).catch(() => {});
-                  mergedMap.set(canonicalId, {
-                    id: canonicalId,
-                    class: parsed.class,
-                    subject: parsed.subject,
-                    board: parsed.board,
-                    year: parsed.year,
-                    paperName: parsed.paperName,
-                    mcqCount: parsed.mcqs.length,
-                    shortCount: parsed.shortQuestions.length,
-                    longCount: parsed.longQuestions.length,
-                  });
-                }
-              } catch {}
+            // Fallback: Fetch directly from KNOWN_PAPER_PATHS via CDN mirrors in parallel
+            const batchSize = 6;
+            for (let i = 0; i < KNOWN_PAPER_PATHS.length; i += batchSize) {
+              const chunk = KNOWN_PAPER_PATHS.slice(i, i + batchSize);
+              await Promise.allSettled(
+                chunk.map(async (relativePath) => {
+                  for (const mirror of CDN_MIRRORS) {
+                    try {
+                      const encodedUrl = encodeURI(`${mirror}/${relativePath}${forceRefresh ? `?t=${Date.now()}` : ''}`);
+                      const paperRes = await fetch(encodedUrl, { cache: forceRefresh ? 'no-cache' : 'default' });
+                      if (paperRes.ok) {
+                        const rawJson = await paperRes.json();
+                        const parsed = this.parseRemotePaperJson(rawJson, relativePath);
+                        const canonicalId = canonicalPaperId(parsed.id);
+                        this.paperPathMap.set(canonicalId, relativePath);
+                        await savePaperToCache(parsed);
+                        mergedMap.set(canonicalId, {
+                          id: canonicalId,
+                          class: parsed.class,
+                          subject: parsed.subject,
+                          board: parsed.board,
+                          year: parsed.year,
+                          paperName: parsed.paperName,
+                          mcqCount: parsed.mcqs.length,
+                          shortCount: parsed.shortQuestions.length,
+                          longCount: parsed.longQuestions.length,
+                        });
+                        break;
+                      }
+                    } catch {}
+                  }
+                })
+              );
             }
           }
         } catch (netErr) {
@@ -849,21 +863,20 @@ export class GitHubQuestionRepository implements QuestionRepository {
     }
   }
 
-  public async getPaperById(paperId: string): Promise<Paper | null> {
+  public async getPaperById(paperId: string, forceRefresh: boolean = false): Promise<Paper | null> {
     const cachedPaper = await getPaperFromCache(paperId);
 
-    if (!navigator.onLine || getAppSettings().offlineMode) {
-      if (cachedPaper) return cachedPaper;
-      return MOCK_PAPERS.find((p) => p.id === paperId) || null;
+    if (!forceRefresh && cachedPaper && (!navigator.onLine || getAppSettings().offlineMode)) {
+      return cachedPaper;
     }
 
-    if (cachedPaper) {
+    if (!forceRefresh && cachedPaper) {
       const fixedSubject = resolvePaperSubject(cachedPaper);
       if (cachedPaper.subject !== fixedSubject) {
         cachedPaper.subject = fixedSubject;
         savePaperToCache(cachedPaper).catch(() => {});
       }
-      this.fetchRemotePaper(paperId)
+      this.fetchRemotePaper(paperId, false)
         .then((remotePaper) => {
           if (remotePaper) {
             remotePaper.subject = resolvePaperSubject(remotePaper);
@@ -874,12 +887,14 @@ export class GitHubQuestionRepository implements QuestionRepository {
       return cachedPaper;
     }
 
-    const remotePaper = await this.fetchRemotePaper(paperId);
+    const remotePaper = await this.fetchRemotePaper(paperId, forceRefresh);
     if (remotePaper) {
       remotePaper.subject = resolvePaperSubject(remotePaper);
       await savePaperToCache(remotePaper);
       return remotePaper;
     }
+
+    if (cachedPaper) return cachedPaper;
 
     const mockMatch = MOCK_PAPERS.find((p) => p.id === paperId);
     if (mockMatch) {
@@ -891,7 +906,7 @@ export class GitHubQuestionRepository implements QuestionRepository {
     return null;
   }
 
-  private async fetchRemotePaper(paperId: string): Promise<Paper | null> {
+  private async fetchRemotePaper(paperId: string, forceRefresh: boolean = false): Promise<Paper | null> {
     try {
       const canonical = canonicalPaperId(paperId);
       const mappedPath =
@@ -965,8 +980,8 @@ export class GitHubQuestionRepository implements QuestionRepository {
       for (const mirror of CDN_MIRRORS) {
         for (const relPath of relativePathsToTry) {
           try {
-            const encodedUrl = encodeURI(`${mirror}/${relPath}`);
-            const res = await fetch(encodedUrl);
+            const encodedUrl = encodeURI(`${mirror}/${relPath}${forceRefresh ? `?t=${Date.now()}` : ''}`);
+            const res = await fetch(encodedUrl, { cache: forceRefresh ? 'no-cache' : 'default' });
             if (res.ok) {
               const rawJson = await res.json();
               return this.parseRemotePaperJson(rawJson, relPath);

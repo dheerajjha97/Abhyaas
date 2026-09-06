@@ -108,9 +108,18 @@ export async function getAllCachedPapers(): Promise<Paper[]> {
 export async function clearPapersCache(): Promise<void> {
   try {
     const db = await openDB();
-    const tx = db.transaction([STORE_PAPERS, STORE_METADATA], 'readwrite');
-    tx.objectStore(STORE_PAPERS).clear();
-    tx.objectStore(STORE_METADATA).clear();
+    return new Promise((resolve) => {
+      try {
+        const tx = db.transaction([STORE_PAPERS, STORE_METADATA], 'readwrite');
+        tx.objectStore(STORE_PAPERS).clear();
+        tx.objectStore(STORE_METADATA).clear();
+        tx.oncomplete = () => resolve();
+        tx.onerror = () => resolve();
+        tx.onabort = () => resolve();
+      } catch {
+        resolve();
+      }
+    });
   } catch (err) {
     console.warn('IndexedDB clear error:', err);
   }
@@ -132,7 +141,22 @@ export async function getCacheStats(): Promise<CacheStats> {
     } catch {
       totalBytes = count * 150 * 1024;
     }
-    const estimatedSizeMB = Math.round((totalBytes / (1024 * 1024)) * 100) / 100;
+
+    let estimatedSizeMB = Math.round((totalBytes / (1024 * 1024)) * 100) / 100;
+
+    // Check browser storage usage
+    if (typeof navigator !== 'undefined' && navigator.storage && navigator.storage.estimate) {
+      try {
+        const estimate = await navigator.storage.estimate();
+        if (estimate && typeof estimate.usage === 'number' && estimate.usage > 0) {
+          const usageMB = Math.round((estimate.usage / (1024 * 1024)) * 10) / 10;
+          if (count > 0 && usageMB > estimatedSizeMB) {
+            estimatedSizeMB = usageMB;
+          }
+        }
+      } catch {}
+    }
+
     return {
       paperCount: count,
       estimatedSizeMB: Math.max(estimatedSizeMB, count > 0 ? 0.1 : 0),
@@ -148,6 +172,11 @@ export async function clearAllAppCache(): Promise<void> {
   await clearPapersCache();
 
   // 2. Clear in-memory repositories cache
+  try {
+    const { questionRepository } = await import('../services/questionRepository');
+    questionRepository.clearCache();
+  } catch {}
+
   try {
     const { syllabusRepository } = await import('../services/syllabusRepository');
     syllabusRepository.clearCache();

@@ -4,7 +4,7 @@ export function registerServiceWorker() {
     if ('caches' in window) {
       window.caches.keys().then((names) => {
         names.forEach((name) => {
-          if (name !== 'abhyaas-pwa-v10') {
+          if (name !== 'abhyaas-pwa-v11') {
             window.caches.delete(name);
           }
         });

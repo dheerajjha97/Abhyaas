@@ -148,3 +148,76 @@
   );
 }
 
+/* Authentic Student Notebook & Study Register Styling */
+.notebook-ruled-paper {
+  background-color: #fffefb;
+  background-image: repeating-linear-gradient(
+    to bottom,
+    transparent 0px,
+    transparent 31px,
+    rgba(148, 163, 184, 0.20) 31px,
+    rgba(148, 163, 184, 0.20) 32px
+  );
+  background-size: 100% 32px;
+}
+
+.dark .notebook-ruled-paper {
+  background-color: #131720;
+  background-image: repeating-linear-gradient(
+    to bottom,
+    transparent 0px,
+    transparent 31px,
+    rgba(71, 85, 105, 0.32) 31px,
+    rgba(71, 85, 105, 0.32) 32px
+  );
+  background-size: 100% 32px;
+}
+
+.notebook-sepia-paper {
+  background-color: #faf6eb;
+  background-image: repeating-linear-gradient(
+    to bottom,
+    transparent 0px,
+    transparent 31px,
+    rgba(180, 160, 130, 0.24) 31px,
+    rgba(180, 160, 130, 0.24) 32px
+  );
+  background-size: 100% 32px;
+}
+
+.notebook-plain-paper {
+  background-color: #ffffff;
+}
+
+.dark .notebook-plain-paper {
+  background-color: #131720;
+}
+
+/* Notebook Highlighter Markup */
+.notebook-highlight-yellow {
+  background: linear-gradient(104deg, rgba(254, 240, 138, 0.1) 0.5%, rgba(254, 240, 138, 0.8) 2%, rgba(254, 240, 138, 0.7) 98%);
+  padding: 1px 4px;
+  border-radius: 4px;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+
+.dark .notebook-highlight-yellow {
+  background: linear-gradient(104deg, rgba(202, 138, 4, 0.1) 0.5%, rgba(202, 138, 4, 0.35) 2%, rgba(202, 138, 4, 0.3) 98%);
+  color: #fef08a;
+}
+
+.notebook-highlight-blue {
+  background: linear-gradient(104deg, rgba(191, 219, 254, 0.1) 0.5%, rgba(191, 219, 254, 0.8) 2%, rgba(191, 219, 254, 0.7) 98%);
+  padding: 1px 4px;
+  border-radius: 4px;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+
+.dark .notebook-highlight-blue {
+  background: linear-gradient(104deg, rgba(59, 130, 246, 0.1) 0.5%, rgba(59, 130, 246, 0.3) 2%, rgba(59, 130, 246, 0.25) 98%);
+  color: #bfdbfe;
+}
+
+

@@ -25,6 +25,7 @@ import { DesktopNavbar } from './components/ui/DesktopNavbar';
 import { AdSenseTracker } from './components/ads/AdSenseTracker';
 import { PWAInstallPrompt } from './components/pwa/PWAInstallPrompt';
 import { OfflineIndicator } from './components/pwa/OfflineIndicator';
+import { registerServiceWorker } from './utils/registerSW';
 
 // Scroll to top on route change
 const ScrollToTop = () => {
@@ -33,17 +34,6 @@ const ScrollToTop = () => {
     window.scrollTo(0, 0);
   }, [pathname]);
   return null;
-};
-
-// Register Service Worker for PWA support
-const registerServiceWorker = () => {
-  if ('serviceWorker' in navigator && process.env.NODE_ENV === 'production') {
-    window.addEventListener('load', () => {
-      navigator.serviceWorker.register('/sw.js').catch((err) => {
-        console.log('SW registration failed: ', err);
-      });
-    });
-  }
 };
 
 const AppContent: React.FC = () => {

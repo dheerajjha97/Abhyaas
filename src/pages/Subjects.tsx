@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { questionRepository, normalizeSubject } from '../services/questionRepository';
+import { questionRepository, normalizeSubject, resolvePaperSubject } from '../services/questionRepository';
 import { PaperSummary } from '../types/question';
 import { HeaderBar } from '../components/ui/HeaderBar';
 import { SubjectCard } from '../components/ui/SubjectCard';
@@ -181,7 +181,7 @@ export const Subjects: React.FC = () => {
   });
 
   papers.forEach((p) => {
-    const norm = normalizeSubject(p.subject);
+    const norm = resolvePaperSubject(p);
     const current = subjectMap.get(norm) || subjectMap.get(p.subject) || 0;
     subjectMap.set(norm || p.subject, current + 1);
   });
@@ -203,6 +203,10 @@ export const Subjects: React.FC = () => {
       };
     })
     .filter((sub) => {
+      // Class 11 and 12 never have general "Science" (only Class 10 has Science)
+      if (classId !== '10' && sub.name === 'Science') {
+        return false;
+      }
       if (selectedStream === 'All') return true;
       if (selectedStream === 'Arts') return sub.stream === 'Arts';
       if (selectedStream === 'Science') return sub.stream === 'Science';

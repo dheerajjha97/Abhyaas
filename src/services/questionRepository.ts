@@ -120,21 +120,37 @@ export function canonicalPaperId(idOrPath: string): string {
 }
 
 const SUBJECT_ALIASES: Record<string, string> = {
-  'polscience': 'Political Science',
+  // Political Science (राजनीति विज्ञान)
+  'political science': 'Political Science',
+  'political-science': 'Political Science',
+  'political_science': 'Political Science',
+  'politicalscience': 'Political Science',
+  'pol science': 'Political Science',
   'pol-science': 'Political Science',
   'pol_science': 'Political Science',
-  'politicalscience': 'Political Science',
-  'political-science': 'Political Science',
-  'political science': 'Political Science',
+  'polscience': 'Political Science',
+  'pol sci': 'Political Science',
+  'pol-sci': 'Political Science',
+  'pol_sci': 'Political Science',
+  'polsci': 'Political Science',
+  'pol sc': 'Political Science',
+  'polsc': 'Political Science',
+  'pol': 'Political Science',
   'राजनीति विज्ञान': 'Political Science',
   'राजनीति शास्त्र': 'Political Science',
+  'राजनीतिक विज्ञान': 'Political Science',
+  'राजनीतिक शास्त्र': 'Political Science',
+  'राजनीतिविज्ञान': 'Political Science',
+  'राजनीति': 'Political Science',
 
+  // Home Science (गृह विज्ञान)
   'homescience': 'Home Science',
   'home-science': 'Home Science',
   'home_science': 'Home Science',
   'home science': 'Home Science',
   'गृह विज्ञान': 'Home Science',
   'गृहविज्ञान': 'Home Science',
+  'गृह शास्त्र': 'Home Science',
 
   'biology': 'Biology',
   'जीव विज्ञान': 'Biology',
@@ -184,8 +200,11 @@ const SUBJECT_ALIASES: Record<string, string> = {
 
   'computer science': 'Computer Science',
   'computer-science': 'Computer Science',
+  'computer_science': 'Computer Science',
+  'computerscience': 'Computer Science',
   'cs': 'Computer Science',
   'कंप्यूटर साइंस': 'Computer Science',
+  'कम्प्यूटर साइंस': 'Computer Science',
 
   'accountancy': 'Accountancy',
   'लेखाशास्त्र': 'Accountancy',
@@ -193,6 +212,7 @@ const SUBJECT_ALIASES: Record<string, string> = {
 
   'business studies': 'Business Studies',
   'business-studies': 'Business Studies',
+  'business_studies': 'Business Studies',
   'bst': 'Business Studies',
   'व्यवसाय अध्ययन': 'Business Studies',
 
@@ -204,7 +224,11 @@ const SUBJECT_ALIASES: Record<string, string> = {
   'विज्ञान': 'Science',
 
   'social science': 'Social Science',
+  'social-science': 'Social Science',
+  'social_science': 'Social Science',
+  'socialscience': 'Social Science',
   'सामाजिक विज्ञान': 'Social Science',
+  'सामाजिकविज्ञान': 'Social Science',
   'sst': 'Social Science',
 
   'hindi': 'Hindi',
@@ -227,15 +251,100 @@ const SUBJECT_ALIASES: Record<string, string> = {
 
 export function normalizeSubject(input?: string): string {
   if (!input) return '';
-  const clean = input.trim().toLowerCase().replace(/[-_]/g, ' ');
-  if (SUBJECT_ALIASES[clean]) {
-    return SUBJECT_ALIASES[clean];
+  const raw = input.trim();
+  const lower = raw.toLowerCase();
+  const cleanWithSpaces = lower.replace(/[-_]/g, ' ');
+  const cleanNoSpaces = lower.replace(/[\s\-_]/g, '');
+
+  // 1. Direct exact match in alias dictionary
+  if (SUBJECT_ALIASES[cleanWithSpaces]) {
+    return SUBJECT_ALIASES[cleanWithSpaces];
   }
-  const key = Object.keys(SUBJECT_ALIASES).find((k) => clean.includes(k) || k.includes(clean));
-  if (key) {
-    return SUBJECT_ALIASES[key];
+  if (SUBJECT_ALIASES[cleanNoSpaces]) {
+    return SUBJECT_ALIASES[cleanNoSpaces];
   }
-  return input.charAt(0).toUpperCase() + input.slice(1);
+  if (SUBJECT_ALIASES[lower]) {
+    return SUBJECT_ALIASES[lower];
+  }
+
+  // 2. Prioritize longer keys first (prevent 'science' from eating 'political science')
+  const sortedKeys = Object.keys(SUBJECT_ALIASES).sort((a, b) => b.length - a.length);
+  for (const k of sortedKeys) {
+    if (k.length >= 3) {
+      if (cleanWithSpaces === k || cleanNoSpaces === k) {
+        return SUBJECT_ALIASES[k];
+      }
+      // Substring match with boundary safety
+      if (cleanWithSpaces.includes(k) || k.includes(cleanWithSpaces)) {
+        // Special guard: do not let isolated 'science' or 'vigyan' match 'political science', 'computer science', 'home science'
+        if (
+          (k === 'science' || k === 'विज्ञान') &&
+          (cleanWithSpaces.includes('pol') ||
+            cleanWithSpaces.includes('home') ||
+            cleanWithSpaces.includes('social') ||
+            cleanWithSpaces.includes('comp') ||
+            cleanWithSpaces.includes('गृह') ||
+            cleanWithSpaces.includes('समाज') ||
+            cleanWithSpaces.includes('राजनीति'))
+        ) {
+          continue;
+        }
+        return SUBJECT_ALIASES[k];
+      }
+    }
+  }
+
+  return raw.charAt(0).toUpperCase() + raw.slice(1);
+}
+
+/**
+ * Robustly resolves the real subject of a paper by examining its subject field,
+ * canonical paper ID, title, and class number.
+ * This automatically heals any previously cached papers in IndexedDB.
+ */
+export function resolvePaperSubject(paper: {
+  id?: string;
+  subject?: string;
+  paperName?: string;
+  class?: string;
+}): string {
+  const normSub = normalizeSubject(paper.subject);
+  const idLower = (paper.id || '').toLowerCase();
+  const nameLower = (paper.paperName || '').toLowerCase();
+  const classVal = normalizeClass(paper.class);
+
+  // Check if ID or name clearly specifies Political Science
+  if (
+    idLower.includes('pol-science') ||
+    idLower.includes('pol_science') ||
+    idLower.includes('polscience') ||
+    idLower.includes('pol-sci') ||
+    idLower.includes('pol_sci') ||
+    idLower.includes('polsci') ||
+    nameLower.includes('political') ||
+    nameLower.includes('राजनीति')
+  ) {
+    return 'Political Science';
+  }
+
+  // Check if ID or name clearly specifies Home Science
+  if (
+    idLower.includes('home-science') ||
+    idLower.includes('home_science') ||
+    idLower.includes('homescience') ||
+    nameLower.includes('home science') ||
+    nameLower.includes('गृह विज्ञान')
+  ) {
+    return 'Home Science';
+  }
+
+  // Class 11 and 12 never have a generic "Science" subject
+  // Any "Science" attributed to Class 11 or 12 is a mis-normalized Political Science paper
+  if ((classVal === '11' || classVal === '12') && normSub === 'Science') {
+    return 'Political Science';
+  }
+
+  return normSub;
 }
 
 export function normalizeClass(cls?: string): string {
@@ -350,7 +459,12 @@ export class GitHubQuestionRepository implements QuestionRepository {
       const meta = raw.paper;
       const rawClass = normalizeClass(String(meta.classId || ''));
       const rawSub = meta.subjectId || meta.subject || '';
-      const formattedSubject = normalizeSubject(rawSub);
+      const formattedSubject = resolvePaperSubject({
+        id: meta.id || rawPath,
+        subject: rawSub,
+        paperName: meta.title || meta.paperName,
+        class: rawClass,
+      });
 
       const mcqs = raw.questions
         .filter((q: any) => q.type === 'mcq')
@@ -540,11 +654,12 @@ export class GitHubQuestionRepository implements QuestionRepository {
       // 1. Initialize map with bundled mock summaries
       MOCK_SUMMARIES.forEach((s) => {
         const canonicalKey = canonicalPaperId(s.id);
+        const resolvedSub = resolvePaperSubject(s);
         mergedMap.set(canonicalKey, {
           ...s,
           id: canonicalKey,
           class: normalizeClass(s.class),
-          subject: normalizeSubject(s.subject),
+          subject: resolvedSub,
         });
       });
 
@@ -552,10 +667,15 @@ export class GitHubQuestionRepository implements QuestionRepository {
       const cached = await getAllCachedPapers();
       cached.forEach((p) => {
         const canonicalKey = canonicalPaperId(p.id);
+        const resolvedSub = resolvePaperSubject(p);
+        if (p.subject !== resolvedSub) {
+          p.subject = resolvedSub;
+          savePaperToCache(p).catch(() => {});
+        }
         mergedMap.set(canonicalKey, {
           id: canonicalKey,
           class: normalizeClass(p.class),
-          subject: normalizeSubject(p.subject),
+          subject: resolvedSub,
           board: p.board,
           year: p.year,
           paperName: p.paperName,
@@ -738,9 +858,15 @@ export class GitHubQuestionRepository implements QuestionRepository {
     }
 
     if (cachedPaper) {
+      const fixedSubject = resolvePaperSubject(cachedPaper);
+      if (cachedPaper.subject !== fixedSubject) {
+        cachedPaper.subject = fixedSubject;
+        savePaperToCache(cachedPaper).catch(() => {});
+      }
       this.fetchRemotePaper(paperId)
         .then((remotePaper) => {
           if (remotePaper) {
+            remotePaper.subject = resolvePaperSubject(remotePaper);
             savePaperToCache(remotePaper);
           }
         })
@@ -750,12 +876,14 @@ export class GitHubQuestionRepository implements QuestionRepository {
 
     const remotePaper = await this.fetchRemotePaper(paperId);
     if (remotePaper) {
+      remotePaper.subject = resolvePaperSubject(remotePaper);
       await savePaperToCache(remotePaper);
       return remotePaper;
     }
 
     const mockMatch = MOCK_PAPERS.find((p) => p.id === paperId);
     if (mockMatch) {
+      mockMatch.subject = resolvePaperSubject(mockMatch);
       await savePaperToCache(mockMatch);
       return mockMatch;
     }

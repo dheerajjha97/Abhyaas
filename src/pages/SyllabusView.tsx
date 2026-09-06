@@ -162,13 +162,13 @@ export const SyllabusView: React.FC = () => {
                 <span className="text-sm sm:text-base font-black text-blue-600 dark:text-blue-400">
                   {syllabusData.syllabus.totalMarks || 100} Marks
                 </span>
-                {syllabusData.syllabus.practicalMarks ? (
-                  <span className="text-[9px] font-bold text-slate-500 dark:text-slate-400 block -mt-0.5">
+                {syllabusData.syllabus.practicalMarks && syllabusData.syllabus.practicalMarks > 0 ? (
+                  <span className="text-[9px] font-bold text-amber-600 dark:text-amber-400 block -mt-0.5">
                     ({syllabusData.syllabus.theoryMarks || 70} Th + {syllabusData.syllabus.practicalMarks} Pr)
                   </span>
                 ) : (
-                  <span className="text-[9px] font-bold text-slate-500 dark:text-slate-400 block -mt-0.5">
-                    (100 थ्योरी)
+                  <span className="text-[9px] font-bold text-emerald-600 dark:text-emerald-400 block -mt-0.5">
+                    (100 थ्योरी • कोई प्रैक्टिकल नहीं)
                   </span>
                 )}
               </div>

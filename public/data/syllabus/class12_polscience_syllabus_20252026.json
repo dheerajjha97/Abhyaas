@@ -11,11 +11,13 @@
     "subjectName": "pol-science",
     "board": "Bihar Board (BSEB)",
     "academicYear": "2025-2026",
-    "stream": "Science (PCB / PCM)",
-    "totalMarks": 70,
+    "stream": "Arts (कला संकाय)",
+    "totalMarks": 100,
     "totalUnits": 5,
     "totalChapters": 14,
-    "totalTopics": 42
+    "totalTopics": 42,
+    "theoryMarks": 100,
+    "practicalMarks": 0
   },
   "units": [
     {

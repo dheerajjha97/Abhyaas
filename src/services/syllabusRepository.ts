@@ -128,7 +128,7 @@ class SyllabusRepository {
       return null;
     }
 
-    const isOffline = typeof navigator !== 'undefined' && (!navigator.onLine || getAppSettings().offlineMode);
+    const isOffline = (typeof navigator !== 'undefined' && navigator.onLine === false) || Boolean(getAppSettings()?.offlineMode);
 
     // 1. If online, ALWAYS try GitHub / CDN mirrors first to get latest updates
     if (!isOffline) {

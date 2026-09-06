@@ -16,12 +16,12 @@ export const AdBanner: React.FC<AdBannerProps> = ({
 
   useEffect(() => {
     try {
-      if (typeof window !== 'undefined' && window.adsbygoogle && adRef.current && !isLoadedRef.current) {
+      if (typeof window !== 'undefined' && window.adsbygoogle && Array.isArray(window.adsbygoogle) && adRef.current && !isLoadedRef.current) {
         window.adsbygoogle.push({});
         isLoadedRef.current = true;
       }
-    } catch (err) {
-      // Ignore adsbygoogle push errors
+    } catch {
+      // Safely ignore adsbygoogle push errors
     }
   }, []);
 

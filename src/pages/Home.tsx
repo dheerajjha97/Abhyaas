@@ -91,8 +91,8 @@ export const Home: React.FC = () => {
 
   return (
     <div className="space-y-5 pb-28 animate-in fade-in duration-300">
-      {/* Top AppBar (Mobile & Tablet) */}
-      <div className="lg:hidden bg-white dark:bg-slate-900 rounded-2xl sm:rounded-3xl p-3.5 sm:p-4 border border-slate-200/80 dark:border-slate-800 shadow-xs flex items-center justify-between gap-3">
+      {/* Top AppBar (Mobile only) */}
+      <div className="md:hidden bg-white dark:bg-slate-900 rounded-2xl sm:rounded-3xl p-3.5 sm:p-4 border border-slate-200/80 dark:border-slate-800 shadow-xs flex items-center justify-between gap-3">
         <div className="flex items-center gap-3 min-w-0">
           <button
             onClick={openProfileModal}
@@ -158,9 +158,9 @@ export const Home: React.FC = () => {
       </div>
 
       {/* Responsive Grid: Live Test Generator & Daily Study Goal */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 items-stretch">
+      <div className="grid grid-cols-1 md:grid-cols-12 gap-4 items-stretch">
         {/* Prominent Subject Mock Test Generator Hero Card */}
-        <div className="lg:col-span-7 p-5 sm:p-6 rounded-2xl sm:rounded-3xl bg-slate-900 text-white shadow-sm relative overflow-hidden border border-slate-800 flex flex-col justify-between">
+        <div className="md:col-span-7 p-5 sm:p-6 rounded-2xl sm:rounded-3xl bg-slate-900 text-white shadow-sm relative overflow-hidden border border-slate-800 flex flex-col justify-between">
           <div className="relative z-10 space-y-3">
             <div className="inline-flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-wider text-amber-400 bg-white/10 px-3 py-1 rounded-full border border-white/10">
               <Zap className="w-3.5 h-3.5 fill-amber-400" />
@@ -213,7 +213,7 @@ export const Home: React.FC = () => {
         </div>
 
         {/* Daily Goal / दैनिक अभ्यास लक्ष्य Card */}
-        <div className="lg:col-span-5 bg-white dark:bg-slate-900 rounded-2xl sm:rounded-3xl p-5 border border-slate-200/80 dark:border-slate-800 shadow-xs flex flex-col justify-between space-y-4">
+        <div className="md:col-span-5 bg-white dark:bg-slate-900 rounded-2xl sm:rounded-3xl p-5 border border-slate-200/80 dark:border-slate-800 shadow-xs flex flex-col justify-between space-y-4">
           <div className="space-y-3">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-2.5">

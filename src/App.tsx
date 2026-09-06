@@ -51,12 +51,12 @@ const AppContent: React.FC = () => {
       <ScrollToTop />
       <AdSenseTracker />
       {/* Outer wrapper: Clean, professional neutral background */}
-      <div className="min-h-screen w-full bg-slate-100/90 dark:bg-slate-950 flex flex-col items-center justify-start relative font-sans antialiased text-slate-900 dark:text-slate-100">
+      <div className="min-h-screen w-full bg-slate-50 dark:bg-slate-950 flex flex-col relative font-sans antialiased text-slate-900 dark:text-slate-100">
         {/* Responsive App Container: Fluid and multi-column on desktop/tablet, clean on mobile */}
-        <div className="w-full max-w-md sm:max-w-xl md:max-w-3xl lg:max-w-6xl xl:max-w-7xl min-h-screen flex flex-col relative z-10 px-3 sm:px-6 lg:px-8 pt-2 pb-8 bg-slate-50 dark:bg-slate-900 md:border-x md:border-slate-200/80 dark:md:border-slate-800/80 shadow-sm transition-all">
+        <div className="w-full max-w-7xl mx-auto min-h-screen flex flex-col relative z-10 px-3.5 sm:px-6 lg:px-8 pt-2 pb-8 transition-all">
           <DesktopNavbar />
 
-          <main className="flex-1 pb-24 sm:pb-28 lg:pb-12">
+          <main className="flex-1 pb-24 md:pb-12">
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/papers" element={<Papers />} />

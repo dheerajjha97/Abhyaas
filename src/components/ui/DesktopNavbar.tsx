@@ -66,22 +66,22 @@ export const DesktopNavbar: React.FC = () => {
   };
 
   return (
-    <header className="hidden lg:flex w-full items-center justify-between py-3.5 px-4 mb-4 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md rounded-2xl border border-slate-200/80 dark:border-slate-800 shadow-xs sticky top-2 z-40 transition-all">
+    <header className="hidden md:flex w-full items-center justify-between py-2.5 sm:py-3 px-3.5 sm:px-4 mb-4 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md rounded-2xl border border-slate-200/80 dark:border-slate-800 shadow-xs sticky top-2 z-40 transition-all">
       {/* Brand Logo & Class Badge */}
       <div className="flex items-center gap-3">
         <NavLink
           to="/"
           className="flex items-center gap-2.5 group cursor-pointer focus-visible:outline-none"
         >
-          <div className="w-10 h-10 rounded-xl bg-blue-600 group-hover:bg-blue-700 flex items-center justify-center text-xl shadow-xs text-white transition-transform group-hover:scale-105">
+          <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-blue-600 group-hover:bg-blue-700 flex items-center justify-center text-lg sm:text-xl shadow-xs text-white transition-transform group-hover:scale-105 shrink-0">
             🎓
           </div>
           <div>
             <div className="flex items-center gap-1.5">
-              <span className="text-lg font-black tracking-tight text-slate-900 dark:text-white leading-none">
+              <span className="text-base sm:text-lg font-black tracking-tight text-slate-900 dark:text-white leading-none">
                 Abhyaas
               </span>
-              <span className="text-xs font-bold text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-950/80 px-2 py-0.5 rounded-full border border-blue-200/60 dark:border-blue-800">
+              <span className="text-[10px] sm:text-xs font-bold text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-950/80 px-2 py-0.5 rounded-full border border-blue-200/60 dark:border-blue-800">
                 अभ्यास
               </span>
             </div>
@@ -93,7 +93,7 @@ export const DesktopNavbar: React.FC = () => {
       </div>
 
       {/* Main Navigation Links */}
-      <nav className="flex items-center gap-1 bg-slate-100/80 dark:bg-slate-800/80 p-1 rounded-xl border border-slate-200/60 dark:border-slate-700/60">
+      <nav className="flex items-center gap-0.5 sm:gap-1 bg-slate-100/80 dark:bg-slate-800/80 p-1 rounded-xl border border-slate-200/60 dark:border-slate-700/60">
         {navItems.map((item) => {
           const Icon = item.icon;
           const active = getIsActive(item);
@@ -102,14 +102,14 @@ export const DesktopNavbar: React.FC = () => {
             <NavLink
               key={item.id}
               to={item.to}
-              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold transition-all ${
+              className={`flex items-center gap-1.5 px-2.5 lg:px-3 py-1.5 rounded-lg text-xs font-bold transition-all ${
                 active
                   ? 'bg-white dark:bg-slate-900 text-blue-600 dark:text-blue-400 shadow-xs'
                   : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200 hover:bg-white/50 dark:hover:bg-slate-850'
               }`}
             >
-              <Icon className="w-4 h-4" />
-              <span>{item.label}</span>
+              <Icon className="w-4 h-4 shrink-0" />
+              <span className="hidden lg:inline">{item.label}</span>
             </NavLink>
           );
         })}

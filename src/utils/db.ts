@@ -115,3 +115,54 @@ export async function clearPapersCache(): Promise<void> {
     console.warn('IndexedDB clear error:', err);
   }
 }
+
+export interface CacheStats {
+  paperCount: number;
+  estimatedSizeMB: number;
+}
+
+export async function getCacheStats(): Promise<CacheStats> {
+  try {
+    const papers = await getAllCachedPapers();
+    const count = papers.length;
+    let totalBytes = 0;
+    try {
+      const jsonStr = JSON.stringify(papers);
+      totalBytes = new Blob([jsonStr]).size;
+    } catch {
+      totalBytes = count * 150 * 1024;
+    }
+    const estimatedSizeMB = Math.round((totalBytes / (1024 * 1024)) * 100) / 100;
+    return {
+      paperCount: count,
+      estimatedSizeMB: Math.max(estimatedSizeMB, count > 0 ? 0.1 : 0),
+    };
+  } catch (err) {
+    console.warn('Error getting cache stats:', err);
+    return { paperCount: 0, estimatedSizeMB: 0 };
+  }
+}
+
+export async function clearAllAppCache(): Promise<void> {
+  // 1. Clear IndexedDB papers and metadata
+  await clearPapersCache();
+
+  // 2. Clear browser CacheStorage (PWA / service-worker network caches)
+  if (typeof window !== 'undefined' && 'caches' in window) {
+    try {
+      const cacheNames = await window.caches.keys();
+      await Promise.all(cacheNames.map((name) => window.caches.delete(name)));
+    } catch (e) {
+      console.warn('CacheStorage delete warning:', e);
+    }
+  }
+
+  // 3. Clear sessionStorage if any temporary keys
+  if (typeof window !== 'undefined' && window.sessionStorage) {
+    try {
+      window.sessionStorage.clear();
+    } catch (e) {
+      console.warn('SessionStorage clear warning:', e);
+    }
+  }
+}

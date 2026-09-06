@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { getAppSettings, saveAppSettings, AppSettings } from '../utils/bookmarkStorage';
-import { clearPapersCache } from '../utils/db';
+import { clearAllAppCache, getCacheStats, CacheStats } from '../utils/db';
 import { HeaderBar } from '../components/ui/HeaderBar';
 import { GlassCard } from '../components/ui/GlassCard';
 import { Toast, ToastMessage } from '../components/ui/Toast';
@@ -23,6 +23,12 @@ import {
   FileText,
   Mail,
   ChevronRight,
+  Trash2,
+  Database,
+  CheckCircle2,
+  AlertTriangle,
+  Loader2,
+  RotateCcw,
 } from 'lucide-react';
 
 export const More: React.FC = () => {
@@ -31,6 +37,22 @@ export const More: React.FC = () => {
   const [deferredPrompt, setDeferredPrompt] = useState<any>(null);
   const [isInstallable, setIsInstallable] = useState(false);
   const [toast, setToast] = useState<ToastMessage | null>(null);
+  const [cacheStats, setCacheStats] = useState<CacheStats>({ paperCount: 0, estimatedSizeMB: 0 });
+  const [isClearingCache, setIsClearingCache] = useState(false);
+  const [showClearConfirmModal, setShowClearConfirmModal] = useState(false);
+
+  const loadCacheStats = async () => {
+    try {
+      const stats = await getCacheStats();
+      setCacheStats(stats);
+    } catch (e) {
+      console.warn('Failed to load cache stats:', e);
+    }
+  };
+
+  useEffect(() => {
+    loadCacheStats();
+  }, []);
 
   useEffect(() => {
     const handleBeforeInstallPrompt = (e: Event) => {
@@ -80,13 +102,44 @@ export const More: React.FC = () => {
     });
   };
 
-  const handleClearCache = async () => {
-    await clearPapersCache();
-    setToast({
-      id: Date.now().toString(),
-      type: 'success',
-      message: 'नवीनतम प्रश्न पत्र सफलतापूर्वक अपडेट हो गए!',
-    });
+  const executeClearCache = async () => {
+    setIsClearingCache(true);
+    try {
+      await clearAllAppCache();
+      await loadCacheStats();
+      setShowClearConfirmModal(false);
+      setToast({
+        id: Date.now().toString(),
+        type: 'success',
+        message: 'कैश सफलतापूर्वक साफ़ कर दिया गया! अब नवीनतम डेटा लोड होगा।',
+      });
+    } catch (err) {
+      setToast({
+        id: Date.now().toString(),
+        type: 'error',
+        message: 'कैश साफ़ करने में समस्या आई, कृपया पुनः प्रयास करें।',
+      });
+    } finally {
+      setIsClearingCache(false);
+    }
+  };
+
+  const handleSyncFresh = async () => {
+    setIsClearingCache(true);
+    try {
+      await clearAllAppCache();
+      await loadCacheStats();
+      setToast({
+        id: Date.now().toString(),
+        type: 'success',
+        message: 'कैश रीसेट किया गया! नवीनतम प्रश्न पत्र लोड हो रहे हैं...',
+      });
+      setTimeout(() => {
+        window.location.reload();
+      }, 700);
+    } catch (err) {
+      setIsClearingCache(false);
+    }
   };
 
   return (
@@ -239,62 +292,88 @@ export const More: React.FC = () => {
         </div>
       </div>
 
-      {/* Settings Options */}
-      <div className="space-y-2.5">
+      {/* Settings & Cache Management */}
+      <div className="space-y-3">
         <h4 className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider px-1">
-          ऐप सेटिंग्स & कैश
+          ऐप सेटिंग्स & स्टोरेज (Settings & Storage)
         </h4>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-          {/* Offline Mode Switch */}
-          <div className="bg-white dark:bg-slate-900 rounded-2xl p-4 border border-slate-200/90 dark:border-slate-800 shadow-2xs flex items-center justify-between gap-3">
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl bg-blue-50 dark:bg-blue-950/70 text-blue-600 dark:text-blue-400 flex items-center justify-center shrink-0 border border-blue-100 dark:border-blue-900/60">
-                <Wifi className="w-5 h-5" />
-              </div>
-              <div>
-                <h5 className="text-sm font-black text-slate-900 dark:text-slate-100">
-                  बिना इंटरनेट (ऑफलाइन) पढ़ें
-                </h5>
-                <p className="text-xs text-slate-500 dark:text-slate-400">
-                  इंटरनेट न होने पर भी सहेजे गए पेपर्स से अभ्यास जारी रखें
-                </p>
-              </div>
+        {/* Offline Mode Switch */}
+        <div className="bg-white dark:bg-slate-900 rounded-2xl p-4 border border-slate-200/90 dark:border-slate-800 shadow-2xs flex items-center justify-between gap-3">
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 rounded-xl bg-blue-50 dark:bg-blue-950/70 text-blue-600 dark:text-blue-400 flex items-center justify-center shrink-0 border border-blue-100 dark:border-blue-900/60">
+              <Wifi className="w-5 h-5" />
             </div>
-            <button
-              onClick={handleToggleOffline}
-              className={`w-12 h-6 rounded-full transition-colors relative cursor-pointer shrink-0 ${
-                settings.offlineMode ? 'bg-blue-600' : 'bg-slate-200 dark:bg-slate-700'
+            <div>
+              <h5 className="text-sm font-black text-slate-900 dark:text-slate-100">
+                बिना इंटरनेट (ऑफलाइन) पढ़ें
+              </h5>
+              <p className="text-xs text-slate-500 dark:text-slate-400">
+                इंटरनेट न होने पर भी सहेजे गए पेपर्स से अभ्यास जारी रखें
+              </p>
+            </div>
+          </div>
+          <button
+            onClick={handleToggleOffline}
+            className={`w-12 h-6 rounded-full transition-colors relative cursor-pointer shrink-0 ${
+              settings.offlineMode ? 'bg-blue-600' : 'bg-slate-200 dark:bg-slate-700'
+            }`}
+          >
+            <span
+              className={`block w-5 h-5 rounded-full bg-white shadow-xs transition-transform transform ${
+                settings.offlineMode ? 'translate-x-6' : 'translate-x-0.5'
               }`}
-            >
-              <span
-                className={`block w-5 h-5 rounded-full bg-white shadow-xs transition-transform transform ${
-                  settings.offlineMode ? 'translate-x-6' : 'translate-x-0.5'
-                }`}
-              />
-            </button>
+            />
+          </button>
+        </div>
+
+        {/* Dedicated Cache Clear & Storage Management Card */}
+        <div className="bg-white dark:bg-slate-900 rounded-2xl p-4 sm:p-5 border border-slate-200/90 dark:border-slate-800 shadow-2xs space-y-3.5">
+          <div className="flex items-start gap-3">
+            <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-2xl bg-amber-50 dark:bg-amber-950/60 text-amber-600 dark:text-amber-400 flex items-center justify-center shrink-0 border border-amber-200/80 dark:border-amber-900/50">
+              <Database className="w-5 h-5" />
+            </div>
+            <div className="min-w-0 flex-1">
+              <div className="flex flex-wrap items-center gap-2">
+                <h5 className="text-sm sm:text-base font-black text-slate-900 dark:text-slate-100">
+                  कैश एवं स्टोरेज (Cache & Storage)
+                </h5>
+                <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-700">
+                  {cacheStats.paperCount} पेपर्स • ~{cacheStats.estimatedSizeMB} MB
+                </span>
+              </div>
+              <p className="text-xs text-slate-500 dark:text-slate-400 mt-1 leading-relaxed">
+                ऑफलाइन डाउनलोड किए गए प्रश्न पत्र, उत्तर और अस्थायी फाइलें। नया व अद्यतन डेटा लोड करने के लिए कैश साफ़ करें।
+              </p>
+            </div>
           </div>
 
-          {/* Sync / Refresh Data */}
-          <div className="bg-white dark:bg-slate-900 rounded-2xl p-4 border border-slate-200/90 dark:border-slate-800 shadow-2xs flex items-center justify-between gap-3">
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl bg-blue-50 dark:bg-blue-950/70 text-blue-600 dark:text-blue-400 flex items-center justify-center shrink-0 border border-blue-100 dark:border-blue-900/60">
-                <RefreshCw className="w-5 h-5" />
-              </div>
-              <div>
-                <h5 className="text-sm font-black text-slate-900 dark:text-slate-100">
-                  नए प्रश्न पत्र अपडेट करें
-                </h5>
-                <p className="text-xs text-slate-500 dark:text-slate-400">
-                  नवीनतम पेपर्स और उत्तर तुरंत रीलोड करें
-                </p>
-              </div>
-            </div>
+          {/* Action Buttons */}
+          <div className="pt-2 border-t border-slate-100 dark:border-slate-800 flex flex-wrap items-center gap-2.5">
             <button
-              onClick={handleClearCache}
-              className="px-3.5 py-2 bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs rounded-xl cursor-pointer active:scale-95 transition-all shadow-2xs shrink-0"
+              onClick={() => setShowClearConfirmModal(true)}
+              disabled={isClearingCache}
+              className="flex-1 sm:flex-initial inline-flex items-center justify-center gap-2 px-4 py-2 bg-rose-50 hover:bg-rose-100 dark:bg-rose-950/40 dark:hover:bg-rose-900/50 text-rose-700 dark:text-rose-300 border border-rose-200/80 dark:border-rose-900/60 rounded-xl font-bold text-xs cursor-pointer transition-all active:scale-95 disabled:opacity-50"
             >
-              अपडेट करें
+              {isClearingCache ? (
+                <Loader2 className="w-4 h-4 animate-spin" />
+              ) : (
+                <Trash2 className="w-4 h-4 text-rose-600 dark:text-rose-400" />
+              )}
+              <span>कैश साफ़ करें (Clear Cache)</span>
+            </button>
+
+            <button
+              onClick={handleSyncFresh}
+              disabled={isClearingCache}
+              className="flex-1 sm:flex-initial inline-flex items-center justify-center gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-xl font-bold text-xs cursor-pointer transition-all active:scale-95 disabled:opacity-50 shadow-2xs"
+            >
+              {isClearingCache ? (
+                <Loader2 className="w-4 h-4 animate-spin" />
+              ) : (
+                <RefreshCw className="w-4 h-4" />
+              )}
+              <span>नया डेटा सिंक करें (Sync Fresh)</span>
             </button>
           </div>
         </div>
@@ -375,6 +454,67 @@ export const More: React.FC = () => {
           </span>
         </div>
       </div>
+
+      {/* Clear Cache Confirmation Dialog Modal */}
+      {showClearConfirmModal && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-xs animate-in fade-in duration-200">
+          <div className="bg-white dark:bg-slate-900 rounded-3xl max-w-md w-full p-5 sm:p-6 border border-slate-200 dark:border-slate-800 shadow-2xl space-y-4">
+            <div className="flex items-center gap-3">
+              <div className="w-12 h-12 rounded-2xl bg-rose-50 dark:bg-rose-950 text-rose-600 dark:text-rose-400 flex items-center justify-center shrink-0 border border-rose-200 dark:border-rose-900">
+                <Trash2 className="w-6 h-6" />
+              </div>
+              <div>
+                <h3 className="text-base sm:text-lg font-black text-slate-900 dark:text-white">
+                  कैश साफ़ करें? (Clear Cache)
+                </h3>
+                <p className="text-xs text-slate-500 dark:text-slate-400">
+                  सहेजे गए {cacheStats.paperCount} पेपर्स (~{cacheStats.estimatedSizeMB} MB) हटेंगे
+                </p>
+              </div>
+            </div>
+
+            <div className="bg-slate-50 dark:bg-slate-800/60 rounded-2xl p-3.5 space-y-2.5 border border-slate-200/80 dark:border-slate-700/80 text-xs">
+              <div className="flex items-start gap-2 text-emerald-700 dark:text-emerald-400 font-semibold">
+                <CheckCircle2 className="w-4 h-4 shrink-0 mt-0.5" />
+                <span>आपकी प्रोफ़ाइल (नाम, कक्षा, स्ट्रीम), बुकमार्क और टेस्ट स्कोर सुरक्षित रहेंगे।</span>
+              </div>
+              <div className="flex items-start gap-2 text-slate-600 dark:text-slate-300">
+                <Trash2 className="w-4 h-4 text-rose-500 shrink-0 mt-0.5" />
+                <span>केवल ऑफलाइन फाइलों का कैश साफ़ होगा ताकि नए जोड़े गए प्रश्न पत्र और उत्तर सीधे ऑनलाइन से लोड हो सकें।</span>
+              </div>
+            </div>
+
+            <div className="flex items-center justify-end gap-2.5 pt-2">
+              <button
+                type="button"
+                onClick={() => setShowClearConfirmModal(false)}
+                disabled={isClearingCache}
+                className="px-4 py-2 text-slate-600 dark:text-slate-300 font-bold text-xs rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors cursor-pointer"
+              >
+                रद्द करें (Cancel)
+              </button>
+              <button
+                type="button"
+                onClick={executeClearCache}
+                disabled={isClearingCache}
+                className="px-4 py-2 bg-rose-600 hover:bg-rose-700 text-white font-bold text-xs rounded-xl flex items-center gap-2 cursor-pointer active:scale-95 transition-all shadow-2xs"
+              >
+                {isClearingCache ? (
+                  <>
+                    <Loader2 className="w-3.5 h-3.5 animate-spin" />
+                    <span>साफ़ हो रहा है...</span>
+                  </>
+                ) : (
+                  <>
+                    <Trash2 className="w-3.5 h-3.5" />
+                    <span>हाँ, कैश साफ़ करें</span>
+                  </>
+                )}
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

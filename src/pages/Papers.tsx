@@ -9,18 +9,24 @@ import { Illustration } from '../components/ui/Illustration';
 import { FileText, Filter, RotateCw, BookOpen, Layers, Zap } from 'lucide-react';
 import { useStudentProfile } from '../context/StudentProfileContext';
 import { ALL_AVAILABLE_SUBJECTS } from '../types/studentProfile';
+import { SubjectCarousel } from '../components/ui/SubjectCarousel';
 
 export const Papers: React.FC = () => {
   const { classId: paramClassId, subjectId: paramSubjectId } = useParams<{ classId?: string; subjectId?: string }>();
   const navigate = useNavigate();
-  const { profile } = useStudentProfile();
+  const { profile, openProfileModal } = useStudentProfile();
 
   const classId = paramClassId || profile.classId || '12';
   const availableSubjects = ALL_AVAILABLE_SUBJECTS.filter((sub) => sub.classes.includes(classId));
+  const studentSubjectNames = (
+    classId === profile.classId
+      ? profile.selectedSubjects
+      : profile.classSubjects?.[classId]
+  ) || profile.selectedSubjects || [];
   
   const initialSubject = paramSubjectId 
     ? decodeURIComponent(paramSubjectId) 
-    : (profile.selectedSubjects[0] || availableSubjects[0]?.name || 'Political Science');
+    : (studentSubjectNames[0] || availableSubjects[0]?.name || 'Political Science');
 
   const [selectedSubject, setSelectedSubject] = useState<string>(initialSubject);
   const [papers, setPapers] = useState<PaperSummary[]>([]);
@@ -61,29 +67,15 @@ export const Papers: React.FC = () => {
         subtitle={`Class ${classId} • Board Question Papers`}
       />
 
-      {/* Horizontal Subject Switcher Chips */}
-      <div className="flex items-center gap-1.5 overflow-x-auto pb-1 no-scrollbar pt-1">
-        {availableSubjects.map((sub) => {
-          const isSelected = selectedSubject.toLowerCase() === sub.name.toLowerCase();
-          return (
-            <button
-              key={sub.id}
-              onClick={() => {
-                setSelectedSubject(sub.name);
-                setFilterYear('all');
-              }}
-              className={`px-3.5 py-2 rounded-full text-xs font-bold shrink-0 transition-all flex items-center gap-1.5 cursor-pointer select-none active:scale-95 ${
-                isSelected
-                  ? 'bg-blue-600 text-white shadow-xs border border-blue-600'
-                  : 'bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 text-slate-700 dark:text-slate-300 hover:border-slate-300'
-              }`}
-            >
-              <span>{sub.emoji}</span>
-              <span>{sub.name}</span>
-            </button>
-          );
-        })}
-      </div>
+      {/* Horizontal Subject Switcher Carousel with Student Subjects */}
+      <SubjectCarousel
+        classId={classId}
+        selectedSubject={selectedSubject}
+        onSelectSubject={(subName) => {
+          setSelectedSubject(subName);
+          setFilterYear('all');
+        }}
+      />
 
       {/* Resource Tab Navigation (Papers | Mock Test | Syllabus | Notes) */}
       <div className="grid grid-cols-4 gap-1 bg-slate-100 dark:bg-slate-800/80 p-1 rounded-2xl border border-slate-200/80 dark:border-slate-700/60 shadow-xs">
@@ -185,16 +177,32 @@ export const Papers: React.FC = () => {
           <div className="w-24 mx-auto">
             <Illustration name="empty" />
           </div>
-          <h4 className="text-sm font-bold text-slate-800 dark:text-slate-200">कोई पेपर नहीं मिला</h4>
+          <h4 className="text-sm font-bold text-slate-800 dark:text-slate-200">{selectedSubject} के पेपर अभी जोड़े जा रहे हैं</h4>
           <p className="text-xs text-slate-500 dark:text-slate-400 max-w-xs mx-auto">
-            इस विषय का कोई प्रश्न पत्र इस वर्ष के लिए उपलब्ध नहीं है। कृपया दूसरा विषय या ऑल इयर्स चुनें।
+            Class {classId} के लिए {selectedSubject} के बोर्ड प्रश्न पत्र अपलोड किए जा रहे हैं। आप उपलब्ध विषयों के पेपर हल कर सकते हैं:
           </p>
-          <button
-            onClick={fetchPapers}
-            className="px-4 py-2 bg-blue-600 text-white rounded-xl text-xs font-bold hover:bg-blue-700 transition-colors shadow-xs cursor-pointer"
-          >
-            पुनः प्रयास करें (Reload)
-          </button>
+          <div className="pt-2 flex flex-wrap justify-center gap-2">
+            {['Political Science', 'History', 'Geography']
+              .filter((sub) => sub.toLowerCase() !== selectedSubject.toLowerCase())
+              .map((sub) => (
+                <button
+                  key={sub}
+                  onClick={() => {
+                    setSelectedSubject(sub);
+                    setFilterYear('all');
+                  }}
+                  className="px-3.5 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-xl text-xs font-bold shadow-xs cursor-pointer active:scale-95 transition-all"
+                >
+                  {sub} पेपर्स देखें
+                </button>
+              ))}
+            <button
+              onClick={openProfileModal}
+              className="px-3.5 py-2 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 rounded-xl text-xs font-bold shadow-xs cursor-pointer active:scale-95 transition-all"
+            >
+              विषय सूची बदलें
+            </button>
+          </div>
         </div>
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">

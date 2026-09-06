@@ -59,10 +59,16 @@ export const MockTestGenerator: React.FC = () => {
   const [showPaletteModal, setShowPaletteModal] = useState(false);
   const [toast, setToast] = useState<ToastMessage | null>(null);
 
-  // Get available subjects for student's class
+  // Get available subjects for student's class, prioritizing student's selected subjects first
   const classSubjects = ALL_AVAILABLE_SUBJECTS.filter((s) =>
     s.classes.includes(profile.classId || '12')
-  );
+  ).sort((a, b) => {
+    const aSelected = profile.selectedSubjects.includes(a.name);
+    const bSelected = profile.selectedSubjects.includes(b.name);
+    if (aSelected && !bSelected) return -1;
+    if (!aSelected && bSelected) return 1;
+    return 0;
+  });
 
   // Countdown Timer
   useEffect(() => {

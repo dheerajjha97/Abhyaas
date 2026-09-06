@@ -8,17 +8,24 @@ import { NoteData } from '../types/notes';
 import { BookOpen, Clock, Zap, CheckCircle2, AlertCircle } from 'lucide-react';
 import { useStudentProfile } from '../context/StudentProfileContext';
 import { ALL_AVAILABLE_SUBJECTS } from '../types/studentProfile';
+import { SubjectCarousel } from '../components/ui/SubjectCarousel';
 
 export const NotesView: React.FC = () => {
   const { classId: paramClassId, subjectId: paramSubjectId } = useParams<{ classId?: string; subjectId?: string }>();
   const navigate = useNavigate();
-  const { profile } = useStudentProfile();
+  const { profile, openProfileModal } = useStudentProfile();
 
   const classId = paramClassId || profile.classId || '12';
   const availableSubjects = ALL_AVAILABLE_SUBJECTS.filter((sub) => sub.classes.includes(classId));
+  const studentSubjectNames = (
+    classId === profile.classId
+      ? profile.selectedSubjects
+      : profile.classSubjects?.[classId]
+  ) || profile.selectedSubjects || [];
+
   const initialSubject = paramSubjectId 
     ? decodeURIComponent(paramSubjectId) 
-    : (profile.selectedSubjects[0] || availableSubjects[0]?.name || 'pol-science');
+    : (studentSubjectNames[0] || availableSubjects[0]?.name || 'Political Science');
 
   const [selectedSubject, setSelectedSubject] = useState<string>(initialSubject);
   const [notes, setNotes] = useState<NoteData[]>([]);
@@ -56,28 +63,12 @@ export const NotesView: React.FC = () => {
         subtitle={`Class ${classId} • Quick Chapter Notes`} 
       />
 
-      {/* Horizontal Subject Switcher Chips */}
-      <div className="flex items-center gap-1.5 overflow-x-auto pb-1 no-scrollbar pt-1">
-        {availableSubjects.map((sub) => {
-          const isSelected =
-            selectedSubject.toLowerCase() === sub.name.toLowerCase() ||
-            selectedSubject.toLowerCase() === sub.id.toLowerCase();
-          return (
-            <button
-              key={sub.id}
-              onClick={() => setSelectedSubject(sub.name)}
-              className={`px-3.5 py-2 rounded-full text-xs font-bold shrink-0 transition-all flex items-center gap-1.5 cursor-pointer select-none active:scale-95 ${
-                isSelected
-                  ? 'bg-blue-600 text-white shadow-xs'
-                  : 'bg-white dark:bg-slate-900 border border-slate-200/90 dark:border-slate-800 text-slate-700 dark:text-slate-300 hover:border-blue-400'
-              }`}
-            >
-              <span>{sub.emoji}</span>
-              <span>{sub.name}</span>
-            </button>
-          );
-        })}
-      </div>
+      {/* Horizontal Subject Switcher Carousel with Student Subjects */}
+      <SubjectCarousel
+        classId={classId}
+        selectedSubject={selectedSubject}
+        onSelectSubject={(name) => setSelectedSubject(name)}
+      />
 
       {loading ? (
         <NotesSkeleton />
@@ -90,12 +81,20 @@ export const NotesView: React.FC = () => {
           <p className="text-xs text-slate-500 dark:text-slate-400 max-w-xs mx-auto">
             Class {classId} के लिए {selectedSubject} के अध्यायवार नोट्स जोड़े जा रहे हैं। कृपया कोई अन्य विषय चुनें।
           </p>
-          <div className="pt-1 flex justify-center gap-2">
+          <div className="pt-1 flex flex-wrap justify-center gap-2">
+            {selectedSubject.toLowerCase() !== 'political science' && (
+              <button
+                onClick={() => setSelectedSubject('Political Science')}
+                className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-xl text-xs font-bold shadow-xs cursor-pointer active:scale-95 transition-all"
+              >
+                Political Science नोट्स देखें
+              </button>
+            )}
             <button
-              onClick={() => setSelectedSubject('Political Science')}
-              className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-xl text-xs font-bold shadow-xs cursor-pointer active:scale-95 transition-all"
+              onClick={openProfileModal}
+              className="px-4 py-2 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 rounded-xl text-xs font-bold shadow-xs cursor-pointer active:scale-95 transition-all"
             >
-              Political Science नोट्स देखें
+              विषय सूची बदलें
             </button>
           </div>
         </div>

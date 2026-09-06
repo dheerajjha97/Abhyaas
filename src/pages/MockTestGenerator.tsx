@@ -573,7 +573,7 @@ export const MockTestGenerator: React.FC = () => {
         </div>
 
         {/* Flutter Style Floating Bottom Action Bar */}
-        <div className="fixed bottom-2 left-0 right-0 max-w-md sm:max-w-lg mx-auto px-4 z-40">
+        <div className="fixed bottom-2 left-0 right-0 max-w-md sm:max-w-lg md:max-w-2xl lg:max-w-3xl mx-auto px-4 z-40">
           <div className="bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl p-2.5 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-xl flex items-center justify-between gap-2">
             <button
               disabled={currentQuestionIndex === 0}
@@ -778,7 +778,7 @@ export const MockTestGenerator: React.FC = () => {
           </label>
         </div>
 
-        <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2.5">
           {classSubjects.map((sub) => {
             const isSelected = selectedSubject === sub.name;
             const isStudentSubject = profile.selectedSubjects.includes(sub.name);
@@ -831,7 +831,7 @@ export const MockTestGenerator: React.FC = () => {
           टेस्ट का प्रारूप चुनें (Test Mode)
         </label>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2.5">
           {/* Quick Sprint */}
           <div
             onClick={() => setTestType('quick')}

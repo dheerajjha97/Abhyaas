@@ -100,8 +100,8 @@ export const Preparation: React.FC = () => {
         </div>
       </div>
 
-      {/* Three Interactive Cards */}
-      <div className="space-y-4">
+      {/* Three Interactive Cards - Responsive Grid on Tablet/Desktop */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
         {/* 1. MCQ Quiz Card */}
         <div
           onClick={() => navigate(`/paper/${paper.id}/quiz`)}

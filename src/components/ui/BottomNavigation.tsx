@@ -101,7 +101,7 @@ export const BottomNavigation: React.FC = () => {
     <nav
       role="navigation"
       aria-label="Bottom Navigation"
-      className="fixed bottom-3 sm:bottom-4 left-0 right-0 z-40 flex justify-center pointer-events-none px-3 sm:px-4 pb-[env(safe-area-inset-bottom,0px)]"
+      className="fixed bottom-3 sm:bottom-4 left-0 right-0 z-40 flex justify-center pointer-events-none px-3 sm:px-4 pb-[env(safe-area-inset-bottom,0px)] lg:hidden"
     >
       {/* Floating Glassmorphism Container inspired by Reference Image */}
       <div className="pointer-events-auto w-full max-w-[440px] sm:max-w-[480px] bg-white/95 dark:bg-slate-900/95 backdrop-blur-2xl border border-slate-200/90 dark:border-slate-800/90 rounded-[28px] sm:rounded-[32px] px-2 py-2 sm:px-3 sm:py-2.5 shadow-[0_16px_40px_-10px_rgba(0,0,0,0.12),0_4px_16px_-4px_rgba(0,0,0,0.06)] dark:shadow-[0_20px_45px_-12px_rgba(0,0,0,0.7)] flex items-center justify-between relative transition-all">

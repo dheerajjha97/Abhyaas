@@ -90,9 +90,9 @@ export const Home: React.FC = () => {
   const goalProgressPercent = Math.min(100, Math.round((questionsToday / dailyGoalTarget) * 100));
 
   return (
-    <div className="space-y-4 pb-28 animate-in fade-in duration-300">
-      {/* Top AppBar */}
-      <div className="bg-white dark:bg-slate-900 rounded-2xl sm:rounded-3xl p-3.5 sm:p-4 border border-slate-200/80 dark:border-slate-800 shadow-xs flex items-center justify-between gap-3">
+    <div className="space-y-5 pb-28 animate-in fade-in duration-300">
+      {/* Top AppBar (Mobile & Tablet) */}
+      <div className="lg:hidden bg-white dark:bg-slate-900 rounded-2xl sm:rounded-3xl p-3.5 sm:p-4 border border-slate-200/80 dark:border-slate-800 shadow-xs flex items-center justify-between gap-3">
         <div className="flex items-center gap-3 min-w-0">
           <button
             onClick={openProfileModal}
@@ -157,104 +157,114 @@ export const Home: React.FC = () => {
         </div>
       </div>
 
-      {/* Daily Goal / दैनिक अभ्यास लक्ष्य Card */}
-      <div className="bg-white dark:bg-slate-900 rounded-2xl sm:rounded-3xl p-4 sm:p-5 border border-slate-200/80 dark:border-slate-800 shadow-xs space-y-3">
-        <div className="flex items-center justify-between">
-          <div className="flex items-center gap-2.5">
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-b from-amber-50 to-orange-50 dark:from-amber-950/80 dark:to-orange-950/40 flex items-center justify-center border border-amber-200/70 dark:border-amber-900/60 shrink-0 p-1">
-              <Illustration name="flame" size={30} />
+      {/* Responsive Grid: Live Test Generator & Daily Study Goal */}
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 items-stretch">
+        {/* Prominent Subject Mock Test Generator Hero Card */}
+        <div className="lg:col-span-7 p-5 sm:p-6 rounded-2xl sm:rounded-3xl bg-slate-900 text-white shadow-sm relative overflow-hidden border border-slate-800 flex flex-col justify-between">
+          <div className="relative z-10 space-y-3">
+            <div className="inline-flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-wider text-amber-400 bg-white/10 px-3 py-1 rounded-full border border-white/10">
+              <Zap className="w-3.5 h-3.5 fill-amber-400" />
+              ओरिजिनल पेपर्स आधारित लाइव टेस्ट
             </div>
+
             <div>
-              <div className="flex items-center gap-1.5">
-                <span className="text-xs sm:text-sm font-black text-slate-900 dark:text-slate-100">
-                  दैनिक अभ्यास लक्ष्य
-                </span>
-                <span className="text-[10px] font-bold text-blue-700 dark:text-blue-300 bg-blue-50 dark:bg-blue-950/80 px-2 py-0.5 rounded-full border border-blue-200/70 dark:border-blue-800">
-                  {questionsToday} / {dailyGoalTarget} प्रश्न
-                </span>
-              </div>
-              <p className="text-[10px] sm:text-xs text-slate-500 dark:text-slate-400 mt-0.5">
-                {questionsToday >= dailyGoalTarget
-                  ? '🎉 आज का लक्ष्य पूर्ण! उत्कृष्ट निरंतरता!'
-                  : questionsToday > 0
-                  ? `लक्ष्य पूरा करने के लिए केवल ${dailyGoalTarget - questionsToday} प्रश्न और हल करें!`
-                  : 'रोज़ 20 प्रश्न हल करके परीक्षा में टॉप रैंक पक्की करें'}
+              <h2 className="text-xl sm:text-2xl font-black leading-tight text-white">
+                विषय चुनें और तुरंत नया मॉक टेस्ट जनरेट करें!
+              </h2>
+              <p className="text-xs text-slate-300 mt-1 max-w-md leading-relaxed">
+                बोर्ड परीक्षा के ओरिजिनल प्रश्न पत्रों से रैंडम क्विज़ जनरेट करें, टाइमर के साथ हल करें और परिणाम सुरक्षित रखें।
               </p>
             </div>
-          </div>
 
-          <button
-            onClick={() =>
-              navigate(
-                `/mock-test?subject=${encodeURIComponent(
-                  displayedSubjects[0]?.name || 'Hindi'
-                )}&type=quick`
-              )
-            }
-            className="px-3 py-1.5 rounded-xl bg-blue-600 hover:bg-blue-700 active:scale-95 text-white font-bold text-xs flex items-center gap-1 shadow-xs cursor-pointer shrink-0 transition-all"
-          >
-            <Zap className="w-3.5 h-3.5 fill-current" />
-            <span>स्पीड टेस्ट</span>
-          </button>
-        </div>
+            {/* Quick Subject Launch Pills */}
+            <div className="flex items-center gap-1.5 overflow-x-auto pb-1 no-scrollbar pt-1">
+              {displayedSubjects.slice(0, 6).map((sub) => (
+                <button
+                  key={sub.name}
+                  onClick={() =>
+                    navigate(`/mock-test?subject=${encodeURIComponent(sub.name)}`)
+                  }
+                  className="px-3 py-1.5 rounded-full bg-white/10 hover:bg-white/20 active:scale-95 text-white text-[11px] font-medium whitespace-nowrap transition-all flex items-center gap-1 cursor-pointer border border-white/15"
+                >
+                  <span>{sub.emoji}</span>
+                  <span>{sub.name}</span>
+                </button>
+              ))}
+            </div>
 
-        {/* Progress bar */}
-        <div className="w-full bg-slate-100 dark:bg-slate-800 h-2 rounded-full overflow-hidden p-0.5 border border-slate-200/60 dark:border-slate-700/60">
-          <div
-            className="bg-blue-600 h-full rounded-full transition-all duration-700"
-            style={{ width: `${goalProgressPercent}%` }}
-          />
-        </div>
-      </div>
-
-      {/* Prominent Subject Mock Test Generator Hero Card */}
-      <div className="p-5 sm:p-6 rounded-2xl sm:rounded-3xl bg-slate-900 text-white shadow-sm relative overflow-hidden border border-slate-800">
-        <div className="relative z-10 space-y-3">
-          <div className="inline-flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-wider text-amber-400 bg-white/10 px-3 py-1 rounded-full border border-white/10">
-            <Zap className="w-3.5 h-3.5 fill-amber-400" />
-            ओरिजिनल पेपर्स आधारित लाइव टेस्ट
-          </div>
-
-          <div>
-            <h2 className="text-xl sm:text-2xl font-black leading-tight text-white">
-              विषय चुनें और तुरंत नया मॉक टेस्ट जनरेट करें!
-            </h2>
-            <p className="text-xs text-slate-300 mt-1 max-w-xs leading-relaxed">
-              बोर्ड परीक्षा के ओरिजिनल प्रश्न पत्रों से रैंडम क्विज़ जनरेट करें, टाइमर के साथ हल करें और परिणाम सुरक्षित रखें।
-            </p>
-          </div>
-
-          {/* Quick Subject Launch Pills */}
-          <div className="flex items-center gap-1.5 overflow-x-auto pb-1 no-scrollbar pt-1">
-            {displayedSubjects.slice(0, 5).map((sub) => (
+            {/* Big Launch Button */}
+            <div className="pt-2 flex gap-2">
               <button
-                key={sub.name}
-                onClick={() =>
-                  navigate(`/mock-test?subject=${encodeURIComponent(sub.name)}`)
-                }
-                className="px-3 py-1.5 rounded-full bg-white/10 hover:bg-white/20 active:scale-95 text-white text-[11px] font-medium whitespace-nowrap transition-all flex items-center gap-1 cursor-pointer border border-white/15"
+                onClick={() => navigate('/mock-test')}
+                className="flex-1 py-3 px-4 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-bold text-xs sm:text-sm shadow-xs active:scale-[0.98] transition-all flex items-center justify-center gap-2 cursor-pointer"
               >
-                <span>{sub.emoji}</span>
-                <span>{sub.name}</span>
+                <Play className="w-4 h-4 fill-current" />
+                <span>कस्टम टेस्ट जनरेट करें</span>
               </button>
-            ))}
+              <button
+                onClick={() => navigate(`/class/${profile.classId}/subjects`)}
+                className="py-3 px-3 rounded-xl bg-white/10 hover:bg-white/20 text-white font-bold text-xs transition-all cursor-pointer flex items-center justify-center border border-white/15 active:scale-95"
+                title="सभी विषय देखें"
+              >
+                <ChevronRight className="w-4 h-4" />
+              </button>
+            </div>
+          </div>
+        </div>
+
+        {/* Daily Goal / दैनिक अभ्यास लक्ष्य Card */}
+        <div className="lg:col-span-5 bg-white dark:bg-slate-900 rounded-2xl sm:rounded-3xl p-5 border border-slate-200/80 dark:border-slate-800 shadow-xs flex flex-col justify-between space-y-4">
+          <div className="space-y-3">
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-2.5">
+                <div className="w-10 h-10 rounded-xl bg-gradient-to-b from-amber-50 to-orange-50 dark:from-amber-950/80 dark:to-orange-950/40 flex items-center justify-center border border-amber-200/70 dark:border-amber-900/60 shrink-0 p-1">
+                  <Illustration name="flame" size={30} />
+                </div>
+                <div>
+                  <div className="flex items-center gap-1.5">
+                    <span className="text-xs sm:text-sm font-black text-slate-900 dark:text-slate-100">
+                      दैनिक अभ्यास लक्ष्य
+                    </span>
+                    <span className="text-[10px] font-bold text-blue-700 dark:text-blue-300 bg-blue-50 dark:bg-blue-950/80 px-2 py-0.5 rounded-full border border-blue-200/70 dark:border-blue-800">
+                      {questionsToday} / {dailyGoalTarget} प्रश्न
+                    </span>
+                  </div>
+                  <p className="text-[10px] sm:text-xs text-slate-500 dark:text-slate-400 mt-0.5">
+                    {questionsToday >= dailyGoalTarget
+                      ? '🎉 आज का लक्ष्य पूर्ण! उत्कृष्ट निरंतरता!'
+                      : questionsToday > 0
+                      ? `लक्ष्य पूरा करने के लिए केवल ${dailyGoalTarget - questionsToday} प्रश्न और हल करें!`
+                      : 'रोज़ 20 प्रश्न हल करके परीक्षा में टॉप रैंक पक्की करें'}
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Progress bar */}
+            <div className="w-full bg-slate-100 dark:bg-slate-800 h-2.5 rounded-full overflow-hidden p-0.5 border border-slate-200/60 dark:border-slate-700/60">
+              <div
+                className="bg-blue-600 h-full rounded-full transition-all duration-700"
+                style={{ width: `${goalProgressPercent}%` }}
+              />
+            </div>
           </div>
 
-          {/* Big Launch Button */}
-          <div className="pt-1 flex gap-2">
+          <div className="pt-2 flex items-center justify-between border-t border-slate-100 dark:border-slate-800/80">
+            <span className="text-[11px] font-semibold text-slate-500 dark:text-slate-400">
+              {progress.studyStreakDays} दिन निरंतरता 🔥
+            </span>
             <button
-              onClick={() => navigate('/mock-test')}
-              className="flex-1 py-3 px-4 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-bold text-xs sm:text-sm shadow-xs active:scale-[0.98] transition-all flex items-center justify-center gap-2 cursor-pointer"
+              onClick={() =>
+                navigate(
+                  `/mock-test?subject=${encodeURIComponent(
+                    displayedSubjects[0]?.name || 'Hindi'
+                  )}&type=quick`
+                )
+              }
+              className="px-3.5 py-1.5 rounded-xl bg-blue-600 hover:bg-blue-700 active:scale-95 text-white font-bold text-xs flex items-center gap-1 shadow-xs cursor-pointer transition-all"
             >
-              <Play className="w-4 h-4 fill-current" />
-              <span>कस्टम टेस्ट जनरेट करें</span>
-            </button>
-            <button
-              onClick={() => navigate(`/class/${profile.classId}/subjects`)}
-              className="py-3 px-3 rounded-xl bg-white/10 hover:bg-white/20 text-white font-bold text-xs transition-all cursor-pointer flex items-center justify-center border border-white/15 active:scale-95"
-              title="सभी विषय देखें"
-            >
-              <ChevronRight className="w-4 h-4" />
+              <Zap className="w-3.5 h-3.5 fill-current" />
+              <span>स्पीड टेस्ट</span>
             </button>
           </div>
         </div>
@@ -581,7 +591,7 @@ export const Home: React.FC = () => {
           </button>
         </div>
 
-        <div className="space-y-2.5">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3.5">
           {displayedSubjects.map((sub) => {
             const paperCount = getSubjectPaperCount(sub.name);
             const subStat = progress.subjectStats[sub.name];

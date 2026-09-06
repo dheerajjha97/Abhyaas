@@ -95,7 +95,7 @@ export const Bookmarks: React.FC = () => {
           <p className="text-xs font-bold text-slate-500 dark:text-slate-400">इस कैटेगरी में कोई सहेजा सवाल नहीं है।</p>
         </div>
       ) : (
-        <div className="space-y-3">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3.5">
           {filtered.map((item) => (
             <div
               key={item.id}

@@ -124,7 +124,7 @@ export const Search: React.FC = () => {
             {filteredResults.length} परिणाम मिले:
           </div>
 
-          <div className="space-y-3">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-3.5">
             {filteredResults.map((item) => (
               <GlassCard
                 key={`${item.paperId}-${item.questionId}`}

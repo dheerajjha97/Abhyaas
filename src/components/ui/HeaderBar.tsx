@@ -18,8 +18,8 @@ export const HeaderBar: React.FC<HeaderBarProps> = ({
   const navigate = useNavigate();
 
   return (
-    <header className="sticky top-0 z-30 w-full bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl border-b border-slate-200/80 dark:border-slate-800 px-4 py-3 shadow-2xs">
-      <div className="max-w-lg mx-auto flex items-center justify-between gap-3">
+    <header className="sticky top-0 z-30 w-full bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl border-b border-slate-200/80 dark:border-slate-800 px-4 py-3 shadow-2xs rounded-2xl">
+      <div className="w-full flex items-center justify-between gap-3">
         <div className="flex items-center gap-2.5 min-w-0">
           {showBack && (
             <button

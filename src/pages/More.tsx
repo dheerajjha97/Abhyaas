@@ -242,56 +242,58 @@ export const More: React.FC = () => {
           ऐप सेटिंग्स & कैश
         </h4>
 
-        {/* Offline Mode Switch */}
-        <div className="bg-white dark:bg-slate-900 rounded-2xl p-4 border border-slate-200/90 dark:border-slate-800 shadow-2xs flex items-center justify-between gap-3">
-          <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-blue-50 dark:bg-blue-950/70 text-blue-600 dark:text-blue-400 flex items-center justify-center shrink-0 border border-blue-100 dark:border-blue-900/60">
-              <Wifi className="w-5 h-5" />
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+          {/* Offline Mode Switch */}
+          <div className="bg-white dark:bg-slate-900 rounded-2xl p-4 border border-slate-200/90 dark:border-slate-800 shadow-2xs flex items-center justify-between gap-3">
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 rounded-xl bg-blue-50 dark:bg-blue-950/70 text-blue-600 dark:text-blue-400 flex items-center justify-center shrink-0 border border-blue-100 dark:border-blue-900/60">
+                <Wifi className="w-5 h-5" />
+              </div>
+              <div>
+                <h5 className="text-sm font-black text-slate-900 dark:text-slate-100">
+                  बिना इंटरनेट (ऑफलाइन) पढ़ें
+                </h5>
+                <p className="text-xs text-slate-500 dark:text-slate-400">
+                  इंटरनेट न होने पर भी सहेजे गए पेपर्स से अभ्यास जारी रखें
+                </p>
+              </div>
             </div>
-            <div>
-              <h5 className="text-sm font-black text-slate-900 dark:text-slate-100">
-                बिना इंटरनेट (ऑफलाइन) पढ़ें
-              </h5>
-              <p className="text-xs text-slate-500 dark:text-slate-400">
-                इंटरनेट न होने पर भी सहेजे गए पेपर्स से अभ्यास जारी रखें
-              </p>
-            </div>
-          </div>
-          <button
-            onClick={handleToggleOffline}
-            className={`w-12 h-6 rounded-full transition-colors relative cursor-pointer shrink-0 ${
-              settings.offlineMode ? 'bg-blue-600' : 'bg-slate-200 dark:bg-slate-700'
-            }`}
-          >
-            <span
-              className={`block w-5 h-5 rounded-full bg-white shadow-xs transition-transform transform ${
-                settings.offlineMode ? 'translate-x-6' : 'translate-x-0.5'
+            <button
+              onClick={handleToggleOffline}
+              className={`w-12 h-6 rounded-full transition-colors relative cursor-pointer shrink-0 ${
+                settings.offlineMode ? 'bg-blue-600' : 'bg-slate-200 dark:bg-slate-700'
               }`}
-            />
-          </button>
-        </div>
-
-        {/* Sync / Refresh Data */}
-        <div className="bg-white dark:bg-slate-900 rounded-2xl p-4 border border-slate-200/90 dark:border-slate-800 shadow-2xs flex items-center justify-between gap-3">
-          <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-blue-50 dark:bg-blue-950/70 text-blue-600 dark:text-blue-400 flex items-center justify-center shrink-0 border border-blue-100 dark:border-blue-900/60">
-              <RefreshCw className="w-5 h-5" />
-            </div>
-            <div>
-              <h5 className="text-sm font-black text-slate-900 dark:text-slate-100">
-                नए प्रश्न पत्र अपडेट करें
-              </h5>
-              <p className="text-xs text-slate-500 dark:text-slate-400">
-                नवीनतम पेपर्स और उत्तर तुरंत रीलोड करें
-              </p>
-            </div>
+            >
+              <span
+                className={`block w-5 h-5 rounded-full bg-white shadow-xs transition-transform transform ${
+                  settings.offlineMode ? 'translate-x-6' : 'translate-x-0.5'
+                }`}
+              />
+            </button>
           </div>
-          <button
-            onClick={handleClearCache}
-            className="px-3.5 py-2 bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs rounded-xl cursor-pointer active:scale-95 transition-all shadow-2xs shrink-0"
-          >
-            अपडेट करें
-          </button>
+
+          {/* Sync / Refresh Data */}
+          <div className="bg-white dark:bg-slate-900 rounded-2xl p-4 border border-slate-200/90 dark:border-slate-800 shadow-2xs flex items-center justify-between gap-3">
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 rounded-xl bg-blue-50 dark:bg-blue-950/70 text-blue-600 dark:text-blue-400 flex items-center justify-center shrink-0 border border-blue-100 dark:border-blue-900/60">
+                <RefreshCw className="w-5 h-5" />
+              </div>
+              <div>
+                <h5 className="text-sm font-black text-slate-900 dark:text-slate-100">
+                  नए प्रश्न पत्र अपडेट करें
+                </h5>
+                <p className="text-xs text-slate-500 dark:text-slate-400">
+                  नवीनतम पेपर्स और उत्तर तुरंत रीलोड करें
+                </p>
+              </div>
+            </div>
+            <button
+              onClick={handleClearCache}
+              className="px-3.5 py-2 bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs rounded-xl cursor-pointer active:scale-95 transition-all shadow-2xs shrink-0"
+            >
+              अपडेट करें
+            </button>
+          </div>
         </div>
       </div>
 

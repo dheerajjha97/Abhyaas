@@ -20,6 +20,7 @@ import { MockTestGenerator } from './pages/MockTestGenerator';
 import { PrivacyPolicy } from './pages/PrivacyPolicy';
 import { ContactUs } from './pages/ContactUs';
 import { BottomNavigation } from './components/ui/BottomNavigation';
+import { DesktopNavbar } from './components/ui/DesktopNavbar';
 import { AdSenseTracker } from './components/ads/AdSenseTracker';
 
 // Scroll to top on route change
@@ -51,9 +52,11 @@ const AppContent: React.FC = () => {
       <AdSenseTracker />
       {/* Outer wrapper: Clean, professional neutral background */}
       <div className="min-h-screen w-full bg-slate-100/90 dark:bg-slate-950 flex flex-col items-center justify-start relative font-sans antialiased text-slate-900 dark:text-slate-100">
-        {/* Main Centered App Container */}
-        <div className="w-full max-w-md sm:max-w-xl min-h-screen flex flex-col relative z-10 px-3 sm:px-5 pt-2 pb-8 bg-slate-50 dark:bg-slate-900 sm:border-x sm:border-slate-200/80 dark:sm:border-slate-800/80 shadow-sm">
-          <main className="flex-1 pb-24 sm:pb-28">
+        {/* Responsive App Container: Fluid and multi-column on desktop/tablet, clean on mobile */}
+        <div className="w-full max-w-md sm:max-w-xl md:max-w-3xl lg:max-w-6xl xl:max-w-7xl min-h-screen flex flex-col relative z-10 px-3 sm:px-6 lg:px-8 pt-2 pb-8 bg-slate-50 dark:bg-slate-900 md:border-x md:border-slate-200/80 dark:md:border-slate-800/80 shadow-sm transition-all">
+          <DesktopNavbar />
+
+          <main className="flex-1 pb-24 sm:pb-28 lg:pb-12">
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/papers" element={<Papers />} />

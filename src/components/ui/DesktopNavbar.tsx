@@ -1,0 +1,151 @@
+import React from 'react';
+import { NavLink, useLocation, useNavigate } from 'react-router-dom';
+import { useStudentProfile } from '../../context/StudentProfileContext';
+import {
+  Home,
+  FileText,
+  Zap,
+  BookOpen,
+  Layers,
+  Bookmark,
+  Search,
+  Settings2,
+  Sparkles,
+  ChevronDown
+} from 'lucide-react';
+
+interface DesktopNavItem {
+  id: string;
+  label: string;
+  to: string;
+  icon: React.ElementType;
+}
+
+export const DesktopNavbar: React.FC = () => {
+  const { pathname } = useLocation();
+  const navigate = useNavigate();
+  const { profile, openProfileModal } = useStudentProfile();
+
+  const navItems: DesktopNavItem[] = [
+    { id: 'home', label: 'होम', to: '/', icon: Home },
+    { id: 'papers', label: 'पेपर्स', to: '/papers', icon: FileText },
+    { id: 'test', label: 'मॉक टेस्ट', to: '/mock-test', icon: Zap },
+    { id: 'notes', label: 'नोट्स', to: '/notes', icon: BookOpen },
+    { id: 'syllabus', label: 'पाठ्यक्रम', to: '/syllabus', icon: Layers },
+    { id: 'bookmarks', label: 'सहेजे गए', to: '/bookmarks', icon: Bookmark },
+    { id: 'search', label: 'खोज', to: '/search', icon: Search },
+  ];
+
+  const getIsActive = (item: DesktopNavItem) => {
+    if (item.to === '/') {
+      return pathname === '/';
+    }
+    if (item.id === 'papers') {
+      return (
+        pathname === '/papers' ||
+        (pathname.startsWith('/class/') && pathname.includes('/papers')) ||
+        pathname.startsWith('/paper/')
+      );
+    }
+    if (item.id === 'notes') {
+      return (
+        pathname.startsWith('/notes') ||
+        (pathname.startsWith('/class/') && pathname.includes('/notes'))
+      );
+    }
+    if (item.id === 'syllabus') {
+      return (
+        pathname.startsWith('/syllabus') ||
+        (pathname.startsWith('/class/') && pathname.includes('/syllabus'))
+      );
+    }
+    if (item.id === 'test') {
+      return pathname.startsWith('/mock-test');
+    }
+    return pathname.startsWith(item.to);
+  };
+
+  return (
+    <header className="hidden lg:flex w-full items-center justify-between py-3.5 px-4 mb-4 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md rounded-2xl border border-slate-200/80 dark:border-slate-800 shadow-xs sticky top-2 z-40 transition-all">
+      {/* Brand Logo & Class Badge */}
+      <div className="flex items-center gap-3">
+        <NavLink
+          to="/"
+          className="flex items-center gap-2.5 group cursor-pointer focus-visible:outline-none"
+        >
+          <div className="w-10 h-10 rounded-xl bg-blue-600 group-hover:bg-blue-700 flex items-center justify-center text-xl shadow-xs text-white transition-transform group-hover:scale-105">
+            🎓
+          </div>
+          <div>
+            <div className="flex items-center gap-1.5">
+              <span className="text-lg font-black tracking-tight text-slate-900 dark:text-white leading-none">
+                Abhyaas
+              </span>
+              <span className="text-xs font-bold text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-950/80 px-2 py-0.5 rounded-full border border-blue-200/60 dark:border-blue-800">
+                अभ्यास
+              </span>
+            </div>
+            <p className="text-[10px] font-semibold text-slate-400 dark:text-slate-500 mt-0.5">
+              BSEB Board Exam Prep Platform
+            </p>
+          </div>
+        </NavLink>
+      </div>
+
+      {/* Main Navigation Links */}
+      <nav className="flex items-center gap-1 bg-slate-100/80 dark:bg-slate-800/80 p-1 rounded-xl border border-slate-200/60 dark:border-slate-700/60">
+        {navItems.map((item) => {
+          const Icon = item.icon;
+          const active = getIsActive(item);
+
+          return (
+            <NavLink
+              key={item.id}
+              to={item.to}
+              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold transition-all ${
+                active
+                  ? 'bg-white dark:bg-slate-900 text-blue-600 dark:text-blue-400 shadow-xs'
+                  : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200 hover:bg-white/50 dark:hover:bg-slate-850'
+              }`}
+            >
+              <Icon className="w-4 h-4" />
+              <span>{item.label}</span>
+            </NavLink>
+          );
+        })}
+      </nav>
+
+      {/* Right Controls: Student Profile Pill & Settings */}
+      <div className="flex items-center gap-2">
+        {/* Student Profile Quick Switcher Button */}
+        <button
+          onClick={openProfileModal}
+          className="flex items-center gap-2 px-3 py-1.5 rounded-xl bg-slate-50 dark:bg-slate-800/90 hover:bg-slate-100 dark:hover:bg-slate-800 border border-slate-200/80 dark:border-slate-700 transition-all cursor-pointer group"
+          title="विद्यार्थी प्रोफ़ाइल व कक्षा बदलें"
+        >
+          <span className="text-base group-hover:scale-110 transition-transform">
+            {profile.avatarEmoji || '🎓'}
+          </span>
+          <div className="text-left">
+            <div className="text-xs font-black text-slate-800 dark:text-slate-200 leading-tight">
+              {profile.name || 'विद्यार्थी'}
+            </div>
+            <div className="text-[10px] font-bold text-blue-600 dark:text-blue-400 leading-none">
+              Class {profile.classId} {profile.stream ? `• ${profile.stream}` : ''}
+            </div>
+          </div>
+          <ChevronDown className="w-3.5 h-3.5 text-slate-400 group-hover:text-slate-600 dark:group-hover:text-slate-300" />
+        </button>
+
+        {/* More Settings */}
+        <button
+          onClick={() => navigate('/more')}
+          className="p-2 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300 transition-all cursor-pointer border border-slate-200/70 dark:border-slate-700"
+          title="अधिक विकल्प व सेटिंग्स"
+        >
+          <Settings2 className="w-4 h-4" />
+        </button>
+      </div>
+    </header>
+  );
+};

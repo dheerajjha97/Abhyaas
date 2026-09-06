@@ -13,7 +13,7 @@ import {
   getDoc,
   setDoc,
 } from 'firebase/firestore';
-import firebaseConfig from '../../firebase-applet-config.json';
+import firebaseConfig from './firebaseConfig';
 
 const app = !getApps().length ? initializeApp(firebaseConfig) : getApp();
 export const auth = getAuth(app);
@@ -25,3 +25,4 @@ export const db = getFirestore(app, firebaseConfig.firestoreDatabaseId || '(defa
 
 export { signInWithPopup, signOut, onAuthStateChanged, doc, getDoc, setDoc };
 export type { User };
+export { firebaseConfig };

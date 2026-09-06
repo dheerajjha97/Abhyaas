@@ -1,6 +1,7 @@
 import React from 'react';
 import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 import { useStudentProfile } from '../../context/StudentProfileContext';
+import { BrandLogo } from './BrandLogo';
 import {
   Home,
   FileText,
@@ -74,10 +75,10 @@ export const DesktopNavbar: React.FC = () => {
           to="/"
           className="flex items-center gap-2.5 group cursor-pointer focus-visible:outline-none"
         >
-          <img
-            src="/pwa-192x192.png"
-            alt="Abhyaas Logo"
-            className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl object-cover shadow-xs border border-slate-200/60 dark:border-slate-700 transition-transform group-hover:scale-105 shrink-0"
+          <BrandLogo
+            size={38}
+            rounded="rounded-xl"
+            className="border border-slate-200/60 dark:border-slate-700 transition-transform group-hover:scale-105"
           />
           <div>
             <div className="flex items-center gap-1.5">

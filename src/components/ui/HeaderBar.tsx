@@ -1,6 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ChevronLeft, Sparkles } from 'lucide-react';
+import { BrandLogo } from './BrandLogo';
 
 interface HeaderBarProps {
   title?: string;
@@ -38,11 +39,7 @@ export const HeaderBar: React.FC<HeaderBarProps> = ({
               </h1>
             ) : (
               <div className="flex items-center gap-2.5">
-                <img
-                  src="/pwa-192x192.png"
-                  alt="Abhyaas Logo"
-                  className="w-9 h-9 rounded-xl object-cover shadow-2xs border border-slate-200/80 dark:border-slate-700 shrink-0"
-                />
+                <BrandLogo size={36} rounded="rounded-xl" className="border border-slate-200/80 dark:border-slate-700" />
                 <div className="flex flex-col">
                   <h1 className="text-xl sm:text-2xl font-black text-slate-900 dark:text-white tracking-tight leading-none">
                     Abhyaas

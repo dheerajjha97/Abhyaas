@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { usePWAInstall } from '../../hooks/usePWAInstall';
 import { Download, Share2, X, Smartphone, CheckCircle } from 'lucide-react';
+import { BrandLogo } from '../ui/BrandLogo';
 
 export const PWAInstallPrompt: React.FC = () => {
   const { isInstallable, isInstalled, isIOS, install } = usePWAInstall();
@@ -22,11 +23,7 @@ export const PWAInstallPrompt: React.FC = () => {
       <div className="bg-gradient-to-r from-blue-600 via-indigo-600 to-blue-700 text-white p-3 sm:p-3.5 rounded-2xl shadow-lg border border-white/20 mb-4 animate-in fade-in slide-in-from-top-2 duration-300">
         <div className="flex items-center justify-between gap-3">
           <div className="flex items-center gap-3 min-w-0">
-            <img
-              src="/pwa-192x192.png"
-              alt="Abhyaas PYQ App Icon"
-              className="w-11 h-11 rounded-xl object-cover shadow-sm border border-white/30 shrink-0"
-            />
+            <BrandLogo size={44} rounded="rounded-xl" className="border border-white/30 shrink-0" />
             <div className="min-w-0">
               <div className="flex items-center gap-1.5">
                 <span className="text-xs font-black tracking-wide uppercase bg-white/20 px-2 py-0.5 rounded-full text-[10px]">

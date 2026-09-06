@@ -1,4 +1,4 @@
-const CACHE_NAME = 'abhyaas-pwa-v2';
+const CACHE_NAME = 'abhyaas-pwa-v10';
 const STATIC_ASSETS = [
   '/',
   '/index.html',
@@ -26,6 +26,7 @@ self.addEventListener('activate', (event) => {
       return Promise.all(
         cacheNames.map((name) => {
           if (name !== CACHE_NAME) {
+            console.log('PWA: Purging stale cache:', name);
             return caches.delete(name);
           }
         })
@@ -45,9 +46,28 @@ self.addEventListener('fetch', (event) => {
     return;
   }
 
-  // Cache-first for static local assets (images, fonts, scripts)
+  // Network-First for images to ensure latest brand assets are loaded immediately
+  const isImage = url.pathname.match(/\.(png|jpg|jpeg|svg|webp|ico)$/i);
+  if (isImage) {
+    event.respondWith(
+      fetch(event.request)
+        .then((networkResponse) => {
+          if (networkResponse && networkResponse.status === 200) {
+            const copy = networkResponse.clone();
+            caches.open(CACHE_NAME).then((cache) => {
+              cache.put(event.request, copy);
+            });
+          }
+          return networkResponse;
+        })
+        .catch(() => caches.match(event.request))
+    );
+    return;
+  }
+
+  // Cache-first for other static assets (fonts, scripts)
   const isStatic =
-    url.pathname.match(/\.(png|jpg|jpeg|svg|webp|woff|woff2|ttf|ico|css|js)$/i) ||
+    url.pathname.match(/\.(woff|woff2|ttf|css|js)$/i) ||
     url.hostname === 'fonts.googleapis.com' ||
     url.hostname === 'fonts.gstatic.com';
 
@@ -66,7 +86,6 @@ self.addEventListener('fetch', (event) => {
           }
           return networkResponse;
         }).catch(() => {
-          // fallback if offline
           return caches.match(event.request);
         });
       })
@@ -89,7 +108,6 @@ self.addEventListener('fetch', (event) => {
       .catch(async () => {
         const cached = await caches.match(event.request);
         if (cached) return cached;
-        // If requesting a page route while offline, return cached index.html for SPA
         if (event.request.mode === 'navigate' || event.request.headers.get('accept')?.includes('text/html')) {
           return caches.match('/index.html');
         }

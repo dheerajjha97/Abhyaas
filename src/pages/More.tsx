@@ -8,6 +8,7 @@ import { Toast, ToastMessage } from '../components/ui/Toast';
 import { Illustration } from '../components/ui/Illustration';
 import { useStudentProfile } from '../context/StudentProfileContext';
 import { Badges } from '../components/dashboard/Badges';
+import { BrandLogo } from '../components/ui/BrandLogo';
 import {
   Download,
   Wifi,
@@ -229,10 +230,10 @@ export const More: React.FC = () => {
           </div>
 
           <div className="w-20 shrink-0 flex items-center justify-center">
-            <img
-              src="/pwa-192x192.png"
-              alt="Abhyaas PYQ App Icon"
-              className="w-18 h-18 rounded-2xl shadow-md border border-slate-200/80 dark:border-slate-700 object-cover"
+            <BrandLogo
+              size={72}
+              rounded="rounded-2xl"
+              className="border border-slate-200/80 dark:border-slate-700"
             />
           </div>
         </div>

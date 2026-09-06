@@ -33,6 +33,7 @@ import { PaperSummary } from '../types/question';
 import { Badges } from '../components/dashboard/Badges';
 import { Illustration } from '../components/ui/Illustration';
 import { getMistakes } from '../utils/bookmarkStorage';
+import { BrandLogo } from '../components/ui/BrandLogo';
 
 export const Home: React.FC = () => {
   const navigate = useNavigate();
@@ -90,67 +91,71 @@ export const Home: React.FC = () => {
   const dailyGoalTarget = 20;
   const goalProgressPercent = Math.min(100, Math.round((questionsToday / dailyGoalTarget) * 100));
 
+  // Time-aware dynamic greeting
+  const getGreeting = () => {
+    const hour = new Date().getHours();
+    if (hour < 12) return { text: 'सुप्रभात', emoji: '🌅', subtitle: 'ताज़ा दिमाग से आज का पहला अभ्यास शुरू करें' };
+    if (hour < 17) return { text: 'शुभ दोपहर', emoji: '☀️', subtitle: 'दोपहर के अभ्यास से अपनी तैयारी मजबूत करें' };
+    return { text: 'शुभ संध्या', emoji: '🌙', subtitle: 'आज का 20 प्रश्नों का अभ्यास लक्ष्य पूरा करें' };
+  };
+  const greeting = getGreeting();
+  const lastRecentTest = progress.recentHistory && progress.recentHistory.length > 0 ? progress.recentHistory[0] : null;
+
   return (
-    <div className="space-y-5 pb-28 animate-in fade-in duration-300">
-      {/* Top AppBar (Mobile only) */}
-      <div className="md:hidden bg-white dark:bg-slate-900 rounded-2xl sm:rounded-3xl p-3.5 sm:p-4 border border-slate-200/80 dark:border-slate-800 shadow-xs flex items-center justify-between gap-3">
-        <div className="flex items-center gap-3 min-w-0">
-          <button
-            onClick={openProfileModal}
-            className="relative w-11 h-11 sm:w-12 sm:h-12 rounded-2xl bg-blue-600 hover:bg-blue-700 flex items-center justify-center text-2xl shadow-xs cursor-pointer hover:scale-105 active:scale-95 transition-all shrink-0 text-white border border-blue-500/20"
-            title="प्रोफ़ाइल व सेटिंग्स"
-          >
-            {profile.avatarEmoji || '🎓'}
-            <div className="absolute -bottom-0.5 -right-0.5 w-3.5 h-3.5 rounded-full bg-emerald-500 border-2 border-white dark:border-slate-900" />
-          </button>
+    <div className="space-y-4 sm:space-y-5 pb-28 animate-in fade-in duration-300">
+      {/* Top AppBar (Mobile only) with brand logo, greeting & sync */}
+      <div className="md:hidden bg-white dark:bg-slate-900 rounded-2xl p-3 border border-slate-200/80 dark:border-slate-800 shadow-xs flex items-center justify-between gap-2.5">
+        <div className="flex items-center gap-2.5 min-w-0">
+          <BrandLogo size="md" rounded="rounded-2xl" className="border border-slate-200 dark:border-slate-700" />
 
           <div className="min-w-0">
             <div className="flex items-center gap-1.5">
-              <h1 className="text-base sm:text-lg font-black text-slate-900 dark:text-white tracking-tight leading-none truncate">
-                नमस्ते, {profile.name || 'विद्यार्थी'}!
+              <h1 className="text-sm font-black text-slate-900 dark:text-white tracking-tight leading-none">
+                Abhyaas
               </h1>
-              <span className="text-sm shrink-0">👋</span>
+              <span className="text-[10px] font-bold text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-950 px-1.5 py-0.2 rounded-full border border-blue-200 dark:border-blue-900">
+                PYQ
+              </span>
             </div>
 
-            <div className="flex items-center gap-1.5 mt-1.5 flex-wrap">
-              <span className="inline-flex items-center px-2 py-0.5 rounded-full bg-blue-50 dark:bg-blue-950/70 border border-blue-100 dark:border-blue-900 text-blue-700 dark:text-blue-300 text-[10px] font-bold">
-                Class {profile.classId} {profile.classId !== '10' && `• ${profile.stream || 'Arts'}`}
+            <div className="flex items-center gap-1 mt-1 flex-wrap">
+              <span className="text-[10px] text-slate-500 dark:text-slate-400 font-medium">
+                {greeting.emoji} {greeting.text}, {profile.name || 'विद्यार्थी'}
               </span>
-
-              {progress.studyStreakDays > 0 && (
-                <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-amber-50 dark:bg-amber-950/70 border border-amber-200 dark:border-amber-800 text-amber-700 dark:text-amber-300 text-[10px] font-bold">
-                  <Flame className="w-3 h-3 fill-amber-500 text-amber-500" />
-                  {progress.studyStreakDays} दिन स्ट्रीक
-                </span>
-              )}
             </div>
           </div>
         </div>
 
-        {/* Sync Status & Settings Button */}
+        {/* Profile, Cloud Sync Status & Settings Button */}
         <div className="flex items-center gap-1.5 shrink-0">
           <button
             onClick={openProfileModal}
-            className={`flex items-center gap-1 px-2.5 py-1.5 rounded-full border text-[11px] font-bold transition-all cursor-pointer ${
+            className="w-8 h-8 rounded-xl bg-blue-50 dark:bg-blue-950 text-blue-600 dark:text-blue-400 border border-blue-200 dark:border-blue-800 flex items-center justify-center text-sm font-bold shadow-2xs cursor-pointer"
+            title="कक्षा व विषय बदलें"
+          >
+            {profile.avatarEmoji || '🎓'}
+          </button>
+
+          <button
+            onClick={openProfileModal}
+            className={`flex items-center gap-1 px-2 py-1 rounded-xl border text-[10px] font-bold transition-all cursor-pointer ${
               currentUser
                 ? 'bg-emerald-50 dark:bg-emerald-950/60 border-emerald-200 dark:border-emerald-800 text-emerald-700 dark:text-emerald-300'
                 : 'bg-slate-50 dark:bg-slate-800/80 border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:bg-slate-100'
             }`}
-            title={currentUser ? `क्लाउड सिंक सक्रिय: ${currentUser.email}` : 'क्लाउड सिंक के लिए लॉगिन करें'}
+            title={currentUser ? `क्लाउड सिंक: ${currentUser.email}` : 'क्लाउड सिंक'}
           >
             <Cloud
-              className={`w-3.5 h-3.5 ${
+              className={`w-3 h-3 ${
                 currentUser ? 'text-emerald-600 dark:text-emerald-400' : 'text-slate-400'
               }`}
             />
-            <span className="text-[10px] hidden sm:inline">
-              {currentUser ? 'Cloud Synced' : 'Sync'}
-            </span>
+            <span>{currentUser ? 'Synced' : 'Sync'}</span>
           </button>
 
           <button
             onClick={() => navigate('/more')}
-            className="w-9 h-9 rounded-xl bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 transition-all cursor-pointer border border-slate-200/80 dark:border-slate-700"
+            className="w-8 h-8 rounded-xl bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 transition-all cursor-pointer border border-slate-200/80 dark:border-slate-700"
             title="सेटिंग्स व अधिक विकल्प"
           >
             <Settings2 className="w-4 h-4" />
@@ -158,22 +163,38 @@ export const Home: React.FC = () => {
         </div>
       </div>
 
-      {/* Responsive Grid: Live Test Generator & Daily Study Goal */}
-      <div className="grid grid-cols-1 md:grid-cols-12 gap-4 items-stretch">
+      {/* Elegant Bento Grid: Royal Hero Mock Test Generator & Daily Study Goal Card */}
+      <div className="grid grid-cols-1 md:grid-cols-12 gap-3.5 sm:gap-4 items-stretch">
         {/* Prominent Subject Mock Test Generator Hero Card */}
-        <div className="md:col-span-7 p-5 sm:p-6 rounded-2xl sm:rounded-3xl bg-slate-900 text-white shadow-sm relative overflow-hidden border border-slate-800 flex flex-col justify-between">
+        <div
+          className="md:col-span-7 p-5 sm:p-6 rounded-3xl bg-slate-900 text-white shadow-xl relative overflow-hidden border border-slate-800 flex flex-col justify-between"
+          style={{
+            background: 'linear-gradient(145deg, #1d4ed8 0%, #1e1b4b 60%, #090d16 100%)',
+            backgroundColor: '#0f172a',
+          }}
+        >
           <div className="relative z-10 space-y-3">
-            <div className="inline-flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-wider text-amber-400 bg-white/10 px-3 py-1 rounded-full border border-white/10">
-              <Zap className="w-3.5 h-3.5 fill-amber-400" />
-              ओरिजिनल पेपर्स आधारित लाइव टेस्ट
+            {/* Header with PYQ App logo badge & live test tag */}
+            <div className="flex items-center justify-between gap-2 flex-wrap">
+              <div className="inline-flex items-center gap-1.5 text-[10px] font-black uppercase tracking-wider text-amber-300 bg-white/10 backdrop-blur-md px-3 py-1 rounded-full border border-white/15">
+                <Zap className="w-3.5 h-3.5 fill-amber-300" />
+                <span>ओरिजिनल PYQ लाइव टेस्ट</span>
+              </div>
+
+              <div className="flex items-center gap-2 bg-white/15 backdrop-blur-md px-2.5 py-1 rounded-xl border border-white/25 shadow-xs">
+                <BrandLogo size={24} rounded="rounded-md" showShadow={false} />
+                <span className="text-[11px] font-black text-white tracking-wide">
+                  Abhyaas PYQ
+                </span>
+              </div>
             </div>
 
             <div>
-              <h2 className="text-xl sm:text-2xl font-black leading-tight text-white">
+              <h2 className="text-xl sm:text-2xl font-black leading-snug text-white tracking-tight">
                 विषय चुनें और तुरंत नया मॉक टेस्ट जनरेट करें!
               </h2>
-              <p className="text-xs text-slate-300 mt-1 max-w-md leading-relaxed">
-                बोर्ड परीक्षा के ओरिजिनल प्रश्न पत्रों से रैंडम क्विज़ जनरेट करें, टाइमर के साथ हल करें और परिणाम सुरक्षित रखें।
+              <p className="text-xs text-blue-100 mt-1 max-w-md leading-relaxed font-medium">
+                बोर्ड परीक्षा के ओरिजिनल प्रश्न पत्रों से रैंडम क्विज़ हल करें, रियल OMR टाइमर से प्रैक्टिस करें और परिणाम सुरक्षित रखें।
               </p>
             </div>
 
@@ -185,7 +206,11 @@ export const Home: React.FC = () => {
                   onClick={() =>
                     navigate(`/mock-test?subject=${encodeURIComponent(sub.name)}`)
                   }
-                  className="px-3 py-1.5 rounded-full bg-white/10 hover:bg-white/20 active:scale-95 text-white text-[11px] font-medium whitespace-nowrap transition-all flex items-center gap-1 cursor-pointer border border-white/15"
+                  className="px-3 py-1.5 rounded-full text-white text-[11px] font-bold whitespace-nowrap transition-all flex items-center gap-1.5 cursor-pointer border border-white/20 active:scale-95"
+                  style={{
+                    backgroundColor: 'rgba(255, 255, 255, 0.12)',
+                    color: '#ffffff',
+                  }}
                 >
                   <span>{sub.emoji}</span>
                   <span>{sub.name}</span>
@@ -197,14 +222,22 @@ export const Home: React.FC = () => {
             <div className="pt-2 flex gap-2">
               <button
                 onClick={() => navigate('/mock-test')}
-                className="flex-1 py-3 px-4 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-bold text-xs sm:text-sm shadow-xs active:scale-[0.98] transition-all flex items-center justify-center gap-2 cursor-pointer"
+                className="flex-1 py-3 px-4 rounded-2xl text-white font-black text-xs sm:text-sm shadow-md active:scale-[0.98] transition-all flex items-center justify-center gap-2 cursor-pointer border border-blue-400/40"
+                style={{
+                  backgroundColor: '#2563eb',
+                  color: '#ffffff',
+                }}
               >
                 <Play className="w-4 h-4 fill-current" />
                 <span>कस्टम टेस्ट जनरेट करें</span>
               </button>
               <button
                 onClick={() => navigate(`/class/${profile.classId}/subjects`)}
-                className="py-3 px-3 rounded-xl bg-white/10 hover:bg-white/20 text-white font-bold text-xs transition-all cursor-pointer flex items-center justify-center border border-white/15 active:scale-95"
+                className="py-3 px-3.5 rounded-2xl text-white font-bold text-xs transition-all cursor-pointer flex items-center justify-center border border-white/20 active:scale-95"
+                style={{
+                  backgroundColor: 'rgba(255, 255, 255, 0.15)',
+                  color: '#ffffff',
+                }}
                 title="सभी विषय देखें"
               >
                 <ChevronRight className="w-4 h-4" />
@@ -213,46 +246,96 @@ export const Home: React.FC = () => {
           </div>
         </div>
 
-        {/* Daily Goal / दैनिक अभ्यास लक्ष्य Card */}
-        <div className="md:col-span-5 bg-white dark:bg-slate-900 rounded-2xl sm:rounded-3xl p-5 border border-slate-200/80 dark:border-slate-800 shadow-xs flex flex-col justify-between space-y-4">
-          <div className="space-y-3">
-            <div className="flex items-center justify-between">
-              <div className="flex items-center gap-2.5">
-                <div className="w-10 h-10 rounded-xl bg-gradient-to-b from-amber-50 to-orange-50 dark:from-amber-950/80 dark:to-orange-950/40 flex items-center justify-center border border-amber-200/70 dark:border-amber-900/60 shrink-0 p-1">
-                  <Illustration name="flame" size={30} />
+        {/* Daily Goal / दैनिक अभ्यास लक्ष्य Card (Refined with Circular Progress Visual) */}
+        <div className="md:col-span-5 bg-white dark:bg-slate-900 rounded-3xl p-5 border border-slate-200/80 dark:border-slate-800 shadow-xs flex flex-col justify-between space-y-4">
+          <div className="space-y-3.5">
+            <div className="flex items-start justify-between gap-3">
+              <div className="space-y-1">
+                <div className="inline-flex items-center gap-1 text-[10px] font-black uppercase tracking-wider text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-950/80 px-2.5 py-0.5 rounded-full border border-blue-200/60 dark:border-blue-900">
+                  <Target className="w-3 h-3 text-blue-600 dark:text-blue-400" />
+                  <span>दैनिक अभ्यास लक्ष्य</span>
                 </div>
-                <div>
-                  <div className="flex items-center gap-1.5">
-                    <span className="text-xs sm:text-sm font-black text-slate-900 dark:text-slate-100">
-                      दैनिक अभ्यास लक्ष्य
-                    </span>
-                    <span className="text-[10px] font-bold text-blue-700 dark:text-blue-300 bg-blue-50 dark:bg-blue-950/80 px-2 py-0.5 rounded-full border border-blue-200/70 dark:border-blue-800">
-                      {questionsToday} / {dailyGoalTarget} प्रश्न
-                    </span>
-                  </div>
-                  <p className="text-[10px] sm:text-xs text-slate-500 dark:text-slate-400 mt-0.5">
-                    {questionsToday >= dailyGoalTarget
-                      ? '🎉 आज का लक्ष्य पूर्ण! उत्कृष्ट निरंतरता!'
-                      : questionsToday > 0
-                      ? `लक्ष्य पूरा करने के लिए केवल ${dailyGoalTarget - questionsToday} प्रश्न और हल करें!`
-                      : 'रोज़ 20 प्रश्न हल करके परीक्षा में टॉप रैंक पक्की करें'}
-                  </p>
+                <h3 className="text-sm sm:text-base font-black text-slate-900 dark:text-slate-100">
+                  आज का टारगेट
+                </h3>
+                <p className="text-[11px] text-slate-500 dark:text-slate-400 leading-relaxed max-w-[210px]">
+                  {questionsToday >= dailyGoalTarget
+                    ? '🎉 आज का लक्ष्य पूर्ण! उत्कृष्ट निरंतरता!'
+                    : questionsToday > 0
+                    ? `लक्ष्य पूरा करने के लिए केवल ${dailyGoalTarget - questionsToday} प्रश्न और हल करें!`
+                    : 'रोज़ 20 प्रश्न हल करके परीक्षा में टॉप रैंक पक्की करें'}
+                </p>
+              </div>
+
+              {/* Circular Gauge Ring */}
+              <div className="relative w-20 h-20 shrink-0 flex items-center justify-center">
+                <svg className="w-20 h-20 -rotate-90" viewBox="0 0 72 72">
+                  <circle
+                    cx="36"
+                    cy="36"
+                    r="28"
+                    strokeWidth="6"
+                    className="stroke-slate-100 dark:stroke-slate-800"
+                    fill="none"
+                  />
+                  <circle
+                    cx="36"
+                    cy="36"
+                    r="28"
+                    strokeWidth="6"
+                    strokeDasharray={175.9}
+                    strokeDashoffset={175.9 - (175.9 * goalProgressPercent) / 100}
+                    strokeLinecap="round"
+                    className="stroke-blue-600 transition-all duration-1000 ease-out"
+                    fill="none"
+                  />
+                </svg>
+                <div className="absolute inset-0 flex flex-col items-center justify-center text-center">
+                  <span className="text-xs font-black text-slate-900 dark:text-white leading-none">
+                    {questionsToday}
+                  </span>
+                  <span className="text-[8px] font-bold text-slate-400 uppercase leading-none mt-0.5">
+                    /{dailyGoalTarget} हल
+                  </span>
                 </div>
               </div>
             </div>
 
-            {/* Progress bar */}
-            <div className="w-full bg-slate-100 dark:bg-slate-800 h-2.5 rounded-full overflow-hidden p-0.5 border border-slate-200/60 dark:border-slate-700/60">
-              <div
-                className="bg-blue-600 h-full rounded-full transition-all duration-700"
-                style={{ width: `${goalProgressPercent}%` }}
-              />
+            {/* Quick Mini Stats Strip */}
+            <div className="grid grid-cols-2 gap-2 pt-1">
+              <div className="p-2 rounded-2xl bg-amber-50/70 dark:bg-amber-950/30 border border-amber-200/50 dark:border-amber-900/40 flex items-center gap-2">
+                <div className="w-7 h-7 rounded-xl bg-amber-500/15 text-amber-600 dark:text-amber-400 flex items-center justify-center font-bold text-xs shrink-0">
+                  🔥
+                </div>
+                <div>
+                  <div className="text-xs font-black text-slate-900 dark:text-slate-100">
+                    {progress.studyStreakDays} दिन
+                  </div>
+                  <div className="text-[9px] font-semibold text-slate-500 dark:text-slate-400">
+                    स्ट्रीक
+                  </div>
+                </div>
+              </div>
+
+              <div className="p-2 rounded-2xl bg-emerald-50/70 dark:bg-emerald-950/30 border border-emerald-200/50 dark:border-emerald-900/40 flex items-center gap-2">
+                <div className="w-7 h-7 rounded-xl bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 flex items-center justify-center font-bold text-xs shrink-0">
+                  🎯
+                </div>
+                <div>
+                  <div className="text-xs font-black text-slate-900 dark:text-slate-100">
+                    {progress.accuracy}%
+                  </div>
+                  <div className="text-[9px] font-semibold text-slate-500 dark:text-slate-400">
+                    सटीकता
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
 
-          <div className="pt-2 flex items-center justify-between border-t border-slate-100 dark:border-slate-800/80">
-            <span className="text-[11px] font-semibold text-slate-500 dark:text-slate-400">
-              {progress.studyStreakDays} दिन निरंतरता 🔥
+          <div className="pt-2 flex items-center justify-between border-t border-slate-100 dark:border-slate-800">
+            <span className="text-[11px] font-bold text-slate-500 dark:text-slate-400">
+              {goalProgressPercent}% पूर्ण
             </span>
             <button
               onClick={() =>
@@ -262,14 +345,48 @@ export const Home: React.FC = () => {
                   )}&type=quick`
                 )
               }
-              className="px-3.5 py-1.5 rounded-xl bg-blue-600 hover:bg-blue-700 active:scale-95 text-white font-bold text-xs flex items-center gap-1 shadow-xs cursor-pointer transition-all"
+              className="px-3.5 py-1.5 rounded-xl bg-blue-600 hover:bg-blue-700 active:scale-95 text-white font-black text-xs flex items-center gap-1 shadow-xs cursor-pointer transition-all"
             >
               <Zap className="w-3.5 h-3.5 fill-current" />
-              <span>स्पीड टेस्ट</span>
+              <span>क्विक स्पीड टेस्ट</span>
             </button>
           </div>
         </div>
       </div>
+
+      {/* Resume Practice (जहाँ छोड़ा था, वहीं से शुरू करें) if recent history exists */}
+      {lastRecentTest && (
+        <div className="bg-gradient-to-r from-blue-50 via-indigo-50 to-white dark:from-slate-800/80 dark:via-slate-800/50 dark:to-slate-900 rounded-2xl p-3.5 border border-blue-200/70 dark:border-blue-900/50 shadow-2xs flex items-center justify-between gap-3">
+          <div className="flex items-center gap-3 min-w-0">
+            <div className="w-9 h-9 rounded-xl bg-blue-600 text-white flex items-center justify-center shrink-0 shadow-xs">
+              <RotateCcw className="w-4 h-4" />
+            </div>
+            <div className="min-w-0">
+              <div className="flex items-center gap-1.5">
+                <span className="text-[9px] font-black uppercase tracking-wider bg-blue-600 text-white px-2 py-0.2 rounded-full">
+                  पिछला टेस्ट
+                </span>
+                <span className="text-xs font-black text-slate-900 dark:text-white truncate">
+                  {lastRecentTest.testName}
+                </span>
+              </div>
+              <p className="text-[11px] text-slate-500 dark:text-slate-400 truncate mt-0.5">
+                स्कोर: {lastRecentTest.score}/{lastRecentTest.totalQuestions} ({lastRecentTest.percentage}%) • {new Date(lastRecentTest.timestamp).toLocaleDateString('hi-IN', { day: 'numeric', month: 'short' })}
+              </p>
+            </div>
+          </div>
+
+          <button
+            onClick={() =>
+              navigate(`/mock-test?subject=${encodeURIComponent(lastRecentTest.subject)}`)
+            }
+            className="px-3 py-1.5 rounded-xl bg-white dark:bg-slate-700 hover:bg-blue-50 text-blue-700 dark:text-blue-300 font-bold text-xs border border-blue-200 dark:border-blue-800 shadow-2xs active:scale-95 transition-all shrink-0 cursor-pointer flex items-center gap-1"
+          >
+            <span>पुनः अभ्यास</span>
+            <ChevronRight className="w-3.5 h-3.5" />
+          </button>
+        </div>
+      )}
 
       {/* 4-Card Bento Study Hub (Modern Clean Cards) */}
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5">

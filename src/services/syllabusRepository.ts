@@ -1,9 +1,10 @@
 import { SyllabusData } from '../types/syllabus';
 import { normalizeSubject, normalizeClass } from './questionRepository';
+import { getAppSettings } from '../utils/bookmarkStorage';
 
 const CDN_MIRRORS = [
-  'https://cdn.jsdelivr.net/gh/dheerajjha97/AbhyaasData@main',
   'https://raw.githubusercontent.com/dheerajjha97/AbhyaasData/main',
+  'https://cdn.jsdelivr.net/gh/dheerajjha97/AbhyaasData@main',
   'https://fastly.jsdelivr.net/gh/dheerajjha97/AbhyaasData@main',
 ];
 
@@ -20,12 +21,20 @@ const SYLLABUS_FILE_MAP: Record<string, string> = {
 class SyllabusRepository {
   private cache = new Map<string, SyllabusData>();
 
-  async getSyllabus(classId: string, subjectInput: string): Promise<SyllabusData | null> {
+  clearCache(): void {
+    this.cache.clear();
+  }
+
+  async getSyllabus(
+    classId: string,
+    subjectInput: string,
+    forceRefresh: boolean = false
+  ): Promise<SyllabusData | null> {
     const cls = normalizeClass(classId);
     const subjectNorm = normalizeSubject(subjectInput).toLowerCase();
     const cacheKey = `${cls}_${subjectNorm}`;
 
-    if (this.cache.has(cacheKey)) {
+    if (!forceRefresh && this.cache.has(cacheKey)) {
       return this.cache.get(cacheKey)!;
     }
 
@@ -41,29 +50,40 @@ class SyllabusRepository {
       return null;
     }
 
-    // 1. Try local bundled data
+    const isOffline = typeof navigator !== 'undefined' && (!navigator.onLine || getAppSettings().offlineMode);
+
+    // 1. If online, ALWAYS try GitHub / CDN mirrors first to get latest updates
+    if (!isOffline) {
+      const cdnPath = `Syllabus/XII/${fileName}`;
+      for (const mirror of CDN_MIRRORS) {
+        try {
+          const cacheBuster = forceRefresh ? `?t=${Date.now()}` : '';
+          const url = `${mirror}/${encodeURI(cdnPath)}${cacheBuster}`;
+          const res = await fetch(url, {
+            cache: forceRefresh ? 'no-cache' : 'default',
+          });
+          if (res.ok) {
+            const data: SyllabusData = await res.json();
+            this.cache.set(cacheKey, data);
+            return data;
+          }
+        } catch {
+          // Continue to next mirror
+        }
+      }
+    }
+
+    // 2. Fallback: local bundled data (for offline or if GitHub is unreachable)
     try {
-      const localUrl = `/data/syllabus/${fileName}`;
+      const localUrl = `/data/syllabus/${fileName}${forceRefresh ? `?t=${Date.now()}` : ''}`;
       const res = await fetch(localUrl);
       if (res.ok) {
         const data: SyllabusData = await res.json();
         this.cache.set(cacheKey, data);
         return data;
       }
-    } catch {}
-
-    // 2. Try CDN mirrors
-    const cdnPath = `Syllabus/XII/${fileName}`;
-    for (const mirror of CDN_MIRRORS) {
-      try {
-        const url = `${mirror}/${encodeURI(cdnPath)}`;
-        const res = await fetch(url);
-        if (res.ok) {
-          const data: SyllabusData = await res.json();
-          this.cache.set(cacheKey, data);
-          return data;
-        }
-      } catch {}
+    } catch {
+      // Local fetch failed
     }
 
     return null;
@@ -75,3 +95,4 @@ class SyllabusRepository {
 }
 
 export const syllabusRepository = new SyllabusRepository();
+

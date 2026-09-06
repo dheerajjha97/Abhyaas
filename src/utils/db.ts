@@ -147,7 +147,18 @@ export async function clearAllAppCache(): Promise<void> {
   // 1. Clear IndexedDB papers and metadata
   await clearPapersCache();
 
-  // 2. Clear browser CacheStorage (PWA / service-worker network caches)
+  // 2. Clear in-memory repositories cache
+  try {
+    const { syllabusRepository } = await import('../services/syllabusRepository');
+    syllabusRepository.clearCache();
+  } catch {}
+
+  try {
+    const { notesRepository } = await import('../services/notesRepository');
+    notesRepository.clearCache();
+  } catch {}
+
+  // 3. Clear browser CacheStorage (PWA / service-worker network caches)
   if (typeof window !== 'undefined' && 'caches' in window) {
     try {
       const cacheNames = await window.caches.keys();
@@ -157,7 +168,7 @@ export async function clearAllAppCache(): Promise<void> {
     }
   }
 
-  // 3. Clear sessionStorage if any temporary keys
+  // 4. Clear sessionStorage if any temporary keys
   if (typeof window !== 'undefined' && window.sessionStorage) {
     try {
       window.sessionStorage.clear();
@@ -166,3 +177,4 @@ export async function clearAllAppCache(): Promise<void> {
     }
   }
 }
+

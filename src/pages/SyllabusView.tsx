@@ -4,9 +4,10 @@ import { HeaderBar } from '../components/ui/HeaderBar';
 import { SyllabusSkeleton } from '../components/ui/Skeleton';
 import { syllabusRepository } from '../services/syllabusRepository';
 import { SyllabusData } from '../types/syllabus';
-import { BookOpen, Layers, CheckCircle2, ChevronRight, Sparkles, AlertCircle } from 'lucide-react';
+import { BookOpen, Layers, CheckCircle2, ChevronRight, Sparkles, AlertCircle, RefreshCw, Loader2 } from 'lucide-react';
 import { useStudentProfile } from '../context/StudentProfileContext';
 import { ALL_AVAILABLE_SUBJECTS } from '../types/studentProfile';
+import { Toast, ToastMessage } from '../components/ui/Toast';
 
 export const SyllabusView: React.FC = () => {
   const { classId: paramClassId, subjectId: paramSubjectId } = useParams<{ classId?: string; subjectId?: string }>();
@@ -22,7 +23,9 @@ export const SyllabusView: React.FC = () => {
   const [selectedSubject, setSelectedSubject] = useState<string>(initialSubject);
   const [syllabusData, setSyllabusData] = useState<SyllabusData | null>(null);
   const [loading, setLoading] = useState(true);
+  const [isRefreshing, setIsRefreshing] = useState(false);
   const [activeUnitId, setActiveUnitId] = useState<string | null>(null);
+  const [toast, setToast] = useState<ToastMessage | null>(null);
 
   useEffect(() => {
     if (paramSubjectId) {
@@ -30,23 +33,42 @@ export const SyllabusView: React.FC = () => {
     }
   }, [paramSubjectId]);
 
-  useEffect(() => {
-    let isMounted = true;
-    setLoading(true);
+  const loadSyllabus = async (force: boolean = false) => {
+    if (force) {
+      setIsRefreshing(true);
+    } else {
+      setLoading(true);
+    }
 
-    syllabusRepository.getSyllabus(classId, selectedSubject).then((data) => {
-      if (isMounted) {
-        setSyllabusData(data);
-        if (data && data.units && data.units.length > 0) {
-          setActiveUnitId(data.units[0].id);
-        }
-        setLoading(false);
+    try {
+      const data = await syllabusRepository.getSyllabus(classId, selectedSubject, force);
+      setSyllabusData(data);
+      if (data && data.units && data.units.length > 0) {
+        setActiveUnitId((prev) => prev || data.units[0].id);
       }
-    });
+      if (force) {
+        setToast({
+          id: Date.now().toString(),
+          type: 'success',
+          message: `${selectedSubject} का नवीनतम पाठ्यक्रम GitHub से अपडेट हो गया!`,
+        });
+      }
+    } catch (e) {
+      if (force) {
+        setToast({
+          id: Date.now().toString(),
+          type: 'error',
+          message: 'पाठ्यक्रम अपडेट करने में समस्या आई।',
+        });
+      }
+    } finally {
+      setLoading(false);
+      setIsRefreshing(false);
+    }
+  };
 
-    return () => {
-      isMounted = false;
-    };
+  useEffect(() => {
+    loadSyllabus(false);
   }, [classId, selectedSubject]);
 
   return (
@@ -55,7 +77,23 @@ export const SyllabusView: React.FC = () => {
         showBack={Boolean(paramSubjectId)}
         title="पाठ्यक्रम (Syllabus)"
         subtitle={`Class ${classId} • Board Curriculum`}
+        rightAction={
+          <button
+            onClick={() => loadSyllabus(true)}
+            disabled={isRefreshing || loading}
+            title="GitHub से नवीनतम पाठ्यक्रम रिफ्रेश करें"
+            className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-200 hover:bg-blue-50 dark:hover:bg-blue-950/60 hover:text-blue-600 dark:hover:text-blue-400 active:scale-95 transition-all text-xs font-bold cursor-pointer disabled:opacity-50"
+          >
+            {isRefreshing ? (
+              <Loader2 className="w-3.5 h-3.5 animate-spin text-blue-600" />
+            ) : (
+              <RefreshCw className="w-3.5 h-3.5" />
+            )}
+            <span className="hidden sm:inline">रीफ़्रेश</span>
+          </button>
+        }
       />
+
 
       {/* Horizontal Subject Switcher Chips */}
       <div className="flex items-center gap-1.5 overflow-x-auto pb-1 no-scrollbar pt-1">
@@ -217,6 +255,8 @@ export const SyllabusView: React.FC = () => {
           </div>
         </>
       )}
+
+      {toast && <Toast message={toast} onClose={() => setToast(null)} />}
     </div>
   );
 };

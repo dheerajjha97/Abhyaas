@@ -1,7 +1,7 @@
 {
   "schemaVersion": "2.0",
   "contentType": "syllabus",
-  "generatedAt": "2026-08-30T09:10:05.532Z",
+  "generatedAt": "2026-09-06T09:32:05.639Z",
   "syllabus": {
     "id": "syllabus-class-12-pol-science-20252026",
     "title": "Class 12 pol-science Syllabus (2025-2026)",
@@ -11,52 +11,56 @@
     "subjectName": "pol-science",
     "board": "Bihar Board (BSEB)",
     "academicYear": "2025-2026",
-    "stream": "Arts (कला / मानविकी)",
-    "totalMarks": 100,
-    "theoryMarks": 100,
-    "practicalMarks": 0,
+    "stream": "Science (PCB / PCM)",
+    "totalMarks": 70,
     "totalUnits": 5,
     "totalChapters": 14,
-    "totalTopics": 53
+    "totalTopics": 42
   },
   "units": [
     {
       "id": "unit-1",
       "unitNumber": 1,
-      "title": "CONSTITUTIONAL FRAMEWORK & PHILOSOPHY",
+      "title": "भारतीय संविधान के आधार",
+      "hindiTitle": "भारतीय संविधान के आधार",
       "chapters": [
         {
           "id": "chap-pol-science-1",
           "chapterNumber": 1,
           "unitNumber": 1,
-          "unitTitle": "CONSTITUTIONAL FRAMEWORK & PHILOSOPHY",
-          "title": "Making of Indian Constitution and its Goals",
+          "unitTitle": "भारतीय संविधान के आधार",
+          "title": "भारतीय संविधान का निर्माण और इसके लक्ष्य",
+          "hindiTitle": "भारतीय संविधान का निर्माण और इसके लक्ष्य",
           "topics": [
             {
               "id": "topic-1-1",
               "topicNumber": "1.1",
-              "title": "Constitutional Development",
+              "title": "संवैधानिक विकास",
+              "hindiTitle": "संवैधानिक विकास",
               "completed": false,
               "order": 1
             },
             {
               "id": "topic-1-2",
               "topicNumber": "1.2",
-              "title": "Sources of the Constitution",
+              "title": "संविधान के स्रोत",
+              "hindiTitle": "संविधान के स्रोत",
               "completed": false,
               "order": 2
             },
             {
               "id": "topic-1-3",
               "topicNumber": "1.3",
-              "title": "Constituent Assembly",
+              "title": "संविधान सभा",
+              "hindiTitle": "संविधान सभा",
               "completed": false,
               "order": 3
             },
             {
               "id": "topic-1-4",
               "topicNumber": "1.4",
-              "title": "Preamble",
+              "title": "प्रस्तावना",
+              "hindiTitle": "प्रस्तावना",
               "completed": false,
               "order": 4
             }
@@ -66,13 +70,15 @@
           "id": "chap-pol-science-2",
           "chapterNumber": 2,
           "unitNumber": 1,
-          "unitTitle": "CONSTITUTIONAL FRAMEWORK & PHILOSOPHY",
-          "title": "Salient Features of the Indian Constitution",
+          "unitTitle": "भारतीय संविधान के आधार",
+          "title": "भारतीय संविधान की प्रमुख विशेषताएँ",
+          "hindiTitle": "भारतीय संविधान की प्रमुख विशेषताएँ",
           "topics": [
             {
               "id": "topic-2-1",
               "topicNumber": "2.1",
-              "title": "Major Characteristics and Features of the Constitution",
+              "title": "संविधान की मुख्य विशेषताएँ और लक्षण",
+              "hindiTitle": "संविधान की मुख्य विशेषताएँ और लक्षण",
               "completed": false,
               "order": 1
             }
@@ -82,29 +88,25 @@
           "id": "chap-pol-science-3",
           "chapterNumber": 3,
           "unitNumber": 1,
-          "unitTitle": "CONSTITUTIONAL FRAMEWORK & PHILOSOPHY",
-          "title": "Fundamental Rights and Duties",
+          "unitTitle": "भारतीय संविधान के आधार",
+          "title": "मौलिक अधिकार और कर्तव्य",
+          "hindiTitle": "मौलिक अधिकार और कर्तव्य",
           "topics": [
             {
               "id": "topic-3-1",
               "topicNumber": "3.1",
-              "title": "Meaning and Importance",
+              "title": "अर्थ, महत्व और विशेषताएँ",
+              "hindiTitle": "अर्थ, महत्व और विशेषताएँ",
               "completed": false,
               "order": 1
             },
             {
               "id": "topic-3-2",
               "topicNumber": "3.2",
-              "title": "Characteristics of Fundamental Rights and Duties",
+              "title": "मौलिक अधिकारों में संशोधन",
+              "hindiTitle": "मौलिक अधिकारों में संशोधन",
               "completed": false,
               "order": 2
-            },
-            {
-              "id": "topic-3-3",
-              "topicNumber": "3.3",
-              "title": "Amendments in Fundamental Rights",
-              "completed": false,
-              "order": 3
             }
           ]
         },
@@ -112,27 +114,31 @@
           "id": "chap-pol-science-4",
           "chapterNumber": 4,
           "unitNumber": 1,
-          "unitTitle": "CONSTITUTIONAL FRAMEWORK & PHILOSOPHY",
-          "title": "Directive Principles of State Policy",
+          "unitTitle": "भारतीय संविधान के आधार",
+          "title": "राज्य के नीति निदेशक तत्व",
+          "hindiTitle": "राज्य के नीति निदेशक तत्व",
           "topics": [
             {
               "id": "topic-4-1",
               "topicNumber": "4.1",
-              "title": "Nature and Sources",
+              "title": "प्रकृति और स्रोत",
+              "hindiTitle": "प्रकृति और स्रोत",
               "completed": false,
               "order": 1
             },
             {
               "id": "topic-4-2",
               "topicNumber": "4.2",
-              "title": "Difference between Fundamental Rights and Directive Principles",
+              "title": "मौलिक अधिकारों और नीति निदेशक तत्वों में अंतर",
+              "hindiTitle": "मौलिक अधिकारों और नीति निदेशक तत्वों में अंतर",
               "completed": false,
               "order": 2
             },
             {
               "id": "topic-4-3",
               "topicNumber": "4.3",
-              "title": "Importance and Utility",
+              "title": "महत्व और उपयोगिता",
+              "hindiTitle": "महत्व और उपयोगिता",
               "completed": false,
               "order": 3
             }
@@ -143,49 +149,79 @@
     {
       "id": "unit-2",
       "unitNumber": 2,
-      "title": "STRUCTURE AND DYNAMICS OF INDIAN FEDERALISM",
+      "title": "संघीय संरचना और स्थानीय स्वशासन",
+      "hindiTitle": "संघीय संरचना और स्थानीय स्वशासन",
       "chapters": [
         {
           "id": "chap-pol-science-5",
           "chapterNumber": 5,
           "unitNumber": 2,
-          "unitTitle": "STRUCTURE AND DYNAMICS OF INDIAN FEDERALISM",
-          "title": "Working of Federalism in India",
+          "unitTitle": "संघीय संरचना और स्थानीय स्वशासन",
+          "title": "भारत में संघवाद की कार्यप्रणाली",
+          "hindiTitle": "भारत में संघवाद की कार्यप्रणाली",
           "topics": [
             {
               "id": "topic-5-1",
               "topicNumber": "5.1",
-              "title": "Indian Federation and its Units",
+              "title": "भारतीय संघ और इसकी इकाइयाँ",
+              "hindiTitle": "भारतीय संघ और इसकी इकाइयाँ",
               "completed": false,
               "order": 1
             },
             {
               "id": "topic-5-2",
               "topicNumber": "5.2",
-              "title": "Process of Alteration of Names, Boundaries, and Territories of States",
+              "title": "राज्यों के नाम, सीमा और क्षेत्र में परिवर्तन की प्रक्रिया",
+              "hindiTitle": "राज्यों के नाम, सीमा और क्षेत्र में परिवर्तन की प्रक्रिया",
               "completed": false,
               "order": 2
             },
             {
               "id": "topic-5-3",
               "topicNumber": "5.3",
-              "title": "Aims and Characteristics of the Federal State",
+              "title": "संघीय राज्य के उद्देश्य, विशेषताएँ और एकात्मक लक्षण",
+              "hindiTitle": "संघीय राज्य के उद्देश्य, विशेषताएँ और एकात्मक लक्षण",
               "completed": false,
               "order": 3
             },
             {
               "id": "topic-5-4",
               "topicNumber": "5.4",
-              "title": "Unitary Features of the Indian Constitution",
+              "title": "प्रमुख विवादास्पद मुद्दे",
+              "hindiTitle": "प्रमुख विवादास्पद मुद्दे",
               "completed": false,
               "order": 4
+            }
+          ]
+        },
+        {
+          "id": "chap-pol-science-6",
+          "chapterNumber": 6,
+          "unitNumber": 2,
+          "unitTitle": "संघीय संरचना और स्थानीय स्वशासन",
+          "title": "स्थानीय स्वशासन (बिहार के विशेष संदर्भ में)",
+          "topics": [
+            {
+              "id": "topic-6-1",
+              "topicNumber": "6.1",
+              "title": "73वाँ और 74वाँ संविधान संशोधन",
+              "completed": false,
+              "order": 1
             },
             {
-              "id": "topic-5-5",
-              "topicNumber": "5.5",
-              "title": "Controversial and Emerging Issues in Centre-State Relations",
+              "id": "topic-6-2",
+              "topicNumber": "6.2",
+              "title": "बिहार पंचायती राज (संशोधन) अधिनियम, 2006",
               "completed": false,
-              "order": 5
+              "order": 2
+            },
+            {
+              "id": "topic-6-3",
+              "topicNumber": "6.3",
+              "title": "ग्रामीण और शहरी स्थानीय शासन",
+              "hindiTitle": "ग्रामीण और शहरी स्थानीय शासन",
+              "completed": false,
+              "order": 3
             }
           ]
         }
@@ -194,90 +230,58 @@
     {
       "id": "unit-3",
       "unitNumber": 3,
-      "title": "UNION & STATE GOVERNMENT",
+      "title": "संघ सरकार (केंद्रीय सरकार)",
       "chapters": [
-        {
-          "id": "chap-pol-science-6",
-          "chapterNumber": 6,
-          "unitNumber": 3,
-          "unitTitle": "UNION & STATE GOVERNMENT",
-          "title": "Union Executive",
-          "topics": [
-            {
-              "id": "topic-6-1",
-              "topicNumber": "6.1",
-              "title": "President: Election, Powers, Functions, Real Position, and Impeachment",
-              "completed": false,
-              "order": 1,
-              "subtopics": [
-                "Election, Powers, Functions, Real Position, and Impeachment"
-              ]
-            },
-            {
-              "id": "topic-6-2",
-              "topicNumber": "6.2",
-              "title": "Vice-President: Election, Powers, and Functions",
-              "completed": false,
-              "order": 2,
-              "subtopics": [
-                "Election, Powers, and Functions"
-              ]
-            },
-            {
-              "id": "topic-6-3",
-              "topicNumber": "6.3",
-              "title": "Prime Minister: Powers, Functions, Duties, and Leadership Role",
-              "completed": false,
-              "order": 3,
-              "subtopics": [
-                "Powers, Functions, Duties, and Leadership Role"
-              ]
-            },
-            {
-              "id": "topic-6-4",
-              "topicNumber": "6.4",
-              "title": "Union Council of Ministers: Composition and Coalition Politics Dynamics",
-              "completed": false,
-              "order": 4,
-              "subtopics": [
-                "Composition and Coalition Politics Dynamics"
-              ]
-            }
-          ]
-        },
         {
           "id": "chap-pol-science-7",
           "chapterNumber": 7,
           "unitNumber": 3,
-          "unitTitle": "UNION & STATE GOVERNMENT",
-          "title": "Union Legislature (Parliament)",
+          "unitTitle": "संघ सरकार (केंद्रीय सरकार)",
+          "title": "संघ कार्यपालिका",
+          "hindiTitle": "संघ कार्यपालिका",
           "topics": [
             {
               "id": "topic-7-1",
               "topicNumber": "7.1",
-              "title": "Lok Sabha: Composition, Powers, and Functions",
+              "title": "राष्ट्रपति: चुनाव, शक्तियाँ, कार्य, वास्तविक स्थिति और महाभियोग",
+              "hindiTitle": "राष्ट्रपति: चुनाव, शक्तियाँ, कार्य, वास्तविक स्थिति और महाभियोग",
               "completed": false,
               "order": 1,
               "subtopics": [
-                "Composition, Powers, and Functions"
+                "चुनाव, शक्तियाँ, कार्य, वास्तविक स्थिति और महाभियोग"
               ]
             },
             {
               "id": "topic-7-2",
               "topicNumber": "7.2",
-              "title": "Rajya Sabha: Composition, Powers, and Functions",
+              "title": "उपराष्ट्रपति: चुनाव, शक्तियाँ और कार्य",
+              "hindiTitle": "उपराष्ट्रपति: चुनाव, शक्तियाँ और कार्य",
               "completed": false,
               "order": 2,
               "subtopics": [
-                "Composition, Powers, and Functions"
+                "चुनाव, शक्तियाँ और कार्य"
               ]
             },
             {
               "id": "topic-7-3",
               "topicNumber": "7.3",
-              "title": "Legislative Process and Importance of Parliament",
+              "title": "प्रधानमंत्री: शक्तियाँ, कार्य, कर्तव्य और भूमिका",
+              "hindiTitle": "प्रधानमंत्री: शक्तियाँ, कार्य, कर्तव्य और भूमिका",
               "completed": false,
-              "order": 3
+              "order": 3,
+              "subtopics": [
+                "शक्तियाँ, कार्य, कर्तव्य और भूमिका"
+              ]
+            },
+            {
+              "id": "topic-7-4",
+              "topicNumber": "7.4",
+              "title": "मंत्रिपरिषद: संरचना (गठबंधन राजनीति के विशेष संदर्भ में)",
+              "completed": false,
+              "order": 4,
+              "subtopics": [
+                "संरचना (गठबंधन राजनीति के विशेष संदर्भ में)"
+              ]
             }
           ]
         },
@@ -285,131 +289,31 @@
           "id": "chap-pol-science-8",
           "chapterNumber": 8,
           "unitNumber": 3,
-          "unitTitle": "UNION & STATE GOVERNMENT",
-          "title": "State Executive",
+          "unitTitle": "संघ सरकार (केंद्रीय सरकार)",
+          "title": "संसद",
+          "hindiTitle": "संसद",
           "topics": [
             {
               "id": "topic-8-1",
               "topicNumber": "8.1",
-              "title": "Governor: Powers, Functions, and Constitutional Position",
+              "title": "लोकसभा: संरचना, शक्तियाँ और कार्य",
+              "hindiTitle": "लोकसभा: संरचना, शक्तियाँ और कार्य",
               "completed": false,
               "order": 1,
               "subtopics": [
-                "Powers, Functions, and Constitutional Position"
+                "संरचना, शक्तियाँ और कार्य"
               ]
             },
             {
               "id": "topic-8-2",
               "topicNumber": "8.2",
-              "title": "Chief Minister: Powers, Functions, Duties, and Changing Role",
+              "title": "राज्यसभा: संरचना, शक्तियाँ और कार्य",
+              "hindiTitle": "राज्यसभा: संरचना, शक्तियाँ और कार्य",
               "completed": false,
               "order": 2,
               "subtopics": [
-                "Powers, Functions, Duties, and Changing Role"
+                "संरचना, शक्तियाँ और कार्य"
               ]
-            },
-            {
-              "id": "topic-8-3",
-              "topicNumber": "8.3",
-              "title": "State Council of Ministers: Composition and the Impact of Coalition Politics",
-              "completed": false,
-              "order": 3,
-              "subtopics": [
-                "Composition and the Impact of Coalition Politics"
-              ]
-            }
-          ]
-        },
-        {
-          "id": "chap-pol-science-9",
-          "chapterNumber": 9,
-          "unitNumber": 3,
-          "unitTitle": "UNION & STATE GOVERNMENT",
-          "title": "State Legislature (with Special Reference to Bihar)",
-          "topics": [
-            {
-              "id": "topic-9-1",
-              "topicNumber": "9.1",
-              "title": "Bihar Legislative Assembly (Vidhan Sabha): Composition, Powers, and Functions",
-              "completed": false,
-              "order": 1,
-              "subtopics": [
-                "Composition, Powers, and Functions"
-              ]
-            },
-            {
-              "id": "topic-9-2",
-              "topicNumber": "9.2",
-              "title": "Bihar Legislative Council (Vidhan Parishad): Composition, Powers, and Functions",
-              "completed": false,
-              "order": 2,
-              "subtopics": [
-                "Composition, Powers, and Functions"
-              ]
-            }
-          ]
-        },
-        {
-          "id": "chap-pol-science-10",
-          "chapterNumber": 10,
-          "unitNumber": 3,
-          "unitTitle": "UNION & STATE GOVERNMENT",
-          "title": "Indian Judiciary",
-          "topics": [
-            {
-              "id": "topic-10-1",
-              "topicNumber": "10.1",
-              "title": "Supreme Court of India: Organisation, Jurisdiction, and Functions",
-              "completed": false,
-              "order": 1,
-              "subtopics": [
-                "Organisation, Jurisdiction, and Functions"
-              ]
-            },
-            {
-              "id": "topic-10-2",
-              "topicNumber": "10.2",
-              "title": "Patna High Court: Organisation, Powers, and Functions",
-              "completed": false,
-              "order": 2,
-              "subtopics": [
-                "Organisation, Powers, and Functions"
-              ]
-            },
-            {
-              "id": "topic-10-3",
-              "topicNumber": "10.3",
-              "title": "Alternative Dispute Resolution & Judicial Innovations:",
-              "completed": false,
-              "order": 3
-            },
-            {
-              "id": "topic-10-4",
-              "topicNumber": "10.4",
-              "title": "Lok Adalats",
-              "completed": false,
-              "order": 4
-            },
-            {
-              "id": "topic-10-5",
-              "topicNumber": "10.5",
-              "title": "Fast Track Courts",
-              "completed": false,
-              "order": 5
-            },
-            {
-              "id": "topic-10-6",
-              "topicNumber": "10.6",
-              "title": "Family Courts",
-              "completed": false,
-              "order": 6
-            },
-            {
-              "id": "topic-10-7",
-              "topicNumber": "10.7",
-              "title": "Public Interest Litigation (PIL)",
-              "completed": false,
-              "order": 7
             }
           ]
         }
@@ -418,85 +322,121 @@
     {
       "id": "unit-4",
       "unitNumber": 4,
-      "title": "DEMOCRATIC PROCESS & LOCAL GOVERNANCE",
+      "title": "राज्य सरकार और न्यायपालिका",
+      "hindiTitle": "राज्य सरकार और न्यायपालिका",
       "chapters": [
+        {
+          "id": "chap-pol-science-9",
+          "chapterNumber": 9,
+          "unitNumber": 4,
+          "unitTitle": "राज्य सरकार और न्यायपालिका",
+          "title": "राज्य कार्यपालिका",
+          "hindiTitle": "राज्य कार्यपालिका",
+          "topics": [
+            {
+              "id": "topic-9-1",
+              "topicNumber": "9.1",
+              "title": "राज्यपाल: शक्तियाँ, कार्य और स्थिति",
+              "hindiTitle": "राज्यपाल: शक्तियाँ, कार्य और स्थिति",
+              "completed": false,
+              "order": 1,
+              "subtopics": [
+                "शक्तियाँ, कार्य और स्थिति"
+              ]
+            },
+            {
+              "id": "topic-9-2",
+              "topicNumber": "9.2",
+              "title": "मुख्यमंत्री: शक्तियाँ, कार्य, कर्तव्य और भूमिका",
+              "hindiTitle": "मुख्यमंत्री: शक्तियाँ, कार्य, कर्तव्य और भूमिका",
+              "completed": false,
+              "order": 2,
+              "subtopics": [
+                "शक्तियाँ, कार्य, कर्तव्य और भूमिका"
+              ]
+            },
+            {
+              "id": "topic-9-3",
+              "topicNumber": "9.3",
+              "title": "राज्य मंत्रिपरिषद: शक्तियाँ, कार्य और भूमिका (गठबंधन राजनीति के विशेष संदर्भ में)",
+              "completed": false,
+              "order": 3,
+              "subtopics": [
+                "शक्तियाँ, कार्य और भूमिका (गठबंधन राजनीति के विशेष संदर्भ में)"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "chap-pol-science-10",
+          "chapterNumber": 10,
+          "unitNumber": 4,
+          "unitTitle": "राज्य सरकार और न्यायपालिका",
+          "title": "राज्य विधानमंडल (बिहार)",
+          "topics": [
+            {
+              "id": "topic-10-1",
+              "topicNumber": "10.1",
+              "title": "बिहार विधानसभा: संरचना, शक्तियाँ और कार्य",
+              "hindiTitle": "बिहार विधानसभा: संरचना, शक्तियाँ और कार्य",
+              "completed": false,
+              "order": 1,
+              "subtopics": [
+                "संरचना, शक्तियाँ और कार्य"
+              ]
+            },
+            {
+              "id": "topic-10-2",
+              "topicNumber": "10.2",
+              "title": "बिहार विधान परिषद: संरचना, शक्तियाँ और कार्य",
+              "hindiTitle": "बिहार विधान परिषद: संरचना, शक्तियाँ और कार्य",
+              "completed": false,
+              "order": 2,
+              "subtopics": [
+                "संरचना, शक्तियाँ और कार्य"
+              ]
+            }
+          ]
+        },
         {
           "id": "chap-pol-science-11",
           "chapterNumber": 11,
           "unitNumber": 4,
-          "unitTitle": "DEMOCRATIC PROCESS & LOCAL GOVERNANCE",
-          "title": "Electoral System and Political Parties in India",
+          "unitTitle": "राज्य सरकार और न्यायपालिका",
+          "title": "भारतीय न्यायपालिका",
+          "hindiTitle": "भारतीय न्यायपालिका",
           "topics": [
             {
               "id": "topic-11-1",
               "topicNumber": "11.1",
-              "title": "Election Commission of India: Role and Functions",
+              "title": "भारत का सर्वोच्च न्यायालय: संगठन और कार्य",
+              "hindiTitle": "भारत का सर्वोच्च न्यायालय: संगठन और कार्य",
               "completed": false,
               "order": 1,
               "subtopics": [
-                "Role and Functions"
+                "संगठन और कार्य"
               ]
             },
             {
               "id": "topic-11-2",
               "topicNumber": "11.2",
-              "title": "Electoral Process: Maladies, Challenges, and Electoral Reforms",
+              "title": "पटना उच्च न्यायालय: संगठन और कार्य",
+              "hindiTitle": "पटना उच्च न्यायालय: संगठन और कार्य",
               "completed": false,
               "order": 2,
               "subtopics": [
-                "Maladies, Challenges, and Electoral Reforms"
+                "संगठन और कार्य"
               ]
             },
             {
               "id": "topic-11-3",
               "topicNumber": "11.3",
-              "title": "Importance of Universal Adult Suffrage and Voting",
+              "title": "वैकल्पिक विवाद समाधान और न्यायिक पहुँच: लोक अदालत, त्वरित न्यायालय (फास्ट ट्रैक कोर्ट), परिवार न्यायालय और जनहित याचिका (PIL)",
               "completed": false,
-              "order": 3
-            },
-            {
-              "id": "topic-11-4",
-              "topicNumber": "11.4",
-              "title": "Party System in India and the Role of the Opposition",
-              "completed": false,
-              "order": 4
-            }
-          ]
-        },
-        {
-          "id": "chap-pol-science-12",
-          "chapterNumber": 12,
-          "unitNumber": 4,
-          "unitTitle": "DEMOCRATIC PROCESS & LOCAL GOVERNANCE",
-          "title": "Local Self-Government (with Special Reference to Bihar)",
-          "topics": [
-            {
-              "id": "topic-12-1",
-              "topicNumber": "12.1",
-              "title": "73rd and 74th Constitutional Amendment Acts",
-              "completed": false,
-              "order": 1
-            },
-            {
-              "id": "topic-12-2",
-              "topicNumber": "12.2",
-              "title": "Bihar Panchayati Raj (Amendment) Act, 2006",
-              "completed": false,
-              "order": 2
-            },
-            {
-              "id": "topic-12-3",
-              "topicNumber": "12.3",
-              "title": "Structure and Functioning of Rural Local Government (Panchayati Raj)",
-              "completed": false,
-              "order": 3
-            },
-            {
-              "id": "topic-12-4",
-              "topicNumber": "12.4",
-              "title": "Structure and Functioning of Urban Local Bodies (Municipalities)",
-              "completed": false,
-              "order": 4
+              "order": 3,
+              "subtopics": [
+                "लोक अदालत, त्वरित न्यायालय (फास्ट ट्रैक कोर्ट), परिवार न्यायालय और जनहित याचिका (PIL)"
+              ]
             }
           ]
         }
@@ -505,40 +445,91 @@
     {
       "id": "unit-5",
       "unitNumber": 5,
-      "title": "NATION BUILDING, CHALLENGES & FOREIGN POLICY",
+      "title": "लोकतांत्रिक प्रक्रियाएँ, चुनौतियाँ और विदेश संबंध",
+      "hindiTitle": "लोकतांत्रिक प्रक्रियाएँ, चुनौतियाँ और विदेश संबंध",
       "chapters": [
+        {
+          "id": "chap-pol-science-12",
+          "chapterNumber": 12,
+          "unitNumber": 5,
+          "unitTitle": "लोकतांत्रिक प्रक्रियाएँ, चुनौतियाँ और विदेश संबंध",
+          "title": "भारत में निर्वाचन प्रणाली",
+          "hindiTitle": "भारत में निर्वाचन प्रणाली",
+          "topics": [
+            {
+              "id": "topic-12-1",
+              "topicNumber": "12.1",
+              "title": "निर्वाचन आयोग",
+              "hindiTitle": "निर्वाचन आयोग",
+              "completed": false,
+              "order": 1
+            },
+            {
+              "id": "topic-12-2",
+              "topicNumber": "12.2",
+              "title": "निर्वाचन प्रक्रिया: दोष और सुधार",
+              "hindiTitle": "निर्वाचन प्रक्रिया: दोष और सुधार",
+              "completed": false,
+              "order": 2,
+              "subtopics": [
+                "दोष और सुधार"
+              ]
+            },
+            {
+              "id": "topic-12-3",
+              "topicNumber": "12.3",
+              "title": "मतदान का महत्व",
+              "hindiTitle": "मतदान का महत्व",
+              "completed": false,
+              "order": 3
+            },
+            {
+              "id": "topic-12-4",
+              "topicNumber": "12.4",
+              "title": "दलीय व्यवस्था और विपक्ष की भूमिका",
+              "hindiTitle": "दलीय व्यवस्था और विपक्ष की भूमिका",
+              "completed": false,
+              "order": 4
+            }
+          ]
+        },
         {
           "id": "chap-pol-science-13",
           "chapterNumber": 13,
           "unitNumber": 5,
-          "unitTitle": "NATION BUILDING, CHALLENGES & FOREIGN POLICY",
-          "title": "National Integration and Contemporary Challenges",
+          "unitTitle": "लोकतांत्रिक प्रक्रियाएँ, चुनौतियाँ और विदेश संबंध",
+          "title": "राष्ट्रीय एकीकरण और चुनौतियाँ",
+          "hindiTitle": "राष्ट्रीय एकीकरण और चुनौतियाँ",
           "topics": [
             {
               "id": "topic-13-1",
               "topicNumber": "13.1",
-              "title": "Communalism",
+              "title": "सांप्रदायिकता",
+              "hindiTitle": "सांप्रदायिकता",
               "completed": false,
               "order": 1
             },
             {
               "id": "topic-13-2",
               "topicNumber": "13.2",
-              "title": "Regionalism",
+              "title": "क्षेत्रवाद",
+              "hindiTitle": "क्षेत्रवाद",
               "completed": false,
               "order": 2
             },
             {
               "id": "topic-13-3",
               "topicNumber": "13.3",
-              "title": "Casteism",
+              "title": "जातिवाद",
+              "hindiTitle": "जातिवाद",
               "completed": false,
               "order": 3
             },
             {
               "id": "topic-13-4",
               "topicNumber": "13.4",
-              "title": "Naxalism and Internal Security Threats",
+              "title": "नक्सलवाद",
+              "hindiTitle": "नक्सलवाद",
               "completed": false,
               "order": 4
             }
@@ -548,50 +539,34 @@
           "id": "chap-pol-science-14",
           "chapterNumber": 14,
           "unitNumber": 5,
-          "unitTitle": "NATION BUILDING, CHALLENGES & FOREIGN POLICY",
-          "title": "Foreign Policy of India",
+          "unitTitle": "लोकतांत्रिक प्रक्रियाएँ, चुनौतियाँ और विदेश संबंध",
+          "title": "भारत की विदेश नीति",
+          "hindiTitle": "भारत की विदेश नीति",
           "topics": [
             {
               "id": "topic-14-1",
               "topicNumber": "14.1",
-              "title": "Determinants of India's Foreign Policy",
+              "title": "भारतीय विदेश नीति के निर्धारक तत्व",
+              "hindiTitle": "भारतीय विदेश नीति के निर्धारक तत्व",
               "completed": false,
               "order": 1
             },
             {
               "id": "topic-14-2",
               "topicNumber": "14.2",
-              "title": "Basic Principles (with special reference to Nuclear Policy)",
+              "title": "बुनियादी सिद्धांत (परमाणु नीति के विशेष संदर्भ में)",
               "completed": false,
               "order": 2
             },
             {
               "id": "topic-14-3",
               "topicNumber": "14.3",
-              "title": "India and International/Regional Organisations:",
+              "title": "अंतरराष्ट्रीय और क्षेत्रीय संगठन: गुटनिरपेक्ष आंदोलन (NAM), सार्क (SAARC) और संयुक्त राष्ट्र संघ (UNO)",
               "completed": false,
-              "order": 3
-            },
-            {
-              "id": "topic-14-4",
-              "topicNumber": "14.4",
-              "title": "Non-Aligned Movement (NAM)",
-              "completed": false,
-              "order": 4
-            },
-            {
-              "id": "topic-14-5",
-              "topicNumber": "14.5",
-              "title": "South Asian Association for Regional Cooperation (SAARC)",
-              "completed": false,
-              "order": 5
-            },
-            {
-              "id": "topic-14-6",
-              "topicNumber": "14.6",
-              "title": "United Nations Organisation (UNO)",
-              "completed": false,
-              "order": 6
+              "order": 3,
+              "subtopics": [
+                "गुटनिरपेक्ष आंदोलन (NAM), सार्क (SAARC) और संयुक्त राष्ट्र संघ (UNO)"
+              ]
             }
           ]
         }
@@ -603,34 +578,39 @@
       "id": "chap-pol-science-1",
       "chapterNumber": 1,
       "unitNumber": 1,
-      "unitTitle": "CONSTITUTIONAL FRAMEWORK & PHILOSOPHY",
-      "title": "Making of Indian Constitution and its Goals",
+      "unitTitle": "भारतीय संविधान के आधार",
+      "title": "भारतीय संविधान का निर्माण और इसके लक्ष्य",
+      "hindiTitle": "भारतीय संविधान का निर्माण और इसके लक्ष्य",
       "topics": [
         {
           "id": "topic-1-1",
           "topicNumber": "1.1",
-          "title": "Constitutional Development",
+          "title": "संवैधानिक विकास",
+          "hindiTitle": "संवैधानिक विकास",
           "completed": false,
           "order": 1
         },
         {
           "id": "topic-1-2",
           "topicNumber": "1.2",
-          "title": "Sources of the Constitution",
+          "title": "संविधान के स्रोत",
+          "hindiTitle": "संविधान के स्रोत",
           "completed": false,
           "order": 2
         },
         {
           "id": "topic-1-3",
           "topicNumber": "1.3",
-          "title": "Constituent Assembly",
+          "title": "संविधान सभा",
+          "hindiTitle": "संविधान सभा",
           "completed": false,
           "order": 3
         },
         {
           "id": "topic-1-4",
           "topicNumber": "1.4",
-          "title": "Preamble",
+          "title": "प्रस्तावना",
+          "hindiTitle": "प्रस्तावना",
           "completed": false,
           "order": 4
         }
@@ -640,13 +620,15 @@
       "id": "chap-pol-science-2",
       "chapterNumber": 2,
       "unitNumber": 1,
-      "unitTitle": "CONSTITUTIONAL FRAMEWORK & PHILOSOPHY",
-      "title": "Salient Features of the Indian Constitution",
+      "unitTitle": "भारतीय संविधान के आधार",
+      "title": "भारतीय संविधान की प्रमुख विशेषताएँ",
+      "hindiTitle": "भारतीय संविधान की प्रमुख विशेषताएँ",
       "topics": [
         {
           "id": "topic-2-1",
           "topicNumber": "2.1",
-          "title": "Major Characteristics and Features of the Constitution",
+          "title": "संविधान की मुख्य विशेषताएँ और लक्षण",
+          "hindiTitle": "संविधान की मुख्य विशेषताएँ और लक्षण",
           "completed": false,
           "order": 1
         }
@@ -656,29 +638,25 @@
       "id": "chap-pol-science-3",
       "chapterNumber": 3,
       "unitNumber": 1,
-      "unitTitle": "CONSTITUTIONAL FRAMEWORK & PHILOSOPHY",
-      "title": "Fundamental Rights and Duties",
+      "unitTitle": "भारतीय संविधान के आधार",
+      "title": "मौलिक अधिकार और कर्तव्य",
+      "hindiTitle": "मौलिक अधिकार और कर्तव्य",
       "topics": [
         {
           "id": "topic-3-1",
           "topicNumber": "3.1",
-          "title": "Meaning and Importance",
+          "title": "अर्थ, महत्व और विशेषताएँ",
+          "hindiTitle": "अर्थ, महत्व और विशेषताएँ",
           "completed": false,
           "order": 1
         },
         {
           "id": "topic-3-2",
           "topicNumber": "3.2",
-          "title": "Characteristics of Fundamental Rights and Duties",
+          "title": "मौलिक अधिकारों में संशोधन",
+          "hindiTitle": "मौलिक अधिकारों में संशोधन",
           "completed": false,
           "order": 2
-        },
-        {
-          "id": "topic-3-3",
-          "topicNumber": "3.3",
-          "title": "Amendments in Fundamental Rights",
-          "completed": false,
-          "order": 3
         }
       ]
     },
@@ -686,27 +664,31 @@
       "id": "chap-pol-science-4",
       "chapterNumber": 4,
       "unitNumber": 1,
-      "unitTitle": "CONSTITUTIONAL FRAMEWORK & PHILOSOPHY",
-      "title": "Directive Principles of State Policy",
+      "unitTitle": "भारतीय संविधान के आधार",
+      "title": "राज्य के नीति निदेशक तत्व",
+      "hindiTitle": "राज्य के नीति निदेशक तत्व",
       "topics": [
         {
           "id": "topic-4-1",
           "topicNumber": "4.1",
-          "title": "Nature and Sources",
+          "title": "प्रकृति और स्रोत",
+          "hindiTitle": "प्रकृति और स्रोत",
           "completed": false,
           "order": 1
         },
         {
           "id": "topic-4-2",
           "topicNumber": "4.2",
-          "title": "Difference between Fundamental Rights and Directive Principles",
+          "title": "मौलिक अधिकारों और नीति निदेशक तत्वों में अंतर",
+          "hindiTitle": "मौलिक अधिकारों और नीति निदेशक तत्वों में अंतर",
           "completed": false,
           "order": 2
         },
         {
           "id": "topic-4-3",
           "topicNumber": "4.3",
-          "title": "Importance and Utility",
+          "title": "महत्व और उपयोगिता",
+          "hindiTitle": "महत्व और उपयोगिता",
           "completed": false,
           "order": 3
         }
@@ -716,92 +698,72 @@
       "id": "chap-pol-science-5",
       "chapterNumber": 5,
       "unitNumber": 2,
-      "unitTitle": "STRUCTURE AND DYNAMICS OF INDIAN FEDERALISM",
-      "title": "Working of Federalism in India",
+      "unitTitle": "संघीय संरचना और स्थानीय स्वशासन",
+      "title": "भारत में संघवाद की कार्यप्रणाली",
+      "hindiTitle": "भारत में संघवाद की कार्यप्रणाली",
       "topics": [
         {
           "id": "topic-5-1",
           "topicNumber": "5.1",
-          "title": "Indian Federation and its Units",
+          "title": "भारतीय संघ और इसकी इकाइयाँ",
+          "hindiTitle": "भारतीय संघ और इसकी इकाइयाँ",
           "completed": false,
           "order": 1
         },
         {
           "id": "topic-5-2",
           "topicNumber": "5.2",
-          "title": "Process of Alteration of Names, Boundaries, and Territories of States",
+          "title": "राज्यों के नाम, सीमा और क्षेत्र में परिवर्तन की प्रक्रिया",
+          "hindiTitle": "राज्यों के नाम, सीमा और क्षेत्र में परिवर्तन की प्रक्रिया",
           "completed": false,
           "order": 2
         },
         {
           "id": "topic-5-3",
           "topicNumber": "5.3",
-          "title": "Aims and Characteristics of the Federal State",
+          "title": "संघीय राज्य के उद्देश्य, विशेषताएँ और एकात्मक लक्षण",
+          "hindiTitle": "संघीय राज्य के उद्देश्य, विशेषताएँ और एकात्मक लक्षण",
           "completed": false,
           "order": 3
         },
         {
           "id": "topic-5-4",
           "topicNumber": "5.4",
-          "title": "Unitary Features of the Indian Constitution",
+          "title": "प्रमुख विवादास्पद मुद्दे",
+          "hindiTitle": "प्रमुख विवादास्पद मुद्दे",
           "completed": false,
           "order": 4
-        },
-        {
-          "id": "topic-5-5",
-          "topicNumber": "5.5",
-          "title": "Controversial and Emerging Issues in Centre-State Relations",
-          "completed": false,
-          "order": 5
         }
       ]
     },
     {
       "id": "chap-pol-science-6",
       "chapterNumber": 6,
-      "unitNumber": 3,
-      "unitTitle": "UNION & STATE GOVERNMENT",
-      "title": "Union Executive",
+      "unitNumber": 2,
+      "unitTitle": "संघीय संरचना और स्थानीय स्वशासन",
+      "title": "स्थानीय स्वशासन (बिहार के विशेष संदर्भ में)",
       "topics": [
         {
           "id": "topic-6-1",
           "topicNumber": "6.1",
-          "title": "President: Election, Powers, Functions, Real Position, and Impeachment",
+          "title": "73वाँ और 74वाँ संविधान संशोधन",
           "completed": false,
-          "order": 1,
-          "subtopics": [
-            "Election, Powers, Functions, Real Position, and Impeachment"
-          ]
+          "order": 1
         },
         {
           "id": "topic-6-2",
           "topicNumber": "6.2",
-          "title": "Vice-President: Election, Powers, and Functions",
+          "title": "बिहार पंचायती राज (संशोधन) अधिनियम, 2006",
           "completed": false,
-          "order": 2,
-          "subtopics": [
-            "Election, Powers, and Functions"
-          ]
+          "order": 2
         },
         {
           "id": "topic-6-3",
           "topicNumber": "6.3",
-          "title": "Prime Minister: Powers, Functions, Duties, and Leadership Role",
+          "title": "ग्रामीण और शहरी स्थानीय शासन",
+          "hindiTitle": "ग्रामीण और शहरी स्थानीय शासन",
           "completed": false,
-          "order": 3,
-          "subtopics": [
-            "Powers, Functions, Duties, and Leadership Role"
-          ]
-        },
-        {
-          "id": "topic-6-4",
-          "topicNumber": "6.4",
-          "title": "Union Council of Ministers: Composition and Coalition Politics Dynamics",
-          "completed": false,
-          "order": 4,
-          "subtopics": [
-            "Composition and Coalition Politics Dynamics"
-          ]
+          "order": 3
         }
       ]
     },
@@ -809,35 +771,52 @@
       "id": "chap-pol-science-7",
       "chapterNumber": 7,
       "unitNumber": 3,
-      "unitTitle": "UNION & STATE GOVERNMENT",
-      "title": "Union Legislature (Parliament)",
+      "unitTitle": "संघ सरकार (केंद्रीय सरकार)",
+      "title": "संघ कार्यपालिका",
+      "hindiTitle": "संघ कार्यपालिका",
       "topics": [
         {
           "id": "topic-7-1",
           "topicNumber": "7.1",
-          "title": "Lok Sabha: Composition, Powers, and Functions",
+          "title": "राष्ट्रपति: चुनाव, शक्तियाँ, कार्य, वास्तविक स्थिति और महाभियोग",
+          "hindiTitle": "राष्ट्रपति: चुनाव, शक्तियाँ, कार्य, वास्तविक स्थिति और महाभियोग",
           "completed": false,
           "order": 1,
           "subtopics": [
-            "Composition, Powers, and Functions"
+            "चुनाव, शक्तियाँ, कार्य, वास्तविक स्थिति और महाभियोग"
           ]
         },
         {
           "id": "topic-7-2",
           "topicNumber": "7.2",
-          "title": "Rajya Sabha: Composition, Powers, and Functions",
+          "title": "उपराष्ट्रपति: चुनाव, शक्तियाँ और कार्य",
+          "hindiTitle": "उपराष्ट्रपति: चुनाव, शक्तियाँ और कार्य",
           "completed": false,
           "order": 2,
           "subtopics": [
-            "Composition, Powers, and Functions"
+            "चुनाव, शक्तियाँ और कार्य"
           ]
         },
         {
           "id": "topic-7-3",
           "topicNumber": "7.3",
-          "title": "Legislative Process and Importance of Parliament",
+          "title": "प्रधानमंत्री: शक्तियाँ, कार्य, कर्तव्य और भूमिका",
+          "hindiTitle": "प्रधानमंत्री: शक्तियाँ, कार्य, कर्तव्य और भूमिका",
           "completed": false,
-          "order": 3
+          "order": 3,
+          "subtopics": [
+            "शक्तियाँ, कार्य, कर्तव्य और भूमिका"
+          ]
+        },
+        {
+          "id": "topic-7-4",
+          "topicNumber": "7.4",
+          "title": "मंत्रिपरिषद: संरचना (गठबंधन राजनीति के विशेष संदर्भ में)",
+          "completed": false,
+          "order": 4,
+          "subtopics": [
+            "संरचना (गठबंधन राजनीति के विशेष संदर्भ में)"
+          ]
         }
       ]
     },
@@ -845,37 +824,30 @@
       "id": "chap-pol-science-8",
       "chapterNumber": 8,
       "unitNumber": 3,
-      "unitTitle": "UNION & STATE GOVERNMENT",
-      "title": "State Executive",
+      "unitTitle": "संघ सरकार (केंद्रीय सरकार)",
+      "title": "संसद",
+      "hindiTitle": "संसद",
       "topics": [
         {
           "id": "topic-8-1",
           "topicNumber": "8.1",
-          "title": "Governor: Powers, Functions, and Constitutional Position",
+          "title": "लोकसभा: संरचना, शक्तियाँ और कार्य",
+          "hindiTitle": "लोकसभा: संरचना, शक्तियाँ और कार्य",
           "completed": false,
           "order": 1,
           "subtopics": [
-            "Powers, Functions, and Constitutional Position"
+            "संरचना, शक्तियाँ और कार्य"
           ]
         },
         {
           "id": "topic-8-2",
           "topicNumber": "8.2",
-          "title": "Chief Minister: Powers, Functions, Duties, and Changing Role",
+          "title": "राज्यसभा: संरचना, शक्तियाँ और कार्य",
+          "hindiTitle": "राज्यसभा: संरचना, शक्तियाँ और कार्य",
           "completed": false,
           "order": 2,
           "subtopics": [
-            "Powers, Functions, Duties, and Changing Role"
-          ]
-        },
-        {
-          "id": "topic-8-3",
-          "topicNumber": "8.3",
-          "title": "State Council of Ministers: Composition and the Impact of Coalition Politics",
-          "completed": false,
-          "order": 3,
-          "subtopics": [
-            "Composition and the Impact of Coalition Politics"
+            "संरचना, शक्तियाँ और कार्य"
           ]
         }
       ]
@@ -883,28 +855,41 @@
     {
       "id": "chap-pol-science-9",
       "chapterNumber": 9,
-      "unitNumber": 3,
-      "unitTitle": "UNION & STATE GOVERNMENT",
-      "title": "State Legislature (with Special Reference to Bihar)",
+      "unitNumber": 4,
+      "unitTitle": "राज्य सरकार और न्यायपालिका",
+      "title": "राज्य कार्यपालिका",
+      "hindiTitle": "राज्य कार्यपालिका",
       "topics": [
         {
           "id": "topic-9-1",
           "topicNumber": "9.1",
-          "title": "Bihar Legislative Assembly (Vidhan Sabha): Composition, Powers, and Functions",
+          "title": "राज्यपाल: शक्तियाँ, कार्य और स्थिति",
+          "hindiTitle": "राज्यपाल: शक्तियाँ, कार्य और स्थिति",
           "completed": false,
           "order": 1,
           "subtopics": [
-            "Composition, Powers, and Functions"
+            "शक्तियाँ, कार्य और स्थिति"
           ]
         },
         {
           "id": "topic-9-2",
           "topicNumber": "9.2",
-          "title": "Bihar Legislative Council (Vidhan Parishad): Composition, Powers, and Functions",
+          "title": "मुख्यमंत्री: शक्तियाँ, कार्य, कर्तव्य और भूमिका",
+          "hindiTitle": "मुख्यमंत्री: शक्तियाँ, कार्य, कर्तव्य और भूमिका",
           "completed": false,
           "order": 2,
           "subtopics": [
-            "Composition, Powers, and Functions"
+            "शक्तियाँ, कार्य, कर्तव्य और भूमिका"
+          ]
+        },
+        {
+          "id": "topic-9-3",
+          "topicNumber": "9.3",
+          "title": "राज्य मंत्रिपरिषद: शक्तियाँ, कार्य और भूमिका (गठबंधन राजनीति के विशेष संदर्भ में)",
+          "completed": false,
+          "order": 3,
+          "subtopics": [
+            "शक्तियाँ, कार्य और भूमिका (गठबंधन राजनीति के विशेष संदर्भ में)"
           ]
         }
       ]
@@ -912,64 +897,31 @@
     {
       "id": "chap-pol-science-10",
       "chapterNumber": 10,
-      "unitNumber": 3,
-      "unitTitle": "UNION & STATE GOVERNMENT",
-      "title": "Indian Judiciary",
+      "unitNumber": 4,
+      "unitTitle": "राज्य सरकार और न्यायपालिका",
+      "title": "राज्य विधानमंडल (बिहार)",
       "topics": [
         {
           "id": "topic-10-1",
           "topicNumber": "10.1",
-          "title": "Supreme Court of India: Organisation, Jurisdiction, and Functions",
+          "title": "बिहार विधानसभा: संरचना, शक्तियाँ और कार्य",
+          "hindiTitle": "बिहार विधानसभा: संरचना, शक्तियाँ और कार्य",
           "completed": false,
           "order": 1,
           "subtopics": [
-            "Organisation, Jurisdiction, and Functions"
+            "संरचना, शक्तियाँ और कार्य"
           ]
         },
         {
           "id": "topic-10-2",
           "topicNumber": "10.2",
-          "title": "Patna High Court: Organisation, Powers, and Functions",
+          "title": "बिहार विधान परिषद: संरचना, शक्तियाँ और कार्य",
+          "hindiTitle": "बिहार विधान परिषद: संरचना, शक्तियाँ और कार्य",
           "completed": false,
           "order": 2,
           "subtopics": [
-            "Organisation, Powers, and Functions"
+            "संरचना, शक्तियाँ और कार्य"
           ]
-        },
-        {
-          "id": "topic-10-3",
-          "topicNumber": "10.3",
-          "title": "Alternative Dispute Resolution & Judicial Innovations:",
-          "completed": false,
-          "order": 3
-        },
-        {
-          "id": "topic-10-4",
-          "topicNumber": "10.4",
-          "title": "Lok Adalats",
-          "completed": false,
-          "order": 4
-        },
-        {
-          "id": "topic-10-5",
-          "topicNumber": "10.5",
-          "title": "Fast Track Courts",
-          "completed": false,
-          "order": 5
-        },
-        {
-          "id": "topic-10-6",
-          "topicNumber": "10.6",
-          "title": "Family Courts",
-          "completed": false,
-          "order": 6
-        },
-        {
-          "id": "topic-10-7",
-          "topicNumber": "10.7",
-          "title": "Public Interest Litigation (PIL)",
-          "completed": false,
-          "order": 7
         }
       ]
     },
@@ -977,77 +929,84 @@
       "id": "chap-pol-science-11",
       "chapterNumber": 11,
       "unitNumber": 4,
-      "unitTitle": "DEMOCRATIC PROCESS & LOCAL GOVERNANCE",
-      "title": "Electoral System and Political Parties in India",
+      "unitTitle": "राज्य सरकार और न्यायपालिका",
+      "title": "भारतीय न्यायपालिका",
+      "hindiTitle": "भारतीय न्यायपालिका",
       "topics": [
         {
           "id": "topic-11-1",
           "topicNumber": "11.1",
-          "title": "Election Commission of India: Role and Functions",
+          "title": "भारत का सर्वोच्च न्यायालय: संगठन और कार्य",
+          "hindiTitle": "भारत का सर्वोच्च न्यायालय: संगठन और कार्य",
           "completed": false,
           "order": 1,
           "subtopics": [
-            "Role and Functions"
+            "संगठन और कार्य"
           ]
         },
         {
           "id": "topic-11-2",
           "topicNumber": "11.2",
-          "title": "Electoral Process: Maladies, Challenges, and Electoral Reforms",
+          "title": "पटना उच्च न्यायालय: संगठन और कार्य",
+          "hindiTitle": "पटना उच्च न्यायालय: संगठन और कार्य",
           "completed": false,
           "order": 2,
           "subtopics": [
-            "Maladies, Challenges, and Electoral Reforms"
+            "संगठन और कार्य"
           ]
         },
         {
           "id": "topic-11-3",
           "topicNumber": "11.3",
-          "title": "Importance of Universal Adult Suffrage and Voting",
+          "title": "वैकल्पिक विवाद समाधान और न्यायिक पहुँच: लोक अदालत, त्वरित न्यायालय (फास्ट ट्रैक कोर्ट), परिवार न्यायालय और जनहित याचिका (PIL)",
           "completed": false,
-          "order": 3
-        },
-        {
-          "id": "topic-11-4",
-          "topicNumber": "11.4",
-          "title": "Party System in India and the Role of the Opposition",
-          "completed": false,
-          "order": 4
+          "order": 3,
+          "subtopics": [
+            "लोक अदालत, त्वरित न्यायालय (फास्ट ट्रैक कोर्ट), परिवार न्यायालय और जनहित याचिका (PIL)"
+          ]
         }
       ]
     },
     {
       "id": "chap-pol-science-12",
       "chapterNumber": 12,
-      "unitNumber": 4,
-      "unitTitle": "DEMOCRATIC PROCESS & LOCAL GOVERNANCE",
-      "title": "Local Self-Government (with Special Reference to Bihar)",
+      "unitNumber": 5,
+      "unitTitle": "लोकतांत्रिक प्रक्रियाएँ, चुनौतियाँ और विदेश संबंध",
+      "title": "भारत में निर्वाचन प्रणाली",
+      "hindiTitle": "भारत में निर्वाचन प्रणाली",
       "topics": [
         {
           "id": "topic-12-1",
           "topicNumber": "12.1",
-          "title": "73rd and 74th Constitutional Amendment Acts",
+          "title": "निर्वाचन आयोग",
+          "hindiTitle": "निर्वाचन आयोग",
           "completed": false,
           "order": 1
         },
         {
           "id": "topic-12-2",
           "topicNumber": "12.2",
-          "title": "Bihar Panchayati Raj (Amendment) Act, 2006",
+          "title": "निर्वाचन प्रक्रिया: दोष और सुधार",
+          "hindiTitle": "निर्वाचन प्रक्रिया: दोष और सुधार",
           "completed": false,
-          "order": 2
+          "order": 2,
+          "subtopics": [
+            "दोष और सुधार"
+          ]
         },
         {
           "id": "topic-12-3",
           "topicNumber": "12.3",
-          "title": "Structure and Functioning of Rural Local Government (Panchayati Raj)",
+          "title": "मतदान का महत्व",
+          "hindiTitle": "मतदान का महत्व",
           "completed": false,
           "order": 3
         },
         {
           "id": "topic-12-4",
           "topicNumber": "12.4",
-          "title": "Structure and Functioning of Urban Local Bodies (Municipalities)",
+          "title": "दलीय व्यवस्था और विपक्ष की भूमिका",
+          "hindiTitle": "दलीय व्यवस्था और विपक्ष की भूमिका",
           "completed": false,
           "order": 4
         }
@@ -1057,34 +1016,39 @@
       "id": "chap-pol-science-13",
       "chapterNumber": 13,
       "unitNumber": 5,
-      "unitTitle": "NATION BUILDING, CHALLENGES & FOREIGN POLICY",
-      "title": "National Integration and Contemporary Challenges",
+      "unitTitle": "लोकतांत्रिक प्रक्रियाएँ, चुनौतियाँ और विदेश संबंध",
+      "title": "राष्ट्रीय एकीकरण और चुनौतियाँ",
+      "hindiTitle": "राष्ट्रीय एकीकरण और चुनौतियाँ",
       "topics": [
         {
           "id": "topic-13-1",
           "topicNumber": "13.1",
-          "title": "Communalism",
+          "title": "सांप्रदायिकता",
+          "hindiTitle": "सांप्रदायिकता",
           "completed": false,
           "order": 1
         },
         {
           "id": "topic-13-2",
           "topicNumber": "13.2",
-          "title": "Regionalism",
+          "title": "क्षेत्रवाद",
+          "hindiTitle": "क्षेत्रवाद",
           "completed": false,
           "order": 2
         },
         {
           "id": "topic-13-3",
           "topicNumber": "13.3",
-          "title": "Casteism",
+          "title": "जातिवाद",
+          "hindiTitle": "जातिवाद",
           "completed": false,
           "order": 3
         },
         {
           "id": "topic-13-4",
           "topicNumber": "13.4",
-          "title": "Naxalism and Internal Security Threats",
+          "title": "नक्सलवाद",
+          "hindiTitle": "नक्सलवाद",
           "completed": false,
           "order": 4
         }
@@ -1094,50 +1058,34 @@
       "id": "chap-pol-science-14",
       "chapterNumber": 14,
       "unitNumber": 5,
-      "unitTitle": "NATION BUILDING, CHALLENGES & FOREIGN POLICY",
-      "title": "Foreign Policy of India",
+      "unitTitle": "लोकतांत्रिक प्रक्रियाएँ, चुनौतियाँ और विदेश संबंध",
+      "title": "भारत की विदेश नीति",
+      "hindiTitle": "भारत की विदेश नीति",
       "topics": [
         {
           "id": "topic-14-1",
           "topicNumber": "14.1",
-          "title": "Determinants of India's Foreign Policy",
+          "title": "भारतीय विदेश नीति के निर्धारक तत्व",
+          "hindiTitle": "भारतीय विदेश नीति के निर्धारक तत्व",
           "completed": false,
           "order": 1
         },
         {
           "id": "topic-14-2",
           "topicNumber": "14.2",
-          "title": "Basic Principles (with special reference to Nuclear Policy)",
+          "title": "बुनियादी सिद्धांत (परमाणु नीति के विशेष संदर्भ में)",
           "completed": false,
           "order": 2
         },
         {
           "id": "topic-14-3",
           "topicNumber": "14.3",
-          "title": "India and International/Regional Organisations:",
+          "title": "अंतरराष्ट्रीय और क्षेत्रीय संगठन: गुटनिरपेक्ष आंदोलन (NAM), सार्क (SAARC) और संयुक्त राष्ट्र संघ (UNO)",
           "completed": false,
-          "order": 3
-        },
-        {
-          "id": "topic-14-4",
-          "topicNumber": "14.4",
-          "title": "Non-Aligned Movement (NAM)",
-          "completed": false,
-          "order": 4
-        },
-        {
-          "id": "topic-14-5",
-          "topicNumber": "14.5",
-          "title": "South Asian Association for Regional Cooperation (SAARC)",
-          "completed": false,
-          "order": 5
-        },
-        {
-          "id": "topic-14-6",
-          "topicNumber": "14.6",
-          "title": "United Nations Organisation (UNO)",
-          "completed": false,
-          "order": 6
+          "order": 3,
+          "subtopics": [
+            "गुटनिरपेक्ष आंदोलन (NAM), सार्क (SAARC) और संयुक्त राष्ट्र संघ (UNO)"
+          ]
         }
       ]
     }

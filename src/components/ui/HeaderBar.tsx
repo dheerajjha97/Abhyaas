@@ -37,13 +37,20 @@ export const HeaderBar: React.FC<HeaderBarProps> = ({
                 {title}
               </h1>
             ) : (
-              <div className="flex flex-col">
-                <h1 className="text-2xl font-black text-slate-900 dark:text-white tracking-tight leading-none">
-                  Abhyaas
-                </h1>
-                <p className="text-[10px] font-semibold text-blue-600 dark:text-blue-400 tracking-wider uppercase mt-0.5">
-                  पढ़ो • अभ्यास करो • बेहतर बनो
-                </p>
+              <div className="flex items-center gap-2.5">
+                <img
+                  src="/pwa-192x192.png"
+                  alt="Abhyaas Logo"
+                  className="w-9 h-9 rounded-xl object-cover shadow-2xs border border-slate-200/80 dark:border-slate-700 shrink-0"
+                />
+                <div className="flex flex-col">
+                  <h1 className="text-xl sm:text-2xl font-black text-slate-900 dark:text-white tracking-tight leading-none">
+                    Abhyaas
+                  </h1>
+                  <p className="text-[10px] font-semibold text-blue-600 dark:text-blue-400 tracking-wider uppercase mt-0.5">
+                    पढ़ो • अभ्यास करो • बेहतर बनो
+                  </p>
+                </div>
               </div>
             )}
 

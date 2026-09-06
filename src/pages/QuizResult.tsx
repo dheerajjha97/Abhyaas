@@ -81,6 +81,16 @@ export const QuizResult: React.FC = () => {
 
       {/* Action Buttons */}
       <div className="space-y-3 pt-2">
+        {result.wrong > 0 && (
+          <button
+            onClick={() => navigate('/mistakes')}
+            className="w-full py-3.5 px-4 bg-rose-50 hover:bg-rose-100 dark:bg-rose-950/60 dark:hover:bg-rose-900/60 border border-rose-200 dark:border-rose-900 text-rose-700 dark:text-rose-300 font-bold text-sm rounded-2xl shadow-2xs active:scale-95 transition-all flex items-center justify-center gap-2 cursor-pointer"
+          >
+            <BookOpen className="w-4 h-4 text-rose-600" />
+            <span>गलती सुधार डायरी देखें ({result.wrong} गलत सवाल)</span>
+          </button>
+        )}
+
         <button
           onClick={() => navigate(`/paper/${paperId}/quiz`)}
           className="w-full py-3.5 px-4 bg-blue-600 hover:bg-blue-700 text-white font-bold text-sm rounded-2xl shadow-2xs active:scale-95 transition-all flex items-center justify-center gap-2 cursor-pointer"

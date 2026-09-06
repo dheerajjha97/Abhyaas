@@ -43,7 +43,19 @@ export const Bookmarks: React.FC = () => {
     <div className="space-y-4 pb-36 animate-in fade-in duration-300">
       <Toast toast={toast} onClose={() => setToast(null)} />
 
-      <HeaderBar title="सहेजे गए सवाल" subtitle="Saved Important Questions" />
+      <HeaderBar
+        title="सहेजे गए सवाल"
+        subtitle="Saved Important Questions"
+        rightAction={
+          <button
+            onClick={() => navigate('/mistakes')}
+            className="px-3 py-1.5 rounded-xl bg-rose-50 dark:bg-rose-950/60 border border-rose-200 dark:border-rose-900 text-rose-700 dark:text-rose-300 font-bold text-xs flex items-center gap-1.5 cursor-pointer active:scale-95 transition-all"
+          >
+            <BookOpen className="w-3.5 h-3.5" />
+            <span>गलती डायरी</span>
+          </button>
+        }
+      />
 
       {/* Filter Tabs */}
       {bookmarks.length > 0 && (

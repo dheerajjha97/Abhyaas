@@ -32,6 +32,7 @@ import { questionRepository, normalizeSubject } from '../services/questionReposi
 import { PaperSummary } from '../types/question';
 import { Badges } from '../components/dashboard/Badges';
 import { Illustration } from '../components/ui/Illustration';
+import { getMistakes } from '../utils/bookmarkStorage';
 
 export const Home: React.FC = () => {
   const navigate = useNavigate();
@@ -452,6 +453,32 @@ export const Home: React.FC = () => {
                 </div>
               </div>
             </div>
+
+            {/* Mistake Notebook Quick Access Banner */}
+            {getMistakes().length > 0 && (
+              <div
+                onClick={() => navigate('/mistakes')}
+                className="p-3.5 rounded-2xl bg-gradient-to-r from-rose-50 to-amber-50 dark:from-rose-950/40 dark:to-amber-950/40 border border-rose-200/80 dark:border-rose-900/60 flex items-center justify-between gap-3 cursor-pointer hover:shadow-xs transition-all"
+              >
+                <div className="flex items-center gap-2.5">
+                  <div className="w-8 h-8 rounded-xl bg-rose-500/20 text-rose-700 dark:text-rose-300 flex items-center justify-center font-black text-sm shrink-0">
+                    📖
+                  </div>
+                  <div>
+                    <div className="text-xs font-black text-slate-900 dark:text-slate-100 flex items-center gap-1.5">
+                      <span>गलती सुधार डायरी (Mistake Notebook)</span>
+                      <span className="text-[10px] bg-rose-500 text-white px-1.5 py-0.2 rounded-full font-bold">
+                        {getMistakes().length} सवाल
+                      </span>
+                    </div>
+                    <div className="text-[11px] text-slate-600 dark:text-slate-400">
+                      गलत हुए सवालों को दोबारा हल करके 100% तैयारी करें
+                    </div>
+                  </div>
+                </div>
+                <ChevronRight className="w-4 h-4 text-slate-400" />
+              </div>
+            )}
 
             {/* Badges Preview in Student Overview */}
             <Badges compact onViewAll={() => setActiveTab('badges')} />

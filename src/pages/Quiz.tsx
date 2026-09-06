@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams, useNavigate, useSearchParams } from 'react-router-dom';
 import { questionRepository } from '../services/questionRepository';
-import { Paper, MCQ } from '../types/question';
-import { saveBookmark, isBookmarked, removeBookmark, saveQuizResult } from '../utils/bookmarkStorage';
+import { Paper, MCQ, MistakeQuestion } from '../types/question';
+import { saveBookmark, isBookmarked, removeBookmark, saveQuizResult, saveMistakes } from '../utils/bookmarkStorage';
 import { useStudentProgress } from '../context/StudentProgressContext';
 import { HeaderBar } from '../components/ui/HeaderBar';
 import { QuestionSkeleton } from '../components/ui/Skeleton';
@@ -10,10 +10,13 @@ import { GlassCard } from '../components/ui/GlassCard';
 import { ProgressBar } from '../components/ui/ProgressBar';
 import { Toast, ToastMessage } from '../components/ui/Toast';
 import { Illustration } from '../components/ui/Illustration';
-import { CheckCircle2, XCircle, Bookmark, ArrowRight, ChevronDown, ChevronUp, Lightbulb, RefreshCw } from 'lucide-react';
+import { OMRSheet } from '../components/quiz/OMRSheet';
+import { FontControl } from '../components/ui/FontControl';
+import { CheckCircle2, XCircle, Bookmark, ArrowRight, ChevronDown, ChevronUp, Lightbulb, RefreshCw, LayoutGrid } from 'lucide-react';
 
 export const Quiz: React.FC = () => {
   const { paperId } = useParams<{ paperId: string }>();
+  const [searchParams] = useSearchParams();
   const navigate = useNavigate();
 
   const [paper, setPaper] = useState<Paper | null>(null);
@@ -23,6 +26,10 @@ export const Quiz: React.FC = () => {
   const [submitted, setSubmitted] = useState<Record<number, boolean>>({});
   const [showExplanation, setShowExplanation] = useState<Record<number, boolean>>({});
   const [toast, setToast] = useState<ToastMessage | null>(null);
+  const [viewMode, setViewMode] = useState<'standard' | 'omr'>(
+    searchParams.get('omr') === '1' ? 'omr' : 'standard'
+  );
+  const [fontSize, setFontSize] = useState<'sm' | 'md' | 'lg' | 'xl'>('md');
   const { recordTestResult } = useStudentProgress();
 
   useEffect(() => {
@@ -141,14 +148,37 @@ export const Quiz: React.FC = () => {
       let wrong = 0;
       const answerDetails: Record<string, { selected: string; isCorrect: boolean }> = {};
 
+      const mistakesToSave: MistakeQuestion[] = [];
+
       mcqs.forEach((q, idx) => {
         const sel = selectedOptions[idx] || '';
         const selOptIdx = q.options.indexOf(sel);
         const isRight = checkOptionCorrectness(sel, selOptIdx, q.answer);
-        if (isRight) correct++;
-        else wrong++;
+        if (isRight) {
+          correct++;
+        } else {
+          wrong++;
+          // Add to Mistake Notebook
+          mistakesToSave.push({
+            id: q.id || `quiz_${paper.id}_${idx}`,
+            paperId: paper.id,
+            paperName: paper.paperName,
+            subject: paper.subject,
+            classId: paper.class,
+            question: q.question,
+            options: q.options,
+            correctAnswer: q.answer,
+            selectedAnswer: sel,
+            explanation: q.explanation,
+            timestamp: Date.now(),
+          });
+        }
         answerDetails[q.id] = { selected: sel, isCorrect: isRight };
       });
+
+      if (mistakesToSave.length > 0) {
+        saveMistakes(mistakesToSave);
+      }
 
       const percentage = Math.round((correct / totalQuestions) * 100);
 
@@ -213,24 +243,83 @@ export const Quiz: React.FC = () => {
         }
       />
 
-      {/* Progress Section */}
-      <div className="bg-white dark:bg-slate-900 rounded-2xl p-3 sm:p-4 border border-slate-200/80 dark:border-slate-800 shadow-xs">
-        <div className="flex items-center justify-between text-xs font-bold text-slate-700 dark:text-slate-300 mb-2">
+      {/* Progress & Controls Section */}
+      <div className="bg-white dark:bg-slate-900 rounded-2xl p-3 sm:p-4 border border-slate-200/80 dark:border-slate-800 shadow-xs space-y-3">
+        <div className="flex items-center justify-between text-xs font-bold text-slate-700 dark:text-slate-300">
           <span>सवाल {currentIndex + 1} / {totalQuestions}</span>
-          <span className="text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-950/60 px-2 py-0.5 rounded-md border border-blue-200/60 dark:border-blue-900 text-[11px] font-bold">
-            MCQ Practice
-          </span>
+
+          <div className="flex items-center gap-2">
+            {/* View Mode Toggle (Standard vs OMR Sheet) */}
+            <div className="inline-flex items-center bg-slate-100 dark:bg-slate-800 p-0.5 rounded-xl border border-slate-200 dark:border-slate-700">
+              <button
+                type="button"
+                onClick={() => setViewMode('standard')}
+                className={`px-2.5 py-1 rounded-lg text-xs font-bold transition-all cursor-pointer ${
+                  viewMode === 'standard'
+                    ? 'bg-white dark:bg-slate-900 text-blue-600 dark:text-blue-400 shadow-2xs font-black'
+                    : 'text-slate-600 dark:text-slate-400'
+                }`}
+              >
+                कार्ड
+              </button>
+              <button
+                type="button"
+                onClick={() => setViewMode('omr')}
+                className={`px-2.5 py-1 rounded-lg text-xs font-bold transition-all cursor-pointer flex items-center gap-1 ${
+                  viewMode === 'omr'
+                    ? 'bg-blue-600 text-white shadow-2xs font-black'
+                    : 'text-slate-600 dark:text-slate-400'
+                }`}
+              >
+                <LayoutGrid className="w-3 h-3" />
+                <span>OMR शीट</span>
+              </button>
+            </div>
+
+            {/* Font Control */}
+            <FontControl fontSize={fontSize} onChangeFontSize={setFontSize} />
+          </div>
         </div>
+
         <ProgressBar value={currentIndex + 1} max={totalQuestions} color="indigo" />
       </div>
 
-      {/* Question Card */}
+      {/* OMR Sheet View Mode */}
+      {viewMode === 'omr' && (
+        <OMRSheet
+          totalQuestions={totalQuestions}
+          selectedOptions={selectedOptions}
+          optionsList={mcqs.map((q) => q.options)}
+          currentIndex={currentIndex}
+          submitted={submitted}
+          correctAnswers={mcqs.map((q) => q.answer)}
+          onSelectOption={(qIdx, opt) => {
+            setSelectedOptions((prev) => ({ ...prev, [qIdx]: opt }));
+          }}
+          onNavigateToQuestion={(qIdx) => {
+            setCurrentIndex(qIdx);
+            setViewMode('standard');
+          }}
+        />
+      )}
+
+      {/* Question Card (Standard View) */}
       <div className="bg-white dark:bg-slate-900 rounded-2xl sm:rounded-3xl p-5 sm:p-6 space-y-5 border border-slate-200/80 dark:border-slate-800 shadow-xs">
         <div className="flex items-start justify-between gap-3">
           <span className="w-8 h-8 rounded-xl bg-blue-50 dark:bg-blue-950 text-blue-700 dark:text-blue-300 text-xs font-black flex items-center justify-center shrink-0 border border-blue-200/60 dark:border-blue-900">
             Q{currentIndex + 1}
           </span>
-          <h2 className="text-base sm:text-lg font-bold text-slate-900 dark:text-slate-100 leading-relaxed flex-1">
+          <h2
+            className={`font-bold text-slate-900 dark:text-slate-100 leading-relaxed flex-1 ${
+              fontSize === 'sm'
+                ? 'text-sm'
+                : fontSize === 'lg'
+                ? 'text-lg'
+                : fontSize === 'xl'
+                ? 'text-xl sm:text-2xl'
+                : 'text-base sm:text-lg'
+            }`}
+          >
             {currentQuestion.question}
           </h2>
         </div>
@@ -275,7 +364,19 @@ export const Quiz: React.FC = () => {
                   {optionLabels[idx] || idx + 1}
                 </span>
 
-                <span className="flex-1 text-sm leading-snug">{option}</span>
+                <span
+                  className={`flex-1 leading-snug ${
+                    fontSize === 'sm'
+                      ? 'text-xs'
+                      : fontSize === 'lg'
+                      ? 'text-base'
+                      : fontSize === 'xl'
+                      ? 'text-lg'
+                      : 'text-sm'
+                  }`}
+                >
+                  {option}
+                </span>
 
                 {isCurrentSubmitted && (
                   <div className="shrink-0">

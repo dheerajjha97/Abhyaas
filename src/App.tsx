@@ -17,11 +17,14 @@ import { More } from './pages/More';
 import { SyllabusView } from './pages/SyllabusView';
 import { NotesView } from './pages/NotesView';
 import { MockTestGenerator } from './pages/MockTestGenerator';
+import { MistakeNotebook } from './pages/MistakeNotebook';
 import { PrivacyPolicy } from './pages/PrivacyPolicy';
 import { ContactUs } from './pages/ContactUs';
 import { BottomNavigation } from './components/ui/BottomNavigation';
 import { DesktopNavbar } from './components/ui/DesktopNavbar';
 import { AdSenseTracker } from './components/ads/AdSenseTracker';
+import { PWAInstallPrompt } from './components/pwa/PWAInstallPrompt';
+import { OfflineIndicator } from './components/pwa/OfflineIndicator';
 
 // Scroll to top on route change
 const ScrollToTop = () => {
@@ -57,6 +60,9 @@ const AppContent: React.FC = () => {
           <DesktopNavbar />
 
           <main className="flex-1 pb-24 md:pb-12">
+            {/* PWA In-App Install Prompt Banner */}
+            <PWAInstallPrompt />
+            <OfflineIndicator />
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/papers" element={<Papers />} />
@@ -74,6 +80,7 @@ const AppContent: React.FC = () => {
               <Route path="/paper/:paperId/short" element={<ShortQuestions />} />
               <Route path="/paper/:paperId/long" element={<LongQuestions />} />
               <Route path="/bookmarks" element={<Bookmarks />} />
+              <Route path="/mistakes" element={<MistakeNotebook />} />
               <Route path="/search" element={<Search />} />
               <Route path="/more" element={<More />} />
               <Route path="/mock-test" element={<MockTestGenerator />} />

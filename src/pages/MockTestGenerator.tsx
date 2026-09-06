@@ -4,6 +4,8 @@ import { useStudentProfile } from '../context/StudentProfileContext';
 import { useStudentProgress } from '../context/StudentProgressContext';
 import { mockTestService, GeneratedMockTest, MockTestConfig } from '../services/mockTestService';
 import { ALL_AVAILABLE_SUBJECTS } from '../types/studentProfile';
+import { MistakeQuestion } from '../types/question';
+import { saveMistakes } from '../utils/bookmarkStorage';
 import { HeaderBar } from '../components/ui/HeaderBar';
 import { GlassCard } from '../components/ui/GlassCard';
 import { Toast, ToastMessage } from '../components/ui/Toast';
@@ -165,17 +167,40 @@ export const MockTestGenerator: React.FC = () => {
     let correctCount = 0;
     let wrongCount = 0;
 
+    const mistakesToSave: MistakeQuestion[] = [];
+
     currentTest.questions.forEach((q, idx) => {
       const selected = selectedAnswers[idx] || '';
+      let isRight = false;
       if (selected) {
         const selIdx = q.options.indexOf(selected);
-        const isRight = checkOptionCorrectness(selected, selIdx, q.answer);
+        isRight = checkOptionCorrectness(selected, selIdx, q.answer);
         if (isRight) correctCount++;
         else wrongCount++;
       } else {
         wrongCount++;
       }
+
+      if (!isRight) {
+        mistakesToSave.push({
+          id: q.id || `mock_${currentTest.id}_${idx}`,
+          paperId: currentTest.id,
+          paperName: currentTest.title,
+          subject: currentTest.subject,
+          classId: currentTest.classId,
+          question: q.question,
+          options: q.options,
+          correctAnswer: q.answer,
+          selectedAnswer: selected,
+          explanation: q.explanation,
+          timestamp: Date.now(),
+        });
+      }
     });
+
+    if (mistakesToSave.length > 0) {
+      saveMistakes(mistakesToSave);
+    }
 
     const totalQuestions = currentTest.questions.length;
     const percentage = Math.round((correctCount / totalQuestions) * 100);
@@ -327,7 +352,7 @@ export const MockTestGenerator: React.FC = () => {
         </div>
 
         {/* Action Buttons */}
-        <div className="flex gap-2.5">
+        <div className="flex gap-2.5 flex-wrap">
           <button
             onClick={() => handleGenerateTest()}
             className="flex-1 py-3 px-4 rounded-2xl bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-sm flex items-center justify-center gap-2 shadow-sm transition-all cursor-pointer"
@@ -335,11 +360,20 @@ export const MockTestGenerator: React.FC = () => {
             <RotateCcw className="w-4 h-4" />
             <span>नया टेस्ट दें</span>
           </button>
+          {total - correctCount > 0 && (
+            <button
+              onClick={() => navigate('/mistakes')}
+              className="py-3 px-4 rounded-2xl bg-rose-50 dark:bg-rose-950/60 border border-rose-200 dark:border-rose-900 text-rose-700 dark:text-rose-300 font-bold text-sm flex items-center justify-center gap-1.5 transition-all cursor-pointer"
+            >
+              <BookOpen className="w-4 h-4" />
+              <span>गलती डायरी ({total - correctCount})</span>
+            </button>
+          )}
           <button
             onClick={() => setCurrentTest(null)}
             className="flex-1 py-3 px-4 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-300 font-bold text-sm flex items-center justify-center gap-2 hover:bg-slate-50 dark:hover:bg-slate-800 transition-all cursor-pointer"
           >
-            <span>डैशबोर्ड जाएँ</span>
+            <span>डैशबोर्ड</span>
           </button>
         </div>
 

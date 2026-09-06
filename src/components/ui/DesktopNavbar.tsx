@@ -33,6 +33,7 @@ export const DesktopNavbar: React.FC = () => {
     { id: 'notes', label: 'नोट्स', to: '/notes', icon: BookOpen },
     { id: 'syllabus', label: 'पाठ्यक्रम', to: '/syllabus', icon: Layers },
     { id: 'bookmarks', label: 'सहेजे गए', to: '/bookmarks', icon: Bookmark },
+    { id: 'mistakes', label: 'गलती डायरी', to: '/mistakes', icon: BookOpen },
     { id: 'search', label: 'खोज', to: '/search', icon: Search },
   ];
 
@@ -73,9 +74,11 @@ export const DesktopNavbar: React.FC = () => {
           to="/"
           className="flex items-center gap-2.5 group cursor-pointer focus-visible:outline-none"
         >
-          <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-blue-600 group-hover:bg-blue-700 flex items-center justify-center text-lg sm:text-xl shadow-xs text-white transition-transform group-hover:scale-105 shrink-0">
-            🎓
-          </div>
+          <img
+            src="/pwa-192x192.png"
+            alt="Abhyaas Logo"
+            className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl object-cover shadow-xs border border-slate-200/60 dark:border-slate-700 transition-transform group-hover:scale-105 shrink-0"
+          />
           <div>
             <div className="flex items-center gap-1.5">
               <span className="text-base sm:text-lg font-black tracking-tight text-slate-900 dark:text-white leading-none">

@@ -92,3 +92,18 @@ export interface SearchResultItem {
   options?: string[];
   explanation?: string;
 }
+
+export interface MistakeQuestion {
+  id: string; // question id or generated id
+  paperId: string;
+  paperName: string;
+  subject: string;
+  classId: string;
+  question: string;
+  options: string[];
+  correctAnswer: string;
+  selectedAnswer: string;
+  explanation?: string;
+  timestamp: number;
+  reviewed?: boolean;
+}

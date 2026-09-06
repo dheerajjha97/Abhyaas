@@ -2,11 +2,12 @@
  * LocalStorage management for Bookmarks & Quiz Results
  */
 
-import { BookmarkedQuestion, QuizResultData } from '../types/question';
+import { BookmarkedQuestion, QuizResultData, MistakeQuestion } from '../types/question';
 
 const BOOKMARKS_KEY = 'abhyaas_bookmarks_v1';
 const QUIZ_RESULTS_KEY = 'abhyaas_quiz_results_v1';
 const SETTINGS_KEY = 'abhyaas_settings_v1';
+const MISTAKES_KEY = 'abhyaas_mistakes_v1';
 
 export interface AppSettings {
   githubRepoUrl: string;
@@ -80,4 +81,46 @@ export function saveAppSettings(settings: Partial<AppSettings>): void {
   const current = getAppSettings();
   const updated = { ...current, ...settings };
   localStorage.setItem(SETTINGS_KEY, JSON.stringify(updated));
+}
+
+// ----------------------------------------------------
+// Mistake Notebook ("गलती सुधार डायरी") Functions
+// ----------------------------------------------------
+
+export function getMistakes(): MistakeQuestion[] {
+  try {
+    const data = localStorage.getItem(MISTAKES_KEY);
+    return data ? JSON.parse(data) : [];
+  } catch {
+    return [];
+  }
+}
+
+export function saveMistakes(newMistakes: MistakeQuestion[]): void {
+  try {
+    const existing = getMistakes();
+    // Merge by id (keep latest timestamp if repeated mistake)
+    const mistakeMap = new Map<string, MistakeQuestion>();
+    existing.forEach((m) => mistakeMap.set(m.id, m));
+    newMistakes.forEach((m) => mistakeMap.set(m.id, m));
+
+    // Keep up to 100 recent mistakes
+    const sorted = Array.from(mistakeMap.values())
+      .sort((a, b) => b.timestamp - a.timestamp)
+      .slice(0, 100);
+
+    localStorage.setItem(MISTAKES_KEY, JSON.stringify(sorted));
+  } catch (err) {
+    console.warn('Failed saving mistakes:', err);
+  }
+}
+
+export function removeMistake(id: string): void {
+  const existing = getMistakes();
+  const updated = existing.filter((m) => m.id !== id);
+  localStorage.setItem(MISTAKES_KEY, JSON.stringify(updated));
+}
+
+export function clearAllMistakes(): void {
+  localStorage.removeItem(MISTAKES_KEY);
 }

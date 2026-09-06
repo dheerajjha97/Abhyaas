@@ -228,8 +228,12 @@ export const More: React.FC = () => {
             </div>
           </div>
 
-          <div className="w-20 shrink-0">
-            <Illustration name="welcome" size={75} />
+          <div className="w-20 shrink-0 flex items-center justify-center">
+            <img
+              src="/pwa-192x192.png"
+              alt="Abhyaas PYQ App Icon"
+              className="w-18 h-18 rounded-2xl shadow-md border border-slate-200/80 dark:border-slate-700 object-cover"
+            />
           </div>
         </div>
       </div>

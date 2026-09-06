@@ -2,6 +2,7 @@ import React from 'react';
 import { PaperSummary } from '../../types/question';
 import { GlassCard } from './GlassCard';
 import { Calendar, FileText, HelpCircle, BookOpen, ArrowRight, Award } from 'lucide-react';
+import { questionRepository } from '../../services/questionRepository';
 
 interface PaperCardProps {
   paper: PaperSummary;
@@ -9,9 +10,18 @@ interface PaperCardProps {
 }
 
 export const PaperCard: React.FC<PaperCardProps> = ({ paper, onSelect }) => {
+  // Pre-fetch paper on hover / touch start for zero-latency opening
+  const handlePreload = () => {
+    if (paper.id) {
+      questionRepository.prefetchPaper(paper.id).catch(() => {});
+    }
+  };
+
   return (
     <GlassCard
       variant="default"
+      onMouseEnter={handlePreload}
+      onTouchStart={handlePreload}
       className="p-4 sm:p-5 flex flex-col justify-between gap-4 border border-slate-200/80 dark:border-slate-800 shadow-xs hover:shadow-md hover:border-slate-300 dark:hover:border-slate-700 hover:-translate-y-0.5 transition-all"
     >
       <div className="flex items-start justify-between gap-3">

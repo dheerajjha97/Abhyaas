@@ -122,10 +122,19 @@ export const Preparation: React.FC = () => {
                 अपना ज्ञान परखें और समयबद्ध क्विज़ हल करें।
               </p>
 
-              <div className="pt-2">
-                <span className="inline-flex items-center gap-2 py-2 px-4 bg-blue-600 group-hover:bg-blue-700 text-white font-bold text-xs rounded-xl shadow-2xs active:scale-95 transition-all">
+              <div className="pt-2 flex items-center gap-2 flex-wrap">
+                <span className="inline-flex items-center gap-2 py-2 px-3.5 bg-blue-600 group-hover:bg-blue-700 text-white font-bold text-xs rounded-xl shadow-2xs active:scale-95 transition-all">
                   <span>Quiz शुरू करें</span>
                   <ArrowRight className="w-4 h-4" />
+                </span>
+                <span
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    navigate(`/paper/${paper.id}/quiz?omr=1`);
+                  }}
+                  className="inline-flex items-center gap-1.5 py-2 px-3 bg-indigo-50 hover:bg-indigo-100 dark:bg-indigo-950/60 dark:hover:bg-indigo-900/60 border border-indigo-200/80 dark:border-indigo-800 text-indigo-700 dark:text-indigo-300 font-bold text-xs rounded-xl active:scale-95 transition-all"
+                >
+                  <span>OMR शीट</span>
                 </span>
               </div>
             </div>

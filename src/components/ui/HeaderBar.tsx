@@ -22,7 +22,7 @@ export const HeaderBar: React.FC<HeaderBarProps> = ({
     <header className="sticky top-0 md:static z-30 w-full bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl border border-slate-200/80 dark:border-slate-800 px-4 py-3 shadow-2xs rounded-2xl">
       <div className="w-full flex items-center justify-between gap-3">
         <div className="flex items-center gap-2.5 min-w-0">
-          {showBack && (
+          {showBack ? (
             <button
               onClick={() => navigate(-1)}
               className="p-2 -ml-1 rounded-2xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-700 active:scale-95 transition-all shadow-2xs cursor-pointer"
@@ -30,6 +30,8 @@ export const HeaderBar: React.FC<HeaderBarProps> = ({
             >
               <ChevronLeft className="w-5 h-5" />
             </button>
+          ) : (
+            <BrandLogo size={36} rounded="rounded-xl" className="border border-slate-200/80 dark:border-slate-700 shrink-0" />
           )}
 
           <div className="min-w-0">
@@ -38,16 +40,13 @@ export const HeaderBar: React.FC<HeaderBarProps> = ({
                 {title}
               </h1>
             ) : (
-              <div className="flex items-center gap-2.5">
-                <BrandLogo size={36} rounded="rounded-xl" className="border border-slate-200/80 dark:border-slate-700" />
-                <div className="flex flex-col">
-                  <h1 className="text-xl sm:text-2xl font-black text-slate-900 dark:text-white tracking-tight leading-none">
-                    Abhyaas
-                  </h1>
-                  <p className="text-[10px] font-semibold text-blue-600 dark:text-blue-400 tracking-wider uppercase mt-0.5">
-                    पढ़ो • अभ्यास करो • बेहतर बनो
-                  </p>
-                </div>
+              <div className="flex flex-col">
+                <h1 className="text-xl sm:text-2xl font-black text-slate-900 dark:text-white tracking-tight leading-none">
+                  Abhyaas
+                </h1>
+                <p className="text-[10px] font-semibold text-blue-600 dark:text-blue-400 tracking-wider uppercase mt-0.5">
+                  पढ़ो • अभ्यास करो • बेहतर बनो
+                </p>
               </div>
             )}
 

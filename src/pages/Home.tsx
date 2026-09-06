@@ -106,7 +106,7 @@ export const Home: React.FC = () => {
       {/* Top AppBar (Mobile only) with brand logo, greeting & sync */}
       <div className="md:hidden bg-white dark:bg-slate-900 rounded-2xl p-3 border border-slate-200/80 dark:border-slate-800 shadow-xs flex items-center justify-between gap-2.5">
         <div className="flex items-center gap-2.5 min-w-0">
-          <BrandLogo size="md" rounded="rounded-2xl" className="border border-slate-200 dark:border-slate-700" />
+          <BrandLogo size="md" rounded="rounded-2xl" className="border border-slate-200 dark:border-slate-700 shrink-0" />
 
           <div className="min-w-0">
             <div className="flex items-center gap-1.5">

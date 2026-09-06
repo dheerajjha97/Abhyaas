@@ -460,7 +460,7 @@ export const Home: React.FC = () => {
 
         {/* Tab 2: Virtual Badges Component */}
         {activeTab === 'badges' && (
-          <Badges />
+          <Badges defaultExpanded={true} />
         )}
 
         {/* Tab 2: Subject-wise Mastery Progress */}

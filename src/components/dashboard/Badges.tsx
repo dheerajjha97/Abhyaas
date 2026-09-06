@@ -19,12 +19,16 @@ import {
   X,
   Play,
   ArrowRight,
+  ChevronRight,
+  ChevronDown,
   ShieldAlert,
 } from 'lucide-react';
+import { motion, AnimatePresence } from 'motion/react';
 
 interface BadgesProps {
   compact?: boolean;
   onViewAll?: () => void;
+  defaultExpanded?: boolean;
 }
 
 const TIER_COLORS: Record<
@@ -77,11 +81,16 @@ const TIER_COLORS: Record<
   },
 };
 
-export const Badges: React.FC<BadgesProps> = ({ compact = false, onViewAll }) => {
+export const Badges: React.FC<BadgesProps> = ({
+  compact = false,
+  onViewAll,
+  defaultExpanded = false,
+}) => {
   const navigate = useNavigate();
   const { progress } = useStudentProgress();
   const { profile } = useStudentProfile();
 
+  const [isExpanded, setIsExpanded] = useState(defaultExpanded);
   const [selectedBadge, setSelectedBadge] = useState<VirtualBadge | null>(null);
   const [filterCategory, setFilterCategory] = useState<'all' | 'unlocked' | 'locked'>('all');
 
@@ -203,181 +212,223 @@ export const Badges: React.FC<BadgesProps> = ({ compact = false, onViewAll }) =>
     );
   }
 
-  // Full Mode
+  // Full Mode - Rendered as a single cohesive collapsible card containing all achievements
   return (
-    <div className="space-y-4 pt-1">
-      {/* Header Stat & Progression Bar */}
-      <div className="p-3.5 sm:p-4 rounded-2xl bg-gradient-to-r from-blue-50/80 via-indigo-50/50 to-amber-50/60 dark:from-slate-800/80 dark:via-blue-950/40 dark:to-slate-800/80 border border-blue-100/80 dark:border-slate-700/80 shadow-xs space-y-2.5">
-        <div className="flex items-center justify-between flex-wrap gap-2">
-          <div className="flex items-center gap-2">
-            <div className="w-9 h-9 rounded-xl bg-amber-500 text-white flex items-center justify-center shadow-xs">
-              <Trophy className="w-5 h-5 fill-current" />
-            </div>
-            <div>
-              <div className="text-xs sm:text-sm font-black text-slate-900 dark:text-slate-100 flex items-center gap-1.5">
-                <span>वर्चुअल बैज हॉल (Virtual Badges)</span>
-                <span className="text-[10px] font-bold bg-amber-100 dark:bg-amber-900/60 text-amber-800 dark:text-amber-200 px-2 py-0.5 rounded-full border border-amber-200 dark:border-amber-800">
-                  {unlockedCount} / {allBadges.length} अर्जित
-                </span>
-              </div>
-              <p className="text-[10px] text-slate-500 dark:text-slate-400">
-                मॉक टेस्ट, स्ट्रीक और अभ्यास एक्टिविटी से वर्चुअल मेडल अनलॉक करें
-              </p>
-            </div>
+    <div className="bg-white dark:bg-slate-900 rounded-2xl sm:rounded-3xl border border-slate-200/90 dark:border-slate-800 shadow-2xs overflow-hidden transition-all">
+      {/* Clickable Header for Collapsing / Expanding */}
+      <div
+        role="button"
+        tabIndex={0}
+        onClick={() => setIsExpanded((prev) => !prev)}
+        onKeyDown={(e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            setIsExpanded((prev) => !prev);
+          }
+        }}
+        className="p-4 sm:p-5 flex items-center justify-between gap-3 cursor-pointer hover:bg-slate-50/70 dark:hover:bg-slate-850/50 select-none transition-colors"
+        aria-expanded={isExpanded}
+      >
+        <div className="flex items-center gap-2.5 sm:gap-3 min-w-0">
+          <div className="w-10 h-10 rounded-2xl bg-amber-500 text-white flex items-center justify-center shadow-xs shrink-0">
+            <Trophy className="w-5 h-5 fill-current" />
           </div>
-
-          {/* Quick Filters */}
-          <div className="flex items-center gap-1 bg-white dark:bg-slate-900 p-0.5 rounded-xl border border-slate-200 dark:border-slate-800 shadow-xs text-[10px] font-bold">
-            <button
-              onClick={() => setFilterCategory('all')}
-              className={`px-2.5 py-1 rounded-lg transition-all cursor-pointer ${
-                filterCategory === 'all'
-                  ? 'bg-blue-600 text-white shadow-xs font-black'
-                  : 'text-slate-600 dark:text-slate-400 hover:text-slate-900'
-              }`}
-            >
-              सभी ({allBadges.length})
-            </button>
-            <button
-              onClick={() => setFilterCategory('unlocked')}
-              className={`px-2.5 py-1 rounded-lg transition-all cursor-pointer ${
-                filterCategory === 'unlocked'
-                  ? 'bg-emerald-600 text-white shadow-xs font-black'
-                  : 'text-slate-600 dark:text-slate-400 hover:text-slate-900'
-              }`}
-            >
-              अनलॉक ({unlockedCount})
-            </button>
-            <button
-              onClick={() => setFilterCategory('locked')}
-              className={`px-2.5 py-1 rounded-lg transition-all cursor-pointer ${
-                filterCategory === 'locked'
-                  ? 'bg-slate-700 text-white shadow-xs font-black'
-                  : 'text-slate-600 dark:text-slate-400 hover:text-slate-900'
-              }`}
-            >
-              प्रगति पर ({allBadges.length - unlockedCount})
-            </button>
+          <div className="min-w-0">
+            <div className="text-sm sm:text-base font-black text-slate-900 dark:text-slate-100 flex items-center gap-2 flex-wrap">
+              <span>वर्चुअल बैज एवं उपलब्धियां</span>
+              <span className="text-[10px] font-bold bg-amber-100 dark:bg-amber-900/60 text-amber-800 dark:text-amber-200 px-2.5 py-0.5 rounded-full border border-amber-200 dark:border-amber-800 shrink-0">
+                {unlockedCount} / {allBadges.length} अर्जित
+              </span>
+            </div>
+            <p className="text-xs text-slate-500 dark:text-slate-400 truncate mt-0.5">
+              {isExpanded
+                ? 'मॉक टेस्ट, स्ट्रीक और अभ्यास से मेडल अनलॉक करें'
+                : `${Math.round((unlockedCount / allBadges.length) * 100)}% बैज पूर्ण • क्लिक करके देखें`}
+            </p>
           </div>
         </div>
 
-        {/* Progress Bar */}
-        <div className="space-y-1">
-          <div className="flex items-center justify-between text-[10px] font-bold text-slate-600 dark:text-slate-400">
-            <span>कुल बैज उपलब्धि दर</span>
-            <span className="text-blue-600 dark:text-blue-400">
-              {Math.round((unlockedCount / allBadges.length) * 100)}% पूर्ण
-            </span>
-          </div>
-          <div className="w-full bg-white dark:bg-slate-900 h-2.5 rounded-full overflow-hidden p-0.5 border border-slate-200 dark:border-slate-800">
-            <div
-              className="bg-gradient-to-r from-blue-600 via-indigo-600 to-amber-500 h-full rounded-full transition-all duration-700 shadow-xs"
-              style={{ width: `${Math.round((unlockedCount / allBadges.length) * 100)}%` }}
+        {/* Right Controls: Mini Progress Pill + Collapse Toggle Button */}
+        <div className="flex items-center gap-2.5 shrink-0">
+          {!isExpanded && (
+            <div className="hidden sm:flex items-center gap-2 bg-slate-100 dark:bg-slate-800 px-2.5 py-1.5 rounded-xl border border-slate-200/70 dark:border-slate-700/70">
+              <span className="text-[11px] font-bold text-slate-600 dark:text-slate-300">
+                {Math.round((unlockedCount / allBadges.length) * 100)}% पूर्ण
+              </span>
+              <div className="w-14 bg-slate-200 dark:bg-slate-700 h-1.5 rounded-full overflow-hidden">
+                <div
+                  className="bg-gradient-to-r from-blue-600 to-amber-500 h-full rounded-full"
+                  style={{ width: `${Math.round((unlockedCount / allBadges.length) * 100)}%` }}
+                />
+              </div>
+            </div>
+          )}
+
+          <div className="flex items-center gap-1.5 text-xs font-bold px-3 py-1.5 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 transition-all border border-slate-200/80 dark:border-slate-700/80">
+            <span>{isExpanded ? 'समेटें' : 'देखें'}</span>
+            <ChevronDown
+              className={`w-4 h-4 transition-transform duration-300 ${
+                isExpanded ? 'rotate-180' : ''
+              }`}
             />
           </div>
         </div>
       </div>
 
-      {/* Badges Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
-        {filteredBadges.map((badge) => {
-          const tierStyle = TIER_COLORS[badge.tier];
-          return (
-            <div
-              key={badge.id}
-              onClick={() => setSelectedBadge(badge)}
-              className={`p-3.5 rounded-2xl border transition-all cursor-pointer flex flex-col justify-between gap-2.5 select-none shadow-xs hover:shadow-md hover:-translate-y-0.5 ${
-                badge.isUnlocked
-                  ? `${tierStyle.bg} ${tierStyle.border}`
-                  : 'bg-white dark:bg-slate-900/90 border-slate-200/90 dark:border-slate-800 hover:border-slate-300'
-              }`}
-            >
-              <div className="flex items-start justify-between gap-3">
-                <div className="flex items-center gap-3">
-                  {/* Badge Emblem / Icon */}
-                  <div
-                    className={`relative w-12 h-12 rounded-2xl flex items-center justify-center text-2xl shrink-0 border ${
-                      badge.isUnlocked
-                        ? 'bg-white dark:bg-slate-800 border-amber-300 dark:border-amber-700 shadow-xs'
-                        : 'bg-slate-100 dark:bg-slate-800/80 border-slate-200 dark:border-slate-700'
+      {/* Collapsible Content Section */}
+      <AnimatePresence initial={false}>
+        {isExpanded && (
+          <motion.div
+            key="badges-content"
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: 'auto', opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.25, ease: 'easeInOut' }}
+            className="overflow-hidden"
+          >
+            <div className="p-4 sm:p-5 pt-0 space-y-4 border-t border-slate-100 dark:border-slate-800/80">
+              {/* Quick Filter Pills */}
+              <div className="flex items-center justify-between flex-wrap gap-2 pt-3">
+                <div className="text-xs font-bold text-slate-600 dark:text-slate-400">
+                  उपलब्धि फ़िल्टर:
+                </div>
+                <div className="flex items-center gap-1 bg-slate-100 dark:bg-slate-800/90 p-1 rounded-xl border border-slate-200/80 dark:border-slate-700/80 text-[11px] font-bold">
+                  <button
+                    onClick={() => setFilterCategory('all')}
+                    className={`px-2.5 py-1 rounded-lg transition-all cursor-pointer ${
+                      filterCategory === 'all'
+                        ? 'bg-white dark:bg-slate-900 text-blue-600 dark:text-blue-400 shadow-xs font-black'
+                        : 'text-slate-600 dark:text-slate-400 hover:text-slate-900'
                     }`}
                   >
-                    {badge.isUnlocked ? (
-                      <>
-                        <span className="scale-110">{badge.emoji}</span>
-                        <div className="absolute -bottom-1 -right-1 w-5 h-5 rounded-full bg-emerald-500 text-white flex items-center justify-center text-[10px] shadow-xs border-2 border-white dark:border-slate-800">
-                          ✓
-                        </div>
-                      </>
-                    ) : (
-                      <div className="flex flex-col items-center justify-center">
-                        <Lock className="w-5 h-5 text-slate-400 dark:text-slate-500" />
-                      </div>
-                    )}
-                  </div>
-
-                  <div className="min-w-0">
-                    <div className="flex items-center gap-1.5 flex-wrap">
-                      <h4 className="text-xs sm:text-sm font-black text-slate-900 dark:text-slate-100 leading-tight">
-                        {badge.name}
-                      </h4>
-                      <span className="text-[10px] font-bold text-slate-500 dark:text-slate-400">
-                        ({badge.nameHi})
-                      </span>
-                    </div>
-
-                    <div className="flex items-center gap-1.5 mt-1">
-                      <span
-                        className={`text-[9px] font-extrabold uppercase tracking-wider px-2 py-0.5 rounded-md border ${tierStyle.badgeBg} ${tierStyle.badgeText} border-slate-200/60 dark:border-slate-700`}
-                      >
-                        {tierStyle.labelHi} • {badge.tier}
-                      </span>
-                      {badge.isUnlocked ? (
-                        <span className="text-[10px] font-bold text-emerald-700 dark:text-emerald-300 bg-emerald-50 dark:bg-emerald-950/60 px-2 py-0.5 rounded-full border border-emerald-200 dark:border-emerald-800">
-                          अनलॉक किया गया
-                        </span>
-                      ) : (
-                        <span className="text-[10px] font-bold text-slate-500 dark:text-slate-400 bg-slate-100 dark:bg-slate-800 px-2 py-0.5 rounded-full">
-                          {badge.statusText}
-                        </span>
-                      )}
-                    </div>
-                  </div>
-                </div>
-
-                <div className="shrink-0 pt-0.5">
-                  {renderBadgeIcon(badge.iconName, badge.isUnlocked, 'w-5 h-5')}
+                    सभी ({allBadges.length})
+                  </button>
+                  <button
+                    onClick={() => setFilterCategory('unlocked')}
+                    className={`px-2.5 py-1 rounded-lg transition-all cursor-pointer ${
+                      filterCategory === 'unlocked'
+                        ? 'bg-emerald-600 text-white shadow-xs font-black'
+                        : 'text-slate-600 dark:text-slate-400 hover:text-slate-900'
+                    }`}
+                  >
+                    अनलॉक ({unlockedCount})
+                  </button>
+                  <button
+                    onClick={() => setFilterCategory('locked')}
+                    className={`px-2.5 py-1 rounded-lg transition-all cursor-pointer ${
+                      filterCategory === 'locked'
+                        ? 'bg-slate-700 text-white shadow-xs font-black'
+                        : 'text-slate-600 dark:text-slate-400 hover:text-slate-900'
+                    }`}
+                  >
+                    प्रगति पर ({allBadges.length - unlockedCount})
+                  </button>
                 </div>
               </div>
 
-              {/* Requirement Text & Progress */}
-              <div className="space-y-1.5 pt-1 border-t border-slate-100 dark:border-slate-800/80">
-                <div className="text-[11px] text-slate-600 dark:text-slate-300 leading-relaxed font-medium">
-                  {badge.descriptionHi}
+              {/* Single Overall Progress Bar */}
+              <div className="space-y-1 bg-slate-50 dark:bg-slate-850/60 p-2.5 sm:p-3 rounded-xl border border-slate-100 dark:border-slate-800">
+                <div className="flex items-center justify-between text-xs font-bold text-slate-600 dark:text-slate-300">
+                  <span>कुल बैज उपलब्धि दर</span>
+                  <span className="text-blue-600 dark:text-blue-400 font-black">
+                    {Math.round((unlockedCount / allBadges.length) * 100)}% पूर्ण
+                  </span>
                 </div>
+                <div className="w-full bg-slate-200 dark:bg-slate-700/80 h-2 rounded-full overflow-hidden">
+                  <div
+                    className="bg-gradient-to-r from-blue-600 via-indigo-600 to-amber-500 h-full rounded-full transition-all duration-500 shadow-2xs"
+                    style={{ width: `${Math.round((unlockedCount / allBadges.length) * 100)}%` }}
+                  />
+                </div>
+              </div>
 
-                {/* Progress bar for locked badges */}
-                {!badge.isUnlocked && (
-                  <div className="space-y-1">
-                    <div className="flex items-center justify-between text-[10px] font-bold text-slate-500">
-                      <span>लक्ष्य: {badge.criteriaTextHi}</span>
-                      <span className="text-blue-600 dark:text-blue-400 font-black">
-                        {badge.progressPercent}%
-                      </span>
+              {/* Badges Shelf: Clean, unified row items inside this single card */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-2 pt-0.5">
+                {filteredBadges.map((badge) => {
+                  const tierStyle = TIER_COLORS[badge.tier];
+                  return (
+                    <div
+                      key={badge.id}
+                      onClick={() => setSelectedBadge(badge)}
+                      className={`p-2.5 sm:p-3 rounded-xl border transition-all cursor-pointer flex items-center justify-between gap-3 select-none group ${
+                        badge.isUnlocked
+                          ? 'bg-amber-50/40 dark:bg-amber-950/20 border-amber-200/70 dark:border-amber-900/40 hover:bg-amber-50 dark:hover:bg-amber-950/40 shadow-2xs'
+                          : 'bg-slate-50/70 dark:bg-slate-850/40 border-slate-200/70 dark:border-slate-800 hover:bg-slate-100/80 dark:hover:bg-slate-800/80'
+                      }`}
+                    >
+                      {/* Left: Tile + Info */}
+                      <div className="flex items-center gap-2.5 min-w-0">
+                        <div
+                          className={`w-10 h-10 rounded-xl flex items-center justify-center text-xl shrink-0 border relative ${
+                            badge.isUnlocked
+                              ? 'bg-white dark:bg-slate-800 border-amber-300 dark:border-amber-700 shadow-2xs'
+                              : 'bg-slate-200/70 dark:bg-slate-800 border-slate-300/70 dark:border-slate-700 text-slate-400'
+                          }`}
+                        >
+                          {badge.isUnlocked ? (
+                            <>
+                              <span>{badge.emoji}</span>
+                              <div className="absolute -bottom-1 -right-1 w-4 h-4 rounded-full bg-emerald-500 text-white flex items-center justify-center text-[9px] font-black border border-white dark:border-slate-900 shadow-2xs">
+                                ✓
+                              </div>
+                            </>
+                          ) : (
+                            <Lock className="w-4 h-4 text-slate-400 dark:text-slate-500" />
+                          )}
+                        </div>
+
+                        <div className="min-w-0">
+                          <div className="flex items-center gap-1.5 flex-wrap">
+                            <h5 className="text-xs font-black text-slate-900 dark:text-slate-100 truncate leading-tight">
+                              {badge.name}
+                            </h5>
+                            <span className="text-[10px] font-semibold text-slate-500 dark:text-slate-400">
+                              ({badge.nameHi})
+                            </span>
+                          </div>
+
+                          <div className="flex items-center gap-1.5 mt-0.5">
+                            <span
+                              className={`text-[9px] font-extrabold uppercase px-1.5 py-0.2 rounded border ${tierStyle.badgeBg} ${tierStyle.badgeText} border-slate-200/60 dark:border-slate-700`}
+                            >
+                              {tierStyle.labelHi}
+                            </span>
+                            <p className="text-[11px] text-slate-500 dark:text-slate-400 truncate max-w-[140px] sm:max-w-[200px]">
+                              {badge.criteriaTextHi}
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Right: Status Pill, mini progress & chevron */}
+                      <div className="flex items-center gap-2 shrink-0">
+                        {badge.isUnlocked ? (
+                          <span className="text-[10px] font-bold text-emerald-700 dark:text-emerald-300 bg-emerald-50 dark:bg-emerald-950/70 px-2 py-0.5 rounded-full border border-emerald-200/80 dark:border-emerald-800">
+                            अनलॉक ✓
+                          </span>
+                        ) : (
+                          <div className="flex flex-col items-end">
+                            <span className="text-[10px] font-extrabold text-blue-600 dark:text-blue-400 leading-none">
+                              {badge.progressPercent}%
+                            </span>
+                            <div className="w-14 sm:w-16 bg-slate-200 dark:bg-slate-700 h-1.5 rounded-full overflow-hidden mt-1">
+                              <div
+                                className="bg-blue-600 h-full rounded-full transition-all duration-300"
+                                style={{ width: `${badge.progressPercent}%` }}
+                              />
+                            </div>
+                          </div>
+                        )}
+                        <ChevronRight className="w-4 h-4 text-slate-300 dark:text-slate-600 group-hover:text-slate-500 group-hover:translate-x-0.5 transition-all" />
+                      </div>
                     </div>
-                    <div className="w-full bg-slate-100 dark:bg-slate-800 h-1.5 rounded-full overflow-hidden">
-                      <div
-                        className="bg-blue-600 h-full rounded-full transition-all duration-500"
-                        style={{ width: `${badge.progressPercent}%` }}
-                      />
-                    </div>
-                  </div>
-                )}
+                  );
+                })}
               </div>
             </div>
-          );
-        })}
-      </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       {/* Detail Modal */}
       {selectedBadge && (

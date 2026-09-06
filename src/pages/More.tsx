@@ -143,10 +143,8 @@ export const More: React.FC = () => {
         </div>
       </div>
 
-      {/* Student Virtual Badges & Achievements (Firestore Synced) */}
-      <div className="bg-white dark:bg-slate-900 rounded-2xl sm:rounded-3xl p-4 sm:p-5 border border-slate-200/80 dark:border-slate-800 shadow-xs space-y-3">
-        <Badges />
-      </div>
+      {/* Student Virtual Badges & Achievements (Single Consolidated Card) */}
+      <Badges />
 
       {/* Class Switcher in Settings (Material 3 Surface Card) */}
       <div className="bg-white dark:bg-slate-900 rounded-2xl sm:rounded-3xl p-4 sm:p-5 border border-slate-200/90 dark:border-slate-800 shadow-2xs space-y-3">

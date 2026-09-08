@@ -58,9 +58,9 @@ export const BrandLogo: React.FC<BrandLogoProps> = ({
     >
       {!imgFailed ? (
         <img
-          src="/pwa-192x192.png?v=3"
-          srcSet="/pwa-192x192.png?v=3 1x, /pwa-512x512.png?v=3 2x"
-          alt="Abhyaas PYQ Logo"
+          src="/pwa-192x192.png?v=4"
+          srcSet="/pwa-192x192.png?v=4 1x, /pwa-512x512.png?v=4 2x"
+          alt="Abhyaas Logo"
           width={pixelSize}
           height={pixelSize}
           className="w-full h-full object-cover select-none pointer-events-none block"
@@ -77,210 +77,307 @@ export const BrandLogo: React.FC<BrandLogoProps> = ({
           className="w-full h-full block"
         >
           <defs>
-            {/* Vibrant Royal Blue Background Gradient */}
-            <linearGradient id={`logoBgGrad_${uid}`} x1="0%" y1="0%" x2="0%" y2="100%">
-              <stop offset="0%" stopColor="#1e70ff" />
-              <stop offset="50%" stopColor="#0b57e8" />
-              <stop offset="100%" stopColor="#003db3" />
+            {/* Background Gradients */}
+            <linearGradient id={`bgGrad_${uid}`} x1="50%" y1="0%" x2="50%" y2="100%">
+              <stop offset="0%" stopColor="#1e7eff" />
+              <stop offset="45%" stopColor="#0b63f6" />
+              <stop offset="100%" stopColor="#004cd8" />
             </linearGradient>
 
-            {/* Ambient Top Glow */}
-            <radialGradient id={`logoAmbientGlow_${uid}`} cx="50%" cy="30%" r="65%">
-              <stop offset="0%" stopColor="#ffffff" stopOpacity="0.28" />
-              <stop offset="70%" stopColor="#ffffff" stopOpacity="0" />
+            <radialGradient id={`topGlow_${uid}`} cx="50%" cy="15%" r="65%">
+              <stop offset="0%" stopColor="#60a5fa" stopOpacity="0.45" />
+              <stop offset="60%" stopColor="#0b63f6" stopOpacity="0" />
             </radialGradient>
 
-            {/* Paper Sheet Gradient */}
-            <linearGradient id={`logoPaperGrad_${uid}`} x1="0%" y1="0%" x2="0%" y2="100%">
+            {/* Drop Shadows */}
+            <filter id={`softShadow_${uid}`} x="-20%" y="-20%" width="140%" height="150%">
+              <feDropShadow dx="0" dy="16" stdDeviation="16" floodColor="#002b80" floodOpacity="0.42" />
+            </filter>
+            <filter id={`badgeShadow_${uid}`} x="-30%" y="-30%" width="160%" height="160%">
+              <feDropShadow dx="0" dy="12" stdDeviation="12" floodColor="#00246b" floodOpacity="0.45" />
+            </filter>
+            <filter id={`paperShadow_${uid}`} x="-20%" y="-20%" width="140%" height="140%">
+              <feDropShadow dx="0" dy="10" stdDeviation="12" floodColor="#002b80" floodOpacity="0.3" />
+            </filter>
+
+            {/* Paper Gradients */}
+            <linearGradient id={`paperGrad_${uid}`} x1="0%" y1="0%" x2="0%" y2="100%">
               <stop offset="0%" stopColor="#ffffff" />
-              <stop offset="80%" stopColor="#f8fafc" />
-              <stop offset="100%" stopColor="#e2e8f0" />
+              <stop offset="85%" stopColor="#f8fafc" />
+              <stop offset="100%" stopColor="#edf2f7" />
             </linearGradient>
 
-            {/* Book Page Gradients */}
-            <linearGradient id={`logoPageLeft_${uid}`} x1="100%" y1="50%" x2="0%" y2="50%">
+            {/* Book Page 3D Gradients */}
+            <linearGradient id={`bookPageLeft_${uid}`} x1="100%" y1="50%" x2="0%" y2="50%">
               <stop offset="0%" stopColor="#cbd5e1" />
-              <stop offset="35%" stopColor="#f1f5f9" />
+              <stop offset="25%" stopColor="#f1f5f9" />
               <stop offset="100%" stopColor="#ffffff" />
             </linearGradient>
-            <linearGradient id={`logoPageRight_${uid}`} x1="0%" y1="50%" x2="100%" y2="50%">
+            <linearGradient id={`bookPageRight_${uid}`} x1="0%" y1="50%" x2="100%" y2="50%">
               <stop offset="0%" stopColor="#cbd5e1" />
-              <stop offset="35%" stopColor="#f1f5f9" />
+              <stop offset="25%" stopColor="#f1f5f9" />
               <stop offset="100%" stopColor="#ffffff" />
             </linearGradient>
-            <linearGradient id={`logoBookCover_${uid}`} x1="0%" y1="0%" x2="0%" y2="100%">
-              <stop offset="0%" stopColor="#0043a8" />
-              <stop offset="100%" stopColor="#001d52" />
+            <linearGradient id={`bookUnderLeft_${uid}`} x1="100%" y1="50%" x2="0%" y2="50%">
+              <stop offset="0%" stopColor="#94a3b8" />
+              <stop offset="60%" stopColor="#e2e8f0" />
+              <stop offset="100%" stopColor="#cbd5e1" />
+            </linearGradient>
+            <linearGradient id={`bookUnderRight_${uid}`} x1="0%" y1="50%" x2="100%" y2="50%">
+              <stop offset="0%" stopColor="#94a3b8" />
+              <stop offset="60%" stopColor="#e2e8f0" />
+              <stop offset="100%" stopColor="#cbd5e1" />
+            </linearGradient>
+
+            {/* Book Base Rim Gradient */}
+            <linearGradient id={`bookBaseRim_${uid}`} x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stopColor="#0284c7" />
+              <stop offset="50%" stopColor="#0369a1" />
+              <stop offset="100%" stopColor="#075985" />
+            </linearGradient>
+            <linearGradient id={`bookBaseLip_${uid}`} x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stopColor="#0052cc" />
+              <stop offset="100%" stopColor="#002d80" />
             </linearGradient>
 
             {/* Pencil Gradients */}
-            <linearGradient id={`logoPencilLight_${uid}`} x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="0%" stopColor="#fde047" />
-              <stop offset="100%" stopColor="#fef08a" />
-            </linearGradient>
-            <linearGradient id={`logoPencilMid_${uid}`} x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="0%" stopColor="#f59e0b" />
-              <stop offset="100%" stopColor="#fbbf24" />
-            </linearGradient>
-            <linearGradient id={`logoPencilDark_${uid}`} x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="0%" stopColor="#d97706" />
-              <stop offset="100%" stopColor="#f59e0b" />
-            </linearGradient>
-            <linearGradient id={`logoEraserGrad_${uid}`} x1="0%" y1="0%" x2="100%" y2="100%">
+            <linearGradient id={`pencilEraser_${uid}`} x1="0%" y1="0%" x2="100%" y2="100%">
               <stop offset="0%" stopColor="#fb7185" />
+              <stop offset="50%" stopColor="#f43f5e" />
               <stop offset="100%" stopColor="#e11d48" />
             </linearGradient>
-            <linearGradient id={`logoMetalGrad_${uid}`} x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#f1f5f9" />
-              <stop offset="50%" stopColor="#94a3b8" />
-              <stop offset="100%" stopColor="#cbd5e1" />
+            <linearGradient id={`pencilMetalLight_${uid}`} x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stopColor="#93c5fd" />
+              <stop offset="35%" stopColor="#e0e7ff" />
+              <stop offset="70%" stopColor="#818cf8" />
+              <stop offset="100%" stopColor="#6366f1" />
             </linearGradient>
-            <linearGradient id={`logoWoodGrad_${uid}`} x1="0%" y1="0%" x2="100%" y2="100%">
+            <linearGradient id={`pencilFacet1_${uid}`} x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stopColor="#fde047" />
+              <stop offset="100%" stopColor="#facc15" />
+            </linearGradient>
+            <linearGradient id={`pencilFacet2_${uid}`} x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stopColor="#fbbf24" />
+              <stop offset="100%" stopColor="#f59e0b" />
+            </linearGradient>
+            <linearGradient id={`pencilFacet3_${uid}`} x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stopColor="#d97706" />
+              <stop offset="100%" stopColor="#b45309" />
+            </linearGradient>
+            <linearGradient id={`pencilWood_${uid}`} x1="0%" y1="0%" x2="100%" y2="100%">
               <stop offset="0%" stopColor="#fef3c7" />
-              <stop offset="100%" stopColor="#fde68a" />
+              <stop offset="60%" stopColor="#fde68a" />
+              <stop offset="100%" stopColor="#fcd34d" />
             </linearGradient>
 
-            {/* Green Check Badge Gradient */}
-            <linearGradient id={`logoGreenBadgeGrad_${uid}`} x1="0%" y1="0%" x2="0%" y2="100%">
-              <stop offset="0%" stopColor="#10b981" />
-              <stop offset="50%" stopColor="#059669" />
-              <stop offset="100%" stopColor="#047857" />
+            {/* Green Badge & Check Gradient */}
+            <linearGradient id={`greenBadgeGrad_${uid}`} x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stopColor="#22c55e" />
+              <stop offset="60%" stopColor="#16a34a" />
+              <stop offset="100%" stopColor="#15803d" />
             </linearGradient>
-            <linearGradient id={`logoGreenBubble_${uid}`} x1="0%" y1="0%" x2="0%" y2="100%">
-              <stop offset="0%" stopColor="#34d399" />
-              <stop offset="100%" stopColor="#059669" />
+            <radialGradient id={`greenBadgeGlow_${uid}`} cx="40%" cy="30%" r="50%">
+              <stop offset="0%" stopColor="#86efac" stopOpacity="0.6" />
+              <stop offset="100%" stopColor="#22c55e" stopOpacity="0" />
+            </radialGradient>
+
+            <linearGradient id={`miniGreenGrad_${uid}`} x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stopColor="#22c55e" />
+              <stop offset="100%" stopColor="#16a34a" />
             </linearGradient>
 
-            {/* Drop Shadows */}
-            <filter id={`logoDropShadow_${uid}`} x="-10%" y="-10%" width="125%" height="130%">
-              <feDropShadow dx="0" dy="12" stdDeviation="12" floodColor="#001847" floodOpacity="0.4" />
-            </filter>
+            {/* Sparkle Ray Gradient */}
+            <linearGradient id={`sparkleGrad_${uid}`} x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor="#fef08a" />
+              <stop offset="60%" stopColor="#facc15" />
+              <stop offset="100%" stopColor="#eab308" />
+            </linearGradient>
           </defs>
 
-          {/* Outer Rounded Base Background */}
-          <rect width="512" height="512" rx="108" fill={`url(#logoBgGrad_${uid})`} />
-          <rect width="512" height="512" rx="108" fill={`url(#logoAmbientGlow_${uid})`} />
+          {/* Base Blue Background Canvas */}
+          <rect width="512" height="512" fill={`url(#bgGrad_${uid})`} />
+          <rect width="512" height="512" fill={`url(#topGlow_${uid})`} />
 
-          {/* ==================== OPEN BOOK BASE AT BOTTOM ==================== */}
-          <g filter={`url(#logoDropShadow_${uid})`}>
-            {/* Hardcover Outer Binding */}
-            <path
-              d="M 60 435 C 150 438 220 448 256 458 C 292 448 362 438 452 435 C 462 435 470 443 470 453 C 470 459 466 465 458 467 C 370 480 286 480 256 486 C 226 480 142 480 54 467 C 46 465 42 459 42 453 C 42 443 50 435 60 435 Z"
-              fill={`url(#logoBookCover_${uid})`}
-            />
-
-            {/* Book Spine Center Rim */}
-            <path d="M 246 452 C 252 450 260 450 266 452 L 266 482 C 260 484 252 484 246 482 Z" fill="#001a47" />
-
-            {/* Left Open Page Base */}
-            <path d="M 68 428 C 140 420 216 428 254 440 L 254 360 C 216 350 140 342 68 352 Z" fill={`url(#logoPageLeft_${uid})`} />
-            {/* Right Open Page Base */}
-            <path d="M 258 440 C 296 428 372 420 444 428 L 444 352 C 372 342 296 350 258 360 Z" fill={`url(#logoPageRight_${uid})`} />
+          {/* ==================== YELLOW SPARKLE RAYS ==================== */}
+          <g transform="translate(136, 185) rotate(-32)">
+            <rect x="-8" y="-22" width="16" height="36" rx="8" fill={`url(#sparkleGrad_${uid})`} />
+          </g>
+          <g transform="translate(134, 218) rotate(12)">
+            <rect x="-7" y="-18" width="14" height="32" rx="7" fill={`url(#sparkleGrad_${uid})`} />
           </g>
 
-          {/* ==================== MAIN TEST PAPER (PYQ DOCUMENT) ==================== */}
-          <g filter={`url(#logoDropShadow_${uid})`}>
-            {/* Crisp White Test Paper */}
+          <g transform="translate(355, 172) rotate(32)">
+            <rect x="-8" y="-22" width="16" height="36" rx="8" fill={`url(#sparkleGrad_${uid})`} />
+          </g>
+          <g transform="translate(370, 202) rotate(68)">
+            <rect x="-7" y="-18" width="14" height="32" rx="7" fill={`url(#sparkleGrad_${uid})`} />
+          </g>
+
+          {/* ==================== OPEN BOOK BASE (BOTTOM) ==================== */}
+          <g filter={`url(#softShadow_${uid})`}>
+            {/* Blue Book Cover Base */}
             <path
-              d="M 124 45 C 104 45 88 60 88 80 L 88 372 C 88 388 100 400 116 400 C 180 392 230 404 256 418 C 282 404 332 392 396 400 C 412 400 424 388 424 372 L 424 165 C 424 160 422 156 418 152 L 334 52 C 330 48 324 45 318 45 Z"
-              fill={`url(#logoPaperGrad_${uid})`}
-              stroke="#ffffff"
-              strokeWidth="3.5"
+              d="M 116 345
+                 C 180 348 230 358 256 368
+                 C 282 358 332 348 396 345
+                 C 406 345 414 353 414 363
+                 L 410 384
+                 C 408 392 400 398 390 399
+                 C 334 406 280 406 256 414
+                 C 232 406 178 406 122 399
+                 C 112 398 104 392 102 384
+                 L 98 363
+                 C 98 353 106 345 116 345 Z"
+              fill={`url(#bookBaseLip_${uid})`}
             />
 
-            {/* Paper Fold Corner Top Right */}
-            <path d="M 324 45 L 324 140 C 324 154 336 166 350 166 L 424 166 Z" fill="#cbd5e1" opacity="0.5" />
-            <path d="M 324 45 L 424 166 L 350 166 C 336 166 324 154 324 140 Z" fill="#f8fafc" />
+            {/* Cyan/Sky Accent Rim on Book Base */}
+            <path
+              d="M 102 376
+                 C 156 384 212 386 256 394
+                 C 300 386 356 384 410 376
+                 C 413 378 414 382 411 385
+                 C 356 397 302 398 256 406
+                 C 210 398 156 397 101 385
+                 C 98 382 99 378 102 376 Z"
+              fill={`url(#bookBaseRim_${uid})`}
+              opacity="0.9"
+            />
 
-            {/* PYQ Bold Typography */}
-            <text
-              x="132"
-              y="145"
-              fontFamily="system-ui, -apple-system, sans-serif"
-              fontSize="80"
-              fontWeight="900"
-              fill="#09224d"
-              letterSpacing="-1.5"
-            >
-              PYQ
-            </text>
+            {/* Underneath Page Layers */}
+            <path
+              d="M 112 342 C 165 336 220 344 254 356 L 254 374 C 220 362 165 354 112 360 Z"
+              fill={`url(#bookUnderLeft_${uid})`}
+            />
+            <path
+              d="M 258 356 C 292 344 347 336 400 342 L 400 360 C 347 354 292 362 258 374 Z"
+              fill={`url(#bookUnderRight_${uid})`}
+            />
 
-            {/* Question Row 1 */}
-            <g transform="translate(134, 188)">
-              <circle cx="22" cy="22" r="21" fill="#ffffff" stroke="#94a3b8" strokeWidth="4.5" />
-              <text x="22" y="30" fontFamily="system-ui, sans-serif" fontSize="24" fontWeight="800" fill="#94a3b8" textAnchor="middle">
-                ?
-              </text>
-              <rect x="60" y="15" width="180" height="14" rx="7" fill="#cbd5e1" />
-            </g>
+            {/* Main Open Top White Pages */}
+            <path
+              d="M 114 336
+                 C 165 328 220 336 254 348
+                 L 254 365
+                 C 220 353 165 345 114 353 Z"
+              fill={`url(#bookPageLeft_${uid})`}
+            />
+            <path
+              d="M 258 348
+                 C 292 336 347 328 398 336
+                 L 398 353
+                 C 347 345 292 353 258 365 Z"
+              fill={`url(#bookPageRight_${uid})`}
+            />
 
-            {/* Question Row 2 */}
-            <g transform="translate(134, 254)">
-              <circle cx="22" cy="22" r="21" fill="#ffffff" stroke="#94a3b8" strokeWidth="4.5" />
-              <text x="22" y="30" fontFamily="system-ui, sans-serif" fontSize="24" fontWeight="800" fill="#94a3b8" textAnchor="middle">
-                ?
-              </text>
-              <rect x="60" y="15" width="200" height="14" rx="7" fill="#cbd5e1" />
-            </g>
+            {/* Book Center Seam Shadow */}
+            <path d="M 254 348 L 258 348 L 258 365 L 254 365 Z" fill="#94a3b8" />
+          </g>
 
-            {/* Question Row 3 (Solved with Green Checkmark) */}
-            <g transform="translate(134, 320)">
-              <circle cx="22" cy="22" r="22" fill={`url(#logoGreenBubble_${uid})`} />
+          {/* ==================== FLOATING TEST PAPER / QUIZ SHEET ==================== */}
+          <g filter={`url(#paperShadow_${uid})`}>
+            {/* White Paper Body with Curved Corner Fold */}
+            <path
+              d="M 160 134
+                 C 151 134 144 141 144 150
+                 L 144 330
+                 C 144 339 151 346 160 346
+                 L 326 346
+                 C 335 346 342 339 342 330
+                 L 342 178
+                 C 342 173 340 169 337 165
+                 L 311 139
+                 C 307 136 303 134 298 134
+                 Z"
+              fill={`url(#paperGrad_${uid})`}
+            />
+
+            {/* Folded Corner Flap */}
+            <path
+              d="M 294 134 L 294 162 C 294 172 302 180 312 180 L 342 180 Z"
+              fill="#cbd5e1"
+              opacity="0.6"
+            />
+            <path
+              d="M 294 134 L 342 180 L 314 180 C 303 180 294 171 294 160 Z"
+              fill="#f1f5f9"
+            />
+
+            {/* Test Paper Content */}
+            {/* ROW 1: Solved Item */}
+            <g transform="translate(176, 172)">
+              <circle cx="15" cy="15" r="15" fill={`url(#miniGreenGrad_${uid})`} />
               <path
-                d="M 13 22 L 19 28 L 31 16"
+                d="M 9 15 L 13 19 L 21 11"
                 fill="none"
                 stroke="#ffffff"
-                strokeWidth="5"
+                strokeWidth="3.2"
                 strokeLinecap="round"
                 strokeLinejoin="round"
               />
-              <rect x="60" y="10" width="160" height="14" rx="7" fill="#94a3b8" />
-              <rect x="60" y="34" width="110" height="12" rx="6" fill="#0284c7" opacity="0.9" />
+              <rect x="42" y="9" width="84" height="12" rx="6" fill="#8e9daf" />
+            </g>
+
+            {/* ROW 2: Empty Option 1 */}
+            <g transform="translate(176, 215)">
+              <circle cx="15" cy="15" r="13.5" fill="#ffffff" stroke="#8e9daf" strokeWidth="3" />
+              <rect x="42" y="9" width="100" height="12" rx="6" fill="#8e9daf" />
+            </g>
+
+            {/* ROW 3: Empty Option 2 */}
+            <g transform="translate(176, 258)">
+              <circle cx="15" cy="15" r="13.5" fill="#ffffff" stroke="#8e9daf" strokeWidth="3" />
+              <rect x="42" y="9" width="80" height="12" rx="6" fill="#8e9daf" />
+            </g>
+
+            {/* ROW 4: Empty Option 3 */}
+            <g transform="translate(176, 301)">
+              <circle cx="15" cy="15" r="13.5" fill="#ffffff" stroke="#8e9daf" strokeWidth="3" />
+              <rect x="42" y="9" width="60" height="12" rx="6" fill="#8e9daf" />
             </g>
           </g>
 
-          {/* ==================== 3D REALISTIC TILTED PENCIL ==================== */}
-          <g transform="translate(366, 255) rotate(34)" filter={`url(#logoDropShadow_${uid})`}>
-            <g transform="translate(-24, -145)">
-              {/* Eraser Top (Pink) */}
-              <path d="M 8 0 C 8 -12 40 -12 40 0 L 40 32 L 8 32 Z" fill={`url(#logoEraserGrad_${uid})`} />
-              <path d="M 12 0 C 12 -8 24 -8 24 0 L 24 32 L 12 32 Z" fill="#ffffff" opacity="0.35" />
+          {/* ==================== 3D STYLIZED PENCIL ==================== */}
+          <g transform="translate(330, 275) rotate(38)" filter={`url(#softShadow_${uid})`}>
+            <g transform="translate(-16, -110)">
+              {/* Pink Eraser Top */}
+              <path
+                d="M 6 4 C 6 -6 26 -6 26 4 L 26 24 L 6 24 Z"
+                fill={`url(#pencilEraser_${uid})`}
+              />
+              <ellipse cx="16" cy="4" rx="10" ry="4" fill="#fda4af" opacity="0.4" />
 
-              {/* Silver Metal Band */}
-              <rect x="7" y="32" width="34" height="26" rx="2" fill={`url(#logoMetalGrad_${uid})`} />
-              <line x1="7" y1="40" x2="41" y2="40" stroke="#64748b" strokeWidth="1.5" />
-              <line x1="7" y1="48" x2="41" y2="48" stroke="#64748b" strokeWidth="1.5" />
-              <rect x="12" y="32" width="8" height="26" fill="#ffffff" opacity="0.45" />
+              {/* Metallic / Blue Ferrule Band */}
+              <rect x="5" y="24" width="22" height="20" rx="2" fill={`url(#pencilMetalLight_${uid})`} />
+              <line x1="5" y1="31" x2="27" y2="31" stroke="#4338ca" strokeWidth="1.5" opacity="0.6" />
+              <line x1="5" y1="37" x2="27" y2="37" stroke="#4338ca" strokeWidth="1.5" opacity="0.6" />
+              <rect x="8" y="24" width="5" height="20" fill="#ffffff" opacity="0.5" />
 
-              {/* Hexagonal Pencil Body (3 visible facets) */}
-              <rect x="8" y="58" width="10" height="175" fill={`url(#logoPencilLight_${uid})`} />
-              <rect x="18" y="58" width="14" height="175" fill={`url(#logoPencilMid_${uid})`} />
-              <rect x="32" y="58" width="8" height="175" fill={`url(#logoPencilDark_${uid})`} />
+              {/* Yellow Hexagonal Pencil Body */}
+              <rect x="6" y="44" width="7" height="115" fill={`url(#pencilFacet1_${uid})`} />
+              <rect x="13" y="44" width="9" height="115" fill={`url(#pencilFacet2_${uid})`} />
+              <rect x="22" y="44" width="4" height="115" fill={`url(#pencilFacet3_${uid})`} />
 
-              {/* Sharpened Wood Cone */}
-              <polygon points="8,233 40,233 24,285" fill={`url(#logoWoodGrad_${uid})`} />
-              <path d="M 8,233 Q 18,237 24,233 Q 32,237 40,233 L 24,285 Z" fill={`url(#logoWoodGrad_${uid})`} />
+              {/* Wood Cone Tip */}
+              <polygon points="6,159 26,159 16,198" fill={`url(#pencilWood_${uid})`} />
+              <path d="M 6,159 Q 11,162 16,159 Q 21,162 26,159 L 16,198 Z" fill={`url(#pencilWood_${uid})`} />
 
-              {/* Dark Graphite Lead Cone Tip */}
-              <polygon points="19,268 29,268 24,285" fill="#0f172a" />
-              <polygon points="19,268 24,268 24,285" fill="#334155" />
+              {/* Dark Graphite Lead Tip */}
+              <polygon points="13,186 19,186 16,198" fill="#0f172a" />
             </g>
           </g>
 
-          {/* ==================== LARGE FLOATING GREEN CHECKMARK BADGE ==================== */}
-          <g transform="translate(426, 415)" filter={`url(#logoDropShadow_${uid})`}>
-            {/* White Border Ring */}
-            <circle cx="0" cy="0" r="70" fill="#ffffff" />
-            {/* Emerald Sphere */}
-            <circle cx="0" cy="0" r="60" fill={`url(#logoGreenBadgeGrad_${uid})`} />
-            {/* Top Gloss */}
-            <path d="M -48 -24 C -30 -50 30 -50 48 -24 C 20 -38 -20 -38 -48 -24 Z" fill="#ffffff" opacity="0.4" />
-            {/* Bold 3D Checkmark */}
+          {/* ==================== FLOATING GREEN CHECKMARK BADGE ==================== */}
+          <g transform="translate(362, 350)" filter={`url(#badgeShadow_${uid})`}>
+            <circle cx="0" cy="0" r="48" fill="#ffffff" />
+            <circle cx="0" cy="0" r="40" fill={`url(#greenBadgeGrad_${uid})`} />
+            <circle cx="0" cy="0" r="40" fill={`url(#greenBadgeGlow_${uid})`} />
+
             <path
-              d="M -26 2 L -8 20 L 26 -16"
+              d="M -18 2 L -5 15 L 18 -10"
               fill="none"
               stroke="#ffffff"
-              strokeWidth="15"
+              strokeWidth="9.5"
               strokeLinecap="round"
               strokeLinejoin="round"
             />

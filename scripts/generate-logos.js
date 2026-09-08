@@ -1,4 +1,10 @@
-<?xml version="1.0" encoding="UTF-8"?>
+import fs from 'fs';
+import path from 'path';
+import sharp from 'sharp';
+
+function getMasterSvg(isFullBleed = true) {
+  const rx = isFullBleed ? '0' : '108';
+  return `<?xml version="1.0" encoding="UTF-8"?>
 <svg viewBox="0 0 512 512" width="512" height="512" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <!-- Background Gradients -->
@@ -119,8 +125,8 @@
   </defs>
 
   <!-- Base Blue Background Canvas -->
-  <rect width="512" height="512" rx="0" fill="url(#bgGrad)" />
-  <rect width="512" height="512" rx="0" fill="url(#topGlow)" />
+  <rect width="512" height="512" rx="${rx}" fill="url(#bgGrad)" />
+  <rect width="512" height="512" rx="${rx}" fill="url(#topGlow)" />
 
   <!-- ==================== YELLOW SPARKLE RAYS ==================== -->
   <!-- Left Side Sparkles -->
@@ -318,4 +324,38 @@
       strokeLinejoin="round"
     />
   </g>
-</svg>
+</svg>`;
+}
+
+async function run() {
+  const publicDir = path.resolve('public');
+  const fullBleedSvg = getMasterSvg(true);
+  const roundedSvg = getMasterSvg(false);
+
+  // Write SVGs
+  fs.writeFileSync(path.join(publicDir, 'icon.svg'), fullBleedSvg);
+  fs.writeFileSync(path.join(publicDir, 'icon-rounded.svg'), roundedSvg);
+
+  const fullBleedBuffer = Buffer.from(fullBleedSvg);
+  const roundedBuffer = Buffer.from(roundedSvg);
+
+  // 1. PWA 512x512 and icon-512.png
+  await sharp(fullBleedBuffer).resize(512, 512).png().toFile(path.join(publicDir, 'pwa-512x512.png'));
+  await sharp(fullBleedBuffer).resize(512, 512).png().toFile(path.join(publicDir, 'icon-512.png'));
+  await sharp(fullBleedBuffer).resize(512, 512).png().toFile(path.join(publicDir, 'brand-logo.png'));
+  await sharp(fullBleedBuffer).resize(512, 512).png().toFile(path.join(publicDir, 'app-logo.png'));
+
+  // 2. PWA 192x192 and icon-192.png
+  await sharp(fullBleedBuffer).resize(192, 192).png().toFile(path.join(publicDir, 'pwa-192x192.png'));
+  await sharp(fullBleedBuffer).resize(192, 192).png().toFile(path.join(publicDir, 'icon-192.png'));
+
+  // 3. Apple Touch Icon 180x180
+  await sharp(fullBleedBuffer).resize(180, 180).png().toFile(path.join(publicDir, 'apple-touch-icon.png'));
+
+  // 4. Favicon 64x64
+  await sharp(fullBleedBuffer).resize(64, 64).png().toFile(path.join(publicDir, 'favicon.png'));
+
+  console.log('All logo assets generated successfully!');
+}
+
+run().catch(console.error);

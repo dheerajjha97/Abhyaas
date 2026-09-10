@@ -103,9 +103,9 @@ export const LongQuestions: React.FC = () => {
   };
 
   const handleShareQuestion = async () => {
-    const shareTitle = `${paper.subject} - दीर्घ उत्तरीय प्रश्न (${currentIndex + 1})`;
-    const shareText = `📚 *Abhyaas App | ${paper.subject} (${paper.class})*\n\n❓ *दीर्घ उत्तरीय प्रश्न (${currentIndex + 1}) [5 अंक]:*\n${currentQ.question}\n\n📖 *विस्तृत आदर्श उत्तर:*\n${currentQ.answer}\n\n🔗 बोर्ड परीक्षा की तैयारी और मॉडल पेपर्स के लिए Abhyaas App देखें:`;
+    const shareTitle = `${paper.subject} - दीर्घ उत्तरीय प्रश्न (${currentIndex + 1}) | Abhyaas App`;
     const shareUrl = window.location.href;
+    const shareText = `📚 *Abhyaas App | ${paper.subject} (${paper.class})*\n\n❓ *दीर्घ उत्तरीय प्रश्न (${currentIndex + 1}) [5 अंक]:*\n${currentQ.question}\n\n📖 *विस्तृत आदर्श उत्तर:*\n${currentQ.answer}\n\n📲 *अभ्यास ऐप पर पूरा पेपर देखें:* \n${shareUrl}`;
 
     if (navigator.share) {
       try {
@@ -114,17 +114,17 @@ export const LongQuestions: React.FC = () => {
           text: shareText,
           url: shareUrl,
         });
-        setToast({ id: Date.now().toString(), type: 'success', message: 'प्रश्न सफलतापूर्वक शेयर किया गया!' });
+        setToast({ id: Date.now().toString(), type: 'success', message: 'प्रश्न एवं ऐप लिंक शेयर किया गया!' });
       } catch (err: unknown) {
         const isAbort = err instanceof Error && err.name === 'AbortError';
         if (!isAbort) {
-          await navigator.clipboard.writeText(`${shareText}\n${shareUrl}`);
-          setToast({ id: Date.now().toString(), type: 'success', message: 'प्रश्न एवं उत्तर कॉपी हो गया (शेयर करने के लिए तैयार)' });
+          await navigator.clipboard.writeText(shareText);
+          setToast({ id: Date.now().toString(), type: 'success', message: 'प्रश्न, उत्तर एवं ऐप लिंक कॉपी हो गया!' });
         }
       }
     } else {
-      await navigator.clipboard.writeText(`${shareText}\n${shareUrl}`);
-      setToast({ id: Date.now().toString(), type: 'success', message: 'शेयर टेक्स्ट क्लिपबोर्ड में कॉपी हो गया!' });
+      await navigator.clipboard.writeText(shareText);
+      setToast({ id: Date.now().toString(), type: 'success', message: 'प्रश्न, उत्तर एवं ऐप लिंक कॉपी हो गया!' });
     }
   };
 

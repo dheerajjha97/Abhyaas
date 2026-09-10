@@ -119,10 +119,10 @@
   </defs>
 
   <!-- Base Blue Background Canvas -->
-  <rect width="512" height="512" rx="108" fill="url(#bgGrad)" />
-  <rect width="512" height="512" rx="108" fill="url(#topGlow)" />
+  <rect width="512" height="512" rx="0" fill="url(#bgGrad)" />
+  <rect width="512" height="512" rx="0" fill="url(#topGlow)" />
 
-  
+  <g transform="translate(256, 256) scale(0.78) translate(-256, -256)">
   <!-- ==================== YELLOW SPARKLE RAYS ==================== -->
   <g transform="translate(136, 185) rotate(-32)">
     <rect x="-8" y="-22" width="16" height="36" rx="8" fill="url(#sparkleGrad)" />
@@ -293,5 +293,5 @@
       strokeLinejoin="round"
     />
   </g>
-
+</g>
 </svg>

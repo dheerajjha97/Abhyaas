@@ -1,12 +1,20 @@
-const CACHE_NAME = 'abhyaas-pwa-v12';
+const CACHE_NAME = 'abhyaas-pwa-v16';
 const STATIC_ASSETS = [
   '/',
   '/index.html',
   '/manifest.json',
+  '/favicon.ico',
+  '/favicon.png',
   '/icon.svg',
+  '/icon-rounded.svg',
+  '/icon-maskable.svg',
   '/pwa-192x192.png',
   '/pwa-512x512.png',
-  '/apple-touch-icon.png'
+  '/pwa-maskable-192x192.png',
+  '/pwa-maskable-512x512.png',
+  '/apple-touch-icon.png',
+  '/brand-logo.png',
+  '/app-logo.png'
 ];
 
 self.addEventListener('install', (event) => {

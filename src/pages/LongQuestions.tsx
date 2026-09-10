@@ -12,6 +12,7 @@ import { FormattedAnswer } from '../components/ui/FormattedAnswer';
 import {
   Bookmark,
   Copy,
+  Share2,
   ChevronLeft,
   ChevronRight,
   BookOpen,
@@ -101,6 +102,32 @@ export const LongQuestions: React.FC = () => {
     setToast({ id: Date.now().toString(), type: 'success', message: 'दीर्घ उत्तरीय प्रश्न एवं उत्तर कॉपी हो गया' });
   };
 
+  const handleShareQuestion = async () => {
+    const shareTitle = `${paper.subject} - दीर्घ उत्तरीय प्रश्न (${currentIndex + 1})`;
+    const shareText = `📚 *Abhyaas App | ${paper.subject} (${paper.class})*\n\n❓ *दीर्घ उत्तरीय प्रश्न (${currentIndex + 1}) [5 अंक]:*\n${currentQ.question}\n\n📖 *विस्तृत आदर्श उत्तर:*\n${currentQ.answer}\n\n🔗 बोर्ड परीक्षा की तैयारी और मॉडल पेपर्स के लिए Abhyaas App देखें:`;
+    const shareUrl = window.location.href;
+
+    if (navigator.share) {
+      try {
+        await navigator.share({
+          title: shareTitle,
+          text: shareText,
+          url: shareUrl,
+        });
+        setToast({ id: Date.now().toString(), type: 'success', message: 'प्रश्न सफलतापूर्वक शेयर किया गया!' });
+      } catch (err: unknown) {
+        const isAbort = err instanceof Error && err.name === 'AbortError';
+        if (!isAbort) {
+          await navigator.clipboard.writeText(`${shareText}\n${shareUrl}`);
+          setToast({ id: Date.now().toString(), type: 'success', message: 'प्रश्न एवं उत्तर कॉपी हो गया (शेयर करने के लिए तैयार)' });
+        }
+      }
+    } else {
+      await navigator.clipboard.writeText(`${shareText}\n${shareUrl}`);
+      setToast({ id: Date.now().toString(), type: 'success', message: 'शेयर टेक्स्ट क्लिपबोर्ड में कॉपी हो गया!' });
+    }
+  };
+
   const cycleFontSize = () => {
     if (fontSize === 'sm') setFontSize('base');
     else if (fontSize === 'base') setFontSize('lg');
@@ -127,7 +154,16 @@ export const LongQuestions: React.FC = () => {
             </button>
 
             <button
+              onClick={handleShareQuestion}
+              title="प्रश्न शेयर करें (Share Question)"
+              className="p-2 rounded-2xl bg-white/80 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-pink-600 dark:text-pink-400 font-bold text-xs flex items-center cursor-pointer shadow-2xs hover:bg-pink-50 dark:hover:bg-pink-950/60 transition-all active:scale-95"
+            >
+              <Share2 className="w-4 h-4" />
+            </button>
+
+            <button
               onClick={handleToggleBookmark}
+              title={isBooked ? 'बुकमार्क हटाएं' : 'बुकमार्क करें'}
               className={`p-2 rounded-2xl border transition-all active:scale-95 cursor-pointer ${
                 isBooked
                   ? 'bg-amber-50 dark:bg-amber-950/60 border-amber-300 text-amber-600'
@@ -170,22 +206,34 @@ export const LongQuestions: React.FC = () => {
               </span>
             </div>
 
-            <button
-              onClick={handleCopyText}
-              className="flex items-center gap-1.5 text-xs font-bold text-slate-600 dark:text-slate-300 hover:text-pink-600 dark:hover:text-pink-400 px-2.5 py-1 rounded-xl bg-slate-100/80 dark:bg-slate-800 hover:bg-slate-200/80 transition-colors cursor-pointer"
-            >
-              {copied ? (
-                <>
-                  <CheckCheck className="w-3.5 h-3.5 text-emerald-600" />
-                  <span className="text-emerald-600 font-bold">Copied</span>
-                </>
-              ) : (
-                <>
-                  <Copy className="w-3.5 h-3.5" />
-                  <span>Copy</span>
-                </>
-              )}
-            </button>
+            <div className="flex items-center gap-1.5">
+              <button
+                onClick={handleCopyText}
+                className="flex items-center gap-1.5 text-xs font-bold text-slate-600 dark:text-slate-300 hover:text-pink-600 dark:hover:text-pink-400 px-2.5 py-1 rounded-xl bg-slate-100/80 dark:bg-slate-800 hover:bg-slate-200/80 transition-colors cursor-pointer"
+                title="Copy Question & Answer"
+              >
+                {copied ? (
+                  <>
+                    <CheckCheck className="w-3.5 h-3.5 text-emerald-600" />
+                    <span className="text-emerald-600 font-bold">Copied</span>
+                  </>
+                ) : (
+                  <>
+                    <Copy className="w-3.5 h-3.5" />
+                    <span>Copy</span>
+                  </>
+                )}
+              </button>
+
+              <button
+                onClick={handleShareQuestion}
+                className="flex items-center gap-1.5 text-xs font-bold text-pink-700 dark:text-pink-300 hover:bg-pink-100/80 dark:hover:bg-pink-900/60 px-2.5 py-1 rounded-xl bg-pink-50 dark:bg-pink-950/80 border border-pink-200 dark:border-pink-800 transition-colors cursor-pointer active:scale-95"
+                title="Share via Web Share API"
+              >
+                <Share2 className="w-3.5 h-3.5 text-pink-600 dark:text-pink-400" />
+                <span>Share</span>
+              </button>
+            </div>
           </div>
 
           <h2 className="text-base sm:text-lg font-black text-slate-900 dark:text-white leading-relaxed tracking-tight font-['Noto_Sans_Devanagari','Plus_Jakarta_Sans',sans-serif]">

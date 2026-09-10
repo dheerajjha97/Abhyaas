@@ -141,35 +141,43 @@ export const LongQuestions: React.FC = () => {
       />
 
       {/* Header Banner */}
-      <div className="rounded-2xl p-3 bg-gradient-to-r from-pink-50 to-purple-50 dark:from-slate-800 dark:to-slate-800/80 border border-pink-200/80 dark:border-slate-700 flex items-center justify-between gap-3 shadow-2xs">
+      <div className="rounded-2xl p-3 bg-[#fffefb] dark:bg-slate-800 border border-pink-200/80 dark:border-slate-700 flex items-center justify-between gap-3 shadow-2xs">
         <div className="flex items-center gap-2">
           <BookOpen className="w-4 h-4 text-pink-600 dark:text-pink-400" />
           <span className="text-xs font-bold text-slate-800 dark:text-slate-100">
-            दीर्घ उत्तरीय प्रश्न (5 Marks Descriptive)
+            दीर्घ उत्तरीय प्रश्न (Long Answer • 5 अंक)
           </span>
         </div>
-        <span className="text-[11px] font-extrabold text-pink-700 dark:text-pink-300 bg-pink-100 dark:bg-pink-950/80 px-2.5 py-0.5 rounded-full">
+        <span className="text-[11px] font-black text-pink-800 dark:text-pink-300 bg-pink-100 dark:bg-pink-950/80 px-3 py-0.5 rounded-full border border-pink-200 dark:border-pink-800">
           {currentIndex + 1} / {total}
         </span>
       </div>
 
-      {/* Main Long Question & Answer View */}
-      <div className="bg-white/90 dark:bg-slate-900/90 backdrop-blur-xl rounded-3xl p-5 sm:p-6 border border-white/60 dark:border-slate-800 shadow-xl space-y-6">
+      {/* Main Textbook Page Card */}
+      <div className="bg-[#fffefb] dark:bg-slate-900 rounded-3xl p-5 sm:p-7 border border-amber-200/80 dark:border-slate-800 shadow-xl space-y-6 relative overflow-hidden">
+        {/* Subtle top book ruler bar */}
+        <div className="h-1 bg-gradient-to-r from-pink-600 via-rose-600 to-amber-500 absolute top-0 left-0 right-0" />
+
         {/* Question Header */}
-        <div className="space-y-2.5 pb-4 border-b border-slate-100 dark:border-slate-800">
+        <div className="space-y-3 pb-4 border-b border-dashed border-slate-200 dark:border-slate-800">
           <div className="flex items-center justify-between gap-3">
-            <span className="inline-flex items-center gap-1.5 text-xs font-black text-pink-700 dark:text-pink-300 bg-pink-50 dark:bg-pink-950/70 border border-pink-200 dark:border-pink-800 px-3 py-1 rounded-full">
-              <Sparkles className="w-3.5 h-3.5 text-pink-600" /> दीर्घ प्रश्न संख्या {currentIndex + 1}
-            </span>
+            <div className="flex items-center gap-2">
+              <span className="inline-flex items-center gap-1.5 text-xs font-black text-pink-800 dark:text-pink-300 bg-pink-50 dark:bg-pink-950/80 border border-pink-200 dark:border-pink-800 px-3 py-1 rounded-xl shadow-2xs">
+                <Sparkles className="w-3.5 h-3.5 text-pink-600" /> प्र. {currentIndex + 1}
+              </span>
+              <span className="text-[11px] font-bold text-slate-500 dark:text-slate-400 bg-slate-100 dark:bg-slate-800 px-2 py-0.5 rounded-md">
+                [ 5 अंक ]
+              </span>
+            </div>
 
             <button
               onClick={handleCopyText}
-              className="flex items-center gap-1.5 text-xs font-bold text-slate-500 dark:text-slate-400 hover:text-indigo-600 dark:hover:text-indigo-400 px-2.5 py-1 rounded-xl bg-slate-50 dark:bg-slate-800 hover:bg-slate-100 transition-colors cursor-pointer"
+              className="flex items-center gap-1.5 text-xs font-bold text-slate-600 dark:text-slate-300 hover:text-pink-600 dark:hover:text-pink-400 px-2.5 py-1 rounded-xl bg-slate-100/80 dark:bg-slate-800 hover:bg-slate-200/80 transition-colors cursor-pointer"
             >
               {copied ? (
                 <>
                   <CheckCheck className="w-3.5 h-3.5 text-emerald-600" />
-                  <span className="text-emerald-600">Copied</span>
+                  <span className="text-emerald-600 font-bold">Copied</span>
                 </>
               ) : (
                 <>
@@ -180,21 +188,27 @@ export const LongQuestions: React.FC = () => {
             </button>
           </div>
 
-          <h2 className="text-base sm:text-lg font-extrabold text-slate-900 dark:text-slate-100 leading-snug tracking-tight">
+          <h2 className="text-base sm:text-lg font-black text-slate-900 dark:text-white leading-relaxed tracking-tight font-['Noto_Sans_Devanagari','Plus_Jakarta_Sans',sans-serif]">
             {currentQ.question}
           </h2>
         </div>
 
         {/* Detailed Formatted Answer Section */}
-        <div className="space-y-3 pt-1">
+        <div className="space-y-3 pt-0.5">
           <div className="flex items-center justify-between">
-            <div className="inline-flex items-center gap-1.5 text-xs font-black uppercase tracking-wider text-pink-800 dark:text-pink-300 bg-pink-100/70 dark:bg-pink-950/60 px-3 py-1 rounded-xl border border-pink-200/60 dark:border-pink-800/60">
+            <div className="inline-flex items-center gap-1.5 text-xs font-black uppercase tracking-wider text-pink-900 dark:text-pink-300 bg-pink-50 dark:bg-pink-950/60 px-3 py-1 rounded-xl border border-pink-200/80 dark:border-pink-800/60">
               <FileText className="w-3.5 h-3.5 text-pink-600 dark:text-pink-400" />
-              <span>विस्तृत आदर्श उत्तर (Comprehensive Solution):</span>
+              <span>विस्तृत आदर्श उत्तर (Textbook Comprehensive Solution):</span>
             </div>
           </div>
 
-          <div className="p-4 sm:p-6 rounded-2xl bg-amber-50/60 dark:bg-slate-800/70 border border-amber-200/80 dark:border-slate-700/80 shadow-2xs">
+          <div className="p-4 sm:p-6 rounded-2xl bg-amber-50/40 dark:bg-slate-800/60 border-l-4 border-pink-600 dark:border-pink-500 border-y border-r border-amber-200/70 dark:border-slate-700/80 shadow-xs">
+            <div className="mb-3 flex items-center gap-1.5 text-xs font-black text-pink-900 dark:text-pink-300">
+              <span className="bg-pink-600 text-white text-[10px] font-black px-2 py-0.5 rounded-md uppercase tracking-wider">
+                उत्तर
+              </span>
+              <span className="text-slate-400 dark:text-slate-600">:</span>
+            </div>
             <FormattedAnswer content={currentQ.answer} fontSize={fontSize} />
           </div>
         </div>

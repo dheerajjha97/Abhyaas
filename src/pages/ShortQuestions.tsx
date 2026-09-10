@@ -150,34 +150,42 @@ export const ShortQuestions: React.FC = () => {
         }
       />
 
-      {/* Progress Counter Pill */}
+      {/* Progress & Marks Indicator */}
       <div className="flex items-center justify-between text-xs font-bold text-slate-600 dark:text-slate-300 px-1">
         <span className="flex items-center gap-1.5">
-          <FileText className="w-4 h-4 text-purple-600 dark:text-purple-400" />
-          <span>लघु उत्तरीय प्रश्न (2-3 Marks)</span>
+          <FileText className="w-4 h-4 text-blue-600 dark:text-blue-400" />
+          <span>लघु उत्तरीय प्रश्न (Short Answer • 2-3 अंक)</span>
         </span>
-        <span className="bg-purple-100 text-purple-700 dark:bg-purple-950/80 dark:text-purple-300 px-3 py-0.5 rounded-full font-extrabold text-[11px]">
+        <span className="bg-blue-100 text-blue-800 dark:bg-blue-950/80 dark:text-blue-300 px-3 py-0.5 rounded-full font-black text-[11px] border border-blue-200 dark:border-blue-800">
           {currentIndex + 1} / {total}
         </span>
       </div>
 
-      {/* Main Question & Answer Card */}
-      <div className="bg-white/90 dark:bg-slate-900/90 backdrop-blur-xl rounded-3xl p-5 sm:p-6 border border-white/60 dark:border-slate-800 shadow-xl space-y-5">
-        {/* Question Header */}
-        <div className="space-y-2.5 pb-4 border-b border-slate-100 dark:border-slate-800">
+      {/* Main Textbook Page Card */}
+      <div className="bg-[#fffefb] dark:bg-slate-900 rounded-3xl p-5 sm:p-7 border border-amber-200/80 dark:border-slate-800 shadow-xl space-y-5 relative overflow-hidden">
+        {/* Subtle top book ruler bar */}
+        <div className="h-1 bg-gradient-to-r from-blue-600 via-indigo-600 to-amber-500 absolute top-0 left-0 right-0" />
+
+        {/* Question Block */}
+        <div className="space-y-3 pb-4 border-b border-dashed border-slate-200 dark:border-slate-800">
           <div className="flex items-center justify-between gap-3">
-            <span className="inline-flex items-center gap-1 text-[11px] font-black text-purple-700 dark:text-purple-300 bg-purple-50 dark:bg-purple-950/70 border border-purple-200 dark:border-purple-800 px-3 py-0.5 rounded-full">
-              <Sparkles className="w-3 h-3 text-purple-600" /> प्रश्न संख्या {currentIndex + 1}
-            </span>
+            <div className="flex items-center gap-2">
+              <span className="inline-flex items-center gap-1 text-xs font-black text-blue-800 dark:text-blue-300 bg-blue-50 dark:bg-blue-950/80 border border-blue-200 dark:border-blue-800 px-3 py-1 rounded-xl shadow-2xs">
+                <Sparkles className="w-3.5 h-3.5 text-blue-600" /> प्र. {currentIndex + 1}
+              </span>
+              <span className="text-[11px] font-bold text-slate-500 dark:text-slate-400 bg-slate-100 dark:bg-slate-800 px-2 py-0.5 rounded-md">
+                [ 2 अंक ]
+              </span>
+            </div>
 
             <button
               onClick={handleCopyText}
-              className="flex items-center gap-1.5 text-xs font-bold text-slate-500 dark:text-slate-400 hover:text-indigo-600 dark:hover:text-indigo-400 px-2.5 py-1 rounded-xl bg-slate-50 dark:bg-slate-800 hover:bg-slate-100 transition-colors cursor-pointer"
+              className="flex items-center gap-1.5 text-xs font-bold text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 px-2.5 py-1 rounded-xl bg-slate-100/80 dark:bg-slate-800 hover:bg-slate-200/80 transition-colors cursor-pointer"
             >
               {copied ? (
                 <>
                   <CheckCheck className="w-3.5 h-3.5 text-emerald-600" />
-                  <span className="text-emerald-600">Copied</span>
+                  <span className="text-emerald-600 font-bold">Copied</span>
                 </>
               ) : (
                 <>
@@ -188,23 +196,21 @@ export const ShortQuestions: React.FC = () => {
             </button>
           </div>
 
-          <h3 className="text-base sm:text-lg font-extrabold text-slate-900 dark:text-slate-100 leading-snug tracking-tight">
+          <h3 className="text-base sm:text-lg font-black text-slate-900 dark:text-white leading-relaxed tracking-tight font-['Noto_Sans_Devanagari','Plus_Jakarta_Sans',sans-serif]">
             {currentQ.question}
           </h3>
         </div>
 
         {/* Answer Toggle / Header */}
-        <div className="flex items-center justify-between pt-1">
-          <div className="flex items-center gap-2">
-            <div className="w-2.5 h-2.5 rounded-full bg-emerald-500" />
-            <span className="text-xs sm:text-sm font-black text-slate-800 dark:text-slate-200 uppercase tracking-wider">
-              आदर्श उत्तर (Model Answer):
-            </span>
+        <div className="flex items-center justify-between pt-0.5">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-xl bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-200 dark:border-emerald-800 text-emerald-900 dark:text-emerald-300 text-xs font-black">
+            <span className="w-2 h-2 rounded-full bg-emerald-500" />
+            <span>आदर्श उत्तर (Textbook Solution)</span>
           </div>
 
           <button
             onClick={handleToggleAnswer}
-            className="flex items-center gap-1 text-xs font-bold text-indigo-600 dark:text-indigo-400 hover:underline cursor-pointer"
+            className="flex items-center gap-1 text-xs font-bold text-blue-600 dark:text-blue-400 hover:underline cursor-pointer bg-blue-50 dark:bg-blue-950/60 px-3 py-1 rounded-xl border border-blue-200 dark:border-blue-800"
           >
             {isAnswerVisible ? (
               <>
@@ -220,9 +226,15 @@ export const ShortQuestions: React.FC = () => {
           </button>
         </div>
 
-        {/* Formatted Answer Body */}
+        {/* Formatted Answer Body - Textbook Style */}
         {isAnswerVisible && (
-          <div className="p-4 sm:p-5 rounded-2xl bg-amber-50/70 dark:bg-slate-800/80 border border-amber-200/80 dark:border-slate-700/80 shadow-2xs animate-in fade-in duration-200">
+          <div className="p-4 sm:p-6 rounded-2xl bg-amber-50/40 dark:bg-slate-800/60 border-l-4 border-blue-600 dark:border-blue-500 border-y border-r border-amber-200/70 dark:border-slate-700/80 shadow-xs animate-in fade-in duration-200">
+            <div className="mb-2.5 flex items-center gap-1.5 text-xs font-black text-blue-900 dark:text-blue-300">
+              <span className="bg-blue-600 text-white text-[10px] font-black px-2 py-0.5 rounded-md uppercase tracking-wider">
+                उत्तर
+              </span>
+              <span className="text-slate-400 dark:text-slate-600">:</span>
+            </div>
             <FormattedAnswer content={currentQ.answer} fontSize={fontSize} />
           </div>
         )}

@@ -17,6 +17,7 @@ import { More } from './pages/More';
 import { SyllabusView } from './pages/SyllabusView';
 import { NotesView } from './pages/NotesView';
 import { MockTestGenerator } from './pages/MockTestGenerator';
+import { QuickRevision } from './pages/QuickRevision';
 import { MistakeNotebook } from './pages/MistakeNotebook';
 import { PrivacyPolicy } from './pages/PrivacyPolicy';
 import { ContactUs } from './pages/ContactUs';
@@ -71,6 +72,9 @@ const AppContent: React.FC = () => {
               <Route path="/paper/:paperId/long" element={<LongQuestions />} />
               <Route path="/bookmarks" element={<Bookmarks />} />
               <Route path="/mistakes" element={<MistakeNotebook />} />
+              <Route path="/quick-revision" element={<QuickRevision />} />
+              <Route path="/quick-revision/:subjectId" element={<QuickRevision />} />
+              <Route path="/class/:classId/subject/:subjectId/quick-revision" element={<QuickRevision />} />
               <Route path="/search" element={<Search />} />
               <Route path="/more" element={<More />} />
               <Route path="/mock-test" element={<MockTestGenerator />} />

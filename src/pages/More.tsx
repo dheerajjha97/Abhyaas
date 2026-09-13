@@ -134,13 +134,19 @@ export const More: React.FC = () => {
     }
   };
 
-  const handleSyncFresh = async () => {
+  const handleSyncFresh = async (syncAll: boolean = false) => {
     setIsSyncing(true);
     setShowSyncModal(true);
     setSyncResult(null);
+
+    const targetClass = profile.classId || '12';
+    const selectedSubs = profile.selectedSubjects || [];
+
     setSyncProgress({
       stage: 'checking',
-      message: 'GitHub से कनेक्शन स्थापित हो रहा है...',
+      message: syncAll
+        ? 'GitHub से सभी विषयों का डेटा चेक हो रहा है...'
+        : `Class ${targetClass} • ${selectedSubs.length} चुने हुए विषयों का डेटा चेक हो रहा है...`,
       percent: 5,
     });
 
@@ -148,10 +154,17 @@ export const More: React.FC = () => {
       // 1. Wipe stale cache first
       await clearAllAppCache();
 
-      // 2. Perform fresh live sync from GitHub & CDN
-      const res = await syncAllFreshData((progress) => {
-        setSyncProgress(progress);
-      });
+      // 2. Perform fresh live sync from GitHub & CDN filtered by student's selected subjects
+      const res = await syncAllFreshData(
+        (progress) => {
+          setSyncProgress(progress);
+        },
+        {
+          classId: targetClass,
+          selectedSubjects: selectedSubs,
+          syncAll,
+        }
+      );
 
       setSyncResult(res);
       await loadCacheStats();
@@ -160,7 +173,9 @@ export const More: React.FC = () => {
         setToast({
           id: Date.now().toString(),
           type: 'success',
-          message: `डेटा सिंक सफल! ${res.papersSynced} पेपर्स और ${res.notesSynced} नोट्स उपलब्ध हैं।`,
+          message: res.isFilteredBySubjects
+            ? `सिंक सफल! आपके ${selectedSubs.length} विषयों के ${res.papersSynced} पेपर्स ऑफ़लाइन सहेज लिए गए।`
+            : `डेटा सिंक सफल! कुल ${res.papersSynced} पेपर्स और ${res.notesSynced} नोट्स उपलब्ध हैं।`,
         });
       }
     } catch (err) {
@@ -381,32 +396,50 @@ export const More: React.FC = () => {
           </div>
 
           {/* Action Buttons */}
-          <div className="pt-2 border-t border-slate-100 dark:border-slate-800 flex flex-wrap items-center gap-2.5">
-            <button
-              onClick={() => setShowClearConfirmModal(true)}
-              disabled={isClearingCache}
-              className="flex-1 sm:flex-initial inline-flex items-center justify-center gap-2 px-4 py-2 bg-rose-50 hover:bg-rose-100 dark:bg-rose-950/40 dark:hover:bg-rose-900/50 text-rose-700 dark:text-rose-300 border border-rose-200/80 dark:border-rose-900/60 rounded-xl font-bold text-xs cursor-pointer transition-all active:scale-95 disabled:opacity-50"
-            >
-              {isClearingCache ? (
-                <Loader2 className="w-4 h-4 animate-spin" />
-              ) : (
-                <Trash2 className="w-4 h-4 text-rose-600 dark:text-rose-400" />
-              )}
-              <span>कैश साफ़ करें (Clear Cache)</span>
-            </button>
+          <div className="pt-2 border-t border-slate-100 dark:border-slate-800 space-y-2.5">
+            <div className="flex flex-wrap items-center gap-2.5">
+              <button
+                onClick={() => setShowClearConfirmModal(true)}
+                disabled={isClearingCache || isSyncing}
+                className="flex-1 sm:flex-initial inline-flex items-center justify-center gap-2 px-3.5 py-2.5 bg-rose-50 hover:bg-rose-100 dark:bg-rose-950/40 dark:hover:bg-rose-900/50 text-rose-700 dark:text-rose-300 border border-rose-200/80 dark:border-rose-900/60 rounded-xl font-bold text-xs cursor-pointer transition-all active:scale-95 disabled:opacity-50"
+              >
+                {isClearingCache ? (
+                  <Loader2 className="w-4 h-4 animate-spin" />
+                ) : (
+                  <Trash2 className="w-4 h-4 text-rose-600 dark:text-rose-400" />
+                )}
+                <span>कैश साफ़ करें (Clear Cache)</span>
+              </button>
 
-            <button
-              onClick={handleSyncFresh}
-              disabled={isClearingCache}
-              className="flex-1 sm:flex-initial inline-flex items-center justify-center gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-xl font-bold text-xs cursor-pointer transition-all active:scale-95 disabled:opacity-50 shadow-2xs"
-            >
-              {isClearingCache ? (
-                <Loader2 className="w-4 h-4 animate-spin" />
-              ) : (
-                <RefreshCw className="w-4 h-4" />
-              )}
-              <span>नया डेटा सिंक करें (Sync Fresh)</span>
-            </button>
+              <button
+                onClick={() => handleSyncFresh(false)}
+                disabled={isClearingCache || isSyncing}
+                className="flex-1 sm:flex-initial inline-flex items-center justify-center gap-2 px-4 py-2.5 bg-blue-600 hover:bg-blue-700 text-white rounded-xl font-bold text-xs cursor-pointer transition-all active:scale-95 disabled:opacity-50 shadow-2xs"
+              >
+                {isSyncing ? (
+                  <Loader2 className="w-4 h-4 animate-spin" />
+                ) : (
+                  <RefreshCw className="w-4 h-4" />
+                )}
+                <span>चुने हुए विषय सिंक करें (Fast Sync)</span>
+              </button>
+            </div>
+
+            <div className="flex items-center justify-between pt-1">
+              <p className="text-[11px] text-slate-500 dark:text-slate-400 flex items-center gap-1">
+                <span className="w-2 h-2 rounded-full bg-emerald-500 inline-block"></span>
+                <span>केवल आपके <strong>Class {profile.classId}</strong> के {profile.selectedSubjects?.length || 0} विषय सिंक होंगे (डेटा व समय की बचत)</span>
+              </p>
+
+              <button
+                onClick={() => handleSyncFresh(true)}
+                disabled={isClearingCache || isSyncing}
+                className="text-[11px] font-bold text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 underline decoration-slate-300 underline-offset-2 cursor-pointer transition-colors"
+                title="सभी क्लास और विषयों के कुल पेपर्स ऑफलाइन डाउनलोड करें"
+              >
+                सभी विषय सिंक करें (All Subjects)
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -516,6 +549,31 @@ export const More: React.FC = () => {
                 </p>
               </div>
             </div>
+
+            {/* Selected Subjects Banner in Modal */}
+            {profile.selectedSubjects && profile.selectedSubjects.length > 0 && (
+              <div className="bg-slate-50 dark:bg-slate-800/70 rounded-2xl p-2.5 border border-slate-200/70 dark:border-slate-700/70 space-y-1.5">
+                <div className="flex items-center justify-between text-[11px] font-bold text-slate-600 dark:text-slate-300">
+                  <span className="flex items-center gap-1">
+                    <BookOpen className="w-3.5 h-3.5 text-blue-600 dark:text-blue-400" />
+                    <span>सिंक हो रहे विषय (Class {profile.classId}):</span>
+                  </span>
+                  <span className="text-blue-700 dark:text-blue-400 text-[10px]">
+                    {syncResult?.isFilteredBySubjects ? `${profile.selectedSubjects.length} विषय` : 'सभी विषय'}
+                  </span>
+                </div>
+                <div className="flex flex-wrap gap-1">
+                  {profile.selectedSubjects.map((sub) => (
+                    <span
+                      key={sub}
+                      className="text-[10px] font-bold px-2 py-0.5 rounded-md bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-200"
+                    >
+                      {sub}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            )}
 
             {/* Progress Bar */}
             <div className="space-y-1.5">

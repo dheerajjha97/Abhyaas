@@ -298,6 +298,9 @@ export const Subjects: React.FC = () => {
                 onMockTest={() =>
                   navigate(`/mock-test?subject=${encodeURIComponent(sub.name)}`)
                 }
+                onQuickRevision={() =>
+                  navigate(`/quick-revision/${encodeURIComponent(sub.name)}`)
+                }
               />
             ))}
           </div>

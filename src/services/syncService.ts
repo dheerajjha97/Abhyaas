@@ -5,10 +5,11 @@
  * IndexedDB for high-speed offline access.
  */
 
-import { questionRepository } from './questionRepository';
+import { questionRepository, normalizeSubject, normalizeClass } from './questionRepository';
 import { notesRepository } from './notesRepository';
 import { syllabusRepository } from './syllabusRepository';
 import { savePaperToCache, getCacheStats, CacheStats } from '../utils/db';
+import { getStoredStudentProfile } from '../utils/profileStorage';
 
 export interface SyncProgress {
   stage: 'checking' | 'papers' | 'notes' | 'syllabus' | 'complete' | 'error';
@@ -19,6 +20,12 @@ export interface SyncProgress {
   syllabusCount?: number;
 }
 
+export interface SyncOptions {
+  classId?: string;
+  selectedSubjects?: string[];
+  syncAll?: boolean;
+}
+
 export interface SyncResult {
   success: boolean;
   papersSynced: number;
@@ -26,6 +33,8 @@ export interface SyncResult {
   syllabusSynced: number;
   stats: CacheStats;
   message: string;
+  selectedSubjectsCount?: number;
+  isFilteredBySubjects?: boolean;
 }
 
 const CDN_MIRRORS = [
@@ -34,8 +43,105 @@ const CDN_MIRRORS = [
   'https://fastly.jsdelivr.net/gh/dheerajjha97/AbhyaasData@main',
 ];
 
+/**
+ * Detect subject from file path or filename
+ */
+function detectSubjectFromPath(relPath: string): string {
+  const lower = relPath.toLowerCase();
+  
+  // 1. Check parent folder name
+  const segments = relPath.split('/');
+  if (segments.length >= 3) {
+    const folderSub = segments[segments.length - 2];
+    const normFolder = normalizeSubject(folderSub);
+    if (normFolder) return normFolder;
+  }
+
+  // 2. Check filename keywords
+  if (lower.includes('polscience') || lower.includes('pol-science') || lower.includes('pol_science') || lower.includes('political')) {
+    return 'Political Science';
+  }
+  if (lower.includes('homescience') || lower.includes('home-science') || lower.includes('home_science') || lower.includes('home science')) {
+    return 'Home Science';
+  }
+  if (lower.includes('history') || lower.includes('itihas')) return 'History';
+  if (lower.includes('geography') || lower.includes('bhugol')) return 'Geography';
+  if (lower.includes('hindi')) return 'Hindi';
+  if (lower.includes('english')) return 'English';
+  if (lower.includes('physics') || lower.includes('bhautik')) return 'Physics';
+  if (lower.includes('chemistry') || lower.includes('rasayan')) return 'Chemistry';
+  if (lower.includes('biology') || lower.includes('jeev')) return 'Biology';
+  if (lower.includes('mathematics') || lower.includes('math') || lower.includes('ganit')) return 'Mathematics';
+  if (lower.includes('economics') || lower.includes('arthashastra')) return 'Economics';
+  if (lower.includes('sociology') || lower.includes('samajshastra')) return 'Sociology';
+  if (lower.includes('psychology') || lower.includes('manovigyan')) return 'Psychology';
+  if (lower.includes('philosophy') || lower.includes('darshan')) return 'Philosophy';
+  if (lower.includes('music') || lower.includes('sangeet')) return 'Music';
+  if (lower.includes('agriculture') || lower.includes('krishi')) return 'Agriculture';
+  if (lower.includes('computer') || lower.includes('cs')) return 'Computer Science';
+  if (lower.includes('accountancy') || lower.includes('accounts')) return 'Accountancy';
+  if (lower.includes('business') || lower.includes('bst')) return 'Business Studies';
+  if (lower.includes('entrepreneurship') || lower.includes('eps')) return 'Entrepreneurship';
+  if (lower.includes('social') || lower.includes('sst')) return 'Social Science';
+  if (lower.includes('science') || lower.includes('vigyan')) return 'Science';
+  if (lower.includes('sanskrit')) return 'Sanskrit';
+  if (lower.includes('urdu')) return 'Urdu';
+  if (lower.includes('maithili')) return 'Maithili';
+
+  return '';
+}
+
+/**
+ * Checks if a GitHub paper path belongs to the student's selected class and subjects
+ */
+function isPaperMatchingFilters(
+  relPath: string,
+  targetClass?: string,
+  selectedSubjects?: string[]
+): boolean {
+  const lower = relPath.toLowerCase();
+
+  // Class filtering
+  if (targetClass && targetClass !== 'all') {
+    const normClass = normalizeClass(targetClass);
+    if (normClass === '10') {
+      if (!lower.includes('/x/') && !lower.includes('class10') && !lower.includes('class-10') && !lower.includes('class_10')) {
+        return false;
+      }
+    } else if (normClass === '11') {
+      if (!lower.includes('/xi/') && !lower.includes('class11') && !lower.includes('class-11') && !lower.includes('class_11')) {
+        return false;
+      }
+    } else if (normClass === '12') {
+      if (!lower.includes('/xii/') && !lower.includes('class12') && !lower.includes('class-12') && !lower.includes('class_12')) {
+        return false;
+      }
+    }
+  }
+
+  // Subject filtering
+  if (selectedSubjects && selectedSubjects.length > 0) {
+    const detectedSub = detectSubjectFromPath(relPath);
+    if (!detectedSub) return true; // Keep if uncertain to avoid missing papers
+
+    const normDetected = normalizeSubject(detectedSub).toLowerCase();
+    const normalizedSelected = selectedSubjects.map((s) => normalizeSubject(s).toLowerCase());
+
+    const isMatch = normalizedSelected.some((sel) => {
+      if (sel === normDetected) return true;
+      if (normDetected.includes(sel) || sel.includes(normDetected)) return true;
+      return false;
+    });
+
+    return isMatch;
+  }
+
+  return true;
+}
+
 export async function syncAllFreshData(
-  onProgress?: (progress: SyncProgress) => void
+  onProgress?: (progress: SyncProgress) => void,
+  options?: SyncOptions
 ): Promise<SyncResult> {
   const report = (stage: SyncProgress['stage'], message: string, percent: number, extras: Partial<SyncProgress> = {}) => {
     if (onProgress) {
@@ -43,7 +149,18 @@ export async function syncAllFreshData(
     }
   };
 
-  report('checking', 'GitHub रिपॉजिटरी से नवीनतम डेटा चेक किया जा रहा है...', 10);
+  // Determine filtering criteria
+  const profile = getStoredStudentProfile();
+  const syncAll = Boolean(options?.syncAll);
+  const targetClass = options?.classId || profile.classId || '12';
+  const selectedSubjects = syncAll
+    ? undefined
+    : (options?.selectedSubjects || profile.selectedSubjects || []);
+
+  const isFiltered = !syncAll && selectedSubjects && selectedSubjects.length > 0;
+  const subjectsDisplay = isFiltered ? selectedSubjects.join(', ') : 'सभी विषय';
+
+  report('checking', `GitHub रिपॉजिटरी से डेटा चेक हो रहा है (${isFiltered ? `Class ${targetClass} • चुने हुए विषय` : 'सभी विषय'})...`, 10);
 
   let papersSynced = 0;
   let notesSynced = 0;
@@ -67,7 +184,7 @@ export async function syncAllFreshData(
       } catch {}
     }
 
-    const paperPaths: string[] = [];
+    const allPaperPaths: string[] = [];
     if (treeData && Array.isArray(treeData.tree)) {
       treeData.tree.forEach((item: any) => {
         if (
@@ -77,16 +194,25 @@ export async function syncAllFreshData(
           item.path.toLowerCase().endsWith('.json') &&
           item.path.toLowerCase().includes('papers/')
         ) {
-          paperPaths.push(item.path);
+          allPaperPaths.push(item.path);
         }
       });
     }
 
+    // Filter paper paths based on student's selected class and subjects
+    const paperPaths = isFiltered
+      ? allPaperPaths.filter((path) => isPaperMatchingFilters(path, targetClass, selectedSubjects))
+      : allPaperPaths;
+
+    const paperCountToDownload = paperPaths.length;
+
     report(
       'papers',
-      `${paperPaths.length || 'सभी'} प्रश्न पत्र खोजे गए। डाउनलोड व ऑफलाइन सेव हो रहे हैं...`,
+      isFiltered
+        ? `आपके चुने गए विषयों (${selectedSubjects.length}) के ${paperCountToDownload} प्रश्न पत्र खोजे गए। डाउनलोड हो रहे हैं...`
+        : `कुल ${paperCountToDownload} प्रश्न पत्र खोजे गए। डाउनलोड व ऑफलाइन सेव हो रहे हैं...`,
       25,
-      { papersCount: paperPaths.length }
+      { papersCount: paperCountToDownload }
     );
 
     // 2. Fetch and store papers in parallel chunks of 8
@@ -123,32 +249,47 @@ export async function syncAllFreshData(
     }
 
     // Refresh Question Repository in-memory list
-    await questionRepository.getPapersList(undefined, undefined, true);
+    await questionRepository.getPapersList(targetClass, undefined, true);
 
-    // 3. Sync Notes (Political Science and other subjects)
+    // 3. Sync Notes for student's selected subjects (or all)
     report('notes', 'रिवीजन नोट्स (Chapter Notes) सिंक हो रहे हैं...', 80);
-    try {
-      const polNotes = await notesRepository.getNotesForSubject('12', 'Political Science', true);
-      notesSynced += polNotes.length;
-    } catch (e) {
-      console.warn('Notes sync warning:', e);
+    const subjectsToSyncNotes = isFiltered
+      ? selectedSubjects
+      : ['Political Science', 'History', 'Geography', 'Hindi', 'Physics', 'Chemistry', 'Biology'];
+
+    for (const sub of subjectsToSyncNotes) {
+      try {
+        const notes = await notesRepository.getNotesForSubject(targetClass, sub, true);
+        if (notes && notes.length > 0) {
+          notesSynced += notes.length;
+        }
+      } catch (e) {
+        console.warn(`Notes sync warning for ${sub}:`, e);
+      }
     }
 
-    // 4. Sync Syllabus
+    // 4. Sync Syllabus for student's selected subjects (or all)
     report('syllabus', 'पाठ्यक्रम एवं ब्लूप्रिंट (Syllabus) सिंक हो रहा है...', 90);
-    const syllabusSubjects = ['History', 'Political Science', 'Geography'];
-    for (const sub of syllabusSubjects) {
+    const subjectsToSyncSyllabus = isFiltered
+      ? selectedSubjects
+      : ['History', 'Political Science', 'Geography', 'Hindi', 'Physics', 'Chemistry', 'Biology', 'Mathematics'];
+
+    for (const sub of subjectsToSyncSyllabus) {
       try {
-        const syl = await syllabusRepository.getSyllabus('12', sub, true);
+        const syl = await syllabusRepository.getSyllabus(targetClass, sub, true);
         if (syl) syllabusSynced++;
       } catch {}
     }
 
     // 5. Final Stats
     const stats = await getCacheStats();
+    const finalMsg = isFiltered
+      ? `डेटा सिंक सफल! आपके ${selectedSubjects.length} विषयों के ${papersSynced} पेपर्स, ${notesSynced} नोट्स और ${syllabusSynced} सिलेबस ऑफ़लाइन उपलब्ध हैं।`
+      : `डेटा सिंक सफल! कुल ${papersSynced || stats.paperCount} पेपर्स, ${notesSynced} नोट्स और ${syllabusSynced} सिलेबस ऑफ़लाइन उपलब्ध हैं।`;
+
     report(
       'complete',
-      `डेटा सिंक सफल! ${papersSynced || stats.paperCount} पेपर्स और ${notesSynced} नोट्स ऑफ़लाइन तैयार हैं।`,
+      finalMsg,
       100,
       {
         papersCount: papersSynced || stats.paperCount,
@@ -163,7 +304,9 @@ export async function syncAllFreshData(
       notesSynced,
       syllabusSynced,
       stats,
-      message: `सफलतापूर्वक ${papersSynced || stats.paperCount} प्रश्न पत्र, ${notesSynced} नोट्स और ${syllabusSynced} सिलेबस सिंक हो गए!`,
+      message: finalMsg,
+      selectedSubjectsCount: isFiltered ? selectedSubjects.length : undefined,
+      isFilteredBySubjects: isFiltered,
     };
   } catch (err: any) {
     console.error('Data sync failed:', err);
@@ -176,6 +319,8 @@ export async function syncAllFreshData(
       syllabusSynced,
       stats,
       message: 'सिंकिंग में आंशिक त्रुटि आई, कृपया पुनः प्रयास करें।',
+      isFilteredBySubjects: isFiltered,
     };
   }
 }
+

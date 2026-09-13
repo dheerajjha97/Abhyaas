@@ -30,6 +30,7 @@ export const DesktopNavbar: React.FC = () => {
   const navItems: DesktopNavItem[] = [
     { id: 'home', label: 'होम', to: '/', icon: Home },
     { id: 'papers', label: 'पेपर्स', to: '/papers', icon: FileText },
+    { id: 'revision', label: 'रिवीज़न गाइड', to: '/quick-revision', icon: Sparkles },
     { id: 'test', label: 'मॉक टेस्ट', to: '/mock-test', icon: Zap },
     { id: 'notes', label: 'नोट्स', to: '/notes', icon: BookOpen },
     { id: 'syllabus', label: 'पाठ्यक्रम', to: '/syllabus', icon: Layers },

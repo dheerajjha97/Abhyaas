@@ -11,6 +11,7 @@ interface SubjectCardProps {
   gradient: string;
   onClick: () => void;
   onMockTest?: () => void;
+  onQuickRevision?: () => void;
 }
 
 export const SubjectCard: React.FC<SubjectCardProps> = ({
@@ -21,6 +22,7 @@ export const SubjectCard: React.FC<SubjectCardProps> = ({
   gradient,
   onClick,
   onMockTest,
+  onQuickRevision,
 }) => {
   return (
     <GlassCard
@@ -55,7 +57,22 @@ export const SubjectCard: React.FC<SubjectCardProps> = ({
           </div>
         </div>
 
-        <div className="flex items-center gap-2 shrink-0">
+        <div className="flex items-center gap-1.5 sm:gap-2 shrink-0">
+          {onQuickRevision && (
+            <button
+              type="button"
+              onClick={(e) => {
+                e.stopPropagation();
+                onQuickRevision();
+              }}
+              className="px-2.5 py-1.5 rounded-xl bg-amber-50 dark:bg-amber-950/70 hover:bg-amber-600 hover:text-white text-amber-700 dark:text-amber-300 font-bold text-xs flex items-center gap-1 transition-all cursor-pointer border border-amber-200/70 dark:border-amber-900/60 hover:shadow-xs active:scale-95"
+              title="त्वरित रिवीज़न गाइड व फ्लैशकार्ड्स"
+            >
+              <Zap className="w-3.5 h-3.5 fill-amber-500 text-amber-500 hover:fill-white hover:text-white" />
+              <span className="hidden sm:inline">रिवीज़न</span>
+            </button>
+          )}
+
           {onMockTest && (
             <button
               type="button"

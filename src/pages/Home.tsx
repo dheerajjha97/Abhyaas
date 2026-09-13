@@ -388,6 +388,41 @@ export const Home: React.FC = () => {
         </div>
       )}
 
+      {/* Quick Revision Guide (अंतिम समय की त्वरित तैयारी) Feature Banner */}
+      <div className="bg-gradient-to-r from-amber-500/10 via-orange-500/10 to-amber-500/5 dark:from-amber-950/30 dark:via-orange-950/20 dark:to-slate-900 rounded-3xl p-4 sm:p-5 border border-amber-300/60 dark:border-amber-900/60 shadow-xs flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3.5">
+        <div className="flex items-start gap-3.5 min-w-0">
+          <div className="w-11 h-11 rounded-2xl bg-gradient-to-br from-amber-500 to-orange-600 text-white flex items-center justify-center font-black text-xl shadow-md shrink-0">
+            ⚡
+          </div>
+          <div className="space-y-1 min-w-0">
+            <div className="flex items-center gap-1.5 flex-wrap">
+              <span className="text-[10px] font-black uppercase tracking-wider bg-amber-500 text-white px-2 py-0.2 rounded-full shadow-2xs">
+                NEW • परीक्षा स्पेशल
+              </span>
+              <span className="text-[11px] font-bold text-amber-800 dark:text-amber-300">
+                Class {profile.classId} • {displayedSubjects[0]?.name || 'Political Science'}
+              </span>
+            </div>
+            <h3 className="text-sm sm:text-base font-black text-slate-900 dark:text-white leading-tight">
+              Quick Revision Guide & Flashcards
+            </h3>
+            <p className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed max-w-xl font-medium">
+              ओरिजिनल बोर्ड पेपर्स से निकाले गए अति-महत्वपूर्ण प्रश्न, अध्याय-वार संक्षेप और 2-मिनट स्मरण कार्ड्स (100% ऑफ़लाइन)।
+            </p>
+          </div>
+        </div>
+
+        <button
+          onClick={() =>
+            navigate(`/quick-revision/${encodeURIComponent(displayedSubjects[0]?.name || 'Political Science')}`)
+          }
+          className="w-full sm:w-auto px-4 py-2.5 rounded-2xl bg-amber-500 hover:bg-amber-600 active:scale-95 text-slate-950 font-black text-xs flex items-center justify-center gap-1.5 shadow-md transition-all cursor-pointer shrink-0"
+        >
+          <span>रिवीज़न शुरू करें</span>
+          <ChevronRight className="w-4 h-4" />
+        </button>
+      </div>
+
       {/* 4-Card Bento Study Hub (Modern Clean Cards) */}
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
         <button

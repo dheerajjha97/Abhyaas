@@ -3,118 +3,118 @@
   <defs>
     <!-- Background Gradients -->
     <linearGradient id="bgGrad" x1="50%" y1="0%" x2="50%" y2="100%">
-      <stop offset="0%" stopColor="#1e7eff" />
-      <stop offset="45%" stopColor="#0b63f6" />
-      <stop offset="100%" stopColor="#004cd8" />
+      <stop offset="0%" stop-color="#1e7eff" />
+      <stop offset="45%" stop-color="#0b63f6" />
+      <stop offset="100%" stop-color="#004cd8" />
     </linearGradient>
 
     <radialGradient id="topGlow" cx="50%" cy="15%" r="65%">
-      <stop offset="0%" stopColor="#60a5fa" stopOpacity="0.45" />
-      <stop offset="60%" stopColor="#0b63f6" stopOpacity="0" />
+      <stop offset="0%" stop-color="#60a5fa" stop-opacity="0.45" />
+      <stop offset="60%" stop-color="#0b63f6" stop-opacity="0" />
     </radialGradient>
 
     <!-- Drop Shadows -->
     <filter id="softShadow" x="-20%" y="-20%" width="140%" height="150%">
-      <feDropShadow dx="0" dy="16" stdDeviation="16" floodColor="#002b80" floodOpacity="0.42" />
+      <feDropShadow dx="0" dy="16" stdDeviation="16" flood-color="#002b80" flood-opacity="0.42" />
     </filter>
     <filter id="badgeShadow" x="-30%" y="-30%" width="160%" height="160%">
-      <feDropShadow dx="0" dy="12" stdDeviation="12" floodColor="#00246b" floodOpacity="0.45" />
+      <feDropShadow dx="0" dy="12" stdDeviation="12" flood-color="#00246b" flood-opacity="0.45" />
     </filter>
     <filter id="paperShadow" x="-20%" y="-20%" width="140%" height="140%">
-      <feDropShadow dx="0" dy="10" stdDeviation="12" floodColor="#002b80" floodOpacity="0.3" />
+      <feDropShadow dx="0" dy="10" stdDeviation="12" flood-color="#002b80" flood-opacity="0.3" />
     </filter>
 
     <!-- Paper Gradients -->
     <linearGradient id="paperGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" stopColor="#ffffff" />
-      <stop offset="85%" stopColor="#f8fafc" />
-      <stop offset="100%" stopColor="#edf2f7" />
+      <stop offset="0%" stop-color="#ffffff" />
+      <stop offset="85%" stop-color="#f8fafc" />
+      <stop offset="100%" stop-color="#edf2f7" />
     </linearGradient>
 
     <!-- Book Page 3D Gradients -->
     <linearGradient id="bookPageLeft" x1="100%" y1="50%" x2="0%" y2="50%">
-      <stop offset="0%" stopColor="#cbd5e1" />
-      <stop offset="25%" stopColor="#f1f5f9" />
-      <stop offset="100%" stopColor="#ffffff" />
+      <stop offset="0%" stop-color="#cbd5e1" />
+      <stop offset="25%" stop-color="#f1f5f9" />
+      <stop offset="100%" stop-color="#ffffff" />
     </linearGradient>
     <linearGradient id="bookPageRight" x1="0%" y1="50%" x2="100%" y2="50%">
-      <stop offset="0%" stopColor="#cbd5e1" />
-      <stop offset="25%" stopColor="#f1f5f9" />
-      <stop offset="100%" stopColor="#ffffff" />
+      <stop offset="0%" stop-color="#cbd5e1" />
+      <stop offset="25%" stop-color="#f1f5f9" />
+      <stop offset="100%" stop-color="#ffffff" />
     </linearGradient>
     <linearGradient id="bookUnderLeft" x1="100%" y1="50%" x2="0%" y2="50%">
-      <stop offset="0%" stopColor="#94a3b8" />
-      <stop offset="60%" stopColor="#e2e8f0" />
-      <stop offset="100%" stopColor="#cbd5e1" />
+      <stop offset="0%" stop-color="#94a3b8" />
+      <stop offset="60%" stop-color="#e2e8f0" />
+      <stop offset="100%" stop-color="#cbd5e1" />
     </linearGradient>
     <linearGradient id="bookUnderRight" x1="0%" y1="50%" x2="100%" y2="50%">
-      <stop offset="0%" stopColor="#94a3b8" />
-      <stop offset="60%" stopColor="#e2e8f0" />
-      <stop offset="100%" stopColor="#cbd5e1" />
+      <stop offset="0%" stop-color="#94a3b8" />
+      <stop offset="60%" stop-color="#e2e8f0" />
+      <stop offset="100%" stop-color="#cbd5e1" />
     </linearGradient>
 
     <!-- Book Base Rim Gradient -->
     <linearGradient id="bookBaseRim" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" stopColor="#0284c7" />
-      <stop offset="50%" stopColor="#0369a1" />
-      <stop offset="100%" stopColor="#075985" />
+      <stop offset="0%" stop-color="#0284c7" />
+      <stop offset="50%" stop-color="#0369a1" />
+      <stop offset="100%" stop-color="#075985" />
     </linearGradient>
     <linearGradient id="bookBaseLip" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" stopColor="#0052cc" />
-      <stop offset="100%" stopColor="#002d80" />
+      <stop offset="0%" stop-color="#0052cc" />
+      <stop offset="100%" stop-color="#002d80" />
     </linearGradient>
 
     <!-- Pencil Gradients -->
     <linearGradient id="pencilEraser" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stopColor="#fb7185" />
-      <stop offset="50%" stopColor="#f43f5e" />
-      <stop offset="100%" stopColor="#e11d48" />
+      <stop offset="0%" stop-color="#fb7185" />
+      <stop offset="50%" stop-color="#f43f5e" />
+      <stop offset="100%" stop-color="#e11d48" />
     </linearGradient>
     <linearGradient id="pencilMetalLight" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stopColor="#93c5fd" />
-      <stop offset="35%" stopColor="#e0e7ff" />
-      <stop offset="70%" stopColor="#818cf8" />
-      <stop offset="100%" stopColor="#6366f1" />
+      <stop offset="0%" stop-color="#93c5fd" />
+      <stop offset="35%" stop-color="#e0e7ff" />
+      <stop offset="70%" stop-color="#818cf8" />
+      <stop offset="100%" stop-color="#6366f1" />
     </linearGradient>
     <linearGradient id="pencilFacet1" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stopColor="#fde047" />
-      <stop offset="100%" stopColor="#facc15" />
+      <stop offset="0%" stop-color="#fde047" />
+      <stop offset="100%" stop-color="#facc15" />
     </linearGradient>
     <linearGradient id="pencilFacet2" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stopColor="#fbbf24" />
-      <stop offset="100%" stopColor="#f59e0b" />
+      <stop offset="0%" stop-color="#fbbf24" />
+      <stop offset="100%" stop-color="#f59e0b" />
     </linearGradient>
     <linearGradient id="pencilFacet3" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stopColor="#d97706" />
-      <stop offset="100%" stopColor="#b45309" />
+      <stop offset="0%" stop-color="#d97706" />
+      <stop offset="100%" stop-color="#b45309" />
     </linearGradient>
     <linearGradient id="pencilWood" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stopColor="#fef3c7" />
-      <stop offset="60%" stopColor="#fde68a" />
-      <stop offset="100%" stopColor="#fcd34d" />
+      <stop offset="0%" stop-color="#fef3c7" />
+      <stop offset="60%" stop-color="#fde68a" />
+      <stop offset="100%" stop-color="#fcd34d" />
     </linearGradient>
 
     <!-- Green Badge & Check Gradient -->
     <linearGradient id="greenBadgeGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" stopColor="#22c55e" />
-      <stop offset="60%" stopColor="#16a34a" />
-      <stop offset="100%" stopColor="#15803d" />
+      <stop offset="0%" stop-color="#22c55e" />
+      <stop offset="60%" stop-color="#16a34a" />
+      <stop offset="100%" stop-color="#15803d" />
     </linearGradient>
     <radialGradient id="greenBadgeGlow" cx="40%" cy="30%" r="50%">
-      <stop offset="0%" stopColor="#86efac" stopOpacity="0.6" />
-      <stop offset="100%" stopColor="#22c55e" stopOpacity="0" />
+      <stop offset="0%" stop-color="#86efac" stop-opacity="0.6" />
+      <stop offset="100%" stop-color="#22c55e" stop-opacity="0" />
     </radialGradient>
 
     <linearGradient id="miniGreenGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" stopColor="#22c55e" />
-      <stop offset="100%" stopColor="#16a34a" />
+      <stop offset="0%" stop-color="#22c55e" />
+      <stop offset="100%" stop-color="#16a34a" />
     </linearGradient>
 
     <!-- Sparkle Ray Gradient -->
     <linearGradient id="sparkleGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stopColor="#fef08a" />
-      <stop offset="60%" stopColor="#facc15" />
-      <stop offset="100%" stopColor="#eab308" />
+      <stop offset="0%" stop-color="#fef08a" />
+      <stop offset="60%" stop-color="#facc15" />
+      <stop offset="100%" stop-color="#eab308" />
     </linearGradient>
   </defs>
 
@@ -227,28 +227,28 @@
         d="M 9 15 L 13 19 L 21 11"
         fill="none"
         stroke="#ffffff"
-        strokeWidth="3.2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
+        stroke-width="3.2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
       />
       <rect x="42" y="9" width="84" height="12" rx="6" fill="#8e9daf" />
     </g>
 
     <!-- Empty Option 1 -->
     <g transform="translate(176, 215)">
-      <circle cx="15" cy="15" r="13.5" fill="#ffffff" stroke="#8e9daf" strokeWidth="3" />
+      <circle cx="15" cy="15" r="13.5" fill="#ffffff" stroke="#8e9daf" stroke-width="3" />
       <rect x="42" y="9" width="100" height="12" rx="6" fill="#8e9daf" />
     </g>
 
     <!-- Empty Option 2 -->
     <g transform="translate(176, 258)">
-      <circle cx="15" cy="15" r="13.5" fill="#ffffff" stroke="#8e9daf" strokeWidth="3" />
+      <circle cx="15" cy="15" r="13.5" fill="#ffffff" stroke="#8e9daf" stroke-width="3" />
       <rect x="42" y="9" width="80" height="12" rx="6" fill="#8e9daf" />
     </g>
 
     <!-- Empty Option 3 -->
     <g transform="translate(176, 301)">
-      <circle cx="15" cy="15" r="13.5" fill="#ffffff" stroke="#8e9daf" strokeWidth="3" />
+      <circle cx="15" cy="15" r="13.5" fill="#ffffff" stroke="#8e9daf" stroke-width="3" />
       <rect x="42" y="9" width="60" height="12" rx="6" fill="#8e9daf" />
     </g>
   </g>
@@ -263,8 +263,8 @@
       <ellipse cx="16" cy="4" rx="10" ry="4" fill="#fda4af" opacity="0.4" />
 
       <rect x="5" y="24" width="22" height="20" rx="2" fill="url(#pencilMetalLight)" />
-      <line x1="5" y1="31" x2="27" y2="31" stroke="#4338ca" strokeWidth="1.5" opacity="0.6" />
-      <line x1="5" y1="37" x2="27" y2="37" stroke="#4338ca" strokeWidth="1.5" opacity="0.6" />
+      <line x1="5" y1="31" x2="27" y2="31" stroke="#4338ca" stroke-width="1.5" opacity="0.6" />
+      <line x1="5" y1="37" x2="27" y2="37" stroke="#4338ca" stroke-width="1.5" opacity="0.6" />
       <rect x="8" y="24" width="5" height="20" fill="#ffffff" opacity="0.5" />
 
       <rect x="6" y="44" width="7" height="115" fill="url(#pencilFacet1)" />
@@ -288,9 +288,9 @@
       d="M -18 2 L -5 15 L 18 -10"
       fill="none"
       stroke="#ffffff"
-      strokeWidth="9.5"
-      strokeLinecap="round"
-      strokeLinejoin="round"
+      stroke-width="9.5"
+      stroke-linecap="round"
+      stroke-linejoin="round"
     />
   </g>
 </g>

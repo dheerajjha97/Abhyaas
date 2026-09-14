@@ -242,21 +242,19 @@ export const LongQuestions: React.FC = () => {
         </div>
 
         {/* Detailed Formatted Answer Section */}
-        <div className="space-y-3 pt-0.5">
-          <div className="flex items-center justify-between">
-            <div className="inline-flex items-center gap-1.5 text-xs font-black uppercase tracking-wider text-pink-900 dark:text-pink-300 bg-pink-50 dark:bg-pink-950/60 px-3 py-1 rounded-xl border border-pink-200/80 dark:border-pink-800/60">
-              <FileText className="w-3.5 h-3.5 text-pink-600 dark:text-pink-400" />
-              <span>विस्तृत आदर्श उत्तर (Textbook Comprehensive Solution):</span>
+        <div className="space-y-4 pt-1">
+          <div className="flex items-center justify-between border-b border-pink-100 dark:border-slate-800 pb-2.5">
+            <div className="inline-flex items-center gap-2 text-xs font-black text-pink-900 dark:text-pink-300">
+              <span className="bg-pink-600 text-white text-[11px] font-black px-2.5 py-0.5 rounded-md uppercase tracking-wider shadow-2xs">
+                उत्तर
+              </span>
+              <span className="text-slate-700 dark:text-slate-300 font-bold">
+                विस्तृत आदर्श उत्तर (Comprehensive Solution):
+              </span>
             </div>
           </div>
 
-          <div className="p-4 sm:p-6 rounded-2xl bg-amber-50/40 dark:bg-slate-800/60 border-l-4 border-pink-600 dark:border-pink-500 border-y border-r border-amber-200/70 dark:border-slate-700/80 shadow-xs">
-            <div className="mb-3 flex items-center gap-1.5 text-xs font-black text-pink-900 dark:text-pink-300">
-              <span className="bg-pink-600 text-white text-[10px] font-black px-2 py-0.5 rounded-md uppercase tracking-wider">
-                उत्तर
-              </span>
-              <span className="text-slate-400 dark:text-slate-600">:</span>
-            </div>
+          <div className="text-slate-800 dark:text-slate-100 leading-relaxed font-normal">
             <FormattedAnswer content={currentQ.answer} fontSize={fontSize} />
           </div>
         </div>

@@ -170,6 +170,36 @@ function cleanText(text: string): string {
     .trim();
 }
 
+/**
+ * Removes duplicate question headers and prefixes from model answers
+ * so the flashcard back reveals the actual, complete model answer.
+ */
+function cleanModelAnswer(question: string, rawAnswer: string): string {
+  if (!rawAnswer) return '';
+  let ans = cleanText(rawAnswer);
+  const qClean = cleanText(question);
+
+  if (ans.startsWith(qClean)) {
+    ans = ans.slice(qClean.length).trim();
+  } else {
+    const firstLine = ans.split('\n')[0].trim();
+    if (
+      firstLine &&
+      (qClean.includes(firstLine) ||
+        firstLine.includes(qClean) ||
+        (qClean.length >= 25 && firstLine.toLowerCase().startsWith(qClean.toLowerCase().slice(0, 25))))
+    ) {
+      ans = ans.slice(firstLine.length).trim();
+    }
+  }
+
+  // Remove leading punctuation or "उत्तर:" or "Ans:"
+  ans = ans.replace(/^[–—\-:\.\s।]+/, '').trim();
+  ans = ans.replace(/^(उत्तर(?:\s*\([^)]*\))?\s*[:\-]|Ans(?:wer)?\s*[:\-])\s*/i, '').trim();
+
+  return ans || cleanText(rawAnswer);
+}
+
 function assignTopic(questionText: string, answerText: string, subject: string): string {
   const normSubject = normalizeSubject(subject);
   const rules = SUBJECT_TOPIC_RULES[normSubject];
@@ -255,7 +285,7 @@ export async function generateQuickRevisionGuide(
   // Aggregate Short Questions
   allShort.forEach(({ q, year }) => {
     const qClean = cleanText(q.question);
-    const ansClean = cleanText(q.answer);
+    const ansClean = cleanModelAnswer(qClean, q.answer);
     const key = getNormalizedKey(qClean);
     const topic = assignTopic(qClean, ansClean, normSubject);
 
@@ -280,7 +310,7 @@ export async function generateQuickRevisionGuide(
   // Aggregate Long Questions
   allLong.forEach(({ q, year }) => {
     const qClean = cleanText(q.question);
-    const ansClean = cleanText(q.answer);
+    const ansClean = cleanModelAnswer(qClean, q.answer);
     const key = getNormalizedKey(qClean);
     const topic = assignTopic(qClean, ansClean, normSubject);
 
@@ -340,20 +370,15 @@ export async function generateQuickRevisionGuide(
   const flashcards: Flashcard[] = [];
   let cardCounter = 1;
 
-  // Add from high-yield short questions (first 25 crisp cards)
+  // Add high-yield short & long questions with full model answers
   highYieldQuestions.slice(0, 30).forEach((item) => {
-    let crispBack = item.answer;
-    if (crispBack.length > 250) {
-      // Create concise bullet summary
-      const sentences = crispBack.split(/[।.\n]/).filter((s) => s.trim().length > 12);
-      crispBack = sentences.slice(0, 2).join('। ') + '।';
-    }
+    const fullAnswer = cleanModelAnswer(item.question, item.answer);
 
     flashcards.push({
       id: `fc-${cardCounter++}`,
       topic: item.topic,
       front: item.question,
-      back: crispBack,
+      back: fullAnswer,
       type: item.type === 'long' ? 'concept' : 'short',
       marks: item.marks,
       year: item.years[0] || '2024',

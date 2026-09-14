@@ -12,20 +12,32 @@ const NOTES_FILE_MAP: Record<string, string[]> = {
   'pol-science': [
     'class12_pol-science_chap1_notes.json',
     'class12_pol-science_chap2_notes.json',
+    'class12_pol-science_chap3_notes.json',
+    'class12_pol-science_chap4_notes.json',
   ],
   'political-science': [
     'class12_pol-science_chap1_notes.json',
     'class12_pol-science_chap2_notes.json',
+    'class12_pol-science_chap3_notes.json',
+    'class12_pol-science_chap4_notes.json',
   ],
   'political science': [
     'class12_pol-science_chap1_notes.json',
     'class12_pol-science_chap2_notes.json',
+    'class12_pol-science_chap3_notes.json',
+    'class12_pol-science_chap4_notes.json',
   ],
   'history': [
     'class12_history_chap1_notes.json',
+    'class12_history_chap2_notes.json',
+    'class12_history_chap3_notes.json',
+    'class12_history_chap4_notes.json',
   ],
   'geography': [
     'class12_geography_chap1_notes.json',
+    'class12_geography_chap2_notes.json',
+    'class12_geography_chap3_notes.json',
+    'class12_geography_chap4_notes.json',
   ],
 };
 
@@ -126,10 +138,10 @@ class NotesRepository {
         // Ignore network / rate-limit failures and proceed with static & probe
       }
 
-      // 3. Sequential probe for chapters up to 10 if not already in set
-      for (let chap = 1; chap <= 10; chap++) {
+      // 3. Sequential probe for chapters up to 20 if not already in set
+      for (let chap = 1; chap <= 20; chap++) {
         const probeName = `${prefix}_chap${chap}_notes.json`;
-        if (!fileSet.has(probeName) && chap <= 4) {
+        if (!fileSet.has(probeName) && chap <= 15) {
           fileSet.add(probeName);
         }
       }
@@ -174,7 +186,20 @@ class NotesRepository {
         }
 
         if (fetchedNote && fetchedNote.sections && fetchedNote.sections.length > 0) {
-          const uniqueKey = `${fetchedNote.chapterNumber || fileName}`;
+          // Normalize chapter number based on filename (prevents collision if JSON has typo)
+          const chapMatch = fileName.match(/chap(\d+)/i);
+          if (chapMatch && chapMatch[1]) {
+            const chapNumFromFile = parseInt(chapMatch[1], 10);
+            if (chapNumFromFile && (!fetchedNote.chapterNumber || fetchedNote.chapterNumber !== chapNumFromFile)) {
+              fetchedNote.chapterNumber = chapNumFromFile;
+            }
+          }
+
+          if (!fetchedNote.noteId) {
+            fetchedNote.noteId = (fetchedNote as any).id || fileName.replace(/\.json$/i, '');
+          }
+
+          const uniqueKey = `${fileName.toLowerCase()}_chap${fetchedNote.chapterNumber || ''}`;
           if (!seenNoteIds.has(uniqueKey)) {
             seenNoteIds.add(uniqueKey);
             notes.push(fetchedNote);
@@ -197,7 +222,7 @@ class NotesRepository {
   }
 
   getAvailableNotesSubjects(): string[] {
-    return ['Political Science'];
+    return ['Political Science', 'History', 'Geography', 'Hindi', 'Physics', 'Chemistry', 'Biology', 'Mathematics'];
   }
 }
 

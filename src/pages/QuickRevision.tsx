@@ -362,7 +362,7 @@ export const QuickRevision: React.FC = () => {
                   </div>
 
                   {/* Card Center Content */}
-                  <div className="py-4 my-auto">
+                  <div className="py-4 my-auto max-h-[380px] sm:max-h-[460px] overflow-y-auto pr-1">
                     {!isFlipped ? (
                       <div className="space-y-3">
                         <div className="inline-flex items-center gap-1 text-[11px] font-bold text-blue-600 dark:text-blue-400">
@@ -374,7 +374,7 @@ export const QuickRevision: React.FC = () => {
                       </div>
                     ) : (
                       <div className="space-y-3 animate-in fade-in zoom-in-95 duration-200">
-                        <div className="inline-flex items-center gap-1 text-[11px] font-bold text-emerald-600 dark:text-emerald-400">
+                        <div className="inline-flex items-center gap-1 text-[11px] font-bold text-emerald-600 dark:text-emerald-400 sticky top-0 bg-blue-50/90 dark:bg-blue-950/90 py-0.5 z-10">
                           <CheckCircle2 className="w-3.5 h-3.5" /> आदर्श उत्तर / मुख्य बिंदु (Model Answer)
                         </div>
                         <p className="text-sm sm:text-base font-medium text-slate-800 dark:text-slate-100 leading-relaxed whitespace-pre-line">

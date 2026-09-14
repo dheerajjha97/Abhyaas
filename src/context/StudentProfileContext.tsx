@@ -146,7 +146,18 @@ export const StudentProfileProvider: React.FC<{ children: React.ReactNode }> = (
       await signInWithPopup(auth, googleProvider);
     } catch (err: any) {
       console.error('Google Sign-In failed:', err);
-      alert(err.message || 'Google साइन-इन विफल रहा।');
+      if (err?.code === 'auth/unauthorized-domain') {
+        alert(
+          'यह डोमेन Firebase Authentication में अधिकृत (Authorized) नहीं है।\n\n' +
+          'कृपया Firebase Console में जाकर:\n' +
+          '1. Authentication > Settings > Authorized domains पर जाएं\n' +
+          '2. "Add domain" पर क्लिक करके abhyaaspyq.in और www.abhyaaspyq.in जोड़ें।'
+        );
+      } else if (err?.code === 'auth/popup-closed-by-user') {
+        // User closed the popup, no alert needed
+      } else {
+        alert(err.message || 'Google साइन-इन विफल रहा।');
+      }
     } finally {
       setIsSyncing(false);
     }

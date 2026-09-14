@@ -37,12 +37,14 @@ export const StudentProfileModal: React.FC<StudentProfileModalProps> = ({ isOpen
     isSyncing,
     signInWithGoogle,
     signOutUser,
+    fetchGoogleProfile,
   } = useStudentProfile();
   const isFirstTimeSetup = !profile.isConfigured;
 
   const [formData, setFormData] = useState<StudentProfile>(profile);
   const [savedSuccess, setSavedSuccess] = useState(false);
   const [showAllSubjects, setShowAllSubjects] = useState(false);
+  const [isFetchingGoogle, setIsFetchingGoogle] = useState(false);
 
   useEffect(() => {
     if (isOpen) {
@@ -169,8 +171,24 @@ export const StudentProfileModal: React.FC<StudentProfileModalProps> = ({ isOpen
         {/* Modal Header */}
         <div className="p-4 sm:p-5 bg-gradient-to-r from-indigo-600 via-indigo-700 to-purple-600 text-white flex items-center justify-between shrink-0">
           <div className="flex items-center gap-3">
-            <div className="w-11 h-11 rounded-2xl bg-white/20 backdrop-blur-md flex items-center justify-center text-2xl shadow-inner shrink-0">
-              {formData.avatarEmoji}
+            <div className="w-11 h-11 rounded-2xl bg-white/20 backdrop-blur-md flex items-center justify-center text-2xl shadow-inner shrink-0 overflow-hidden border border-white/30">
+              {formData.photoURL ? (
+                <img
+                  src={formData.photoURL}
+                  alt={formData.name}
+                  className="w-full h-full object-cover"
+                  referrerPolicy="no-referrer"
+                />
+              ) : currentUser?.photoURL ? (
+                <img
+                  src={currentUser.photoURL}
+                  alt={formData.name}
+                  className="w-full h-full object-cover"
+                  referrerPolicy="no-referrer"
+                />
+              ) : (
+                formData.avatarEmoji
+              )}
             </div>
             <div>
               <div className="flex items-center gap-1.5">
@@ -206,13 +224,24 @@ export const StudentProfileModal: React.FC<StudentProfileModalProps> = ({ isOpen
           <div className="p-3 sm:p-3.5 bg-gradient-to-r from-indigo-50/80 to-purple-50/80 dark:from-indigo-950/40 dark:to-purple-950/40 border border-indigo-100 dark:border-indigo-900/50 rounded-2xl">
             <div className="flex items-center justify-between gap-2.5">
               <div className="flex items-center gap-2.5 min-w-0">
-                <div className="w-8 h-8 rounded-xl bg-indigo-600 text-white flex items-center justify-center shrink-0 shadow-xs">
-                  <Cloud className="w-4 h-4" />
-                </div>
+                {currentUser?.photoURL ? (
+                  <div className="w-10 h-10 rounded-xl overflow-hidden border-2 border-indigo-500 shadow-xs shrink-0 bg-white">
+                    <img
+                      src={currentUser.photoURL}
+                      alt={currentUser.displayName || 'Google Profile'}
+                      className="w-full h-full object-cover"
+                      referrerPolicy="no-referrer"
+                    />
+                  </div>
+                ) : (
+                  <div className="w-9 h-9 rounded-xl bg-indigo-600 text-white flex items-center justify-center shrink-0 shadow-xs">
+                    <Cloud className="w-4 h-4" />
+                  </div>
+                )}
                 <div className="min-w-0">
                   <div className="flex items-center gap-1.5 flex-wrap">
                     <span className="text-xs font-bold text-slate-800 dark:text-slate-100">
-                      Firebase क्लाउड सिंक
+                      {currentUser ? (currentUser.displayName || 'Google Account') : 'Firebase क्लाउड सिंक'}
                     </span>
                     {currentUser ? (
                       <span className="inline-flex items-center gap-1 px-1.5 py-0.5 rounded-full text-[9px] font-extrabold bg-emerald-100 text-emerald-700 dark:bg-emerald-900/40 dark:text-emerald-300">
@@ -227,24 +256,51 @@ export const StudentProfileModal: React.FC<StudentProfileModalProps> = ({ isOpen
                   </div>
                   <p className="text-[11px] text-slate-500 dark:text-slate-400 truncate">
                     {currentUser
-                      ? currentUser.email || currentUser.displayName || 'Google Account Connected'
+                      ? currentUser.email || 'Google Account Connected'
                       : 'Google से सिंक करें ताकि डेटा कभी खो न जाए'}
                   </p>
                 </div>
               </div>
               {currentUser ? (
-                <button
-                  type="button"
-                  onClick={signOutUser}
-                  className="px-2.5 py-1.5 rounded-xl text-[11px] font-bold text-red-600 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-950/40 border border-red-200 dark:border-red-900/50 transition-colors shrink-0 cursor-pointer flex items-center gap-1"
-                >
-                  <LogOut className="w-3 h-3" />
-                  <span>लॉगआउट</span>
-                </button>
+                <div className="flex items-center gap-1.5 shrink-0">
+                  <button
+                    type="button"
+                    onClick={async () => {
+                      setIsFetchingGoogle(true);
+                      await fetchGoogleProfile();
+                      if (currentUser.displayName) {
+                        setFormData((prev) => ({
+                          ...prev,
+                          name: currentUser.displayName || prev.name,
+                          photoURL: currentUser.photoURL || prev.photoURL,
+                          email: currentUser.email || prev.email,
+                        }));
+                      }
+                      setIsFetchingGoogle(false);
+                    }}
+                    disabled={isFetchingGoogle || isSyncing}
+                    title="Google से नाम व फोटो रिफ्रेश करें"
+                    className="p-1.5 rounded-xl text-[11px] font-bold text-indigo-700 dark:text-indigo-300 hover:bg-indigo-100 dark:hover:bg-indigo-900/40 border border-indigo-200 dark:border-indigo-800 transition-colors cursor-pointer flex items-center gap-1"
+                  >
+                    <RefreshCw className={`w-3.5 h-3.5 ${isFetchingGoogle ? 'animate-spin' : ''}`} />
+                    <span className="hidden sm:inline">Fetch Profile</span>
+                  </button>
+
+                  <button
+                    type="button"
+                    onClick={signOutUser}
+                    className="px-2.5 py-1.5 rounded-xl text-[11px] font-bold text-red-600 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-950/40 border border-red-200 dark:border-red-900/50 transition-colors shrink-0 cursor-pointer flex items-center gap-1"
+                  >
+                    <LogOut className="w-3 h-3" />
+                    <span>लॉगआउट</span>
+                  </button>
+                </div>
               ) : (
                 <button
                   type="button"
-                  onClick={signInWithGoogle}
+                  onClick={async () => {
+                    await signInWithGoogle();
+                  }}
                   disabled={isSyncing}
                   className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white text-[11px] font-extrabold shadow-xs hover:shadow transition-all shrink-0 cursor-pointer disabled:opacity-50"
                 >
@@ -261,9 +317,20 @@ export const StudentProfileModal: React.FC<StudentProfileModalProps> = ({ isOpen
 
           {/* Name & Avatar */}
           <div className="space-y-2">
-            <label className="text-xs font-bold text-slate-700 dark:text-slate-200">
-              आपका नाम (Student Name)
-            </label>
+            <div className="flex items-center justify-between">
+              <label className="text-xs font-bold text-slate-700 dark:text-slate-200">
+                आपका नाम (Student Name)
+              </label>
+              {currentUser?.displayName && currentUser.displayName !== formData.name && (
+                <button
+                  type="button"
+                  onClick={() => setFormData({ ...formData, name: currentUser.displayName || '' })}
+                  className="text-[10px] font-bold text-indigo-600 dark:text-indigo-400 hover:underline cursor-pointer flex items-center gap-0.5"
+                >
+                  <span>Google नाम भरें: {currentUser.displayName}</span>
+                </button>
+              )}
+            </div>
             <div className="flex gap-2">
               <input
                 type="text"
@@ -274,23 +341,68 @@ export const StudentProfileModal: React.FC<StudentProfileModalProps> = ({ isOpen
               />
             </div>
 
-            {/* Avatar Selector */}
-            <div className="flex items-center gap-2 pt-1 overflow-x-auto pb-1 no-scrollbar">
-              <span className="text-[10px] font-bold text-slate-400 shrink-0">अवतार:</span>
-              {AVATAR_EMOJIS.map((emoji) => (
-                <button
-                  key={emoji}
-                  type="button"
-                  onClick={() => setFormData({ ...formData, avatarEmoji: emoji })}
-                  className={`w-8 h-8 rounded-xl flex items-center justify-center text-sm transition-all cursor-pointer ${
-                    formData.avatarEmoji === emoji
-                      ? 'bg-indigo-600 text-white scale-110 shadow-md ring-2 ring-indigo-300'
-                      : 'bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700'
-                  }`}
-                >
-                  {emoji}
-                </button>
-              ))}
+            {/* Avatar Selector (Google Photo + Emojis) */}
+            <div className="space-y-1 pt-1">
+              <div className="flex items-center gap-2 overflow-x-auto pb-1 no-scrollbar">
+                <span className="text-[10px] font-bold text-slate-400 shrink-0">अवतार:</span>
+                
+                {/* Google Account Profile Photo option if available */}
+                {(currentUser?.photoURL || formData.photoURL) && (
+                  <button
+                    type="button"
+                    onClick={() =>
+                      setFormData({
+                        ...formData,
+                        photoURL: currentUser?.photoURL || formData.photoURL,
+                      })
+                    }
+                    title="Google Profile Photo"
+                    className={`w-8 h-8 rounded-xl overflow-hidden flex items-center justify-center transition-all cursor-pointer border-2 shrink-0 ${
+                      formData.photoURL
+                        ? 'border-indigo-600 scale-110 shadow-md ring-2 ring-indigo-300 dark:ring-indigo-700'
+                        : 'border-slate-300 dark:border-slate-700 opacity-60 hover:opacity-100'
+                    }`}
+                  >
+                    <img
+                      src={currentUser?.photoURL || formData.photoURL}
+                      alt="Google Photo"
+                      className="w-full h-full object-cover"
+                      referrerPolicy="no-referrer"
+                    />
+                  </button>
+                )}
+
+                {AVATAR_EMOJIS.map((emoji) => {
+                  const isSelected = !formData.photoURL && formData.avatarEmoji === emoji;
+                  return (
+                    <button
+                      key={emoji}
+                      type="button"
+                      onClick={() =>
+                        setFormData({
+                          ...formData,
+                          avatarEmoji: emoji,
+                          photoURL: undefined, // Clear custom photoURL so emoji takes priority
+                        })
+                      }
+                      className={`w-8 h-8 rounded-xl flex items-center justify-center text-sm transition-all cursor-pointer shrink-0 ${
+                        isSelected
+                          ? 'bg-indigo-600 text-white scale-110 shadow-md ring-2 ring-indigo-300'
+                          : 'bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700'
+                      }`}
+                    >
+                      {emoji}
+                    </button>
+                  );
+                })}
+              </div>
+              {(currentUser?.photoURL || formData.photoURL) && (
+                <p className="text-[10px] text-slate-400 dark:text-slate-500">
+                  {formData.photoURL
+                    ? '✓ Google प्रोफ़ाइल फोटो चयनित है।'
+                    : 'इमोजी या अपनी Google फ़ोटो पर क्लिक करके चुनें।'}
+                </p>
+              )}
             </div>
           </div>
 

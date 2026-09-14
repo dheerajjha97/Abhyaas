@@ -35,7 +35,7 @@ import {
 } from 'lucide-react';
 
 export const More: React.FC = () => {
-  const { profile, setClassId, openProfileModal } = useStudentProfile();
+  const { profile, setClassId, openProfileModal, currentUser } = useStudentProfile();
   const [settings, setSettings] = useState<AppSettings>(getAppSettings());
   const [deferredPrompt, setDeferredPrompt] = useState<any>(null);
   const [isInstallable, setIsInstallable] = useState(false);
@@ -199,13 +199,22 @@ export const More: React.FC = () => {
       <div className="bg-white dark:bg-slate-900 rounded-2xl sm:rounded-3xl p-4 sm:p-5 border border-slate-200/90 dark:border-slate-800 shadow-2xs space-y-3.5">
         <div className="flex items-center justify-between gap-3">
           <div className="flex items-center gap-3 min-w-0">
-            <div className="w-12 h-12 rounded-2xl bg-blue-50 dark:bg-blue-950 text-blue-600 dark:text-blue-400 flex items-center justify-center text-2xl border border-blue-100 dark:border-blue-900 shrink-0">
-              {profile.avatarEmoji || '🎓'}
+            <div className="w-12 h-12 rounded-2xl bg-blue-50 dark:bg-blue-950 text-blue-600 dark:text-blue-400 flex items-center justify-center text-2xl border border-blue-100 dark:border-blue-900 shrink-0 overflow-hidden shadow-2xs">
+              {profile.photoURL || currentUser?.photoURL ? (
+                <img
+                  src={profile.photoURL || currentUser?.photoURL}
+                  alt={profile.name}
+                  className="w-full h-full object-cover"
+                  referrerPolicy="no-referrer"
+                />
+              ) : (
+                profile.avatarEmoji || '🎓'
+              )}
             </div>
             <div className="min-w-0">
               <div className="flex items-center gap-2">
                 <h3 className="text-base sm:text-lg font-black text-slate-900 dark:text-white truncate">
-                  {profile.name || 'विद्यार्थी'}
+                  {profile.name || currentUser?.displayName || 'विद्यार्थी'}
                 </h3>
                 <span className="text-[10px] font-bold text-blue-700 dark:text-blue-300 bg-blue-50 dark:bg-blue-950/70 border border-blue-200/70 dark:border-blue-900 px-2 py-0.5 rounded-full shrink-0">
                   Class {profile.classId}

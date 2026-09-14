@@ -22,6 +22,8 @@ export interface StudentProfile {
   selectedSubjects: string[]; // List of subject names active for current classId
   classSubjects?: Record<string, string[]>; // Remembered chosen subjects per classId: { '10': [...], '11': [...], '12': [...] }
   avatarEmoji: string;
+  photoURL?: string; // Google account profile picture URL
+  email?: string; // Google account email
   targetYear?: number;
   lastUpdated?: number;
   isConfigured?: boolean; // True once the student has customized/confirmed their profile

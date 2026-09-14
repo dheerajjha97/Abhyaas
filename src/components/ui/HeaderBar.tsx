@@ -1,7 +1,8 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { ChevronLeft, Sparkles } from 'lucide-react';
+import { ChevronLeft, Sparkles, Menu } from 'lucide-react';
 import { BrandLogo } from './BrandLogo';
+import { useDrawer } from '../../context/DrawerContext';
 
 interface HeaderBarProps {
   title?: string;
@@ -17,6 +18,7 @@ export const HeaderBar: React.FC<HeaderBarProps> = ({
   rightAction,
 }) => {
   const navigate = useNavigate();
+  const { openDrawer } = useDrawer();
 
   return (
     <header className="sticky top-0 md:static z-30 w-full bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl border border-slate-200/80 dark:border-slate-800 px-4 py-3 shadow-2xs rounded-2xl">
@@ -59,11 +61,31 @@ export const HeaderBar: React.FC<HeaderBarProps> = ({
         </div>
 
         {rightAction ? (
-          <div>{rightAction}</div>
+          <div className="flex items-center gap-1.5">
+            {rightAction}
+            <button
+              onClick={openDrawer}
+              aria-label="मेनू खोलें (Open Menu)"
+              title="मेनू खोलें"
+              className="p-2 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 active:scale-95 transition-all cursor-pointer border border-slate-200/80 dark:border-slate-700 flex items-center justify-center shadow-2xs"
+            >
+              <Menu className="w-4 h-4" strokeWidth={2.5} />
+            </button>
+          </div>
         ) : (
-          <div className="flex items-center gap-1 text-[11px] font-bold text-blue-700 dark:text-blue-300 bg-blue-50 dark:bg-blue-950/60 border border-blue-200/70 dark:border-blue-800/60 px-3 py-1 rounded-full shadow-2xs">
-            <Sparkles className="w-3.5 h-3.5 text-blue-600" />
-            <span>अभ्यास</span>
+          <div className="flex items-center gap-1.5">
+            <button
+              onClick={openDrawer}
+              aria-label="मेनू खोलें (Open Menu)"
+              title="मेनू खोलें"
+              className="p-2 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 active:scale-95 transition-all cursor-pointer border border-slate-200/80 dark:border-slate-700 flex items-center justify-center shadow-2xs"
+            >
+              <Menu className="w-4 h-4" strokeWidth={2.5} />
+            </button>
+            <div className="hidden sm:flex items-center gap-1 text-[11px] font-bold text-blue-700 dark:text-blue-300 bg-blue-50 dark:bg-blue-950/60 border border-blue-200/70 dark:border-blue-800/60 px-3 py-1 rounded-full shadow-2xs">
+              <Sparkles className="w-3.5 h-3.5 text-blue-600" />
+              <span>अभ्यास</span>
+            </div>
           </div>
         )}
       </div>

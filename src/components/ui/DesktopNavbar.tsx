@@ -1,8 +1,10 @@
 import React from 'react';
 import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 import { useStudentProfile } from '../../context/StudentProfileContext';
+import { useDrawer } from '../../context/DrawerContext';
 import { BrandLogo } from './BrandLogo';
 import {
+  Menu,
   Home,
   FileText,
   Zap,
@@ -25,7 +27,8 @@ interface DesktopNavItem {
 export const DesktopNavbar: React.FC = () => {
   const { pathname } = useLocation();
   const navigate = useNavigate();
-  const { profile, openProfileModal } = useStudentProfile();
+  const { profile, openProfileModal, currentUser } = useStudentProfile();
+  const { openDrawer } = useDrawer();
 
   const navItems: DesktopNavItem[] = [
     { id: 'home', label: 'होम', to: '/', icon: Home },
@@ -71,7 +74,16 @@ export const DesktopNavbar: React.FC = () => {
   return (
     <header className="hidden md:flex w-full items-center justify-between py-2.5 sm:py-3 px-3.5 sm:px-4 mb-4 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md rounded-2xl border border-slate-200/80 dark:border-slate-800 shadow-xs sticky top-2 z-40 transition-all">
       {/* Brand Logo & Class Badge */}
-      <div className="flex items-center gap-3">
+      <div className="flex items-center gap-2.5">
+        <button
+          onClick={openDrawer}
+          aria-label="मेनू खोलें (Open Menu)"
+          title="साइड मेनू खोलें"
+          className="p-2 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-100 active:scale-95 transition-all cursor-pointer border border-slate-200/80 dark:border-slate-700 flex items-center justify-center shadow-2xs"
+        >
+          <Menu className="w-4 h-4" strokeWidth={2.5} />
+        </button>
+
         <NavLink
           to="/"
           className="flex items-center gap-2.5 group cursor-pointer focus-visible:outline-none"
@@ -128,18 +140,29 @@ export const DesktopNavbar: React.FC = () => {
           className="flex items-center gap-2 px-3 py-1.5 rounded-xl bg-slate-50 dark:bg-slate-800/90 hover:bg-slate-100 dark:hover:bg-slate-800 border border-slate-200/80 dark:border-slate-700 transition-all cursor-pointer group"
           title="विद्यार्थी प्रोफ़ाइल व कक्षा बदलें"
         >
-          <span className="text-base group-hover:scale-110 transition-transform">
-            {profile.avatarEmoji || '🎓'}
-          </span>
+          <div className="w-6 h-6 rounded-lg overflow-hidden flex items-center justify-center bg-blue-50 dark:bg-blue-950/60 border border-slate-200 dark:border-slate-700 shrink-0">
+            {profile.photoURL || currentUser?.photoURL ? (
+              <img
+                src={profile.photoURL || currentUser?.photoURL}
+                alt={profile.name}
+                className="w-full h-full object-cover"
+                referrerPolicy="no-referrer"
+              />
+            ) : (
+              <span className="text-sm group-hover:scale-110 transition-transform">
+                {profile.avatarEmoji || '🎓'}
+              </span>
+            )}
+          </div>
           <div className="text-left">
-            <div className="text-xs font-black text-slate-800 dark:text-slate-200 leading-tight">
-              {profile.name || 'विद्यार्थी'}
+            <div className="text-xs font-black text-slate-800 dark:text-slate-200 leading-tight max-w-[110px] truncate">
+              {profile.name || currentUser?.displayName || 'विद्यार्थी'}
             </div>
             <div className="text-[10px] font-bold text-blue-600 dark:text-blue-400 leading-none">
               Class {profile.classId} {profile.stream ? `• ${profile.stream}` : ''}
             </div>
           </div>
-          <ChevronDown className="w-3.5 h-3.5 text-slate-400 group-hover:text-slate-600 dark:group-hover:text-slate-300" />
+          <ChevronDown className="w-3.5 h-3.5 text-slate-400 group-hover:text-slate-600 dark:group-hover:text-slate-300 shrink-0" />
         </button>
 
         {/* More Settings */}

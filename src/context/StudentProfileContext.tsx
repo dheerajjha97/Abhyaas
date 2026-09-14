@@ -32,6 +32,7 @@ interface StudentProfileContextType {
   resetToDefaults: () => void;
   signInWithGoogle: () => Promise<void>;
   signOutUser: () => Promise<void>;
+  fetchGoogleProfile: () => Promise<boolean>;
 }
 
 const StudentProfileContext = createContext<StudentProfileContextType | undefined>(undefined);
@@ -54,6 +55,8 @@ export const StudentProfileProvider: React.FC<{ children: React.ReactNode }> = (
       const userRef = doc(db, 'users', targetUid);
       const dataToSave = {
         name: profileToSave.name || '',
+        photoURL: profileToSave.photoURL || currentUser?.photoURL || '',
+        email: profileToSave.email || currentUser?.email || '',
         classId: profileToSave.classId || '12',
         board: profileToSave.board || 'BSEB (Bihar Board)',
         stream: profileToSave.stream || 'Arts',
@@ -69,7 +72,7 @@ export const StudentProfileProvider: React.FC<{ children: React.ReactNode }> = (
       console.warn('Failed to sync profile to Firestore:', err);
       setCloudSyncStatus('offline');
     }
-  }, [currentUser?.uid]);
+  }, [currentUser?.uid, currentUser?.photoURL, currentUser?.email]);
 
   // Listen to Firebase Auth state
   useEffect(() => {
@@ -85,10 +88,21 @@ export const StudentProfileProvider: React.FC<{ children: React.ReactNode }> = (
           if (snap.exists()) {
             const cloudData = snap.data();
             setProfile((local) => {
+              // Prefer user's Google displayName if current name is empty or default 'विद्यार्थी'
+              const resolvedName =
+                (cloudData.name && cloudData.name !== 'विद्यार्थी')
+                  ? cloudData.name
+                  : (user.displayName || cloudData.name || local.name || 'विद्यार्थी');
+
+              const resolvedPhoto = user.photoURL || cloudData.photoURL || local.photoURL;
+              const resolvedEmail = user.email || cloudData.email || local.email;
+
               const merged: StudentProfile = {
                 ...local,
                 ...cloudData,
-                name: cloudData.name || user.displayName || local.name,
+                name: resolvedName,
+                photoURL: resolvedPhoto,
+                email: resolvedEmail,
                 classId: cloudData.classId || local.classId,
                 stream: cloudData.stream || local.stream,
                 selectedSubjects: cloudData.selectedSubjects || local.selectedSubjects,
@@ -100,11 +114,14 @@ export const StudentProfileProvider: React.FC<{ children: React.ReactNode }> = (
             });
             setCloudSyncStatus('synced');
           } else {
-            // New user in Firestore: upload current local profile
+            // New user in Firestore: upload current local profile merged with Google credentials
             const currentLocal = getStoredStudentProfile();
             const initialToSave: StudentProfile = {
               ...currentLocal,
-              name: currentLocal.name || user.displayName || 'विद्यार्थी',
+              name: user.displayName || (currentLocal.name !== 'विद्यार्थी' ? currentLocal.name : '') || user.displayName || 'विद्यार्थी',
+              photoURL: user.photoURL || currentLocal.photoURL || undefined,
+              email: user.email || currentLocal.email || undefined,
+              isConfigured: true,
             };
             setProfile(initialToSave);
             saveStoredStudentProfile(initialToSave);
@@ -143,7 +160,28 @@ export const StudentProfileProvider: React.FC<{ children: React.ReactNode }> = (
   const signInWithGoogle = async () => {
     try {
       setIsSyncing(true);
-      await signInWithPopup(auth, googleProvider);
+      const result = await signInWithPopup(auth, googleProvider);
+      const user = result.user;
+      if (user) {
+        // Automatically fetch and apply Google user name, profile photo, and email
+        const googleName = user.displayName;
+        const googlePhoto = user.photoURL;
+        const googleEmail = user.email;
+
+        setProfile((prev) => {
+          const updated: StudentProfile = {
+            ...prev,
+            name: googleName || prev.name,
+            photoURL: googlePhoto || prev.photoURL,
+            email: googleEmail || prev.email,
+            isConfigured: true,
+          };
+          saveStoredStudentProfile(updated);
+          // Sync to Firestore cloud
+          syncProfileToCloud(updated, user.uid);
+          return updated;
+        });
+      }
     } catch (err: any) {
       console.error('Google Sign-In failed:', err);
       if (err?.code === 'auth/unauthorized-domain') {
@@ -163,9 +201,39 @@ export const StudentProfileProvider: React.FC<{ children: React.ReactNode }> = (
     }
   };
 
+  const fetchGoogleProfile = async (): Promise<boolean> => {
+    const user = auth.currentUser;
+    if (!user) return false;
+
+    try {
+      setIsSyncing(true);
+      const googleName = user.displayName;
+      const googlePhoto = user.photoURL;
+      const googleEmail = user.email;
+
+      const updated: StudentProfile = {
+        ...profile,
+        name: googleName || profile.name,
+        photoURL: googlePhoto || profile.photoURL,
+        email: googleEmail || profile.email,
+      };
+
+      setProfile(updated);
+      saveStoredStudentProfile(updated);
+      await syncProfileToCloud(updated, user.uid);
+      return true;
+    } catch (e) {
+      console.error('Failed to re-fetch Google profile:', e);
+      return false;
+    } finally {
+      setIsSyncing(false);
+    }
+  };
+
   const signOutUser = async () => {
     try {
       await signOut(auth);
+      setCurrentUser(null);
       setCloudSyncStatus('unauthenticated');
     } catch (err) {
       console.error('Sign-Out failed:', err);

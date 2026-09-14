@@ -23,6 +23,8 @@ import { PrivacyPolicy } from './pages/PrivacyPolicy';
 import { ContactUs } from './pages/ContactUs';
 import { BottomNavigation } from './components/ui/BottomNavigation';
 import { DesktopNavbar } from './components/ui/DesktopNavbar';
+import { NavigationDrawer } from './components/ui/NavigationDrawer';
+import { DrawerProvider } from './context/DrawerContext';
 import { AdSenseTracker } from './components/ads/AdSenseTracker';
 import { PWAInstallPrompt } from './components/pwa/PWAInstallPrompt';
 import { OfflineIndicator } from './components/pwa/OfflineIndicator';
@@ -87,6 +89,9 @@ const AppContent: React.FC = () => {
         </div>
       </div>
 
+      {/* Global Navigation Drawer */}
+      <NavigationDrawer />
+
       {/* Global Student Profile Modal - pops up on first launch if not configured, or on demand */}
       <StudentProfileModal
         isOpen={isProfileModalOpen}
@@ -104,7 +109,9 @@ export default function App() {
   return (
     <StudentProfileProvider>
       <StudentProgressProvider>
-        <AppContent />
+        <DrawerProvider>
+          <AppContent />
+        </DrawerProvider>
       </StudentProgressProvider>
     </StudentProfileProvider>
   );

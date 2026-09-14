@@ -5,6 +5,7 @@
       "fields": {
         "name": { "type": "string" },
         "email": { "type": "string" },
+        "photoURL": { "type": "string" },
         "classId": { "type": "string" },
         "board": { "type": "string" },
         "stream": { "type": "string" },

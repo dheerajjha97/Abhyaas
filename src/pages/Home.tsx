@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { GlassCard } from '../components/ui/GlassCard';
 import {
+  Menu,
   ChevronRight,
   BookOpen,
   Settings2,
@@ -27,6 +28,7 @@ import {
 } from 'lucide-react';
 import { useStudentProfile } from '../context/StudentProfileContext';
 import { useStudentProgress } from '../context/StudentProgressContext';
+import { useDrawer } from '../context/DrawerContext';
 import { ALL_AVAILABLE_SUBJECTS } from '../types/studentProfile';
 import { questionRepository, normalizeSubject } from '../services/questionRepository';
 import { PaperSummary } from '../types/question';
@@ -39,6 +41,7 @@ export const Home: React.FC = () => {
   const navigate = useNavigate();
   const { profile, setClassId, openProfileModal, currentUser, cloudSyncStatus } = useStudentProfile();
   const { progress } = useStudentProgress();
+  const { openDrawer } = useDrawer();
 
   const [papers, setPapers] = useState<PaperSummary[]>([]);
   const [activeTab, setActiveTab] = useState<'overview' | 'badges' | 'subjectMastery' | 'recentTests'>('overview');
@@ -105,7 +108,15 @@ export const Home: React.FC = () => {
     <div className="space-y-4 sm:space-y-5 pb-28 animate-in fade-in duration-300">
       {/* Top AppBar (Mobile only) with brand logo, greeting & sync */}
       <div className="md:hidden bg-white dark:bg-slate-900 rounded-2xl p-3 border border-slate-200/80 dark:border-slate-800 shadow-xs flex items-center justify-between gap-2.5">
-        <div className="flex items-center gap-2.5 min-w-0">
+        <div className="flex items-center gap-2 min-w-0">
+          <button
+            onClick={openDrawer}
+            aria-label="मेनू खोलें (Open Menu)"
+            title="मेनू खोलें"
+            className="p-2 -ml-0.5 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-100 active:scale-95 transition-all cursor-pointer border border-slate-200/80 dark:border-slate-700 shrink-0 flex items-center justify-center shadow-2xs"
+          >
+            <Menu className="w-4 h-4" strokeWidth={2.5} />
+          </button>
           <BrandLogo size="md" rounded="rounded-2xl" className="border border-slate-200 dark:border-slate-700 shrink-0" />
 
           <div className="min-w-0">
@@ -130,10 +141,19 @@ export const Home: React.FC = () => {
         <div className="flex items-center gap-1.5 shrink-0">
           <button
             onClick={openProfileModal}
-            className="w-8 h-8 rounded-xl bg-blue-50 dark:bg-blue-950 text-blue-600 dark:text-blue-400 border border-blue-200 dark:border-blue-800 flex items-center justify-center text-sm font-bold shadow-2xs cursor-pointer"
+            className="w-8 h-8 rounded-xl bg-blue-50 dark:bg-blue-950 text-blue-600 dark:text-blue-400 border border-blue-200 dark:border-blue-800 flex items-center justify-center text-sm font-bold shadow-2xs cursor-pointer overflow-hidden"
             title="कक्षा व विषय बदलें"
           >
-            {profile.avatarEmoji || '🎓'}
+            {profile.photoURL || currentUser?.photoURL ? (
+              <img
+                src={profile.photoURL || currentUser?.photoURL}
+                alt={profile.name}
+                className="w-full h-full object-cover"
+                referrerPolicy="no-referrer"
+              />
+            ) : (
+              profile.avatarEmoji || '🎓'
+            )}
           </button>
 
           <button

@@ -10,6 +10,7 @@ import {
   HighYieldQuestion,
 } from '../services/revisionService';
 import { normalizeSubject } from '../services/questionRepository';
+import { FormattedAnswer } from '../components/ui/FormattedAnswer';
 import {
   Zap,
   Flame,
@@ -504,9 +505,9 @@ export const QuickRevision: React.FC = () => {
                               <span className="text-[10px] font-bold text-emerald-600 dark:text-emerald-400 uppercase tracking-wider block">
                                 📖 आदर्श उत्तर (Model Answer):
                               </span>
-                              <p className="text-xs sm:text-sm text-slate-800 dark:text-slate-200 leading-relaxed whitespace-pre-line">
-                                {q.answer}
-                              </p>
+                              <div className="pt-1">
+                                <FormattedAnswer content={q.answer} fontSize="sm" />
+                              </div>
                             </div>
 
                             {/* Key Takeaway Bullets */}

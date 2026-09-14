@@ -4,6 +4,7 @@ import { HeaderBar } from '../components/ui/HeaderBar';
 import { FormattedNoteContent } from '../components/ui/FormattedNoteContent';
 import { NotesSkeleton } from '../components/ui/Skeleton';
 import { notesRepository } from '../services/notesRepository';
+import { getVisualEnrichmentForNote } from '../services/notesVisualService';
 import { NoteData } from '../types/notes';
 import { 
   BookOpen, 
@@ -18,6 +19,8 @@ import {
   Printer,
   ChevronLeft,
   ChevronRight,
+  ChevronDown,
+  ChevronUp,
   ListOrdered,
   Volume2,
   VolumeX,
@@ -30,16 +33,21 @@ import {
   HelpCircle,
   Share2,
   BookmarkCheck,
+  Bookmark,
   Eye,
   EyeOff,
-  Check
+  Check,
+  Target,
+  Star,
+  Lightbulb,
+  ArrowRight,
+  Edit3
 } from 'lucide-react';
 import { useStudentProfile } from '../context/StudentProfileContext';
 import { ALL_AVAILABLE_SUBJECTS } from '../types/studentProfile';
 import { SubjectCarousel } from '../components/ui/SubjectCarousel';
 import { Toast, ToastMessage } from '../components/ui/Toast';
 
-type PaperStyle = 'ruled' | 'sepia' | 'plain';
 type FontSize = 'sm' | 'base' | 'lg' | 'xl';
 
 function getChapterDisplayTitle(note: NoteData, idx: number): string {
@@ -84,8 +92,7 @@ export const NotesView: React.FC = () => {
   const [isRefreshing, setIsRefreshing] = useState(false);
   const [toast, setToast] = useState<ToastMessage | null>(null);
 
-  // Notebook Customization State
-  const [paperStyle, setPaperStyle] = useState<PaperStyle>('ruled');
+  // Reading Customization State
   const [fontSize, setFontSize] = useState<FontSize>('base');
   const [isHighlightsOnly, setIsHighlightsOnly] = useState<boolean>(false);
 
@@ -96,6 +103,22 @@ export const NotesView: React.FC = () => {
   
   // Read / Mastered Chapters Tracker
   const [readChapters, setReadChapters] = useState<Set<string>>(new Set());
+  const [bookmarkedSections, setBookmarkedSections] = useState<Set<string>>(new Set());
+
+  // Collapsible Section Key Points State
+  const [expandedKeyPoints, setExpandedKeyPoints] = useState<Set<string>>(new Set());
+
+  const toggleKeyPoints = (keyPointId: string) => {
+    setExpandedKeyPoints((prev) => {
+      const next = new Set(prev);
+      if (next.has(keyPointId)) {
+        next.delete(keyPointId);
+      } else {
+        next.add(keyPointId);
+      }
+      return next;
+    });
+  };
 
   // Audio TTS Reader State
   const [isPlayingAudio, setIsPlayingAudio] = useState<boolean>(false);
@@ -201,13 +224,6 @@ export const NotesView: React.FC = () => {
 
   const activeNote = notes[activeNoteIndex];
 
-  // Paper background class
-  const paperClass = {
-    ruled: 'notebook-ruled-paper',
-    sepia: 'notebook-sepia-paper',
-    plain: 'notebook-plain-paper',
-  }[paperStyle];
-
   const currentDateStr = new Date().toLocaleDateString('hi-IN', {
     day: '2-digit',
     month: 'short',
@@ -305,7 +321,7 @@ export const NotesView: React.FC = () => {
 
       <HeaderBar 
         showBack={Boolean(paramSubjectId)}
-        title="रिवीजन नोटबुक" 
+        title="रिवीजन नोट्स" 
         subtitle={`Class ${classId} • ${selectedSubject}`} 
         rightAction={
           <div className="flex items-center gap-1.5">
@@ -564,236 +580,328 @@ export const NotesView: React.FC = () => {
                 <span>{readChapters.has(activeNote.noteId || String(activeNoteIndex)) ? 'पढ़ा हुआ ⭐' : 'पढ़ा हुआ मार्क करें'}</span>
               </button>
 
-              {/* Customization controls (Paper style & Font) */}
-              <div className="flex items-center gap-2">
-                {/* Paper Style */}
-                <div className="flex items-center gap-1">
+              {/* Customization controls (Font Size only) */}
+              <div className="flex items-center gap-1.5 bg-slate-100 dark:bg-slate-800 p-1 rounded-xl">
+                <span className="text-[10px] font-bold text-slate-500 px-1">फॉन्ट:</span>
+                {(['sm', 'base', 'lg'] as FontSize[]).map((size) => (
                   <button
-                    onClick={() => setPaperStyle('ruled')}
-                    className={`px-2 py-1 rounded-lg text-xs font-bold cursor-pointer ${
-                      paperStyle === 'ruled' ? 'bg-blue-600 text-white' : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400'
+                    key={size}
+                    onClick={() => setFontSize(size)}
+                    className={`px-2 py-0.5 rounded-lg font-black text-[11px] flex items-center justify-center transition-all cursor-pointer ${
+                      fontSize === size
+                        ? 'bg-blue-600 text-white shadow-2xs'
+                        : 'text-slate-600 dark:text-slate-400 hover:text-slate-900'
                     }`}
-                    title="लाइन्ड पेपर"
                   >
-                    📝
+                    {size === 'sm' ? 'A-' : size === 'base' ? 'A' : 'A+'}
                   </button>
-                  <button
-                    onClick={() => setPaperStyle('sepia')}
-                    className={`px-2 py-1 rounded-lg text-xs font-bold cursor-pointer ${
-                      paperStyle === 'sepia' ? 'bg-amber-600 text-white' : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400'
-                    }`}
-                    title="सेपिया पेपर"
-                  >
-                    📜
-                  </button>
-                  <button
-                    onClick={() => setPaperStyle('plain')}
-                    className={`px-2 py-1 rounded-lg text-xs font-bold cursor-pointer ${
-                      paperStyle === 'plain' ? 'bg-slate-800 text-white dark:bg-white dark:text-slate-900' : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400'
-                    }`}
-                    title="प्लेन पेपर"
-                  >
-                    📄
-                  </button>
-                </div>
-
-                {/* Font size */}
-                <div className="flex items-center gap-1">
-                  {(['sm', 'base', 'lg'] as FontSize[]).map((size) => (
-                    <button
-                      key={size}
-                      onClick={() => setFontSize(size)}
-                      className={`w-6 h-6 rounded-lg font-black text-[10px] flex items-center justify-center transition-all cursor-pointer ${
-                        fontSize === size
-                          ? 'bg-blue-600 text-white shadow-2xs'
-                          : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400'
-                      }`}
-                    >
-                      {size === 'sm' ? 'A-' : size === 'base' ? 'A' : 'A+'}
-                    </button>
-                  ))}
-                </div>
+                ))}
               </div>
 
             </div>
 
           </div>
 
-          {/* 🌟 3. MASTER NOTEBOOK SHEET (Realistic Ruled Notebook Layout) */}
-          <div ref={notebookContainerRef} className="relative rounded-3xl overflow-hidden border-2 border-slate-300/80 dark:border-slate-700/80 shadow-xl">
-            
-            {/* Top Notebook Binding Bar with Perforations */}
-            <div className="bg-slate-800 dark:bg-slate-950 text-white px-4 sm:px-6 py-2.5 flex items-center justify-between border-b border-slate-700">
-              <div className="flex items-center gap-2">
-                <div className="flex gap-1">
-                  <span className="w-2.5 h-2.5 rounded-full bg-red-400 inline-block shadow-2xs" />
-                  <span className="w-2.5 h-2.5 rounded-full bg-amber-400 inline-block shadow-2xs" />
-                  <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 inline-block shadow-2xs" />
-                </div>
-                <span className="text-[11px] sm:text-xs font-extrabold tracking-wider uppercase text-slate-200">
-                  अभ्यास स्टडी रजिस्टर • Class {classId}
-                </span>
-              </div>
+          {/* 🌟 3. MASTER FULL-WIDTH STUDY NOTES VIEW (Full Wide Clean Modern Layout) */}
+          {(() => {
+            const visual = getVisualEnrichmentForNote(activeNote, selectedSubject);
+            const chapterNumFormatted = String(activeNote.chapterNumber || activeNoteIndex + 1).padStart(2, '0');
 
-              <div className="flex items-center gap-3 text-[10px] sm:text-xs text-slate-300 font-mono">
-                <span className="flex items-center gap-1">
-                  <Clock className="w-3 h-3 text-amber-400" />
-                  {activeNote.readTimeMinutes || 5} min
-                </span>
-                <span className="bg-blue-600 text-white font-bold px-2 py-0.5 rounded-md">
-                  अध्याय {activeNote.chapterNumber || activeNoteIndex + 1}
-                </span>
-              </div>
-            </div>
+            return (
+              <div ref={notebookContainerRef} className="w-full space-y-6">
 
-            {/* Notebook Inner Paper Sheet */}
-            <div className={`p-4 sm:p-7 md:p-9 relative notebook-left-margin ${paperClass} min-h-[500px]`}>
-              
-              {/* Left Spiral Binding Rings Visual Effect (on Desktop) */}
-              <div className="hidden sm:flex flex-col justify-between absolute left-2 top-10 bottom-10 w-4 pointer-events-none z-10 opacity-70">
-                {Array.from({ length: 14 }).map((_, rIdx) => (
-                  <div key={rIdx} className="flex items-center gap-1">
-                    <div className="w-2.5 h-2.5 rounded-full bg-slate-400/80 dark:bg-slate-600 shadow-inner border border-slate-500/40" />
-                    <div className="w-4 h-1.5 bg-gradient-to-r from-slate-400 via-slate-200 to-slate-400 rounded-sm shadow-xs -ml-1 transform -rotate-6" />
-                  </div>
-                ))}
-              </div>
-
-              {/* Notebook Header Stamp */}
-              <div className="ml-6 sm:ml-10 mb-6 pb-4 border-b-2 border-red-400/40 dark:border-red-500/30 space-y-3">
-                <div className="flex flex-wrap items-center justify-between gap-2">
-                  <div className="inline-flex items-center gap-2 bg-red-50 dark:bg-red-950/40 border border-red-200 dark:border-red-800/60 px-3 py-1 rounded-xl text-red-700 dark:text-red-300 text-xs font-black">
-                    <Layers className="w-3.5 h-3.5" />
-                    <span>विषय: {selectedSubject}</span>
-                  </div>
-
-                  <div className="flex items-center gap-2 text-xs font-bold text-slate-600 dark:text-slate-300">
-                    <span className="bg-amber-100/90 dark:bg-amber-950/60 text-amber-900 dark:text-amber-200 px-2.5 py-0.5 rounded-lg border border-amber-300/80 dark:border-amber-800">
-                      {activeNote.board || 'BSEB Board'}
-                    </span>
-                    <button
-                      onClick={() =>
-                        navigate(`/quick-revision/${encodeURIComponent(selectedSubject)}`)
-                      }
-                      className="flex items-center gap-1 px-2.5 py-0.5 rounded-lg bg-blue-50 dark:bg-blue-950 text-blue-700 dark:text-blue-300 hover:bg-blue-100 border border-blue-200 text-xs font-bold cursor-pointer"
-                    >
-                      <Zap className="w-3 h-3 text-amber-500 fill-amber-500" />
-                      <span>रिवीजन फ्लैशकार्ड्स</span>
-                    </button>
-                  </div>
-                </div>
-
-                {/* Notebook Big Title with Marker Underline */}
-                <div className="space-y-1">
-                  <h1 className="text-xl sm:text-2xl md:text-3xl font-black text-slate-900 dark:text-slate-50 leading-tight">
-                    {activeNote.title}
-                  </h1>
-                  <p className="text-sm sm:text-base font-extrabold text-blue-700 dark:text-blue-400 flex items-center gap-1.5">
-                    <span className="notebook-highlight-yellow">
-                      अध्याय {activeNote.chapterNumber || activeNoteIndex + 1}: {getChapterDisplayTitle(activeNote, activeNoteIndex)}
-                    </span>
-                  </p>
-                </div>
-
-                {/* Tags Styled as Notebook Sticky Tape */}
-                {activeNote.tags && activeNote.tags.length > 0 && (
-                  <div className="flex flex-wrap gap-1.5 pt-1">
-                    {activeNote.tags.map((tag) => (
-                      <span
-                        key={tag}
-                        className="bg-amber-100/80 dark:bg-slate-800 text-amber-950 dark:text-amber-200 text-[10px] font-black px-2 py-0.5 rounded border border-amber-200/80 dark:border-slate-700 shadow-2xs font-mono"
-                      >
-                        #{tag}
-                      </span>
-                    ))}
-                  </div>
-                )}
-              </div>
-
-              {/* KEY TAKEAWAYS (Sticky Note) */}
-              {activeNote.keyTakeaways && activeNote.keyTakeaways.length > 0 && (
-                <div className="ml-6 sm:ml-10 mb-8 relative p-4 sm:p-5 rounded-2xl bg-amber-100/90 dark:bg-amber-950/40 border border-amber-300/90 dark:border-amber-800/80 shadow-md space-y-2.5 transform -rotate-0.5 hover:rotate-0 transition-transform">
-                  {/* Sticky Tape at Top */}
-                  <div className="absolute -top-2.5 left-1/2 -translate-x-1/2 w-28 h-5 bg-amber-200/60 dark:bg-amber-400/20 backdrop-blur-xs border border-amber-300/60 rounded-xs shadow-2xs pointer-events-none" />
-
-                  <div className="flex items-center gap-2 text-amber-950 dark:text-amber-200 font-black text-xs sm:text-sm">
-                    <Zap className="w-4 h-4 text-amber-600 dark:text-amber-400 fill-current" />
-                    <span>📌 परीक्षा के लिए महत्वपूर्ण निष्कर्ष (Key Takeaways):</span>
-                  </div>
-
-                  <div className="space-y-2 pl-1">
-                    {activeNote.keyTakeaways.map((kt, ktIdx) => (
-                      <div key={ktIdx} className="flex items-start gap-2 text-xs sm:text-sm text-slate-900 dark:text-amber-100 font-medium leading-relaxed">
-                        <CheckCircle2 className="w-4 h-4 text-emerald-600 dark:text-emerald-400 shrink-0 mt-0.5" />
-                        <span>{kt}</span>
+                {/* 🌟 A. VISUAL CHAPTER HEADER BANNER (Full Wide Modern Card) */}
+                <div className="w-full bg-white dark:bg-slate-900 border border-slate-200/90 dark:border-slate-800 rounded-3xl p-5 sm:p-7 shadow-sm space-y-5">
+                  
+                  <div className="flex items-start justify-between gap-5">
+                    
+                    {/* Chapter Title & Number Badge */}
+                    <div className="space-y-2.5 flex-1">
+                      <div className="flex items-center gap-3">
+                        <span className="px-3.5 py-1 bg-blue-600 text-white text-xs font-black rounded-xl uppercase tracking-wider shadow-2xs">
+                          अध्याय
+                        </span>
+                        <span className="text-3xl sm:text-4xl font-black text-blue-600 dark:text-blue-400 tracking-tight">
+                          {chapterNumFormatted}
+                        </span>
+                        <span className="text-xs font-bold text-slate-400 font-mono">
+                          • {activeNote.readTimeMinutes || 5} min read
+                        </span>
                       </div>
-                    ))}
-                  </div>
-                </div>
-              )}
 
-              {/* NOTE SECTIONS (Ruled Notebook Flow) */}
-              <div className="ml-6 sm:ml-10 space-y-8">
-                {activeNote.sections.map((section, idx) => (
-                  <div 
-                    key={section.id || idx}
-                    id={`note-section-${idx}`}
-                    className="space-y-3.5 pb-6 border-b border-slate-200/80 dark:border-slate-800 last:border-none scroll-mt-24"
-                  >
-                    {/* Section Header */}
-                    <div className="flex items-start gap-3">
-                      <span className="w-7 h-7 rounded-xl bg-blue-700 text-white font-black text-xs flex items-center justify-center shrink-0 shadow-xs mt-0.5">
-                        {section.sectionNumber || idx + 1}
-                      </span>
-                      <div className="space-y-0.5 flex-1">
-                        <h2 className="text-base sm:text-lg md:text-xl font-black text-slate-950 dark:text-white leading-snug">
-                          {section.heading}
-                        </h2>
-                        {section.headingHindi && (
-                          <p className="text-xs sm:text-sm font-extrabold text-blue-700 dark:text-blue-400">
-                            {section.headingHindi}
+                      <div className="space-y-1">
+                        <span className="text-xs sm:text-sm font-black text-slate-700 dark:text-slate-300 block tracking-wide">
+                          विस्तृत अध्ययन:
+                        </span>
+                        <h1 className="text-xl sm:text-2xl md:text-3xl font-black text-slate-950 dark:text-white leading-tight">
+                          {activeNote.chapterTitleHindi || activeNote.title}
+                        </h1>
+                        {activeNote.chapterTitle && activeNote.chapterTitle !== activeNote.title && (
+                          <p className="text-xs sm:text-sm font-bold text-slate-600 dark:text-slate-400">
+                            ({activeNote.chapterTitle})
                           </p>
                         )}
                       </div>
                     </div>
 
-                    {/* Rich Formatted Note Content (Hidden if in Highlights Only Mode) */}
-                    {!isHighlightsOnly && (
-                      <div className="pl-1 sm:pl-2">
-                        <FormattedNoteContent content={section.content} fontSize={fontSize} />
-                      </div>
-                    )}
-
-                    {/* Key Points (Styled as Highlighter Box) */}
-                    {section.keyPoints && section.keyPoints.length > 0 && (
-                      <div className="mt-4 p-3.5 sm:p-4 rounded-2xl bg-blue-50/90 dark:bg-slate-800/80 border-2 border-blue-200/90 dark:border-blue-900/60 shadow-2xs space-y-2">
-                        <div className="flex items-center gap-1.5 text-xs sm:text-sm font-black text-blue-900 dark:text-blue-300">
-                          <FileText className="w-4 h-4 text-blue-600" />
-                          <span>रिवीजन पॉइंट्स (Key Summary Points):</span>
-                        </div>
-                        <div className="space-y-1.5 pl-1">
-                          {section.keyPoints.map((kp, kidx) => (
-                            <div key={kidx} className="flex items-start gap-2 text-xs sm:text-sm text-slate-800 dark:text-slate-200 font-medium leading-relaxed">
-                              <span className="w-1.5 h-1.5 rounded-full bg-blue-600 mt-2 shrink-0" />
-                              <span>{kp}</span>
-                            </div>
-                          ))}
-                        </div>
-                      </div>
-                    )}
                   </div>
-                ))}
-              </div>
 
-              {/* Bottom Navigation & Chapter Complete Card */}
-              <div className="ml-6 sm:ml-10 mt-10 pt-6 border-t-2 border-slate-300/80 dark:border-slate-700 space-y-4">
-                <div className="p-4 rounded-2xl bg-white/80 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 flex flex-col sm:flex-row items-center justify-between gap-3 text-center sm:text-left">
+                  {/* 📖 Chapter Overview Summary Strip */}
+                  <div className="p-4 rounded-2xl bg-blue-50/90 dark:bg-blue-950/40 border border-blue-200/90 dark:border-blue-900/70 flex items-start gap-3">
+                    <span className="text-xl shrink-0 mt-0.5">📖</span>
+                    <p className="text-xs sm:text-sm font-medium text-slate-800 dark:text-blue-100 leading-relaxed">
+                      {visual.overviewSummary}
+                    </p>
+                  </div>
+
+                  {/* 🌟 3-COLUMN FEATURE CARDS GRID */}
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-3 pt-1">
+                    
+                    {/* Card 1: 🎯 परीक्षा में महत्वपूर्ण */}
+                    <div className="p-4 rounded-2xl bg-rose-50/70 dark:bg-rose-950/30 border border-rose-200/80 dark:border-rose-900/50 space-y-2">
+                      <div className="flex items-center gap-1.5 text-rose-700 dark:text-rose-400 font-black text-xs sm:text-sm">
+                        <Target className="w-4 h-4 text-rose-600 shrink-0" />
+                        <span>परीक्षा में महत्वपूर्ण</span>
+                      </div>
+                      <ul className="space-y-1.5 pl-1">
+                        {visual.examImportantPoints.map((pt, pIdx) => (
+                          <li key={pIdx} className="text-xs text-slate-800 dark:text-slate-200 flex items-start gap-1.5 leading-snug">
+                            <span className="text-rose-500 font-bold shrink-0">•</span>
+                            <span>{pt}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+
+                    {/* Card 2: ⭐ याद रखें */}
+                    <div className="p-4 rounded-2xl bg-amber-50/70 dark:bg-amber-950/30 border border-amber-200/80 dark:border-amber-900/50 space-y-2">
+                      <div className="flex items-center gap-1.5 text-amber-800 dark:text-amber-300 font-black text-xs sm:text-sm">
+                        <Star className="w-4 h-4 text-amber-500 fill-amber-500 shrink-0" />
+                        <span>याद रखें</span>
+                      </div>
+                      <ul className="space-y-1.5 pl-1">
+                        {visual.rememberPoints.map((pt, pIdx) => (
+                          <li key={pIdx} className="text-xs text-slate-800 dark:text-slate-200 flex items-start gap-1.5 leading-snug">
+                            <span className="text-amber-500 font-bold shrink-0">•</span>
+                            <span>{pt}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+
+                    {/* Card 3: 💡 मुख्य शब्द (Chips) */}
+                    <div className="p-4 rounded-2xl bg-emerald-50/70 dark:bg-emerald-950/30 border border-emerald-200/80 dark:border-emerald-900/50 space-y-2">
+                      <div className="flex items-center gap-1.5 text-emerald-800 dark:text-emerald-300 font-black text-xs sm:text-sm">
+                        <Lightbulb className="w-4 h-4 text-emerald-600 shrink-0" />
+                        <span>मुख्य शब्द</span>
+                      </div>
+                      <div className="grid grid-cols-2 gap-1.5 pt-1">
+                        {visual.keyTerms.map((term, tIdx) => (
+                          <span
+                            key={tIdx}
+                            className="px-2 py-1 rounded-lg bg-emerald-100/80 dark:bg-emerald-900/50 text-emerald-900 dark:text-emerald-200 text-[11px] font-bold text-center truncate border border-emerald-200/80 dark:border-emerald-800 shadow-2xs"
+                          >
+                            {term}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+
+                  </div>
+
+                </div>
+
+                {/* 🌟 B. STRUCTURED SECTION CARDS (01, 02...) */}
+                <div className="space-y-6">
+                  {activeNote.sections.map((section, idx) => {
+                    const secNumStr = String(section.sectionNumber || idx + 1).padStart(2, '0');
+                    const isBookmarked = bookmarkedSections.has(section.id || `${activeNote.noteId}_${idx}`);
+                    const secKeyPointId = `${activeNote.noteId || activeNoteIndex}_sec_${idx}`;
+                    const isKeyPointsExpanded = expandedKeyPoints.has(secKeyPointId);
+
+                    return (
+                      <div
+                        key={section.id || idx}
+                        id={`note-section-${idx}`}
+                        className="bg-white dark:bg-slate-900 border border-slate-200/90 dark:border-slate-800 rounded-3xl p-5 sm:p-7 shadow-sm space-y-4 scroll-mt-24 transition-all hover:border-blue-300 dark:hover:border-blue-800"
+                      >
+                        
+                        {/* Section Card Top Header Bar */}
+                        <div className="flex items-start justify-between gap-3 border-b border-slate-100 dark:border-slate-800/80 pb-3.5">
+                          <div className="flex items-center gap-3">
+                            <span className="w-8 h-8 rounded-full bg-blue-600 text-white font-black text-xs flex items-center justify-center shrink-0 shadow-2xs">
+                              {secNumStr}
+                            </span>
+                            <div>
+                              <h2 className="text-base sm:text-lg font-black text-slate-950 dark:text-white leading-snug">
+                                {section.heading}
+                              </h2>
+                              {section.headingHindi && section.headingHindi !== section.heading && (
+                                <p className="text-xs sm:text-sm font-bold text-blue-700 dark:text-blue-400">
+                                   {section.headingHindi}
+                                </p>
+                              )}
+                            </div>
+                          </div>
+
+                          <button
+                            onClick={() => {
+                              const secId = section.id || `${activeNote.noteId}_${idx}`;
+                              const next = new Set(bookmarkedSections);
+                              if (next.has(secId)) {
+                                next.delete(secId);
+                                setToast({ id: Date.now().toString(), type: 'info', message: 'बुकमार्क हटाया गया' });
+                              } else {
+                                next.add(secId);
+                                setToast({ id: Date.now().toString(), type: 'success', message: 'अनुभाग बुकमार्क में सहेजा गया 🔖' });
+                              }
+                              setBookmarkedSections(next);
+                            }}
+                            className={`p-2 rounded-xl transition-all cursor-pointer ${
+                              isBookmarked
+                                ? 'bg-blue-50 text-blue-600 dark:bg-blue-950 dark:text-blue-400'
+                                : 'text-slate-400 hover:text-slate-700 dark:hover:text-slate-200'
+                            }`}
+                            title={isBookmarked ? 'बुकमार्क हटाया गया' : 'बुकमार्क करें'}
+                          >
+                            <Bookmark className={`w-4 h-4 ${isBookmarked ? 'fill-blue-600' : ''}`} />
+                          </button>
+                        </div>
+
+                        {/* Section Main Content */}
+                        <div className="w-full space-y-3.5">
+                          {!isHighlightsOnly && (
+                            <FormattedNoteContent content={section.content} fontSize={fontSize} />
+                          )}
+
+                          {/* "मुख्य बिंदु" Icon Strip */}
+                          <div className="p-3 rounded-2xl bg-amber-50/70 dark:bg-amber-950/20 border border-amber-200/70 dark:border-amber-900/40 flex flex-wrap items-center gap-3 text-xs text-slate-800 dark:text-amber-200">
+                            <span className="font-black text-amber-900 dark:text-amber-300">मुख्य बिंदु:</span>
+                            <span className="flex items-center gap-1 font-medium">
+                              <span>✏️</span>
+                              <span>अवधारणा स्पष्टता</span>
+                            </span>
+                            <span className="flex items-center gap-1 font-medium">
+                              <span>🏺</span>
+                              <span>प्रमुख स्रोत व साक्ष्य</span>
+                            </span>
+                            <span className="flex items-center gap-1 font-medium">
+                              <span>🔍</span>
+                              <span>परीक्षा विश्लेषण</span>
+                            </span>
+                          </div>
+                        </div>
+
+                        {/* 🌟 Collapsible Section Key Points Panel */}
+                        {section.keyPoints && section.keyPoints.length > 0 && (
+                          <div className="mt-3 overflow-hidden rounded-2xl border border-blue-200/80 dark:border-blue-900/60 bg-blue-50/70 dark:bg-slate-800/70 transition-all">
+                            {/* Accordion Header / Toggle Button */}
+                            <button
+                              type="button"
+                              onClick={() => toggleKeyPoints(secKeyPointId)}
+                              className="w-full p-3.5 sm:p-4 flex items-center justify-between gap-3 text-left hover:bg-blue-100/60 dark:hover:bg-slate-700/60 transition-colors cursor-pointer"
+                            >
+                              <div className="flex items-center gap-2 flex-wrap">
+                                <FileText className="w-4 h-4 text-blue-600 shrink-0" />
+                                <span className="text-xs sm:text-sm font-black text-blue-950 dark:text-blue-200">
+                                  स्मरण बिंदु (Section Key Points)
+                                </span>
+                                <span className="px-2 py-0.5 rounded-full bg-blue-200/80 dark:bg-blue-900/80 text-[10px] font-bold text-blue-800 dark:text-blue-200">
+                                  {section.keyPoints.length} मुख्य बिंदु
+                                </span>
+                              </div>
+                              
+                              <div className="flex items-center gap-1 text-[11px] font-bold text-blue-700 dark:text-blue-400 shrink-0">
+                                <span>{isKeyPointsExpanded ? 'छुपाएं' : 'देखें'}</span>
+                                {isKeyPointsExpanded ? (
+                                  <ChevronUp className="w-4 h-4" />
+                                ) : (
+                                  <ChevronDown className="w-4 h-4" />
+                                )}
+                              </div>
+                            </button>
+
+                            {/* Accordion Content */}
+                            {isKeyPointsExpanded && (
+                              <div className="p-4 pt-1 border-t border-blue-200/60 dark:border-blue-900/40 space-y-2 animate-in fade-in duration-150">
+                                {section.keyPoints.map((kp, kidx) => (
+                                  <div 
+                                    key={kidx} 
+                                    className="flex items-start gap-2.5 text-xs text-slate-800 dark:text-slate-200 font-medium leading-relaxed bg-white/80 dark:bg-slate-900/70 p-2.5 rounded-xl border border-blue-100/80 dark:border-slate-800/80 shadow-2xs"
+                                  >
+                                    <span className="w-1.5 h-1.5 rounded-full bg-blue-600 mt-1.5 shrink-0" />
+                                    <span>{kp}</span>
+                                  </div>
+                                ))}
+                              </div>
+                            )}
+                          </div>
+                        )}
+
+                      </div>
+                    );
+                  })}
+                </div>
+
+                {/* 🌟 C. BOTTOM REVISION STRIP & MCQS PRACTICE */}
+                <div className="grid grid-cols-1 lg:grid-cols-3 gap-3 pt-2">
+                  
+                  {/* ⚡ 2-Minute Revision Strip */}
+                  <div className="lg:col-span-2 p-5 rounded-3xl bg-amber-100/90 dark:bg-amber-950/40 border border-amber-300/80 dark:border-amber-800 space-y-2.5">
+                    <div className="flex items-center gap-1.5 text-amber-950 dark:text-amber-200 font-black text-xs sm:text-sm">
+                      <Zap className="w-4 h-4 text-amber-600 fill-amber-600" />
+                      <span>⚡ 2-Minute Quick Revision:</span>
+                    </div>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                      {visual.quickRevisionStrip.map((item) => (
+                        <div
+                          key={item.id}
+                          className="flex items-center gap-2 p-2.5 rounded-xl bg-white/90 dark:bg-slate-800/90 border border-amber-200 dark:border-amber-900/60 shadow-2xs text-xs"
+                        >
+                          <span className="w-6 h-6 rounded-lg bg-amber-400/90 text-amber-950 font-black text-[11px] flex items-center justify-center shrink-0">
+                            {item.label}
+                          </span>
+                          <span className="font-bold text-slate-800 dark:text-slate-200 text-[11px] truncate">
+                            {item.value}
+                          </span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* 📝 अभ्यास करें (Practice MCQs Card) */}
+                  <div 
+                    onClick={() => navigate(`/quick-revision/${encodeURIComponent(selectedSubject)}`)}
+                    className="p-5 rounded-3xl bg-purple-50 dark:bg-purple-950/40 border-2 border-purple-200 dark:border-purple-800 flex items-center justify-between gap-3 cursor-pointer hover:bg-purple-100/80 dark:hover:bg-purple-900/50 transition-all group shadow-sm"
+                  >
+                    <div className="flex items-center gap-2.5">
+                      <span className="text-2xl">📝</span>
+                      <div>
+                        <span className="text-xs font-black text-purple-900 dark:text-purple-200 block">
+                          अभ्यास करें
+                        </span>
+                        <span className="text-[11px] font-bold text-purple-700 dark:text-purple-300">
+                          रिवीजन & MCQs टेस्ट
+                        </span>
+                      </div>
+                    </div>
+
+                    <div className="flex items-center gap-1 px-3 py-1.5 bg-purple-600 text-white rounded-xl text-xs font-black group-hover:translate-x-0.5 transition-transform shadow-2xs">
+                      <span>10 MCQs</span>
+                      <ArrowRight className="w-3.5 h-3.5" />
+                    </div>
+                  </div>
+
+                </div>
+
+                {/* Bottom Chapter Completion / Next Chapter Jump */}
+                <div className="flex flex-col sm:flex-row items-center justify-between gap-3 bg-white dark:bg-slate-900 p-5 rounded-3xl border border-slate-200 dark:border-slate-800">
                   <div>
                     <h4 className="text-xs sm:text-sm font-black text-slate-900 dark:text-white">
-                      अध्याय {activeNote.chapterNumber || activeNoteIndex + 1} समाप्त हुआ!
+                      अध्याय {chapterNumFormatted} समाप्त हुआ!
                     </h4>
                     <p className="text-[11px] text-slate-500 dark:text-slate-400">
-                      क्या आपने सभी बिंदुओं को समझ लिया? अगले अध्याय पर जाएँ या रिवीजन कार्ड्स देखें।
+                      इस अध्याय को पूरा पढ़ने के बाद 'मार्क कम्प्लीट' पर टैप करें।
                     </p>
                   </div>
 
@@ -823,18 +931,9 @@ export const NotesView: React.FC = () => {
                   </div>
                 </div>
 
-                <div className="text-center space-y-1">
-                  <p className="text-xs font-black text-slate-600 dark:text-slate-400 tracking-wider">
-                    — ● पृष्ठ {activeNote.chapterNumber || activeNoteIndex + 1} समाप्त • अभ्यास रिवीजन रजिस्टर ● —
-                  </p>
-                  <p className="text-[10px] text-slate-400 dark:text-slate-500 font-mono">
-                    नोट्स को दोहराएं और क्विज प्रैक्टिस से अपनी तैयारी मजबूत करें
-                  </p>
-                </div>
               </div>
-
-            </div>
-          </div>
+            );
+          })()}
 
         </div>
       )}

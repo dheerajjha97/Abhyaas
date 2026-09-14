@@ -6,6 +6,9 @@ export interface NoteSection {
   type?: string;
   content: string;
   keyPoints?: string[];
+  imageUrl?: string;
+  imageCaption?: string;
+  imageAlt?: string;
 }
 
 export interface FormulaOrConcept {
@@ -33,6 +36,13 @@ export interface NoteData {
   readTimeMinutes?: number;
   tags?: string[];
   keyTakeaways?: string[];
+  examImportantPoints?: string[];
+  rememberPoints?: string[];
+  keyTerms?: string[];
+  quickRevisionStrip?: Array<{ id: string; label: string; value: string }>;
+  headerIllustration?: string;
+  headerIllustrationAlt?: string;
+  overviewSummary?: string;
   formulas?: FormulaOrConcept[];
   sections: NoteSection[];
   stats?: {

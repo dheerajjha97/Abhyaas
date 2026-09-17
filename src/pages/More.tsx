@@ -32,10 +32,17 @@ import {
   RotateCcw,
   Sparkles,
   CloudDownload,
+  Bell,
+  Volume2,
 } from 'lucide-react';
+import { useNotifications } from '../context/NotificationContext';
+import { NotificationCenterModal } from '../components/notifications/NotificationCenterModal';
 
 export const More: React.FC = () => {
   const { profile, setClassId, openProfileModal, currentUser } = useStudentProfile();
+  const { notifications, unreadCount, isPermissionGranted, requestPermission, isSupported } = useNotifications();
+  const [isNotificationOpen, setIsNotificationOpen] = useState(false);
+  const [isRequestingNotif, setIsRequestingNotif] = useState(false);
   const [settings, setSettings] = useState<AppSettings>(getAppSettings());
   const [deferredPrompt, setDeferredPrompt] = useState<any>(null);
   const [isInstallable, setIsInstallable] = useState(false);
@@ -353,6 +360,63 @@ export const More: React.FC = () => {
         <h4 className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider px-1">
           ऐप सेटिंग्स & स्टोरेज (Settings & Storage)
         </h4>
+
+        {/* FCM Push Notifications & Study Reminders Card */}
+        <div className="bg-white dark:bg-slate-900 rounded-2xl p-4 border border-slate-200/90 dark:border-slate-800 shadow-2xs flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 rounded-xl bg-blue-50 dark:bg-blue-950/70 text-blue-600 dark:text-blue-400 flex items-center justify-center shrink-0 border border-blue-100 dark:border-blue-900/60 relative">
+              <Bell className="w-5 h-5 text-amber-500" />
+              {unreadCount > 0 && (
+                <span className="absolute -top-1 -right-1 w-2.5 h-2.5 rounded-full bg-red-500" />
+              )}
+            </div>
+            <div>
+              <div className="flex items-center gap-2">
+                <h5 className="text-sm font-black text-slate-900 dark:text-slate-100">
+                  स्टडी अलर्ट व रिमाइंडर्स (FCM Push Alerts)
+                </h5>
+                {isPermissionGranted ? (
+                  <span className="text-[10px] font-black px-2 py-0.5 rounded-full bg-emerald-100 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-300">
+                    Active ✓
+                  </span>
+                ) : (
+                  <span className="text-[10px] font-black px-2 py-0.5 rounded-full bg-amber-100 dark:bg-amber-950/60 text-amber-800 dark:text-amber-300">
+                    Off
+                  </span>
+                )}
+              </div>
+              <p className="text-xs text-slate-500 dark:text-slate-400">
+                Class {profile.classId} के नए पेपर्स, नोट्स या परीक्षा टिप्स आते ही तुरंत सूचना पाएं
+              </p>
+            </div>
+          </div>
+
+          <div className="flex items-center gap-2 shrink-0 self-end sm:self-auto">
+            <button
+              type="button"
+              onClick={() => setIsNotificationOpen(true)}
+              className="px-3 py-1.5 rounded-xl border border-slate-200 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800 text-xs font-bold text-slate-700 dark:text-slate-200 transition-colors cursor-pointer"
+            >
+              अलर्ट्स देखें ({notifications.length || unreadCount})
+            </button>
+
+            {!isPermissionGranted && isSupported && (
+              <button
+                type="button"
+                onClick={async () => {
+                  setIsRequestingNotif(true);
+                  await requestPermission();
+                  setIsRequestingNotif(false);
+                }}
+                disabled={isRequestingNotif}
+                className="px-3 py-1.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold shadow-2xs transition-all cursor-pointer disabled:opacity-50 flex items-center gap-1"
+              >
+                <Volume2 className="w-3.5 h-3.5" />
+                <span>{isRequestingNotif ? 'सक्रिय हो रहा...' : 'चालू करें'}</span>
+              </button>
+            )}
+          </div>
+        </div>
 
         {/* Offline Mode Switch */}
         <div className="bg-white dark:bg-slate-900 rounded-2xl p-4 border border-slate-200/90 dark:border-slate-800 shadow-2xs flex items-center justify-between gap-3">
@@ -718,6 +782,12 @@ export const More: React.FC = () => {
           </div>
         </div>
       )}
+
+      {/* Notification Center Modal */}
+      <NotificationCenterModal
+        isOpen={isNotificationOpen}
+        onClose={() => setIsNotificationOpen(false)}
+      />
     </div>
   );
 };

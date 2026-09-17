@@ -3,6 +3,7 @@ import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 import { useStudentProfile } from '../../context/StudentProfileContext';
 import { useDrawer } from '../../context/DrawerContext';
 import { BrandLogo } from './BrandLogo';
+import { NotificationBellButton } from '../notifications/NotificationBellButton';
 import {
   Menu,
   Home,
@@ -14,7 +15,8 @@ import {
   Search,
   Settings2,
   Sparkles,
-  ChevronDown
+  ChevronDown,
+  LogIn
 } from 'lucide-react';
 
 interface DesktopNavItem {
@@ -27,7 +29,7 @@ interface DesktopNavItem {
 export const DesktopNavbar: React.FC = () => {
   const { pathname } = useLocation();
   const navigate = useNavigate();
-  const { profile, openProfileModal, currentUser } = useStudentProfile();
+  const { profile, openProfileModal, currentUser, openLoginPrompt } = useStudentProfile();
   const { openDrawer } = useDrawer();
 
   const navItems: DesktopNavItem[] = [
@@ -134,6 +136,19 @@ export const DesktopNavbar: React.FC = () => {
 
       {/* Right Controls: Student Profile Pill & Settings */}
       <div className="flex items-center gap-2">
+        {!currentUser && (
+          <button
+            type="button"
+            id="desktop-header-login-btn"
+            onClick={openLoginPrompt}
+            className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-blue-600 hover:bg-blue-700 active:scale-95 text-white text-xs font-bold shadow-xs transition-all cursor-pointer"
+            title="Google से 1-क्लिक लॉगिन करें"
+          >
+            <LogIn className="w-3.5 h-3.5 text-amber-300" />
+            <span>लॉगिन करें</span>
+          </button>
+        )}
+
         {/* Student Profile Quick Switcher Button */}
         <button
           onClick={openProfileModal}
@@ -164,6 +179,9 @@ export const DesktopNavbar: React.FC = () => {
           </div>
           <ChevronDown className="w-3.5 h-3.5 text-slate-400 group-hover:text-slate-600 dark:group-hover:text-slate-300 shrink-0" />
         </button>
+
+        {/* Notification Bell (FCM Study Alerts) */}
+        <NotificationBellButton />
 
         {/* More Settings */}
         <button

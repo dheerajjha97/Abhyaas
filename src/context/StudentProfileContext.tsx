@@ -25,6 +25,10 @@ interface StudentProfileContextType {
   setIsProfileModalOpen: (open: boolean) => void;
   openProfileModal: () => void;
   closeProfileModal: () => void;
+  isLoginPromptOpen: boolean;
+  setIsLoginPromptOpen: (open: boolean) => void;
+  openLoginPrompt: () => void;
+  closeLoginPrompt: () => void;
   updateProfile: (updates: Partial<StudentProfile>) => void;
   setClassId: (classId: string) => void;
   setSubjects: (subjects: string[]) => void;
@@ -44,6 +48,7 @@ export const StudentProfileProvider: React.FC<{ children: React.ReactNode }> = (
   const [cloudSyncStatus, setCloudSyncStatus] = useState<CloudSyncStatus>('unauthenticated');
   // If the profile has never been configured by the user, automatically prompt them on app launch
   const [isProfileModalOpen, setIsProfileModalOpen] = useState<boolean>(!profile.isConfigured);
+  const [isLoginPromptOpen, setIsLoginPromptOpen] = useState<boolean>(false);
 
   // Sync profile to Firestore for logged-in user
   const syncProfileToCloud = useCallback(async (profileToSave: StudentProfile, uid?: string) => {
@@ -157,12 +162,16 @@ export const StudentProfileProvider: React.FC<{ children: React.ReactNode }> = (
   const openProfileModal = () => setIsProfileModalOpen(true);
   const closeProfileModal = () => setIsProfileModalOpen(false);
 
+  const openLoginPrompt = () => setIsLoginPromptOpen(true);
+  const closeLoginPrompt = () => setIsLoginPromptOpen(false);
+
   const signInWithGoogle = async () => {
     try {
       setIsSyncing(true);
       const result = await signInWithPopup(auth, googleProvider);
       const user = result.user;
       if (user) {
+        setIsLoginPromptOpen(false);
         // Automatically fetch and apply Google user name, profile photo, and email
         const googleName = user.displayName;
         const googlePhoto = user.photoURL;
@@ -356,6 +365,10 @@ export const StudentProfileProvider: React.FC<{ children: React.ReactNode }> = (
         setIsProfileModalOpen,
         openProfileModal,
         closeProfileModal,
+        isLoginPromptOpen,
+        setIsLoginPromptOpen,
+        openLoginPrompt,
+        closeLoginPrompt,
         updateProfile,
         setClassId,
         setSubjects,

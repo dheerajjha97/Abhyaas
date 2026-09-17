@@ -1,0 +1,49 @@
+name: Class-Wise Push Notifications on Content Update
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'src/data/papers/**'
+      - 'src/data/notes/**'
+      - 'src/data/syllabus/**'
+      - 'src/data/revision/**'
+
+jobs:
+  notify-students:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - name: Detect Changed Class & Send Notification
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const { execSync } = require('child_process');
+            
+            // Find files modified in the last commit
+            const diffOutput = execSync('git diff --name-only HEAD~1 HEAD').toString();
+            console.log('Modified files in commit:\n', diffOutput);
+            
+            // Check which class content got updated
+            const hasClass10 = /class10|class-10|\/10\//i.test(diffOutput);
+            const hasClass11 = /class11|class-11|\/11\//i.test(diffOutput);
+            const hasClass12 = /class12|class-12|\/12\//i.test(diffOutput);
+            
+            const targetClasses = [];
+            if (hasClass10) targetClasses.push('10');
+            if (hasClass11) targetClasses.push('11');
+            if (hasClass12) targetClasses.push('12');
+            
+            if (targetClasses.length === 0) {
+              targetClasses.push('all');
+            }
+            
+            console.log('Target classes to notify:', targetClasses);
+            
+            // You can call your Firebase Admin SDK endpoint or Firestore HTTP trigger here
+            // to insert into Firestore "announcements" collection or send direct FCM topic push!

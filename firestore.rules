@@ -1,12 +1,19 @@
 rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
+    // User private profiles and subcollections (progress, test histories)
     match /users/{userId} {
       allow read, write: if request.auth != null && request.auth.uid == userId;
 
       match /{allSubcollections=**} {
         allow read, write: if request.auth != null && request.auth.uid == userId;
       }
+    }
+
+    // Public announcements & class reminders (readable by everyone)
+    match /announcements/{announcementId} {
+      allow read: if true;
+      allow write: if request.auth != null;
     }
   }
 }

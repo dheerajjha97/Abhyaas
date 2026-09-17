@@ -36,10 +36,21 @@ import { Badges } from '../components/dashboard/Badges';
 import { Illustration } from '../components/ui/Illustration';
 import { getMistakes } from '../utils/bookmarkStorage';
 import { BrandLogo } from '../components/ui/BrandLogo';
+import { LoginReminderBanner } from '../components/auth/LoginReminderBanner';
+import { hasDismissedLoginPromptRecently } from '../components/auth/LoginPromptModal';
+import { NotificationBellButton } from '../components/notifications/NotificationBellButton';
 
 export const Home: React.FC = () => {
   const navigate = useNavigate();
-  const { profile, setClassId, openProfileModal, currentUser, cloudSyncStatus } = useStudentProfile();
+  const {
+    profile,
+    setClassId,
+    openProfileModal,
+    currentUser,
+    cloudSyncStatus,
+    openLoginPrompt,
+    isProfileModalOpen,
+  } = useStudentProfile();
   const { progress } = useStudentProgress();
   const { openDrawer } = useDrawer();
 
@@ -57,6 +68,16 @@ export const Home: React.FC = () => {
       isMounted = false;
     };
   }, [profile.classId]);
+
+  // Smart Welcome Login Prompt for unauthenticated students
+  useEffect(() => {
+    if (!currentUser && !hasDismissedLoginPromptRecently() && !isProfileModalOpen) {
+      const timer = setTimeout(() => {
+        openLoginPrompt();
+      }, 1600);
+      return () => clearTimeout(timer);
+    }
+  }, [currentUser, isProfileModalOpen, openLoginPrompt]);
 
   const classPills = [
     { id: '10', title: 'Class 10', emoji: '🎒', label: '10वीं बोर्ड' },
@@ -157,21 +178,23 @@ export const Home: React.FC = () => {
           </button>
 
           <button
-            onClick={openProfileModal}
+            onClick={currentUser ? openProfileModal : openLoginPrompt}
             className={`flex items-center gap-1 px-2 py-1 rounded-xl border text-[10px] font-bold transition-all cursor-pointer ${
               currentUser
                 ? 'bg-emerald-50 dark:bg-emerald-950/60 border-emerald-200 dark:border-emerald-800 text-emerald-700 dark:text-emerald-300'
-                : 'bg-slate-50 dark:bg-slate-800/80 border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:bg-slate-100'
+                : 'bg-blue-50 dark:bg-blue-950/60 border-blue-200 dark:border-blue-800 text-blue-700 dark:text-blue-300 hover:bg-blue-100'
             }`}
-            title={currentUser ? `क्लाउड सिंक: ${currentUser.email}` : 'क्लाउड सिंक'}
+            title={currentUser ? `क्लाउड सिंक: ${currentUser.email}` : 'Google लॉगिन करें'}
           >
             <Cloud
               className={`w-3 h-3 ${
-                currentUser ? 'text-emerald-600 dark:text-emerald-400' : 'text-slate-400'
+                currentUser ? 'text-emerald-600 dark:text-emerald-400' : 'text-blue-600 dark:text-blue-400'
               }`}
             />
-            <span>{currentUser ? 'Synced' : 'Sync'}</span>
+            <span>{currentUser ? 'Synced' : 'Login'}</span>
           </button>
+
+          <NotificationBellButton />
 
           <button
             onClick={() => navigate('/more')}
@@ -182,6 +205,9 @@ export const Home: React.FC = () => {
           </button>
         </div>
       </div>
+
+      {/* Smart Login Reminder Banner for Unauthenticated Students */}
+      <LoginReminderBanner />
 
       {/* Elegant Bento Grid: Royal Hero Mock Test Generator & Daily Study Goal Card */}
       <div className="grid grid-cols-1 md:grid-cols-12 gap-3.5 sm:gap-4 items-stretch">

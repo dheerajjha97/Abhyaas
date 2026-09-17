@@ -12,7 +12,7 @@ import { Toast, ToastMessage } from '../components/ui/Toast';
 import { Illustration } from '../components/ui/Illustration';
 import { OMRSheet } from '../components/quiz/OMRSheet';
 import { FontControl } from '../components/ui/FontControl';
-import { CheckCircle2, XCircle, Bookmark, ArrowRight, ChevronDown, ChevronUp, Lightbulb, RefreshCw, LayoutGrid } from 'lucide-react';
+import { CheckCircle2, XCircle, Bookmark, ArrowRight, ArrowLeft, ChevronDown, ChevronUp, Lightbulb, RefreshCw, LayoutGrid } from 'lucide-react';
 
 export const Quiz: React.FC = () => {
   const { paperId } = useParams<{ paperId: string }>();
@@ -137,6 +137,12 @@ export const Quiz: React.FC = () => {
     if (cleanAnswer && normOption === cleanAnswer) return true;
 
     return false;
+  };
+
+  const handlePrev = () => {
+    if (currentIndex > 0) {
+      setCurrentIndex((prev) => prev - 1);
+    }
   };
 
   const handleNext = () => {
@@ -392,28 +398,65 @@ export const Quiz: React.FC = () => {
           })}
         </div>
 
-        {/* Submit or Next Button */}
+        {/* Submit, Skip or Next Button */}
         <div className="pt-2">
           {!isCurrentSubmitted ? (
-            <button
-              onClick={handleSubmitAnswer}
-              disabled={!currentSelected}
-              className={`w-full py-3.5 px-4 font-bold text-sm rounded-xl transition-all flex items-center justify-center gap-2 cursor-pointer shadow-xs active:scale-[0.98] ${
-                currentSelected
-                  ? 'bg-blue-600 hover:bg-blue-700 text-white'
-                  : 'bg-slate-100 dark:bg-slate-800 text-slate-400 cursor-not-allowed border border-slate-200 dark:border-slate-700'
-              }`}
-            >
-              <span>उत्तर की जाँच करें</span>
-            </button>
+            <div className="flex gap-2">
+              {currentIndex > 0 && (
+                <button
+                  type="button"
+                  onClick={handlePrev}
+                  className="px-4 py-3.5 font-bold text-sm rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700 flex items-center gap-1.5 cursor-pointer transition-all active:scale-[0.98]"
+                >
+                  <ArrowLeft className="w-4 h-4" />
+                  <span className="hidden xs:inline">पिछला</span>
+                </button>
+              )}
+              <button
+                type="button"
+                onClick={handleSubmitAnswer}
+                disabled={!currentSelected}
+                className={`flex-1 py-3.5 px-4 font-bold text-sm rounded-xl transition-all flex items-center justify-center gap-2 cursor-pointer shadow-xs active:scale-[0.98] ${
+                  currentSelected
+                    ? 'bg-blue-600 hover:bg-blue-700 text-white'
+                    : 'bg-slate-100 dark:bg-slate-800 text-slate-400 cursor-not-allowed border border-slate-200 dark:border-slate-700'
+                }`}
+              >
+                <span>उत्तर की जाँच करें</span>
+              </button>
+              {currentIndex < totalQuestions - 1 && (
+                <button
+                  type="button"
+                  onClick={handleNext}
+                  className="px-4 py-3.5 font-bold text-sm rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700 flex items-center gap-1.5 cursor-pointer transition-all active:scale-[0.98]"
+                  title="यह प्रश्न छोड़ें और अगले प्रश्न पर जाएं"
+                >
+                  <span>छोड़ें</span>
+                  <ArrowRight className="w-4 h-4" />
+                </button>
+              )}
+            </div>
           ) : (
-            <button
-              onClick={handleNext}
-              className="w-full py-3.5 px-4 bg-blue-600 hover:bg-blue-700 text-white font-bold text-sm rounded-xl shadow-xs active:scale-[0.98] transition-all flex items-center justify-center gap-2 cursor-pointer"
-            >
-              <span>{currentIndex < totalQuestions - 1 ? 'अगला सवाल' : 'स्कोर देखें (Result)'}</span>
-              <ArrowRight className="w-5 h-5" />
-            </button>
+            <div className="flex gap-2">
+              {currentIndex > 0 && (
+                <button
+                  type="button"
+                  onClick={handlePrev}
+                  className="px-4 py-3.5 font-bold text-sm rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700 flex items-center gap-1.5 cursor-pointer transition-all active:scale-[0.98]"
+                >
+                  <ArrowLeft className="w-4 h-4" />
+                  <span className="hidden xs:inline">पिछला</span>
+                </button>
+              )}
+              <button
+                type="button"
+                onClick={handleNext}
+                className="flex-1 py-3.5 px-4 bg-blue-600 hover:bg-blue-700 text-white font-bold text-sm rounded-xl shadow-xs active:scale-[0.98] transition-all flex items-center justify-center gap-2 cursor-pointer"
+              >
+                <span>{currentIndex < totalQuestions - 1 ? 'अगला सवाल' : 'स्कोर देखें (Result)'}</span>
+                <ArrowRight className="w-5 h-5" />
+              </button>
+            </div>
           )}
         </div>
       </div>

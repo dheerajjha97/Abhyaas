@@ -22,17 +22,29 @@ import {
   Target,
   ChevronRight,
   ExternalLink,
-  BookMarked
+  BookMarked,
+  Bell,
 } from 'lucide-react';
 import { useDrawer } from '../../context/DrawerContext';
 import { useStudentProfile } from '../../context/StudentProfileContext';
 import { useStudentProgress } from '../../context/StudentProgressContext';
+import { useNotifications } from '../../context/NotificationContext';
+import { NotificationCenterModal } from '../notifications/NotificationCenterModal';
 import { BrandLogo } from './BrandLogo';
 
 export const NavigationDrawer: React.FC = () => {
   const { isDrawerOpen, closeDrawer } = useDrawer();
-  const { profile, currentUser, openProfileModal, signInWithGoogle, signOutUser } = useStudentProfile();
+  const {
+    profile,
+    currentUser,
+    openProfileModal,
+    signInWithGoogle,
+    signOutUser,
+    openLoginPrompt,
+  } = useStudentProfile();
   const { progress } = useStudentProgress();
+  const { unreadCount } = useNotifications();
+  const [isNotificationOpen, setIsNotificationOpen] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -297,6 +309,33 @@ export const NavigationDrawer: React.FC = () => {
               सुविधाएं व सेटिंग्स
             </p>
 
+            {/* Study Alerts & Reminders (FCM) */}
+            <button
+              onClick={() => {
+                closeDrawer();
+                setIsNotificationOpen(true);
+              }}
+              className="w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 text-xs sm:text-sm font-semibold transition-colors cursor-pointer"
+            >
+              <div className="flex items-center gap-3">
+                <div className="p-1.5 rounded-lg bg-blue-50 dark:bg-blue-950/40 text-blue-600 dark:text-blue-400 relative">
+                  <Bell className="w-4 h-4" />
+                  {unreadCount > 0 && (
+                    <span className="absolute -top-0.5 -right-0.5 w-2 h-2 rounded-full bg-red-500 animate-pulse" />
+                  )}
+                </div>
+                <span>स्टडी अलर्ट व रिमाइंडर्स (FCM)</span>
+              </div>
+              <div className="flex items-center gap-1.5">
+                {unreadCount > 0 && (
+                  <span className="px-1.5 py-0.5 rounded-full bg-amber-400 text-slate-950 font-black text-[10px]">
+                    {unreadCount} नए
+                  </span>
+                )}
+                <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
+              </div>
+            </button>
+
             {/* Change Class */}
             <button
               onClick={() => {
@@ -389,9 +428,9 @@ export const NavigationDrawer: React.FC = () => {
               </div>
             ) : (
               <button
-                onClick={async () => {
-                  await signInWithGoogle();
+                onClick={() => {
                   closeDrawer();
+                  openLoginPrompt();
                 }}
                 className="w-full mt-2 p-3 rounded-2xl bg-blue-50 dark:bg-blue-950/50 border border-blue-200/90 dark:border-blue-900 flex items-center justify-between text-blue-700 dark:text-blue-300 text-xs font-bold hover:bg-blue-100/70 transition-colors cursor-pointer"
               >
@@ -415,6 +454,12 @@ export const NavigationDrawer: React.FC = () => {
           </p>
         </div>
       </aside>
+
+      {/* Notification Center Modal */}
+      <NotificationCenterModal
+        isOpen={isNotificationOpen}
+        onClose={() => setIsNotificationOpen(false)}
+      />
     </div>
   );
 };

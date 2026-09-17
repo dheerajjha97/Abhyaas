@@ -12,7 +12,16 @@ import {
   doc,
   getDoc,
   setDoc,
+  collection,
+  onSnapshot,
 } from 'firebase/firestore';
+import {
+  getMessaging,
+  getToken,
+  onMessage,
+  isSupported,
+  Messaging,
+} from 'firebase/messaging';
 import firebaseConfig from './firebaseConfig';
 
 const app = !getApps().length ? initializeApp(firebaseConfig) : getApp();
@@ -23,6 +32,37 @@ googleProvider.setCustomParameters({ prompt: 'select_account' });
 // Use the configured database ID or default
 export const db = getFirestore(app, firebaseConfig.firestoreDatabaseId || '(default)');
 
-export { signInWithPopup, signOut, onAuthStateChanged, doc, getDoc, setDoc };
+// Messaging initialization helper (safe for browser environments)
+let messagingInstance: Messaging | null = null;
+
+export const getFirebaseMessaging = async (): Promise<Messaging | null> => {
+  if (typeof window === 'undefined') return null;
+  const supported = await isSupported().catch(() => false);
+  if (!supported) {
+    return null;
+  }
+  if (!messagingInstance) {
+    try {
+      messagingInstance = getMessaging(app);
+    } catch (err) {
+      console.warn('Firebase Messaging init warning:', err);
+      return null;
+    }
+  }
+  return messagingInstance;
+};
+
+export {
+  signInWithPopup,
+  signOut,
+  onAuthStateChanged,
+  doc,
+  getDoc,
+  setDoc,
+  collection,
+  onSnapshot,
+  getToken,
+  onMessage,
+};
 export type { User };
 export { firebaseConfig };

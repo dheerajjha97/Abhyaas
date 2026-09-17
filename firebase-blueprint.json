@@ -13,6 +13,10 @@
         "classSubjects": { "type": "map" },
         "avatarEmoji": { "type": "string" },
         "targetYear": { "type": "number" },
+        "fcmToken": { "type": "string" },
+        "notificationEnabled": { "type": "boolean" },
+        "notificationClass": { "type": "string" },
+        "fcmTokenUpdatedAt": { "type": "number" },
         "lastUpdated": { "type": "number" }
       }
     },
@@ -30,6 +34,17 @@
         "earnedBadges": { "type": "array" },
         "lastUpdated": { "type": "number" }
       }
+    },
+    "Announcement": {
+      "path": "announcements/{announcementId}",
+      "fields": {
+        "title": { "type": "string" },
+        "body": { "type": "string" },
+        "classId": { "type": "string" },
+        "type": { "type": "string" },
+        "url": { "type": "string" },
+        "createdAt": { "type": "number" }
+      }
     }
   },
   "rules": {
@@ -38,6 +53,10 @@
         "read": "auth != null && auth.uid == $userId",
         "write": "auth != null && auth.uid == $userId"
       }
+    },
+    "announcements": {
+      "read": "true",
+      "write": "auth != null"
     }
   }
 }

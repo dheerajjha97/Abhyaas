@@ -13,7 +13,10 @@ import {
   LogIn,
   LogOut,
   RefreshCw,
+  Bell,
+  Volume2,
 } from 'lucide-react';
+import { useNotifications } from '../../context/NotificationContext';
 
 interface StudentProfileModalProps {
   isOpen: boolean;
@@ -39,12 +42,14 @@ export const StudentProfileModal: React.FC<StudentProfileModalProps> = ({ isOpen
     signOutUser,
     fetchGoogleProfile,
   } = useStudentProfile();
+  const { isPermissionGranted, requestPermission, isSupported } = useNotifications();
   const isFirstTimeSetup = !profile.isConfigured;
 
   const [formData, setFormData] = useState<StudentProfile>(profile);
   const [savedSuccess, setSavedSuccess] = useState(false);
   const [showAllSubjects, setShowAllSubjects] = useState(false);
   const [isFetchingGoogle, setIsFetchingGoogle] = useState(false);
+  const [isEnablingNotifications, setIsEnablingNotifications] = useState(false);
 
   useEffect(() => {
     if (isOpen) {
@@ -311,6 +316,66 @@ export const StudentProfileModal: React.FC<StudentProfileModalProps> = ({ isOpen
                   )}
                   <span>Google लॉगिन</span>
                 </button>
+              )}
+            </div>
+          </div>
+
+          {/* FCM Study Reminders & Push Notification Card */}
+          <div className="p-3.5 rounded-2xl bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-blue-950/30 dark:to-indigo-950/30 border border-blue-200/80 dark:border-blue-900/50">
+            <div className="flex items-center justify-between gap-3">
+              <div className="flex items-center gap-2.5 min-w-0">
+                <div className="w-8 h-8 rounded-xl bg-blue-600 text-white flex items-center justify-center shrink-0 shadow-xs">
+                  <Bell className="w-4 h-4 text-amber-300" />
+                </div>
+                <div className="min-w-0">
+                  <div className="flex items-center gap-1.5 flex-wrap">
+                    <span className="text-xs font-bold text-slate-900 dark:text-white">
+                      स्टडी अलर्ट व रिमाइंडर्स (FCM)
+                    </span>
+                    {isPermissionGranted ? (
+                      <span className="inline-flex items-center gap-1 px-1.5 py-0.5 rounded-full text-[9px] font-extrabold bg-emerald-100 text-emerald-700 dark:bg-emerald-900/40 dark:text-emerald-300">
+                        <CheckCircle2 className="w-2.5 h-2.5" />
+                        सक्रिय है (Active)
+                      </span>
+                    ) : (
+                      <span className="px-1.5 py-0.5 rounded-full text-[9px] font-bold bg-amber-100 text-amber-800 dark:bg-amber-900/40 dark:text-amber-300">
+                        अनुमति प्रतीक्षित
+                      </span>
+                    )}
+                  </div>
+                  <p className="text-[11px] text-slate-500 dark:text-slate-400 truncate">
+                    कक्षा {formData.classId}वीं के नए पेपर्स, नोट्स या रिवीज़न अपडेट आते ही फोन पर सूचना मिलेगी
+                  </p>
+                </div>
+              </div>
+
+              {!isPermissionGranted && isSupported ? (
+                <button
+                  type="button"
+                  id="profile-fcm-enable-btn"
+                  onClick={async () => {
+                    setIsEnablingNotifications(true);
+                    await requestPermission();
+                    setIsEnablingNotifications(false);
+                  }}
+                  disabled={isEnablingNotifications}
+                  className="px-3 py-1.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white text-[11px] font-extrabold shadow-xs transition-all shrink-0 cursor-pointer disabled:opacity-50 flex items-center gap-1"
+                >
+                  {isEnablingNotifications ? (
+                    <RefreshCw className="w-3.5 h-3.5 animate-spin" />
+                  ) : (
+                    <Volume2 className="w-3.5 h-3.5" />
+                  )}
+                  <span>नोटिफिकेशन ऑन करें</span>
+                </button>
+              ) : isPermissionGranted ? (
+                <span className="text-[11px] font-bold text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/60 px-2 py-1 rounded-lg border border-emerald-200 dark:border-emerald-800 shrink-0">
+                  घंटी ऑन है ✓
+                </span>
+              ) : (
+                <span className="text-[10px] text-slate-400 shrink-0">
+                  ब्राउज़र समर्थित नहीं
+                </span>
               )}
             </div>
           </div>

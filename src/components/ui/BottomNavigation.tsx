@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
 import { Home, FileText, BookOpen, Layers, Zap } from 'lucide-react';
 import { motion } from 'motion/react';
@@ -16,6 +16,23 @@ interface NavItemConfig {
 export const BottomNavigation: React.FC = () => {
   const location = useLocation();
   const [clickedId, setClickedId] = useState<string | null>(null);
+  const [isHiddenByExam, setIsHiddenByExam] = useState<boolean>(false);
+
+  useEffect(() => {
+    const updateVisibility = () => {
+      const shouldHide =
+        document.body.classList.contains('hide-bottom-nav') ||
+        location.pathname.includes('/quiz');
+      setIsHiddenByExam(shouldHide);
+    };
+
+    updateVisibility();
+
+    const observer = new MutationObserver(updateVisibility);
+    observer.observe(document.body, { attributes: true, attributeFilter: ['class'] });
+
+    return () => observer.disconnect();
+  }, [location.pathname]);
 
   const navItems: NavItemConfig[] = [
     {
@@ -96,6 +113,10 @@ export const BottomNavigation: React.FC = () => {
     setClickedId(id);
     setTimeout(() => setClickedId(null), 400);
   };
+
+  if (isHiddenByExam) {
+    return null;
+  }
 
   return (
     <nav

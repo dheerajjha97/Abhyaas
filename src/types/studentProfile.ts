@@ -24,6 +24,9 @@ export interface StudentProfile {
   avatarEmoji: string;
   photoURL?: string; // Google account profile picture URL
   email?: string; // Google account email
+  fcmToken?: string; // Firebase Cloud Messaging Device Token for Push Reminders
+  notificationEnabled?: boolean; // Whether push alerts are toggled on
+  notificationClass?: string; // The class topic for alerts
   targetYear?: number;
   lastUpdated?: number;
   isConfigured?: boolean; // True once the student has customized/confirmed their profile

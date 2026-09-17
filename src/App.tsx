@@ -2,7 +2,10 @@ import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import { StudentProfileProvider, useStudentProfile } from './context/StudentProfileContext';
 import { StudentProgressProvider } from './context/StudentProgressContext';
+import { NotificationProvider } from './context/NotificationContext';
+import { ForegroundNotificationToast } from './components/notifications/ForegroundNotificationToast';
 import { StudentProfileModal } from './components/profile/StudentProfileModal';
+import { LoginPromptModal } from './components/auth/LoginPromptModal';
 import { Home } from './pages/Home';
 import { Subjects } from './pages/Subjects';
 import { Papers } from './pages/Papers';
@@ -97,6 +100,12 @@ const AppContent: React.FC = () => {
         isOpen={isProfileModalOpen}
         onClose={closeProfileModal}
       />
+
+      {/* Smart Login Prompt Modal for unauthenticated students */}
+      <LoginPromptModal />
+
+      {/* Realtime Foreground Push Alert Toast */}
+      <ForegroundNotificationToast />
     </Router>
   );
 };
@@ -108,11 +117,13 @@ export default function App() {
 
   return (
     <StudentProfileProvider>
-      <StudentProgressProvider>
-        <DrawerProvider>
-          <AppContent />
-        </DrawerProvider>
-      </StudentProgressProvider>
+      <NotificationProvider>
+        <StudentProgressProvider>
+          <DrawerProvider>
+            <AppContent />
+          </DrawerProvider>
+        </StudentProgressProvider>
+      </NotificationProvider>
     </StudentProfileProvider>
   );
 }

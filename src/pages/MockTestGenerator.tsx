@@ -59,6 +59,82 @@ export const MockTestGenerator: React.FC = () => {
   const [showPaletteModal, setShowPaletteModal] = useState(false);
   const [toast, setToast] = useState<ToastMessage | null>(null);
 
+  // Auto-shift to next question on selecting option (persisted in localStorage, default true)
+  const [autoShift, setAutoShift] = useState<boolean>(() => {
+    const saved = localStorage.getItem('mock_test_auto_shift');
+    return saved !== null ? saved === 'true' : true;
+  });
+
+  // Hide global bottom navigation while test is running to prevent obscuring test controls
+  useEffect(() => {
+    if (currentTest && !isSubmitted) {
+      document.body.classList.add('hide-bottom-nav');
+    } else {
+      document.body.classList.remove('hide-bottom-nav');
+    }
+    return () => {
+      document.body.classList.remove('hide-bottom-nav');
+    };
+  }, [currentTest, isSubmitted]);
+
+  const handleToggleAutoShift = () => {
+    setAutoShift((prev) => {
+      const nextVal = !prev;
+      localStorage.setItem('mock_test_auto_shift', String(nextVal));
+      setToast({
+        id: Date.now().toString(),
+        type: 'info',
+        message: nextVal
+          ? '⚡ ऑटो-नेक्स्ट चालू: विकल्प चुनते ही अपने आप अगला प्रश्न आएगा'
+          : 'ऑटो-नेक्स्ट बंद: अब आप "अगला प्रश्न" बटन दबाकर आगे बढ़ सकते हैं',
+      });
+      return nextVal;
+    });
+  };
+
+  const handleSelectOption = (opt: string) => {
+    const isAlreadySelected = selectedAnswers[currentQuestionIndex] === opt;
+    if (isAlreadySelected) {
+      // Toggle off / unselect
+      setSelectedAnswers((prev) => {
+        const copy = { ...prev };
+        delete copy[currentQuestionIndex];
+        return copy;
+      });
+      return;
+    }
+
+    // Select the option
+    setSelectedAnswers((prev) => ({
+      ...prev,
+      [currentQuestionIndex]: opt,
+    }));
+
+    // If autoShift is active, advance to next question smoothly after 380ms
+    if (autoShift && currentTest) {
+      const totalQ = currentTest.questions.length;
+      if (currentQuestionIndex < totalQ - 1) {
+        setTimeout(() => {
+          setCurrentQuestionIndex((prev) => (prev < totalQ - 1 ? prev + 1 : prev));
+        }, 380);
+      } else {
+        setToast({
+          id: Date.now().toString(),
+          type: 'info',
+          message: 'अंतिम प्रश्न पूर्ण! टेस्ट समाप्त करने के लिए ऊपर या नीचे "सबमिट करें" दबाएँ।',
+        });
+      }
+    }
+  };
+
+  const handleClearCurrentAnswer = () => {
+    setSelectedAnswers((prev) => {
+      const copy = { ...prev };
+      delete copy[currentQuestionIndex];
+      return copy;
+    });
+  };
+
   // Get available subjects for student's class, prioritizing student's selected subjects first
   const classSubjects = ALL_AVAILABLE_SUBJECTS.filter((s) =>
     s.classes.includes(profile.classId || '12')
@@ -495,10 +571,11 @@ export const MockTestGenerator: React.FC = () => {
         <Toast toast={toast} onClose={() => setToast(null)} />
 
         {/* Flutter Material 3 Top Test Bar */}
-        <div className="sticky top-2 z-30 bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl p-3.5 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-md">
+        <div className="sticky top-2 z-30 bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl p-3 sm:p-3.5 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-md">
           <div className="flex items-center justify-between gap-2">
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-1.5 sm:gap-2">
               <button
+                type="button"
                 onClick={() => setShowPaletteModal(true)}
                 className="px-2.5 py-1.5 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 text-slate-700 dark:text-slate-300 text-xs font-bold flex items-center gap-1.5 cursor-pointer"
                 title="प्रश्न तालिका देखें"
@@ -506,29 +583,48 @@ export const MockTestGenerator: React.FC = () => {
                 <Sliders className="w-3.5 h-3.5" />
                 <span>{currentQuestionIndex + 1}/{totalQ}</span>
               </button>
-              <span className="text-xs font-extrabold text-indigo-600 dark:text-indigo-400 truncate max-w-[120px] sm:max-w-none">
+              <span className="text-xs font-extrabold text-indigo-600 dark:text-indigo-400 truncate max-w-[110px] sm:max-w-none">
                 {currentTest.subject}
               </span>
             </div>
 
-            {/* Countdown Timer Capsule */}
-            <div
-              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-black transition-all ${
-                isTimerUrgent
-                  ? 'bg-rose-500 text-white animate-pulse shadow-sm'
-                  : 'bg-indigo-50 dark:bg-indigo-950/70 text-indigo-700 dark:text-indigo-300 border border-indigo-200 dark:border-indigo-800'
-              }`}
-            >
-              <Clock className="w-3.5 h-3.5" />
-              <span>{formatTime(secondsRemaining)}</span>
-            </div>
+            <div className="flex items-center gap-1.5 sm:gap-2 shrink-0">
+              {/* Auto-Shift Toggle in Top Bar */}
+              <button
+                type="button"
+                onClick={handleToggleAutoShift}
+                title="उत्तर चुनते ही अगले प्रश्न पर स्वतः जाने की सुविधा"
+                className={`px-2.5 py-1.5 rounded-xl text-xs font-bold flex items-center gap-1 transition-all cursor-pointer border ${
+                  autoShift
+                    ? 'bg-amber-50 dark:bg-amber-950/70 text-amber-700 dark:text-amber-300 border-amber-300 dark:border-amber-700 shadow-2xs'
+                    : 'bg-slate-100 dark:bg-slate-800 text-slate-500 border-slate-200 dark:border-slate-700'
+                }`}
+              >
+                <Zap className={`w-3.5 h-3.5 ${autoShift ? 'fill-amber-500 text-amber-500' : ''}`} />
+                <span className="hidden sm:inline">ऑटो:</span>
+                <span>{autoShift ? 'ON' : 'OFF'}</span>
+              </button>
 
-            <button
-              onClick={() => setShowSubmitModal(true)}
-              className="px-3 py-1.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold shadow-xs transition-all cursor-pointer"
-            >
-              सबमिट करें
-            </button>
+              {/* Countdown Timer Capsule */}
+              <div
+                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-black transition-all ${
+                  isTimerUrgent
+                    ? 'bg-rose-500 text-white animate-pulse shadow-sm'
+                    : 'bg-indigo-50 dark:bg-indigo-950/70 text-indigo-700 dark:text-indigo-300 border border-indigo-200 dark:border-indigo-800'
+                }`}
+              >
+                <Clock className="w-3.5 h-3.5" />
+                <span>{formatTime(secondsRemaining)}</span>
+              </div>
+
+              <button
+                type="button"
+                onClick={() => setShowSubmitModal(true)}
+                className="px-3 py-1.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold shadow-xs transition-all cursor-pointer"
+              >
+                सबमिट
+              </button>
+            </div>
           </div>
 
           {/* Progress Bar */}
@@ -575,7 +671,7 @@ export const MockTestGenerator: React.FC = () => {
           </h3>
 
           {/* Option List */}
-          <div className="space-y-2.5 pt-2">
+          <div className="space-y-2.5 pt-1">
             {q.options.map((opt, optIdx) => {
               const isSelected = selectedAnswers[currentQuestionIndex] === opt;
               const optLabel = ['A', 'B', 'C', 'D', 'E'][optIdx];
@@ -583,12 +679,8 @@ export const MockTestGenerator: React.FC = () => {
               return (
                 <button
                   key={optIdx}
-                  onClick={() =>
-                    setSelectedAnswers((prev) => ({
-                      ...prev,
-                      [currentQuestionIndex]: opt,
-                    }))
-                  }
+                  type="button"
+                  onClick={() => handleSelectOption(opt)}
                   className={`w-full text-left p-3.5 rounded-2xl border transition-all cursor-pointer flex items-center gap-3 select-none ${
                     isSelected
                       ? 'bg-indigo-50/90 dark:bg-indigo-950/80 border-indigo-500 text-indigo-950 dark:text-indigo-100 font-bold shadow-xs scale-[1.01]'
@@ -610,46 +702,128 @@ export const MockTestGenerator: React.FC = () => {
               );
             })}
           </div>
-        </div>
 
-        {/* Flutter Style Floating Bottom Action Bar */}
-        <div className="fixed bottom-2 left-0 right-0 max-w-md sm:max-w-lg md:max-w-2xl lg:max-w-3xl mx-auto px-4 z-40">
-          <div className="bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl p-2.5 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-xl flex items-center justify-between gap-2">
+          {/* Answer Status & Quick Clear */}
+          {selectedAnswers[currentQuestionIndex] && (
+            <div className="flex items-center justify-between text-xs pt-1 px-1">
+              <span className="text-emerald-700 dark:text-emerald-400 font-bold flex items-center gap-1.5 text-[11px]">
+                <CheckCircle2 className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
+                <span>उत्तर चयनित</span>
+                {autoShift && currentQuestionIndex < totalQ - 1 && (
+                  <span className="text-indigo-600 dark:text-indigo-400 text-[10px] animate-pulse">
+                    (अगला प्रश्न आ रहा है...)
+                  </span>
+                )}
+              </span>
+              <button
+                type="button"
+                onClick={handleClearCurrentAnswer}
+                className="text-slate-400 hover:text-red-500 text-[11px] font-bold cursor-pointer transition-colors px-2 py-1 rounded-lg hover:bg-red-50 dark:hover:bg-red-950/40"
+              >
+                उत्तर हटाएं (Clear)
+              </button>
+            </div>
+          )}
+
+          {/* Dedicated In-Card Navigation Buttons (Prominent Next & Previous) */}
+          <div className="pt-3.5 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between gap-2 sm:gap-3">
             <button
+              type="button"
               disabled={currentQuestionIndex === 0}
               onClick={() => setCurrentQuestionIndex((prev) => Math.max(0, prev - 1))}
-              className={`p-3 rounded-2xl font-bold text-xs flex items-center gap-1 cursor-pointer transition-all ${
+              className={`min-h-[44px] px-3.5 sm:px-5 py-2.5 rounded-2xl font-bold text-xs sm:text-sm flex items-center gap-1.5 transition-all cursor-pointer border ${
                 currentQuestionIndex === 0
-                  ? 'opacity-40 cursor-not-allowed bg-slate-100 dark:bg-slate-800 text-slate-400'
-                  : 'bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 text-slate-700 dark:text-slate-300'
+                  ? 'opacity-40 cursor-not-allowed bg-slate-50 dark:bg-slate-800/40 text-slate-400 border-slate-200 dark:border-slate-800'
+                  : 'bg-white dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 border-slate-200 dark:border-slate-700 shadow-2xs active:scale-95'
               }`}
             >
               <ArrowLeft className="w-4 h-4" />
-              <span className="hidden sm:inline">पिछला</span>
+              <span>पिछला प्रश्न</span>
             </button>
 
+            {/* Auto-Shift Toggle In-Card */}
             <button
-              onClick={() => setShowPaletteModal(true)}
-              className="px-3 py-2 rounded-2xl bg-indigo-50 dark:bg-indigo-950/60 text-indigo-700 dark:text-indigo-300 font-bold text-xs flex items-center gap-1.5 cursor-pointer"
+              type="button"
+              onClick={handleToggleAutoShift}
+              title="विकल्प चुनते ही स्वतः अगले प्रश्न पर जाने की सुविधा"
+              className={`min-h-[44px] px-3 py-2 rounded-2xl font-bold text-xs flex items-center gap-1.5 transition-all cursor-pointer border ${
+                autoShift
+                  ? 'bg-amber-50 dark:bg-amber-950/60 text-amber-800 dark:text-amber-300 border-amber-300/80 dark:border-amber-700/80 shadow-2xs'
+                  : 'bg-slate-50 dark:bg-slate-800/60 text-slate-500 border-slate-200 dark:border-slate-700'
+              }`}
             >
-              <Sliders className="w-3.5 h-3.5" />
-              <span>प्रश्नावली</span>
+              <Zap className={`w-3.5 h-3.5 ${autoShift ? 'fill-amber-500 text-amber-500' : ''}`} />
+              <span className="hidden xs:inline">ऑटो-नेक्स्ट:</span>
+              <span className="text-[10px] font-black uppercase px-1.5 py-0.5 rounded-md bg-white/70 dark:bg-black/40">
+                {autoShift ? 'चालू' : 'बंद'}
+              </span>
             </button>
 
+            {/* Next Question / Submit Button */}
             {currentQuestionIndex < totalQ - 1 ? (
               <button
+                type="button"
                 onClick={() => setCurrentQuestionIndex((prev) => prev + 1)}
-                className="py-3 px-5 rounded-2xl bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-xs flex items-center gap-1.5 shadow-xs transition-all cursor-pointer"
+                className="min-h-[44px] px-4 sm:px-6 py-2.5 rounded-2xl bg-indigo-600 hover:bg-indigo-700 active:bg-indigo-800 text-white font-bold text-xs sm:text-sm flex items-center gap-2 shadow-md shadow-indigo-600/20 transition-all cursor-pointer active:scale-95"
               >
-                <span>अगला</span>
+                <span>अगला प्रश्न</span>
                 <ArrowRight className="w-4 h-4" />
               </button>
             ) : (
               <button
+                type="button"
                 onClick={() => setShowSubmitModal(true)}
-                className="py-3 px-5 rounded-2xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs flex items-center gap-1.5 shadow-xs transition-all cursor-pointer"
+                className="min-h-[44px] px-4 sm:px-6 py-2.5 rounded-2xl bg-emerald-600 hover:bg-emerald-700 active:bg-emerald-800 text-white font-bold text-xs sm:text-sm flex items-center gap-2 shadow-md shadow-emerald-600/20 transition-all cursor-pointer active:scale-95"
               >
-                <span>सबमिट</span>
+                <span>सबमिट करें</span>
+                <CheckCircle2 className="w-4 h-4" />
+              </button>
+            )}
+          </div>
+        </div>
+
+        {/* Flutter Style Floating Bottom Action Bar */}
+        <div className="fixed bottom-3 sm:bottom-4 left-0 right-0 max-w-md sm:max-w-lg md:max-w-2xl lg:max-w-3xl mx-auto px-4 z-50 pointer-events-none">
+          <div className="pointer-events-auto bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl p-2.5 sm:p-3 rounded-3xl border border-slate-200/90 dark:border-slate-800 shadow-[0_12px_32px_-8px_rgba(0,0,0,0.18)] flex items-center justify-between gap-2">
+            <button
+              type="button"
+              disabled={currentQuestionIndex === 0}
+              onClick={() => setCurrentQuestionIndex((prev) => Math.max(0, prev - 1))}
+              className={`min-h-[42px] px-3 sm:px-4 rounded-2xl font-bold text-xs flex items-center gap-1.5 cursor-pointer transition-all ${
+                currentQuestionIndex === 0
+                  ? 'opacity-40 cursor-not-allowed bg-slate-100 dark:bg-slate-800 text-slate-400'
+                  : 'bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 text-slate-700 dark:text-slate-300 active:scale-95'
+              }`}
+            >
+              <ArrowLeft className="w-4 h-4" />
+              <span>पिछला</span>
+            </button>
+
+            <button
+              type="button"
+              onClick={() => setShowPaletteModal(true)}
+              className="min-h-[42px] px-3.5 py-2 rounded-2xl bg-indigo-50 dark:bg-indigo-950/60 text-indigo-700 dark:text-indigo-300 font-bold text-xs flex items-center gap-1.5 cursor-pointer active:scale-95"
+            >
+              <Sliders className="w-3.5 h-3.5" />
+              <span>प्रश्नावली ({currentQuestionIndex + 1}/{totalQ})</span>
+            </button>
+
+            {currentQuestionIndex < totalQ - 1 ? (
+              <button
+                type="button"
+                onClick={() => setCurrentQuestionIndex((prev) => prev + 1)}
+                className="min-h-[42px] py-2.5 px-4 sm:px-6 rounded-2xl bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-xs sm:text-sm flex items-center gap-2 shadow-sm transition-all cursor-pointer active:scale-95"
+              >
+                <span>अगला प्रश्न</span>
+                <ArrowRight className="w-4 h-4" />
+              </button>
+            ) : (
+              <button
+                type="button"
+                onClick={() => setShowSubmitModal(true)}
+                className="min-h-[42px] py-2.5 px-4 sm:px-6 rounded-2xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs sm:text-sm flex items-center gap-2 shadow-sm transition-all cursor-pointer active:scale-95"
+              >
+                <span>सबमिट करें</span>
                 <CheckCircle2 className="w-4 h-4" />
               </button>
             )}

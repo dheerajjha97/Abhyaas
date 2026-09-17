@@ -39,6 +39,7 @@ import { BrandLogo } from '../components/ui/BrandLogo';
 import { LoginReminderBanner } from '../components/auth/LoginReminderBanner';
 import { hasDismissedLoginPromptRecently } from '../components/auth/LoginPromptModal';
 import { NotificationBellButton } from '../components/notifications/NotificationBellButton';
+import { PreviousTestCard } from '../components/dashboard/PreviousTestCard';
 
 export const Home: React.FC = () => {
   const navigate = useNavigate();
@@ -402,36 +403,12 @@ export const Home: React.FC = () => {
 
       {/* Resume Practice (जहाँ छोड़ा था, वहीं से शुरू करें) if recent history exists */}
       {lastRecentTest && (
-        <div className="bg-gradient-to-r from-blue-50 via-indigo-50 to-white dark:from-slate-800/80 dark:via-slate-800/50 dark:to-slate-900 rounded-2xl p-3.5 border border-blue-200/70 dark:border-blue-900/50 shadow-2xs flex items-center justify-between gap-3">
-          <div className="flex items-center gap-3 min-w-0">
-            <div className="w-9 h-9 rounded-xl bg-blue-600 text-white flex items-center justify-center shrink-0 shadow-xs">
-              <RotateCcw className="w-4 h-4" />
-            </div>
-            <div className="min-w-0">
-              <div className="flex items-center gap-1.5">
-                <span className="text-[9px] font-black uppercase tracking-wider bg-blue-600 text-white px-2 py-0.2 rounded-full">
-                  पिछला टेस्ट
-                </span>
-                <span className="text-xs font-black text-slate-900 dark:text-white truncate">
-                  {lastRecentTest.testName}
-                </span>
-              </div>
-              <p className="text-[11px] text-slate-500 dark:text-slate-400 truncate mt-0.5">
-                स्कोर: {lastRecentTest.score}/{lastRecentTest.totalQuestions} ({lastRecentTest.percentage}%) • {new Date(lastRecentTest.timestamp).toLocaleDateString('hi-IN', { day: 'numeric', month: 'short' })}
-              </p>
-            </div>
-          </div>
-
-          <button
-            onClick={() =>
-              navigate(`/mock-test?subject=${encodeURIComponent(lastRecentTest.subject)}`)
-            }
-            className="px-3 py-1.5 rounded-xl bg-white dark:bg-slate-700 hover:bg-blue-50 text-blue-700 dark:text-blue-300 font-bold text-xs border border-blue-200 dark:border-blue-800 shadow-2xs active:scale-95 transition-all shrink-0 cursor-pointer flex items-center gap-1"
-          >
-            <span>पुनः अभ्यास</span>
-            <ChevronRight className="w-3.5 h-3.5" />
-          </button>
-        </div>
+        <PreviousTestCard
+          test={lastRecentTest}
+          onRetake={() =>
+            navigate(`/mock-test?subject=${encodeURIComponent(lastRecentTest.subject)}`)
+          }
+        />
       )}
 
       {/* Quick Revision Guide (अंतिम समय की त्वरित तैयारी) Feature Banner */}

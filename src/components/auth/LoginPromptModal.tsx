@@ -14,6 +14,7 @@ import {
 } from 'lucide-react';
 import { useStudentProfile } from '../../context/StudentProfileContext';
 import { BrandLogo } from '../ui/BrandLogo';
+import { LoginHeaderIllustration } from './LoginHeaderIllustration';
 
 const DISMISS_KEY = 'abhyaas_login_prompt_dismissed_at';
 const DISMISS_DURATION_MS = 24 * 60 * 60 * 1000; // 24 hours
@@ -86,7 +87,7 @@ export const LoginPromptModal: React.FC = () => {
           className="relative w-full max-w-lg bg-white dark:bg-slate-900 rounded-3xl shadow-2xl border border-slate-200 dark:border-slate-800 overflow-hidden my-auto"
         >
           {/* Top Decorative Header */}
-          <div className="relative bg-gradient-to-br from-blue-600 via-indigo-600 to-slate-900 text-white p-5 sm:p-6 overflow-hidden">
+          <div className="relative bg-gradient-to-br from-blue-600 via-indigo-600 to-slate-900 text-white p-4 sm:p-6 overflow-hidden">
             {/* Background glowing effects */}
             <div className="absolute top-0 right-0 w-48 h-48 bg-white/10 rounded-full blur-2xl pointer-events-none -mr-16 -mt-16" />
             <div className="absolute bottom-0 left-0 w-36 h-36 bg-amber-400/15 rounded-full blur-xl pointer-events-none -ml-12 -mb-12" />
@@ -97,29 +98,41 @@ export const LoginPromptModal: React.FC = () => {
               id="close-login-prompt-btn"
               onClick={handleDismiss}
               aria-label="बंद करें"
-              className="absolute top-4 right-4 w-8 h-8 rounded-full bg-white/15 hover:bg-white/25 active:scale-95 text-white/90 hover:text-white flex items-center justify-center backdrop-blur-md transition-all cursor-pointer border border-white/20 z-10 shadow-xs"
+              className="absolute top-3.5 right-3.5 w-8 h-8 rounded-full bg-white/15 hover:bg-white/25 active:scale-95 text-white/90 hover:text-white flex items-center justify-center backdrop-blur-md transition-all cursor-pointer border border-white/20 z-20 shadow-xs"
             >
               <X className="w-4 h-4" />
             </button>
 
-            <div className="relative z-10 flex items-start gap-3.5">
-              <div className="shrink-0 p-2 bg-white/15 rounded-2xl border border-white/20 backdrop-blur-md shadow-xs">
-                <BrandLogo size={36} rounded="rounded-xl" showShadow={false} />
-              </div>
-
-              <div className="min-w-0 pr-6">
-                <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-amber-400/20 text-amber-200 border border-amber-300/30 text-[10px] font-black uppercase tracking-wider mb-1">
-                  <Sparkles className="w-3 h-3 text-amber-300" />
-                  <span>स्मार्ट सिंक व सुरक्षित डेटा</span>
+            <div className="relative z-10 flex items-center justify-between gap-3 sm:gap-4">
+              <div className="min-w-0 flex-1 pr-1 sm:pr-0">
+                <div className="flex items-center gap-2 mb-1.5 flex-wrap">
+                  <div className="shrink-0 p-1 bg-white/15 rounded-xl border border-white/20 backdrop-blur-md shadow-xs">
+                    <BrandLogo size={24} rounded="rounded-lg" showShadow={false} />
+                  </div>
+                  <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-amber-400/20 text-amber-200 border border-amber-300/30 text-[10px] font-black uppercase tracking-wider">
+                    <Sparkles className="w-3 h-3 text-amber-300" />
+                    <span>स्मार्ट सिंक व सुरक्षित डेटा</span>
+                  </div>
                 </div>
-                <h3 className="text-lg sm:text-xl font-black text-white tracking-tight leading-snug">
+
+                <h3 className="text-base sm:text-xl font-black text-white tracking-tight leading-snug">
                   अपनी पढ़ाई और टेस्ट रिकॉर्ड सुरक्षित रखें! 🚀
                 </h3>
-                <p className="text-xs text-blue-100 font-medium mt-1 leading-relaxed">
+                <p className="text-xs text-blue-100 font-medium mt-1 leading-relaxed hidden sm:block">
                   लॉगिन करने से आपके सभी टेस्ट स्कोर, OMR शीट, और गलतियों की नोटबुक किसी भी डिवाइस पर कभी गायब नहीं होंगी।
                 </p>
               </div>
+
+              {/* Animated SVG Header Illustration */}
+              <div className="shrink-0 w-24 h-20 sm:w-32 sm:h-26 flex items-center justify-center">
+                <LoginHeaderIllustration className="w-full h-full" />
+              </div>
             </div>
+
+            {/* Mobile Subtitle below header illustration */}
+            <p className="relative z-10 text-[11px] text-blue-100 font-medium mt-2 leading-relaxed sm:hidden">
+              लॉगिन करने से आपके सभी टेस्ट स्कोर, OMR शीट, और गलतियों की नोटबुक कभी गायब नहीं होंगी।
+            </p>
           </div>
 
           {/* Benefits List */}

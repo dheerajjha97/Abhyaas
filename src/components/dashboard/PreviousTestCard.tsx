@@ -1,5 +1,5 @@
 import React from 'react';
-import { RotateCcw, BookOpen, ClipboardCheck, FileText, CheckCircle2, ChevronRight, Zap, Target } from 'lucide-react';
+import { RotateCcw, BookOpen, ClipboardCheck, FileText, CheckCircle2, ChevronRight, Zap, Target, Clock } from 'lucide-react';
 import { TestHistoryItem } from '../../types/progress';
 import { ALL_AVAILABLE_SUBJECTS } from '../../types/studentProfile';
 
@@ -36,6 +36,41 @@ const SUBJECT_SUBTITLES: Record<string, string> = {
   'Agriculture': 'फसल उत्पादन, मृदा विज्ञान एवं कृषि अर्थशास्त्र',
 };
 
+// Helper to format attempt timestamp into a readable, natural date string
+const formatAttemptDate = (timestamp?: number): string | null => {
+  if (!timestamp) return null;
+  const date = new Date(timestamp);
+  if (isNaN(date.getTime())) return null;
+
+  const now = new Date();
+  const isToday = date.toDateString() === now.toDateString();
+
+  const yesterday = new Date();
+  yesterday.setDate(yesterday.getDate() - 1);
+  const isYesterday = date.toDateString() === yesterday.toDateString();
+
+  const timeStr = date.toLocaleTimeString('hi-IN', {
+    hour: '2-digit',
+    minute: '2-digit',
+    hour12: true,
+  });
+
+  if (isToday) {
+    return `आज, ${timeStr}`;
+  }
+  if (isYesterday) {
+    return `कल, ${timeStr}`;
+  }
+
+  const dateStr = date.toLocaleDateString('hi-IN', {
+    day: 'numeric',
+    month: 'short',
+    year: date.getFullYear() !== now.getFullYear() ? 'numeric' : undefined,
+  });
+
+  return `${dateStr} • ${timeStr}`;
+};
+
 export const PreviousTestCard: React.FC<PreviousTestCardProps> = ({
   test,
   onRetake,
@@ -58,6 +93,8 @@ export const PreviousTestCard: React.FC<PreviousTestCardProps> = ({
       ? (correct / total) * 100
       : 0
   );
+
+  const attemptDateString = formatAttemptDate(test.timestamp);
 
   return (
     <div
@@ -91,11 +128,11 @@ export const PreviousTestCard: React.FC<PreviousTestCardProps> = ({
             />
           </div>
 
-          {/* 2, 3, 4. Vertical Stack: Badge -> Main Title -> Sub Title / Topic */}
+          {/* 2, 3, 4. Vertical Stack: Badge -> Date Stamp -> Main Title -> Sub Title / Topic */}
           <div className="min-w-0 flex-1 flex flex-col justify-center">
             
             {/* 2. पिछला टेस्ट Badge : retry Icon के right में, title के ऊपर */}
-            <div className="mb-1">
+            <div className="mb-0.5">
               <span
                 className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-white text-[10px] sm:text-[11px] font-black shadow-2xs tracking-wide shrink-0"
                 style={{
@@ -106,6 +143,14 @@ export const PreviousTestCard: React.FC<PreviousTestCardProps> = ({
                 <span>पिछला टेस्ट</span>
               </span>
             </div>
+
+            {/* Small muted date stamp below the 'Previous Test' badge */}
+            {attemptDateString && (
+              <div className="flex items-center gap-1 text-[10px] sm:text-[11px] text-slate-400 dark:text-slate-500 font-medium mb-1 tracking-tight">
+                <Clock className="w-3 h-3 text-slate-400/85 dark:text-slate-500/85 shrink-0" />
+                <span>अंतिम प्रयास: {attemptDateString}</span>
+              </div>
+            )}
 
             {/* 3. Badge के ठीक नीचे: Main title */}
             <h3

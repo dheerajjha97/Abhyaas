@@ -8,7 +8,12 @@ import {
   User,
 } from 'firebase/auth';
 import {
+  initializeFirestore,
+  persistentLocalCache,
+  persistentMultipleTabManager,
+  setLogLevel,
   getFirestore,
+  Firestore,
   doc,
   getDoc,
   setDoc,
@@ -29,8 +34,37 @@ export const auth = getAuth(app);
 export const googleProvider = new GoogleAuthProvider();
 googleProvider.setCustomParameters({ prompt: 'select_account' });
 
-// Use the configured database ID or default
-export const db = getFirestore(app, firebaseConfig.firestoreDatabaseId || '(default)');
+// Suppress routine offline / retry connection logs in sandbox/iframe environments
+setLogLevel('silent');
+
+// Initialize Firestore with auto-detected long-polling and local multi-tab cache for seamless offline operation
+let dbInstance: Firestore;
+try {
+  dbInstance = initializeFirestore(
+    app,
+    {
+      localCache: persistentLocalCache({
+        tabManager: persistentMultipleTabManager(),
+      }),
+      experimentalAutoDetectLongPolling: true,
+    },
+    firebaseConfig.firestoreDatabaseId || '(default)'
+  );
+} catch {
+  try {
+    dbInstance = initializeFirestore(
+      app,
+      {
+        experimentalAutoDetectLongPolling: true,
+      },
+      firebaseConfig.firestoreDatabaseId || '(default)'
+    );
+  } catch {
+    dbInstance = getFirestore(app, firebaseConfig.firestoreDatabaseId || '(default)');
+  }
+}
+
+export const db = dbInstance;
 
 // Messaging initialization helper (safe for browser environments)
 let messagingInstance: Messaging | null = null;

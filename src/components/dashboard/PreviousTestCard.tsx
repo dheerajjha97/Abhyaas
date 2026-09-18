@@ -1,5 +1,5 @@
 import React from 'react';
-import { RotateCcw, BookOpen, ClipboardCheck, FileText, CheckCircle2, ChevronRight } from 'lucide-react';
+import { RotateCcw, BookOpen, ClipboardCheck, FileText, CheckCircle2, ChevronRight, Zap, Target } from 'lucide-react';
 import { TestHistoryItem } from '../../types/progress';
 import { ALL_AVAILABLE_SUBJECTS } from '../../types/studentProfile';
 
@@ -62,134 +62,185 @@ export const PreviousTestCard: React.FC<PreviousTestCardProps> = ({
   return (
     <div
       id="previous-test-result-card"
-      className={`group relative overflow-hidden rounded-2xl border border-blue-600/12 bg-white/95 dark:bg-slate-900/90 p-3.5 sm:p-4 md:p-4.5 shadow-[0_4px_20px_rgb(37,99,235,0.05)] dark:shadow-[0_4px_20px_rgb(0,0,0,0.3)] transition-all duration-300 hover:shadow-[0_8px_24px_rgb(37,99,235,0.08)] hover:border-blue-600/20 ${className}`}
+      className={`group relative overflow-hidden rounded-2xl border border-blue-200/80 dark:border-blue-900/60 bg-white dark:bg-slate-900 p-4 sm:p-5 shadow-sm hover:shadow-md transition-all duration-300 ${className}`}
       style={{
         backgroundImage:
           'radial-gradient(120% 120% at 0% 0%, rgba(239, 246, 255, 0.75) 0%, rgba(255, 255, 255, 0) 55%)',
       }}
     >
-      {/* Responsive Container: Compact horizontal flow with lower height */}
-      <div className="flex flex-col md:flex-row md:items-center justify-between gap-3 md:gap-4">
+      {/* Top Main Section: 1. Left Icon | 2-4. Badge, Title, Subtitle | 5. Right Retake Button */}
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3.5 sm:gap-4">
         
-        {/* Left Section: Icon + Text Details */}
-        <div className="flex items-center gap-3 sm:gap-3.5 md:gap-4 min-w-0 flex-1">
+        {/* Left Side: 1. History/Retry Icon + 2,3,4. Content Stack */}
+        <div className="flex items-start sm:items-center gap-3 sm:gap-4 min-w-0 flex-1">
           
-          {/* Compact Rounded-Square Icon Container */}
+          {/* 1. Left side me History/retry icon */}
           <div className="relative shrink-0">
             <div
-              className="w-12 h-12 sm:w-13 sm:h-13 md:w-14 md:h-14 rounded-xl flex items-center justify-center text-white shadow-[0_6px_16px_-3px_rgba(37,99,235,0.4)] transition-transform duration-300 group-hover:scale-105"
+              className="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl flex items-center justify-center text-white shadow-[0_6px_16px_-3px_rgba(37,99,235,0.35)] transition-transform duration-300 group-hover:scale-105"
               style={{
-                background: 'linear-gradient(135deg, #2563EB 0%, #3B82F6 100%)',
+                background: 'linear-gradient(135deg, #2563EB 0%, #1D4ED8 100%)',
               }}
+              title="पिछला टेस्ट इतिहास"
             >
               <RotateCcw className="w-5 h-5 sm:w-6 sm:h-6 stroke-[2.25] text-white" />
             </div>
             <div
               aria-hidden="true"
-              className="absolute -inset-0.5 rounded-xl bg-blue-500/20 blur-sm -z-10 opacity-70"
+              className="absolute -inset-0.5 rounded-2xl bg-blue-500/20 blur-sm -z-10 opacity-70"
             />
           </div>
 
-          {/* Content Area: Badge, Main Title, Subtitle, and Statistics */}
-          <div className="min-w-0 flex-1 space-y-1 sm:space-y-1.5 w-full">
+          {/* 2, 3, 4. Vertical Stack: Badge -> Main Title -> Sub Title / Topic */}
+          <div className="min-w-0 flex-1 flex flex-col justify-center">
             
-            {/* Top Line: Badge + Title */}
-            <div className="flex items-center gap-2 min-w-0">
+            {/* 2. पिछला टेस्ट Badge : retry Icon के right में, title के ऊपर */}
+            <div className="mb-1">
               <span
-                className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-white text-[10px] font-black shadow-xs tracking-wide shrink-0"
+                className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-white text-[10px] sm:text-[11px] font-black shadow-2xs tracking-wide shrink-0"
                 style={{
                   background: 'linear-gradient(135deg, #2563EB 0%, #3B82F6 100%)',
                 }}
               >
-                <BookOpen className="w-2.5 h-2.5 text-white/90 stroke-[2.5]" />
+                <BookOpen className="w-2.5 h-2.5 sm:w-3 sm:h-3 text-white stroke-[2.5]" />
                 <span>पिछला टेस्ट</span>
               </span>
-              <h3
-                className="text-sm sm:text-base font-black tracking-tight text-[#0F172A] dark:text-slate-100 leading-tight truncate"
-                title={test.testName}
-              >
-                {test.testName}
-              </h3>
             </div>
 
-            {/* Subtitle */}
-            <p className="text-[11px] sm:text-xs font-medium text-[#64748B] dark:text-slate-400 truncate leading-none">
+            {/* 3. Badge के ठीक नीचे: Main title */}
+            <h3
+              className="text-base sm:text-lg font-black tracking-tight text-slate-900 dark:text-white leading-tight truncate"
+              title={test.testName}
+            >
+              {test.testName}
+            </h3>
+
+            {/* 4. Main title के नीचे: Sub title or topic */}
+            <p className="text-xs sm:text-[13px] font-medium text-slate-500 dark:text-slate-400 truncate mt-0.5 leading-snug">
               {subtitle}
             </p>
-
-            {/* Result Statistics Row - Compact */}
-            <div className="pt-0.5">
-              <div className="inline-flex items-center gap-2.5 sm:gap-3.5">
-                
-                {/* Stat 1: Score */}
-                <div className="flex items-center gap-1.5">
-                  <div className="w-5 h-5 rounded-full bg-blue-50 dark:bg-blue-950/70 border border-blue-100 dark:border-blue-900/60 flex items-center justify-center shrink-0">
-                    <ClipboardCheck className="w-3 h-3 text-[#2563EB] dark:text-blue-400" />
-                  </div>
-                  <div className="flex items-center gap-1 text-[11px]">
-                    <span className="font-semibold text-[#64748B] dark:text-slate-400 hidden xs:inline">
-                      स्कोर:
-                    </span>
-                    <span className="font-extrabold text-[#2563EB] dark:text-blue-400">
-                      {test.score}/{total} ({percentage}%)
-                    </span>
-                  </div>
-                </div>
-
-                {/* Vertical Separator */}
-                <div className="w-[1px] h-3.5 bg-slate-200 dark:bg-slate-800" />
-
-                {/* Stat 2: Total Questions */}
-                <div className="flex items-center gap-1.5">
-                  <div className="w-5 h-5 rounded-full bg-indigo-50 dark:bg-indigo-950/70 border border-indigo-100 dark:border-indigo-900/60 flex items-center justify-center shrink-0">
-                    <FileText className="w-3 h-3 text-indigo-600 dark:text-indigo-400" />
-                  </div>
-                  <div className="flex items-center gap-1 text-[11px]">
-                    <span className="font-semibold text-[#64748B] dark:text-slate-400 hidden xs:inline">
-                      प्रश्न:
-                    </span>
-                    <span className="font-extrabold text-indigo-600 dark:text-indigo-400">
-                      {total}
-                    </span>
-                  </div>
-                </div>
-
-                {/* Vertical Separator */}
-                <div className="w-[1px] h-3.5 bg-slate-200 dark:bg-slate-800" />
-
-                {/* Stat 3: Correct Answers */}
-                <div className="flex items-center gap-1.5">
-                  <div className="w-5 h-5 rounded-full bg-emerald-50 dark:bg-emerald-950/70 border border-emerald-100 dark:border-emerald-900/60 flex items-center justify-center shrink-0">
-                    <CheckCircle2 className="w-3 h-3 text-emerald-600 dark:text-emerald-400" />
-                  </div>
-                  <div className="flex items-center gap-1 text-[11px]">
-                    <span className="font-semibold text-[#64748B] dark:text-slate-400 hidden xs:inline">
-                      सही:
-                    </span>
-                    <span className="font-extrabold text-emerald-600 dark:text-emerald-400">
-                      {correct}
-                    </span>
-                  </div>
-                </div>
-
-              </div>
-            </div>
-
           </div>
         </div>
 
-        {/* Right Section: Compact CTA Button */}
-        <div className="shrink-0 w-full md:w-auto pt-1 md:pt-0">
+        {/* 5. पुनः अभ्यास button: Card के सबसे right */}
+        <div className="shrink-0 w-full sm:w-auto">
           <button
             type="button"
+            id="previous-test-retake-btn"
             onClick={onRetake}
-            className="group/btn w-full md:w-auto px-4 py-2 sm:py-2.5 rounded-xl bg-white dark:bg-slate-800 hover:bg-blue-50/80 dark:hover:bg-blue-950/40 text-[#2563EB] dark:text-blue-400 font-extrabold text-xs sm:text-sm border border-[#2563EB]/35 hover:border-[#2563EB] dark:border-blue-500/40 dark:hover:border-blue-400 shadow-2xs hover:shadow-xs active:scale-[0.98] transition-all duration-200 flex items-center justify-center gap-1.5 cursor-pointer"
+            className="group/btn w-full sm:w-auto px-4 sm:px-5 py-2 sm:py-2.5 rounded-xl bg-blue-600 hover:bg-blue-700 active:scale-95 text-white font-black text-xs sm:text-sm shadow-xs hover:shadow transition-all duration-200 flex items-center justify-center gap-1.5 cursor-pointer"
           >
+            <RotateCcw className="w-3.5 h-3.5 stroke-[2.5] transition-transform duration-200 group-hover/btn:-rotate-45" />
             <span>पुनः अभ्यास</span>
             <ChevronRight className="w-3.5 h-3.5 stroke-[2.75] transition-transform duration-200 group-hover/btn:translate-x-0.5" />
           </button>
         </div>
 
+      </div>
+
+      {/* 6. Bottom Statistics Section: यह card का सबसे important information section है */}
+      {/* 7. Statistics के बीच Vertical Separators */}
+      <div className="mt-3.5 sm:mt-4 pt-3 sm:pt-3.5 border-t border-slate-200/80 dark:border-slate-800/80 bg-slate-50/70 dark:bg-slate-800/40 rounded-xl p-2.5 sm:p-3">
+        <div className="flex items-center justify-between">
+          
+          {/* Stat 1: प्राप्तांक (Score) */}
+          <div className="flex-1 flex flex-col items-center sm:items-start text-center sm:text-left px-1 sm:px-2.5 min-w-0">
+            <div className="flex items-center gap-1 sm:gap-1.5 mb-0.5">
+              <div className="w-4 h-4 sm:w-5 sm:h-5 rounded-md bg-blue-100 dark:bg-blue-950/80 text-blue-600 dark:text-blue-400 flex items-center justify-center shrink-0">
+                <ClipboardCheck className="w-2.5 h-2.5 sm:w-3 sm:h-3 stroke-[2.25]" />
+              </div>
+              <span className="text-[10px] sm:text-[11px] font-bold text-slate-500 dark:text-slate-400 truncate">
+                स्कोर
+              </span>
+            </div>
+            <div className="flex items-baseline gap-0.5 sm:gap-1">
+              <span className="text-sm sm:text-base font-black text-blue-600 dark:text-blue-400 leading-none">
+                {test.score}
+              </span>
+              <span className="text-[10px] sm:text-xs font-bold text-slate-400 dark:text-slate-500">
+                /{total}
+              </span>
+            </div>
+          </div>
+
+          {/* 7. Vertical Separator 1 */}
+          <div className="w-[1px] h-8 sm:h-9 bg-slate-200 dark:bg-slate-700/80 shrink-0" />
+
+          {/* Stat 2: सही उत्तर (Correct Answers) */}
+          <div className="flex-1 flex flex-col items-center sm:items-start text-center sm:text-left px-1 sm:px-2.5 min-w-0">
+            <div className="flex items-center gap-1 sm:gap-1.5 mb-0.5">
+              <div className="w-4 h-4 sm:w-5 sm:h-5 rounded-md bg-emerald-100 dark:bg-emerald-950/80 text-emerald-600 dark:text-emerald-400 flex items-center justify-center shrink-0">
+                <CheckCircle2 className="w-2.5 h-2.5 sm:w-3 sm:h-3 stroke-[2.25]" />
+              </div>
+              <span className="text-[10px] sm:text-[11px] font-bold text-slate-500 dark:text-slate-400 truncate">
+                सही उत्तर
+              </span>
+            </div>
+            <div className="flex items-baseline gap-0.5 sm:gap-1">
+              <span className="text-sm sm:text-base font-black text-emerald-600 dark:text-emerald-400 leading-none">
+                {correct}
+              </span>
+              <span className="text-[10px] sm:text-xs font-bold text-slate-400 dark:text-slate-500 hidden xs:inline">
+                प्रश्न
+              </span>
+            </div>
+          </div>
+
+          {/* 7. Vertical Separator 2 */}
+          <div className="w-[1px] h-8 sm:h-9 bg-slate-200 dark:bg-slate-700/80 shrink-0" />
+
+          {/* Stat 3: कुल प्रश्न (Total Questions) */}
+          <div className="flex-1 flex flex-col items-center sm:items-start text-center sm:text-left px-1 sm:px-2.5 min-w-0">
+            <div className="flex items-center gap-1 sm:gap-1.5 mb-0.5">
+              <div className="w-4 h-4 sm:w-5 sm:h-5 rounded-md bg-indigo-100 dark:bg-indigo-950/80 text-indigo-600 dark:text-indigo-400 flex items-center justify-center shrink-0">
+                <FileText className="w-2.5 h-2.5 sm:w-3 sm:h-3 stroke-[2.25]" />
+              </div>
+              <span className="text-[10px] sm:text-[11px] font-bold text-slate-500 dark:text-slate-400 truncate">
+                कुल प्रश्न
+              </span>
+            </div>
+            <div className="flex items-baseline gap-0.5 sm:gap-1">
+              <span className="text-sm sm:text-base font-black text-indigo-600 dark:text-indigo-400 leading-none">
+                {total}
+              </span>
+              <span className="text-[10px] sm:text-xs font-bold text-slate-400 dark:text-slate-500 hidden xs:inline">
+                Q
+              </span>
+            </div>
+          </div>
+
+          {/* 7. Vertical Separator 3 */}
+          <div className="w-[1px] h-8 sm:h-9 bg-slate-200 dark:bg-slate-700/80 shrink-0" />
+
+          {/* Stat 4: परिणाम व सटीकता (Accuracy / Result Percentage) */}
+          <div className="flex-1 flex flex-col items-center sm:items-start text-center sm:text-left px-1 sm:px-2.5 min-w-0">
+            <div className="flex items-center gap-1 sm:gap-1.5 mb-0.5">
+              <div className="w-4 h-4 sm:w-5 sm:h-5 rounded-md bg-amber-100 dark:bg-amber-950/80 text-amber-600 dark:text-amber-400 flex items-center justify-center shrink-0">
+                <Target className="w-2.5 h-2.5 sm:w-3 sm:h-3 stroke-[2.25]" />
+              </div>
+              <span className="text-[10px] sm:text-[11px] font-bold text-slate-500 dark:text-slate-400 truncate">
+                सटीकता
+              </span>
+            </div>
+            <div className="flex items-baseline gap-0.5 sm:gap-1">
+              <span
+                className={`text-sm sm:text-base font-black leading-none ${
+                  percentage >= 70
+                    ? 'text-emerald-600 dark:text-emerald-400'
+                    : percentage >= 40
+                    ? 'text-amber-600 dark:text-amber-400'
+                    : 'text-rose-600 dark:text-rose-400'
+                }`}
+              >
+                {percentage}%
+              </span>
+              <span className="text-[10px] sm:text-xs font-bold text-slate-400 dark:text-slate-500 hidden md:inline">
+                {percentage >= 70 ? 'उत्कृष्ट' : percentage >= 40 ? 'औसत' : 'सुधार'}
+              </span>
+            </div>
+          </div>
+
+        </div>
       </div>
     </div>
   );

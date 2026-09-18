@@ -180,7 +180,7 @@ export const DesktopNavbar: React.FC = () => {
           <ChevronDown className="w-3.5 h-3.5 text-slate-400 group-hover:text-slate-600 dark:group-hover:text-slate-300 shrink-0" />
         </button>
 
-        {/* Notification Bell (FCM Study Alerts) */}
+        {/* Notification Bell (Study Alerts) */}
         <NotificationBellButton />
 
         {/* More Settings */}

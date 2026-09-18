@@ -228,7 +228,7 @@ export const LongQuestions: React.FC = () => {
               <button
                 onClick={handleShareQuestion}
                 className="flex items-center gap-1.5 text-xs font-bold text-pink-700 dark:text-pink-300 hover:bg-pink-100/80 dark:hover:bg-pink-900/60 px-2.5 py-1 rounded-xl bg-pink-50 dark:bg-pink-950/80 border border-pink-200 dark:border-pink-800 transition-colors cursor-pointer active:scale-95"
-                title="Share via Web Share API"
+                title="शेयर करें"
               >
                 <Share2 className="w-3.5 h-3.5 text-pink-600 dark:text-pink-400" />
                 <span>Share</span>

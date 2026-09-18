@@ -120,7 +120,7 @@ export const NotificationCenterModal: React.FC<{
             </button>
           </div>
 
-          {/* FCM Push Permission Banner (if not granted yet) */}
+          {/* Push Permission Banner (if not granted yet) */}
           {!isPermissionGranted && (
             <div className="p-3.5 bg-amber-50 dark:bg-amber-950/40 border-b border-amber-200/80 dark:border-amber-900/60 flex items-center justify-between gap-3 shrink-0">
               <div className="flex items-center gap-2.5 min-w-0">
@@ -129,7 +129,7 @@ export const NotificationCenterModal: React.FC<{
                 </div>
                 <div className="min-w-0">
                   <h4 className="text-xs font-bold text-amber-900 dark:text-amber-200">
-                    पुश नोटिफिकेशन चालू करें (FCM Alerts)
+                    पुश नोटिफिकेशन चालू करें
                   </h4>
                   <p className="text-[11px] text-amber-800/80 dark:text-amber-300/80 line-clamp-1">
                     जब भी नया 10वीं/12वीं का पेपर या नोट्स आएंगे, तुरंत फोन पर घंटी बजेगी।
@@ -139,7 +139,7 @@ export const NotificationCenterModal: React.FC<{
 
               <button
                 type="button"
-                id="enable-fcm-push-btn"
+                id="enable-push-notifications-btn"
                 onClick={handleEnablePush}
                 disabled={isRequesting}
                 className="px-3 py-1.5 rounded-xl bg-amber-500 hover:bg-amber-600 active:scale-95 text-white font-black text-xs shrink-0 shadow-xs transition-all cursor-pointer disabled:opacity-50"
@@ -235,7 +235,7 @@ export const NotificationCenterModal: React.FC<{
           <div className="p-3 bg-slate-50 dark:bg-slate-800/80 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-[11px] text-slate-500 dark:text-slate-400 shrink-0">
             <div className="flex items-center gap-1.5">
               <ShieldCheck className="w-3.5 h-3.5 text-emerald-500" />
-              <span>Firebase Cloud Messaging (FCM) द्वारा सुरक्षित</span>
+              <span>स्मार्ट नोटिफिकेशन सिस्टम द्वारा सुरक्षित</span>
             </div>
             <span className="text-[10px] bg-slate-200 dark:bg-slate-700 px-2 py-0.5 rounded-full font-bold">
               Class {profile.classId}

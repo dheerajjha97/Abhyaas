@@ -113,7 +113,7 @@ export const NotificationProvider: React.FC<{ children: React.ReactNode }> = ({ 
               {
                 id: 'notes-reminder',
                 title: '📌 नए नोट्स व मॉडल पेपर्स अपडेट',
-                body: 'GitHub और क्लाउड के ज़रिए नए क्वेश्चन बैंक समय-समय पर जोड़े जा रहे हैं।',
+                body: 'अभ्यास पोर्टल पर नए क्वेश्चन बैंक व मॉडल पेपर समय-समय पर जोड़े जा रहे हैं।',
                 classId: 'all',
                 type: 'notes_update',
                 url: '/notes',
@@ -127,7 +127,7 @@ export const NotificationProvider: React.FC<{ children: React.ReactNode }> = ({ 
           }
         },
         (error) => {
-          console.warn('Firestore announcements listener warning:', error);
+          // Silent handler to avoid exposing backend in console
         }
       );
 

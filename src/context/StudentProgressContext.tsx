@@ -56,8 +56,7 @@ export const StudentProgressProvider: React.FC<{ children: React.ReactNode }> = 
         );
 
         setCloudSyncStatus('synced');
-      } catch (err) {
-        console.warn('Could not sync progress to Firestore:', err);
+      } catch {
         setCloudSyncStatus('offline');
       }
     },
@@ -113,8 +112,7 @@ export const StudentProgressProvider: React.FC<{ children: React.ReactNode }> = 
           await syncToFirestore(currentLocal, currentUser.uid);
           setCloudSyncStatus('synced');
         }
-      } catch (err) {
-        console.warn('Error reading progress from Firestore:', err);
+      } catch {
         setCloudSyncStatus('offline');
       } finally {
         if (isMounted) setIsSyncing(false);

@@ -57,7 +57,7 @@ export const SyllabusView: React.FC = () => {
         setToast({
           id: Date.now().toString(),
           type: 'success',
-          message: `${selectedSubject} का नवीनतम पाठ्यक्रम GitHub से अपडेट हो गया!`,
+          message: `${selectedSubject} का नवीनतम पाठ्यक्रम सफलतापूर्वक अपडेट हो गया!`,
         });
       }
     } catch (e) {
@@ -88,7 +88,7 @@ export const SyllabusView: React.FC = () => {
           <button
             onClick={() => loadSyllabus(true)}
             disabled={isRefreshing || loading}
-            title="GitHub से नवीनतम पाठ्यक्रम रिफ्रेश करें"
+            title="नवीनतम पाठ्यक्रम रिफ्रेश करें"
             className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-200 hover:bg-blue-50 dark:hover:bg-blue-950/60 hover:text-blue-600 dark:hover:text-blue-400 active:scale-95 transition-all text-xs font-bold cursor-pointer disabled:opacity-50"
           >
             {isRefreshing ? (

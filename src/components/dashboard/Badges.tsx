@@ -94,7 +94,7 @@ export const Badges: React.FC<BadgesProps> = ({
   const [selectedBadge, setSelectedBadge] = useState<VirtualBadge | null>(null);
   const [filterCategory, setFilterCategory] = useState<'all' | 'unlocked' | 'locked'>('all');
 
-  // Evaluate badges based on active StudentProgressData from Firestore
+  // Evaluate badges based on active StudentProgressData
   const allBadges = useMemo(() => {
     return evaluateStudentBadges(progress);
   }, [progress]);

@@ -14,7 +14,7 @@ export const NotificationBellButton: React.FC<{ className?: string }> = ({ class
         id="app-notification-bell-btn"
         onClick={() => setIsOpen(true)}
         className={`relative p-2 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 transition-all cursor-pointer border border-slate-200/70 dark:border-slate-700 ${className}`}
-        title="स्टडी अलर्ट व रिमाइंडर्स (FCM Updates)"
+        title="स्टडी अलर्ट व रिमाइंडर्स"
         aria-label="स्टडी अलर्ट व रिमाइंडर्स"
       >
         <Bell className="w-4 h-4" />

@@ -181,7 +181,7 @@ export const NotesView: React.FC = () => {
         setToast({
           id: Date.now().toString(),
           type: 'success',
-          message: `${selectedSubject} के नोट्स GitHub से सफलतापूर्वक अपडेट हो गए! (${data.length} अध्याय उपलब्ध)`,
+          message: `${selectedSubject} के नोट्स सफलतापूर्वक अपडेट हो गए! (${data.length} अध्याय उपलब्ध)`,
         });
       }
     } catch {
@@ -336,7 +336,7 @@ export const NotesView: React.FC = () => {
             <button
               onClick={() => loadNotes(true)}
               disabled={isRefreshing || loading}
-              title="GitHub से नवीनतम नोट्स रीफ़्रेश करें"
+              title="नवीनतम नोट्स रीफ़्रेश करें"
               className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-200 hover:bg-blue-50 dark:hover:bg-blue-950/60 hover:text-blue-600 dark:hover:text-blue-400 active:scale-95 transition-all text-xs font-bold cursor-pointer disabled:opacity-50"
             >
               {isRefreshing ? (

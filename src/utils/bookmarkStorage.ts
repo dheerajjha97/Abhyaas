@@ -10,13 +10,14 @@ const SETTINGS_KEY = 'abhyaas_settings_v1';
 const MISTAKES_KEY = 'abhyaas_mistakes_v1';
 
 export interface AppSettings {
-  githubRepoUrl: string;
+  contentSourceUrl: string;
+  githubRepoUrl?: string; // backwards compatibility
   theme: 'light' | 'dark' | 'system';
   offlineMode: boolean;
 }
 
 const DEFAULT_SETTINGS: AppSettings = {
-  githubRepoUrl: 'https://raw.githubusercontent.com/dheerajjha97/AbhyaasData/main',
+  contentSourceUrl: 'https://raw.githubusercontent.com/dheerajjha97/AbhyaasData/main',
   theme: 'light',
   offlineMode: false,
 };
@@ -71,7 +72,13 @@ export function saveQuizResult(result: QuizResultData): void {
 export function getAppSettings(): AppSettings {
   try {
     const data = localStorage.getItem(SETTINGS_KEY);
-    return data ? { ...DEFAULT_SETTINGS, ...JSON.parse(data) } : DEFAULT_SETTINGS;
+    if (!data) return DEFAULT_SETTINGS;
+    const parsed = JSON.parse(data);
+    return {
+      ...DEFAULT_SETTINGS,
+      ...parsed,
+      contentSourceUrl: parsed.contentSourceUrl || parsed.githubRepoUrl || DEFAULT_SETTINGS.contentSourceUrl,
+    };
   } catch {
     return DEFAULT_SETTINGS;
   }

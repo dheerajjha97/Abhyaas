@@ -160,7 +160,7 @@ export async function syncAllFreshData(
   const isFiltered = !syncAll && selectedSubjects && selectedSubjects.length > 0;
   const subjectsDisplay = isFiltered ? selectedSubjects.join(', ') : 'सभी विषय';
 
-  report('checking', `GitHub रिपॉजिटरी से डेटा चेक हो रहा है (${isFiltered ? `Class ${targetClass} • चुने हुए विषय` : 'सभी विषय'})...`, 10);
+  report('checking', `नवीनतम अध्ययन सामग्री चेक हो रही है (${isFiltered ? `Class ${targetClass} • चुने हुए विषय` : 'सभी विषय'})...`, 10);
 
   let papersSynced = 0;
   let notesSynced = 0;

@@ -521,7 +521,7 @@ export const Home: React.FC = () => {
         </button>
       </div>
 
-      {/* Student Progress & Performance Analytics Card (Firestore Synced) */}
+      {/* Student Progress & Performance Analytics Card */}
       <div className="bg-white dark:bg-slate-900 rounded-2xl sm:rounded-3xl p-4 sm:p-5 border border-slate-200/80 dark:border-slate-800 shadow-xs space-y-3.5">
         <div className="flex items-center justify-between flex-wrap gap-2">
           <div className="flex items-center gap-2">
@@ -533,7 +533,7 @@ export const Home: React.FC = () => {
                 आपकी प्रगति रिपोर्ट (Student Progress)
               </h3>
               <p className="text-[10px] font-medium text-slate-500 dark:text-slate-400 mt-0.5">
-                {currentUser ? '☁️ क्लाउड में सुरक्षित (Firestore Auto-Sync)' : '💾 डिवाइस में सुरक्षित • लॉगिन पर ऑटो सिंक'}
+                {currentUser ? '☁️ क्लाउड में सुरक्षित (ऑटो-सिंक सक्रिय)' : '💾 डिवाइस में सुरक्षित • लॉगिन पर ऑटो सिंक'}
               </p>
             </div>
           </div>

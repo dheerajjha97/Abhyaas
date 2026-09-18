@@ -93,8 +93,7 @@ class FcmService {
     this.isCheckingSupport = true;
     try {
       this.supported = await isFcmSupported();
-    } catch (err) {
-      console.warn('[FcmService] Error checking FCM support:', err);
+    } catch {
       this.supported = false;
     } finally {
       this.isCheckingSupport = false;
@@ -114,7 +113,7 @@ class FcmService {
   }
 
   /**
-   * Lazy-initializes Firebase Messaging instance
+   * Lazy-initializes Messaging instance
    */
   public async getMessagingInstance(): Promise<Messaging | null> {
     if (this.messaging) {
@@ -130,8 +129,7 @@ class FcmService {
       this.messaging = getMessaging(this.app);
       this.setupForegroundListener();
       return this.messaging;
-    } catch (error) {
-      console.warn('[FcmService] Failed to initialize Firebase Messaging:', error);
+    } catch {
       return null;
     }
   }
@@ -149,8 +147,7 @@ class FcmService {
         scope: '/',
       });
       return registration;
-    } catch (error) {
-      console.warn('[FcmService] Failed to register service worker:', error);
+    } catch {
       return null;
     }
   }
@@ -180,8 +177,7 @@ class FcmService {
     if (currentPermission !== 'granted') {
       try {
         finalPermission = await Notification.requestPermission();
-      } catch (err) {
-        console.error('[FcmService] Notification permission request error:', err);
+      } catch {
         return {
           isSupported: true,
           permission: 'denied',
@@ -214,11 +210,11 @@ class FcmService {
     try {
       const reg = await this.registerServiceWorker();
       if (reg) swRegistration = reg;
-    } catch (e) {
-      console.warn('[FcmService] Service worker registration ignored:', e);
+    } catch {
+      // Ignore registration errors silently
     }
 
-    // Retrieve FCM device token
+    // Retrieve device token
     try {
       const token = await getToken(messaging, {
         serviceWorkerRegistration: swRegistration,
@@ -227,12 +223,12 @@ class FcmService {
 
       if (token) {
         this.token = token;
-        localStorage.setItem('abhyaas_fcm_token', token);
+        localStorage.setItem('abhyaas_push_token', token);
         if (params?.classId) {
-          localStorage.setItem('abhyaas_fcm_class', params.classId);
+          localStorage.setItem('abhyaas_push_class', params.classId);
         }
 
-        // Sync token to Firestore database
+        // Sync token to cloud database
         if (params?.userId) {
           await this.syncTokenToFirestore(params.userId, token, params.classId || '10');
         }
@@ -244,8 +240,8 @@ class FcmService {
           messaging,
         };
       }
-    } catch (tokenErr) {
-      console.warn('[FcmService] getToken error (e.g. VAPID key requirement or offline):', tokenErr);
+    } catch {
+      // Ignore token acquisition errors silently
     }
 
     return {
@@ -257,7 +253,7 @@ class FcmService {
   }
 
   /**
-   * Saves the device FCM token to the user document in Firestore for targeted pushes
+   * Saves the device push token to the user document in cloud database for targeted alerts
    */
   public async syncTokenToFirestore(userId: string, token: string, classId: string): Promise<void> {
     try {
@@ -265,7 +261,8 @@ class FcmService {
       await setDoc(
         userDocRef,
         {
-          fcmToken: token,
+          pushToken: token,
+          fcmToken: token, // keep field for backend compatibility
           notificationEnabled: true,
           notificationClass: classId,
           lastTokenSync: Date.now(),
@@ -273,9 +270,8 @@ class FcmService {
         },
         { merge: true }
       );
-      console.log(`[FcmService] Token successfully synced to Firestore for user: ${userId}`);
-    } catch (err) {
-      console.warn('[FcmService] Error saving FCM token to Firestore:', err);
+    } catch {
+      // Silenced to hide backend details
     }
   }
 
@@ -287,8 +283,6 @@ class FcmService {
 
     try {
       this.unsubscribeForeground = onMessage(this.messaging, (payload: MessagePayload) => {
-        console.log('[FcmService] Foreground message received:', payload);
-
         const studyNotification: StudyNotificationPayload = {
           id: payload.messageId || `msg_${Date.now()}`,
           title:
@@ -299,7 +293,7 @@ class FcmService {
             payload.notification?.body ||
             payload.data?.body ||
             'नया अभ्यास प्रश्न-पत्र व रिवीज़न नोट्स उपलब्ध हैं। अभी देखें!',
-          url: payload.data?.url || payload.fcmOptions?.link || '/',
+          url: payload.data?.url || (payload as any).fcmOptions?.link || '/',
           classId: payload.data?.classId,
           subject: payload.data?.subject,
           type: (payload.data?.type as NotificationType) || 'study_reminder',
@@ -311,13 +305,13 @@ class FcmService {
         this.messageListeners.forEach((callback) => {
           try {
             callback(studyNotification);
-          } catch (callbackErr) {
-            console.error('[FcmService] Notification subscriber error:', callbackErr);
+          } catch {
+            // Callback subscriber error handled silently
           }
         });
       });
-    } catch (err) {
-      console.warn('[FcmService] Error attaching foreground onMessage handler:', err);
+    } catch {
+      // Foreground handler attachment handled silently
     }
   }
 
@@ -339,7 +333,7 @@ class FcmService {
   public getCurrentToken(): string | null {
     if (this.token) return this.token;
     if (typeof window !== 'undefined') {
-      return localStorage.getItem('abhyaas_fcm_token');
+      return localStorage.getItem('abhyaas_push_token') || localStorage.getItem('abhyaas_fcm_token');
     }
     return null;
   }

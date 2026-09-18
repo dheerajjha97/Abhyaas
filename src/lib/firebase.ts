@@ -44,8 +44,7 @@ export const getFirebaseMessaging = async (): Promise<Messaging | null> => {
   if (!messagingInstance) {
     try {
       messagingInstance = getMessaging(app);
-    } catch (err) {
-      console.warn('Firebase Messaging init warning:', err);
+    } catch {
       return null;
     }
   }

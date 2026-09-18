@@ -73,8 +73,7 @@ export const StudentProfileProvider: React.FC<{ children: React.ReactNode }> = (
       };
       await setDoc(userRef, dataToSave, { merge: true });
       setCloudSyncStatus('synced');
-    } catch (err) {
-      console.warn('Failed to sync profile to Firestore:', err);
+    } catch {
       setCloudSyncStatus('offline');
     }
   }, [currentUser?.uid, currentUser?.photoURL, currentUser?.email]);
@@ -132,8 +131,7 @@ export const StudentProfileProvider: React.FC<{ children: React.ReactNode }> = (
             saveStoredStudentProfile(initialToSave);
             await syncProfileToCloud(initialToSave, user.uid);
           }
-        } catch (err) {
-          console.warn('Error reading user profile from Firestore:', err);
+        } catch {
           setCloudSyncStatus('offline');
         } finally {
           setIsSyncing(false);
@@ -192,18 +190,12 @@ export const StudentProfileProvider: React.FC<{ children: React.ReactNode }> = (
         });
       }
     } catch (err: any) {
-      console.error('Google Sign-In failed:', err);
       if (err?.code === 'auth/unauthorized-domain') {
-        alert(
-          'यह डोमेन Firebase Authentication में अधिकृत (Authorized) नहीं है।\n\n' +
-          'कृपया Firebase Console में जाकर:\n' +
-          '1. Authentication > Settings > Authorized domains पर जाएं\n' +
-          '2. "Add domain" पर क्लिक करके abhyaaspyq.in और www.abhyaaspyq.in जोड़ें।'
-        );
+        alert('साइन-इन सेवा इस डोमेन पर अभी अधिकृत नहीं है। कृपया कुछ समय बाद पुनः प्रयास करें।');
       } else if (err?.code === 'auth/popup-closed-by-user') {
         // User closed the popup, no alert needed
       } else {
-        alert(err.message || 'Google साइन-इन विफल रहा।');
+        alert('साइन-इन करने में समस्या आई। कृपया पुनः प्रयास करें।');
       }
     } finally {
       setIsSyncing(false);

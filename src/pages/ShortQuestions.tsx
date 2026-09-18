@@ -236,7 +236,7 @@ export const ShortQuestions: React.FC = () => {
               <button
                 onClick={handleShareQuestion}
                 className="flex items-center gap-1.5 text-xs font-bold text-blue-700 dark:text-blue-300 hover:bg-blue-100/80 dark:hover:bg-blue-900/60 px-2.5 py-1 rounded-xl bg-blue-50 dark:bg-blue-950/80 border border-blue-200 dark:border-blue-800 transition-colors cursor-pointer active:scale-95"
-                title="Share via Web Share API"
+                title="शेयर करें"
               >
                 <Share2 className="w-3.5 h-3.5 text-blue-600 dark:text-blue-400" />
                 <span>Share</span>

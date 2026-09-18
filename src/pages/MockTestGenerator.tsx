@@ -242,7 +242,7 @@ export const MockTestGenerator: React.FC = () => {
     return false;
   };
 
-  // Submit Test & Save to Firestore
+  // Submit Test & Save progress
   const handleSubmitTest = (timeOut = false) => {
     if (!currentTest) return;
 
@@ -288,7 +288,7 @@ export const MockTestGenerator: React.FC = () => {
     const percentage = Math.round((correctCount / totalQuestions) * 100);
     const timeSpentSecs = Math.round((Date.now() - testStartedTime) / 1000);
 
-    // Save to Firestore & local progress
+    // Save to cloud & local progress
     recordTestResult({
       id: currentTest.id,
       testName: currentTest.title,

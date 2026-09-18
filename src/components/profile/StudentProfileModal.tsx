@@ -246,7 +246,7 @@ export const StudentProfileModal: React.FC<StudentProfileModalProps> = ({ isOpen
                 <div className="min-w-0">
                   <div className="flex items-center gap-1.5 flex-wrap">
                     <span className="text-xs font-bold text-slate-800 dark:text-slate-100">
-                      {currentUser ? (currentUser.displayName || 'Google Account') : 'Firebase क्लाउड सिंक'}
+                      {currentUser ? (currentUser.displayName || 'Google Account') : 'क्लाउड सिंक (सुरक्षित बैकअप)'}
                     </span>
                     {currentUser ? (
                       <span className="inline-flex items-center gap-1 px-1.5 py-0.5 rounded-full text-[9px] font-extrabold bg-emerald-100 text-emerald-700 dark:bg-emerald-900/40 dark:text-emerald-300">
@@ -320,7 +320,7 @@ export const StudentProfileModal: React.FC<StudentProfileModalProps> = ({ isOpen
             </div>
           </div>
 
-          {/* FCM Study Reminders & Push Notification Card */}
+          {/* Study Reminders & Push Notification Card */}
           <div className="p-3.5 rounded-2xl bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-blue-950/30 dark:to-indigo-950/30 border border-blue-200/80 dark:border-blue-900/50">
             <div className="flex items-center justify-between gap-3">
               <div className="flex items-center gap-2.5 min-w-0">
@@ -330,7 +330,7 @@ export const StudentProfileModal: React.FC<StudentProfileModalProps> = ({ isOpen
                 <div className="min-w-0">
                   <div className="flex items-center gap-1.5 flex-wrap">
                     <span className="text-xs font-bold text-slate-900 dark:text-white">
-                      स्टडी अलर्ट व रिमाइंडर्स (FCM)
+                      स्टडी अलर्ट व दैनिक रिमाइंडर्स
                     </span>
                     {isPermissionGranted ? (
                       <span className="inline-flex items-center gap-1 px-1.5 py-0.5 rounded-full text-[9px] font-extrabold bg-emerald-100 text-emerald-700 dark:bg-emerald-900/40 dark:text-emerald-300">
@@ -352,7 +352,7 @@ export const StudentProfileModal: React.FC<StudentProfileModalProps> = ({ isOpen
               {!isPermissionGranted && isSupported ? (
                 <button
                   type="button"
-                  id="profile-fcm-enable-btn"
+                  id="profile-push-enable-btn"
                   onClick={async () => {
                     setIsEnablingNotifications(true);
                     await requestPermission();

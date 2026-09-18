@@ -433,12 +433,12 @@ export function extractCleanQuestionAndAnswer(
   };
 }
 
-export class GitHubQuestionRepository implements QuestionRepository {
+export class RemoteQuestionRepository implements QuestionRepository {
   private repoBaseUrl: string;
   private paperPathMap = new Map<string, string>(); // paperId -> relative file path
 
   constructor() {
-    this.repoBaseUrl = getAppSettings().githubRepoUrl;
+    this.repoBaseUrl = getAppSettings().contentSourceUrl || (getAppSettings() as any).githubRepoUrl;
     this.initKnownPaths();
   }
 
@@ -807,7 +807,7 @@ export class GitHubQuestionRepository implements QuestionRepository {
             }
           }
         } catch (netErr) {
-          console.warn('Network fetch from GitHub encountered issue, utilizing local question bank:', netErr);
+          console.warn('Network fetch encountered issue, utilizing local question bank:', netErr);
         }
       }
 
@@ -1078,4 +1078,4 @@ export class GitHubQuestionRepository implements QuestionRepository {
 }
 
 // Singleton repository instance for app-wide usage
-export const questionRepository = new GitHubQuestionRepository();
+export const questionRepository = new RemoteQuestionRepository();

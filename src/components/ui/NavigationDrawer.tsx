@@ -309,7 +309,7 @@ export const NavigationDrawer: React.FC = () => {
               सुविधाएं व सेटिंग्स
             </p>
 
-            {/* Study Alerts & Reminders (FCM) */}
+            {/* Study Alerts & Reminders */}
             <button
               onClick={() => {
                 closeDrawer();
@@ -324,7 +324,7 @@ export const NavigationDrawer: React.FC = () => {
                     <span className="absolute -top-0.5 -right-0.5 w-2 h-2 rounded-full bg-red-500 animate-pulse" />
                   )}
                 </div>
-                <span>स्टडी अलर्ट व रिमाइंडर्स (FCM)</span>
+                <span>स्टडी अलर्ट व रिमाइंडर्स</span>
               </div>
               <div className="flex items-center gap-1.5">
                 {unreadCount > 0 && (

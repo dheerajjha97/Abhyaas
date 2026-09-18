@@ -87,7 +87,7 @@ export const PrivacyPolicy: React.FC = () => {
             Abhyaas is designed as an educational revision platform. We respect student privacy:
           </p>
           <ul className="list-disc list-inside text-xs text-slate-600 dark:text-slate-300 space-y-1.5 pl-1 leading-relaxed">
-            <li><strong>Local State:</strong> Quiz scores, bookmarked questions, and offline papers are stored securely on your device (browser LocalStorage & IndexedDB). We do not sell your personal activity or study logs.</li>
+            <li><strong>Local State:</strong> Quiz scores, bookmarked questions, and offline papers are stored securely on your device (offline storage). We do not sell your personal activity or study logs.</li>
             <li><strong>Optional Cloud Sync:</strong> If you sign in via Google, we only store your basic name, class selection, and quiz progress to synchronize your revision across devices.</li>
           </ul>
         </div>

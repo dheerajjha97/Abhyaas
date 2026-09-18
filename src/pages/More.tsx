@@ -152,7 +152,7 @@ export const More: React.FC = () => {
     setSyncProgress({
       stage: 'checking',
       message: syncAll
-        ? 'GitHub से सभी विषयों का डेटा चेक हो रहा है...'
+        ? 'सर्वर से सभी विषयों का डेटा चेक हो रहा है...'
         : `Class ${targetClass} • ${selectedSubs.length} चुने हुए विषयों का डेटा चेक हो रहा है...`,
       percent: 5,
     });
@@ -161,7 +161,7 @@ export const More: React.FC = () => {
       // 1. Wipe stale cache first
       await clearAllAppCache();
 
-      // 2. Perform fresh live sync from GitHub & CDN filtered by student's selected subjects
+      // 2. Perform fresh live sync filtered by student's selected subjects
       const res = await syncAllFreshData(
         (progress) => {
           setSyncProgress(progress);
@@ -361,7 +361,7 @@ export const More: React.FC = () => {
           ऐप सेटिंग्स & स्टोरेज (Settings & Storage)
         </h4>
 
-        {/* FCM Push Notifications & Study Reminders Card */}
+        {/* Push Notifications & Study Reminders Card */}
         <div className="bg-white dark:bg-slate-900 rounded-2xl p-4 border border-slate-200/90 dark:border-slate-800 shadow-2xs flex flex-col sm:flex-row sm:items-center justify-between gap-3">
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 rounded-xl bg-blue-50 dark:bg-blue-950/70 text-blue-600 dark:text-blue-400 flex items-center justify-center shrink-0 border border-blue-100 dark:border-blue-900/60 relative">
@@ -373,7 +373,7 @@ export const More: React.FC = () => {
             <div>
               <div className="flex items-center gap-2">
                 <h5 className="text-sm font-black text-slate-900 dark:text-slate-100">
-                  स्टडी अलर्ट व रिमाइंडर्स (FCM Push Alerts)
+                  स्टडी अलर्ट व दैनिक रिमाइंडर्स
                 </h5>
                 {isPermissionGranted ? (
                   <span className="text-[10px] font-black px-2 py-0.5 rounded-full bg-emerald-100 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-300">

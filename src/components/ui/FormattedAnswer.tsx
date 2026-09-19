@@ -1,7 +1,9 @@
 import React from 'react';
 import { AnswerRenderer, AnswerRendererProps } from './AnswerRenderer';
 
-export type FormattedAnswerProps = AnswerRendererProps;
+export type FormattedAnswerProps = AnswerRendererProps & {
+  text?: string;
+};
 
 /**
  * FormattedAnswer:
@@ -12,8 +14,13 @@ export type FormattedAnswerProps = AnswerRendererProps;
  * - Emphasized textbook keywords (उत्पत्ति, कार्य, उपस्थिति, उदाहरण, etc.)
  * - Formulas, equations, callouts and Devanagari typography
  */
-export const FormattedAnswer: React.FC<FormattedAnswerProps> = (props) => {
-  return <AnswerRenderer {...props} />;
+export const FormattedAnswer: React.FC<FormattedAnswerProps> = ({
+  content,
+  text,
+  ...rest
+}) => {
+  const finalContent = content ?? text ?? '';
+  return <AnswerRenderer content={finalContent} {...rest} />;
 };
 
 export { AnswerRenderer };

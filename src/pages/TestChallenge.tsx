@@ -435,9 +435,9 @@ export const TestChallenge: React.FC = () => {
             </span>
           </div>
 
-          <div className="text-base sm:text-lg font-bold text-slate-900 dark:text-slate-100 leading-relaxed">
-            <FormattedAnswer text={q.question} />
-          </div>
+          <h3 className="text-base sm:text-lg font-bold text-slate-900 dark:text-slate-100 leading-relaxed">
+            {q.question}
+          </h3>
 
           {/* Options */}
           <div className="space-y-2.5 pt-2">

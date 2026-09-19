@@ -29,6 +29,7 @@ import { DesktopNavbar } from './components/ui/DesktopNavbar';
 import { NavigationDrawer } from './components/ui/NavigationDrawer';
 import { DrawerProvider } from './context/DrawerContext';
 import { AdSenseTracker } from './components/ads/AdSenseTracker';
+import { ContentProtection } from './components/security/ContentProtection';
 import { PWAInstallPrompt } from './components/pwa/PWAInstallPrompt';
 import { OfflineIndicator } from './components/pwa/OfflineIndicator';
 import { registerServiceWorker } from './utils/registerSW';
@@ -49,6 +50,7 @@ const AppContent: React.FC = () => {
     <Router>
       <ScrollToTop />
       <AdSenseTracker />
+      <ContentProtection />
       {/* Outer wrapper: Clean, professional neutral background */}
       <div className="min-h-screen w-full bg-slate-50 dark:bg-slate-950 flex flex-col relative font-sans antialiased text-slate-900 dark:text-slate-100">
         {/* Responsive App Container: Fluid and multi-column on desktop/tablet, clean on mobile */}

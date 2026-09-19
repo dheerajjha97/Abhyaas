@@ -9,6 +9,8 @@ import { GlassCard } from '../components/ui/GlassCard';
 import { Toast, ToastMessage } from '../components/ui/Toast';
 import { Illustration } from '../components/ui/Illustration';
 import { FormattedAnswer } from '../components/ui/FormattedAnswer';
+import { shareShortQuestion } from '../utils/shareUtils';
+import { SecurityWatermark } from '../components/security/ContentProtection';
 import {
   Eye,
   EyeOff,
@@ -113,28 +115,22 @@ export const ShortQuestions: React.FC = () => {
   };
 
   const handleShareQuestion = async () => {
-    const shareTitle = `${paper.subject} - लघु उत्तरीय प्रश्न (${currentIndex + 1}) | Abhyaas App`;
-    const shareUrl = window.location.href;
-    const shareText = `📚 *Abhyaas App | ${paper.subject} (${paper.class})*\n\n❓ *लघु उत्तरीय प्रश्न (${currentIndex + 1}):*\n${currentQ.question}\n\n📖 *आदर्श उत्तर:*\n${currentQ.answer}\n\n📲 *अभ्यास ऐप पर पूरा पेपर देखें:* \n${shareUrl}`;
+    if (!paper) return;
+    const result = await shareShortQuestion({
+      subject: paper.subject,
+      classId: paper.class,
+      questionNumber: currentIndex + 1,
+      question: currentQ.question,
+      answer: currentQ.answer,
+      paperId,
+    });
 
-    if (navigator.share) {
-      try {
-        await navigator.share({
-          title: shareTitle,
-          text: shareText,
-          url: shareUrl,
-        });
-        setToast({ id: Date.now().toString(), type: 'success', message: 'प्रश्न एवं ऐप लिंक शेयर किया गया!' });
-      } catch (err: unknown) {
-        const isAbort = err instanceof Error && err.name === 'AbortError';
-        if (!isAbort) {
-          await navigator.clipboard.writeText(shareText);
-          setToast({ id: Date.now().toString(), type: 'success', message: 'प्रश्न, उत्तर एवं ऐप लिंक कॉपी हो गया!' });
-        }
-      }
-    } else {
-      await navigator.clipboard.writeText(shareText);
-      setToast({ id: Date.now().toString(), type: 'success', message: 'प्रश्न, उत्तर एवं ऐप लिंक कॉपी हो गया!' });
+    if (result.success) {
+      setToast({
+        id: Date.now().toString(),
+        type: 'success',
+        message: result.method === 'native' ? 'प्रश्न व ऐप लिंक शेयर किया गया!' : 'प्रश्न व ऐप लिंक कॉपी हो गया!',
+      });
     }
   };
 
@@ -198,9 +194,10 @@ export const ShortQuestions: React.FC = () => {
       </div>
 
       {/* Main Textbook Page Card */}
-      <div className="bg-[#fffefb] dark:bg-slate-900 rounded-3xl p-5 sm:p-7 border border-amber-200/80 dark:border-slate-800 shadow-xl space-y-5 relative overflow-hidden">
+      <div className="protect-content bg-[#fffefb] dark:bg-slate-900 rounded-3xl p-5 sm:p-7 border border-amber-200/80 dark:border-slate-800 shadow-xl space-y-5 relative overflow-hidden">
+        <SecurityWatermark label="अभ्यास PYQ • SHORT Q&A" />
         {/* Subtle top book ruler bar */}
-        <div className="h-1 bg-gradient-to-r from-blue-600 via-indigo-600 to-amber-500 absolute top-0 left-0 right-0" />
+        <div className="h-1 bg-gradient-to-r from-blue-600 via-indigo-600 to-amber-500 absolute top-0 left-0 right-0 z-10" />
 
         {/* Question Block */}
         <div className="space-y-3 pb-4 border-b border-dashed border-slate-200 dark:border-slate-800">

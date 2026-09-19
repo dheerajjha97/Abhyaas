@@ -34,7 +34,9 @@ import {
   CloudDownload,
   Bell,
   Volume2,
+  Share2,
 } from 'lucide-react';
+import { shareToSocial } from '../utils/shareUtils';
 import { useNotifications } from '../context/NotificationContext';
 import { NotificationCenterModal } from '../components/notifications/NotificationCenterModal';
 
@@ -105,6 +107,20 @@ export const More: React.FC = () => {
       });
     }
     setDeferredPrompt(null);
+  };
+
+  const handleShareApp = async () => {
+    const res = await shareToSocial({
+      title: 'अभ्यास (Abhyaas PYQ) - बिहार बोर्ड परीक्षा तैयारी ऐप',
+      text: '📚 *बिहार बोर्ड 10वीं और 12वीं परीक्षा की बेहतरीन तैयारी!*\n\n✨ सॉल्व्ड पिछले वर्षों के प्रश्न (PYQ 2018-2025)\n📖 सभी विषयों के डिजिटल रिवीजन नोट्स व महत्वपूर्ण प्रश्न\n⚡ फ्री OMR आधारित रियल टाइम मॉक टेस्ट जनरेटर\n\n📲 *अभी अभ्यास ऐप खोलें और पढ़ाई शुरू करें:*',
+    });
+    if (res.success) {
+      setToast({
+        id: Date.now().toString(),
+        type: 'success',
+        message: res.method === 'native' ? 'ऐप लिंक शेयर किया गया!' : 'ऐप लिंक कॉपी हो गया: https://abhyaaspyq.in',
+      });
+    }
   };
 
   const handleToggleOffline = () => {
@@ -514,6 +530,31 @@ export const More: React.FC = () => {
               </button>
             </div>
           </div>
+        </div>
+      </div>
+
+      {/* 🚀 Share App with Classmates Card */}
+      <div className="bg-gradient-to-br from-blue-600 via-indigo-600 to-indigo-700 rounded-2xl p-4 sm:p-5 text-white shadow-md relative overflow-hidden">
+        <div className="relative z-10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+          <div className="space-y-1">
+            <span className="inline-flex items-center gap-1 text-[11px] font-black uppercase tracking-wider bg-white/20 px-2.5 py-0.5 rounded-full backdrop-blur-xs">
+              <Sparkles className="w-3 h-3 text-amber-300" /> अपने दोस्तों की मदद करें
+            </span>
+            <h4 className="text-base sm:text-lg font-black leading-snug">
+              मित्रों के साथ अभ्यास ऐप शेयर करें
+            </h4>
+            <p className="text-xs text-blue-100 max-w-sm">
+              कक्षा 10वीं व 12वीं के साथियों के साथ फ्री PYQ, नोट्स और मॉक टेस्ट शेयर करें।
+            </p>
+          </div>
+
+          <button
+            onClick={handleShareApp}
+            className="w-full sm:w-auto px-5 py-2.5 bg-white hover:bg-blue-50 text-blue-700 active:scale-95 transition-all font-black text-xs rounded-xl shadow-xs flex items-center justify-center gap-2 cursor-pointer shrink-0"
+          >
+            <Share2 className="w-4 h-4 text-blue-600" />
+            <span>ऐप लिंक शेयर करें</span>
+          </button>
         </div>
       </div>
 

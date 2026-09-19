@@ -31,6 +31,7 @@ import { useStudentProgress } from '../../context/StudentProgressContext';
 import { useNotifications } from '../../context/NotificationContext';
 import { NotificationCenterModal } from '../notifications/NotificationCenterModal';
 import { BrandLogo } from './BrandLogo';
+import { shareToSocial } from '../../utils/shareUtils';
 
 export const NavigationDrawer: React.FC = () => {
   const { isDrawerOpen, closeDrawer } = useDrawer();
@@ -110,20 +111,10 @@ export const NavigationDrawer: React.FC = () => {
   };
 
   const handleShareApp = async () => {
-    if (navigator.share) {
-      try {
-        await navigator.share({
-          title: 'अभ्यास (Abhyaas PYQ)',
-          text: 'बिहार बोर्ड 10वीं और 12वीं परीक्षा की बेहतरीन तैयारी - सॉल्व्ड PYQ, चैप्टर नोट्स और फ्री मॉक टेस्ट!',
-          url: 'https://abhyaaspyq.in',
-        });
-      } catch {
-        // user cancelled
-      }
-    } else {
-      navigator.clipboard?.writeText('https://abhyaaspyq.in');
-      alert('लिंक कॉपी हो गया: https://abhyaaspyq.in');
-    }
+    await shareToSocial({
+      title: 'अभ्यास (Abhyaas PYQ) - बिहार बोर्ड 10वीं व 12वीं परीक्षा तैयारी ऐप',
+      text: '📚 *बिहार बोर्ड 10वीं और 12वीं परीक्षा की बेहतरीन तैयारी!*\n\n✨ सॉल्व्ड पिछले वर्षों के प्रश्न (PYQ 2018-2025)\n📖 सभी विषयों के डिजिटल रिवीजन नोट्स व महत्वपूर्ण प्रश्न\n⚡ फ्री OMR आधारित रियल टाइम मॉक टेस्ट जनरेटर\n\n📲 *अभी अभ्यास ऐप खोलें और परीक्षा की तैयारी शुरू करें:*',
+    });
   };
 
   const navItems = [

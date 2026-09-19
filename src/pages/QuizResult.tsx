@@ -4,14 +4,38 @@ import { QuizResultData } from '../types/question';
 import { HeaderBar } from '../components/ui/HeaderBar';
 import { GlassCard } from '../components/ui/GlassCard';
 import { Illustration } from '../components/ui/Illustration';
-import { Trophy, CheckCircle2, XCircle, RotateCcw, BookOpen, ArrowLeft, Award, Sparkles } from 'lucide-react';
+import { Trophy, CheckCircle2, XCircle, RotateCcw, BookOpen, ArrowLeft, Award, Sparkles, Share2 } from 'lucide-react';
+import { shareQuizResult } from '../utils/shareUtils';
+import { Toast, ToastMessage } from '../components/ui/Toast';
 
 export const QuizResult: React.FC = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const { paperId } = useParams<{ paperId: string }>();
+  const [toast, setToast] = React.useState<ToastMessage | null>(null);
 
   const result: QuizResultData | undefined = location.state?.result;
+
+  const handleShareScore = async () => {
+    if (!result) return;
+    const grade = result.percentage >= 80 ? 'Outstanding (उत्कृष्ट ⭐)' : result.percentage >= 60 ? 'First Division (प्रथम श्रेणी 👍)' : 'Satisfactory (प्रयास जारी रखें)';
+    const res = await shareQuizResult({
+      subject: result.paperName,
+      classId: '10/12',
+      score: result.score,
+      total: result.totalQuestions,
+      percentage: result.percentage,
+      gradeText: grade,
+    });
+
+    if (res.success) {
+      setToast({
+        id: Date.now().toString(),
+        type: 'success',
+        message: res.method === 'native' ? 'स्कोर व ऐप लिंक शेयर किया गया!' : 'स्कोर व ऐप लिंक कॉपी हो गया!',
+      });
+    }
+  };
 
   if (!result) {
     return (
@@ -35,6 +59,7 @@ export const QuizResult: React.FC = () => {
 
   return (
     <div className="space-y-5 pb-36 animate-in fade-in duration-300">
+      <Toast toast={toast} onClose={() => setToast(null)} />
       <HeaderBar showBack title="Quiz Score" subtitle={result.paperName} />
 
       {/* Celebratory Hero */}
@@ -81,6 +106,15 @@ export const QuizResult: React.FC = () => {
 
       {/* Action Buttons */}
       <div className="space-y-3 pt-2">
+        {/* Share Score Button */}
+        <button
+          onClick={handleShareScore}
+          className="w-full py-3.5 px-4 bg-emerald-600 hover:bg-emerald-700 text-white font-black text-sm rounded-2xl shadow-xs active:scale-95 transition-all flex items-center justify-center gap-2 cursor-pointer"
+        >
+          <Share2 className="w-4 h-4" />
+          <span>स्कोर व ऐप लिंक शेयर करें (Share Result)</span>
+        </button>
+
         {result.wrong > 0 && (
           <button
             onClick={() => navigate('/mistakes')}

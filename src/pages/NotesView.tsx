@@ -47,6 +47,8 @@ import { useStudentProfile } from '../context/StudentProfileContext';
 import { ALL_AVAILABLE_SUBJECTS } from '../types/studentProfile';
 import { SubjectCarousel } from '../components/ui/SubjectCarousel';
 import { Toast, ToastMessage } from '../components/ui/Toast';
+import { shareChapterNote } from '../utils/shareUtils';
+import { SecurityWatermark } from '../components/security/ContentProtection';
 
 type FontSize = 'sm' | 'base' | 'lg' | 'xl';
 
@@ -288,6 +290,28 @@ export const NotesView: React.FC = () => {
       window.speechSynthesis.cancel();
       setIsPlayingAudio(false);
       setToast({ id: Date.now().toString(), type: 'info', message: `गति ${newSpeed}x सेट की गई। पुनः प्ले करें।` });
+    }
+  };
+
+  const handleShareCurrentNote = async () => {
+    if (!activeNote) return;
+    const chTitle = getChapterDisplayTitle(activeNote, activeNoteIndex);
+    const summary = activeNote.sections?.[0]?.content || '';
+    const result = await shareChapterNote({
+      subject: selectedSubject,
+      classId: profile.classId,
+      chapterNumber: activeNote.chapterNumber || activeNoteIndex + 1,
+      chapterTitle: chTitle,
+      summaryText: summary,
+      subjectId: paramSubjectId,
+    });
+
+    if (result.success) {
+      setToast({
+        id: Date.now().toString(),
+        type: 'success',
+        message: result.method === 'native' ? 'नोट्स व ऐप लिंक शेयर किया गया!' : 'नोट्स व ऐप लिंक कॉपी हो गया!',
+      });
     }
   };
 
@@ -580,6 +604,16 @@ export const NotesView: React.FC = () => {
                 <span>{readChapters.has(activeNote.noteId || String(activeNoteIndex)) ? 'पढ़ा हुआ ⭐' : 'पढ़ा हुआ मार्क करें'}</span>
               </button>
 
+              {/* Share Chapter Notes Button */}
+              <button
+                onClick={handleShareCurrentNote}
+                className="px-2.5 py-1.5 rounded-xl font-bold flex items-center gap-1.5 transition-all cursor-pointer border bg-blue-50 dark:bg-blue-950/60 border-blue-200 dark:border-blue-900 text-blue-700 dark:text-blue-300 hover:bg-blue-100 dark:hover:bg-blue-900 active:scale-95 shadow-2xs"
+                title="अध्याय नोट्स और ऐप लिंक शेयर करें"
+              >
+                <Share2 className="w-3.5 h-3.5" />
+                <span>शेयर नोट्स</span>
+              </button>
+
               {/* Customization controls (Font Size only) */}
               <div className="flex items-center gap-1.5 bg-slate-100 dark:bg-slate-800 p-1 rounded-xl">
                 <span className="text-[10px] font-bold text-slate-500 px-1">फॉन्ट:</span>
@@ -608,7 +642,8 @@ export const NotesView: React.FC = () => {
             const chapterNumFormatted = String(activeNote.chapterNumber || activeNoteIndex + 1).padStart(2, '0');
 
             return (
-              <div ref={notebookContainerRef} className="w-full space-y-6">
+              <div ref={notebookContainerRef} className="protect-content notes-reading-area w-full space-y-6 relative">
+                <SecurityWatermark label="अभ्यास • CHAPTER NOTES" />
 
                 {/* 🌟 A. VISUAL CHAPTER HEADER BANNER (Full Wide Modern Card) */}
                 <div className="w-full bg-white dark:bg-slate-900 border border-slate-200/90 dark:border-slate-800 rounded-3xl p-5 sm:p-7 shadow-sm space-y-5">

@@ -11,6 +11,8 @@ import {
 } from '../services/revisionService';
 import { normalizeSubject } from '../services/questionRepository';
 import { FormattedAnswer } from '../components/ui/FormattedAnswer';
+import { shareQuickRevisionQuestion } from '../utils/shareUtils';
+import { SecurityWatermark } from '../components/security/ContentProtection';
 import {
   Zap,
   Flame,
@@ -191,22 +193,21 @@ export const QuickRevision: React.FC = () => {
   };
 
   const handleShareQuestion = async (q: HighYieldQuestion) => {
-    const shareText = `📚 *Abhyaas App | त्वरित रिवीज़न*\n\n🔥 *${selectedSubject} (Class ${profile.classId}) - महत्वपूर्ण प्रश्न [${q.marks} अंक]:*\n${q.question}\n\n📖 *आदर्श उत्तर:*\n${q.answer}\n\n📲 *अभ्यास ऐप पर पूरा पेपर व रिवीज़न गाइड देखें:* \n${window.location.origin}`;
-    if (navigator.share) {
-      try {
-        await navigator.share({
-          title: `${selectedSubject} - महत्वपूर्ण प्रश्न`,
-          text: shareText,
-          url: window.location.href,
-        });
-        setToast({ id: Date.now().toString(), type: 'success', message: 'प्रश्न शेयर किया गया!' });
-      } catch {
-        navigator.clipboard.writeText(shareText);
-        setToast({ id: Date.now().toString(), type: 'success', message: 'प्रश्न क्लिपबोर्ड में कॉपी हो गया!' });
-      }
-    } else {
-      navigator.clipboard.writeText(shareText);
-      setToast({ id: Date.now().toString(), type: 'success', message: 'प्रश्न एवं उत्तर कॉपी हो गया!' });
+    const result = await shareQuickRevisionQuestion({
+      subject: selectedSubject,
+      classId: profile.classId,
+      question: q.question,
+      answer: q.answer,
+      marks: q.marks,
+      subjectId,
+    });
+
+    if (result.success) {
+      setToast({
+        id: Date.now().toString(),
+        type: 'success',
+        message: result.method === 'native' ? 'प्रश्न व ऐप लिंक शेयर किया गया!' : 'प्रश्न व ऐप लिंक कॉपी हो गया!',
+      });
     }
   };
 

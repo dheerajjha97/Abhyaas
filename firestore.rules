@@ -15,5 +15,27 @@ service cloud.firestore {
       allow read: if true;
       allow write: if request.auth != null;
     }
+
+    // Shared mock test challenges & live leaderboards
+    match /shared_tests/{testId} {
+      // Anyone can read a shared test challenge to participate
+      allow read: if true;
+      // Only authenticated users can create and publish tests
+      allow create: if request.auth != null;
+      // Allow updating test statistics (such as participant submissionCount)
+      allow update: if true;
+      // Only the test creator can delete their test
+      allow delete: if request.auth != null && (resource.data.creatorUid == request.auth.uid);
+
+      // Test Submissions (Leaderboard entries)
+      match /submissions/{submissionId} {
+        // Anyone can view the leaderboard / test scores
+        allow read: if true;
+        // Both authenticated users and non-logged-in guest users (with temp name) can submit test results
+        allow create: if true;
+        // Only authenticated user who made the submission can edit or delete their submission
+        allow update, delete: if request.auth != null;
+      }
+    }
   }
 }

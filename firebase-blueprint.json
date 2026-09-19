@@ -45,6 +45,39 @@
         "url": { "type": "string" },
         "createdAt": { "type": "number" }
       }
+    },
+    "SharedTest": {
+      "path": "shared_tests/{testId}",
+      "fields": {
+        "title": { "type": "string" },
+        "subject": { "type": "string" },
+        "classId": { "type": "string" },
+        "totalQuestions": { "type": "number" },
+        "timeLimitMinutes": { "type": "number" },
+        "creatorUid": { "type": "string" },
+        "creatorName": { "type": "string" },
+        "creatorAvatar": { "type": "string" },
+        "createdAt": { "type": "number" },
+        "questions": { "type": "array" },
+        "submissionCount": { "type": "number" }
+      }
+    },
+    "TestSubmission": {
+      "path": "shared_tests/{testId}/submissions/{submissionId}",
+      "fields": {
+        "testId": { "type": "string" },
+        "userName": { "type": "string" },
+        "isLoggedIn": { "type": "boolean" },
+        "userId": { "type": "string" },
+        "userAvatar": { "type": "string" },
+        "score": { "type": "number" },
+        "totalQuestions": { "type": "number" },
+        "percentage": { "type": "number" },
+        "timeTakenSeconds": { "type": "number" },
+        "correctAnswers": { "type": "number" },
+        "wrongAnswers": { "type": "number" },
+        "submittedAt": { "type": "number" }
+      }
     }
   },
   "rules": {
@@ -57,6 +90,14 @@
     "announcements": {
       "read": "true",
       "write": "auth != null"
+    },
+    "shared_tests": {
+      "read": "true",
+      "write": "auth != null",
+      "submissions": {
+        "read": "true",
+        "write": "true"
+      }
     }
   }
 }

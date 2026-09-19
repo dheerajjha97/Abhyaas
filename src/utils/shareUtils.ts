@@ -226,3 +226,28 @@ export async function shareQuizResult(params: {
     path: sharePath,
   });
 }
+
+/**
+ * Specific helper for sharing a custom Test Challenge with classmates
+ */
+export async function shareTestChallenge(params: {
+  testId: string;
+  title: string;
+  subject: string;
+  classId: string;
+  totalQuestions: number;
+  timeLimitMinutes: number;
+  creatorName: string;
+}): Promise<ShareResult> {
+  const shareTitle = `🎯 ${params.creatorName} का टेस्ट चैलेंज: ${params.title}`;
+  const sharePath = `/challenge/${params.testId}`;
+
+  const bodyText = `🔥 *चैलेंज स्वीकार करें! | Abhyaas Test Challenge*\n\n👨‍🎓 *आयोजक:* ${params.creatorName}\n📚 *विषय:* ${params.subject} (Class ${params.classId})\n📝 *प्रश्नों की संख्या:* ${params.totalQuestions} प्रश्न\n⏱️ *समय सीमा:* ${params.timeLimitMinutes} मिनट\n🔑 *टेस्ट कोड:* ${params.testId}\n\n👉 देखते हैं इस टेस्ट में कौन Top Rank लाता है! अभी टेस्ट दें और अपना स्कोर लाइव लीडरबोर्ड पर देखें।`;
+
+  return shareToSocial({
+    title: shareTitle,
+    text: bodyText,
+    path: sharePath,
+  });
+}
+

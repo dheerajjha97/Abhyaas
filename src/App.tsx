@@ -22,6 +22,7 @@ import { NotesView } from './pages/NotesView';
 import { MockTestGenerator } from './pages/MockTestGenerator';
 import { QuickRevision } from './pages/QuickRevision';
 import { MistakeNotebook } from './pages/MistakeNotebook';
+import { TestChallenge } from './pages/TestChallenge';
 import { PrivacyPolicy } from './pages/PrivacyPolicy';
 import { ContactUs } from './pages/ContactUs';
 import { BottomNavigation } from './components/ui/BottomNavigation';
@@ -85,6 +86,7 @@ const AppContent: React.FC = () => {
               <Route path="/search" element={<Search />} />
               <Route path="/more" element={<More />} />
               <Route path="/mock-test" element={<MockTestGenerator />} />
+              <Route path="/challenge/:testId" element={<TestChallenge />} />
               <Route path="/privacy-policy" element={<PrivacyPolicy />} />
               <Route path="/contact" element={<ContactUs />} />
             </Routes>

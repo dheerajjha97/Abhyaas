@@ -27,15 +27,23 @@ import {
   Share2,
   ChevronRight,
   ShieldCheck,
-  CloudUpload
+  CloudUpload,
+  Trophy,
+  Copy,
+  Check,
+  Users,
+  LogIn,
+  ExternalLink,
 } from 'lucide-react';
+import { sharedTestService, SharedTest } from '../services/sharedTestService';
+import { shareTestChallenge, getAppShareLink } from '../utils/shareUtils';
 
 export const MockTestGenerator: React.FC = () => {
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
   const preSelectedSubject = searchParams.get('subject') || '';
 
-  const { profile } = useStudentProfile();
+  const { profile, currentUser, openLoginPrompt, signInWithGoogle } = useStudentProfile();
   const { recordTestResult, cloudSyncStatus } = useStudentProgress();
 
   // Generator Configuration State
@@ -45,6 +53,15 @@ export const MockTestGenerator: React.FC = () => {
   const [testType, setTestType] = useState<'quick' | 'standard' | 'full' | 'custom'>('standard');
   const [customQuestionsCount, setCustomQuestionsCount] = useState<number>(25);
   const [customTimeMinutes, setCustomTimeMinutes] = useState<number>(25);
+
+  // Challenge Sharing State
+  const [showChallengeModal, setShowChallengeModal] = useState(false);
+  const [challengeTitle, setChallengeTitle] = useState('');
+  const [isCreatingChallenge, setIsCreatingChallenge] = useState(false);
+  const [createdChallenge, setCreatedChallenge] = useState<SharedTest | null>(null);
+  const [myChallenges, setMyChallenges] = useState<SharedTest[]>([]);
+  const [isLoadingMyChallenges, setIsLoadingMyChallenges] = useState(false);
+  const [isCopiedCode, setIsCopiedCode] = useState(false);
 
   // Active Test Execution State
   const [isGenerating, setIsGenerating] = useState(false);
@@ -210,6 +227,141 @@ export const MockTestGenerator: React.FC = () => {
       });
     } finally {
       setIsGenerating(false);
+    }
+  };
+
+  // Load user's created challenges from Firestore
+  useEffect(() => {
+    if (currentUser?.uid) {
+      setIsLoadingMyChallenges(true);
+      sharedTestService
+        .getUserCreatedTests(currentUser.uid)
+        .then((tests) => setMyChallenges(tests))
+        .catch(() => {})
+        .finally(() => setIsLoadingMyChallenges(false));
+    } else {
+      setMyChallenges([]);
+    }
+  }, [currentUser]);
+
+  // Open Challenge Creator
+  const handleOpenCreateChallenge = () => {
+    if (!currentUser) {
+      openLoginPrompt();
+      setToast({
+        id: Date.now().toString(),
+        type: 'info',
+        message: 'दोस्तों के साथ टेस्ट मुकाबला करने के लिए कृपया Google से लॉगिन करें।',
+      });
+      return;
+    }
+
+    const creatorName = currentUser.displayName || profile.name || 'मेरा';
+    setChallengeTitle(`${creatorName} का ${selectedSubject} चैलेंज`);
+    setCreatedChallenge(null);
+    setShowChallengeModal(true);
+  };
+
+  // Confirm and create challenge
+  const handleConfirmCreateChallenge = async () => {
+    if (!currentUser) return;
+    setIsCreatingChallenge(true);
+
+    let count = 25;
+    let time = 25;
+
+    if (testType === 'quick') {
+      count = 15;
+      time = 15;
+    } else if (testType === 'standard') {
+      count = 35;
+      time = 35;
+    } else if (testType === 'full') {
+      count = 50;
+      time = 50;
+    } else {
+      count = customQuestionsCount;
+      time = customTimeMinutes;
+    }
+
+    try {
+      const config: MockTestConfig = {
+        subject: selectedSubject,
+        classId: profile.classId || '12',
+        questionCount: count,
+        timeLimitMinutes: time,
+        testType,
+      };
+
+      const generated = await mockTestService.generateMockTest(config);
+
+      const newChallenge = await sharedTestService.createSharedTest({
+        title: challengeTitle.trim() || `${selectedSubject} टेस्ट चैलेंज`,
+        subject: selectedSubject,
+        classId: profile.classId || '12',
+        questions: generated.questions,
+        timeLimitMinutes: time,
+        creatorUid: currentUser.uid,
+        creatorName: currentUser.displayName || profile.name || 'अभ्यास छात्र',
+        creatorAvatar: currentUser.photoURL || profile.avatarEmoji || '🎓',
+      });
+
+      setCreatedChallenge(newChallenge);
+      setMyChallenges((prev) => [newChallenge, ...prev]);
+
+      setToast({
+        id: Date.now().toString(),
+        type: 'success',
+        message: 'चैलेंज टेस्ट बन गया! अब WhatsApp पर दोस्तों को शेयर करें।',
+      });
+    } catch (err: unknown) {
+      const msg = err instanceof Error ? err.message : 'चैलेंज बनाने में त्रुटि हुई। कृपया पुनः प्रयास करें।';
+      setToast({
+        id: Date.now().toString(),
+        type: 'error',
+        message: msg,
+      });
+    } finally {
+      setIsCreatingChallenge(false);
+    }
+  };
+
+  // Share challenge handler
+  const handleShareChallengeDirect = async (chal: SharedTest) => {
+    const res = await shareTestChallenge({
+      testId: chal.id,
+      title: chal.title,
+      subject: chal.subject,
+      classId: chal.classId,
+      totalQuestions: chal.totalQuestions,
+      timeLimitMinutes: chal.timeLimitMinutes,
+      creatorName: chal.creatorName,
+    });
+
+    if (res.success) {
+      setToast({
+        id: Date.now().toString(),
+        type: 'success',
+        message: res.method === 'native' ? 'चैलेंज शेयर किया गया!' : 'चैलेंज लिंक कॉपी हो गया!',
+      });
+    }
+  };
+
+  // Copy code helper
+  const handleCopyCode = async (code: string) => {
+    try {
+      if (navigator.clipboard) {
+        await navigator.clipboard.writeText(code);
+        setIsCopiedCode(true);
+        setTimeout(() => setIsCopiedCode(false), 2000);
+        setToast({
+          id: Date.now().toString(),
+          type: 'success',
+          message: `टेस्ट कोड ${code} कॉपी हो गया!`,
+        });
+      }
+    } catch {
+      // ignore
     }
   };
 
@@ -1165,24 +1317,299 @@ export const MockTestGenerator: React.FC = () => {
         )}
       </div>
 
-      {/* Start Button (Flutter Style Solid Blue Primary Button) */}
-      <button
-        disabled={isGenerating}
-        onClick={handleGenerateTest}
-        className="w-full py-4 rounded-2xl bg-blue-600 hover:bg-blue-700 active:scale-[0.99] text-white font-black text-sm shadow-xs flex items-center justify-center gap-2 cursor-pointer transition-all disabled:opacity-50"
-      >
-        {isGenerating ? (
-          <>
-            <div className="w-5 h-5 border-2 border-white/40 border-t-white rounded-full animate-spin" />
-            <span>प्रश्न लोड हो रहे हैं...</span>
-          </>
-        ) : (
-          <>
-            <Play className="w-5 h-5 fill-current" />
-            <span>{selectedSubject} मॉक टेस्ट शुरू करें</span>
-          </>
-        )}
-      </button>
+      {/* Action Buttons: Practice Test & Create Challenge */}
+      <div className="space-y-2.5 pt-1">
+        <button
+          disabled={isGenerating || isCreatingChallenge}
+          onClick={handleGenerateTest}
+          className="w-full py-4 rounded-2xl bg-blue-600 hover:bg-blue-700 active:scale-[0.99] text-white font-black text-sm shadow-xs flex items-center justify-center gap-2 cursor-pointer transition-all disabled:opacity-50"
+        >
+          {isGenerating ? (
+            <>
+              <div className="w-5 h-5 border-2 border-white/40 border-t-white rounded-full animate-spin" />
+              <span>प्रश्न लोड हो रहे हैं...</span>
+            </>
+          ) : (
+            <>
+              <Play className="w-5 h-5 fill-current" />
+              <span>{selectedSubject} मॉक टेस्ट शुरू करें (Self Practice)</span>
+            </>
+          )}
+        </button>
+
+        {/* 🏆 Create & Share Challenge Button */}
+        <button
+          type="button"
+          disabled={isGenerating || isCreatingChallenge}
+          onClick={handleOpenCreateChallenge}
+          className="w-full py-3.5 rounded-2xl bg-gradient-to-r from-indigo-600 via-indigo-700 to-blue-700 hover:from-indigo-700 hover:to-blue-800 text-white font-black text-sm shadow-xs flex items-center justify-center gap-2 cursor-pointer transition-all active:scale-[0.99]"
+        >
+          <Trophy className="w-4 h-4 text-amber-300" />
+          <span>🎯 टेस्ट चैलेंज बनाएं और दोस्तों को शेयर करें</span>
+          <Share2 className="w-4 h-4" />
+        </button>
+      </div>
+
+      {/* Guest Banner if not logged in */}
+      {!currentUser && (
+        <div className="p-4 rounded-2xl bg-indigo-50/80 dark:bg-indigo-950/40 border border-indigo-100 dark:border-indigo-900/60 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+          <div className="space-y-1">
+            <span className="inline-flex items-center gap-1 text-[10px] font-black uppercase text-indigo-700 dark:text-indigo-300 bg-white dark:bg-slate-900 px-2 py-0.5 rounded-full">
+              <Sparkles className="w-3 h-3 text-amber-500" /> मल्टीप्लेयर चैलेंज
+            </span>
+            <h4 className="text-xs sm:text-sm font-black text-slate-900 dark:text-white">
+              दोस्तों के साथ टेस्ट मुकाबला करना चाहते हैं?
+            </h4>
+            <p className="text-[11px] text-slate-600 dark:text-slate-400">
+              लॉगिन करके अपना टेस्ट बनाएं, WhatsApp पर शेयर करें और देखें लाइव लीडरबोर्ड में टॉप कौन करता है!
+            </p>
+          </div>
+          <button
+            type="button"
+            onClick={signInWithGoogle}
+            className="px-4 py-2.5 bg-white dark:bg-slate-900 hover:bg-slate-100 dark:hover:bg-slate-800 text-indigo-600 dark:text-indigo-400 font-bold text-xs rounded-xl shadow-2xs border border-indigo-200 dark:border-indigo-800 flex items-center gap-1.5 shrink-0 cursor-pointer"
+          >
+            <LogIn className="w-3.5 h-3.5" />
+            <span>Google लॉगिन</span>
+          </button>
+        </div>
+      )}
+
+      {/* 🏆 User's Created Challenges List (if logged in) */}
+      {currentUser && (
+        <div className="space-y-3 pt-2">
+          <div className="flex items-center justify-between px-1">
+            <h3 className="text-xs font-black uppercase tracking-wider text-slate-700 dark:text-slate-300 flex items-center gap-1.5">
+              <Trophy className="w-4 h-4 text-amber-500" />
+              <span>आपके बनाए टेस्ट चैलेंज (Your Created Challenges)</span>
+            </h3>
+            <span className="text-[11px] font-bold text-slate-400">
+              {myChallenges.length} बनाए गए
+            </span>
+          </div>
+
+          {isLoadingMyChallenges ? (
+            <div className="p-4 text-center text-xs text-slate-400">चैलेंज लोड हो रहे हैं...</div>
+          ) : myChallenges.length === 0 ? (
+            <div className="p-4 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200/90 dark:border-slate-800 text-center space-y-1">
+              <p className="text-xs font-bold text-slate-600 dark:text-slate-400">
+                आपने अभी तक कोई चैलेंज टेस्ट नहीं बनाया है।
+              </p>
+              <p className="text-[11px] text-slate-400">
+                ऊपर "टेस्ट चैलेंज बनाएं और दोस्तों को शेयर करें" बटन दबाकर पहला टेस्ट बनाएं!
+              </p>
+            </div>
+          ) : (
+            <div className="space-y-2.5">
+              {myChallenges.map((chal) => (
+                <div
+                  key={chal.id}
+                  className="p-4 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200/90 dark:border-slate-800 shadow-2xs flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3"
+                >
+                  <div className="space-y-1 min-w-0">
+                    <div className="flex items-center gap-2">
+                      <span className="text-xs font-black text-slate-900 dark:text-white truncate">
+                        {chal.title}
+                      </span>
+                      <span className="text-[10px] font-mono font-bold bg-blue-50 dark:bg-blue-950 text-blue-600 dark:text-blue-400 px-2 py-0.5 rounded-md">
+                        {chal.id}
+                      </span>
+                    </div>
+                    <div className="flex items-center gap-3 text-[11px] text-slate-500 flex-wrap">
+                      <span>📚 {chal.subject}</span>
+                      <span>📝 {chal.totalQuestions} प्रश्न</span>
+                      <span>⏱️ {chal.timeLimitMinutes} मिनट</span>
+                      <span className="font-bold text-indigo-600 dark:text-indigo-400">
+                        👥 {chal.submissionCount || 0} छात्रों ने भाग लिया
+                      </span>
+                    </div>
+                  </div>
+
+                  <div className="flex items-center gap-2 w-full sm:w-auto shrink-0 pt-1 sm:pt-0">
+                    <button
+                      type="button"
+                      onClick={() => handleShareChallengeDirect(chal)}
+                      className="flex-1 sm:flex-none px-3.5 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs flex items-center justify-center gap-1.5 shadow-2xs cursor-pointer"
+                    >
+                      <Share2 className="w-3.5 h-3.5" />
+                      <span>शेयर</span>
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => navigate(`/challenge/${chal.id}`)}
+                      className="flex-1 sm:flex-none px-3.5 py-2 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 text-slate-700 dark:text-slate-300 font-bold text-xs flex items-center justify-center gap-1.5 cursor-pointer"
+                    >
+                      <Trophy className="w-3.5 h-3.5 text-amber-500" />
+                      <span>लीडरबोर्ड देखें</span>
+                    </button>
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
+      )}
+
+      {/* 🎯 Create Challenge Modal */}
+      {showChallengeModal && (
+        <div className="fixed inset-0 z-50 bg-black/60 backdrop-blur-xs flex items-center justify-center p-4 animate-in fade-in duration-200">
+          <div className="bg-white dark:bg-slate-900 w-full max-w-md rounded-3xl p-5 sm:p-6 border border-slate-200 dark:border-slate-800 shadow-2xl space-y-4 max-h-[90vh] overflow-y-auto">
+            {createdChallenge ? (
+              // Step 2: Challenge Created Success Screen
+              <div className="text-center space-y-4">
+                <div className="w-14 h-14 rounded-2xl bg-emerald-50 dark:bg-emerald-950 text-emerald-600 mx-auto flex items-center justify-center border border-emerald-200 dark:border-emerald-900">
+                  <Check className="w-7 h-7" />
+                </div>
+
+                <div className="space-y-1">
+                  <span className="text-[11px] font-black uppercase tracking-wider text-emerald-600">
+                    सफलतापूर्वक तैयार!
+                  </span>
+                  <h3 className="text-lg font-black text-slate-900 dark:text-white">
+                    {createdChallenge.title}
+                  </h3>
+                  <p className="text-xs text-slate-500 dark:text-slate-400">
+                    इस टेस्ट का यूनिक कोड और लिंक तैयार है। अपने WhatsApp ग्रुप में भेजें!
+                  </p>
+                </div>
+
+                {/* Code Pill */}
+                <div className="p-3.5 rounded-2xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 flex items-center justify-between gap-3">
+                  <div className="text-left">
+                    <span className="text-[10px] text-slate-400 uppercase font-bold block">
+                      टेस्ट कोड (Share Code)
+                    </span>
+                    <span className="text-xl font-mono font-black text-blue-600 dark:text-blue-400">
+                      {createdChallenge.id}
+                    </span>
+                  </div>
+                  <button
+                    type="button"
+                    onClick={() => handleCopyCode(createdChallenge.id)}
+                    className="px-3 py-1.5 bg-white dark:bg-slate-700 rounded-xl text-xs font-bold border border-slate-200 dark:border-slate-600 flex items-center gap-1 text-slate-700 dark:text-slate-200"
+                  >
+                    {isCopiedCode ? <Check className="w-3.5 h-3.5 text-emerald-600" /> : <Copy className="w-3.5 h-3.5" />}
+                    <span>{isCopiedCode ? 'कॉपी हुआ' : 'कोड कॉपी'}</span>
+                  </button>
+                </div>
+
+                {/* Direct Action Buttons */}
+                <div className="space-y-2 pt-1">
+                  <button
+                    type="button"
+                    onClick={() => handleShareChallengeDirect(createdChallenge)}
+                    className="w-full py-3.5 bg-emerald-600 hover:bg-emerald-700 text-white font-black text-xs rounded-xl shadow-xs flex items-center justify-center gap-2 cursor-pointer"
+                  >
+                    <Share2 className="w-4 h-4" />
+                    <span>WhatsApp / सोशल मीडिया पर शेयर करें</span>
+                  </button>
+
+                  <div className="grid grid-cols-2 gap-2">
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setShowChallengeModal(false);
+                        navigate(`/challenge/${createdChallenge.id}`);
+                      }}
+                      className="py-2.5 bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs rounded-xl"
+                    >
+                      अभी टेस्ट दें
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => setShowChallengeModal(false)}
+                      className="py-2.5 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 font-bold text-xs rounded-xl"
+                    >
+                      समाप्त करें
+                    </button>
+                  </div>
+                </div>
+              </div>
+            ) : (
+              // Step 1: Create Challenge Form
+              <div className="space-y-4">
+                <div className="flex items-center justify-between border-b border-slate-100 dark:border-slate-800 pb-3">
+                  <div className="flex items-center gap-2">
+                    <Trophy className="w-5 h-5 text-amber-500" />
+                    <h3 className="text-base font-black text-slate-900 dark:text-white">
+                      नया टेस्ट चैलेंज बनाएं
+                    </h3>
+                  </div>
+                  <button
+                    type="button"
+                    onClick={() => setShowChallengeModal(false)}
+                    className="p-1 rounded-lg text-slate-400 hover:text-slate-600"
+                  >
+                    ✕
+                  </button>
+                </div>
+
+                <div className="space-y-3">
+                  <div>
+                    <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">
+                      चैलेंज का नाम (Challenge Title):
+                    </label>
+                    <input
+                      type="text"
+                      value={challengeTitle}
+                      onChange={(e) => setChallengeTitle(e.target.value)}
+                      placeholder="उदा. धीरज का 12वीं भौतिकी टेस्ट"
+                      className="w-full px-3.5 py-2.5 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-xs font-bold text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    />
+                  </div>
+
+                  <div className="grid grid-cols-2 gap-2 text-xs">
+                    <div className="p-3 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
+                      <span className="text-[10px] text-slate-400 uppercase font-bold block">विषय</span>
+                      <span className="font-bold text-slate-800 dark:text-slate-200 truncate block">
+                        {selectedSubject}
+                      </span>
+                    </div>
+                    <div className="p-3 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
+                      <span className="text-[10px] text-slate-400 uppercase font-bold block">प्रारूप</span>
+                      <span className="font-bold text-slate-800 dark:text-slate-200 block">
+                        {testType === 'quick' ? '15 प्रश्न • 15m' : testType === 'standard' ? '35 प्रश्न • 35m' : testType === 'full' ? '50 प्रश्न • 50m' : `${customQuestionsCount} प्रश्न`}
+                      </span>
+                    </div>
+                  </div>
+
+                  <p className="text-[11px] text-slate-500 dark:text-slate-400 bg-blue-50/60 dark:bg-blue-950/40 p-2.5 rounded-xl border border-blue-100 dark:border-blue-900/60">
+                    💡 <strong>आयोजक:</strong> आपका नाम ({currentUser?.displayName || profile.name}) आयोजक के रूप में सभी प्रतिभागियों को दिखेगा।
+                  </p>
+                </div>
+
+                <div className="flex gap-2 pt-2">
+                  <button
+                    type="button"
+                    onClick={() => setShowChallengeModal(false)}
+                    className="flex-1 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 font-bold text-xs"
+                  >
+                    रद्द करें
+                  </button>
+                  <button
+                    type="button"
+                    disabled={isCreatingChallenge}
+                    onClick={handleConfirmCreateChallenge}
+                    className="flex-1 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-black text-xs shadow-xs flex items-center justify-center gap-1.5 cursor-pointer disabled:opacity-50"
+                  >
+                    {isCreatingChallenge ? (
+                      <>
+                        <div className="w-4 h-4 border-2 border-white/40 border-t-white rounded-full animate-spin" />
+                        <span>बन रहा है...</span>
+                      </>
+                    ) : (
+                      <>
+                        <Trophy className="w-4 h-4 text-amber-300" />
+                        <span>चैलेंज कोड बनाएं</span>
+                      </>
+                    )}
+                  </button>
+                </div>
+              </div>
+            )}
+          </div>
+        </div>
+      )}
     </div>
   );
 };

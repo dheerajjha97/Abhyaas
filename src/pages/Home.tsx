@@ -446,41 +446,6 @@ export const Home: React.FC = () => {
         </button>
       </div>
 
-      {/* Master Question Bank (Unique Subject-wise Short & Long Q&A) Banner */}
-      <div className="bg-gradient-to-r from-blue-600 via-indigo-600 to-indigo-700 text-white rounded-3xl p-4 sm:p-5 shadow-xs flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3.5 relative overflow-hidden">
-        <div className="flex items-start gap-3.5 min-w-0">
-          <div className="w-11 h-11 rounded-2xl bg-white/20 text-white flex items-center justify-center font-black text-xl shadow-xs shrink-0 border border-white/20">
-            📚
-          </div>
-          <div className="space-y-1 min-w-0">
-            <div className="flex items-center gap-1.5 flex-wrap">
-              <span className="text-[10px] font-black uppercase tracking-wider bg-emerald-500 text-white px-2 py-0.2 rounded-full shadow-2xs">
-                नया मॉड्यूल • DE-DUPLICATED
-              </span>
-              <span className="text-[11px] font-bold text-blue-100">
-                लघु (2 अंक) व दीर्घ (5 अंक) प्रश्नोत्तर
-              </span>
-            </div>
-            <h3 className="text-sm sm:text-base font-black text-white leading-tight">
-              Question Bank (विषयवार मास्टर प्रश्न बैंक)
-            </h3>
-            <p className="text-xs text-blue-100 leading-relaxed max-w-xl font-medium">
-              बिना किसी दोहराव के सभी वर्षों के अद्वितीय लघु व दीर्घ उत्तरीय प्रश्न, आधिकारिक मॉडल उत्तरों और रिपीटेड V.V.I टैग्स के साथ।
-            </p>
-          </div>
-        </div>
-
-        <button
-          onClick={() =>
-            navigate(`/question-bank/${encodeURIComponent(displayedSubjects[0]?.name || 'Political Science')}`)
-          }
-          className="w-full sm:w-auto px-4 py-2.5 rounded-2xl bg-white text-indigo-700 hover:bg-blue-50 active:scale-95 font-black text-xs flex items-center justify-center gap-1.5 shadow-md transition-all cursor-pointer shrink-0"
-        >
-          <span>प्रश्न बैंक खोलें</span>
-          <ChevronRight className="w-4 h-4" />
-        </button>
-      </div>
-
       {/* 5-Card Bento Study Hub (Modern Clean Cards) */}
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-2.5">
         <button

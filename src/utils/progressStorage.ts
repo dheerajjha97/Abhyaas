@@ -36,8 +36,8 @@ export function calculateUpdatedProgress(
   const todayStr = new Date().toISOString().split('T')[0];
 
   // Calculate study streak
-  let newStreak = current.studyStreakDays || 1;
-  const lastDate = current.lastActiveDate;
+  let newStreak = Math.max(1, Number(current?.studyStreakDays) || 1);
+  const lastDate = current?.lastActiveDate;
 
   if (lastDate) {
     const last = new Date(lastDate);
@@ -51,17 +51,28 @@ export function calculateUpdatedProgress(
     }
   }
 
-  const newQuestionsSolved = current.totalQuestionsSolved + testItem.totalQuestions;
-  const newCorrect = current.totalCorrect + testItem.correct;
-  const newWrong = current.totalWrong + testItem.wrong;
+  const safeQuestions = Math.max(0, Number(testItem?.totalQuestions) || Number(testItem?.score) || 0);
+  const safeCorrect = Math.max(0, Number(testItem?.correct ?? testItem?.score ?? 0));
+  const safeWrong = Math.max(0, Number(testItem?.wrong ?? Math.max(0, safeQuestions - safeCorrect)));
+
+  const currentSolved = Math.max(0, Number(current?.totalQuestionsSolved) || 0);
+  const currentCorrect = Math.max(0, Number(current?.totalCorrect) || 0);
+  const currentWrong = Math.max(0, Number(current?.totalWrong) || 0);
+  const currentTests = Math.max(0, Number(current?.testsCompleted) || 0);
+  const currentMinutes = Math.max(0, Number(current?.totalMinutesStudied) || 0);
+
+  const newQuestionsSolved = currentSolved + safeQuestions;
+  const newCorrect = currentCorrect + safeCorrect;
+  const newWrong = currentWrong + safeWrong;
   const newAccuracy = newQuestionsSolved > 0 ? Math.round((newCorrect / newQuestionsSolved) * 100) : 0;
-  const newTestsCompleted = current.testsCompleted + 1;
-  const addedMinutes = Math.max(1, Math.round((testItem.timeSpentSeconds || 60) / 60));
-  const newMinutes = current.totalMinutesStudied + addedMinutes;
+  const newTestsCompleted = currentTests + 1;
+  const addedMinutes = Math.max(1, Math.round((Number(testItem?.timeSpentSeconds) || 60) / 60));
+  const newMinutes = currentMinutes + addedMinutes;
 
   // Update subject stats
-  const subjectName = testItem.subject;
-  const prevSub = current.subjectStats[subjectName] || {
+  const subjectName = testItem?.subject || 'General';
+  const existingStats = current?.subjectStats || {};
+  const prevSub = existingStats[subjectName] || {
     subject: subjectName,
     attempted: 0,
     correct: 0,
@@ -70,24 +81,44 @@ export function calculateUpdatedProgress(
     lastPracticedAt: 0,
   };
 
-  const subAttempted = prevSub.attempted + testItem.totalQuestions;
-  const subCorrect = prevSub.correct + testItem.correct;
+  const subAttempted = (Number(prevSub.attempted) || 0) + safeQuestions;
+  const subCorrect = (Number(prevSub.correct) || 0) + safeCorrect;
   const subAccuracy = subAttempted > 0 ? Math.round((subCorrect / subAttempted) * 100) : 0;
 
   const updatedSubjectStats = {
-    ...current.subjectStats,
+    ...existingStats,
     [subjectName]: {
       subject: subjectName,
       attempted: subAttempted,
       correct: subCorrect,
       accuracy: subAccuracy,
-      testsCount: prevSub.testsCount + 1,
+      testsCount: (Number(prevSub.testsCount) || 0) + 1,
       lastPracticedAt: Date.now(),
     },
   };
 
+  // Safe normalized test history item
+  const safeTestItem: TestHistoryItem = {
+    id: testItem?.id || `test_${Date.now()}`,
+    testName: testItem?.testName || `मॉक टेस्ट (${subjectName})`,
+    subject: subjectName,
+    classId: testItem?.classId || '12',
+    totalQuestions: safeQuestions,
+    score: safeCorrect,
+    correct: safeCorrect,
+    wrong: safeWrong,
+    percentage: safeQuestions > 0 ? Math.round((safeCorrect / safeQuestions) * 100) : 0,
+    timestamp: testItem?.timestamp || Date.now(),
+    timeSpentSeconds: Number(testItem?.timeSpentSeconds) || 60,
+    isMockTest: Boolean(testItem?.isMockTest),
+  };
+
   // Prepend recent history, keep last 25 tests
-  const updatedHistory = [testItem, ...current.recentHistory.filter((h) => h.id !== testItem.id)].slice(0, 25);
+  const prevHistory = Array.isArray(current?.recentHistory) ? current.recentHistory.filter(Boolean) : [];
+  const updatedHistory = [
+    safeTestItem,
+    ...prevHistory.filter((h) => h?.id && h.id !== safeTestItem.id),
+  ].slice(0, 25);
 
   const updatedCandidate: StudentProgressData = {
     ...current,

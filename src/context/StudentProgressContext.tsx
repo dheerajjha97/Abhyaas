@@ -129,17 +129,21 @@ export const StudentProgressProvider: React.FC<{ children: React.ReactNode }> = 
   // Record completed test/quiz
   const recordTestResult = useCallback(
     async (result: TestHistoryItem) => {
-      setProgress((prev) => {
-        const updated = calculateUpdatedProgress(prev, result);
+      try {
+        const current = getLocalProgress();
+        const updated = calculateUpdatedProgress(current, result);
         saveLocalProgress(updated);
+        setProgress(updated);
 
-        // Sync to cloud if user is logged in
+        // Sync to cloud if user is logged in (asynchronous, non-blocking)
         if (currentUser?.uid) {
-          syncToFirestore(updated, currentUser.uid);
+          syncToFirestore(updated, currentUser.uid).catch((err) => {
+            console.warn('Background firestore progress sync warning:', err);
+          });
         }
-
-        return updated;
-      });
+      } catch (err) {
+        console.error('Failed to record test result safely:', err);
+      }
     },
     [currentUser?.uid, syncToFirestore]
   );

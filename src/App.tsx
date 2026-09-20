@@ -25,6 +25,7 @@ import { MistakeNotebook } from './pages/MistakeNotebook';
 import { TestChallenge } from './pages/TestChallenge';
 import { PrivacyPolicy } from './pages/PrivacyPolicy';
 import { ContactUs } from './pages/ContactUs';
+import { ErrorBoundary } from './components/ui/ErrorBoundary';
 import { BottomNavigation } from './components/ui/BottomNavigation';
 import { DesktopNavbar } from './components/ui/DesktopNavbar';
 import { NavigationDrawer } from './components/ui/NavigationDrawer';
@@ -62,34 +63,36 @@ const AppContent: React.FC = () => {
             {/* PWA In-App Install Prompt Banner */}
             <PWAInstallPrompt />
             <OfflineIndicator />
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/papers" element={<Papers />} />
-              <Route path="/notes" element={<NotesView />} />
-              <Route path="/syllabus" element={<SyllabusView />} />
-              <Route path="/class/:classId/subjects" element={<Subjects />} />
-              <Route path="/class/:classId/subject/:subjectId/papers" element={<Papers />} />
-              <Route path="/class/:classId/subject/:subjectId/syllabus" element={<SyllabusView />} />
-              <Route path="/class/:classId/subject/:subjectId/notes" element={<NotesView />} />
-              <Route path="/syllabus/:subjectId" element={<SyllabusView />} />
-              <Route path="/notes/:subjectId" element={<NotesView />} />
-              <Route path="/paper/:paperId" element={<Preparation />} />
-              <Route path="/paper/:paperId/quiz" element={<Quiz />} />
-              <Route path="/paper/:paperId/quiz/result" element={<QuizResult />} />
-              <Route path="/paper/:paperId/short" element={<ShortQuestions />} />
-              <Route path="/paper/:paperId/long" element={<LongQuestions />} />
-              <Route path="/bookmarks" element={<Bookmarks />} />
-              <Route path="/mistakes" element={<MistakeNotebook />} />
-              <Route path="/quick-revision" element={<QuickRevision />} />
-              <Route path="/quick-revision/:subjectId" element={<QuickRevision />} />
-              <Route path="/class/:classId/subject/:subjectId/quick-revision" element={<QuickRevision />} />
-              <Route path="/search" element={<Search />} />
-              <Route path="/more" element={<More />} />
-              <Route path="/mock-test" element={<MockTestGenerator />} />
-              <Route path="/challenge/:testId" element={<TestChallenge />} />
-              <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-              <Route path="/contact" element={<ContactUs />} />
-            </Routes>
+            <ErrorBoundary>
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/papers" element={<Papers />} />
+                <Route path="/notes" element={<NotesView />} />
+                <Route path="/syllabus" element={<SyllabusView />} />
+                <Route path="/class/:classId/subjects" element={<Subjects />} />
+                <Route path="/class/:classId/subject/:subjectId/papers" element={<Papers />} />
+                <Route path="/class/:classId/subject/:subjectId/syllabus" element={<SyllabusView />} />
+                <Route path="/class/:classId/subject/:subjectId/notes" element={<NotesView />} />
+                <Route path="/syllabus/:subjectId" element={<SyllabusView />} />
+                <Route path="/notes/:subjectId" element={<NotesView />} />
+                <Route path="/paper/:paperId" element={<Preparation />} />
+                <Route path="/paper/:paperId/quiz" element={<Quiz />} />
+                <Route path="/paper/:paperId/quiz/result" element={<QuizResult />} />
+                <Route path="/paper/:paperId/short" element={<ShortQuestions />} />
+                <Route path="/paper/:paperId/long" element={<LongQuestions />} />
+                <Route path="/bookmarks" element={<Bookmarks />} />
+                <Route path="/mistakes" element={<MistakeNotebook />} />
+                <Route path="/quick-revision" element={<QuickRevision />} />
+                <Route path="/quick-revision/:subjectId" element={<QuickRevision />} />
+                <Route path="/class/:classId/subject/:subjectId/quick-revision" element={<QuickRevision />} />
+                <Route path="/search" element={<Search />} />
+                <Route path="/more" element={<More />} />
+                <Route path="/mock-test" element={<MockTestGenerator />} />
+                <Route path="/challenge/:testId" element={<TestChallenge />} />
+                <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+                <Route path="/contact" element={<ContactUs />} />
+              </Routes>
+            </ErrorBoundary>
           </main>
 
           <BottomNavigation />

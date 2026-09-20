@@ -325,17 +325,28 @@ export const TestChallenge: React.FC = () => {
 
     setMySubmission(localSubmission);
     setIsSubmitted(true);
+    setSubmissions((prev) =>
+      [localSubmission, ...prev.filter((s) => s.id !== localSubmission.id)].sort((a, b) => {
+        if (b.score !== a.score) return b.score - a.score;
+        return (a.timeTakenSeconds || 0) - (b.timeTakenSeconds || 0);
+      })
+    );
     window.scrollTo({ top: 0, behavior: 'smooth' });
 
-    // Also record to local user progress
+    // Also record to local user progress with proper fields
     try {
       recordTestResult({
-        paperId: `challenge-${test.id}`,
+        id: `challenge-${test.id}-${Date.now()}`,
+        testName: test.title || `चैलेंज टेस्ट (${test.subject})`,
         subject: test.subject,
+        classId: test.classId || '12',
+        totalQuestions,
         score: correctCount,
-        total: totalQuestions,
+        correct: correctCount,
+        wrong: wrongCount,
         percentage,
-        timeTakenSeconds,
+        timestamp: Date.now(),
+        timeSpentSeconds: timeTakenSeconds,
       });
     } catch {
       // ignore local progress error
@@ -351,6 +362,12 @@ export const TestChallenge: React.FC = () => {
         timeoutPromise,
       ]);
       setMySubmission(savedSub);
+      setSubmissions((prev) =>
+        [savedSub, ...prev.filter((s) => s.id !== savedSub.id)].sort((a, b) => {
+          if (b.score !== a.score) return b.score - a.score;
+          return (a.timeTakenSeconds || 0) - (b.timeTakenSeconds || 0);
+        })
+      );
     } catch {
       // Cloud sync failed or timed out — but student already has local submission
       setToast({
@@ -386,9 +403,10 @@ export const TestChallenge: React.FC = () => {
   };
 
   // Helper formatting for seconds to MM:SS
-  const formatTime = (secs: number) => {
-    const mins = Math.floor(secs / 60);
-    const s = secs % 60;
+  const formatTime = (secs?: number) => {
+    const safeSecs = Math.max(0, Number(secs) || 0);
+    const mins = Math.floor(safeSecs / 60);
+    const s = safeSecs % 60;
     return `${mins.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`;
   };
 
@@ -789,7 +807,7 @@ export const TestChallenge: React.FC = () => {
               प्रश्नों के सही उत्तर एवं व्याख्या
             </h3>
             <div className="space-y-4">
-              {test.questions.map((q, idx) => {
+              {(test?.questions || []).map((q, idx) => {
                 const userAns = selectedAnswers[idx];
                 const isCorrect = userAns ? checkQuestionCorrectness(q, userAns) : false;
 

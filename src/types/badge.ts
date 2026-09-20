@@ -42,15 +42,18 @@ export function evaluateStudentBadges(progress: StudentProgressData): VirtualBad
   ).length;
 
   // Check highest test score
-  const highestScore = recentHistory.length > 0
-    ? Math.max(...recentHistory.map((t) => t.percentage || 0))
+  const safeHistory = Array.isArray(recentHistory) ? recentHistory.filter(Boolean) : [];
+  const highestScore = safeHistory.length > 0
+    ? Math.max(...safeHistory.map((t) => Number(t?.percentage) || 0))
     : 0;
 
   // Check fast test completion
-  const hasSpeedTest = recentHistory.some(
-    (t) => (t.timeSpentSeconds && t.timeSpentSeconds > 0 && t.timeSpentSeconds <= 180) ||
-           t.testName.toLowerCase().includes('स्पीड') ||
-           t.testName.toLowerCase().includes('speed')
+  const hasSpeedTest = safeHistory.some(
+    (t) =>
+      Boolean(
+        (t.timeSpentSeconds && t.timeSpentSeconds > 0 && t.timeSpentSeconds <= 180) ||
+        (t.testName && (t.testName.toLowerCase().includes('स्पीड') || t.testName.toLowerCase().includes('speed')))
+      )
   );
 
   const badges: VirtualBadge[] = [

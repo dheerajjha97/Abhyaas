@@ -25,6 +25,7 @@ import { MistakeNotebook } from './pages/MistakeNotebook';
 import { TestChallenge } from './pages/TestChallenge';
 import { PrivacyPolicy } from './pages/PrivacyPolicy';
 import { ContactUs } from './pages/ContactUs';
+import { QuestionBank } from './pages/QuestionBank';
 import { ErrorBoundary } from './components/ui/ErrorBoundary';
 import { BottomNavigation } from './components/ui/BottomNavigation';
 import { DesktopNavbar } from './components/ui/DesktopNavbar';
@@ -89,6 +90,8 @@ const AppContent: React.FC = () => {
                 <Route path="/more" element={<More />} />
                 <Route path="/mock-test" element={<MockTestGenerator />} />
                 <Route path="/challenge/:testId" element={<TestChallenge />} />
+                <Route path="/question-bank" element={<QuestionBank />} />
+                <Route path="/question-bank/:subjectId" element={<QuestionBank />} />
                 <Route path="/privacy-policy" element={<PrivacyPolicy />} />
                 <Route path="/contact" element={<ContactUs />} />
               </Routes>

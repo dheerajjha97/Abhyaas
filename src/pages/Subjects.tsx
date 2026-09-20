@@ -301,6 +301,9 @@ export const Subjects: React.FC = () => {
                 onQuickRevision={() =>
                   navigate(`/quick-revision/${encodeURIComponent(sub.name)}`)
                 }
+                onQuestionBank={() =>
+                  navigate(`/question-bank/${encodeURIComponent(sub.name)}`)
+                }
               />
             ))}
           </div>

@@ -24,6 +24,7 @@ import {
   ExternalLink,
   BookMarked,
   Bell,
+  HelpCircle,
 } from 'lucide-react';
 import { useDrawer } from '../../context/DrawerContext';
 import { useStudentProfile } from '../../context/StudentProfileContext';
@@ -119,6 +120,7 @@ export const NavigationDrawer: React.FC = () => {
 
   const navItems = [
     { label: 'होम (Dashboard)', to: '/', icon: Home, badge: 'मुख्य' },
+    { label: 'क्वेश्चन बैंक (Question Bank)', to: '/question-bank', icon: HelpCircle, badge: 'De-duplicated' },
     { label: 'PYQ प्रश्न पत्र', to: '/papers', icon: FileText, badge: 'सॉल्व्ड' },
     { label: 'रिवीजन नोट्स', to: '/notes', icon: BookOpen, badge: 'NCERT' },
     { label: 'पाठ्यक्रम (Syllabus)', to: '/syllabus', icon: Layers, badge: 'ब्लूप्रिंट' },

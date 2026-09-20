@@ -446,8 +446,60 @@ export const Home: React.FC = () => {
         </button>
       </div>
 
-      {/* 4-Card Bento Study Hub (Modern Clean Cards) */}
-      <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
+      {/* Master Question Bank (Unique Subject-wise Short & Long Q&A) Banner */}
+      <div className="bg-gradient-to-r from-blue-600 via-indigo-600 to-indigo-700 text-white rounded-3xl p-4 sm:p-5 shadow-xs flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3.5 relative overflow-hidden">
+        <div className="flex items-start gap-3.5 min-w-0">
+          <div className="w-11 h-11 rounded-2xl bg-white/20 text-white flex items-center justify-center font-black text-xl shadow-xs shrink-0 border border-white/20">
+            📚
+          </div>
+          <div className="space-y-1 min-w-0">
+            <div className="flex items-center gap-1.5 flex-wrap">
+              <span className="text-[10px] font-black uppercase tracking-wider bg-emerald-500 text-white px-2 py-0.2 rounded-full shadow-2xs">
+                नया मॉड्यूल • DE-DUPLICATED
+              </span>
+              <span className="text-[11px] font-bold text-blue-100">
+                लघु (2 अंक) व दीर्घ (5 अंक) प्रश्नोत्तर
+              </span>
+            </div>
+            <h3 className="text-sm sm:text-base font-black text-white leading-tight">
+              Question Bank (विषयवार मास्टर प्रश्न बैंक)
+            </h3>
+            <p className="text-xs text-blue-100 leading-relaxed max-w-xl font-medium">
+              बिना किसी दोहराव के सभी वर्षों के अद्वितीय लघु व दीर्घ उत्तरीय प्रश्न, आधिकारिक मॉडल उत्तरों और रिपीटेड V.V.I टैग्स के साथ।
+            </p>
+          </div>
+        </div>
+
+        <button
+          onClick={() =>
+            navigate(`/question-bank/${encodeURIComponent(displayedSubjects[0]?.name || 'Political Science')}`)
+          }
+          className="w-full sm:w-auto px-4 py-2.5 rounded-2xl bg-white text-indigo-700 hover:bg-blue-50 active:scale-95 font-black text-xs flex items-center justify-center gap-1.5 shadow-md transition-all cursor-pointer shrink-0"
+        >
+          <span>प्रश्न बैंक खोलें</span>
+          <ChevronRight className="w-4 h-4" />
+        </button>
+      </div>
+
+      {/* 5-Card Bento Study Hub (Modern Clean Cards) */}
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-2.5">
+        <button
+          onClick={() =>
+            navigate(`/question-bank/${encodeURIComponent(displayedSubjects[0]?.name || 'Political Science')}`)
+          }
+          className="p-3.5 bg-white dark:bg-slate-900 rounded-2xl border border-indigo-200 dark:border-indigo-900/60 shadow-xs hover:shadow-md hover:border-indigo-300 dark:hover:border-indigo-700 transition-all flex flex-col items-center text-center cursor-pointer group hover:-translate-y-0.5 active:scale-[0.98]"
+        >
+          <div className="w-12 h-12 flex items-center justify-center mb-1 group-hover:scale-105 transition-transform text-2xl">
+            📖
+          </div>
+          <span className="text-xs font-black text-slate-900 dark:text-slate-100 leading-tight">
+            Question Bank
+          </span>
+          <span className="text-[10px] font-semibold text-indigo-600 dark:text-indigo-400 mt-0.5">
+            लघु व दीर्घ प्रश्न
+          </span>
+        </button>
+
         <button
           onClick={() => navigate('/mock-test')}
           className="p-3.5 bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/80 dark:border-slate-800 shadow-xs hover:shadow-md hover:border-slate-300 dark:hover:border-slate-700 transition-all flex flex-col items-center text-center cursor-pointer group hover:-translate-y-0.5 active:scale-[0.98]"

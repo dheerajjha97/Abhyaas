@@ -16,7 +16,8 @@ import {
   Settings2,
   Sparkles,
   ChevronDown,
-  LogIn
+  LogIn,
+  HelpCircle,
 } from 'lucide-react';
 
 interface DesktopNavItem {
@@ -34,6 +35,7 @@ export const DesktopNavbar: React.FC = () => {
 
   const navItems: DesktopNavItem[] = [
     { id: 'home', label: 'होम', to: '/', icon: Home },
+    { id: 'qbank', label: 'प्रश्न बैंक', to: '/question-bank', icon: HelpCircle },
     { id: 'papers', label: 'पेपर्स', to: '/papers', icon: FileText },
     { id: 'revision', label: 'रिवीज़न गाइड', to: '/quick-revision', icon: Sparkles },
     { id: 'test', label: 'मॉक टेस्ट', to: '/mock-test', icon: Zap },

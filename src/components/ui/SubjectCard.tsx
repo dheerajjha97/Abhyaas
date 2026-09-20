@@ -1,7 +1,7 @@
 import React from 'react';
 import { GlassCard } from './GlassCard';
 import { Illustration, IllustrationType } from './Illustration';
-import { ChevronRight, BookOpen, Zap } from 'lucide-react';
+import { ChevronRight, BookOpen, Zap, HelpCircle } from 'lucide-react';
 
 interface SubjectCardProps {
   name: string;
@@ -12,6 +12,7 @@ interface SubjectCardProps {
   onClick: () => void;
   onMockTest?: () => void;
   onQuickRevision?: () => void;
+  onQuestionBank?: () => void;
 }
 
 export const SubjectCard: React.FC<SubjectCardProps> = ({
@@ -23,6 +24,7 @@ export const SubjectCard: React.FC<SubjectCardProps> = ({
   onClick,
   onMockTest,
   onQuickRevision,
+  onQuestionBank,
 }) => {
   return (
     <GlassCard
@@ -70,6 +72,21 @@ export const SubjectCard: React.FC<SubjectCardProps> = ({
             >
               <Zap className="w-3.5 h-3.5 fill-amber-500 text-amber-500 hover:fill-white hover:text-white" />
               <span className="hidden sm:inline">रिवीज़न</span>
+            </button>
+          )}
+
+          {onQuestionBank && (
+            <button
+              type="button"
+              onClick={(e) => {
+                e.stopPropagation();
+                onQuestionBank();
+              }}
+              className="px-2.5 py-1.5 rounded-xl bg-blue-50 dark:bg-blue-950/70 hover:bg-blue-600 hover:text-white text-blue-700 dark:text-blue-300 font-bold text-xs flex items-center gap-1 transition-all cursor-pointer border border-blue-200/70 dark:border-blue-900/60 hover:shadow-xs active:scale-95"
+              title="अद्वितीय लघु एवं दीर्घ प्रश्न बैंक"
+            >
+              <HelpCircle className="w-3.5 h-3.5" />
+              <span className="hidden sm:inline">प्रश्न बैंक</span>
             </button>
           )}
 

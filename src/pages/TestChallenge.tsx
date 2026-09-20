@@ -7,6 +7,7 @@ import {
   SharedTest,
   TestSubmission,
 } from '../services/sharedTestService';
+import { MCQ } from '../types/question';
 import { shareTestChallenge } from '../utils/shareUtils';
 import { HeaderBar } from '../components/ui/HeaderBar';
 import { Toast, ToastMessage } from '../components/ui/Toast';
@@ -204,7 +205,78 @@ export const TestChallenge: React.FC = () => {
     }
   };
 
-  // Submit test
+  // Helper to check if student's selected answer is correct
+  const checkQuestionCorrectness = (q: MCQ, selected: string): boolean => {
+    if (!selected) return false;
+    const answerText = (q.answer || (q as unknown as { correctAnswer?: string }).correctAnswer || '').trim();
+    if (!answerText) return false;
+
+    const normSelected = selected.trim().toLowerCase();
+    const normAnswer = answerText.toLowerCase();
+
+    // If user selected an option letter ('A', 'B', 'C', 'D')
+    const letterIdx = ['a', 'b', 'c', 'd'].indexOf(normSelected);
+    if (letterIdx !== -1) {
+      if (
+        normAnswer === normSelected ||
+        normAnswer === `(${normSelected})` ||
+        normAnswer === `${normSelected})` ||
+        normAnswer === `${normSelected}.`
+      ) {
+        return true;
+      }
+      const optionAtIdx = q.options ? q.options[letterIdx] : null;
+      if (optionAtIdx) {
+        const normOption = optionAtIdx.trim().toLowerCase();
+        if (normOption === normAnswer) return true;
+        const cleanAnswer = normAnswer.replace(/^\(?([a-d0-9])\)?[\.\:\s\-]*/i, '').trim();
+        if (cleanAnswer && normOption === cleanAnswer) return true;
+      }
+    }
+
+    if (normSelected === normAnswer) return true;
+    return false;
+  };
+
+  // Helper to display correct answer cleanly in review
+  const getQuestionCorrectAnswerDisplay = (q: MCQ): string => {
+    const ans = (q.answer || (q as unknown as { correctAnswer?: string }).correctAnswer || '').trim();
+    if (!ans) return '';
+    const match = ans.match(/^\(?([A-Da-d])\)?/);
+    let letter = '';
+    let text = ans;
+
+    if (match) {
+      letter = match[1].toUpperCase();
+      const idx = letter.charCodeAt(0) - 65;
+      if (q.options && q.options[idx]) {
+        text = q.options[idx];
+      }
+    } else if (q.options) {
+      const idx = q.options.findIndex(
+        (opt) => opt.trim().toLowerCase() === ans.toLowerCase()
+      );
+      if (idx !== -1) {
+        letter = String.fromCharCode(65 + idx);
+        text = q.options[idx];
+      }
+    }
+
+    if (letter && text && text.toLowerCase() !== letter.toLowerCase()) {
+      return `(${letter}) ${text}`;
+    }
+    return letter ? `(${letter})` : ans;
+  };
+
+  // Helper to display user's selected answer in review
+  const getUserAnswerDisplay = (q: MCQ, selectedLetter: string): string => {
+    if (!selectedLetter) return '';
+    const idx = selectedLetter.toUpperCase().charCodeAt(0) - 65;
+    const optText = q.options && q.options[idx] ? ` - ${q.options[idx]}` : '';
+    return `(${selectedLetter})${optText}`;
+  };
+
+  // Submit test (Instant optimistic submission + background Firestore sync)
   const handleSubmitTest = async () => {
     if (!test || isSubmitted || isSavingResult) return;
     setIsSavingResult(true);
@@ -220,12 +292,10 @@ export const TestChallenge: React.FC = () => {
 
     test.questions.forEach((q, idx) => {
       const chosen = selectedAnswers[idx];
-      if (chosen) {
-        if (chosen.trim().toLowerCase() === q.correctAnswer.trim().toLowerCase()) {
-          correctCount++;
-        } else {
-          wrongCount++;
-        }
+      if (chosen && checkQuestionCorrectness(q, chosen)) {
+        correctCount++;
+      } else {
+        wrongCount++;
       }
     });
 
@@ -245,11 +315,20 @@ export const TestChallenge: React.FC = () => {
       wrongAnswers: wrongCount,
     };
 
-    try {
-      const savedSub = await sharedTestService.submitTestResult(test.id, submissionData);
-      setMySubmission(savedSub);
+    // Instant local state transition — student sees their score immediately!
+    const localSubmission: TestSubmission = {
+      id: `${isLoggedInUser && currentUser?.uid ? currentUser.uid : 'guest'}_${Date.now()}`,
+      testId: test.id,
+      ...submissionData,
+      submittedAt: Date.now(),
+    };
 
-      // Also record to local user progress if logged in
+    setMySubmission(localSubmission);
+    setIsSubmitted(true);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+
+    // Also record to local user progress
+    try {
       recordTestResult({
         paperId: `challenge-${test.id}`,
         subject: test.subject,
@@ -258,16 +337,27 @@ export const TestChallenge: React.FC = () => {
         percentage,
         timeTakenSeconds,
       });
-
-      setIsSubmitted(true);
-      window.scrollTo({ top: 0, behavior: 'smooth' });
     } catch {
+      // ignore local progress error
+    }
+
+    // Sync to Cloud Firestore with timeout protection
+    try {
+      const timeoutPromise = new Promise<never>((_, reject) =>
+        setTimeout(() => reject(new Error('Network timeout')), 8000)
+      );
+      const savedSub = await Promise.race([
+        sharedTestService.submitTestResult(test.id, submissionData),
+        timeoutPromise,
+      ]);
+      setMySubmission(savedSub);
+    } catch {
+      // Cloud sync failed or timed out — but student already has local submission
       setToast({
         id: Date.now().toString(),
-        type: 'error',
-        message: 'स्कोर सबमिट करने में समस्या आई, पर आपका टेस्ट पूरा हो गया।',
+        type: 'info',
+        message: 'आपका टेस्ट पूरा हो गया! नेटवर्क स्लो होने पर लीडरबोर्ड थोड़ी देर में अपडेट हो जाएगा।',
       });
-      setIsSubmitted(true);
     } finally {
       setIsSavingResult(false);
     }
@@ -701,7 +791,7 @@ export const TestChallenge: React.FC = () => {
             <div className="space-y-4">
               {test.questions.map((q, idx) => {
                 const userAns = selectedAnswers[idx];
-                const isCorrect = userAns?.trim().toLowerCase() === q.correctAnswer.trim().toLowerCase();
+                const isCorrect = userAns ? checkQuestionCorrectness(q, userAns) : false;
 
                 return (
                   <div
@@ -737,11 +827,11 @@ export const TestChallenge: React.FC = () => {
 
                     <div className="text-xs space-y-1">
                       <p className="text-emerald-700 dark:text-emerald-400 font-bold">
-                        सही उत्तर: विकल्प {q.correctAnswer}
+                        सही उत्तर: {getQuestionCorrectAnswerDisplay(q)}
                       </p>
                       {userAns && !isCorrect && (
                         <p className="text-rose-700 dark:text-rose-400">
-                          आपका उत्तर: विकल्प {userAns}
+                          आपका उत्तर: {getUserAnswerDisplay(q, userAns)}
                         </p>
                       )}
                       {q.explanation && (
